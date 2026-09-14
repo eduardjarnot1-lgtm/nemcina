@@ -14,7 +14,7 @@ with no network access at all, so this inlines everything:
 Output is written to dist/master-fuka-german.html and is byte-for-byte
 reproducible from the sources — edit the sources, never the bundle.
 
-Usage:  python3 german/tools/build_artifact.py
+Usage:  python3 app/tools/build_artifact.py
 """
 
 from __future__ import annotations
