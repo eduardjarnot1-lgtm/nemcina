@@ -5,16 +5,16 @@ list. It is not a PDF reader:
 the documents are extracted, normalised, validated and turned into vocabulary
 cards, grammar units, exercises, spaced review and progress tracking.
 
-Open `german/index.html` through a web server (ES modules and `fetch` do not
+Open `app/index.html` through a web server (ES modules and `fetch` do not
 work over `file://`):
 
 ```bash
 python3 -m http.server 8000     # from the repository root
-# then open http://localhost:8000/german/
+# then open http://localhost:8000/app/
 ```
 
 On Netlify the site publishes the repository root, so the app is served at
-`/german/`.
+`/app/`.
 
 ## Sources
 
@@ -55,7 +55,7 @@ Every card carries a level, and the level is a source's statement rather than a
 guess wherever one exists.
 
 ```bash
-python3 german/tools/build_cefr.py \
+python3 app/tools/build_cefr.py \
   --goethe-dir <dir with the three Goethe Wortliste PDFs> \
   --tsv-dir    <dir with a1/ a2/ b1/ transcriptions> \
   --lingster   <Der-deutsche-Wortschatz-von-A1-bis-B2.pdf> \
@@ -250,7 +250,7 @@ articles and plurals, invalid levels, missing source attribution, malformed
 grammar topics, unknown or circular prerequisites.
 
 ```bash
-python3 german/tools/validate_content.py
+python3 app/tools/validate_content.py
 # vocabulary: 4768 words checked
 # grammar: 121 topics, 615 exercises checked
 # PASSED — 0 errors, 1 warning
@@ -303,13 +303,13 @@ entry, not touching the app.
 Rebuild everything:
 
 ```bash
-python3 german/tools/extract_c1_grammar.py <Sicher_C1_Grammatikuebersicht.pdf>
-python3 german/tools/extract_daf_grammar.py <DaF_kompakt_neu_A1_A2_B1_Grammar_English.pdf>
-python3 german/tools/build_grammar.py
-python3 german/tools/build_frequency.py <de_top2000_frequency.txt>
-python3 german/tools/build_vocabulary.py
-python3 german/tools/validate_content.py
-python3 german/tools/build_artifact.py          # single-file bundle
+python3 app/tools/extract_c1_grammar.py <Sicher_C1_Grammatikuebersicht.pdf>
+python3 app/tools/extract_daf_grammar.py <DaF_kompakt_neu_A1_A2_B1_Grammar_English.pdf>
+python3 app/tools/build_grammar.py
+python3 app/tools/build_frequency.py <de_top2000_frequency.txt>
+python3 app/tools/build_vocabulary.py
+python3 app/tools/validate_content.py
+python3 app/tools/build_artifact.py          # single-file bundle
 ```
 
 Both builds fail loudly rather than silently dropping content: the vocabulary
@@ -324,7 +324,7 @@ number.
 ## Code layout
 
 ```
-german/
+app/
   index.html            shell: top bar, search, main region
   styles.css            light + dark theme, no framework
   data/vocabulary.json  4768 cards, levelled A1–B2
@@ -378,7 +378,7 @@ does not show, and when there is nothing recorded it says so.
 
 ## Single-file build
 
-`python3 german/tools/build_artifact.py` inlines the CSS, the modules, both
+`python3 app/tools/build_artifact.py` inlines the CSS, the modules, both
 databases and Master Fuka's picture into `dist/master-fuka-german.html` — one
 file that runs with no server and no network. Edit the sources, never the
 bundle. The modules are flattened into one scope, so the bundler rejects
