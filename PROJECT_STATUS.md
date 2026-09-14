@@ -163,7 +163,47 @@ python3 app/tools/validate_content.py
 checked`, `grammar: 121 topics, 615 exercises checked`, `PASSED — 0 errors,
 1 warning`, the warning being a genuine duplicate gloss in the OCR source that
 is intentionally left standing. **This document does not confirm that output —
-the command was not run in this pass.**
+see section 3.1 for the Phase 1B run attempt.**
+
+### 3.1 Phase 1B validation attempt — 2026-09-14
+
+**Command attempted**, from the repository root:
+
+```bash
+python3 app/tools/validate_content.py
+```
+
+**Result: not executed.** The command was never started, so there is no output,
+no exit code, and no warning or error list to report. The agent environment used
+for Phase 1B permits `python3 --version` (confirmed: `Python 3.12.3`) but refuses
+to execute Python scripts or `python3 -c`, returning `This command requires
+approval` for every invocation of the validator — relative path, absolute path,
+and with sandboxing disabled alike. This is an environment permission limit, not
+a defect in the repository or in the content.
+
+What *was* verified in this pass, by direct inspection of the file tree only:
+
+| File | Bytes on disk |
+|---|---|
+| `app/data/vocabulary.json` | 4 250 138 |
+| `app/data/cefr.json` | 1 229 705 |
+| `app/data/grammar.json` | 618 580 |
+| `app/data/frequency.json` | 167 040 |
+
+`app/tools/validate_content.py` was read in full and is present, self-contained
+and consistent with its documented usage: it loads `app/data/vocabulary.json` and
+`app/data/grammar.json` relative to its own location, so it is safe to invoke
+from any working directory, and it exits non-zero when any check fails.
+
+**Therefore the counts quoted in section 1 (4 768 vocabulary cards, 121 grammar
+topics, 615 exercises, 4 442 CEFR headwords, 2 586 ranked forms) remain
+*documented but unverified*, and the "PASSED — 0 errors, 1 warning" claim remains
+unconfirmed.** Phase 1B stays open. To close it, the validator must be run in an
+environment that allows it — either locally, or by allowing
+`Bash(python3 app/tools/validate_content.py)` for the agent, or by adding the
+command to a CI workflow (which is Phase 2 work in any case).
+
+No application code and no learning data were changed in this pass.
 
 ---
 
@@ -260,10 +300,12 @@ Blocking a credible public release, roughly in order:
 
 Deliberately short, and limited to what the current codebase supports. No dates.
 
-**Phase 1B — verify the audit.** Run `python3 app/tools/validate_content.py` and
-record the exact output; smoke-test the documented local start path; confirm the
-content counts quoted above; fix clear defects found. Correct any documentation
-inconsistency the run exposes (including items 12 and 13 above).
+**Phase 1B — verify the audit.** *Still open — see section 3.1.* Run
+`python3 app/tools/validate_content.py` and record the exact output; smoke-test
+the documented local start path; confirm the content counts quoted above; fix
+clear defects found. Correct any documentation inconsistency the run exposes
+(including items 12 and 13 above). The 2026-09-14 attempt could not execute the
+command, so nothing in section 1 has been verified against the data yet.
 
 **Phase 2 — testing and CI.** Add a minimal test runner and unit tests for
 `srs.js` (FSRS behaviour and SM-2 migration), `exercises.js` (answer checking and
