@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+
+# Jednosouborový build je generovaný: python3 tools/build_artifact.py
+dist/
