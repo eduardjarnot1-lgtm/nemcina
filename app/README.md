@@ -13,9 +13,6 @@ python3 -m http.server 8000     # from the repository root
 # then open http://localhost:8000/app/
 ```
 
-On Netlify the site publishes the repository root, so the app is served at
-`/app/`.
-
 ## Sources
 
 | Content | Source | Status |

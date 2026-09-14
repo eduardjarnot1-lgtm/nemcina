@@ -43,27 +43,19 @@ dvakrát s mírně odlišným překladem, obě karty zůstávají a jsou označe
 
 ## Další krok — přesně
 
-**Čeká se na jediné zbývající rozhodnutí v popisu PR #2** (bod 3 níže).
-Body 1 a 2 jsou vyřízené.
+**Všechna tři rozhodnutí z PR #2 jsou vyřízená. Práce na PR je hotová a čeká
+na revizi projektového manažera.** Dokud revize nepřijde, není co dělat —
+nezačínat novou práci bez zadání.
 
-1. ~~Docstringy `german/` v `app/tools/*.py`~~ — **hotovo**, commit `a160a76`.
-   Opraveno 5 výskytů, jen `german/tools/` a `german/data/`, nikoli plošně.
-2. ~~Licence~~ — **vyřízeno**, commit `5aaf3e1`. Do `app/ZDROJE.md` doplněn
-   rozsah převzatého materiálu a kde je riziko doopravdy; do `ZDROJE.md`
-   i `CLAUDE.md` provozní hranice: **repozitář zůstává soukromý, aplikace se
-   veřejně nenasazuje a nezpoplatňuje.** Platí i pro agenty.
-3. **Věta o Netlify v `app/README.md`** (řádek 16–17) — jediné otevřené.
-   Cestou je správná, ale popisuje nasazení předchozího repozitáře; tady žádná
-   Netlify konfigurace není. **Doporučení: smazat** — po bodu 2 je to navíc
-   jediné místo v repozitáři, které naznačuje veřejné nasazení, a to je přesně
-   to, co dělat nemáme. Čeká se na souhlas majitele.
+1. ~~Docstringy `german/` v `app/tools/*.py`~~ — hotovo, `a160a76`.
+2. ~~Licence~~ — vyřízeno, `5aaf3e1`. Provozní hranice je v `app/ZDROJE.md`
+   a `CLAUDE.md`: **repozitář zůstává soukromý, aplikace se veřejně nenasazuje
+   a nezpoplatňuje.** Platí i pro agenty.
+3. ~~Věta o Netlify v `app/README.md`~~ — smazána, `7f1a2b3`. Popisovala
+   nasazení předchozího repozitáře; tady žádná deploy konfigurace není.
 
-### Nevyřízený dotaz na majitele projektu
-
-Kam zapsat preferenci pro hlášení o pokroku na alternativní e-mail: konkrétní
-adresu do repozitáře, jen pravidlo bez adresy, nebo nic. Zatím **nezapsáno nic**.
-Poznámka: odesílat e-maily neumím, žádný takový nástroj ani konektor není
-k dispozici; jde jen o záznam preference.
+Až revize dorazí: zapracovat připomínky na téže větvi, znovu spustit
+`python3 app/tools/validate_content.py` a aktualizovat popis PR.
 
 ## Na co narazit při navázání
 
