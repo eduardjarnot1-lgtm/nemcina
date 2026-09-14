@@ -8,6 +8,10 @@ no data file was opened. Every number and behaviour below is therefore
 *documented* rather than *verified in this pass*; claims that have not been
 re-checked are marked as such. Verifying them is the first item of Phase 1B.
 
+**Phase 1B addendum.** The content validator has since been executed and its
+factual result is recorded in section 3, "Validation command — recorded run".
+Nothing else in this document has been re-verified.
+
 Last updated: 2026-09-14.
 
 ---
@@ -153,17 +157,45 @@ python3 -m http.server 8000     # from the repository root
 # then open http://localhost:8000/app/
 ```
 
-### Documented validation command
+### Validation command — recorded run
+
+Command, run from the repository root:
 
 ```bash
 python3 app/tools/validate_content.py
 ```
 
-`app/README.md` records its expected output as: `vocabulary: 4768 words
-checked`, `grammar: 121 topics, 615 exercises checked`, `PASSED — 0 errors,
-1 warning`, the warning being a genuine duplicate gloss in the OCR source that
-is intentionally left standing. **This document does not confirm that output —
-the command was not run in this pass.**
+**Result: PASSED — 0 errors, 1 warning. 98 776 checks run.** Exit status 0
+(`main()` returns 0 on the no-error path, `validate_content.py:255`).
+Environment: Python 3.12.3 on Linux, run 2026-09-14 in CI.
+
+Verbatim output:
+
+```
+vocabulary: 4768 words checked
+grammar: 121 topics, 615 exercises checked
+
+98776 checks run
+  warning: vocabulary: near-duplicate variants for 'einwerfen': w0788 'to post' / w0938 'to post (a letter)'
+PASSED — 0 errors, 1 warning(s)
+```
+
+Notes on the result:
+
+* **Errors: none.**
+* **Warnings: one** — the near-duplicate gloss for `einwerfen` (`w0788` "to
+  post" vs `w0938` "to post (a letter)"). This is the duplicate gloss
+  `app/README.md` describes as a genuine artefact of the OCR source that is
+  intentionally left standing; the run confirms it is still the only warning.
+* The run confirms the previously unverified counts **4 768 vocabulary words**
+  and **121 grammar topics / 615 exercises** quoted in section 1 and section 2.
+* The check total, **98 776**, was not previously documented anywhere; it is
+  recorded here as the observed figure for this data set.
+* `app/README.md` writes the last line as `PASSED — 0 errors, 1 warning`; the
+  program actually prints `1 warning(s)`. A cosmetic documentation mismatch
+  only, not corrected in this pass (Phase 1B is scoped to recording the result).
+* The validator checks *content only* — limitation 1 in section 4 stands
+  unchanged: this is not a test suite for the learning engine.
 
 ---
 
