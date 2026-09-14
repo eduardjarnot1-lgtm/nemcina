@@ -43,35 +43,27 @@ dvakrát s mírně odlišným překladem, obě karty zůstávají a jsou označe
 
 ## Další krok — přesně
 
-**Čeká se na odpovědi projektového manažera na tři otázky v popisu PR #2.**
-Žádná z nich neblokuje běh aplikace; všechny jsou mimo původně zadaný rozsah,
-proto nebyly udělány svévolně.
+**Čeká se na jediné zbývající rozhodnutí v popisu PR #2** (bod 3 níže).
+Body 1 a 2 jsou vyřízené.
 
-1. **Docstringy v `app/tools/*.py` stále uvádějí `german/`** — 5 výskytů
-   (`build_artifact.py`, `build_grammar.py`, `build_cefr.py`,
-   `build_frequency.py`, `build_vocabulary.py`). Jde jen o komentáře, běh
-   neovlivňují. **Pokud manažer odsouhlasí**, provést takto:
+1. ~~Docstringy `german/` v `app/tools/*.py`~~ — **hotovo**, commit `a160a76`.
+   Opraveno 5 výskytů, jen `german/tools/` a `german/data/`, nikoli plošně.
+2. ~~Licence~~ — **vyřízeno**, commit `5aaf3e1`. Do `app/ZDROJE.md` doplněn
+   rozsah převzatého materiálu a kde je riziko doopravdy; do `ZDROJE.md`
+   i `CLAUDE.md` provozní hranice: **repozitář zůstává soukromý, aplikace se
+   veřejně nenasazuje a nezpoplatňuje.** Platí i pro agenty.
+3. **Věta o Netlify v `app/README.md`** (řádek 16–17) — jediné otevřené.
+   Cestou je správná, ale popisuje nasazení předchozího repozitáře; tady žádná
+   Netlify konfigurace není. **Doporučení: smazat** — po bodu 2 je to navíc
+   jediné místo v repozitáři, které naznačuje veřejné nasazení, a to je přesně
+   to, co dělat nemáme. Čeká se na souhlas majitele.
 
-   ```bash
-   cd /home/user/nemcina
-   git checkout feature/vyukova-aplikace
-   sed -i 's|german/tools/|app/tools/|g; s|german/data/|app/data/|g' app/tools/*.py
-   grep -rn "german/" app/tools/          # musí být prázdné
-   python3 app/tools/validate_content.py  # musí projít
-   git commit -am "tools: opravit zastaralé cesty german/ v docstringech"
-   ```
-   Pozor: v `app/tools/` **nepoužívat** globální záměnu `german/` → `app/` bez
-   rozlišení. Přesně tím Codex v `c09e8de` změnil „German/English search" na
-   „app/English search". Nahrazovat jen `german/tools/` a `german/data/`.
+### Nevyřízený dotaz na majitele projektu
 
-2. **Licence — vyřešit dřív, než se na tom začne stavět.** Podrobnosti
-   v `app/ZDROJE.md`. Gramatika Zustandspassiv a sloves s předložkou je
-   **CC BY-NC 4.0** (zákaz komerčního užití), překlady ze slovníku Ding jsou
-   **GPL v2+**. Dokud projekt zůstane nekomerční, je to v pořádku.
-
-3. **Věta o Netlify v `app/README.md`** (řádek 16–17) je cestou správná, ale
-   popisuje nasazení předchozího repozitáře — tady žádná Netlify konfigurace
-   není. Smazat, nebo se s Netlify počítá?
+Kam zapsat preferenci pro hlášení o pokroku na alternativní e-mail: konkrétní
+adresu do repozitáře, jen pravidlo bez adresy, nebo nic. Zatím **nezapsáno nic**.
+Poznámka: odesílat e-maily neumím, žádný takový nástroj ani konektor není
+k dispozici; jde jen o záznam preference.
 
 ## Na co narazit při navázání
 
