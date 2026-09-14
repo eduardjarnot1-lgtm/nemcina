@@ -1,6 +1,10 @@
 # Stav projektu
 
-Poslední aktualizace: 2026-09-14 · větev `feature/vyukova-aplikace` · HEAD `22aa94a`
+Poslední aktualizace: 2026-09-14 · větev `feature/vyukova-aplikace`
+
+> Skutečný HEAD zjisti příkazem `git log --oneline -1` — tento soubor se
+> commituje spolu se změnami, které popisuje, takže konkrétní SHA by tu vždy
+> bylo o jeden commit pozadu.
 
 Tento soubor drží stav rozdělané práce, aby další session mohla okamžitě
 navázat. Aktualizuje se při každém přerušení, dosažení limitu a po dokončení
@@ -22,8 +26,9 @@ většího kroku.
 3. `077ab6c` — oprava 14 zastaralých cest `german/` → `app/` v `app/README.md`
 4. `c09e8de` — táž oprava od Codexu (viz konflikt níže)
 5. `22aa94a` — merge, konflikt vyřešen ve prospěch `077ab6c`
+6. `db8ae74` — zavedení tohoto souboru a pravidla v `CLAUDE.md`
 
-### Poslední ověření (na HEAD `22aa94a`, z kořene repozitáře)
+### Poslední ověření (z kořene repozitáře)
 
 ```
 python3 app/tools/validate_content.py   → PASSED, 98 776 kontrol, 0 chyb, 1 varování
