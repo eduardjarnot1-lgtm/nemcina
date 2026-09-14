@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build german/data/cefr.json — a sourced CEFR level for German vocabulary.
+"""Build app/data/cefr.json — a sourced CEFR level for German vocabulary.
 
 Usage:
   python3 build_cefr.py --goethe-dir DIR --tsv-dir DIR --lingster FILE.pdf --ding FILE.xz

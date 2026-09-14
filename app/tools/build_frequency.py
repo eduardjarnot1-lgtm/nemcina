@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build german/data/frequency.json from a FrequencyWords-style word list.
+"""Build app/data/frequency.json from a FrequencyWords-style word list.
 
 Usage:  python3 build_frequency.py <de_top2000_frequency.txt>
 

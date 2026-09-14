@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build german/data/grammar.json from the extracted grammar topics + annotations.
+"""Build app/data/grammar.json from the extracted grammar topics + annotations.
 
 Pipeline
 --------

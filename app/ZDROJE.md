@@ -18,16 +18,63 @@ strukturovaná data, která z nich vznikla.
 
 ## Na co si dát pozor
 
-* **CC BY-NC 4.0** u témat Zustandspassiv a slovesa s předložkou zakazuje
-  **komerční užití**. Dokud aplikace zůstane nekomerční, je to v pořádku;
-  jakmile by se na ní mělo vydělávat, je nutné tuto část nahradit nebo si
-  vyžádat svolení. Uvedení autora je podmínkou licence a je vypsané u tématu
-  přímo v aplikaci.
-* **GPL v2+** u slovníku Ding se vztahuje na slovníková data. Týká se
-  `data/cefr.json` a těch karet, které mají `translationSource: "ding"`.
-* Materiály nakladatelství (Klett, Hueber, Goethe-Institut) jsou v repozitáři
-  jen jako **odvozená strukturovaná data v rozsahu nutném pro výuku**, ne jako
-  kopie původních dokumentů.
+> Nejsem právník a tohle není právní rada. Je to popis toho, co v repozitáři
+> skutečně je, z čeho to pochází a kde jsou hranice. Před čímkoli veřejným
+> nebo placeným si to nechte posoudit odborníkem.
+
+### Rozsah použitého materiálu
+
+| Zdroj | Co z něj v repozitáři je |
+|---|---|
+| DaF kompakt neu (**Klett**) | 87 gramatických témat · 394 doslovných příkladů · 419 cvičení |
+| Sicher! C1 (**Hueber**) | 32 gramatických témat · 205 doslovných příkladů · 183 cvičení |
+| Wortlisten **Goethe-Institutu** + **Lingster** | 2 721 karet, z toho 1 642 s překladem ze seznamu |
+| OCR GCSE seznam | 2 047 karet |
+| **Ding** (GPL v2+) | 1 079 anglických překladů |
+| deutsch-lernen-goethe-a1-c2 (**CC BY-NC 4.0**) | 2 témata · 16 příkladů · 13 cvičení |
+
+Celkem **3 689 karet nese doslovnou příkladovou větu** převzatou ze zdroje.
+
+### Kde riziko doopravdy je
+
+Otevřené licence, kterých se člověk lekne jako prvních, jsou ve skutečnosti ta
+menší část:
+
+* **CC BY-NC 4.0** — nekomerční užití **výslovně povoluje**. Dokud se na
+  aplikaci nevydělává, je to v pořádku a podmínku uvedení autora splňujeme.
+  Jde o 2 témata ze 121.
+* **GPL v2+** — povinnosti se spouští až **šířením**, ne používáním. Navíc
+  nejhorší důsledek je, že dílo musí zůstat otevřené, ne že se něco porušuje.
+
+Skutečná expozice je jinde: **materiály komerčních nakladatelství**. Klett,
+Hueber, Goethe-Institut ani Lingster k ničemu svolení nedali. 119 ze 121
+gramatických témat a naprostá většina příkladových vět pochází z jejich
+placených učebnic. Nejde o krátkou citaci, ale o systematické převzetí
+didaktického obsahu.
+
+**Rozhoduje ale ne to, co v repozitáři leží, nýbrž co se s tím dělá.**
+
+| Použití | Jak to stojí |
+|---|---|
+| Soukromé studium, repozitář **private** | Současný stav. Prakticky bez rizika — na soukromou rozmnoženinu pro vlastní potřebu se ve většině Evropy vztahuje výjimka. |
+| Repozitář **public** | Zpřístupnění veřejnosti. Tady mají nakladatelství reálný nárok. |
+| **Veřejné nasazení** (Netlify, hosting) | Totéž, ještě zřetelněji. |
+| **Zpoplatnění** | Porušení CC BY-NC přímo, a k tomu nároky nakladatelství. |
+
+### Pravidlo pro provoz
+
+**Repozitář zůstává soukromý. Aplikace se nikam veřejně nenasazuje a nezpoplatňuje.**
+
+To platí i pro agenty pracující na tomto repozitáři: nezveřejňovat repozitář,
+nenasazovat aplikaci na veřejný hosting, nenavrhovat monetizaci. Pokud si to
+majitel projektu přeje změnit, je to jeho rozhodnutí — ale musí ho udělat
+vědomě a s vědomím výše uvedeného.
+
+Pozn.: odstranit 2 témata s CC BY-NC by samo o sobě **nepomohlo**. Dokud je
+v aplikaci obsah od Klettu a Hueberu, komerční ani veřejné použití stejně
+nepřipadá v úvahu. Cesta ke komerčnímu produktu nevede přes výmaz dvou témat,
+ale přes nahrazení drtivé většiny gramatiky a příkladových vět vlastním nebo
+volně licencovaným obsahem.
 
 ## Známá chyba ve zdroji
 
