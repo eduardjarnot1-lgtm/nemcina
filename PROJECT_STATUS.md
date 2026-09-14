@@ -51,7 +51,7 @@ nezačínat novou práci bez zadání.
 2. ~~Licence~~ — vyřízeno, `5aaf3e1`. Provozní hranice je v `app/ZDROJE.md`
    a `CLAUDE.md`: **repozitář zůstává soukromý, aplikace se veřejně nenasazuje
    a nezpoplatňuje.** Platí i pro agenty.
-3. ~~Věta o Netlify v `app/README.md`~~ — smazána, `7f1a2b3`. Popisovala
+3. ~~Věta o Netlify v `app/README.md`~~ — smazána, `bd9d5fa`. Popisovala
    nasazení předchozího repozitáře; tady žádná deploy konfigurace není.
 
 Až revize dorazí: zapracovat připomínky na téže větvi, znovu spustit
