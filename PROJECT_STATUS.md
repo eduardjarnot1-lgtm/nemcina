@@ -116,6 +116,19 @@ Sestaví se `python3 app/tools/build_artifact.py`.
 
 ## Jak navázat od nuly
 
+Nová session **nemá žádnou paměť** předchozích. Nenaváže sama od sebe ani po
+restartu počítače — běží v dočasném cloudovém kontejneru, který se po skončení
+zahodí. Přežije jen to, co je na GitHubu. Navázání se proto musí říct.
+
+### Text k vložení do nové session
+
+> Pracuješ na repozitáři `eduardjarnot1-lgtm/nemcina`. Přečti si
+> `PROJECT_STATUS.md`, `CLAUDE.md` a `COLLABORATION.md` a pokračuj od sekce
+> „Další krok — přesně". Nic nepushuj do `main`, pracuj na větvi
+> `feature/vyukova-aplikace`.
+
+### Příprava prostředí
+
 ```bash
 git clone https://github.com/eduardjarnot1-lgtm/nemcina /home/user/nemcina
 cd /home/user/nemcina
@@ -123,3 +136,14 @@ git checkout feature/vyukova-aplikace
 python3 app/tools/validate_content.py     # ověření, že je vše v pořádku
 python3 -m http.server 8000                # pak http://localhost:8000/app/
 ```
+
+### Co se ztratí a co ne
+
+| | |
+|---|---|
+| Přežije | vše commitnuté a pushnuté na GitHub — kód, data, tento soubor, PR a jeho komentáře |
+| Zmizí | obsah kontejneru: klon, dočasné soubory a ~1,3 GB stažených zdrojových dokumentů |
+
+Zdrojové dokumenty se dají znovu stáhnout příkazy v sekci „Zdrojové dokumenty
+v repozitáři nejsou". Pro běžnou práci nejsou potřeba — `app/data/*.json` už
+jsou hotová a commitnutá; potřebné jsou jen při znovuspuštění extraktorů.
