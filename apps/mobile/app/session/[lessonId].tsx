@@ -11,6 +11,7 @@ import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
 import { PrimaryButton } from '../../src/components/PrimaryButton';
 import { ProgressBar } from '../../src/components/ProgressBar';
+import { SpeakButton } from '../../src/components/SpeakButton';
 import { useCourse } from '../../src/course';
 import { LOCAL_USER, useProgress } from '../../src/progress';
 import { usePreferences } from '../../src/preferences';
@@ -145,7 +146,7 @@ export default function SessionScreen() {
           showsVerticalScrollIndicator={false}
         >
           {outcome ? (
-            <Feedback outcome={outcome} />
+            <Feedback outcome={outcome} item={item} />
           ) : question ? (
             <>
               <Text style={styles.prompt}>{PROMPTS[question.kind]}</Text>
@@ -227,7 +228,9 @@ export default function SessionScreen() {
  * knew the word and mistyped it, and telling them otherwise is both wrong and
  * discouraging.
  */
-function Feedback({ outcome }: { outcome: AnswerOutcome }) {
+function Feedback({
+  outcome, item,
+}: { outcome: AnswerOutcome; item: VocabularyItem | null }) {
   const tone = outcome.verdict.correct ? 'correct' : outcome.verdict.close ? 'almost' : 'wrong';
   const heading = outcome.verdict.correct
     ? strings.correct
@@ -243,6 +246,13 @@ function Feedback({ outcome }: { outcome: AnswerOutcome }) {
       ) : null}
       {outcome.willRepeat ? (
         <Text style={styles.feedbackNote}>{strings.comesBackLater}</Text>
+      ) : null}
+      {/* After the answer, never before: hearing the word first would give
+          away every question that asks for it. */}
+      {item ? (
+        <SpeakButton
+          text={item.metadata.article ? `${item.metadata.article} ${item.term}` : item.term}
+        />
       ) : null}
     </Card>
   );

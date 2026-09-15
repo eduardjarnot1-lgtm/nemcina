@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
 import type { SearchHit } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
+import { SpeakButton } from '../../src/components/SpeakButton';
 import { useCourse } from '../../src/course';
 import { strings } from '../../src/strings';
 import { palette, radius, spacing, type as typeScale } from '../../src/theme';
@@ -86,6 +87,7 @@ function Hit({ hit }: { hit: SearchHit }) {
       </View>
       <Text style={styles.meaning}>{item.translation}</Text>
       {item.example ? <Text style={styles.example}>{item.example}</Text> : null}
+      <SpeakButton text={article ? `${article} ${item.term}` : item.term} />
     </Card>
   );
 }

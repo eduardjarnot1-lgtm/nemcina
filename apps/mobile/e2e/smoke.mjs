@@ -105,6 +105,12 @@ page.on('pageerror', (error) => consoleErrors.push(`pageerror: ${error.message}`
 const text = async () => (await page.innerText('body')).replace(/\s*\n\s*/g, ' | ');
 const tap = async (label) =>
   page.locator(`text="${label}"`).filter({ visible: true }).first().click({ timeout: 15_000 });
+/** Tab-bar buttons: a pushed screen stays mounted, so the last match is the tab. */
+const tapTabOrText = async (label) => {
+  await page.waitForTimeout(400);
+  await page.locator(`text="${label}"`).filter({ visible: true }).last().click({ timeout: 15_000 });
+  await page.waitForTimeout(400);
+};
 
 try {
   console.log('a new learner is welcomed, not dropped into lesson one');
@@ -212,6 +218,18 @@ try {
   await page.waitForTimeout(4_000);
   const afterReload = Number((await page.innerText('body')).match(/(\d+)\s*\n?\s*Learned/)?.[1] ?? '0');
   check(afterReload === learned, `progress survives a restart (${afterReload} of ${learned})`);
+
+  console.log('the scoreboard reflects the work, not a stored counter');
+  await tapTabOrText('Profile');
+  await page.waitForTimeout(1_200);
+  const profile = await text();
+  check(/Level \d+/.test(profile), 'the profile shows a level');
+  check(profile.includes('Achievements'), 'and the achievements');
+  check(/First word learned \| 1 \/ 1/.test(profile.replace(/\s*\|\s*/g, ' | '))
+    || /First word learned/.test(profile),
+    'the first achievement is listed');
+  check(!/Thirty days \| 30 \/ 30/.test(profile.replace(/\s*\|\s*/g, ' | ')),
+    'no badge was awarded that nobody earned');
 
   console.log('search');
   await tap('Search');

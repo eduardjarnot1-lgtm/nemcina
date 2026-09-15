@@ -34,6 +34,13 @@ interface ProgressContextValue {
   readonly store: ProgressStore;
   /** Every record for the local user, kept in memory for the screens to read. */
   readonly records: ReadonlyMap<string, ItemProgress>;
+  /**
+   * The recent attempt log, newest first.
+   *
+   * Streaks, accuracy and XP are all derived from this rather than from stored
+   * counters, so none of them can drift away from what the learner did.
+   */
+  readonly attempts: readonly AttemptRecord[];
   readonly ready: boolean;
   save(record: ItemProgress, attempt?: AttemptRecord): Promise<void>;
   reload(): Promise<void>;
@@ -48,11 +55,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     [],
   );
   const [records, setRecords] = useState<ReadonlyMap<string, ItemProgress>>(new Map());
+  const [attempts, setAttempts] = useState<readonly AttemptRecord[]>([]);
   const [ready, setReady] = useState(false);
 
   const reload = useCallback(async () => {
     const all = await store.all(LOCAL_USER);
     setRecords(new Map(all.map((record) => [record.itemId, record])));
+    setAttempts(await store.recentAttempts(LOCAL_USER, 500));
     setReady(true);
   }, [store]);
 
@@ -66,16 +75,18 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       next.set(record.itemId, record);
       return next;
     });
+    if (attempt) setAttempts((previous) => [attempt, ...previous].slice(0, 500));
   }, [store]);
 
   const clear = useCallback(async () => {
     await store.clear(LOCAL_USER);
     setRecords(new Map());
+    setAttempts([]);
   }, [store]);
 
   const value = useMemo<ProgressContextValue>(
-    () => ({ store, records, ready, save, reload, clear }),
-    [store, records, ready, save, reload, clear],
+    () => ({ store, records, attempts, ready, save, reload, clear }),
+    [store, records, attempts, ready, save, reload, clear],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

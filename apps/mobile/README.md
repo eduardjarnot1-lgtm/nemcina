@@ -28,6 +28,7 @@ blocked, prefix commands with `EXPO_OFFLINE=1` and add packages with plain
 | `src/strings.ts` | Every word the interface says, in one table. |
 | `src/account.tsx` | The signed-in account; the token lives in SecureStore, never AsyncStorage. |
 | `src/preferences.tsx` | Session length and starting level. Local, deliberately not synced. |
+| `src/speech.ts` | The device's own German voice, where it has one. |
 | `src/api.ts` | The only place that knows the sync server's shape. |
 | `e2e/smoke.mjs` | The app driven in a browser. |
 | `e2e/sync.mjs` | The app, the server and two devices, driven together. |
@@ -80,8 +81,17 @@ things, both of which change what the app does: how long a session should be
 placement test of about twenty questions, or by skipping it and starting at A1.
 Both are changeable afterwards on the profile.
 
+## Audio
+
+`expo-speech` uses the platform's own synthesiser — AVSpeechSynthesizer,
+Android TextToSpeech, the Web Speech API — so there are no audio files to
+license and nothing to fetch on a train. A device with no German voice shows no
+button, because a control that silently does nothing teaches people to distrust
+the others. In a session the word can only be heard *after* it has been
+answered; hearing it first would give away every question that asks for it.
+
 ## Not built yet
 
-Subscriptions, ads, notifications and audio. No server is deployed, so sync
-works only against one you run yourself.
+Subscriptions, ads and notifications. No server is deployed, so sync works only
+against one you run yourself.
 `PROJECT_STATUS.md` in the repository root is the honest list.

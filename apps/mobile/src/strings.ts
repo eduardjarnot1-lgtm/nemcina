@@ -77,6 +77,25 @@ export const strings = {
   sessionStudied: (count: number) => `${count} words studied`,
   backToLessons: 'Back to lessons',
 
+  levelTitle: 'Level',
+  levelProgress: (into: number, span: number) => `${into} / ${span} XP`,
+  achievementsTitle: 'Achievements',
+  achievementsEarned: (count: number, total: number) => `${count} of ${total}`,
+  achievementNames: {
+    'first-word': 'First word learned',
+    'words-50': '50 words',
+    'words-250': '250 words',
+    'words-1000': '1000 words',
+    'mastered-50': '50 words mastered',
+    'streak-3': 'Three days running',
+    'streak-7': 'A full week',
+    'streak-30': 'Thirty days',
+    'grammar-started': 'First grammar exercise',
+    'accuracy-90': '90% right first time',
+    'level-5': 'Level 5',
+    'level-10': 'Level 10',
+  } as Record<string, string>,
+
   profileProgress: 'Progress',
   profileReset: 'Delete my progress',
   profileResetExplain:

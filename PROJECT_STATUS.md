@@ -17,8 +17,8 @@ Everything in this section was executed, not read.
 
 | Command | Result |
 |---|---|
-| `npm test --workspaces` | **367 passed, 0 failed** (278 core · 89 server) |
-| `node apps/mobile/e2e/smoke.mjs` | **31 browser checks passed** |
+| `npm test --workspaces` | **386 passed, 0 failed** (297 core · 89 server) |
+| `node apps/mobile/e2e/smoke.mjs` | **35 browser checks passed** |
 | `node apps/mobile/e2e/sync.mjs` | **13 checks passed** — two devices, real server, real bundle |
 | `npx tsc --noEmit` (core, server, mobile) | clean |
 | `python3 app/tools/validate_content.py` | **PASSED** — 110 384 checks, 0 errors, 1 warning |
@@ -75,6 +75,7 @@ German-specific branching.
 | `sync.ts` | The merge rule: the later review wins | 13 |
 | `placement.ts` | The adaptive placement test | 19 |
 | `coach.ts` | The coach's evidence, and advice derived from it | 19 |
+| `achievements.ts` | XP, levels and achievements, all derived from the attempt log | 19 |
 | `syncClient.ts` | The client half of sync, transport injected | — |
 | real-data suite | The engine against the project's actual 4 637 cards | 20 |
 
@@ -90,13 +91,14 @@ question form rising as an item is learned, wrong answers returning easier,
 progress written per answer to AsyncStorage, search across words and grammar,
 lessons browsable by level and by topic, all 121 grammar topics with their
 explanations and 615 exercises, a coach that speaks only from the learner's own
-answers, a profile with totals, a streak and a progress reset, an account that
+answers, levels and achievements recomputed from the attempt log, spoken German
+where the device has a voice, a profile with totals, a streak and a progress reset, an account that
 carries progress between devices, and a welcome flow
 with an adaptive placement test that decides where lessons start and how long
 a session is.
 
 `e2e/smoke.mjs` drives all of that in Chromium against the real bundle and
-asserts 31 things about it; `e2e/sync.mjs` starts the real server, exports the
+asserts 35 things about it; `e2e/sync.mjs` starts the real server, exports the
 app against it and drives two browser contexts through registering, syncing and
 finding the work on the second device. **It has never been run on a physical device**, so
 nothing native — gestures, the keyboard, layout on a real screen, performance
@@ -139,7 +141,7 @@ Stated plainly, because spec §43 forbids calling these done.
 | Subscriptions / premium | **Half.** The server owns the entitlement, will not let a client claim it, and premium now buys something real (50 coach requests a day against 5). Nothing sells one and no store receipt is verified. |
 | Advertising | **Nothing.** |
 | Analytics | **Nothing.** |
-| Audio | The web prototype uses browser speech APIs. The mobile app has none. |
+| Audio | Both use the platform's own synthesiser. No recorded pronunciation, no TTS provider, no pronunciation scoring. |
 | Notifications | **Nothing.** |
 | App icons | Expo template placeholders. |
 
