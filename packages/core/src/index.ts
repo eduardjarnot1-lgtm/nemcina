@@ -10,3 +10,6 @@ export * from './srs.ts';
 export * from './answers.ts';
 export * from './selection.ts';
 export * from './storage.ts';
+export * from './content.ts';
+export * from './lessons.ts';
+export * from './pipeline.ts';

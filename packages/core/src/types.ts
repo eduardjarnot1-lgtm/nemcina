@@ -114,6 +114,12 @@ export interface GrammarExample {
   readonly note: string;
 }
 
+/** One headed paragraph of a grammar explanation, as the source document lays it out. */
+export interface ExplanationSection {
+  readonly heading: string;
+  readonly text: string;
+}
+
 export type ExerciseKind =
   | 'recognise' | 'choice' | 'recall' | 'typing' | 'context'
   | 'transform' | 'reorder' | 'error-correction';
@@ -138,6 +144,8 @@ export interface GrammarTopic {
   readonly title: string;
   readonly titleInSourceLanguage: string;
   readonly summary: string;
+  /** The explanation proper, in the source's own sections. */
+  readonly explanation: readonly ExplanationSection[];
   readonly rules: readonly string[];
   readonly examples: readonly GrammarExample[];
   readonly exercises: readonly Exercise[];
