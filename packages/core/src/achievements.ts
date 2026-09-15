@@ -18,6 +18,7 @@
 
 import type { AttemptRecord, ExerciseKind } from './types.ts';
 import type { CoachEvidence } from './coach.ts';
+import { localDay } from './stats.ts';
 
 // --- experience ---------------------------------------------------------------
 
@@ -54,10 +55,10 @@ export const xpFor = (attempt: AttemptRecord): number =>
 export function totalXp(attempts: Iterable<AttemptRecord>, offsetMinutes = 0): number {
   const counted = new Set<string>();
   let total = 0;
-  for (const attempt of attempts) {
+  for (const attempt of [...attempts].sort((a, b) => a.at - b.at)) {
     if (!attempt.correct) continue;
-    const day = Math.floor((attempt.at - offsetMinutes * 60_000) / 86_400_000);
-    const key = `${attempt.itemId}:${day}`;
+    const day = localDay(attempt.at, offsetMinutes);
+    const key = JSON.stringify([attempt.userId, attempt.itemId, day]);
     if (counted.has(key)) continue;
     counted.add(key);
     total += xpFor(attempt);

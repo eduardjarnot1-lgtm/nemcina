@@ -17,6 +17,7 @@ import {
   type AttemptRecord,
   type ItemProgress,
   type ProgressStore,
+  type StudyDay,
 } from '@nemcina/core';
 import {
   createContext, useCallback, useContext, useEffect, useMemo, useState,
@@ -37,10 +38,11 @@ interface ProgressContextValue {
   /**
    * The recent attempt log, newest first.
    *
-   * Streaks, accuracy and XP are all derived from this rather than from stored
-   * counters, so none of them can drift away from what the learner did.
+   * Recent accuracy uses this bounded log. Daily history separately preserves
+   * activity and XP after old answers leave the log.
    */
   readonly attempts: readonly AttemptRecord[];
+  readonly studyDays: readonly StudyDay[];
   readonly ready: boolean;
   save(record: ItemProgress, attempt?: AttemptRecord): Promise<void>;
   reload(): Promise<void>;
@@ -51,17 +53,19 @@ const ProgressContext = createContext<ProgressContextValue | null>(null);
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
   const store = useMemo<ProgressStore>(
-    () => new KeyValueProgressStore(AsyncStorage, { prefix: 'nemcina:v1' }),
+    () => new KeyValueProgressStore(AsyncStorage, { prefix: 'nemcina:v1', offsetMinutes: -new Date().getTimezoneOffset() }),
     [],
   );
   const [records, setRecords] = useState<ReadonlyMap<string, ItemProgress>>(new Map());
   const [attempts, setAttempts] = useState<readonly AttemptRecord[]>([]);
+  const [studyDays, setStudyDays] = useState<readonly StudyDay[]>([]);
   const [ready, setReady] = useState(false);
 
   const reload = useCallback(async () => {
     const all = await store.all(LOCAL_USER);
     setRecords(new Map(all.map((record) => [record.itemId, record])));
     setAttempts(await store.recentAttempts(LOCAL_USER, 500));
+    setStudyDays(await store.studyDays(LOCAL_USER));
     setReady(true);
   }, [store]);
 
@@ -69,7 +73,10 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
   const save = useCallback(async (record: ItemProgress, attempt?: AttemptRecord) => {
     await store.put(record);
-    if (attempt) await store.recordAttempt(attempt);
+    if (attempt) {
+      await store.recordAttempt(attempt, -new Date(attempt.at).getTimezoneOffset());
+      setStudyDays(await store.studyDays(LOCAL_USER));
+    }
     setRecords((previous) => {
       const next = new Map(previous);
       next.set(record.itemId, record);
@@ -82,11 +89,12 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     await store.clear(LOCAL_USER);
     setRecords(new Map());
     setAttempts([]);
+    setStudyDays([]);
   }, [store]);
 
   const value = useMemo<ProgressContextValue>(
-    () => ({ store, records, attempts, ready, save, reload, clear }),
-    [store, records, attempts, ready, save, reload, clear],
+    () => ({ store, records, attempts, studyDays, ready, save, reload, clear }),
+    [store, records, attempts, studyDays, ready, save, reload, clear],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

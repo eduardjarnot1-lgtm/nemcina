@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { achievements, buildEvidence, earned, levelFor, totalXp } from '@nemcina/core';
+import { achievements, buildEvidence, earned, levelFor } from '@nemcina/core';
 import { useCourse } from '../course';
 import { useProgress } from '../progress';
+import { useStudySummary } from '../studySummary';
 import { strings } from '../strings';
 import { palette, radius, spacing, type as typeScale } from '../theme';
 import { Card } from './Card';
@@ -20,21 +21,19 @@ export function LevelPanel() {
   const { repository } = useCourse();
   const { records, attempts } = useProgress();
 
-  const level = useMemo(
-    () => levelFor(totalXp(attempts, -new Date().getTimezoneOffset())),
-    [attempts],
-  );
+  const activity = useStudySummary();
+  const level = useMemo(() => levelFor(activity.xp), [activity.xp]);
 
   const badges = useMemo(() => achievements(
-    buildEvidence({
+    { ...buildEvidence({
       items: repository.vocabulary(),
       topics: repository.grammar(),
       progress: records,
       attempts,
       offsetMinutes: -new Date().getTimezoneOffset(),
-    }),
+    }), streak: activity.streak },
     level,
-  ), [repository, records, attempts, level]);
+  ), [repository, records, attempts, level, activity.streak]);
 
   const done = earned(badges);
 

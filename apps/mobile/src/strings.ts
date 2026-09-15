@@ -9,6 +9,12 @@
  */
 
 export const strings = {
+  dailyGoalTitle: 'Daily goal',
+  dailyGoalCount: (done: number, goal: number) => `${done} / ${goal} answers`,
+  dailyGoalDone: 'Goal reached. Your next review will be waiting when you are ready.',
+  dailyGoalRemaining: (remaining: number) => `${remaining} more answers to reach your goal.`,
+  weeklyActivity: 'Your last 7 days',
+  streakDays: (days: number) => `${days}-day streak`,
   appName: 'Němčina',
 
   tabLearn: 'Learn',

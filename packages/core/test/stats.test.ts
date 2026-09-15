@@ -21,11 +21,12 @@ describe('local days', () => {
   });
 
   test('the offset moves the boundary, which is the whole point of having it', () => {
-    // 23:00 in Prague (UTC+1) is 22:00 UTC — the same day locally, and the day
-    // before if the boundary were UTC midnight for a UTC-5 learner.
-    const late = Date.UTC(2026, 0, 14, 22, 0, 0);
-    assert.equal(localDay(late, 60), localDay(NOON, 60));
-    assert.notEqual(localDay(late, -5 * 60), localDay(late, 60) );
+    const late = Date.UTC(2026, 0, 14, 23, 30);
+    assert.equal(localDay(late, 60), localDay(NOON) + 1, 'Prague is already January 15');
+    assert.equal(localDay(late, -5 * 60), localDay(NOON), 'New York is still January 14');
+    const early = Date.UTC(2026, 0, 14, 2);
+    assert.equal(localDay(early, -5 * 60), localDay(NOON) - 1, 'New York is January 13');
+    assert.equal(localDay(early, 330), localDay(NOON), 'half-hour offsets work too');
   });
 });
 

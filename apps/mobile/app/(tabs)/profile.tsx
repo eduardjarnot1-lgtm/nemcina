@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { streak, totals } from '@nemcina/core';
+import { totals } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
 import { PrimaryButton } from '../../src/components/PrimaryButton';
@@ -8,6 +8,7 @@ import { AccountPanel } from '../../src/components/AccountPanel';
 import { LearningPanel } from '../../src/components/LearningPanel';
 import { LevelPanel } from '../../src/components/LevelPanel';
 import { useProgress } from '../../src/progress';
+import { useStudySummary } from '../../src/studySummary';
 import { strings } from '../../src/strings';
 import { palette, spacing, type as typeScale } from '../../src/theme';
 
@@ -16,15 +17,7 @@ export default function ProfileScreen() {
   const [confirming, setConfirming] = useState(false);
 
   const summary = useMemo(() => totals(records.values()), [records]);
-  // The streak is derived from review times rather than a stored counter, so it
-  // cannot drift out of step with what the learner actually did.
-  const days = useMemo(
-    () => streak(
-      [...records.values()].filter((r) => r.seen).map((r) => ({ at: r.lastReviewed })),
-      { offsetMinutes: -new Date().getTimezoneOffset() },
-    ),
-    [records],
-  );
+  const activity = useStudySummary();
 
   return (
     <Screen>
@@ -36,7 +29,7 @@ export default function ProfileScreen() {
           <Row label={strings.wordsLearned} value={summary.learned} />
           <Row label={strings.wordsMastered} value={summary.mastered} />
           <Row label={strings.dueToday} value={summary.due} />
-          <Row label={strings.streak} value={days.current} />
+          <Row label={strings.streak} value={activity.streak.current} />
         </Card>
 
         <LevelPanel />

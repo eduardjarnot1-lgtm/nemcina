@@ -64,3 +64,15 @@ the existing handling of failed writes and corrupt data.
 
 This is a prioritized continuation plan, not a completed compliance audit of
 every requirement. Preserve working features and add focused tests with fixes.
+
+## Application-only continuation: daily activity
+
+Owner scope: defer AI integrations, sign-in providers and ads. Work on the local learning application.
+
+Completed: daily goal and seven-day activity on the home screen; lifetime XP and streaks backed by compact daily history instead of the capped recent-answer log; profile streak from actual study days rather than each word's last review; corrected timezone direction and chronological first-correct-answer XP.
+
+Validation: 308 core tests pass, core/mobile/server TypeScript checks pass, Expo web export succeeds, and all 39 browser smoke checks pass in Chrome (onboarding, placement, lesson, daily goal, reload, profile, search, grammar). No physical device test yet.
+
+Storage migration: the attempts key now holds a version-2 envelope with recent answers and daily summaries. Existing arrays migrate from the history still present. Already-discarded answers cannot be reconstructed. Daily summaries retain item IDs and first-correct XP but no answer text; they are local and are not added to account sync in this scope. An older app version cannot read the new envelope.
+
+Next: make failed answer saves visible and retryable; fix review sessions opened before progress finishes loading; check these paths in the browser. Keep integrations deferred.
