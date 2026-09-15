@@ -138,3 +138,42 @@ describe('KeyValueProgressStore persistence', () => {
     assert.equal(recent[0]!.itemId, 'w19', 'the newest are the ones kept');
   });
 });
+
+describe('what comes back out of a device\'s storage', () => {
+  test('a record with a state the engine does not know is dropped, not loaded', async () => {
+    // Storage has the same standing as a network payload: a truncated,
+    // hand-edited or older-version entry is a stranger until something checks
+    // it, and the scheduler trusts the type it is handed.
+    const backing = new Map<string, string>();
+    const good = review(newProgress('u1', 'haus'), GRADE.GOOD, { now: 1_700_000_000_000 });
+    backing.set('nemcina:v1:progress', JSON.stringify([
+      good,
+      { ...good, itemId: 'forged', state: 'whatever' },
+      { ...good, itemId: 'truncated', stability: 'lots' },
+      'not a record',
+      null,
+    ]));
+
+    const store = new KeyValueProgressStore({
+      getItem: (key) => backing.get(key) ?? null,
+      setItem: (key, value) => { backing.set(key, value); },
+      removeItem: (key) => { backing.delete(key); },
+    });
+
+    const all = await store.all('u1');
+    assert.deepEqual(all.map((record) => record.itemId), ['haus']);
+    // And the dropped ones read as new rather than as something half-known.
+    assert.equal((await store.get('u1', 'forged')).seen, false);
+  });
+
+  test('a stored value that is not even a list does not brick the app', async () => {
+    const backing = new Map([['nemcina:v1:progress', '{"not":"a list"}']]);
+    const store = new KeyValueProgressStore({
+      getItem: (key) => backing.get(key) ?? null,
+      setItem: (key, value) => { backing.set(key, value); },
+      removeItem: (key) => { backing.delete(key); },
+    });
+    assert.deepEqual(await store.all('u1'), []);
+    assert.equal((await store.get('u1', 'haus')).seen, false);
+  });
+});

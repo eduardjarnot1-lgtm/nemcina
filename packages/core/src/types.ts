@@ -161,7 +161,18 @@ export interface GrammarTopic {
  * How well an item is known. Derived from the scheduler's own confidence, never
  * from a raw attempt counter — see `srs.ts`.
  */
-export type MasteryState = 'new' | 'learning' | 'review' | 'strong' | 'mastered';
+export const MASTERY_STATES = ['new', 'learning', 'review', 'strong', 'mastered'] as const;
+export type MasteryState = (typeof MASTERY_STATES)[number];
+
+/**
+ * Is this one of the states, at runtime?
+ *
+ * The type alone is not enough anywhere a record crosses a boundary — a synced
+ * payload or a parsed key-value store is a string until something checks it.
+ * Deriving the type from the array means the check and the type cannot drift.
+ */
+export const isMasteryState = (value: unknown): value is MasteryState =>
+  typeof value === 'string' && (MASTERY_STATES as readonly string[]).includes(value);
 
 /** FSRS grades. The learner never picks these; they are inferred from the answer. */
 export const GRADE = { AGAIN: 1, HARD: 2, GOOD: 3, EASY: 4 } as const;

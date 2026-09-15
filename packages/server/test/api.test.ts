@@ -230,6 +230,23 @@ describe('sync', () => {
     assert.equal(reply.body.accepted, 1);
   });
 
+  test('a forged mastery state is rejected, not stored and pushed to every device', async () => {
+    // Caught in review: "state" was checked as a string, so `state: "whatever"`
+    // was persisted here and synced onward to the learner's other devices.
+    const forged = { ...studied('forged', clock), state: 'whatever' };
+    const reply = await call('POST', '/progress/sync',
+      { token, body: { records: [forged], since: 0 } });
+    assert.equal(reply.body.rejected, 1);
+    assert.equal(reply.body.accepted, 0);
+
+    const stored = await call('POST', '/progress/sync', { token, body: { records: [], since: 0 } });
+    assert.equal(
+      stored.body.changed.some((record: ItemProgress) => record.itemId === 'forged'),
+      false,
+      'the forged record reached another device',
+    );
+  });
+
   test('a record claiming another account is stored against the sender', async () => {
     const other = (await call('POST', '/accounts',
       { body: { email: 'victim@example.com', password: 'a long enough password' } })).body;

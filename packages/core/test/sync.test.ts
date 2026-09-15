@@ -9,7 +9,7 @@ import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
 import { isProgressRecord, mergeProgress, pickNewer } from '../src/sync.ts';
 import { newProgress, review } from '../src/srs.ts';
-import { GRADE, type ItemProgress } from '../src/types.ts';
+import { GRADE, MASTERY_STATES, type ItemProgress } from '../src/types.ts';
 
 const T0 = 1_700_000_000_000;
 const DAY = 86_400_000;
@@ -104,6 +104,30 @@ describe('what arrives over a network is a stranger until checked', () => {
     for (const value of [null, undefined, 42, 'progress', [], {}]) {
       assert.equal(isProgressRecord(value), false, `${JSON.stringify(value)} was accepted`);
     }
+  });
+
+  test('THE bug a review caught: "state" must be a state, not any string', () => {
+    // A merely-typeof-string check let `state: "whatever"` through, where it was
+    // persisted, pushed to every other device, and reached stageFor — which
+    // switches exhaustively and fell off the end returning undefined.
+    const good = at('haus', T0) as unknown as Record<string, unknown>;
+    for (const wrong of ['whatever', '', 'MASTERED', 'learning ', 0, null]) {
+      assert.equal(isProgressRecord({ ...good, state: wrong }), false,
+        `state ${JSON.stringify(wrong)} was accepted`);
+    }
+    for (const state of MASTERY_STATES) {
+      assert.equal(isProgressRecord({ ...good, state }), true, `${state} was refused`);
+    }
+  });
+
+  test('a rejected record is counted, not silently dropped', () => {
+    // mergeProgress only ever sees checked records; the count belongs to the
+    // caller, and the server test asserts it. Here: the check is what decides.
+    const good = at('haus', T0) as unknown as Record<string, unknown>;
+    const incoming = [good, { ...good, itemId: 'x', state: 'whatever' }];
+    const accepted = incoming.filter(isProgressRecord);
+    assert.equal(accepted.length, 1);
+    assert.equal(incoming.length - accepted.length, 1);
   });
 
   test('a record missing a field, or carrying the wrong type, is refused', () => {

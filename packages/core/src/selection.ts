@@ -185,6 +185,14 @@ export function stageFor(record: ItemProgress): ExerciseKind {
     case 'review': return 'recall';
     case 'strong': return 'typing';
     case 'mastered': return 'context';
+    default:
+      // Unreachable by the type, reachable at runtime: a record can arrive
+      // from a network payload or a parsed key-value store, where the type is
+      // a promise nobody checked. Both of those validate now, but this
+      // function promises an ExerciseKind and must not be able to return
+      // undefined. The easiest form is the safe guess for a state we cannot
+      // read.
+      return 'recognise';
   }
 }
 

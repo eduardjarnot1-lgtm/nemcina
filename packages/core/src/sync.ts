@@ -21,7 +21,7 @@
  * records, so the client, the server and the tests all merge identically.
  */
 
-import type { ItemProgress } from './types.ts';
+import { isMasteryState, type ItemProgress } from './types.ts';
 
 /**
  * Which of two records for the same item to keep.
@@ -125,7 +125,9 @@ export function isProgressRecord(value: unknown): value is ItemProgress {
   ];
   return typeof record.userId === 'string'
     && typeof record.itemId === 'string' && record.itemId.length > 0
-    && typeof record.state === 'string'
+    // Not merely a string: an unrecognised state reaches the scheduler, which
+    // switches on it exhaustively and falls off the end.
+    && isMasteryState(record.state)
     && typeof record.seen === 'boolean'
     && numbers.every((key) => typeof record[key] === 'number' && Number.isFinite(record[key] as number));
 }

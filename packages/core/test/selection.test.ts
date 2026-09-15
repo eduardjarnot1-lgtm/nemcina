@@ -178,3 +178,24 @@ describe('shuffle', () => {
     assert.deepEqual(input, [1, 2, 3]);
   });
 });
+
+describe('a state the scheduler does not recognise', () => {
+  test('stageFor returns a real exercise rather than undefined', () => {
+    // Unreachable by the type, reachable at runtime: this is what a forged sync
+    // payload or a hand-edited storage entry produced before both were checked.
+    const record = {
+      ...newProgress('u1', 'haus'), seen: true, state: 'whatever',
+    } as unknown as ItemProgress;
+    const stage = stageFor(record);
+    assert.notEqual(stage, undefined, 'stageFor fell off the end of its switch');
+    assert.ok(EXERCISE_STAGES.includes(stage));
+    assert.equal(stage, 'recognise', 'the safe guess is the easiest form');
+  });
+
+  test('stageWithin still narrows to something available', () => {
+    const record = {
+      ...newProgress('u1', 'haus'), seen: true, state: 'whatever',
+    } as unknown as ItemProgress;
+    assert.equal(stageWithin(record, ['choice', 'typing']), 'choice');
+  });
+});
