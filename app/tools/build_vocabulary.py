@@ -538,7 +538,7 @@ def main() -> int:
             "article": entry.get("article", ""),
             "plural": False,
             "example": entry.get("example", ""),
-            "exampleTranslation": "",
+            "exampleTranslation": entry.get("exampleTranslation", ""),
             "note": entry.get("preposition", "") and
                     f"Takes the preposition {entry['preposition']}.",
             "needsReview": False,

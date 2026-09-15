@@ -172,6 +172,37 @@ describe('the importer reads the real pipeline output', () => {
     }
   });
 
+  test('a card teaches the word\'s meaning, not its example\'s translation', () => {
+    // This is a regression. The Goethe transcription's third column translates
+    // the example SENTENCE, and reading it as the headword's meaning put "How
+    // many letters are there in the alphabet in your language?" on the card for
+    // Alphabet. Two invariants hold it shut.
+    const abbreviations = ['sth.', 'sb.', 'etc.', 'i.e.', 'e.g.', 'vs.', 'tog.'];
+    for (const entry of items) {
+      if (entry.exampleTranslation.trim()) {
+        assert.notEqual(entry.translation.trim(), entry.exampleTranslation.trim(),
+          `${entry.id} (${entry.term}) is glossed with its example's translation`);
+      }
+      // Interjections really are glossed with exclamations — Prost! means
+      // "Cheers!" — so a punctuated German side is exempt, and short glosses
+      // are never flagged.
+      const german = entry.term.trim();
+      const meaning = entry.translation.trim();
+      if (german.endsWith('!') || german.endsWith('?')) continue;
+      if (!/[.?!]$/.test(meaning)) continue;
+      if (abbreviations.some((a) => meaning.toLowerCase().endsWith(a))) continue;
+      assert.ok(meaning.split(/\s+/).length < 6,
+        `${entry.id} (${entry.term}) is glossed with a sentence: ${meaning}`);
+    }
+  });
+
+  test('an example that has a translation keeps it — it is half the card', () => {
+    const withExample = items.filter((entry) => entry.example.trim());
+    const translated = withExample.filter((entry) => entry.exampleTranslation.trim());
+    assert.ok(translated.length > 3000,
+      `only ${translated.length} of ${withExample.length} examples carry a translation`);
+  });
+
   test('searching the real corpus finds what a learner would type', () => {
     const term = (hits: readonly SearchHit[]) =>
       hits[0] && hits[0].kind === 'vocabulary' ? hits[0].item.term : null;

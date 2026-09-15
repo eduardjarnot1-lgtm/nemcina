@@ -20,7 +20,7 @@ On Netlify the site publishes the repository root, so the app is served at
 
 | Content | Source | Status |
 |---|---|---|
-| Vocabulary — 4 768 cards | OCR GCSE list (2 047) + the CEFR word lists below (2 721) | imported |
+| Vocabulary — 4 637 cards | OCR GCSE list (2 047) + the CEFR word lists below (2 590) | imported |
 | CEFR levels A1/A2/B1 | Official Goethe-Institut Wortlisten (A1 Start Deutsch 1, A2, B1) | imported |
 | CEFR level B2 | Der deutsche Wortschatz von A1 bis B2, Lingster Academy | imported |
 | English glosses for unlisted words | Ding German–English dictionary, TU Chemnitz (GPL v2+) | imported |
@@ -75,9 +75,9 @@ B1 list interleaves headwords and example sentences out of order. A third-party
 TSV transcription is clean, but a transcription can quietly drift from the
 original.
 
-So they are used against each other: the TSV supplies the headword, example and
-English, and that headword must then occur in the raw text of the official PDF
-for its level or the row is dropped and counted. The build prints the
+So they are used against each other: the TSV supplies the headword, its example
+and that example's English, and the headword must then occur in the raw text of
+the official PDF for its level or the row is dropped and counted. The build prints the
 verification rate, so a drop in transcription quality is visible rather than
 silent, and refuses to build below 75 %.
 
@@ -89,12 +89,26 @@ overwrite an earlier one would push almost everything to B1.
 
 | | Count |
 |---|---|
-| Cards levelled by a word list | 4 177 |
+| Cards levelled by a word list | 4 046 |
 | Cards no list carries, keeping the GCSE Foundation/Higher approximation | 591 |
-| New cards imported from the word lists | 2 721 |
-| Word-list entries skipped for having no English at all | 234 |
+| New cards imported from the word lists | 2 590 |
+| Word-list entries skipped for having no English at all | 365 |
 
-A1 829 · A2 1 270 · B1 2 157 · B2 512.
+### Where the English comes from
+
+The Goethe lists are monolingual: they print a headword and a German example,
+and state no English meaning at all. The third-party transcription adds a third
+column, and its own header calls it *english translation* — of the **sentence**,
+not of the word.
+
+Reading that column as the word's meaning is a mistake this build made and no
+longer makes: it put *"How many letters are there in the alphabet in your
+language?"* on the card for **Alphabet**. The column now fills
+`exampleTranslation`, where it belongs, and the meaning comes from the Ding
+dictionary or the card is dropped for having none. `validate_content.py` checks
+both halves of that, so the mistake cannot come back silently.
+
+A1 811 · A2 1 237 · B1 2 077 · B2 512.
 
 B2 rests on the Lingster list alone — it is the only source here that reaches
 B2 — and that is stated in the data rather than smoothed over. Cards whose
@@ -251,7 +265,7 @@ grammar topics, unknown or circular prerequisites.
 
 ```bash
 python3 app/tools/validate_content.py
-# vocabulary: 4768 words checked
+# vocabulary: 4637 words checked
 # grammar: 121 topics, 615 exercises checked
 # PASSED — 0 errors, 1 warning
 ```
@@ -327,7 +341,7 @@ number.
 app/
   index.html            shell: top bar, search, main region
   styles.css            light + dark theme, no framework
-  data/vocabulary.json  4768 cards, levelled A1–B2
+  data/vocabulary.json  4637 cards, levelled A1–B2
   data/cefr.json        4442 levelled headwords with their sources
   data/frequency.json   2586 ranked word forms
   data/grammar.json     121 topics, 615 examples, 615 exercises

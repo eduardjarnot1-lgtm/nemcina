@@ -192,7 +192,7 @@ def split_headword(raw: str) -> tuple[str, str, str]:
 
 
 def read_goethe(goethe_dir: Path, tsv_dir: Path, report: list[str]) -> dict:
-    """{headword_lower: {level, article, plural, example, translation, source}}."""
+    """{headword_lower: {level, article, plural, example, exampleTranslation, source}}."""
     found: dict[str, dict] = {}
     for level in ("B1", "A2", "A1"):          # reverse order: A1 written last, so it wins
         pdf = goethe_dir / GOETHE_PDFS[level]
@@ -224,7 +224,14 @@ def read_goethe(goethe_dir: Path, tsv_dir: Path, report: list[str]) -> dict:
                     "article": article,
                     "plural": plural,
                     "example": cells[1].strip(),
-                    "translation": cells[2].strip(),
+                    # The third column translates the SENTENCE, not the headword
+                    # — the file's own header says "german word / german
+                    # sentence / english translation". The Goethe lists are
+                    # monolingual and state no gloss for the word itself, so
+                    # none is recorded here; Ding supplies it below or the entry
+                    # goes without one.
+                    "exampleTranslation": cells[2].strip(),
+                    "translation": "",
                     "source": f"goethe-{level.lower()}",
                 }
         rate = round(100 * verified / total) if total else 0
@@ -260,7 +267,8 @@ def read_lingster(path: Path, report: list[str]) -> dict:
                 continue
             found[key] = {
                 "word": head, "level": level, "article": article, "plural": plural,
-                "example": "", "translation": "", "preposition": preposition,
+                "example": "", "exampleTranslation": "", "translation": "",
+                "preposition": preposition,
                 "source": "lingster",
             }
     report.append(f"Lingster: {rows} tagged lines read, {len(found)} distinct headwords")
@@ -295,7 +303,8 @@ def main() -> int:
             if LEVELS.index(entry["level"]) < LEVELS.index(existing["level"]):
                 existing["level"] = entry["level"]
             # fill gaps without overwriting what a source already gave
-            for field in ("article", "plural", "example", "translation", "preposition"):
+            for field in ("article", "plural", "example", "exampleTranslation",
+                          "translation", "preposition"):
                 if entry.get(field) and not existing.get(field):
                     existing[field] = entry[field]
 

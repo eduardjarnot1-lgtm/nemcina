@@ -27,6 +27,31 @@ VALID_TYPES = {"noun", "verb", "adjective", "adverb", "pronoun",
                "preposition", "conjunction", "other"}
 
 
+# Endings that only look like the end of a sentence. Ding writes "sth." and
+# "sb." constantly, and a gloss ending in one is still a gloss.
+GLOSS_ABBREVIATIONS = ("sth.", "sb.", "etc.", "i.e.", "e.g.", "vs.", "tog.")
+
+
+def looks_like_a_sentence(word: dict) -> bool:
+    """Is this card's meaning a sentence rather than a gloss?
+
+    Deliberately conservative. Interjections really are glossed with
+    exclamations — *Prost!* means "Cheers!" — so a card whose German side is
+    itself punctuated is left alone, and a short gloss is never flagged. What it
+    catches is the long, full-stopped, question-marked English that belongs to
+    an example sentence.
+    """
+    meaning = (word.get("translation") or "").strip()
+    german = (word.get("word") or "").strip()
+    if not meaning or german.endswith("!") or german.endswith("?"):
+        return False
+    if not re.search(r"[.?!]$", meaning):
+        return False
+    if meaning.lower().endswith(GLOSS_ABBREVIATIONS):
+        return False
+    return len(meaning.split()) >= 6
+
+
 class Report:
     def __init__(self) -> None:
         self.errors: list[str] = []
@@ -83,13 +108,27 @@ def validate_vocabulary(report: Report) -> None:
         report.check(w["level"] in VALID_LEVELS, f"vocabulary {wid}: invalid level {w['level']!r}")
         report.check(bool(w.get("source")), f"vocabulary {wid}: missing source")
 
+        # A meaning is a gloss of the word, not a translation of a sentence.
+        # This is not a style rule: the Goethe transcription's third column
+        # translates the example sentence, and reading it as the headword's
+        # meaning once put "How many letters are there in the alphabet in your
+        # language?" on the card for *Alphabet*. Both checks below would have
+        # caught that.
+        report.check(
+            not w["exampleTranslation"].strip()
+            or w["translation"].strip() != w["exampleTranslation"].strip(),
+            f"vocabulary {wid}: the meaning is a copy of the example's translation")
+        report.check(not looks_like_a_sentence(w),
+                     f"vocabulary {wid}: {w['word']!r} is glossed with a sentence: "
+                     f"{w['translation']!r}")
+
         # Two kinds of card now sit in this file and they carry different
         # evidence, so they are checked differently rather than one standard
         # being relaxed for both. A card read out of the paginated GCSE document
         # must cite its page and carry a translated example. A card imported
-        # from a word list has no page to cite, and the lists print a German
-        # example without an English one — so the example is optional, but if it
-        # is there it must not be half-built.
+        # from a word list has no page to cite and may have no example at all —
+        # so the example is optional, but if it is there it must not be
+        # half-built.
         from_document = bool(w.get("sourcePage"))
         if from_document:
             report.check(isinstance(w["sourcePage"], int) and w["sourcePage"] > 0,
