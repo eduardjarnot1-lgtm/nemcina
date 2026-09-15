@@ -135,8 +135,9 @@ export const strings = {
   coachThinking: 'Thinking…',
   coachRemaining: (left: number, limit: number) => `${left} of ${limit} left today`,
   coachNoModel:
-    'No coach model is configured for this build, so what you see below is worked out on this device from your own answers.',
-  coachSignedOut: 'Sign in to ask the coach. What you see below is worked out on this device.',
+    'No coach model is configured for this build. Everything here is worked out on this device from your own answers.',
+  coachSignedOut:
+    'Sign in to ask the coach. Everything here is worked out on this device from your own answers.',
   coachFromYourRecords: 'From your own answers',
 
   adviceNothingYet: 'Nothing studied yet. Start a lesson and this fills in.',
