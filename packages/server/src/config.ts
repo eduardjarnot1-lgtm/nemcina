@@ -25,6 +25,15 @@ export interface ServerConfig {
   /** Sign-in attempts allowed per account per window. */
   readonly signInAttempts: number;
   readonly signInWindowMs: number;
+  /**
+   * Browser origins allowed to call this API.
+   *
+   * Empty by default, and empty means no CORS headers at all — a phone does not
+   * need them, and a wildcard on an API that holds sessions is a way to be
+   * called by any page the learner happens to have open. A web client is
+   * allowed by naming it, one origin at a time.
+   */
+  readonly corsOrigins: readonly string[];
 }
 
 export class ConfigError extends Error {}
@@ -52,5 +61,6 @@ export function readConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
     sessionDays: Number(env.SESSION_DAYS ?? 30),
     signInAttempts: Number(env.SIGN_IN_ATTEMPTS ?? 10),
     signInWindowMs: Number(env.SIGN_IN_WINDOW_MS ?? 15 * 60_000),
+    corsOrigins: (env.CORS_ORIGINS ?? '').split(',').map((o) => o.trim()).filter(Boolean),
   };
 }

@@ -26,7 +26,10 @@ blocked, prefix commands with `EXPO_OFFLINE=1` and add packages with plain
 | `src/course.tsx` | Loads the course once, after the first frame, and shares it. |
 | `src/progress.tsx` | `ProgressStore` over AsyncStorage, behind a context. |
 | `src/strings.ts` | Every word the interface says, in one table. |
+| `src/account.tsx` | The signed-in account; the token lives in SecureStore, never AsyncStorage. |
+| `src/api.ts` | The only place that knows the sync server's shape. |
 | `e2e/smoke.mjs` | The app driven in a browser. |
+| `e2e/sync.mjs` | The app, the server and two devices, driven together. |
 
 The content is bundled rather than fetched, so the app works offline. That costs
 about four megabytes and a parse on first launch.
@@ -43,13 +46,33 @@ lesson, answer it to the end, read the summary, reload and check the progress
 survived, search for a word without an umlaut key. It skips with a message
 rather than failing when there is no export or no browser.
 
+```bash
+PLAYWRIGHT_BROWSERS_PATH=/path/to/browsers node e2e/sync.mjs
+```
+
+`sync.mjs` is the whole stack: it starts the real server, exports the app
+pointed at it, and drives two browser contexts. Study on one, register, sync;
+sign in on the other, sync, and the work is there. It exports the app itself,
+because the API URL is baked into the bundle at export time.
+
 It drives the web export, so the components, engine, storage adapter and router
 under test are the shipped ones — but **nothing native is covered**: gestures,
 the on-screen keyboard, notifications, and how any of it looks on a real device
 still need a device.
 
+## Sync
+
+`EXPO_PUBLIC_API_URL` names the sync server, and has **no default**: nothing is
+deployed, and a hard-coded fallback would be a placeholder that quietly shipped.
+Unset, the app says sync is unavailable and everything else still works — an
+account is never a wall in front of the course.
+
+```bash
+EXPO_PUBLIC_API_URL=https://api.example.com npx expo start
+```
+
 ## Not built yet
 
-Accounts, cloud sync, subscriptions, ads, notifications, audio, a placement test
-and onboarding. Grammar has no screen yet, though the topics are loaded and
-searchable. `PROJECT_STATUS.md` in the repository root is the honest list.
+Subscriptions, ads, notifications, audio, a placement test and onboarding. No
+server is deployed, so sync works only against one you run yourself.
+`PROJECT_STATUS.md` in the repository root is the honest list.

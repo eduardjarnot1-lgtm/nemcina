@@ -90,6 +90,63 @@ describe('everything private needs a session', () => {
   });
 });
 
+describe('CORS', () => {
+  test('no headers at all when no origin was allowed', async () => {
+    const response = await fetch(`${base}/health`, { headers: { Origin: 'https://evil.example' } });
+    assert.equal(response.headers.get('access-control-allow-origin'), null);
+  });
+
+  test('a named origin is allowed and a stranger is not', async () => {
+    const withCors = createApi(
+      readConfig({
+        NODE_ENV: 'test', TOKEN_PEPPER: 'test-pepper', DATABASE_PATH: ':memory:',
+        CORS_ORIGINS: 'https://app.example.com',
+      }),
+      () => clock,
+    );
+    const port = await withCors.listen(0);
+    try {
+      const allowed = await fetch(`http://127.0.0.1:${port}/health`,
+        { headers: { Origin: 'https://app.example.com' } });
+      assert.equal(allowed.headers.get('access-control-allow-origin'), 'https://app.example.com');
+      assert.equal(allowed.headers.get('vary'), 'Origin');
+
+      const stranger = await fetch(`http://127.0.0.1:${port}/health`,
+        { headers: { Origin: 'https://evil.example' } });
+      assert.equal(stranger.headers.get('access-control-allow-origin'), null,
+        'an unnamed origin was allowed');
+
+      const preflight = await fetch(`http://127.0.0.1:${port}/progress/sync`, {
+        method: 'OPTIONS',
+        headers: { Origin: 'https://app.example.com' },
+      });
+      assert.equal(preflight.status, 204);
+      assert.match(preflight.headers.get('access-control-allow-methods') ?? '', /POST/);
+    } finally {
+      await withCors.close();
+    }
+  });
+
+  test('there is no wildcard to accidentally configure', async () => {
+    const wild = createApi(
+      readConfig({
+        NODE_ENV: 'test', TOKEN_PEPPER: 'test-pepper', DATABASE_PATH: ':memory:',
+        CORS_ORIGINS: '*',
+      }),
+      () => clock,
+    );
+    const port = await wild.listen(0);
+    try {
+      const response = await fetch(`http://127.0.0.1:${port}/health`,
+        { headers: { Origin: 'https://anything.example' } });
+      assert.equal(response.headers.get('access-control-allow-origin'), null,
+        '"*" in the allowlist behaved as a wildcard');
+    } finally {
+      await wild.close();
+    }
+  });
+});
+
 describe('registering and signing in', () => {
   test('registering returns a session', async () => {
     const reply = await call('POST', '/accounts',

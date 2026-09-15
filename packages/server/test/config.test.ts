@@ -44,6 +44,20 @@ describe('secrets', () => {
   });
 });
 
+describe('CORS', () => {
+  test('is off by default — a phone does not need it', () => {
+    assert.deepEqual(readConfig({ NODE_ENV: 'test' }).corsOrigins, []);
+  });
+
+  test('origins are named one at a time; there is no wildcard to set', () => {
+    const config = readConfig({
+      NODE_ENV: 'test',
+      CORS_ORIGINS: 'https://app.example.com, https://staging.example.com',
+    });
+    assert.deepEqual(config.corsOrigins, ['https://app.example.com', 'https://staging.example.com']);
+  });
+});
+
 describe('defaults', () => {
   test('are the safe ones', () => {
     const config = readConfig({ NODE_ENV: 'test' });

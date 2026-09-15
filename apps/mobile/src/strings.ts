@@ -83,6 +83,30 @@ export const strings = {
     'Removes every answer stored on this device. The course content is untouched.',
   profileResetConfirm: 'Delete everything?',
   profileResetCancel: 'Cancel',
+  accountTitle: 'Account',
+  accountSignedInAs: 'Signed in as',
+  accountEmail: 'Email',
+  accountPassword: 'Password',
+  accountSignIn: 'Sign in',
+  accountRegister: 'Create an account',
+  accountSignOut: 'Sign out',
+  accountSwitchToRegister: 'No account yet? Create one',
+  accountSwitchToSignIn: 'Already have an account? Sign in',
+  accountSyncNow: 'Sync now',
+  accountSyncing: 'Syncing…',
+  accountNeverSynced: 'Not synced yet',
+  accountSyncResult: (pushed: number, pulled: number) =>
+    `Sent ${pushed}, received ${pulled}.`,
+  accountNotConfigured:
+    'This build has no sync server, so progress stays on this device. Accounts and cross-device sync work once one is configured.',
+  accountWhySignIn:
+    'An account keeps your progress across devices. Without one everything still works and stays on this phone.',
+  accountDelete: 'Delete my account',
+  accountDeleteExplain:
+    'Removes the account and everything stored on the server. Progress on this device is kept.',
+  accountFree: 'Free',
+  accountPremium: 'Premium',
+
   profileSources: 'Content sources',
   profileSourcesExplain:
     'Vocabulary and grammar come from published word lists and coursebooks, credited in ZDROJE.md. Nothing in the course is machine-generated.',

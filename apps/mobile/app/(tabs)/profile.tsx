@@ -4,6 +4,7 @@ import { streak, totals } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
 import { PrimaryButton } from '../../src/components/PrimaryButton';
+import { AccountPanel } from '../../src/components/AccountPanel';
 import { useProgress } from '../../src/progress';
 import { strings } from '../../src/strings';
 import { palette, spacing, type as typeScale } from '../../src/theme';
@@ -35,6 +36,8 @@ export default function ProfileScreen() {
           <Row label={strings.dueToday} value={summary.due} />
           <Row label={strings.streak} value={days.current} />
         </Card>
+
+        <AccountPanel />
 
         <Card style={styles.block}>
           <Text style={styles.blockTitle}>{strings.profileSources}</Text>

@@ -30,6 +30,26 @@ export interface Api {
   close(): Promise<void>;
 }
 
+/**
+ * CORS, only for origins that were named.
+ *
+ * No wildcard, and nothing at all when the allowlist is empty: an API holding
+ * sessions should not be callable from any page the learner happens to have
+ * open. `Vary: Origin` because the answer depends on who asked.
+ */
+function applyCors(
+  request: IncomingMessage, response: ServerResponse, allowed: readonly string[],
+): void {
+  const origin = request.headers.origin;
+  if (!origin || allowed.length === 0) return;
+  response.setHeader('Vary', 'Origin');
+  if (!allowed.includes(origin)) return;
+  response.setHeader('Access-Control-Allow-Origin', origin);
+  response.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+  response.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  response.setHeader('Access-Control-Max-Age', '600');
+}
+
 function send(response: ServerResponse, status: number, body: unknown): void {
   const payload = JSON.stringify(body);
   response.writeHead(status, {
@@ -80,6 +100,11 @@ export function createApi(config: ServerConfig, now: () => number = Date.now): A
   };
 
   const server = createServer((request, response) => {
+    applyCors(request, response, config.corsOrigins);
+    if (request.method === 'OPTIONS') {
+      response.writeHead(204).end();
+      return;
+    }
     void handle(request, response).catch((error: unknown) => {
       if (error instanceof AuthError) {
         send(response, error.status, { error: error.message });
