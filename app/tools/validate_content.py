@@ -32,6 +32,20 @@ VALID_TYPES = {"noun", "verb", "adjective", "adverb", "pronoun",
 GLOSS_ABBREVIATIONS = ("sth.", "sb.", "etc.", "i.e.", "e.g.", "vs.", "tog.")
 
 
+# Notation a dictionary uses about a word, which is not part of its meaning:
+# Ding writes irregular forms in {braces}, subject domains in [brackets] and
+# alternative spellings in <angles>. Any of it reaching a card means the gloss
+# was cut out of the dictionary badly.
+DICTIONARY_NOTATION = re.compile(r"[{}\[\]<>]")
+
+
+def has_dictionary_notation(meaning: str) -> bool:
+    if DICTIONARY_NOTATION.search(meaning):
+        return True
+    # An unbalanced parenthesis is the same fault wearing a commoner bracket.
+    return meaning.count("(") != meaning.count(")")
+
+
 def looks_like_a_sentence(word: dict) -> bool:
     """Is this card's meaning a sentence rather than a gloss?
 
@@ -118,6 +132,9 @@ def validate_vocabulary(report: Report) -> None:
             not w["exampleTranslation"].strip()
             or w["translation"].strip() != w["exampleTranslation"].strip(),
             f"vocabulary {wid}: the meaning is a copy of the example's translation")
+        report.check(not has_dictionary_notation(w["translation"]),
+                     f"vocabulary {wid}: {w['word']!r} carries dictionary notation "
+                     f"in its meaning: {w['translation']!r}")
         report.check(not looks_like_a_sentence(w),
                      f"vocabulary {wid}: {w['word']!r} is glossed with a sentence: "
                      f"{w['translation']!r}")

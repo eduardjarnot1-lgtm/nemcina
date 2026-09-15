@@ -196,6 +196,20 @@ describe('the importer reads the real pipeline output', () => {
     }
   });
 
+  test('no card carries dictionary notation in its meaning', () => {
+    // Ding writes irregular forms in {braces}, domains in [brackets] and
+    // alternative spellings in <angles>. Splitting its senses on every ";"
+    // cut through those and left "to send {sent" on a card.
+    for (const entry of items) {
+      assert.doesNotMatch(entry.translation, /[{}[\]<>]/,
+        `${entry.id} (${entry.term}) carries dictionary notation: ${entry.translation}`);
+      const opens = (entry.translation.match(/\(/g) ?? []).length;
+      const closes = (entry.translation.match(/\)/g) ?? []).length;
+      assert.equal(opens, closes,
+        `${entry.id} (${entry.term}) has an unbalanced bracket: ${entry.translation}`);
+    }
+  });
+
   test('an example that has a translation keeps it — it is half the card', () => {
     const withExample = items.filter((entry) => entry.example.trim());
     const translated = withExample.filter((entry) => entry.exampleTranslation.trim());

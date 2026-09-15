@@ -62,8 +62,8 @@
    "A2: 2006 of 2022 transcribed entries verified against the official PDF (99%)",
    "A1: 1694 of 1694 transcribed entries verified against the official PDF (100%)",
    "Lingster: 3470 tagged lines read, 3226 distinct headwords",
-   "Ding: 205907 dictionary lines read, 225450 headwords indexed",
-   "glossed from Ding: 3986 entries no word list translates"
+   "Ding: 205907 dictionary lines read, 224730 headwords indexed",
+   "glossed from Ding: 3998 entries no word list translates"
   ]
  },
  "entries": [
@@ -87,7 +87,7 @@
    "plural": "",
    "example": "Ab morgen muss ich arbeiten.",
    "exampleTranslation": "I have to work from tomorrow.",
-   "translation": "off sth.; from …",
+   "translation": "ex; off sth.",
    "sources": [
     "goethe-a1",
     "ding"
@@ -395,7 +395,7 @@
    "plural": "",
    "example": "Am nächsten Montag geht es leider nicht.",
    "exampleTranslation": "Sorry, it won't work next Monday.",
-   "translation": "on",
+   "translation": "at; on",
    "sources": [
     "goethe-a1",
     "ding"
@@ -833,7 +833,7 @@
    "plural": "",
    "example": "Wo arbeiten Sie?",
    "exampleTranslation": "Where do you work?",
-   "translation": "to operate; to go {went",
+   "translation": "to operate; to go",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -951,7 +951,7 @@
    "plural": "",
    "example": "Auf Wiedersehen.",
    "exampleTranslation": "Goodbye.",
-   "translation": "up; on",
+   "translation": "on; up",
    "sources": [
     "goethe-a1",
     "ding"
@@ -1024,7 +1024,7 @@
    "plural": "",
    "example": "Soll ich aufstehen?",
    "exampleTranslation": "Should I get up?",
-   "translation": "to arise {arose; to get up",
+   "translation": "to arise; to get up",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -1068,7 +1068,7 @@
    "plural": "",
    "example": "Er kommt aus Brasilien.",
    "exampleTranslation": "He comes from Brazil.",
-   "translation": "out of; over",
+   "translation": "out of; from",
    "sources": [
     "goethe-a1",
     "ding"
@@ -1348,7 +1348,7 @@
    "plural": "",
    "example": "Du musst nichts machen. Das geht automatisch.",
    "exampleTranslation": "You don't have to do anything. It happens automatically.",
-   "translation": "automatic <automatical>; automatically",
+   "translation": "automatic; automatically",
    "sources": [
     "goethe-a1",
     "ding"
@@ -1599,7 +1599,7 @@
    "plural": "",
    "example": "Was bedeutet das Wort?",
    "exampleTranslation": "What does the word mean?",
-   "translation": "to mean {meant; to stand for",
+   "translation": "to mean; to stand for",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -1614,7 +1614,7 @@
    "plural": "",
    "example": "Das Spiel beginnt um 15.30 Uhr.",
    "exampleTranslation": "The game starts at 3:30 PM.",
-   "translation": "to begin {began; to start off",
+   "translation": "to begin; to start off",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -1630,7 +1630,7 @@
    "plural": "",
    "example": "Er arbeitet bei der Polizei.",
    "exampleTranslation": "He works at the police station.",
-   "translation": "when + …ing; with",
+   "translation": "near; at",
    "sources": [
     "goethe-a1",
     "ding"
@@ -1704,7 +1704,7 @@
    "plural": "",
    "example": "Dieses Medikament bekommen Sie in der Apotheke.",
    "exampleTranslation": "You can get this medication at the pharmacy.",
-   "translation": "won}; to come by sth.",
+   "translation": "to win; to come by sth.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -1925,7 +1925,7 @@
    "plural": "",
    "example": "Ich warte bis morgen.",
    "exampleTranslation": "I will wait until tomorrow.",
-   "translation": "pending; no later than",
+   "translation": "up to; pending",
    "sources": [
     "goethe-a1",
     "ding"
@@ -2279,7 +2279,7 @@
    "plural": "",
    "example": "Bitte buchstabieren Sie Ihren Namen.",
    "exampleTranslation": "Please spell your name.",
-   "translation": "to spell sth. {spelled, spelt",
+   "translation": "to spell sth.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -2499,7 +2499,7 @@
    "plural": "",
    "example": "Herzlichen Dank!",
    "exampleTranslation": "Heartfelt thanks!",
-   "translation": "thanks",
+   "translation": "thanks; thanks to",
    "sources": [
     "goethe-a1",
     "ding"
@@ -2629,7 +2629,7 @@
    "plural": "",
    "example": "Die Fahrkarte bekommst du am Bahnhof.",
    "exampleTranslation": "You get the ticket at the station.",
-   "translation": "who; that",
+   "translation": "the; who",
    "sources": [
     "goethe-a1",
     "ding"
@@ -2670,12 +2670,11 @@
    "plural": "",
    "example": "Gefallen dir die Blumen?",
    "exampleTranslation": "Do you like the flowers?",
-   "translation": "you",
+   "translation": "",
    "sources": [
-    "goethe-a1",
-    "ding"
+    "goethe-a1"
    ],
-   "translationSource": "ding"
+   "translationSource": ""
   },
   {
    "word": "Disco",
@@ -2863,7 +2862,7 @@
    "plural": "",
    "example": "Am besten gehen Sie durch die Breite Straße.",
    "exampleTranslation": "It’s best to go through Breite Street.",
-   "translation": "by; through",
+   "translation": "through; by",
    "sources": [
     "goethe-a1",
     "ding"
@@ -3334,11 +3333,12 @@
    "plural": "",
    "example": "Er heißt Ali.",
    "exampleTranslation": "His name is Ali.",
-   "translation": "",
+   "translation": "he",
    "sources": [
-    "goethe-a1"
+    "goethe-a1",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "Ergebnis",
@@ -3421,7 +3421,7 @@
    "plural": "",
    "example": "Wir müssen euch etwas erzählen!",
    "exampleTranslation": "We need to tell you something!",
-   "translation": "narrative; to tell {told",
+   "translation": "narrative; to tell sth.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -3436,7 +3436,7 @@
    "plural": "",
    "example": "Es regnet.",
    "exampleTranslation": "It is raining.",
-   "translation": "id; E flat",
+   "translation": "it; id",
    "sources": [
     "goethe-a1",
     "ding"
@@ -3628,7 +3628,7 @@
    "plural": "-e",
    "example": "Schicken Sie uns einfach ein Fax!",
    "exampleTranslation": "Just send us a fax!",
-   "translation": "fax <facsimile>; fax machine",
+   "translation": "fax; fax machine",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -3821,7 +3821,7 @@
    "plural": "",
    "example": "Wir müssen den Schlüssel finden.",
    "exampleTranslation": "We need to find the key.",
-   "translation": "to find {found; to pick out ⇆ sth.",
+   "translation": "to find; to pick out ⇆ sth.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -3894,7 +3894,7 @@
    "plural": "",
    "example": "Ich fliege nicht gern. Deshalb fahre ich mit dem Zug.",
    "exampleTranslation": "I don’t like flying. That’s why I take the train.",
-   "translation": "flying; to fly {flew",
+   "translation": "flying; to fly",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -4116,7 +4116,7 @@
    "plural": "",
    "example": "Ich freue mich auf den Urlaub.",
    "exampleTranslation": "I am looking forward to the vacation.",
-   "translation": "to be glad; to chuckle (at",
+   "translation": "to be glad; to chuckle",
    "sources": [
     "goethe-a1",
     "ding"
@@ -4145,7 +4145,7 @@
    "plural": "",
    "example": "Ich habe es gerade gekauft.",
    "exampleTranslation": "I just bought it.",
-   "translation": "dewy; freshly",
+   "translation": "fresh; dewy",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -4280,7 +4280,7 @@
    "plural": "",
    "example": "Das ist das Brot für morgen.",
    "exampleTranslation": "This is the bread for tomorrow.",
-   "translation": "per",
+   "translation": "for; per",
    "sources": [
     "goethe-a1",
     "ding"
@@ -4323,7 +4323,7 @@
    "plural": "",
    "example": "Es gibt keine Karten mehr.",
    "exampleTranslation": "There are no more tickets available.",
-   "translation": "to give sth. {gave; will be",
+   "translation": "to give sth.; will be",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -4436,7 +4436,7 @@
    "plural": "",
    "example": "Das geht nicht!",
    "exampleTranslation": "That doesn’t work!",
-   "translation": "to go {went; to step",
+   "translation": "to go; to step",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -4688,7 +4688,7 @@
    "plural": "",
    "example": "Wer gewinnt das Spiel?",
    "exampleTranslation": "Who wins the game?",
-   "translation": "to win sth. {won; to win {won",
+   "translation": "to win sth.; to win",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -4792,7 +4792,7 @@
    "plural": "",
    "example": "Meine Kinder sind glücklich verheiratet.",
    "exampleTranslation": "My children are happily married.",
-   "translation": "happy (at; lucky",
+   "translation": "happy; lucky",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -5113,7 +5113,7 @@
    "plural": "",
    "example": "Dieser Zug hält nicht in Rüdesheim.",
    "exampleTranslation": "This train does not stop in Rüdesheim.",
-   "translation": "to hold {held; to halt",
+   "translation": "to hold; to halt",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -5158,12 +5158,13 @@
    "plural": "-s",
    "example": "In der Schule bitte die Handys ausmachen!",
    "exampleTranslation": "Please turn off the mobile phones at school!",
-   "translation": "",
+   "translation": "cell phone",
    "sources": [
     "goethe-a1",
-    "lingster"
+    "lingster",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "Haus",
@@ -5276,7 +5277,7 @@
    "plural": "",
    "example": "Wie heißt das auf Deutsch?",
    "exampleTranslation": "What is that called in German?",
-   "translation": "to be called; meant}",
+   "translation": "to be called; to mean",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -5633,7 +5634,7 @@
    "plural": "",
    "example": "Komm, wir gehen ins Kino.",
    "exampleTranslation": "Come, we are going to the cinema.",
-   "translation": "on; trendy",
+   "translation": "in; into",
    "sources": [
     "goethe-a1",
     "ding"
@@ -5721,7 +5722,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to interview (on",
+   "translation": "to interview",
    "preposition": "",
    "sources": [
     "lingster",
@@ -6029,7 +6030,7 @@
    "plural": "",
    "example": "Kennen Sie diese Frau? – Nein, leider nicht.",
    "exampleTranslation": "Do you know this woman? – No, unfortunately not.",
-   "translation": "to know sth. {knew; to know sb.",
+   "translation": "to know sth.; to know sb.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -6133,7 +6134,7 @@
    "plural": "-s",
    "example": "Wir sehen heute Abend im Kino einen schönen Film.",
    "exampleTranslation": "We’re going to see a nice movie at the cinema tonight.",
-   "translation": "cinema; film",
+   "translation": "cinema",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -6313,7 +6314,7 @@
    "plural": "",
    "example": "Kommst du mit ins Schwimmbad?",
    "exampleTranslation": "Are you coming to the swimming pool?",
-   "translation": "to come {came; to attend",
+   "translation": "to come; to attend",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -6687,7 +6688,7 @@
    "plural": "",
    "example": "Ich möchte nicht Auto fahren, ich möchte laufen.",
    "exampleTranslation": "I don’t want to drive; I want to walk.",
-   "translation": "to run {ran; to run",
+   "translation": "to run; to be in progress",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -6776,7 +6777,7 @@
    "plural": "",
    "example": "Legen Sie das Buch auf den Tisch.",
    "exampleTranslation": "Put the book on the table.",
-   "translation": "to lay {laid; to prop sth.",
+   "translation": "to lay; to prop sth.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -6866,7 +6867,7 @@
    "plural": "",
    "example": "Ich lese ein Buch von García Márquez.",
    "exampleTranslation": "I’m reading a book by García Márquez.",
-   "translation": "reading; to read {read",
+   "translation": "reading; to read",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -7021,7 +7022,7 @@
    "plural": "",
    "example": "Frankfurt liegt am Main.",
    "exampleTranslation": "Frankfurt is situated on the River Main.",
-   "translation": "to lie {lay; to be located",
+   "translation": "to lie; to be located",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -7168,7 +7169,7 @@
    "plural": "",
    "example": "Das macht nichts.",
    "exampleTranslation": "It doesn’t matter.",
-   "translation": "to do sth. {did; to do sth.",
+   "translation": "to do sth.; to fix",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -7433,7 +7434,7 @@
    "plural": "",
    "example": "Trinken Sie den Kaffee mit Milch?",
    "exampleTranslation": "Do you take your coffee with milk?",
-   "translation": "too; as from",
+   "translation": "with; too",
    "sources": [
     "goethe-a1",
     "ding"
@@ -7651,7 +7652,7 @@
    "plural": "-ü",
    "example": "Frau Berghäuser ist die Mutter von Michaela.",
    "exampleTranslation": "Mrs. Berghäuser is Michaela’s mother.",
-   "translation": "mother; mother <mater>",
+   "translation": "mother; nut",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -7798,7 +7799,7 @@
    "plural": "",
    "example": "Es ist schon 5 nach 12.",
    "exampleTranslation": "It’s already 5 minutes past 12.",
-   "translation": "to resort; on",
+   "translation": "to; after",
    "sources": [
     "goethe-a1",
     "ding"
@@ -7887,7 +7888,7 @@
    "plural": "",
    "example": "Ich nehme den Bus.",
    "exampleTranslation": "I’ll take the bus.",
-   "translation": "to take sth. {took; to go for sth.",
+   "translation": "to take sth.; to go for sth.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -8094,7 +8095,7 @@
    "plural": "-n",
    "example": "Können Sie mir Ihre Nummer geben?",
    "exampleTranslation": "Can you give me your number?",
-   "translation": "music track; issue",
+   "translation": "music track; act, turn",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -8225,7 +8226,7 @@
    "plural": "",
    "example": "Den Salat machen wir ohne Öl.",
    "exampleTranslation": "We make the salad without oil.",
-   "translation": "un…",
+   "translation": "without; un…",
    "sources": [
     "goethe-a1",
     "ding"
@@ -8712,7 +8713,7 @@
    "plural": "-e",
    "example": "Die Preise sind hoch.",
    "exampleTranslation": "The prices are high.",
-   "translation": "award; price",
+   "translation": "award; prize",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -8831,7 +8832,7 @@
    "plural": "-s",
    "example": "Ich höre im Auto gern Radio.",
    "exampleTranslation": "I like to listen to the radio in the car.",
-   "translation": "radio; scriptwriter",
+   "translation": "radio; wireless",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -9114,7 +9115,7 @@
    "plural": "",
    "example": "Dieser Wein riecht gut.",
    "exampleTranslation": "This wine smells good.",
-   "translation": "to smell sth.; to smell {smelled / smelt",
+   "translation": "to smell sth.; to smell",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -9188,7 +9189,7 @@
    "plural": "",
    "example": "Sag mal, wie geht es dir denn?",
    "exampleTranslation": "Tell me, how are you doing?",
-   "translation": "to tell sth. {told; spoken}",
+   "translation": "to tell sth.; to speak",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -9263,7 +9264,7 @@
    "plural": "",
    "example": "Möchtest du beim Fußballspiel zuschauen?",
    "exampleTranslation": "Would you like to watch the soccer game?",
-   "translation": "to behold sb./sth. {beheld",
+   "translation": "to look; to behold sb./sth.",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -9293,7 +9294,7 @@
    "plural": "",
    "example": "Bitte schicken Sie mir eine E-Mail.",
    "exampleTranslation": "Please send me an email.",
-   "translation": "to send {sent; to dispatch sb.",
+   "translation": "to send; to send sb.",
    "sources": [
     "goethe-a1",
     "ding"
@@ -9411,7 +9412,7 @@
    "plural": "",
    "example": "Schmeckt das gut?",
    "exampleTranslation": "Does it taste good?",
-   "translation": "to taste; smelled / smelt }",
+   "translation": "to taste; to smell",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -9487,7 +9488,7 @@
    "plural": "",
    "example": "Er schreibt jeden Tag fünfzig E-Mails.",
    "exampleTranslation": "He writes fifty emails every day.",
-   "translation": "writing; to write sth. {wrote",
+   "translation": "writing; to write sth.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -9592,7 +9593,7 @@
    "plural": "",
    "example": "Ich schwimme jeden Tag einen Kilometer.",
    "exampleTranslation": "I swim a kilometer every day.",
-   "translation": "floatage; to swim {swam",
+   "translation": "floatage; to swim",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -9652,7 +9653,7 @@
    "plural": "",
    "example": "Ich habe diesen Jungen schon einmal gesehen.",
    "exampleTranslation": "I’ve seen this boy before.",
-   "translation": "to see sth. {saw; to look (at",
+   "translation": "to see sth.; to look",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -9697,7 +9698,7 @@
    "plural": "",
    "example": "Ich bin dreiundzwanzig.",
    "exampleTranslation": "I am twenty-three.",
-   "translation": "to be {was/were; his",
+   "translation": "to be; his",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -9712,7 +9713,7 @@
    "plural": "",
    "example": "Ich wohne seit drei Jahren in Köln.",
    "exampleTranslation": "I have been living in Cologne for three years.",
-   "translation": "since; ever since",
+   "translation": "since; for",
    "sources": [
     "goethe-a1",
     "ding"
@@ -9755,7 +9756,7 @@
    "plural": "",
    "example": "Können Sie uns die Post bitte nachsenden?",
    "exampleTranslation": "Can you please forward the mail to us?",
-   "translation": "to send {sent; to route",
+   "translation": "to send; to route",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -9830,7 +9831,7 @@
    "plural": "",
    "example": "Wie heißen Sie, bitte?",
    "exampleTranslation": "What’s your name, please?",
-   "translation": "yourself",
+   "translation": "you; she",
    "sources": [
     "goethe-a1",
     "ding"
@@ -9844,7 +9845,7 @@
    "plural": "",
    "example": "Er hat im Chor gesungen.",
    "exampleTranslation": "He sang in the choir.",
-   "translation": "singing; to sing {sang",
+   "translation": "singing; to sing",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -9859,7 +9860,7 @@
    "plural": "",
    "example": "Wo sitzen Sie?",
    "exampleTranslation": "Where are you sitting?",
-   "translation": "sitting; to sit {sat",
+   "translation": "sitting; to sit",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -10066,7 +10067,7 @@
    "plural": "",
    "example": "Kann ich (mit) Herrn Klein sprechen?",
    "exampleTranslation": "May I speak with Mr. Klein?",
-   "translation": "speaking; to speak {spoke",
+   "translation": "speaking; to speak",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -10170,7 +10171,7 @@
    "plural": "",
    "example": "Der Bus steht schon an der Haltestelle.",
    "exampleTranslation": "The bus is already at the stop.",
-   "translation": "to stand {stood; to become",
+   "translation": "to stand; to become",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -10379,7 +10380,7 @@
    "plural": "",
    "example": "Suchst du etwas?",
    "exampleTranslation": "Are you looking for something?",
-   "translation": "to seek sth. {sought; to prospect",
+   "translation": "to seek sth.; to prospect",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -10903,7 +10904,7 @@
    "plural": "",
    "example": "Er trägt heute einen blauen Anzug.",
    "exampleTranslation": "He is wearing a blue suit today.",
-   "translation": "to wear sth. {wore; to hump",
+   "translation": "to wear sth.; to bear",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -10918,7 +10919,7 @@
    "plural": "",
    "example": "Ich bin sehr traurig. Meine Katze ist weggelaufen.",
    "exampleTranslation": "I am very sad. My cat ran away.",
-   "translation": "sad (at; sad",
+   "translation": "sad; sadly",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -10963,7 +10964,7 @@
    "plural": "",
    "example": "Möchtest du etwas trinken?",
    "exampleTranslation": "Would you like something to drink?",
-   "translation": "to drink {drank; to suckle",
+   "translation": "to drink; to suckle",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -10991,7 +10992,7 @@
    "plural": "",
    "example": "Was tut Ihr Mann?",
    "exampleTranslation": "What does your husband do?",
-   "translation": "doing; to do sth. {did",
+   "translation": "doing; to do sth.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -11051,7 +11052,7 @@
    "plural": "",
    "example": "Da kommt er gerade um die Ecke.",
    "exampleTranslation": "There he is, just around the corner.",
-   "translation": "round",
+   "translation": "round; at",
    "sources": [
     "goethe-a1",
     "ding"
@@ -11136,7 +11137,7 @@
    "plural": "",
    "example": "Unter uns wohnt eine Familie mit drei Kindern.",
    "exampleTranslation": "A family with three children lives below us.",
-   "translation": "jack; beneath",
+   "translation": "under; jack",
    "sources": [
     "goethe-a1",
     "ding"
@@ -11210,7 +11211,7 @@
    "plural": "-ä",
    "example": "Mein Vater ist Arbeiter.",
    "exampleTranslation": "My father is a worker.",
-   "translation": "father <pater>; sire",
+   "translation": "father; sire",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -11283,7 +11284,7 @@
    "plural": "",
    "example": "Er verkauft sein altes Auto.",
    "exampleTranslation": "He’s selling his old car.",
-   "translation": "to sell {sold; to vend sth.",
+   "translation": "to sell; to vend sth.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -11341,7 +11342,7 @@
    "plural": "",
    "example": "Können Sie mich verstehen?",
    "exampleTranslation": "Can you understand me?",
-   "translation": "to understand {understood; to make sense of sth.",
+   "translation": "to understand; to make sense of sth.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -11400,7 +11401,7 @@
    "plural": "",
    "example": "Er kommt gerade von Köln/von zu Hause.",
    "exampleTranslation": "He just came from Cologne/from home.",
-   "translation": "from",
+   "translation": "from; of",
    "sources": [
     "goethe-a1",
     "ding"
@@ -11414,7 +11415,7 @@
    "plural": "",
    "example": "Das Auto steht vor der Tür.",
    "exampleTranslation": "The car is in front of the door.",
-   "translation": "shy",
+   "translation": "in front of; before",
    "sources": [
     "goethe-a1",
     "ding"
@@ -11546,7 +11547,7 @@
    "plural": "",
    "example": "Auf wen warten Sie?",
    "exampleTranslation": "Who are you waiting for?",
-   "translation": "waiting; to maintain",
+   "translation": "waiting; to wait",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -11778,7 +11779,7 @@
    "plural": "",
    "example": "Mein Sohn will Arzt werden.",
    "exampleTranslation": "My son wants to become a doctor.",
-   "translation": "will; to become sth. {became",
+   "translation": "will; to become sth.",
    "sources": [
     "goethe-a1",
     "ding"
@@ -11966,11 +11967,12 @@
    "plural": "",
    "example": "Wir lernen Deutsch.",
    "exampleTranslation": "We are learning German.",
-   "translation": "",
+   "translation": "we",
    "sources": [
-    "goethe-a1"
+    "goethe-a1",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "wissen",
@@ -11979,7 +11981,7 @@
    "plural": "",
    "example": "Weißt du, wie er heißt?",
    "exampleTranslation": "Do you know what his name is?",
-   "translation": "knowledge <knowledges>; to know sth. {knew",
+   "translation": "knowledge; to know sth.",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -12302,7 +12304,7 @@
    "plural": "",
    "example": "Ich bin zu Hause.",
    "exampleTranslation": "I am at home.",
-   "translation": "to; too",
+   "translation": "to; with",
    "sources": [
     "goethe-a1",
     "ding"
@@ -12403,7 +12405,7 @@
    "plural": "",
    "example": "Er hat die Tür zugemacht.",
    "exampleTranslation": "He closed the door.",
-   "translation": "to shut {shut; to seal off ⇆ sth.",
+   "translation": "to shut sth.; to seal off ⇆ sth.",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -12537,7 +12539,7 @@
    "plural": "",
    "example": "Sind Sie über 18?",
    "exampleTranslation": "Are you over 18?",
-   "translation": "over; in excess of",
+   "translation": "above; about",
    "sources": [
     "goethe-a1",
     "lingster",
@@ -12895,7 +12897,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "lighting; to light sth. {lit, lighted",
+   "translation": "lighting; to light sth.",
    "preposition": "",
    "sources": [
     "lingster",
@@ -13084,7 +13086,7 @@
    "plural": "",
    "example": "Von dem Lärm bin ich aufgewacht.",
    "exampleTranslation": "I woke up from the noise.",
-   "translation": "to wake {woke, waked; to awake {awoke, awaked",
+   "translation": "to wake; to awake",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -13114,7 +13116,7 @@
    "plural": "",
    "example": "hat ausgegeben",
    "exampleTranslation": "has spent.",
-   "translation": "to give out; to output {output, outputted",
+   "translation": "to give out; to output",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -13219,7 +13221,7 @@
    "plural": "",
    "example": "hat ausgetragen",
    "exampleTranslation": "has delivered.",
-   "translation": "to sign oneself out; to cancel sb.’s name",
+   "translation": "to sign oneself out; to sign out",
    "sources": [
     "goethe-a2",
     "ding"
@@ -13262,7 +13264,7 @@
    "plural": "",
    "example": "Wir haben täglich außer Samstag geöffnet.",
    "exampleTranslation": "We are open every day except Saturday.",
-   "translation": "except; other than",
+   "translation": "out of; except",
    "sources": [
     "goethe-a2",
     "ding"
@@ -13422,7 +13424,7 @@
    "plural": "",
    "example": "hat gebaut",
    "exampleTranslation": "has built.",
-   "translation": "to build sth. {built; to build {built",
+   "translation": "to build sth.; to build",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -13670,7 +13672,7 @@
    "plural": "",
    "example": "hat beschwert",
    "exampleTranslation": "has complained.",
-   "translation": "to weight; to burden sb./sth.",
+   "translation": "to weight; to complain",
    "sources": [
     "goethe-a2",
     "ding"
@@ -13774,7 +13776,7 @@
    "plural": "-en",
    "example": "",
    "exampleTranslation": "",
-   "translation": "candidacy; solicitation",
+   "translation": "application; candidacy",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -13937,7 +13939,7 @@
    "plural": "-s",
    "example": "Das Buffet ist eröffnet!",
    "exampleTranslation": "The buffet is open!",
-   "translation": "buffet",
+   "translation": "buffet; snack bar",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -14185,7 +14187,7 @@
    "plural": "-s",
    "example": "Der Kuchen schmeckt super! Was ist in der Creme? – Das ist eine Buttercreme mit viel Schokolade.",
    "exampleTranslation": "The cake tastes great! What’s in the cream? – It’s a buttercream with a lot of chocolate.",
-   "translation": "creamy; cream",
+   "translation": "cream; creamy",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -14483,7 +14485,7 @@
    "plural": "",
    "example": "Wir liefern Ihnen das Sofa direkt ins Haus.",
    "exampleTranslation": "We will deliver the sofa directly to your house.",
-   "translation": "direct; straight <straighter> <straightest>",
+   "translation": "direct; straight",
    "sources": [
     "goethe-a2",
     "ding"
@@ -14930,7 +14932,7 @@
    "plural": "",
    "example": "Möchtest du auch ein Eis?",
    "exampleTranslation": "Would you like an ice cream, too?",
-   "translation": "ice; ice cream <ice-cream> <icecream>",
+   "translation": "ice; ice cream",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -15305,7 +15307,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to expect sth.; to bide {bided, bode",
+   "translation": "to expect sth.; to bide",
    "preposition": "",
    "sources": [
     "lingster",
@@ -15467,7 +15469,7 @@
    "plural": "",
    "example": "Pass auf, das Glas fällt gleich vom Tisch.",
    "exampleTranslation": "Watch out, the glass is about to fall off the table.",
-   "translation": "to fall {fell; to drop",
+   "translation": "to fall; to drop",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -15689,12 +15691,13 @@
    "plural": "-",
    "example": "Alessandro hat sich in den Finger geschnitten.",
    "exampleTranslation": "Alessandro cut his finger.",
-   "translation": "",
+   "translation": "finger",
    "sources": [
     "goethe-b1",
-    "lingster"
+    "lingster",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "fit",
@@ -15938,7 +15941,7 @@
    "plural": "",
    "example": "Heute Nacht hat es gefroren.",
    "exampleTranslation": "It froze last night.",
-   "translation": "to be cold; to freeze {froze",
+   "translation": "to be cold; to freeze",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -16083,7 +16086,7 @@
    "plural": "",
    "example": "Ich fühle mich heute nicht gut.",
    "exampleTranslation": "I’m not feeling well today.",
-   "translation": "feeling; to feel {felt",
+   "translation": "feeling; to feel",
    "sources": [
     "goethe-a2",
     "ding"
@@ -16378,7 +16381,7 @@
    "plural": "-e",
    "example": "Stellst du bitte das Geschirr in den Schrank?",
    "exampleTranslation": "Could you please put the dishes in the cupboard?",
-   "translation": "harness",
+   "translation": "pots and pans; harness",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -16853,12 +16856,13 @@
    "plural": "-¨e",
    "example": "Treffen wir uns am Hauptbahnhof?",
    "exampleTranslation": "Shall we meet at the main train station?",
-   "translation": "",
+   "translation": "main station",
    "sources": [
     "goethe-b1",
-    "lingster"
+    "lingster",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "Hauptschule",
@@ -17277,7 +17281,7 @@
    "plural": "",
    "example": "Das Bild von meiner Tochter hat im Wohnzimmer gehangen.",
    "exampleTranslation": "My daughter’s picture hung in the living room.",
-   "translation": "to hang sb. {hanged",
+   "translation": "to hang; to hang sb.",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -17967,7 +17971,7 @@
    "plural": "-e",
    "example": "Jakob kann sehr gut Klavier spielen.",
    "exampleTranslation": "Jakob can play the piano very well.",
-   "translation": "touch; piano",
+   "translation": "piano",
    "sources": [
     "goethe-a2",
     "ding"
@@ -18026,7 +18030,7 @@
    "plural": "",
    "example": "Das Telefon klingelt. Drück bitte auf die Klingel!",
    "exampleTranslation": "The phone is ringing. Please press the bell.",
-   "translation": "jingle; to ring {rang",
+   "translation": "jingle; to ring the bell",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -18414,7 +18418,7 @@
    "plural": "-e",
    "example": "Der Lehrer spricht über den Zweiten Weltkrieg.",
    "exampleTranslation": "The teacher talks about World War II.",
-   "translation": "war; war (with sb.",
+   "translation": "war; warfare",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -18563,12 +18567,13 @@
    "plural": "¨-e",
    "example": "Gib der Mama einen Kuss!",
    "exampleTranslation": "Give mom a kiss!",
-   "translation": "",
+   "translation": "kiss",
    "sources": [
     "goethe-b1",
-    "lingster"
+    "lingster",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "kämmen",
@@ -18592,7 +18597,7 @@
    "plural": "",
    "example": "Die Frauen kämpfen für mehr Rechte.",
    "exampleTranslation": "The women are fighting for more rights.",
-   "translation": "to tussle; to battle",
+   "translation": "to strive; to war",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -18741,7 +18746,7 @@
    "plural": "",
    "example": "Ich kann meine kleine Tochter noch nicht allein lassen.",
    "exampleTranslation": "I can’t leave my little daughter alone yet.",
-   "translation": "to leave {left",
+   "translation": "to let; to leave",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -18800,7 +18805,7 @@
    "plural": "",
    "example": "Die Kanne ist fast leer. Ich mache neuen Tee.",
    "exampleTranslation": "The pot is almost empty. I’ll make new tea.",
-   "translation": "empty <emptier> <emptiest>; blank",
+   "translation": "empty; blank",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -18859,7 +18864,7 @@
    "plural": "",
    "example": "Kannst du mir fünf Euro leihen?",
    "exampleTranslation": "Can you lend me five euros?",
-   "translation": "to hire sth.; to lend {lent",
+   "translation": "to hire sth.; to lend",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -18919,7 +18924,7 @@
    "plural": "-s",
    "example": "Ich schicke dir einen Link zu Deutschübungen.",
    "exampleTranslation": "I’ll send you a link to German exercises.",
-   "translation": "hyperlink; underhand",
+   "translation": "link; hyperlink",
    "sources": [
     "goethe-a2",
     "ding"
@@ -19008,7 +19013,7 @@
    "plural": "",
    "example": "Glaub ihm nicht, er lügt.",
    "exampleTranslation": "Don’t believe him; he’s lying.",
-   "translation": "mendacity; to lie {lied",
+   "translation": "mendacity; to lie",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -19319,7 +19324,7 @@
    "plural": "",
    "example": "Der Film ist gut. Was meinst du?",
    "exampleTranslation": "The movie is good. What do you think?",
-   "translation": "to mean {meant; thought}",
+   "translation": "to mean; to think",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -19893,7 +19898,7 @@
    "plural": "",
    "example": "Die Apotheke ist neben der Post.",
    "exampleTranslation": "The pharmacy is next to the post office.",
-   "translation": "by; alongside",
+   "translation": "by; next to",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -19951,7 +19956,7 @@
    "plural": "",
    "example": "Mein Freund heißt Alexander, aber alle nennen ihn Alex.",
    "exampleTranslation": "My friend’s name is Alexander, but everyone calls him Alex.",
-   "translation": "to clepe {clept; to term sth.",
+   "translation": "to clepe; to term sth.",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -20378,7 +20383,7 @@
    "plural": "-e",
    "example": "Ich brauche ein Paar Schuhe.",
    "exampleTranslation": "I need a pair of shoes.",
-   "translation": "pair; twain",
+   "translation": "pair; couple",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -21163,7 +21168,7 @@
    "plural": "",
    "example": "Dein Bart ist aber lang! Du solltest dich mal wieder rasieren.",
    "exampleTranslation": "Your beard is quite long! You should shave again.",
-   "translation": "to shave {shaved",
+   "translation": "to shave; to shave oneself",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -21297,7 +21302,7 @@
    "plural": "-n",
    "example": "Der Präsident hat eine Rede gehalten.",
    "exampleTranslation": "The president gave a speech.",
-   "translation": "speech; rhetoric",
+   "translation": "speech; conversation",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -21416,7 +21421,7 @@
    "plural": "",
    "example": "Er ist schon geritten.",
    "exampleTranslation": "He has already ridden.",
-   "translation": "to ride {rode; riding",
+   "translation": "to ride; riding",
    "sources": [
     "goethe-a2",
     "ding"
@@ -21430,7 +21435,7 @@
    "plural": "",
    "example": "Ich bin sehr schnell gerannt, aber der Bus war schon weg.",
    "exampleTranslation": "I ran very quickly, but the bus was already gone.",
-   "translation": "running; to run {ran",
+   "translation": "running; to run",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -21489,7 +21494,7 @@
    "plural": "-en",
    "example": "Was kostet eine Reservierung?",
    "exampleTranslation": "What does a reservation cost?",
-   "translation": "reservation; accommodation)",
+   "translation": "reservation; booking",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -21504,7 +21509,7 @@
    "plural": "-e",
    "example": "Es ist noch ein Rest Suppe da. Möchtest du noch?",
    "exampleTranslation": "There's still some soup left. Do you want more?",
-   "translation": "carryover; leftover <detritus>",
+   "translation": "carryover; leftover",
    "sources": [
     "goethe-a2",
     "ding"
@@ -21930,7 +21935,7 @@
    "plural": "",
    "example": "Schenkt er dir oft Blumen?",
    "exampleTranslation": "Does he often give you flowers?",
-   "translation": "to give {gave",
+   "translation": "to give",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -21974,7 +21979,7 @@
    "plural": "",
    "example": "Unsere Mannschaft hat ein Tor geschossen.",
    "exampleTranslation": "Our team scored a goal.",
-   "translation": "to fire; to shoot {shot",
+   "translation": "to fire; to shoot",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -22419,7 +22424,7 @@
    "plural": "",
    "example": "Diese Impfung schützt vor Grippe.",
    "exampleTranslation": "This vaccine protects against the flu.",
-   "translation": "to screen; fly-shuttle",
+   "translation": "to screen; to safeguard",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -23389,7 +23394,7 @@
    "plural": "",
    "example": "Die Zeitung steckt im Briefkasten.",
    "exampleTranslation": "The newspaper is in the mailbox.",
-   "translation": "to put {put; to tuck sth.",
+   "translation": "to put; to tuck sth.",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -23419,7 +23424,7 @@
    "plural": "",
    "example": "Gegen Abend ist das Fieber wieder gestiegen.",
    "exampleTranslation": "In the evening, the fever went up again.",
-   "translation": "to go up; risen}",
+   "translation": "to go up; to rise",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -23641,11 +23646,12 @@
    "plural": "",
    "example": "Meine Arbeit ist stressig.",
    "exampleTranslation": "My work is stressful.",
-   "translation": "",
+   "translation": "stressful",
    "sources": [
-    "goethe-a2"
+    "goethe-a2",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "studentisch",
@@ -23920,7 +23926,7 @@
    "plural": "",
    "example": "Sind Sie technisch interessiert?",
    "exampleTranslation": "Are you interested in technology?",
-   "translation": "technical <technic> <technique>; technically",
+   "translation": "technical; technically",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -24426,7 +24432,7 @@
    "plural": "",
    "example": "Ich habe schlecht geträumt.",
    "exampleTranslation": "I had a bad dream.",
-   "translation": "to daydream; to dream {dreamed",
+   "translation": "to daydream; to dream",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -24586,7 +24592,7 @@
    "plural": "",
    "example": "Wir haben uns über das Fußballspiel unterhalten.",
    "exampleTranslation": "We talked about the soccer game.",
-   "translation": "to entertain; to converse (with",
+   "translation": "to entertain; to converse",
    "sources": [
     "goethe-a2",
     "ding"
@@ -24615,7 +24621,7 @@
    "plural": "",
    "example": "Wir haben am Wochenende etwas unternommen.",
    "exampleTranslation": "We did something on the weekend.",
-   "translation": "to make sth. {made; feat",
+   "translation": "to make sth.; feat",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -24630,7 +24636,7 @@
    "plural": "-e",
    "example": "Was ist der Unterschied zwischen den beiden Kursen? - Die Kurse sind gleich. Es gibt keinen Unterschied.",
    "exampleTranslation": "What is the difference between the two courses? - The courses are the same. There is no difference.",
-   "translation": "difference; to)",
+   "translation": "difference; contrast",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -24732,7 +24738,7 @@
    "plural": "",
    "example": "Wie haben Sie Ihren Urlaub verbracht?",
    "exampleTranslation": "How did you spend your vacation?",
-   "translation": "to spend {spent; to move sth.",
+   "translation": "to spend; to move sth.",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -25060,7 +25066,7 @@
    "plural": "",
    "example": "Die Flasche ist noch ganz voll.",
    "exampleTranslation": "The bottle is still completely full.",
-   "translation": "whole-hearted; full <fuller> <fullest>",
+   "translation": "whole-hearted; full",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -25233,7 +25239,7 @@
    "plural": "",
    "example": "In meinem Garten wachsen Tomaten und Kartoffeln.",
    "exampleTranslation": "Tomatoes and potatoes are growing in my garden.",
-   "translation": "waxing; to grow {grew",
+   "translation": "waxing; to grow",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -25477,7 +25483,7 @@
    "plural": "",
    "example": "Ich rufe wegen meiner Tochter an.",
    "exampleTranslation": "I am calling about my daughter.",
-   "translation": "for the sake of …; due to",
+   "translation": "because of; for the sake of …",
    "sources": [
     "goethe-a2",
     "ding"
@@ -25491,7 +25497,7 @@
    "plural": "",
    "example": "Es hat wehgetan.",
    "exampleTranslation": "It hurt.",
-   "translation": "to ache; hurt}",
+   "translation": "to ache; to hurt",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -25822,7 +25828,7 @@
    "plural": "",
    "example": "Wählen Sie bitte ein Getränk.",
    "exampleTranslation": "Please choose a drink.",
-   "translation": "to choose (between; to select",
+   "translation": "to choose; to select",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -25837,7 +25843,7 @@
    "plural": "",
    "example": "Während der Prüfung dürfen wir unsere Handys nicht benutzen.",
    "exampleTranslation": "During the exam, we are not allowed to use our phones.",
-   "translation": "while; as",
+   "translation": "during; while",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -25955,7 +25961,7 @@
    "plural": "",
    "example": "Sie hat das Bild gezeichnet.",
    "exampleTranslation": "She drew the picture.",
-   "translation": "drawing; to draw sth. {drew",
+   "translation": "drawing; to draw sth.",
    "sources": [
     "goethe-a2",
     "lingster",
@@ -26571,7 +26577,7 @@
    "plural": "-e",
    "example": "",
    "exampleTranslation": "",
-   "translation": "exhaust gas",
+   "translation": "exhaust gas; combustion gas",
    "preposition": "",
    "sources": [
     "lingster",
@@ -27408,7 +27414,7 @@
    "plural": "",
    "example": "Bitte geben Sie Ihre genaue Adresse an.",
    "exampleTranslation": "Please provide your exact address.",
-   "translation": "to state sth.; to give {gave",
+   "translation": "to state sth.; to give",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -27466,7 +27472,7 @@
    "plural": "",
    "example": "Gestern hatte Julia ein rotes Kleid an.",
    "exampleTranslation": "Yesterday Julia wore a red dress.",
-   "translation": "worn}",
+   "translation": "to have on ⇆ sth.",
    "sources": [
     "goethe-b1",
     "ding"
@@ -28067,7 +28073,7 @@
    "plural": "",
    "example": "Nach dem Auftritt feiern die Musiker.",
    "exampleTranslation": "After the performance, the musicians celebrate.",
-   "translation": "occurrence <occurrance>; incidence",
+   "translation": "occurrence; incidence",
    "sources": [
     "goethe-b1",
     "ding"
@@ -28383,7 +28389,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to predicate; to speak {spoke",
+   "translation": "to predicate; to speak",
    "preposition": "",
    "sources": [
     "lingster",
@@ -28455,7 +28461,7 @@
    "plural": "",
    "example": "Ali hat eine gute Aussprache.",
    "exampleTranslation": "Ali has good pronunciation.",
-   "translation": "pronunciation <pronounciation>; debate",
+   "translation": "pronunciation; debate",
    "sources": [
     "goethe-b1",
     "ding"
@@ -28484,7 +28490,7 @@
    "plural": "",
    "example": "Such dir etwas Schönes aus! Ich lade dich ein.",
    "exampleTranslation": "Choose something nice! I’m treating you.",
-   "translation": "to chuse",
+   "translation": "to choose",
    "sources": [
     "goethe-b1",
     "ding"
@@ -29091,7 +29097,7 @@
    "plural": "",
    "example": "Darf ich die Zeitschrift behalten?",
    "exampleTranslation": "May I keep the magazine?",
-   "translation": "retention of sb./sth. (continued control; memory retention",
+   "translation": "retention of sb./sth.; memory retention",
    "sources": [
     "goethe-b1",
     "ding"
@@ -29250,7 +29256,7 @@
    "plural": "",
    "example": "Pass auf, dass dich der Hund nicht beißt!",
    "exampleTranslation": "Watch out that the dog doesn’t bite you.",
-   "translation": "to bite {bit; to nip",
+   "translation": "to bite; to nip",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -29791,7 +29797,7 @@
    "plural": "",
    "example": "Soll ich die Eintrittskarten besorgen?",
    "exampleTranslation": "Should I get the tickets?",
-   "translation": "to see {saw; to bring sth.",
+   "translation": "to see to; to bring sth.",
    "sources": [
     "goethe-b1",
     "ding"
@@ -29952,7 +29958,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to say one’s prayers; to worship",
+   "translation": "to pray; to say one’s prayers",
    "preposition": "",
    "sources": [
     "lingster",
@@ -30196,7 +30202,7 @@
    "plural": "",
    "example": "Wir können beweisen, dass Sie bei Rot über die Ampel gefahren sind.",
    "exampleTranslation": "We can prove that you ran the red light.",
-   "translation": "to prove sth. {proved; to manifest",
+   "translation": "to prove sth.; to manifest",
    "sources": [
     "goethe-b1",
     "ding"
@@ -30225,7 +30231,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to achieve sth.; to bring {brought",
+   "translation": "to achieve sth.; to bring",
    "preposition": "",
    "sources": [
     "lingster",
@@ -30255,7 +30261,7 @@
    "plural": "",
    "example": "Ich kenne die anderen Hausbewohner nicht.",
    "exampleTranslation": "I don’t know the other residents of the house.",
-   "translation": "denizen; inhabitant",
+   "translation": "dweller; denizen",
    "sources": [
     "goethe-b1",
     "ding"
@@ -30559,7 +30565,7 @@
    "plural": "",
    "example": "Der Verletzte hat viel Blut verloren.",
    "exampleTranslation": "The injured person lost a lot of blood.",
-   "translation": "blood",
+   "translation": "blood; gore",
    "sources": [
     "goethe-b1",
     "ding"
@@ -30573,7 +30579,7 @@
    "plural": "",
    "example": "Ich habe mich verletzt. Meine Hand blutet.",
    "exampleTranslation": "I injured myself. My hand is bleeding.",
-   "translation": "bleeding; to bleed {bled",
+   "translation": "bleeding; to bleed",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -30721,7 +30727,7 @@
    "plural": "",
    "example": "Ich habe mir im Urlaub das Bein gebrochen.",
    "exampleTranslation": "I broke my leg on vacation.",
-   "translation": "breaking; to break sth. {broke",
+   "translation": "breaking; to break sth.",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -30779,7 +30785,7 @@
    "plural": "",
    "example": "In deinem Zimmer hat die ganze Nacht das Licht gebrannt.",
    "exampleTranslation": "The light in your room has been on all night.",
-   "translation": "sting; to burn {burnt, burned",
+   "translation": "sting; to burn",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -31321,7 +31327,7 @@
    "plural": "",
    "example": "Es ist Zeit für ein kleines Zvieri.",
    "exampleTranslation": "It’s time for a small snack.",
-   "translation": "that; such",
+   "translation": "the; that",
    "sources": [
     "goethe-b1",
     "ding"
@@ -32431,7 +32437,7 @@
    "plural": "",
    "example": "Mir ist wieder eingefallen, wie das Buch heißt.",
    "exampleTranslation": "I just remembered the name of the book.",
-   "translation": "to strike sb. {struck; to come to mind",
+   "translation": "to strike sb.; to come to mind",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -32461,7 +32467,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "freezing; to quick-freeze {quick-froze",
+   "translation": "freezing; to quick-freeze",
    "preposition": "",
    "sources": [
     "lingster",
@@ -33004,7 +33010,7 @@
    "plural": "",
    "example": "Die Gäste wurden sehr herzlich empfangen.",
    "exampleTranslation": "The guests were warmly received.",
-   "translation": "to see sb.; to conceive",
+   "translation": "to see sb.; to receive sth.",
    "sources": [
     "goethe-b1",
     "ding"
@@ -33148,7 +33154,7 @@
    "plural": "",
    "example": "Können Sie mir mit dem Preis entgegenkommen?",
    "exampleTranslation": "Can you make a concession on the price?",
-   "translation": "goodwill <good-will> <good will>; to come towards",
+   "translation": "goodwill; to come towards",
    "sources": [
     "goethe-b1",
     "ding"
@@ -33162,7 +33168,7 @@
    "plural": "",
    "example": "Ist die Änderung im Preis enthalten?",
    "exampleTranslation": "Is the change included in the price?",
-   "translation": "to contain sth.; to hold {held",
+   "translation": "to contain sth.; to hold",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -33177,11 +33183,12 @@
    "plural": "",
    "example": "Gehen Sie diese Straße entlang. Dann kommen Sie direkt zum Bahnhof.",
    "exampleTranslation": "Walk along this street. Then you will come directly to the train station.",
-   "translation": "",
+   "translation": "along",
    "sources": [
-    "goethe-b1"
+    "goethe-b1",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "entlassen",
@@ -33465,7 +33472,7 @@
    "plural": "",
    "example": "Wann erfahren wir das Ergebnis der Prüfung?",
    "exampleTranslation": "When will we find out the result of the exam?",
-   "translation": "to find out sth. {found; experienced",
+   "translation": "to find out sth.; experienced",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -33480,7 +33487,7 @@
    "plural": "",
    "example": "Das Rad wurde vor ca. 6000 Jahren erfunden.",
    "exampleTranslation": "The wheel was invented about 6000 years ago.",
-   "translation": "to invent sth.; woven}",
+   "translation": "to invent sth.; to weave",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -33835,7 +33842,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to warm; to warm (to",
+   "translation": "to warm; heating",
    "preposition": "",
    "sources": [
     "lingster",
@@ -34173,7 +34180,7 @@
    "plural": "-e",
    "example": "Wem gehört das Fahrzeug?",
    "exampleTranslation": "Who owns the vehicle?",
-   "translation": "wheeler; vehicle",
+   "translation": "wheeler; craft",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -34230,7 +34237,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "informal <unformal>; colloquial",
+   "translation": "informal; colloquial",
    "preposition": "",
    "sources": [
     "lingster",
@@ -34245,7 +34252,7 @@
    "plural": "",
    "example": "Unsere Katze hat eine Maus gefangen.",
    "exampleTranslation": "Our cat caught a mouse.",
-   "translation": "to catch sth. {caught; to trap",
+   "translation": "to catch sth.; to trap",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -34343,11 +34350,12 @@
    "plural": "",
    "example": "Ich hätte gern einen bequemen Fauteuil.",
    "exampleTranslation": "I would like a comfortable armchair.",
-   "translation": "",
+   "translation": "armchair",
    "sources": [
-    "goethe-b1"
+    "goethe-b1",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "Feierabend",
@@ -34445,7 +34453,7 @@
    "plural": "",
    "example": "Halt die Flasche gut fest.",
    "exampleTranslation": "Hold the bottle tightly.",
-   "translation": "to restrain sb.; to cleave {cleaved, clave",
+   "translation": "to restrain sb.; to cleave",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -34724,7 +34732,7 @@
    "plural": "",
    "example": "Der Einbrecher ist sofort geflohen.",
    "exampleTranslation": "The burglar fled immediately.",
-   "translation": "to flee {fled; flight",
+   "translation": "to flee; flight",
    "sources": [
     "goethe-b1",
     "ding"
@@ -35477,7 +35485,7 @@
    "plural": "",
    "example": "Es ist im Zoo nicht erlaubt, die Tiere zu füttern.",
    "exampleTranslation": "It is not allowed to feed the animals at the zoo.",
-   "translation": "to feed {fed; to line",
+   "translation": "to feed sb.; to line",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -35582,7 +35590,7 @@
    "plural": "",
    "example": "Ich kann Ihnen nicht garantieren, dass das Gerät nächste Woche fertig ist.",
    "exampleTranslation": "I cannot guarantee that the device will be ready next week.",
-   "translation": "to warrant sth.; underwritten} sth.",
+   "translation": "to warrant sth.; to underwrite sth.",
    "sources": [
     "goethe-b1",
     "ding"
@@ -35934,7 +35942,7 @@
    "plural": "-¨e",
    "example": "Im Gegensatz zu ihm ist sein Vater ziemlich klein.",
    "exampleTranslation": "In contrast to him, his father is quite short.",
-   "translation": "contrast (with; opposite",
+   "translation": "contrast; opposite",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -36517,7 +36525,7 @@
    "plural": "-e",
    "example": "Ich habe bei einem Ratespiel mitgemacht. Der Hauptgewinn ist ein Auto.",
    "exampleTranslation": "I participated in a quiz game. The grand prize is a car.",
-   "translation": "winnings; earnings",
+   "translation": "prize; winnings",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -36661,7 +36669,7 @@
    "plural": "",
    "example": "Zum Dessert gibt es Schokoladenglace.",
    "exampleTranslation": "For dessert, there is chocolate ice cream.",
-   "translation": "ice cream <ice-cream> <icecream>",
+   "translation": "ice cream",
    "sources": [
     "goethe-b1",
     "ding"
@@ -36720,7 +36728,7 @@
    "plural": "",
    "example": "Mann und Frau sind gleichberechtigt.",
    "exampleTranslation": "Men and women are equal.",
-   "translation": "having equal rights; equal (to sb.",
+   "translation": "having equal rights; equal",
    "sources": [
     "goethe-b1",
     "ding"
@@ -36863,7 +36871,7 @@
    "plural": "",
    "example": "Wir lagen den ganzen Tag im Gras.",
    "exampleTranslation": "We lay in the grass all day.",
-   "translation": "spade; marihuana",
+   "translation": "spade; grass",
    "sources": [
     "goethe-b1",
     "ding"
@@ -37675,7 +37683,7 @@
    "plural": "",
    "example": "Möchten Sie eine Nachricht hinterlassen?",
    "exampleTranslation": "Would you like to leave a message?",
-   "translation": "to leave behind; to leave {left",
+   "translation": "to leave behind; to leave sb./sth.",
    "sources": [
     "goethe-b1",
     "ding"
@@ -37935,7 +37943,7 @@
    "plural": "",
    "example": "Haben Sie häufig Kopfschmerzen?",
    "exampleTranslation": "Do you often have headaches?",
-   "translation": "prevalently; frequently",
+   "translation": "frequent; prevalently",
    "sources": [
     "goethe-b1",
     "ding"
@@ -38292,7 +38300,7 @@
    "plural": "",
    "example": "Nach dem Umzug müssen Sie sich innerhalb einer Woche ummelden.",
    "exampleTranslation": "After moving, you must register within a week.",
-   "translation": "within; inside",
+   "translation": "within; intra…",
    "sources": [
     "goethe-b1",
     "ding"
@@ -38408,7 +38416,7 @@
    "plural": "",
    "example": "Ich möchte intensiv Deutsch lernen.",
    "exampleTranslation": "I want to learn German intensively.",
-   "translation": "intense; acute",
+   "translation": "intense; intensive",
    "sources": [
     "goethe-b1",
     "ding"
@@ -38552,7 +38560,7 @@
    "plural": "-e",
    "example": "",
    "exampleTranslation": "",
-   "translation": "millennium <millenium>",
+   "translation": "millennium",
    "preposition": "",
    "sources": [
     "lingster",
@@ -38781,11 +38789,12 @@
    "plural": "",
    "example": "Hier in der Nähe ist ein Kaffeehaus.",
    "exampleTranslation": "There is a coffee house nearby.",
-   "translation": "",
+   "translation": "coffee shop",
    "sources": [
-    "goethe-b1"
+    "goethe-b1",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "Kakao",
@@ -38838,7 +38847,7 @@
    "plural": "¨-e",
    "example": "Mit Kabel bekommen Sie über 30 Fernsehkanäle.",
    "exampleTranslation": "With a cable, you get over 30 TV channels.",
-   "translation": "channel; organizations etc.)",
+   "translation": "channel; conduit",
    "sources": [
     "goethe-b1",
     "ding"
@@ -38955,7 +38964,7 @@
    "plural": "",
    "example": "Wer hat die Lampe kaputtgemacht?",
    "exampleTranslation": "Who broke the lamp?",
-   "translation": "to burn oneself out; to break {broke",
+   "translation": "to burn oneself out; to break",
    "sources": [
     "goethe-b1",
     "ding"
@@ -39270,7 +39279,7 @@
    "plural": "",
    "example": "Ich klebe Ihnen ein Pflaster darauf.",
    "exampleTranslation": "I’m putting a bandage on it for you.",
-   "translation": "clogging; to stick {stuck",
+   "translation": "clogging; to stick",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -39604,7 +39613,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "comforts <comfortability>; convenience",
+   "translation": "comforts; convenience",
    "preposition": "",
    "sources": [
     "lingster",
@@ -40695,12 +40704,13 @@
    "plural": "-",
    "example": "Bitte achten Sie auch auf die Lautsprecher-Ansagen am Bahnhof.",
    "exampleTranslation": "Please pay attention to the announcements over the loudspeakers at the station.",
-   "translation": "",
+   "translation": "loudspeaker",
    "sources": [
     "goethe-b1",
-    "lingster"
+    "lingster",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "Lautstärke",
@@ -40769,7 +40779,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "teaching; to teach sb. {taught",
+   "translation": "teaching; to teach sb.",
    "preposition": "",
    "sources": [
     "lingster",
@@ -40812,7 +40822,7 @@
    "plural": "",
    "example": "Sie leidet sehr unter den Verhältnissen.",
    "exampleTranslation": "She suffers greatly from the conditions.",
-   "translation": "sorrow; distress",
+   "translation": "to suffer; sorrow",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -42513,7 +42523,7 @@
    "plural": "",
    "example": "Zum Frühstück gibt es Müsli mit Obst.",
    "exampleTranslation": "For breakfast, there is muesli with fruit.",
-   "translation": "granola <cereals>",
+   "translation": "granola",
    "sources": [
     "goethe-b1",
     "ding"
@@ -43224,7 +43234,7 @@
    "plural": "",
    "example": "Wir müssen die Wunde nähen.",
    "exampleTranslation": "We need to sew the wound.",
-   "translation": "to sew {sewed; to stitch",
+   "translation": "to sew; to stitch",
    "sources": [
     "goethe-b1",
     "ding"
@@ -44756,7 +44766,7 @@
    "plural": "¨-e",
    "example": "Meine Tochter nimmt meine Ratschläge nicht an.",
    "exampleTranslation": "My daughter does not take my advice.",
-   "translation": "counsel",
+   "translation": "tip; counsel",
    "sources": [
     "goethe-b1",
     "ding"
@@ -44997,7 +45007,7 @@
    "plural": "",
    "example": "Bitte weck mich rechtzeitig. Ich muss pünktlich sein.",
    "exampleTranslation": "Please wake me up on time. I need to be punctual.",
-   "translation": "duly; timely <timelier>",
+   "translation": "duly; timely",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -45012,7 +45022,7 @@
    "plural": "",
    "example": "Wir haben jetzt unsere Preise reduziert.",
    "exampleTranslation": "We have now reduced our prices.",
-   "translation": "tapering; to reduce (to",
+   "translation": "tapering; to reduce",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -45087,7 +45097,7 @@
    "plural": "",
    "example": "Die Ampel ist kaputt. Ein Polizist regelt den Verkehr.",
    "exampleTranslation": "The traffic light is broken. A policeman is directing the traffic.",
-   "translation": "to direct (to; to straighten up ⇆ sth.",
+   "translation": "to direct; to straighten up ⇆ sth.",
    "sources": [
     "goethe-b1",
     "ding"
@@ -46958,7 +46968,7 @@
    "plural": "",
    "example": "Selbstverständlich sagen wir Ihnen sofort Bescheid.",
    "exampleTranslation": "Of course, we will let you know immediately.",
-   "translation": "by all means; of course",
+   "translation": "by all means; self-evident",
    "sources": [
     "goethe-b1",
     "ding"
@@ -47101,7 +47111,7 @@
    "plural": "-n",
    "example": "Meine Tochter liebt es, im Fernsehen Serien zu schauen.",
    "exampleTranslation": "My daughter loves watching series on TV.",
-   "translation": "panel of; streak",
+   "translation": "panel of; series",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -47866,7 +47876,7 @@
    "plural": "",
    "example": "Die Mannschaft siegte mit 2:0.",
    "exampleTranslation": "The team won with 2:0.",
-   "translation": "to prevail; won}",
+   "translation": "to prevail; to win",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -47940,7 +47950,7 @@
    "plural": "",
    "example": "Der Preis ist um 3 % gesunken.",
    "exampleTranslation": "The price has dropped by 3%.",
-   "translation": "falloff; to sink {sank, sunk",
+   "translation": "falloff; to sink",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -47969,7 +47979,7 @@
    "plural": "",
    "example": "So ein sinnloses Buch habe ich schon lange nicht mehr gelesen.",
    "exampleTranslation": "I haven’t read such a pointless book in a long time.",
-   "translation": "senselessly; pointlessly",
+   "translation": "senseless; senselessly",
    "sources": [
     "goethe-b1",
     "ding"
@@ -48732,7 +48742,7 @@
    "plural": "",
    "example": "Wo tut es weh? Spüren Sie das hier?",
    "exampleTranslation": "Where does it hurt? Do you feel this here?",
-   "translation": "felt}; to experience",
+   "translation": "to feel; to experience",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -48940,7 +48950,7 @@
    "plural": "",
    "example": "Stefan wird beim Zelten immer von den Mücken gestochen.",
    "exampleTranslation": "Stefan always gets bitten by mosquitoes while camping.",
-   "translation": "to bite sb. {bit; to sting {stung",
+   "translation": "to bite sb.; to sting",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -49188,7 +49198,7 @@
    "plural": "",
    "example": "Was stinkt denn hier so? – Das ist der Fisch. Er ist nicht mehr frisch.",
    "exampleTranslation": "What smells here? – It’s the fish. It’s not fresh anymore.",
-   "translation": "to smell {smelled / smelt; to pong",
+   "translation": "to smell; to pong",
    "sources": [
     "goethe-b1",
     "ding"
@@ -49262,7 +49272,7 @@
    "plural": "-n",
    "example": "Schwarzfahren kostet 60 Euro Strafe.",
    "exampleTranslation": "Riding without a ticket costs a 60 euro fine.",
-   "translation": "comeuppance; penality",
+   "translation": "comeuppance; penalty",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -49411,7 +49421,7 @@
    "plural": "",
    "example": "Die Arbeiter streiken für höhere Löhne.",
    "exampleTranslation": "The workers are on strike for higher wages.",
-   "translation": "to strike {struck; to balk",
+   "translation": "to strike; to balk",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -50609,7 +50619,7 @@
    "plural": "",
    "example": "Ich mag die traditionelle Küche.",
    "exampleTranslation": "I like traditional cuisine.",
-   "translation": "old-school <oldschool> <old school>; consuetudinary",
+   "translation": "old-school; consuetudinary",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -50984,7 +50994,7 @@
    "plural": "-",
    "example": "Am Seeufer ist es schön spazieren zu gehen.",
    "exampleTranslation": "It’s nice to take a walk by the lake shore.",
-   "translation": "waterside; riverfront",
+   "translation": "waterside; shore",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -51810,7 +51820,7 @@
    "plural": "",
    "example": "Tut mir leid, ich habe keine Zeit. Ich bin mit meiner Freundin verabredet.",
    "exampleTranslation": "Sorry, I don't have time. I have an appointment with my girlfriend.",
-   "translation": "to agree on sth.",
+   "translation": "to agree on sth.; to fix",
    "sources": [
     "goethe-b1",
     "ding"
@@ -51884,7 +51894,7 @@
    "plural": "",
    "example": "Sie tragen die Verantwortung für Ihre Kinder.",
    "exampleTranslation": "You bear the responsibility for your children.",
-   "translation": "responsibleness",
+   "translation": "responsibleness; charge",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -52003,7 +52013,7 @@
    "plural": "",
    "example": "Der Herd war noch heiß. Ich habe mich verbrannt.",
    "exampleTranslation": "The stove was still hot. I burned myself.",
-   "translation": "to burn {burnt, burned; to burn yourself {burnt, burned",
+   "translation": "to burn; to burn yourself",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -52162,7 +52172,7 @@
    "plural": "",
    "example": "Wir wollen unser Geschäft vergrößern.",
    "exampleTranslation": "We want to expand our business.",
-   "translation": "to increase (to; to bulk out ⇆ sth.",
+   "translation": "to increase; to bulk out ⇆ sth.",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -52367,7 +52377,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to award; to lend {lent",
+   "translation": "to award; to lend",
    "preposition": "",
    "sources": [
     "lingster",
@@ -52644,7 +52654,7 @@
    "plural": "",
    "example": "Wir werden hier sehr gut mit Essen verpflegt.",
    "exampleTranslation": "We will be very well provided with food here.",
-   "translation": "to feed; to feed {fed",
+   "translation": "to feed; to feed sb.",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -52894,7 +52904,7 @@
    "plural": "",
    "example": "Die Kinder verstecken sich im Wald.",
    "exampleTranslation": "The children are hiding in the forest.",
-   "translation": "hiding; to hide sth. {hid",
+   "translation": "hiding; to hide sth.",
    "sources": [
     "goethe-b1",
     "ding"
@@ -52965,7 +52975,7 @@
    "plural": "",
    "example": "Kannst du bitte schon mal die Gläser verteilen?",
    "exampleTranslation": "Can you please start distributing the glasses?",
-   "translation": "to distribute; to deal {dealt",
+   "translation": "to distribute; to deal sth.",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -52980,7 +52990,7 @@
    "plural": "",
    "example": "Ich habe Vertrauen zu Ihnen.",
    "exampleTranslation": "I have trust in you.",
-   "translation": "confidence; reliance",
+   "translation": "faith; confidence",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -53053,7 +53063,7 @@
    "plural": "",
    "example": "Dieser Busfahrer verursachte den Unfall.",
    "exampleTranslation": "This bus driver caused the accident.",
-   "translation": "to give {gave; to wreak",
+   "translation": "to give; to wreak",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -53111,7 +53121,7 @@
    "plural": "",
    "example": "Entschuldigen Sie, ich habe Sie mit jemandem verwechselt.",
    "exampleTranslation": "Excuse me, I confused you with someone else.",
-   "translation": "to confuse sth.; to mistake {mistook",
+   "translation": "to confuse sth.; to mistake sb./sth. for sb./sth.",
    "sources": [
     "goethe-b1",
     "ding"
@@ -53257,12 +53267,13 @@
    "plural": "-s",
    "example": "",
    "exampleTranslation": "",
-   "translation": "",
+   "translation": "veto",
    "preposition": "",
    "sources": [
-    "lingster"
+    "lingster",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "Video",
@@ -53614,7 +53625,7 @@
    "plural": "",
    "example": "Kein Problem. Das kann vorkommen.",
    "exampleTranslation": "No problem. That can happen.",
-   "translation": "incidence; occurrence <occurrance>",
+   "translation": "incidence; occurrence",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -53834,7 +53845,7 @@
    "plural": "-n",
    "example": "",
    "exampleTranslation": "",
-   "translation": "balance; spring shaft",
+   "translation": "balance; Libra",
    "preposition": "",
    "sources": [
     "lingster",
@@ -53849,7 +53860,7 @@
    "plural": "",
    "example": "Ziehen Sie bitte einen waagerechten Strich.",
    "exampleTranslation": "Please draw a horizontal line.",
-   "translation": "horizontal; level <levelest>",
+   "translation": "horizontal; level",
    "sources": [
     "goethe-b1",
     "ding"
@@ -54442,7 +54453,7 @@
    "plural": "",
    "example": "Wetten, dass es bald regnet?",
    "exampleTranslation": "Bet it will rain soon?",
-   "translation": "betting; to bet {bet, betted",
+   "translation": "betting; to bet",
    "sources": [
     "goethe-b1",
     "lingster",
@@ -55898,7 +55909,7 @@
    "plural": "",
    "example": "Ich zweifle nicht daran, dass Sie recht haben.",
    "exampleTranslation": "I have no doubt that you are right.",
-   "translation": "to doubt (of",
+   "translation": "to doubt",
    "sources": [
     "goethe-b1",
     "ding"
@@ -56186,7 +56197,7 @@
    "plural": "",
    "example": "Gestern hat ein Autofahrer einen Hund überfahren.",
    "exampleTranslation": "Yesterday, a driver ran over a dog.",
-   "translation": "overridden}; to take sb. by surprise",
+   "translation": "to override sth.; to take sb. by surprise",
    "sources": [
     "goethe-b1",
     "ding"
@@ -56503,7 +56514,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "dismounting; dismantlement",
+   "translation": "dismounting; decay",
    "preposition": "",
    "sources": [
     "lingster",
@@ -56548,12 +56559,13 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "",
+   "translation": "to fell trees",
    "preposition": "",
    "sources": [
-    "lingster"
+    "lingster",
+    "ding"
    ],
-   "translationSource": ""
+   "translationSource": "ding"
   },
   {
    "word": "abhören",
@@ -56952,7 +56964,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to rise {rose; to go up",
+   "translation": "to rise; to go up",
    "preposition": "",
    "sources": [
     "lingster",
@@ -56967,7 +56979,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to aspire to sth.; to seek sth. {sought",
+   "translation": "to aspire to sth.; to seek sth.",
    "preposition": "",
    "sources": [
     "lingster",
@@ -56997,7 +57009,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to instruct sb. to do sth.; at)",
+   "translation": "to instruct sb. to do sth.; to direct",
    "preposition": "",
    "sources": [
     "lingster",
@@ -57160,7 +57172,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to call in ⇆ sb.; to call up ⇆ sth. (program",
+   "translation": "to call in ⇆ sb.; to call up ⇆ sth.",
    "preposition": "",
    "sources": [
     "lingster",
@@ -57667,7 +57679,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "held}; to salvage sth.",
+   "translation": "to recover sth.; to hold",
    "preposition": "",
    "sources": [
     "lingster",
@@ -57966,7 +57978,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to bind {bound; to tie",
+   "translation": "to bind; to tie",
    "preposition": "",
    "sources": [
     "lingster",
@@ -57981,7 +57993,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to blow {blew; toot",
+   "translation": "to blow; toot",
    "preposition": "",
    "sources": [
     "lingster",
@@ -58483,7 +58495,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to undertake {undertook; to die",
+   "translation": "to undertake; to die",
    "preposition": "auf + A",
    "sources": [
     "lingster",
@@ -58782,7 +58794,7 @@
    "plural": "-en",
    "example": "",
    "exampleTranslation": "",
-   "translation": "retention of sb./sth. (continued control; conservation",
+   "translation": "retention of sb./sth.; conservation",
    "preposition": "",
    "sources": [
     "lingster",
@@ -59097,7 +59109,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to prepay {prepaid; to stamp",
+   "translation": "to prepay; to stamp",
    "preposition": "",
    "sources": [
     "lingster",
@@ -59200,7 +59212,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "fell; hewed, hewn}",
+   "translation": "fell; to hew sth.",
    "preposition": "",
    "sources": [
     "lingster",
@@ -59215,7 +59227,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to tint; to colour",
+   "translation": "to dye; to tint",
    "preposition": "",
    "sources": [
     "lingster",
@@ -59245,7 +59257,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to bear {bore; parturition",
+   "translation": "to bear; parturition",
    "preposition": "",
    "sources": [
     "lingster",
@@ -59887,7 +59899,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "curable <healable>; curably",
+   "translation": "curable; curably",
    "preposition": "",
    "sources": [
     "lingster",
@@ -60080,7 +60092,7 @@
    "plural": "-en",
    "example": "",
    "exampleTranslation": "",
-   "translation": "prowl; hunt",
+   "translation": "chase; prowl",
    "preposition": "",
    "sources": [
     "lingster",
@@ -60257,7 +60269,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "kneeling; to kneel {knelt, kneeled",
+   "translation": "kneeling; to kneel",
    "preposition": "",
    "sources": [
     "lingster",
@@ -61122,7 +61134,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to prove {proved; to demonstrate sth.",
+   "translation": "to prove; to demonstrate sth.",
    "preposition": "",
    "sources": [
     "lingster",
@@ -61196,7 +61208,7 @@
    "plural": "-¨e",
    "example": "",
    "exampleTranslation": "",
-   "translation": "precipitation <rainfall>; fall",
+   "translation": "precipitation; fall",
    "preposition": "",
    "sources": [
     "lingster",
@@ -61716,7 +61728,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "with); to contend with sb. for sth.",
+   "translation": "to strive; to contend with sb. for sth.",
    "preposition": "",
    "sources": [
     "lingster",
@@ -62180,7 +62192,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to throw {threw; to raise",
+   "translation": "to throw; to raise",
    "preposition": "",
    "sources": [
     "lingster",
@@ -63554,7 +63566,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to encourage sb. to do sth.; set}",
+   "translation": "to encourage sb. to do sth.; to set",
    "preposition": "",
    "sources": [
     "lingster",
@@ -63719,7 +63731,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "bargaining; to deal {dealt",
+   "translation": "bargaining; to deal",
    "preposition": "",
    "sources": [
     "lingster",
@@ -63869,7 +63881,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to bind {bound; to sign sb.",
+   "translation": "to bind; to sign sb.",
    "preposition": "zu + D",
    "sources": [
     "lingster",
@@ -63929,7 +63941,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to keep {kept; to supply sb.",
+   "translation": "to keep; to supply sb.",
    "preposition": "",
    "sources": [
     "lingster",
@@ -64483,7 +64495,7 @@
    "plural": "",
    "example": "",
    "exampleTranslation": "",
-   "translation": "to designate sth. as sth.; given}",
+   "translation": "to designate sth. as sth.; to give",
    "preposition": "",
    "sources": [
     "lingster",

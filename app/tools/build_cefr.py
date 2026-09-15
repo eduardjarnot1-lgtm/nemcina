@@ -115,10 +115,45 @@ DING_STRIP = re.compile(r"^(etw\.|jdn\.|jdm\.|jds\.|sich)\s+", re.I)
 DING_DOMAIN = re.compile(r"\[(?!ugs\.|pej\.|geh\.|übtr\.)")
 
 
+def split_senses(text: str) -> list[str]:
+    """Split a Ding side on ";" — but only where the ";" separates senses.
+
+    Ding writes irregular forms as "to send {sent; sent}" and alternative
+    spellings as "fax <facsimile>". Splitting on every ";" cuts those in half and
+    leaves fragments like "to send {sent" on the card, and — worse — shifts the
+    English senses out of step with the German ones, because a brace on one side
+    adds a split the other side does not have. Nesting is tracked so both sides
+    are divided at the same places.
+    """
+    parts: list[str] = []
+    depth = 0
+    current: list[str] = []
+    openers = {"{": "}", "[": "]", "(": ")", "<": ">"}
+    closers = set(openers.values())
+    for character in text:
+        if character in openers:
+            depth += 1
+        elif character in closers and depth > 0:
+            depth -= 1
+        if character == ";" and depth == 0:
+            parts.append("".join(current))
+            current = []
+            continue
+        current.append(character)
+    parts.append("".join(current))
+    return parts
+
+
 def ding_clean(text: str) -> str:
     text = re.sub(r"\{[^}]*\}", "", text)
     text = re.sub(r"\[[^\]]*\]", "", text)
     text = re.sub(r"\([^)]*\)", "", text)
+    # Alternative spellings: "fax <facsimile>" is one word, not two.
+    text = re.sub(r"<[^>]*>", "", text)
+    # Anything left with an unclosed bracket is a fragment of a construct that
+    # was cut somewhere upstream. A gloss reading "to send {sent" teaches a
+    # brace; drop the remainder rather than showing it.
+    text = re.split(r"[{\[(<]", text)[0]
     return re.sub(r"\s+", " ", text).strip(" ;,/")
 
 
@@ -141,7 +176,7 @@ def read_ding(path: Path, report: list[str]) -> dict:
             german, english = line.split("::", 1)
             german, english = german.split("|")[0], english.split("|")[0]
             specialised = bool(DING_DOMAIN.search(german + english))
-            german_parts, english_parts = german.split(";"), english.split(";")
+            german_parts, english_parts = split_senses(german), split_senses(english)
             for index, part in enumerate(german_parts):
                 head = DING_STRIP.sub("", ding_clean(part))
                 if not head or len(head.split()) > 2:
