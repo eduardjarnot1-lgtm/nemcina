@@ -118,6 +118,9 @@ describe('what arrives over a network is a stranger until checked', () => {
     for (const state of MASTERY_STATES) {
       assert.equal(isProgressRecord({ ...good, state }), true, `${state} was refused`);
     }
+    // The test below pins the five literal values instead of reading the
+    // constant. That is not a duplicate of this one: if someone edits
+    // MASTERY_STATES, this test follows them and that one objects.
   });
 
   test('a rejected record is counted, not silently dropped', () => {
@@ -142,5 +145,15 @@ describe('what arrives over a network is a stranger until checked', () => {
     const good = at('haus', T0) as unknown as Record<string, unknown>;
     assert.equal(isProgressRecord({ ...good, stability: Number.NaN }), false);
     assert.equal(isProgressRecord({ ...good, dueAt: Number.POSITIVE_INFINITY }), false);
+  });
+
+  test('a state outside the five known values is refused, not merged in', () => {
+    const good = at('haus', T0) as unknown as Record<string, unknown>;
+    assert.equal(isProgressRecord({ ...good, state: 'whatever' }), false);
+    assert.equal(isProgressRecord({ ...good, state: '' }), false);
+    // Every real state still passes — the check is a whitelist, not a typo trap.
+    for (const state of ['new', 'learning', 'review', 'strong', 'mastered']) {
+      assert.equal(isProgressRecord({ ...good, state }), true, `${state} should be valid`);
+    }
   });
 });
