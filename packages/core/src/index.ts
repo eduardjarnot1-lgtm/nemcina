@@ -11,5 +11,7 @@ export * from './answers.ts';
 export * from './selection.ts';
 export * from './storage.ts';
 export * from './content.ts';
+export * from './exercises.ts';
+export * from './session.ts';
 export * from './lessons.ts';
 export * from './pipeline.ts';
