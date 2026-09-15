@@ -10,7 +10,9 @@ import assert from 'node:assert/strict';
 import { GrammarPractice, practiceOrder, questionFor, topicProgress } from '../src/grammar.ts';
 import { newProgress, review } from '../src/srs.ts';
 import { InMemoryProgressStore } from '../src/storage.ts';
-import { GRADE, type Exercise, type GrammarTopic, type ItemProgress } from '../src/types.ts';
+import {
+  GRADE, type Exercise, type GrammarTopic, type Grade, type ItemProgress,
+} from '../src/types.ts';
 
 const exercise = (over: Partial<Exercise> & { id: string }): Exercise => ({
   kind: 'typing',
@@ -46,7 +48,7 @@ const topic: GrammarTopic = {
 };
 
 const T0 = 1_700_000_000_000;
-const answered = (id: string, grade = GRADE.GOOD, at = T0): ItemProgress =>
+const answered = (id: string, grade: Grade = GRADE.GOOD, at = T0): ItemProgress =>
   review(newProgress('u1', id), grade, { now: at });
 
 describe('the order to work through a topic', () => {
