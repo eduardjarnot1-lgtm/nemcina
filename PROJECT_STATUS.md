@@ -1,5 +1,20 @@
 # Project status
 
+## Codex continuation — 2026-09-15
+
+The complete original 48-section specification is now preserved in
+[`docs/MASTER_SPEC.md`](docs/MASTER_SPEC.md). See
+[`docs/DEVELOPMENT_HANDOFF.md`](docs/DEVELOPMENT_HANDOFF.md) for the current
+continuation, verification limits and next priorities.
+
+Independently rerun here: content validation (110,384 checks, zero errors,
+one existing warning) and core tests (**300 passed** after three new regression
+tests). Fixed lost progress from overlapping asynchronous storage operations.
+Server, browser and type-check results below are historical results from the
+original author, not reruns by this continuation.
+
+---
+
 Living status document. Rewritten 2026-09-15, replacing the Phase 1A
 documentation audit — that audit described the repository as *documented*; this
 one separates what has been **verified by running it** from what has not.
