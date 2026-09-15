@@ -119,4 +119,14 @@ describe('what arrives over a network is a stranger until checked', () => {
     assert.equal(isProgressRecord({ ...good, stability: Number.NaN }), false);
     assert.equal(isProgressRecord({ ...good, dueAt: Number.POSITIVE_INFINITY }), false);
   });
+
+  test('a state outside the five known values is refused, not merged in', () => {
+    const good = at('haus', T0) as unknown as Record<string, unknown>;
+    assert.equal(isProgressRecord({ ...good, state: 'whatever' }), false);
+    assert.equal(isProgressRecord({ ...good, state: '' }), false);
+    // Every real state still passes — the check is a whitelist, not a typo trap.
+    for (const state of ['new', 'learning', 'review', 'strong', 'mastered']) {
+      assert.equal(isProgressRecord({ ...good, state }), true, `${state} should be valid`);
+    }
+  });
 });

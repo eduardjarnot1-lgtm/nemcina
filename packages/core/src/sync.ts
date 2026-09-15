@@ -21,7 +21,7 @@
  * records, so the client, the server and the tests all merge identically.
  */
 
-import type { ItemProgress } from './types.ts';
+import { MASTERY_STATES, type ItemProgress } from './types.ts';
 
 /**
  * Which of two records for the same item to keep.
@@ -126,6 +126,7 @@ export function isProgressRecord(value: unknown): value is ItemProgress {
   return typeof record.userId === 'string'
     && typeof record.itemId === 'string' && record.itemId.length > 0
     && typeof record.state === 'string'
+    && (MASTERY_STATES as readonly string[]).includes(record.state)
     && typeof record.seen === 'boolean'
     && numbers.every((key) => typeof record[key] === 'number' && Number.isFinite(record[key] as number));
 }
