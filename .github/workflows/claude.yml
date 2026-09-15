@@ -34,4 +34,4 @@ jobs:
           # These flags add to the built-in list, they do not replace it.
           claude_args: |
             --max-turns 20
-            --allowedTools "Bash(git status),Bash(git status:*),Bash(git diff),Bash(git diff:*),Bash(git log:*),Bash(python3 app/tools/validate_content.py),Bash(python3 app/tools/build_grammar.py),Bash(python3 app/tools/build_vocabulary.py),Bash(python3 app/tools/build_frequency.py),Bash(python3 app/tools/build_cefr.py),Bash(python3 app/tools/build_artifact.py),Bash(node --test app/test/srs.test.js)"
+            --allowedTools "Bash(git status),Bash(git status:*),Bash(git diff),Bash(git diff:*),Bash(git log:*),Bash(python3 app/tools/validate_content.py),Bash(python3 app/tools/build_grammar.py),Bash(python3 app/tools/build_vocabulary.py),Bash(python3 app/tools/build_frequency.py),Bash(python3 app/tools/build_cefr.py),Bash(python3 app/tools/build_artifact.py)"
