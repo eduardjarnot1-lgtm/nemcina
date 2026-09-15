@@ -12,7 +12,7 @@
  * failing at a URL nobody set.
  */
 
-import type { ItemProgress, SyncResponse, Timestamp } from '@nemcina/core';
+import type { CoachEvidence, ItemProgress, SyncResponse, Timestamp } from '@nemcina/core';
 
 export const API_URL = process.env.EXPO_PUBLIC_API_URL ?? '';
 
@@ -23,6 +23,21 @@ export interface Account {
   readonly email: string;
   readonly tier: 'free' | 'premium';
   readonly premiumUntil: number;
+}
+
+export type CoachIntent = 'progress' | 'what-next' | 'encourage';
+
+export interface Quota {
+  readonly limit: number;
+  readonly used: number;
+  readonly remaining: number;
+}
+
+export interface CoachReply {
+  /** Null when no model is configured. The app then shows its own advice. */
+  readonly text: string | null;
+  readonly reason: string | null;
+  readonly quota: Quota;
 }
 
 export interface Session {
@@ -94,4 +109,17 @@ export const api = {
 
   sync: (token: string, records: readonly ItemProgress[], since: Timestamp) =>
     call<SyncResponse>('/progress/sync', { method: 'POST', token, body: { records, since } }),
+
+  coachStatus: (token: string) =>
+    call<{ quota: Quota; available: boolean }>('/coach', { token }),
+
+  /**
+   * Ask the coach.
+   *
+   * The evidence goes up; no prompt does. The server owns the wording, the
+   * quota and whether there is a model at all — this is a request, not an
+   * instruction.
+   */
+  askCoach: (token: string, intent: CoachIntent, evidence: CoachEvidence) =>
+    call<CoachReply>('/coach', { method: 'POST', token, body: { intent, evidence } }),
 };

@@ -75,6 +75,13 @@ CREATE TABLE IF NOT EXISTS progress (
 );
 CREATE INDEX IF NOT EXISTS progress_changed ON progress(user_id, updated_at);
 
+CREATE TABLE IF NOT EXISTS coach_usage (
+  user_id TEXT NOT NULL REFERENCES accounts(id) ON DELETE CASCADE,
+  day     INTEGER NOT NULL,
+  count   INTEGER NOT NULL,
+  PRIMARY KEY (user_id, day)
+);
+
 CREATE TABLE IF NOT EXISTS sign_in_attempts (
   email      TEXT NOT NULL,
   at         INTEGER NOT NULL

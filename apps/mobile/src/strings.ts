@@ -111,6 +111,29 @@ export const strings = {
   startingLevel: 'Starting level',
   dailyGoal: 'Session length',
 
+  coachTitle: 'Coach',
+  coachAsk: 'Ask the coach',
+  coachThinking: 'Thinking…',
+  coachRemaining: (left: number, limit: number) => `${left} of ${limit} left today`,
+  coachNoModel:
+    'No coach model is configured for this build, so what you see below is worked out on this device from your own answers.',
+  coachSignedOut: 'Sign in to ask the coach. What you see below is worked out on this device.',
+  coachFromYourRecords: 'From your own answers',
+
+  adviceNothingYet: 'Nothing studied yet. Start a lesson and this fills in.',
+  adviceReviewsDue: (due: number) => `${due} ${due === 1 ? 'word is' : 'words are'} due for review.`,
+  adviceWeakItems: (weak: number, worst: string) =>
+    `${weak} ${weak === 1 ? 'word keeps' : 'words keep'} coming back wrong — ${worst} most of all.`,
+  adviceKeepStreak: (days: number) => `${days} days in a row. Today has not been studied yet.`,
+  adviceAccuracyLow: (percent: number) =>
+    `${percent}% right first time lately. Fewer new words and more review would help.`,
+  adviceAccuracyHigh: (percent: number) =>
+    `${percent}% right first time lately. There is room for more new material.`,
+  adviceNewMaterial: (learned: number, remaining: number) =>
+    `${learned} learned, ${remaining} not yet seen. Nothing is owed, so take on something new.`,
+  adviceGrammarUntouched: (topics: number) =>
+    `${topics} grammar topics and none opened yet.`,
+
   accountTitle: 'Account',
   accountSignedInAs: 'Signed in as',
   accountEmail: 'Email',

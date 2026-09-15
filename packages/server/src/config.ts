@@ -34,6 +34,16 @@ export interface ServerConfig {
    * allowed by naming it, one origin at a time.
    */
   readonly corsOrigins: readonly string[];
+  /**
+   * Credentials for the coach's language model. Absent is a supported state,
+   * not a broken one: the app falls back to the deterministic advice it
+   * computes anyway, and says so.
+   */
+  readonly aiApiKey: string;
+  readonly aiModel: string;
+  /** Coach requests per day, per tier. The only thing premium currently buys. */
+  readonly coachFreePerDay: number;
+  readonly coachPremiumPerDay: number;
 }
 
 export class ConfigError extends Error {}
@@ -62,5 +72,9 @@ export function readConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
     signInAttempts: Number(env.SIGN_IN_ATTEMPTS ?? 10),
     signInWindowMs: Number(env.SIGN_IN_WINDOW_MS ?? 15 * 60_000),
     corsOrigins: (env.CORS_ORIGINS ?? '').split(',').map((o) => o.trim()).filter(Boolean),
+    aiApiKey: (env.ANTHROPIC_API_KEY ?? '').trim(),
+    aiModel: env.AI_MODEL ?? 'claude-opus-5',
+    coachFreePerDay: Number(env.COACH_FREE_PER_DAY ?? 5),
+    coachPremiumPerDay: Number(env.COACH_PREMIUM_PER_DAY ?? 50),
   };
 }

@@ -32,6 +32,8 @@ which is what a development secret should do.
 | `GET /me` | The account and its entitlement, as a server fact. |
 | `DELETE /me` | Erase the account, its sessions and its progress. |
 | `POST /progress/sync` | Merge this device's records in, return what it is behind on. |
+| `GET /coach` | Today's coach allowance, and whether a model is configured. Spends nothing. |
+| `POST /coach` | Ask the coach. Intent + evidence in; text out. |
 | `DELETE /progress` | Clear progress, keep the account. |
 
 ## Decisions
@@ -67,7 +69,31 @@ otherwise be able to make its rows permanently newest, or permanently invisible.
 server cannot disagree about who wins. The rule is: the later review wins,
 because a spaced-repetition record only changes when the item is reviewed.
 
-**No framework.** Eight routes and `node:http`. A router dependency would be
+## The coach
+
+Three rules, all about what the client may not do:
+
+1. **The client never sends a prompt.** It sends an intent from a fixed list
+   (`progress`, `what-next`, `encourage`) and its own evidence. Every word that
+   reaches the model is written in `coach.ts`. A free-text field forwarded to a
+   model is a bill anyone can run up and an instruction anyone can inject —
+   there is a test that a client-supplied `system` and `prompt` change nothing.
+2. **The client never sends prose.** Evidence is numbers and short single-line
+   labels, checked on arrival: control characters stripped, 64 characters, five
+   words at most. A German headword is not a paragraph.
+3. **The quota is counted here.** Free accounts get five requests a day,
+   premium fifty. A phone that says it has three left is a phone that will say
+   it has three left forever.
+
+The model is told the facts are the only facts and that it may not add to them.
+It is asked to phrase, never to know. When no `ANTHROPIC_API_KEY` is set the
+endpoint says `no-model-configured`, spends nothing, and the app falls back to
+the advice it computes on the device — which is the real product either way.
+
+A failed model call is refunded: a request that produced nothing should not
+cost anything.
+
+**No framework.** Ten routes and `node:http`. A router dependency would be
 more code to audit than the code it replaces, and this server's whole point is
 that it holds credentials and can be read end to end. Zero runtime dependencies.
 
@@ -86,6 +112,11 @@ that it holds credentials and can be read end to end. Zero runtime dependencies.
   log through the scheduler would keep both; that needs the full log on both
   sides and is not built. The case requires two offline devices and the same
   word.
+- **The coach's evidence is the client's own.** A device could understate its
+  progress and get worse advice; it cannot affect anyone else, and the prompt,
+  the quota and the model choice are all server-side. Building the evidence
+  server-side would need the course content here too, and is the better answer
+  once that is worth the weight.
 - **Nothing is deployed.** There is no hosting, no domain and no TLS
   certificate, so the mobile app still talks to no server by default.
 

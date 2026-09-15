@@ -6,6 +6,7 @@ import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
 import { PrimaryButton } from '../../src/components/PrimaryButton';
 import { ProgressBar } from '../../src/components/ProgressBar';
+import { CoachPanel } from '../../src/components/CoachPanel';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
 import { usePreferences } from '../../src/preferences';
@@ -74,6 +75,8 @@ export default function LearnScreen() {
             <Text style={styles.blockMeta}>{strings.dueNone}</Text>
           </Card>
         )}
+
+        <CoachPanel />
 
         {next && nextStatus ? (
           <Card style={styles.block}>

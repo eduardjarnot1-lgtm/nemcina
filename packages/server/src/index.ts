@@ -4,4 +4,6 @@ export * from './passwords.ts';
 export * from './tokens.ts';
 export * from './progress.ts';
 export * from './db.ts';
+export * from './coach.ts';
+export * from './claudeProvider.ts';
 export * from './http.ts';

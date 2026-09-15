@@ -131,6 +131,16 @@ try {
   await tap('Start learning');
   await page.waitForTimeout(2_000);
 
+  console.log('the coach speaks only from the learner\'s own records');
+  await page.locator('text="Start"').filter({ visible: true }).first()
+    .waitFor({ timeout: 30_000 });
+  const coachArea = await text();
+  check(coachArea.includes('Coach'), 'the coach is on the home screen');
+  check(coachArea.includes('From your own answers'),
+    'and says where what it says comes from');
+  check(coachArea.includes('Nothing studied yet'),
+    'a learner who has studied nothing is told exactly that, not flattered');
+
   console.log('the course loads');
   // Exact text, and visible only: the onboarding screen stays mounted behind
   // this one, and a substring match finds "Where should you start?" on it.

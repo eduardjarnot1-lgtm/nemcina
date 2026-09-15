@@ -24,6 +24,11 @@ const BOOKMARK_KEY = 'nemcina.sync.bookmark';
 
 interface AccountContextValue {
   readonly account: Account | null;
+  /**
+   * The session token, for the one call that is not made through this context.
+   * It stays in memory only; SecureStore remains the single place it is written.
+   */
+  readonly token: string | null;
   readonly ready: boolean;
   readonly configured: boolean;
   readonly bookmark: SyncBookmark;
@@ -130,9 +135,9 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   }, [token, store, bookmark, reload]);
 
   const value = useMemo<AccountContextValue>(() => ({
-    account, ready, configured: syncConfigured(), bookmark,
+    account, token, ready, configured: syncConfigured(), bookmark,
     register, signIn, signOut, deleteAccount, sync,
-  }), [account, ready, bookmark, register, signIn, signOut, deleteAccount, sync]);
+  }), [account, token, ready, bookmark, register, signIn, signOut, deleteAccount, sync]);
 
   return <AccountContext.Provider value={value}>{children}</AccountContext.Provider>;
 }

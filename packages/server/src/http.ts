@@ -15,6 +15,11 @@ import { createServer, type IncomingMessage, type Server, type ServerResponse } 
 import type { DatabaseSync } from 'node:sqlite';
 import { Accounts, AuthError, type Account } from './accounts.ts';
 import { ProgressStorage } from './progress.ts';
+import {
+  CoachUsage, NO_PROVIDER, ProviderError, SYSTEM_PROMPT, buildPrompt, isCoachIntent,
+  readEvidence, type CoachProvider,
+} from './coach.ts';
+import { claudeProvider } from './claudeProvider.ts';
 import { openDatabase } from './db.ts';
 import type { ServerConfig } from './config.ts';
 
@@ -25,6 +30,7 @@ export interface Api {
   readonly server: Server;
   readonly accounts: Accounts;
   readonly progress: ProgressStorage;
+  readonly coach: CoachUsage;
   readonly db: DatabaseSync;
   listen(port: number): Promise<number>;
   close(): Promise<void>;
@@ -88,10 +94,21 @@ const field = (body: unknown, name: string): string => {
   return typeof value === 'string' ? value : '';
 };
 
-export function createApi(config: ServerConfig, now: () => number = Date.now): Api {
+export function createApi(
+  config: ServerConfig,
+  now: () => number = Date.now,
+  // Injectable so tests drive a fake model rather than a real one, and so a
+  // second provider is a parameter rather than a rewrite.
+  provider?: CoachProvider,
+): Api {
   const db = openDatabase(config.databasePath);
   const accounts = new Accounts(db, config, now);
   const progress = new ProgressStorage(db, now);
+  const coach = new CoachUsage(db, config, now);
+  const model = provider
+    ?? (config.aiApiKey
+      ? claudeProvider({ apiKey: config.aiApiKey, model: config.aiModel })
+      : NO_PROVIDER);
 
   const requireAccount = (request: IncomingMessage): Account => {
     const account = accounts.authenticate(bearer(request));
@@ -178,6 +195,47 @@ export function createApi(config: ServerConfig, now: () => number = Date.now): A
         return send(response, 200, result);
       }
 
+      case 'GET /coach': {
+        const account = requireAccount(request);
+        // Asking how much is left must not spend any of it.
+        return send(response, 200, {
+          quota: coach.quota(account),
+          available: model !== NO_PROVIDER,
+        });
+      }
+
+      case 'POST /coach': {
+        const account = requireAccount(request);
+        const body = await readJson(request) as Record<string, unknown>;
+        if (!isCoachIntent(body.intent)) {
+          throw new AuthError('That is not something the coach can be asked.', 400);
+        }
+        const evidence = readEvidence(body.evidence);
+
+        if (model === NO_PROVIDER) {
+          // Not an error: the app has deterministic advice of its own and shows
+          // that instead. Saying so beats inventing a coach.
+          return send(response, 200, {
+            text: null,
+            reason: 'no-model-configured',
+            quota: coach.quota(account),
+          });
+        }
+
+        const quota = coach.consume(account);
+        try {
+          const text = await model.respond(SYSTEM_PROMPT, buildPrompt(body.intent, evidence));
+          return send(response, 200, { text, reason: null, quota });
+        } catch (error) {
+          // The request produced nothing, so it should not have cost anything.
+          coach.refund(account);
+          if (error instanceof ProviderError) {
+            return send(response, 502, { error: error.message });
+          }
+          throw error;
+        }
+      }
+
       case 'DELETE /progress': {
         const account = requireAccount(request);
         progress.clear(account.id);
@@ -193,6 +251,7 @@ export function createApi(config: ServerConfig, now: () => number = Date.now): A
     server,
     accounts,
     progress,
+    coach,
     db,
     listen(port: number): Promise<number> {
       return new Promise((resolve) => {
