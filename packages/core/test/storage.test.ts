@@ -9,8 +9,8 @@ const T0 = 1_700_000_000_000;
 /** A key-value store that keeps its bytes, the way a real device does. */
 class FakeDevice implements KeyValueStore {
   data = new Map<string, string>();
-  getItem(key: string) { return this.data.get(key) ?? null; }
-  setItem(key: string, value: string) { this.data.set(key, value); }
+  getItem(key: string): string | null | Promise<string | null> { return this.data.get(key) ?? null; }
+  setItem(key: string, value: string): void | Promise<void> { this.data.set(key, value); }
   removeItem(key: string) { this.data.delete(key); }
 }
 
@@ -86,6 +86,67 @@ for (const [name, create] of implementations) {
 }
 
 describe('KeyValueProgressStore persistence', () => {
+  test('a failed device write rejects its caller without blocking later writes', async () => {
+    class FailingDevice extends FakeDevice {
+      fail = true;
+      override async setItem(key: string, value: string) {
+        if (this.fail) {
+          this.fail = false;
+          throw new Error('device unavailable');
+        }
+        await super.setItem(key, value);
+      }
+    }
+    const device = new FailingDevice();
+    const store = new KeyValueProgressStore(device);
+    await assert.rejects(store.put(newProgress('u1', 'w1')), /device unavailable/);
+    await store.put(review(newProgress('u1', 'w2'), GRADE.GOOD, { now: T0 }));
+    const restarted = new KeyValueProgressStore(device);
+    assert.equal((await restarted.get('u1', 'w2')).seen, true);
+  });
+
+  test('clear followed by a new answer preserves only the new answer after restart', async () => {
+    class SlowDevice extends FakeDevice {
+      override async setItem(key: string, value: string) {
+        await new Promise(resolve => setTimeout(resolve, value === '[]' ? 15 : 0));
+        await super.setItem(key, value);
+      }
+    }
+    const device = new SlowDevice();
+    const store = new KeyValueProgressStore(device);
+    await store.put(newProgress('u1', 'old'));
+    await store.recordAttempt(attempt('old', true));
+    await Promise.all([
+      store.clear('u1'),
+      store.put(newProgress('u1', 'new')),
+      store.recordAttempt(attempt('new', true)),
+    ]);
+    const restarted = new KeyValueProgressStore(device);
+    assert.deepEqual((await restarted.all('u1')).map(r => r.itemId), ['new']);
+    assert.deepEqual((await restarted.recentAttempts('u1', 10)).map(a => a.itemId), ['new']);
+  });
+
+  test('concurrent first writes both survive a restart on an asynchronous device', async () => {
+    class AsyncDevice extends FakeDevice {
+      override async getItem(key: string) {
+        const value = super.getItem(key);
+        await Promise.resolve();
+        return value;
+      }
+    }
+    const device = new AsyncDevice();
+    const store = new KeyValueProgressStore(device);
+    await Promise.all([
+      store.put(review(newProgress('u1', 'w1'), GRADE.GOOD, { now: T0 })),
+      store.put(review(newProgress('u1', 'w2'), GRADE.GOOD, { now: T0 })),
+      store.recordAttempt(attempt('w1', true)),
+      store.recordAttempt(attempt('w2', false)),
+    ]);
+    const restarted = new KeyValueProgressStore(device);
+    assert.deepEqual((await restarted.all('u1')).map(r => r.itemId).sort(), ['w1', 'w2']);
+    assert.equal((await restarted.recentAttempts('u1', 10)).length, 2);
+  });
+
   test('progress survives a restart — the app is closed and reopened', async () => {
     const device = new FakeDevice();
 
