@@ -16,7 +16,7 @@ Everything in this section was executed, not read.
 
 | Command | Result |
 |---|---|
-| `npm test --workspaces` | **78 passed, 0 failed** |
+| `npm test --workspaces` | **150 passed, 0 failed** |
 | `npx tsc --noEmit` (packages/core) | clean |
 | `python3 app/tools/validate_content.py` | **PASSED** — 98 776 checks, 0 errors, 1 warning |
 
@@ -40,7 +40,8 @@ flagged for a human.
 | CEFR headwords with sources | 4 442 | |
 | Frequency-ranked forms | 2 586 | OpenSubtitles corpus |
 
-Levels: **A1 829 · A2 1 270 · B1 2 157 · B2 512.** C1 has grammar only, no
+Levels: **A1 829 · A2 1 270 · B1 2 157 · B2 512** — 55, 85, 144 and 34 lessons
+respectively, plus 138 lessons cut by topic category. C1 has grammar only, no
 vocabulary. C2 has nothing and says so — no level claims completeness it does
 not have (spec §2).
 
@@ -61,7 +62,10 @@ German-specific branching.
 | `answers.ts` | Lenient answer checking + FSRS grade inference | 16 |
 | `selection.ts` | Session planning (§8) and exercise difficulty ladder (§7) | 20 |
 | `storage.ts` | `ProgressStore` port + in-memory and key-value implementations | 17 |
-| real-data suite | The engine against the project's actual 4 768 cards | 9 |
+| `content.ts` | `ContentRepository` port, filters and search (§24) | 20 |
+| `lessons.ts` | Lesson units of 10–20 items and progress through them (§5) | 26 |
+| `pipeline.ts` | The typed boundary to the Python pipeline's JSON | 17 |
+| real-data suite | The engine against the project's actual 4 768 cards | 18 |
 
 Toolchain: **zero runtime dependencies.** Node 22 runs TypeScript tests
 natively, so tests use `node:test` with no framework and no build step.
@@ -94,7 +98,7 @@ Stated plainly, because spec §43 forbids calling these done.
 | Advertising | **Nothing.** |
 | Analytics | **Nothing.** |
 | Audio | Browser speech APIs only; no stored pronunciation, no TTS provider. |
-| Lesson units | Vocabulary is browsable but **not yet split into 10–20 item lessons** (§5). |
+| Lesson units | **In the core, not yet in any UI.** 456 lessons are derived from the corpus; nothing displays them. |
 | Placement test | **Nothing.** |
 | Onboarding | **Nothing.** |
 
@@ -166,11 +170,10 @@ mobile work is delayed, (a) is better than leaving two copies drifting.
 
 ## 7. Next priorities
 
-1. **Content repository + lesson units in the core.** Turn 4 768 cards into
-   ordered lessons of 10–20 items per category (§5), with search (§24). Fully
-   testable without a UI; unblocks both web and mobile.
+1. ~~Content repository + lesson units in the core.~~ **Done** — `content.ts`,
+   `lessons.ts`, `pipeline.ts`; 456 lessons of 14–16 items.
 2. **Decide the mobile stack and scaffold it.** React Native/Expo is the
-   default given a TypeScript core.
+   default given a TypeScript core. This is now the largest missing piece.
 3. **Backend + auth + sync.** The `ProgressStore` port is already the seam.
 4. **Real AI coach** behind the controlled functions in §10 of the spec, with
    usage limits enforced server-side (§11).
