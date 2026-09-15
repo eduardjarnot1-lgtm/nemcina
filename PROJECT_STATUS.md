@@ -16,9 +16,10 @@ Everything in this section was executed, not read.
 
 | Command | Result |
 |---|---|
-| `npm test --workspaces` | **150 passed, 0 failed** |
+| `npm test --workspaces` | **207 passed, 0 failed** |
+| `node apps/mobile/e2e/smoke.mjs` | **16 browser checks passed** |
 | `npx tsc --noEmit` (packages/core) | clean |
-| `python3 app/tools/validate_content.py` | **PASSED** — 98 776 checks, 0 errors, 1 warning |
+| `python3 app/tools/validate_content.py` | **PASSED** — 105 546 checks, 0 errors, 1 warning |
 
 The one warning is long-standing and genuine: the source list prints
 *einwerfen* twice with slightly different glosses, so both cards are kept and
@@ -32,16 +33,16 @@ flagged for a human.
 
 | | Count | Provenance |
 |---|---|---|
-| Vocabulary cards | 4 768 | OCR GCSE list + Goethe A1/A2/B1 Wortlisten + Lingster A1–B2 |
-| — levelled by a word list | 4 177 | a source's statement |
+| Vocabulary cards | 4 637 | OCR GCSE list + Goethe A1/A2/B1 Wortlisten + Lingster A1–B2 |
+| — levelled by a word list | 4 046 | a source's statement |
 | — levelled by tier approximation | 591 | labelled "approx." everywhere it appears |
 | Grammar topics | 121 | DaF kompakt (87), Sicher! C1 (32), CC BY-NC gap-fill (2) |
 | Grammar exercises | 615 | |
 | CEFR headwords with sources | 4 442 | |
 | Frequency-ranked forms | 2 586 | OpenSubtitles corpus |
 
-Levels: **A1 829 · A2 1 270 · B1 2 157 · B2 512** — 55, 85, 144 and 34 lessons
-respectively, plus 138 lessons cut by topic category. C1 has grammar only, no
+Levels: **A1 811 · A2 1 237 · B1 2 077 · B2 512** — 54, 82, 138 and 34 lessons
+respectively, plus 138 lessons cut by topic category. 446 lessons in all. C1 has grammar only, no
 vocabulary. C2 has nothing and says so — no level claims completeness it does
 not have (spec §2).
 
@@ -65,11 +66,28 @@ German-specific branching.
 | `content.ts` | `ContentRepository` port, filters and search (§24) | 20 |
 | `lessons.ts` | Lesson units of 10–20 items and progress through them (§5) | 26 |
 | `pipeline.ts` | The typed boundary to the Python pipeline's JSON | 17 |
-| real-data suite | The engine against the project's actual 4 768 cards | 18 |
+| `exercises.ts` | Building a question: distractors, gaps, direction | 23 |
+| `session.ts` | One study session, including the retry of a failed item | 17 |
+| `stats.ts` | Totals, streaks, daily activity | 15 |
+| real-data suite | The engine against the project's actual 4 637 cards | 20 |
 
 Toolchain: **zero runtime dependencies.** Node 22 runs TypeScript tests
 natively, so tests use `node:test` with no framework and no build step.
 `typescript` and `@types/node` are devDependencies used only for type checking.
+
+### `apps/mobile` — the Android and iOS app
+
+Expo Router over React Native, consuming `@nemcina/core`. Working today:
+the next lesson on opening, a study session that runs to a summary with the
+question form rising as an item is learned, wrong answers returning easier,
+progress written per answer to AsyncStorage, search across words and grammar,
+lessons browsable by level and by topic, and a profile with totals, a streak
+and a progress reset.
+
+`e2e/smoke.mjs` drives all of that in Chromium against the real bundle and
+asserts 16 things about it. **It has never been run on a physical device**, so
+nothing native — gestures, the keyboard, layout on a real screen, performance
+on a cheap phone — has been seen by anyone.
 
 ### `app/` — the working web prototype
 
@@ -89,23 +107,29 @@ Stated plainly, because spec §43 forbids calling these done.
 
 | Area | Status |
 |---|---|
-| Mobile app (Android/iOS) | **Nothing.** No React Native project, no native shell. |
 | User accounts | **Nothing.** No auth of any kind. `userId` is a local constant. |
-| Cloud sync | **Nothing.** Progress lives in one browser's `localStorage`. |
+| Cloud sync | **Nothing.** Progress lives on one device, and the phone and the web prototype do not share it. |
 | Backend / database | **Nothing.** No server, no Postgres, no API. |
 | AI Learning Coach | **Not AI.** `app/src/coach.js` is deterministic rules over local data. No model call exists. |
 | Subscriptions / premium | **Nothing.** |
 | Advertising | **Nothing.** |
 | Analytics | **Nothing.** |
-| Audio | Browser speech APIs only; no stored pronunciation, no TTS provider. |
-| Lesson units | **In the core, not yet in any UI.** 456 lessons are derived from the corpus; nothing displays them. |
+| Audio | The web prototype uses browser speech APIs. The mobile app has none. |
 | Placement test | **Nothing.** |
 | Onboarding | **Nothing.** |
+| Grammar screen (mobile) | **Nothing.** The 121 topics load and are searchable; no screen shows one. |
+| App icons | Expo template placeholders. |
 
 ---
 
 ## 4. Known problems
 
+0. **The content bug found by running the app.** 1 293 cards were glossed with
+   the translation of their example sentence rather than of the word, because
+   the Goethe transcription's third column translates the sentence. Fixed in
+   `build_cefr.py`, and `validate_content.py` now refuses to build data with
+   that shape. Worth recording because it was invisible to every unit test and
+   obvious within one screen of the running app.
 1. **The learning logic now exists twice.** `app/src/srs.js` and
    `packages/core/src/srs.ts` implement the same FSRS-5. The web app was not
    rewired to the core in this change, deliberately — the app has no build step
@@ -170,12 +194,16 @@ mobile work is delayed, (a) is better than leaving two copies drifting.
 
 ## 7. Next priorities
 
-1. ~~Content repository + lesson units in the core.~~ **Done** — `content.ts`,
-   `lessons.ts`, `pipeline.ts`; 456 lessons of 14–16 items.
-2. **Decide the mobile stack and scaffold it.** React Native/Expo is the
-   default given a TypeScript core. This is now the largest missing piece.
-3. **Backend + auth + sync.** The `ProgressStore` port is already the seam.
-4. **Real AI coach** behind the controlled functions in §10 of the spec, with
+1. ~~Content repository + lesson units in the core.~~ **Done.**
+2. ~~Decide the mobile stack and scaffold it.~~ **Done** — Expo Router, running
+   and tested end to end in a browser.
+3. **Run it on a real device.** Everything so far is verified through the web
+   export. Nothing native — gestures, keyboard, layout on a real screen — has
+   been seen. This is the next thing that can prove or disprove the app.
+4. **A grammar screen.** 121 topics with explanations and 615 exercises are
+   loaded and searchable, and nothing displays them.
+5. **Backend + auth + sync.** The `ProgressStore` port is already the seam.
+6. **Real AI coach** behind the controlled functions in §10 of the spec, with
    usage limits enforced server-side (§11).
 
 ---
@@ -206,9 +234,11 @@ A new session has no memory of previous ones and will not continue on its own.
 git clone https://github.com/eduardjarnot1-lgtm/nemcina /home/user/nemcina
 cd /home/user/nemcina
 npm install
-npm test --workspaces                      # 78 tests
-python3 app/tools/validate_content.py      # 98 776 checks
+npm test --workspaces                      # 207 tests
+python3 app/tools/validate_content.py      # 105 546 checks
 python3 -m http.server 8000                # then http://localhost:8000/app/
+
+cd apps/mobile && EXPO_OFFLINE=1 npx expo start   # the mobile app
 ```
 
 Source documents are **not** committed — only derived data. To re-run the
