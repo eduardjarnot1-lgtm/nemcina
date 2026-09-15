@@ -17,8 +17,8 @@ Everything in this section was executed, not read.
 
 | Command | Result |
 |---|---|
-| `npm test --workspaces` | **324 passed, 0 failed** (259 core · 65 server) |
-| `node apps/mobile/e2e/smoke.mjs` | **28 browser checks passed** |
+| `npm test --workspaces` | **367 passed, 0 failed** (278 core · 89 server) |
+| `node apps/mobile/e2e/smoke.mjs` | **31 browser checks passed** |
 | `node apps/mobile/e2e/sync.mjs` | **13 checks passed** — two devices, real server, real bundle |
 | `npx tsc --noEmit` (core, server, mobile) | clean |
 | `python3 app/tools/validate_content.py` | **PASSED** — 110 384 checks, 0 errors, 1 warning |
@@ -74,6 +74,7 @@ German-specific branching.
 | `grammar.ts` | Practising a topic: order, grading, the explanation | 19 |
 | `sync.ts` | The merge rule: the later review wins | 13 |
 | `placement.ts` | The adaptive placement test | 19 |
+| `coach.ts` | The coach's evidence, and advice derived from it | 19 |
 | `syncClient.ts` | The client half of sync, transport injected | — |
 | real-data suite | The engine against the project's actual 4 637 cards | 20 |
 
@@ -88,13 +89,14 @@ the next lesson on opening, a study session that runs to a summary with the
 question form rising as an item is learned, wrong answers returning easier,
 progress written per answer to AsyncStorage, search across words and grammar,
 lessons browsable by level and by topic, all 121 grammar topics with their
-explanations and 615 exercises, a profile with totals, a streak and a progress
-reset, an account that carries progress between devices, and a welcome flow
+explanations and 615 exercises, a coach that speaks only from the learner's own
+answers, a profile with totals, a streak and a progress reset, an account that
+carries progress between devices, and a welcome flow
 with an adaptive placement test that decides where lessons start and how long
 a session is.
 
 `e2e/smoke.mjs` drives all of that in Chromium against the real bundle and
-asserts 28 things about it; `e2e/sync.mjs` starts the real server, exports the
+asserts 31 things about it; `e2e/sync.mjs` starts the real server, exports the
 app against it and drives two browser contexts through registering, syncing and
 finding the work on the second device. **It has never been run on a physical device**, so
 nothing native — gestures, the keyboard, layout on a real screen, performance
@@ -102,12 +104,13 @@ on a cheap phone — has been seen by anyone.
 
 ### `packages/server` — accounts and sync
 
-Holds what a phone must not be trusted with (§31): identity, session lifetime
-and entitlements. It schedules nothing. Opaque revocable tokens rather than
+Holds what a phone must not be trusted with (§31): identity, session lifetime,
+entitlements, and the coach's prompt and quota. It schedules nothing. Opaque revocable tokens rather than
 JWTs, scrypt at the OWASP parameters, length as the only password rule, and
 identical answers for a wrong password, an unknown address and one already
 registered. A client may only write its own rows and can never assert its own
-tier. Zero runtime dependencies: `node:http`, `node:crypto`, `node:sqlite`.
+tier. One runtime dependency (`@anthropic-ai/sdk`, confined to one file); otherwise
+`node:http`, `node:crypto` and `node:sqlite` alone.
 
 **Nothing is deployed.** There is no hosting, no domain and no certificate, so
 the mobile app talks to no server unless you run one yourself.
@@ -132,8 +135,8 @@ Stated plainly, because spec §43 forbids calling these done.
 |---|---|
 | Deployment | **Nothing.** The server runs locally and is not hosted anywhere, so sync works only against one you start yourself. |
 | Email verification / password reset | **Nothing.** Both need a mail provider — a decision and a credential nobody has supplied. |
-| AI Learning Coach | **Not AI.** `app/src/coach.js` is deterministic rules over local data. No model call exists. |
-| Subscriptions / premium | **Half.** The server owns the entitlement and will not let a client claim it; nothing sells one, and no store receipt is verified. |
+| AI Learning Coach | **Built, unkeyed.** Evidence and advice are computed from the learner's records; the server will ask Claude to phrase them, under a closed intent list and a server-side quota. No `ANTHROPIC_API_KEY` is set, so it answers `no-model-configured` and the app shows its own advice. |
+| Subscriptions / premium | **Half.** The server owns the entitlement, will not let a client claim it, and premium now buys something real (50 coach requests a day against 5). Nothing sells one and no store receipt is verified. |
 | Advertising | **Nothing.** |
 | Analytics | **Nothing.** |
 | Audio | The web prototype uses browser speech APIs. The mobile app has none. |
@@ -225,9 +228,9 @@ mobile work is delayed, (a) is better than leaving two copies drifting.
    and syncs. Not deployed.
 6. **Deploy the server.** Needs a host, a domain and a certificate; all three
    are decisions, not code. Until then sync is real but unreachable.
-7. **Real AI coach** behind the controlled functions in §10 of the spec, with
-   usage limits enforced server-side (§11). The server is now the place those
-   limits can live.
+7. ~~Real AI coach.~~ **Built** — closed intents, prompts written server-side,
+   quotas counted server-side, and no model configured. Needs a key and the
+   deployment above to be reachable.
 8. ~~Onboarding and a placement test.~~ **Done** — an adaptive test places a
    learner in about twenty questions, and the app opens on a welcome flow
    rather than on lesson one of A1.
@@ -243,7 +246,7 @@ Nothing here blocks the work above; placeholders are in place where needed.
 | Licensing decision or content replacement plan | Any public or paid release | **Yes, for release** |
 | A host, a domain and a TLS certificate | Sync reaching anyone | Yes, for sync to be usable |
 | A mail provider | Email verification and password reset | Not yet |
-| `OPENAI_API_KEY` (or chosen provider) | Real AI coach | Not yet — no backend to hold it |
+| `ANTHROPIC_API_KEY` | The coach's phrasing. Without it the app shows its own advice and says so. | Not blocking |
 | Apple Developer / Google Play accounts | Store submission | Not yet |
 | AdMob identifiers | Advertising | Not yet |
 | Subscription product IDs | Premium | Not yet |
