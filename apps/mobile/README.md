@@ -30,6 +30,7 @@ blocked, prefix commands with `EXPO_OFFLINE=1` and add packages with plain
 | `src/preferences.tsx` | Session length and starting level. Local, deliberately not synced. |
 | `src/speech.ts` | The device's own German voice, where it has one. |
 | `src/api.ts` | The only place that knows the sync server's shape. |
+| `tools/prepare-web-artifact.mjs` | Makes the web export servable from a subdirectory. |
 | `e2e/smoke.mjs` | The app driven in a browser. |
 | `e2e/sync.mjs` | The app, the server and two devices, driven together. |
 
@@ -80,6 +81,25 @@ things, both of which change what the app does: how long a session should be
 (it becomes the session's size) and where to start — answered by an adaptive
 placement test of about twenty questions, or by skipping it and starting at A1.
 Both are changeable afterwards on the profile.
+
+## Putting the web build somewhere
+
+`expo export` assumes the app owns the root of a domain: the page links its
+bundle as `/_expo/...` and the bundle asks for its icons at `/assets/...`.
+Served from a folder — a preview, a project page, an artifact host — every one
+of those is a 404, and the first screen is chosen from a URL path the router
+has never heard of.
+
+```bash
+npx expo export --platform web --output-dir dist
+node tools/prepare-web-artifact.mjs dist web-artifact
+```
+
+That moves the bundle out of the reserved `_expo/` prefix, makes the asset
+paths relative, and writes an `index.html` that holds the address still so a
+reload finds the app again. Expo's own `experiments.baseUrl` is the better
+answer whenever the path is known at build time; it is baked into the bundle,
+so it cannot be used when the host assigns the path afterwards.
 
 ## Audio
 
