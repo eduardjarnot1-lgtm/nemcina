@@ -182,7 +182,59 @@ try {
   check(!alphabet.includes('How many letters are there'),
     'and is not glossed with its example sentence');
 
+  console.log('grammar');
+  await tap('Grammar');
+  await page.waitForTimeout(900);
+  const index = await page.innerText('body');
+  check(/\d+ topics/.test(index), 'the grammar index lists its topics');
+  // Open the first topic, which is whatever the A1 list leads with.
+  const firstTopic = page.locator('text=/exercises/').filter({ visible: true }).first();
+  await firstTopic.click({ timeout: 15_000 });
+  await page.waitForTimeout(900);
+  const topic = await page.innerText('body');
+  check(topic.includes('From '), 'a topic credits the source it came from');
+  check(/Rules|Examples/.test(topic), 'a topic shows its explanation');
+
+  await tap('Practise');
+  await page.waitForTimeout(1_000);
+  const beforeAnswer = await page.innerText('body');
+  check(beforeAnswer.includes('Check') || beforeAnswer.includes('Skip'),
+    'a grammar exercise is on screen');
+
+  const grammarInput = page.locator('input').filter({ visible: true }).first();
+  if (await grammarInput.count() > 0) {
+    await grammarInput.fill('definitely wrong');
+    await tap('Check');
+  } else {
+    const choices = page.locator('[role="button"]').filter({ visible: true });
+    const count = await choices.count();
+    for (let k = 0; k < count; k += 1) {
+      const label = (await choices.nth(k).innerText()).trim();
+      if (label && !chrome.has(label) && label !== 'Practise') {
+        await choices.nth(k).click();
+        break;
+      }
+    }
+  }
+  await page.waitForTimeout(700);
+  const afterAnswer = await page.innerText('body');
+  check(/Correct|Almost|Not quite/.test(afterAnswer), 'the answer is judged');
+
+  // The explanation is the point of a grammar exercise, so it has to appear —
+  // as a line of real prose that was not on the question screen.
+  const before = new Set(beforeAnswer.split('\n').map((line) => line.trim()));
+  const explanation = afterAnswer.split('\n')
+    .map((line) => line.trim())
+    .find((line) => line.length >= 20 && !before.has(line) && !/^Answer:/.test(line));
+  check(Boolean(explanation), `an explanation is shown with the verdict (${explanation ?? 'none'})`);
+
   console.log('browsing');
+  // Practice is a screen pushed over the tabs, so the tab bar is not reachable
+  // from here — go back to it the way a person would.
+  await page.goBack();
+  await page.waitForTimeout(600);
+  await page.goBack();
+  await page.waitForTimeout(900);
   await tap('Lessons');
   await page.waitForTimeout(800);
   await tap('By topic');

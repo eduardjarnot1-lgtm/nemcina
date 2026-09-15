@@ -16,8 +16,8 @@ Everything in this section was executed, not read.
 
 | Command | Result |
 |---|---|
-| `npm test --workspaces` | **207 passed, 0 failed** |
-| `node apps/mobile/e2e/smoke.mjs` | **16 browser checks passed** |
+| `npm test --workspaces` | **226 passed, 0 failed** |
+| `node apps/mobile/e2e/smoke.mjs` | **22 browser checks passed** |
 | `npx tsc --noEmit` (packages/core) | clean |
 | `python3 app/tools/validate_content.py` | **PASSED** — 105 546 checks, 0 errors, 1 warning |
 
@@ -69,6 +69,7 @@ German-specific branching.
 | `exercises.ts` | Building a question: distractors, gaps, direction | 23 |
 | `session.ts` | One study session, including the retry of a failed item | 17 |
 | `stats.ts` | Totals, streaks, daily activity | 15 |
+| `grammar.ts` | Practising a topic: order, grading, the explanation | 19 |
 | real-data suite | The engine against the project's actual 4 637 cards | 20 |
 
 Toolchain: **zero runtime dependencies.** Node 22 runs TypeScript tests
@@ -81,11 +82,12 @@ Expo Router over React Native, consuming `@nemcina/core`. Working today:
 the next lesson on opening, a study session that runs to a summary with the
 question form rising as an item is learned, wrong answers returning easier,
 progress written per answer to AsyncStorage, search across words and grammar,
-lessons browsable by level and by topic, and a profile with totals, a streak
-and a progress reset.
+lessons browsable by level and by topic, all 121 grammar topics with their
+explanations and 615 exercises, and a profile with totals, a streak and a
+progress reset.
 
 `e2e/smoke.mjs` drives all of that in Chromium against the real bundle and
-asserts 16 things about it. **It has never been run on a physical device**, so
+asserts 22 things about it. **It has never been run on a physical device**, so
 nothing native — gestures, the keyboard, layout on a real screen, performance
 on a cheap phone — has been seen by anyone.
 
@@ -117,7 +119,6 @@ Stated plainly, because spec §43 forbids calling these done.
 | Audio | The web prototype uses browser speech APIs. The mobile app has none. |
 | Placement test | **Nothing.** |
 | Onboarding | **Nothing.** |
-| Grammar screen (mobile) | **Nothing.** The 121 topics load and are searchable; no screen shows one. |
 | App icons | Expo template placeholders. |
 
 ---
@@ -200,8 +201,8 @@ mobile work is delayed, (a) is better than leaving two copies drifting.
 3. **Run it on a real device.** Everything so far is verified through the web
    export. Nothing native — gestures, keyboard, layout on a real screen — has
    been seen. This is the next thing that can prove or disprove the app.
-4. **A grammar screen.** 121 topics with explanations and 615 exercises are
-   loaded and searchable, and nothing displays them.
+4. ~~A grammar screen.~~ **Done** — index by level, topic pages with the
+   source credited, and practice that ends every answer on the explanation.
 5. **Backend + auth + sync.** The `ProgressStore` port is already the seam.
 6. **Real AI coach** behind the controlled functions in §10 of the spec, with
    usage limits enforced server-side (§11).

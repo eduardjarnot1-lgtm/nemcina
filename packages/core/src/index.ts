@@ -13,6 +13,7 @@ export * from './storage.ts';
 export * from './content.ts';
 export * from './exercises.ts';
 export * from './session.ts';
+export * from './grammar.ts';
 export * from './stats.ts';
 export * from './lessons.ts';
 export * from './pipeline.ts';

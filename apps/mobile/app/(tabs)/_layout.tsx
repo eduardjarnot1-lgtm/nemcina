@@ -27,6 +27,10 @@ export default function TabsLayout() {
         options={{ title: strings.tabLessons, tabBarIcon: glyph('☰') }}
       />
       <Tabs.Screen
+        name="grammar"
+        options={{ title: strings.tabGrammar, tabBarIcon: glyph('§') }}
+      />
+      <Tabs.Screen
         name="search"
         options={{ title: strings.tabSearch, tabBarIcon: glyph('⌕') }}
       />
