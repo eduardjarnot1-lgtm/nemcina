@@ -18,4 +18,5 @@ export * from './stats.ts';
 export * from './sync.ts';
 export * from './syncClient.ts';
 export * from './lessons.ts';
+export * from './placement.ts';
 export * from './pipeline.ts';

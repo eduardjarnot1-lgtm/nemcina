@@ -1,13 +1,14 @@
 import { useMemo } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { useRouter } from 'expo-router';
-import { isDue, lessonStatus, nextLesson, totals } from '@nemcina/core';
+import { Redirect, useRouter } from 'expo-router';
+import { isDue, lessonStatus, levelsFrom, nextLesson, totals } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
 import { PrimaryButton } from '../../src/components/PrimaryButton';
 import { ProgressBar } from '../../src/components/ProgressBar';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
+import { usePreferences } from '../../src/preferences';
 import { strings } from '../../src/strings';
 import { palette, spacing, type as typeScale } from '../../src/theme';
 
@@ -22,9 +23,20 @@ export default function LearnScreen() {
   const router = useRouter();
   const { levelLessons } = useCourse();
   const { records, ready } = useProgress();
+  const { preferences, ready: preferencesReady } = usePreferences();
+
+  // Lessons below where the learner was placed are not offered as "next": the
+  // placement test exists precisely so nobody is sent back to them.
+  const offered = useMemo(() => {
+    const from = preferences.startingLevel;
+    if (!from) return levelLessons;
+    const allowed = new Set(levelsFrom(from).map((level) => level.toLowerCase()));
+    const filtered = levelLessons.filter((lesson) => allowed.has(lesson.groupId));
+    return filtered.length > 0 ? filtered : levelLessons;
+  }, [levelLessons, preferences.startingLevel]);
 
   const summary = useMemo(() => totals(records.values()), [records]);
-  const next = useMemo(() => nextLesson(levelLessons, records), [levelLessons, records]);
+  const next = useMemo(() => nextLesson(offered, records), [offered, records]);
   const nextStatus = useMemo(
     () => (next ? lessonStatus(next, records) : null),
     [next, records],
@@ -33,6 +45,9 @@ export default function LearnScreen() {
     () => [...records.values()].filter((record) => isDue(record)).length,
     [records],
   );
+
+  // The welcome flow is the app's front door, not a dialog over it.
+  if (preferencesReady && !preferences.onboarded) return <Redirect href="/onboarding" />;
 
   return (
     <Screen>

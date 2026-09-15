@@ -13,5 +13,5 @@ python3 -m http.server 8000     # z kořene repozitáře
 # pak otevřít http://localhost:8000/app/
 ```
 
-Obsah: 4 637 slovíček s úrovní A1–B2 a 121 gramatických témat A1–C1,
+Obsah: 4 646 slovíček s úrovní A1–B2 a 121 gramatických témat A1–C1,
 opakování podle FSRS-5, personalizované lekce a sledování pokroku.

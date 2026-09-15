@@ -27,6 +27,7 @@ blocked, prefix commands with `EXPO_OFFLINE=1` and add packages with plain
 | `src/progress.tsx` | `ProgressStore` over AsyncStorage, behind a context. |
 | `src/strings.ts` | Every word the interface says, in one table. |
 | `src/account.tsx` | The signed-in account; the token lives in SecureStore, never AsyncStorage. |
+| `src/preferences.tsx` | Session length and starting level. Local, deliberately not synced. |
 | `src/api.ts` | The only place that knows the sync server's shape. |
 | `e2e/smoke.mjs` | The app driven in a browser. |
 | `e2e/sync.mjs` | The app, the server and two devices, driven together. |
@@ -71,8 +72,16 @@ account is never a wall in front of the course.
 EXPO_PUBLIC_API_URL=https://api.example.com npx expo start
 ```
 
+## Onboarding
+
+A new install opens on a welcome flow, not on lesson one of A1. It asks two
+things, both of which change what the app does: how long a session should be
+(it becomes the session's size) and where to start — answered by an adaptive
+placement test of about twenty questions, or by skipping it and starting at A1.
+Both are changeable afterwards on the profile.
+
 ## Not built yet
 
-Subscriptions, ads, notifications, audio, a placement test and onboarding. No
-server is deployed, so sync works only against one you run yourself.
+Subscriptions, ads, notifications and audio. No server is deployed, so sync
+works only against one you run yourself.
 `PROJECT_STATUS.md` in the repository root is the honest list.

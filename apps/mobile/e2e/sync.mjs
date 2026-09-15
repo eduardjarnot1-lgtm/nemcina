@@ -121,7 +121,12 @@ async function device() {
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto(webUrl, { waitUntil: 'networkidle' });
-  await page.waitForSelector('text=Start', { timeout: 30_000 });
+  // Every fresh context is a fresh install, so it opens on the welcome flow.
+  // Take the shortest way through it; placement is smoke.mjs's business.
+  await page.waitForSelector('text=How much is a session?', { timeout: 30_000 });
+  await page.locator('text="Start at the beginning"').filter({ visible: true }).first().click();
+  await page.locator('text="Start"').filter({ visible: true }).first()
+    .waitFor({ timeout: 30_000 });
   const tap = (label) =>
     page.locator(`text="${label}"`).filter({ visible: true }).first().click({ timeout: 15_000 });
   /**

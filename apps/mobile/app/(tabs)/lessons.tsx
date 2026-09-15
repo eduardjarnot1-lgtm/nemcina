@@ -6,6 +6,7 @@ import { Screen } from '../../src/components/Screen';
 import { LessonRow } from '../../src/components/LessonRow';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
+import { usePreferences } from '../../src/preferences';
 import { strings } from '../../src/strings';
 import { palette, radius, spacing, type as typeScale } from '../../src/theme';
 
@@ -22,6 +23,7 @@ export default function LessonsScreen() {
   const router = useRouter();
   const { levelLessons, topicLessons } = useCourse();
   const { records } = useProgress();
+  const { preferences } = usePreferences();
   const [route, setRoute] = useState<Route>('level');
   const [group, setGroup] = useState<string | null>(null);
 
@@ -33,9 +35,13 @@ export default function LessonsScreen() {
     return [...seen.entries()].map(([id, title]) => ({ id, title }));
   }, [lessons]);
 
-  const active = group && groups.some((entry) => entry.id === group)
-    ? group
+  // Opening on the placed level rather than on A1: a learner placed at B1 who
+  // has to scroll past two levels every time has been placed for nothing.
+  const placed = preferences.startingLevel?.toLowerCase() ?? null;
+  const preferred = route === 'level' && placed && groups.some((entry) => entry.id === placed)
+    ? placed
     : groups[0]?.id ?? null;
+  const active = group && groups.some((entry) => entry.id === group) ? group : preferred;
 
   const shown = useMemo(
     () => lessons.filter((lesson) => lesson.groupId === active),

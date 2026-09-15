@@ -5,6 +5,7 @@ import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
 import { PrimaryButton } from '../../src/components/PrimaryButton';
 import { AccountPanel } from '../../src/components/AccountPanel';
+import { LearningPanel } from '../../src/components/LearningPanel';
 import { useProgress } from '../../src/progress';
 import { strings } from '../../src/strings';
 import { palette, spacing, type as typeScale } from '../../src/theme';
@@ -36,6 +37,8 @@ export default function ProfileScreen() {
           <Row label={strings.dueToday} value={summary.due} />
           <Row label={strings.streak} value={days.current} />
         </Card>
+
+        <LearningPanel />
 
         <AccountPanel />
 

@@ -13,6 +13,7 @@ import { PrimaryButton } from '../../src/components/PrimaryButton';
 import { ProgressBar } from '../../src/components/ProgressBar';
 import { useCourse } from '../../src/course';
 import { LOCAL_USER, useProgress } from '../../src/progress';
+import { usePreferences } from '../../src/preferences';
 import { strings } from '../../src/strings';
 import { palette, radius, spacing, type as typeScale } from '../../src/theme';
 
@@ -35,6 +36,7 @@ export default function SessionScreen() {
   const { lessonId } = useLocalSearchParams<{ lessonId: string }>();
   const { repository, lessonsById } = useCourse();
   const { records, ready, save } = useProgress();
+  const { preferences } = usePreferences();
 
   const [session, setSession] = useState<StudySession | null>(null);
   const [outcome, setOutcome] = useState<AnswerOutcome | null>(null);
@@ -65,7 +67,13 @@ export default function SessionScreen() {
 
   useEffect(() => {
     if (!ready || session) return;
-    setSession(StudySession.plan(LOCAL_USER, plan.items, records, { pool: plan.pool }));
+    // The session is as long as the learner said a session should be. New
+    // items stay a minority of it so review work is never crowded out.
+    const total = preferences.dailyGoal;
+    setSession(StudySession.plan(LOCAL_USER, plan.items, records, {
+      pool: plan.pool,
+      mix: { total, maxNew: Math.max(3, Math.round(total * 0.4)), maxMaintenance: 1 },
+    }));
     // Same reason as above: built once, when progress has loaded.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, session, plan]);

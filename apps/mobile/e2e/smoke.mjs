@@ -107,9 +107,35 @@ const tap = async (label) =>
   page.locator(`text="${label}"`).filter({ visible: true }).first().click({ timeout: 15_000 });
 
 try {
-  console.log('the course loads');
+  console.log('a new learner is welcomed, not dropped into lesson one');
   await page.goto(url, { waitUntil: 'networkidle' });
-  await page.waitForSelector('text=Start', { timeout: 30_000 });
+  await page.waitForSelector('text=How much is a session?', { timeout: 30_000 });
+  const welcome = await text();
+  check(welcome.includes('Where should you start?'), 'onboarding asks where to start');
+  check(welcome.includes('Take the placement test'), 'and offers a placement test');
+
+  console.log('the placement test places');
+  await tap('Take the placement test');
+  await page.waitForTimeout(1_500);
+  check((await text()).includes('of up to'), 'the placement test says how long it is');
+
+  // Answer everything with "I don't know" — a true beginner.
+  for (let i = 0; i < 30; i += 1) {
+    if ((await page.innerText('body')).includes('You start at')) break;
+    await tap("I don't know");
+    await page.waitForTimeout(250);
+  }
+  const placed = await text();
+  check(placed.includes('You start at'), 'the test reaches a result');
+  check(/\bA1\b/.test(placed), 'a learner who knows nothing is placed at A1');
+  await tap('Start learning');
+  await page.waitForTimeout(2_000);
+
+  console.log('the course loads');
+  // Exact text, and visible only: the onboarding screen stays mounted behind
+  // this one, and a substring match finds "Where should you start?" on it.
+  await page.locator('text="Start"').filter({ visible: true }).first()
+    .waitFor({ timeout: 30_000 });
   const home = await text();
   check(/Lesson 1 of \d+/.test(home), 'the home screen offers a first lesson');
   check(home.includes('Learned'), 'progress totals are on screen');
@@ -125,8 +151,19 @@ try {
   const chrome = new Set(['Skip', 'Continue', 'Hint', 'Check', 'Learn', 'Lessons', 'Search', 'Profile']);
   const answers = options.map((o) => o.trim()).filter((o) => o && !chrome.has(o));
   check(answers.length >= 4, 'a multiple choice offers four answers');
-  check(answers.every((a) => a.split(/\s+/).length < 8),
+  // The same rule validate_content.py applies, rather than a second, stricter
+  // one: a meaning may be a long multi-sense gloss ("to be up and about; to be
+  // up"), but it may not be a sentence.
+  const abbreviations = ['sth.', 'sb.', 'etc.', 'i.e.', 'e.g.', 'vs.', 'tog.'];
+  const sentence = (value) => {
+    if (!/[.?!]$/.test(value)) return false;
+    if (abbreviations.some((a) => value.toLowerCase().endsWith(a))) return false;
+    return value.split(/\s+/).length >= 6;
+  };
+  check(answers.every((a) => !sentence(a)),
     `no answer is a sentence (${answers.map((a) => JSON.stringify(a)).join(', ')})`);
+  check(answers.every((a) => !/[{}[\]<>]/.test(a)),
+    `no answer carries dictionary notation (${answers.join(' / ')})`);
 
   let finished = false;
   for (let i = 0; i < 60 && !finished; i += 1) {

@@ -20,7 +20,7 @@ On Netlify the site publishes the repository root, so the app is served at
 
 | Content | Source | Status |
 |---|---|---|
-| Vocabulary — 4 637 cards | OCR GCSE list (2 047) + the CEFR word lists below (2 590) | imported |
+| Vocabulary — 4 646 cards | OCR GCSE list (2 047) + the CEFR word lists below (2 599) | imported |
 | CEFR levels A1/A2/B1 | Official Goethe-Institut Wortlisten (A1 Start Deutsch 1, A2, B1) | imported |
 | CEFR level B2 | Der deutsche Wortschatz von A1 bis B2, Lingster Academy | imported |
 | English glosses for unlisted words | Ding German–English dictionary, TU Chemnitz (GPL v2+) | imported |
@@ -89,10 +89,10 @@ overwrite an earlier one would push almost everything to B1.
 
 | | Count |
 |---|---|
-| Cards levelled by a word list | 4 046 |
+| Cards levelled by a word list | 4 055 |
 | Cards no list carries, keeping the GCSE Foundation/Higher approximation | 591 |
-| New cards imported from the word lists | 2 590 |
-| Word-list entries skipped for having no English at all | 365 |
+| New cards imported from the word lists | 2 599 |
+| Word-list entries skipped for having no English at all | 356 |
 
 ### Where the English comes from
 
@@ -108,7 +108,15 @@ language?"* on the card for **Alphabet**. The column now fills
 dictionary or the card is dropped for having none. `validate_content.py` checks
 both halves of that, so the mistake cannot come back silently.
 
-A1 811 · A2 1 237 · B1 2 077 · B2 512.
+Ding's own notation is stripped on the way in. It writes irregular forms in
+`{braces}`, subject domains in `[brackets]` and alternative spellings in
+`<angles>`, and splitting an entry on every `;` cut through those — leaving
+*"to send {sent"* on a card and, less visibly, shifting the English senses out
+of step with the German ones. `split_senses` respects nesting so both sides
+divide at the same places, and the validator refuses any meaning still carrying
+notation or an unbalanced bracket.
+
+A1 812 · A2 1 239 · B1 2 082 · B2 513.
 
 B2 rests on the Lingster list alone — it is the only source here that reaches
 B2 — and that is stated in the data rather than smoothed over. Cards whose
@@ -265,7 +273,7 @@ grammar topics, unknown or circular prerequisites.
 
 ```bash
 python3 app/tools/validate_content.py
-# vocabulary: 4637 words checked
+# vocabulary: 4646 words checked
 # grammar: 121 topics, 615 exercises checked
 # PASSED — 0 errors, 1 warning
 ```
@@ -341,7 +349,7 @@ number.
 app/
   index.html            shell: top bar, search, main region
   styles.css            light + dark theme, no framework
-  data/vocabulary.json  4637 cards, levelled A1–B2
+  data/vocabulary.json  4646 cards, levelled A1–B2
   data/cefr.json        4442 levelled headwords with their sources
   data/frequency.json   2586 ranked word forms
   data/grammar.json     121 topics, 615 examples, 615 exercises

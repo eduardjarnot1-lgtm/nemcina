@@ -4,13 +4,15 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { CourseProvider } from '../src/course';
 import { ProgressProvider } from '../src/progress';
 import { AccountProvider } from '../src/account';
+import { PreferencesProvider } from '../src/preferences';
 import { palette } from '../src/theme';
 
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
-      <CourseProvider>
-        <ProgressProvider>
+      <PreferencesProvider>
+        <CourseProvider>
+          <ProgressProvider>
           <AccountProvider>
             <StatusBar style="dark" />
             <Stack
@@ -27,8 +29,9 @@ export default function RootLayout() {
               />
             </Stack>
           </AccountProvider>
-        </ProgressProvider>
-      </CourseProvider>
+          </ProgressProvider>
+        </CourseProvider>
+      </PreferencesProvider>
     </SafeAreaProvider>
   );
 }

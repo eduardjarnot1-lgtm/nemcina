@@ -17,11 +17,11 @@ Everything in this section was executed, not read.
 
 | Command | Result |
 |---|---|
-| `npm test --workspaces` | **304 passed, 0 failed** (239 core · 65 server) |
-| `node apps/mobile/e2e/smoke.mjs` | **22 browser checks passed** |
+| `npm test --workspaces` | **324 passed, 0 failed** (259 core · 65 server) |
+| `node apps/mobile/e2e/smoke.mjs` | **28 browser checks passed** |
 | `node apps/mobile/e2e/sync.mjs` | **13 checks passed** — two devices, real server, real bundle |
 | `npx tsc --noEmit` (core, server, mobile) | clean |
-| `python3 app/tools/validate_content.py` | **PASSED** — 105 546 checks, 0 errors, 1 warning |
+| `python3 app/tools/validate_content.py` | **PASSED** — 110 384 checks, 0 errors, 1 warning |
 
 The one warning is long-standing and genuine: the source list prints
 *einwerfen* twice with slightly different glosses, so both cards are kept and
@@ -35,16 +35,16 @@ flagged for a human.
 
 | | Count | Provenance |
 |---|---|---|
-| Vocabulary cards | 4 637 | OCR GCSE list + Goethe A1/A2/B1 Wortlisten + Lingster A1–B2 |
-| — levelled by a word list | 4 046 | a source's statement |
+| Vocabulary cards | 4 646 | OCR GCSE list + Goethe A1/A2/B1 Wortlisten + Lingster A1–B2 |
+| — levelled by a word list | 4 055 | a source's statement |
 | — levelled by tier approximation | 591 | labelled "approx." everywhere it appears |
 | Grammar topics | 121 | DaF kompakt (87), Sicher! C1 (32), CC BY-NC gap-fill (2) |
 | Grammar exercises | 615 | |
 | CEFR headwords with sources | 4 442 | |
 | Frequency-ranked forms | 2 586 | OpenSubtitles corpus |
 
-Levels: **A1 811 · A2 1 237 · B1 2 077 · B2 512** — 54, 82, 138 and 34 lessons
-respectively, plus 138 lessons cut by topic category. 446 lessons in all. C1 has grammar only, no
+Levels: **A1 812 · A2 1 239 · B1 2 082 · B2 513** — 54, 83, 139 and 34 lessons
+respectively, plus 138 lessons cut by topic category. 448 lessons in all. C1 has grammar only, no
 vocabulary. C2 has nothing and says so — no level claims completeness it does
 not have (spec §2).
 
@@ -73,6 +73,7 @@ German-specific branching.
 | `stats.ts` | Totals, streaks, daily activity | 15 |
 | `grammar.ts` | Practising a topic: order, grading, the explanation | 19 |
 | `sync.ts` | The merge rule: the later review wins | 13 |
+| `placement.ts` | The adaptive placement test | 19 |
 | `syncClient.ts` | The client half of sync, transport injected | — |
 | real-data suite | The engine against the project's actual 4 637 cards | 20 |
 
@@ -88,10 +89,12 @@ question form rising as an item is learned, wrong answers returning easier,
 progress written per answer to AsyncStorage, search across words and grammar,
 lessons browsable by level and by topic, all 121 grammar topics with their
 explanations and 615 exercises, a profile with totals, a streak and a progress
-reset, and an account that carries progress between devices.
+reset, an account that carries progress between devices, and a welcome flow
+with an adaptive placement test that decides where lessons start and how long
+a session is.
 
 `e2e/smoke.mjs` drives all of that in Chromium against the real bundle and
-asserts 22 things about it; `e2e/sync.mjs` starts the real server, exports the
+asserts 28 things about it; `e2e/sync.mjs` starts the real server, exports the
 app against it and drives two browser contexts through registering, syncing and
 finding the work on the second device. **It has never been run on a physical device**, so
 nothing native — gestures, the keyboard, layout on a real screen, performance
@@ -134,8 +137,6 @@ Stated plainly, because spec §43 forbids calling these done.
 | Advertising | **Nothing.** |
 | Analytics | **Nothing.** |
 | Audio | The web prototype uses browser speech APIs. The mobile app has none. |
-| Placement test | **Nothing.** |
-| Onboarding | **Nothing.** |
 | Notifications | **Nothing.** |
 | App icons | Expo template placeholders. |
 
@@ -227,8 +228,9 @@ mobile work is delayed, (a) is better than leaving two copies drifting.
 7. **Real AI coach** behind the controlled functions in §10 of the spec, with
    usage limits enforced server-side (§11). The server is now the place those
    limits can live.
-8. **Onboarding and a placement test**, so a new learner does not start at
-   lesson one of A1 regardless of what they already know.
+8. ~~Onboarding and a placement test.~~ **Done** — an adaptive test places a
+   learner in about twenty questions, and the app opens on a welcome flow
+   rather than on lesson one of A1.
 
 ---
 
