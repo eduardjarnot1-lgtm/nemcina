@@ -5,8 +5,9 @@ documentation audit — that audit described the repository as *documented*; thi
 one separates what has been **verified by running it** from what has not.
 
 Target product: a commercial German-learning mobile app for Android and iOS.
-Current reality: a working web prototype plus a tested engine. The gap is large
-and is stated honestly below rather than smoothed over.
+Current reality: a mobile app that runs, a tested engine behind it, a sync
+server that works and is not deployed, and a content pipeline that refuses bad
+input. What is still missing is stated below rather than smoothed over.
 
 ---
 
@@ -16,9 +17,10 @@ Everything in this section was executed, not read.
 
 | Command | Result |
 |---|---|
-| `npm test --workspaces` | **226 passed, 0 failed** |
+| `npm test --workspaces` | **304 passed, 0 failed** (239 core · 65 server) |
 | `node apps/mobile/e2e/smoke.mjs` | **22 browser checks passed** |
-| `npx tsc --noEmit` (packages/core) | clean |
+| `node apps/mobile/e2e/sync.mjs` | **13 checks passed** — two devices, real server, real bundle |
+| `npx tsc --noEmit` (core, server, mobile) | clean |
 | `python3 app/tools/validate_content.py` | **PASSED** — 105 546 checks, 0 errors, 1 warning |
 
 The one warning is long-standing and genuine: the source list prints
@@ -70,6 +72,8 @@ German-specific branching.
 | `session.ts` | One study session, including the retry of a failed item | 17 |
 | `stats.ts` | Totals, streaks, daily activity | 15 |
 | `grammar.ts` | Practising a topic: order, grading, the explanation | 19 |
+| `sync.ts` | The merge rule: the later review wins | 13 |
+| `syncClient.ts` | The client half of sync, transport injected | — |
 | real-data suite | The engine against the project's actual 4 637 cards | 20 |
 
 Toolchain: **zero runtime dependencies.** Node 22 runs TypeScript tests
@@ -83,13 +87,27 @@ the next lesson on opening, a study session that runs to a summary with the
 question form rising as an item is learned, wrong answers returning easier,
 progress written per answer to AsyncStorage, search across words and grammar,
 lessons browsable by level and by topic, all 121 grammar topics with their
-explanations and 615 exercises, and a profile with totals, a streak and a
-progress reset.
+explanations and 615 exercises, a profile with totals, a streak and a progress
+reset, and an account that carries progress between devices.
 
 `e2e/smoke.mjs` drives all of that in Chromium against the real bundle and
-asserts 22 things about it. **It has never been run on a physical device**, so
+asserts 22 things about it; `e2e/sync.mjs` starts the real server, exports the
+app against it and drives two browser contexts through registering, syncing and
+finding the work on the second device. **It has never been run on a physical device**, so
 nothing native — gestures, the keyboard, layout on a real screen, performance
 on a cheap phone — has been seen by anyone.
+
+### `packages/server` — accounts and sync
+
+Holds what a phone must not be trusted with (§31): identity, session lifetime
+and entitlements. It schedules nothing. Opaque revocable tokens rather than
+JWTs, scrypt at the OWASP parameters, length as the only password rule, and
+identical answers for a wrong password, an unknown address and one already
+registered. A client may only write its own rows and can never assert its own
+tier. Zero runtime dependencies: `node:http`, `node:crypto`, `node:sqlite`.
+
+**Nothing is deployed.** There is no hosting, no domain and no certificate, so
+the mobile app talks to no server unless you run one yourself.
 
 ### `app/` — the working web prototype
 
@@ -109,16 +127,16 @@ Stated plainly, because spec §43 forbids calling these done.
 
 | Area | Status |
 |---|---|
-| User accounts | **Nothing.** No auth of any kind. `userId` is a local constant. |
-| Cloud sync | **Nothing.** Progress lives on one device, and the phone and the web prototype do not share it. |
-| Backend / database | **Nothing.** No server, no Postgres, no API. |
+| Deployment | **Nothing.** The server runs locally and is not hosted anywhere, so sync works only against one you start yourself. |
+| Email verification / password reset | **Nothing.** Both need a mail provider — a decision and a credential nobody has supplied. |
 | AI Learning Coach | **Not AI.** `app/src/coach.js` is deterministic rules over local data. No model call exists. |
-| Subscriptions / premium | **Nothing.** |
+| Subscriptions / premium | **Half.** The server owns the entitlement and will not let a client claim it; nothing sells one, and no store receipt is verified. |
 | Advertising | **Nothing.** |
 | Analytics | **Nothing.** |
 | Audio | The web prototype uses browser speech APIs. The mobile app has none. |
 | Placement test | **Nothing.** |
 | Onboarding | **Nothing.** |
+| Notifications | **Nothing.** |
 | App icons | Expo template placeholders. |
 
 ---
@@ -201,11 +219,16 @@ mobile work is delayed, (a) is better than leaving two copies drifting.
 3. **Run it on a real device.** Everything so far is verified through the web
    export. Nothing native — gestures, keyboard, layout on a real screen — has
    been seen. This is the next thing that can prove or disprove the app.
-4. ~~A grammar screen.~~ **Done** — index by level, topic pages with the
-   source credited, and practice that ends every answer on the explanation.
-5. **Backend + auth + sync.** The `ProgressStore` port is already the seam.
-6. **Real AI coach** behind the controlled functions in §10 of the spec, with
-   usage limits enforced server-side (§11).
+4. ~~A grammar screen.~~ **Done.**
+5. ~~Backend + auth + sync.~~ **Done** — `packages/server`, and the app signs in
+   and syncs. Not deployed.
+6. **Deploy the server.** Needs a host, a domain and a certificate; all three
+   are decisions, not code. Until then sync is real but unreachable.
+7. **Real AI coach** behind the controlled functions in §10 of the spec, with
+   usage limits enforced server-side (§11). The server is now the place those
+   limits can live.
+8. **Onboarding and a placement test**, so a new learner does not start at
+   lesson one of A1 regardless of what they already know.
 
 ---
 
@@ -216,6 +239,8 @@ Nothing here blocks the work above; placeholders are in place where needed.
 | Needed | For | Blocking now? |
 |---|---|---|
 | Licensing decision or content replacement plan | Any public or paid release | **Yes, for release** |
+| A host, a domain and a TLS certificate | Sync reaching anyone | Yes, for sync to be usable |
+| A mail provider | Email verification and password reset | Not yet |
 | `OPENAI_API_KEY` (or chosen provider) | Real AI coach | Not yet — no backend to hold it |
 | Apple Developer / Google Play accounts | Store submission | Not yet |
 | AdMob identifiers | Advertising | Not yet |
@@ -240,6 +265,7 @@ python3 app/tools/validate_content.py      # 105 546 checks
 python3 -m http.server 8000                # then http://localhost:8000/app/
 
 cd apps/mobile && EXPO_OFFLINE=1 npx expo start   # the mobile app
+npm start -w @nemcina/server                      # the sync server
 ```
 
 Source documents are **not** committed — only derived data. To re-run the
