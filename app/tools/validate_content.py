@@ -25,7 +25,11 @@ VALID_ARTICLES = {"der", "die", "das", ""}
 VALID_LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2", "GCSE"}
 VALID_TYPES = {"noun", "verb", "adjective", "adverb", "pronoun",
                "preposition", "conjunction", "other"}
-TRANSLATION_SOURCES = {"", "wordlist", "ding", "b2-list"}
+# Every card now comes from a list composed for this project. "wordlist"
+# and "ding" belong to the corpus this replaced and are kept so the checks
+# still read data built before the rebuild.
+TRANSLATION_SOURCES = {"", "wordlist", "ding", "b2-list", "clean-list"}
+CLEAN_SOURCES = {"b2-list", "clean-list"}
 
 
 # Endings that only look like the end of a sentence. Ding writes "sth." and
@@ -181,11 +185,14 @@ def validate_vocabulary(report: Report) -> None:
         # The B2 list prints an article for every noun and a translated example
         # for every entry, so a card built from it that is missing either was
         # not built from what the document actually says.
-        if w.get("translationSource") == "b2-list":
+        if w.get("translationSource") in CLEAN_SOURCES:
             report.check(bool(w["example"].strip()) and bool(w["exampleTranslation"].strip()),
-                         f"vocabulary {wid}: B2-list card without a translated example")
-            report.check(w["cefr"] == "B2" and w["level"] == "B2",
-                         f"vocabulary {wid}: B2-list card levelled {w['level']!r}/{w['cefr']!r}")
+                         f"vocabulary {wid}: clean-list card without a translated example")
+            report.check(w["cefr"] == w["level"] and w["cefr"] in VALID_LEVELS,
+                         f"vocabulary {wid}: clean-list card levelled "
+                         f"{w['level']!r}/{w['cefr']!r}")
+            report.check(w.get("cefrSource", "") != "tier-approximation",
+                         f"vocabulary {wid}: clean-list card carries a tier approximation")
         report.check(bool(w["categories"]), f"vocabulary {wid}: no category")
         # A plural form, when present, must look like a German plural rather
         # than a stray article or a sentence.
@@ -221,6 +228,13 @@ def validate_vocabulary(report: Report) -> None:
             report.check((placement["category"], placement["subcategory"]) in declared,
                          f"vocabulary {w['id']}: filed under undeclared "
                          f"{placement['category']}/{placement['subcategory']}")
+
+    # The point of the rebuild: nothing in the shipped corpus may come from a
+    # third party's list or dictionary. This is the check that keeps it true.
+    borrowed = [w["id"] for w in words if w.get("translationSource") not in CLEAN_SOURCES]
+    report.check(not borrowed,
+                 f"vocabulary: {len(borrowed)} card(s) still carry a third-party "
+                 f"translation source, e.g. {borrowed[:5]}")
 
     meta_cefr = db["meta"].get("cefr")
     if meta_cefr:

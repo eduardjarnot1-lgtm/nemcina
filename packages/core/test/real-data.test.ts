@@ -35,7 +35,7 @@ const T0 = 1_700_000_000_000;
 
 describe('the shipped content matches what the engine expects', () => {
   test('vocabulary is non-trivial and every card has an id, term and meaning', () => {
-    assert.ok(vocabulary.words.length > 4000, `only ${vocabulary.words.length} cards`);
+    assert.ok(vocabulary.words.length > 2500, `only ${vocabulary.words.length} cards`);
     for (const word of vocabulary.words) {
       assert.ok(word.id, 'missing id');
       assert.ok(word.word?.trim(), `${word.id} has no term`);
@@ -158,9 +158,11 @@ describe('the importer reads the real pipeline output', () => {
       }
     }
     const approximated = items.filter((i) => i.levelProvenance.kind === 'approximated').length;
-    // The pipeline reports 591 tier-approximated cards; if that number moves,
-    // the corpus changed and someone should know.
-    assert.equal(approximated, 591, `approximated card count changed: ${approximated}`);
+    // Nothing is approximated any more. The 591 tier-approximated cards came
+    // from the GCSE list, which graded by Foundation/Higher tier and stated no
+    // CEFR level; every list in the corpus now states the level of its own
+    // words. A card appearing here again means a source stopped saying.
+    assert.equal(approximated, 0, `${approximated} card(s) fall back to an approximated level`);
   });
 
   test('every grammar topic imports, keeps its exercises and keeps its explanation', () => {
@@ -213,8 +215,12 @@ describe('the importer reads the real pipeline output', () => {
   test('an example that has a translation keeps it — it is half the card', () => {
     const withExample = items.filter((entry) => entry.example.trim());
     const translated = withExample.filter((entry) => entry.exampleTranslation.trim());
-    assert.ok(translated.length > 3000,
+    // Every card is built from a list that supplies both halves, so this is no
+    // longer a threshold — a single untranslated example is a fault.
+    assert.equal(translated.length, withExample.length,
       `only ${translated.length} of ${withExample.length} examples carry a translation`);
+    assert.equal(withExample.length, items.length,
+      `${items.length - withExample.length} card(s) have no example at all`);
   });
 
   test('searching the real corpus finds what a learner would type', () => {

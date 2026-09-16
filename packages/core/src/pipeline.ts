@@ -136,7 +136,7 @@ export function toLevelProvenance(raw: RawWord): LevelProvenance {
  */
 function toTranslationProvenance(value: string | undefined): TranslationProvenance {
   if (value === 'ding') return 'dictionary';
-  if (value === 'b2-list') return 'course-material';
+  if (value === 'b2-list' || value === 'clean-list') return 'course-material';
   return 'wordlist';
 }
 
