@@ -8,7 +8,7 @@ import { getAllWords, getCategories, wordsInCategory } from './data.js';
 import { getTopics, getTopic, getGrammarLevels, groupsAtLevel, topicsAtLevel, getGrammarMeta } from './grammar.js';
 import { summarise, countDue } from './progress.js';
 import { getProfile, setTargetLevel, LEVELS, grammarProgress, recentSessions, storageAvailable } from './db.js';
-import { recommendations, problemWords, recentMistakes, snapshot } from './coach.js';
+import { recommendations, problemWords, recentMistakes, snapshot, strengthsAndWeaknesses, coachLine } from './coach.js';
 import { crumbs, escapeHtml, progressRing, progressBar, percent, circleButton } from './ui.js';
 import { fukaBubble } from './fuka.js';
 
@@ -126,6 +126,79 @@ function levelPicker(profile) {
         approximation and are labelled as approximate. C2 is part of the structure and holds no
         content; the app does not claim an A1–C2 curriculum.</p>
     </section>`;
+}
+
+// --- master fuka --------------------------------------------------------------
+
+/**
+ * The full Master Fuka screen: every recommendation the hub only shows the
+ * first of, plus the strengths/weaknesses and mistake lists that progressView
+ * shows as bare numbers. Same underlying data as the hub tip and the progress
+ * tables — this is the coach's own room, not a new source of truth.
+ */
+export function fukaView() {
+  const profile = getProfile();
+  const data = snapshot();
+  const { recommendations: tips } = recommendations();
+  const { strong, weak, weakTopics } = strengthsAndWeaknesses(data);
+  const problems = problemWords(10);
+  const mistakes = recentMistakes(8);
+
+  return `
+    ${crumbs([{ label: 'German Learning', href: '#/' }, { label: 'Master Fuka' }])}
+    ${fukaBubble('home', coachLine())}
+
+    <header class="page-head">
+      <h1>🧑‍🏫 Master Fuka</h1>
+      <p class="page-head__meta">Your learning coach. Every line below is counted from your own saved
+        progress — ${data.vocab.seen} words seen, ${data.grammar.practised} grammar topics started,
+        ${profile.streakDays}-day streak.</p>
+      <div class="page-head__tools">
+        <a class="cta" href="#/learn/lesson">Start a lesson</a>
+        <a class="btn btn--ghost" href="#/">Back to German Learning</a>
+      </div>
+    </header>
+
+    ${tips.length ? `
+      <section class="coach">
+        <h2 class="coach__title">What to do next</h2>
+        <ul class="coach__list">
+          ${tips.map((tip) => `
+            <li class="coach__item coach__item--${tip.tone}">
+              <p class="coach__headline">${escapeHtml(tip.headline)}</p>
+              <p class="coach__detail">${escapeHtml(tip.detail)}</p>
+              ${tip.action ? `<a class="btn btn--ghost" href="${tip.action.href}">${escapeHtml(tip.action.label)}</a>` : ''}
+            </li>`).join('')}
+        </ul>
+        <p class="coach__note">Every line above is counted from your own saved answers.</p>
+      </section>` : ''}
+
+    ${strong.length ? `<h2 class="section-title">Going well</h2>
+      <ul class="problems">
+        ${strong.slice(0, 5).map((c) => `<li><strong>${escapeHtml(c.name)}</strong>
+          <span class="problems__count">${c.learned} / ${c.seen} learned</span></li>`).join('')}
+      </ul>` : ''}
+
+    ${weak.length || weakTopics.length ? `<h2 class="section-title">Needs work</h2>
+      <ul class="problems">
+        ${weak.slice(0, 5).map((c) => `<li><strong>${escapeHtml(c.name)}</strong>
+          <span class="problems__count">${c.learned} / ${c.seen} learned${c.weak ? `, ${c.weak} wrong repeatedly` : ''}</span></li>`).join('')}
+        ${weakTopics.slice(0, 5).map((t) => `<li><strong>${escapeHtml(t.topic.title)}</strong>
+          <span class="problems__count">${Math.round(t.record.masteryScore * 100)}% mastery ·
+          <a href="#/grammar/${t.topic.id}/practice">practise</a></span></li>`).join('')}
+      </ul>` : ''}
+
+    <h2 class="section-title">Words that need work</h2>
+    ${problems.length ? `<ul class="problems">
+      ${problems.map((p) => `<li><strong>${escapeHtml(p.display)}</strong> — ${escapeHtml(p.word.translation)}
+        <span class="problems__count">${p.wrong} wrong / ${p.right} right</span></li>`).join('')}
+    </ul>` : '<p class="empty">Nothing is going badly — there are no repeated mistakes recorded.</p>'}
+
+    ${mistakes.length ? `<h2 class="section-title">Recent mistakes</h2>
+      <ul class="problems">
+        ${mistakes.map((m) => `<li><strong>${escapeHtml(m.label)}</strong>
+          ${m.given ? `<span class="problems__count">you wrote “${escapeHtml(m.given)}”, expected “${escapeHtml(m.expected)}”</span>` : ''}</li>`).join('')}
+      </ul>` : ''}`;
 }
 
 // --- progress ---------------------------------------------------------------

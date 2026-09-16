@@ -25,7 +25,7 @@ import {
 } from './views.js';
 import {
   hubView, progressView, grammarIndexView, grammarTopicView, grammarSearchSection,
-  activityView, emptyActivityView,
+  activityView, emptyActivityView, fukaView,
 } from './learnViews.js';
 
 const main = document.getElementById('main');
@@ -78,6 +78,9 @@ function render() {
       break;
     case 'progress':
       main.innerHTML = progressView();
+      break;
+    case 'fuka':
+      main.innerHTML = fukaView();
       break;
     case 'search': {
       const query = params.get('q') || '';
