@@ -27,6 +27,12 @@ export default function GrammarScreen() {
     () => CEFR_LEVELS.filter((level) => topics.some((topic) => topic.level === level)),
     [topics],
   );
+  const b2 = useMemo(() => topics.filter((topic) => topic.level === 'B2'), [topics]);
+  const b2Exercises = useMemo(
+    () => b2.reduce((sum, topic) => sum + topic.exercises.length, 0),
+    [b2],
+  );
+
   const [level, setLevel] = useState<CefrLevel | null>(null);
   const active = level && levels.includes(level) ? level : levels[0] ?? null;
   const shown = useMemo(
@@ -54,6 +60,22 @@ export default function GrammarScreen() {
           </Pressable>
         ))}
       </View>
+
+      {b2.length > 0 ? (
+        <Card style={styles.b2Banner} onPress={() => router.push('/grammar/b2')}>
+          <View style={styles.b2Row}>
+            <View style={styles.b2Mark}>
+              <Text style={styles.b2MarkText}>B2</Text>
+            </View>
+            <View style={styles.b2Text}>
+              <Text style={styles.b2Title}>{strings.b2GrammarBanner}</Text>
+              <Text style={styles.b2Hint}>
+                {strings.b2GrammarBannerHint(b2.length, b2Exercises)}
+              </Text>
+            </View>
+          </View>
+        </Card>
+      ) : null}
 
       <FlatList
         data={shown}
@@ -102,6 +124,18 @@ const styles = StyleSheet.create({
   levelActive: { backgroundColor: palette.accent, borderColor: palette.accent },
   levelLabel: { ...typeScale.label, color: palette.textMuted },
   levelLabelActive: { color: '#ffffff' },
+  b2Banner: { marginBottom: spacing.sm, borderColor: palette.accent },
+  b2Row: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
+  b2Mark: {
+    backgroundColor: palette.accent,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+  },
+  b2MarkText: { ...typeScale.label, color: '#ffffff' },
+  b2Text: { flex: 1, gap: 2 },
+  b2Title: { ...typeScale.heading, color: palette.text },
+  b2Hint: { ...typeScale.caption, color: palette.textMuted },
   list: { paddingBottom: spacing.xl },
   card: { marginBottom: spacing.sm, gap: spacing.xs },
   topicTitle: { ...typeScale.heading, color: palette.text },

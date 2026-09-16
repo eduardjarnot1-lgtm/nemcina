@@ -252,8 +252,11 @@ try {
   await page.waitForTimeout(900);
   const index = await page.innerText('body');
   check(/\d+ topics/.test(index), 'the grammar index lists its topics');
-  // Open the first topic, which is whatever the A1 list leads with.
-  const firstTopic = page.locator('text=/exercises/').filter({ visible: true }).first();
+  // Open the first topic, which is whatever the A1 list leads with. The regex is
+  // anchored because the B2 section's banner also mentions a number of
+  // exercises, and it sits above the list — an unanchored match opens that
+  // instead of a topic.
+  const firstTopic = page.locator('text=/^\\d+ exercises/').filter({ visible: true }).first();
   await firstTopic.click({ timeout: 15_000 });
   await page.waitForTimeout(900);
   const topic = await page.innerText('body');

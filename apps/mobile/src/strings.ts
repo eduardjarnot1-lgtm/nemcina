@@ -42,6 +42,15 @@ export const strings = {
 
   grammarTopics: (count: number) => `${count} topics`,
   grammarExercises: (count: number) => `${count} exercises`,
+  b2GrammarTitle: 'B2 Grammar',
+  b2GrammarBanner: 'B2 Grammar — its own section',
+  b2GrammarBannerHint: (topics: number, exercises: number) =>
+    `${topics} topics written for this app · ${exercises} exercises`,
+  b2GrammarIntro:
+    'Every topic gives you the rule in German and in English, four worked examples from the '
+    + 'source document, and exercises. Exercises built on a document sentence are marked as '
+    + 'such; the rest are labelled as practice.',
+  b2GrammarEmpty: 'B2 grammar is not built yet.',
   grammarRules: 'Rules',
   grammarExamples: 'Examples',
   grammarPractise: 'Practise',
