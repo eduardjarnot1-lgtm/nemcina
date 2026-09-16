@@ -15,6 +15,7 @@ export * from './exercises.ts';
 export * from './session.ts';
 export * from './grammar.ts';
 export * from './stats.ts';
+export * from './activity.ts';
 export * from './coach.ts';
 export * from './achievements.ts';
 export * from './sync.ts';

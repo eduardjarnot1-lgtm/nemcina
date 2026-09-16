@@ -12,11 +12,16 @@
  * cannot afford.
  */
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Text, View } from 'react-native';
+import { PrimaryButton } from './components/PrimaryButton';
+import { strings } from './strings';
+import { palette, spacing } from './theme';
 import {
   KeyValueProgressStore,
   type AttemptRecord,
   type ItemProgress,
   type ProgressStore,
+  type StudyDay,
 } from '@nemcina/core';
 import {
   createContext, useCallback, useContext, useEffect, useMemo, useState,
@@ -37,10 +42,11 @@ interface ProgressContextValue {
   /**
    * The recent attempt log, newest first.
    *
-   * Streaks, accuracy and XP are all derived from this rather than from stored
-   * counters, so none of them can drift away from what the learner did.
+   * Recent accuracy uses this bounded log. Daily history separately preserves
+   * activity and XP after old answers leave the log.
    */
   readonly attempts: readonly AttemptRecord[];
+  readonly studyDays: readonly StudyDay[];
   readonly ready: boolean;
   save(record: ItemProgress, attempt?: AttemptRecord): Promise<void>;
   reload(): Promise<void>;
@@ -51,25 +57,39 @@ const ProgressContext = createContext<ProgressContextValue | null>(null);
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
   const store = useMemo<ProgressStore>(
-    () => new KeyValueProgressStore(AsyncStorage, { prefix: 'nemcina:v1' }),
+    () => new KeyValueProgressStore(AsyncStorage, { prefix: 'nemcina:v1', offsetMinutes: -new Date().getTimezoneOffset() }),
     [],
   );
   const [records, setRecords] = useState<ReadonlyMap<string, ItemProgress>>(new Map());
   const [attempts, setAttempts] = useState<readonly AttemptRecord[]>([]);
+  const [studyDays, setStudyDays] = useState<readonly StudyDay[]>([]);
   const [ready, setReady] = useState(false);
+  const [loadError, setLoadError] = useState(false);
 
   const reload = useCallback(async () => {
-    const all = await store.all(LOCAL_USER);
-    setRecords(new Map(all.map((record) => [record.itemId, record])));
-    setAttempts(await store.recentAttempts(LOCAL_USER, 500));
-    setReady(true);
+    setLoadError(false);
+    try {
+      const all = await store.all(LOCAL_USER);
+      const recent = await store.recentAttempts(LOCAL_USER, 500);
+      const days = await store.studyDays(LOCAL_USER);
+      setRecords(new Map(all.map((record) => [record.itemId, record])));
+      setAttempts(recent);
+      setStudyDays(days);
+      setReady(true);
+    } catch (error) {
+      setLoadError(true);
+      throw error;
+    }
   }, [store]);
 
-  useEffect(() => { void reload(); }, [reload]);
+  useEffect(() => { void reload().catch(() => {}); }, [reload]);
 
   const save = useCallback(async (record: ItemProgress, attempt?: AttemptRecord) => {
     await store.put(record);
-    if (attempt) await store.recordAttempt(attempt);
+    if (attempt) {
+      await store.recordAttempt(attempt, -new Date(attempt.at).getTimezoneOffset());
+      setStudyDays(await store.studyDays(LOCAL_USER));
+    }
     setRecords((previous) => {
       const next = new Map(previous);
       next.set(record.itemId, record);
@@ -82,11 +102,19 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     await store.clear(LOCAL_USER);
     setRecords(new Map());
     setAttempts([]);
+    setStudyDays([]);
   }, [store]);
 
   const value = useMemo<ProgressContextValue>(
-    () => ({ store, records, attempts, ready, save, reload, clear }),
-    [store, records, attempts, ready, save, reload, clear],
+    () => ({ store, records, attempts, studyDays, ready, save, reload, clear }),
+    [store, records, attempts, studyDays, ready, save, reload, clear],
+  );
+
+  if (loadError && !ready) return (
+    <View style={{ flex: 1, justifyContent: 'center', padding: spacing.lg, gap: spacing.md, backgroundColor: palette.background }}>
+      <Text accessibilityRole="alert" style={{ color: palette.text }}>{strings.progressLoadFailed}</Text>
+      <PrimaryButton label={strings.retryLoad} onPress={() => { void reload().catch(() => {}); }} />
+    </View>
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

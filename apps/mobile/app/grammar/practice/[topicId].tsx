@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View,
 } from 'react-native';
@@ -11,6 +11,8 @@ import { ProgressBar } from '../../../src/components/ProgressBar';
 import { useCourse } from '../../../src/course';
 import { LOCAL_USER, useProgress } from '../../../src/progress';
 import { strings } from '../../../src/strings';
+import { useAnswerPersistence } from '../../../src/answerPersistence';
+import { AnswerSaveStatus } from '../../../src/components/AnswerSaveStatus';
 import { palette, radius, spacing, type as typeScale } from '../../../src/theme';
 
 const PROMPTS: Partial<Record<ExerciseKind, string>> = {
@@ -35,6 +37,8 @@ export default function GrammarPracticeScreen() {
   const { topicId } = useLocalSearchParams<{ topicId: string }>();
   const { repository } = useCourse();
   const { records, ready, save } = useProgress();
+  const persistence = useAnswerPersistence(save);
+  const answering = useRef(false);
 
   const topic = repository.topic(decodeURIComponent(String(topicId ?? '')));
   const [practice, setPractice] = useState<GrammarPractice | null>(null);
@@ -52,19 +56,22 @@ export default function GrammarPracticeScreen() {
   }, [ready, practice, topic]);
 
   const check = useCallback(async (given: string) => {
-    if (!practice || outcome) return;
+    if (!practice || outcome || answering.current) return;
+    answering.current = true;
     const result = practice.answer(given, { hintShown });
     setOutcome(result);
-    await save(result.progress, result.attempt);
-  }, [practice, outcome, hintShown, save]);
+    await persistence.persist(result.progress, result.attempt);
+  }, [practice, outcome, hintShown, persistence.persist]);
 
   const advance = useCallback(() => {
+    if (persistence.status !== 'saved') return;
+    answering.current = false;
     setOutcome(null);
     setTyped('');
     setTokens([]);
     setHintShown(false);
     bump((n) => n + 1);
-  }, []);
+  }, [persistence.status]);
 
   if (!topic) {
     return <Screen><Text style={styles.muted}>{strings.searchNoResults}</Text></Screen>;
@@ -229,7 +236,10 @@ export default function GrammarPracticeScreen() {
 
         <View style={styles.footer}>
           {outcome ? (
-            <PrimaryButton label={strings.next} onPress={advance} />
+            <>
+              <AnswerSaveStatus status={persistence.status} retry={persistence.retry} />
+              <PrimaryButton label={strings.next} onPress={advance} disabled={persistence.status !== 'saved'} />
+            </>
           ) : (
             <PrimaryButton
               label={strings.skip}

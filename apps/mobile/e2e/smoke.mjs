@@ -155,6 +155,8 @@ try {
   const home = await text();
   check(/Lesson 1 of \d+/.test(home), 'the home screen offers a first lesson');
   check(home.includes('Learned'), 'progress totals are on screen');
+  check(home.includes('Daily goal'), 'the home screen shows the daily goal');
+  check(home.includes('Your last 7 days'), 'weekly activity is visible');
 
   console.log('a lesson can be finished');
   await tap('Start');
@@ -213,11 +215,15 @@ try {
   await page.waitForTimeout(1_000);
   const learned = Number((await page.innerText('body')).match(/(\d+)\s*\n?\s*Learned/)?.[1] ?? '0');
   check(learned > 0, `answers moved the learned count (${learned})`);
+  const dailyCount = Number((await page.innerText('body')).match(/(\d+) \/ \d+ answers/)?.[1] ?? '0');
+  check(dailyCount > 0, 'completed answers advance the daily goal');
 
   await page.goto(url, { waitUntil: 'networkidle' });
   await page.waitForTimeout(4_000);
   const afterReload = Number((await page.innerText('body')).match(/(\d+)\s*\n?\s*Learned/)?.[1] ?? '0');
   check(afterReload === learned, `progress survives a restart (${afterReload} of ${learned})`);
+  const reloadedDailyCount = Number((await page.innerText('body')).match(/(\d+) \/ \d+ answers/)?.[1] ?? '0');
+  check(reloadedDailyCount === dailyCount, 'daily goal progress survives a restart');
 
   console.log('the scoreboard reflects the work, not a stored counter');
   await tapTabOrText('Profile');

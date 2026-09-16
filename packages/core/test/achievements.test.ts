@@ -43,6 +43,20 @@ function item(id: string, over: Partial<VocabularyItem<'de'>> = {}): VocabularyI
 }
 
 describe('what an answer is worth', () => {
+  test('XP uses the first correct answer even when storage returns newest first', () => {
+    const first = attempt('haus', T0, true, 'choice');
+    const later = attempt('haus', T0 + 1_000, true, 'typing');
+    assert.equal(totalXp([later, first]), xpFor(first));
+    assert.equal(totalXp([first, later]), xpFor(first));
+  });
+
+  test('daily XP resets at the learner’s midnight', () => {
+    const before = attempt('haus', Date.UTC(2026, 0, 14, 22, 30), true);
+    const after = attempt('haus', Date.UTC(2026, 0, 14, 23, 30), true);
+    assert.equal(totalXp([before, after], 60), 2);
+    assert.equal(totalXp([before, after], -300), 1);
+  });
+
   test('producing the word beats recognising it', () => {
     assert.ok(xpFor(attempt('a', T0, true, 'typing')) > xpFor(attempt('a', T0, true, 'recognise')));
     assert.ok(xpFor(attempt('a', T0, true, 'recall')) > xpFor(attempt('a', T0, true, 'choice')));

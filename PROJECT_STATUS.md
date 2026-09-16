@@ -305,3 +305,7 @@ git clone --depth 1 https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2.
 `chatgpt.com`, `api.openai.com`, Wikipedia/Wiktionary, `archive.org` and
 `huggingface.co` are blocked by the egress policy. That is why B2 rests on a
 single source.
+
+## Application-only update
+
+The owner deferred AI, sign-in and advertising integrations. Daily goals, weekly activity, lifetime XP and local-day streaks now use persistent daily history. Verification: 308 core tests, all three TypeScript projects and 39 Chrome smoke checks passed; web export completed. See docs/DEVELOPMENT_HANDOFF.md for migration limits and next steps.

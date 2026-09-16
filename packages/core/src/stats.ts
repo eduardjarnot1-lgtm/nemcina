@@ -15,9 +15,9 @@ import type { AttemptRecord, ItemProgress, Timestamp } from './types.ts';
 
 export const DAY_MS = 86_400_000;
 
-/** Which local day a moment falls on, as a whole number of days since the epoch. */
+/** Local day; offset is minutes east of UTC, i.e. -Date.getTimezoneOffset(). */
 export function localDay(at: Timestamp, offsetMinutes = 0): number {
-  return Math.floor((at - offsetMinutes * 60_000) / DAY_MS);
+  return Math.floor((at + offsetMinutes * 60_000) / DAY_MS);
 }
 
 export interface Totals {
