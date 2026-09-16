@@ -25,6 +25,7 @@ VALID_ARTICLES = {"der", "die", "das", ""}
 VALID_LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2", "GCSE"}
 VALID_TYPES = {"noun", "verb", "adjective", "adverb", "pronoun",
                "preposition", "conjunction", "other"}
+TRANSLATION_SOURCES = {"", "wordlist", "ding", "b2-list"}
 
 
 # Endings that only look like the end of a sentence. Ding writes "sth." and
@@ -163,9 +164,28 @@ def validate_vocabulary(report: Report) -> None:
         report.check(bool(level) == bool(level_source),
                      f"vocabulary {wid}: CEFR level and its source disagree "
                      f"({level!r}, {level_source!r})")
-        report.check(w.get("translationSource", "") in ("", "wordlist", "ding"),
+        report.check(w.get("translationSource", "") in TRANSLATION_SOURCES,
                      f"vocabulary {wid}: unknown translation source "
                      f"{w.get('translationSource')!r}")
+
+        # An example borrowed from another document must say so, and must say
+        # something: an exampleSource equal to the card's own source would be a
+        # redundant claim, and one with no example behind it would be a false
+        # one.
+        example_source = w.get("exampleSource", "")
+        report.check(not example_source or bool(w["example"].strip()),
+                     f"vocabulary {wid}: example source {example_source!r} but no example")
+        report.check(example_source != w.get("source"),
+                     f"vocabulary {wid}: example source repeats the card's own source")
+
+        # The B2 list prints an article for every noun and a translated example
+        # for every entry, so a card built from it that is missing either was
+        # not built from what the document actually says.
+        if w.get("translationSource") == "b2-list":
+            report.check(bool(w["example"].strip()) and bool(w["exampleTranslation"].strip()),
+                         f"vocabulary {wid}: B2-list card without a translated example")
+            report.check(w["cefr"] == "B2" and w["level"] == "B2",
+                         f"vocabulary {wid}: B2-list card levelled {w['level']!r}/{w['cefr']!r}")
         report.check(bool(w["categories"]), f"vocabulary {wid}: no category")
         # A plural form, when present, must look like a German plural rather
         # than a stray article or a sentence.
@@ -193,6 +213,15 @@ def validate_vocabulary(report: Report) -> None:
     for rank, heads in by_rank.items():
         report.check(len(heads) == 1,
                      f"vocabulary: rank {rank} claimed by different words {sorted(heads)}")
+    # Every placement must point at a category and subcategory the database
+    # actually declares, or the card is filed somewhere the app cannot browse to.
+    declared = {(c["id"], sub["id"]) for c in db["categories"] for sub in c["subcategories"]}
+    for w in words:
+        for placement in w["categories"]:
+            report.check((placement["category"], placement["subcategory"]) in declared,
+                         f"vocabulary {w['id']}: filed under undeclared "
+                         f"{placement['category']}/{placement['subcategory']}")
+
     meta_cefr = db["meta"].get("cefr")
     if meta_cefr:
         for level, count in meta_cefr["levelCounts"].items():

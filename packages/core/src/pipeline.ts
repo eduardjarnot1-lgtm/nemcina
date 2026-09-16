@@ -127,9 +127,17 @@ export function toLevelProvenance(raw: RawWord): LevelProvenance {
   return { kind: 'stated', sources: source.split(',').map((s) => s.trim()).filter(Boolean) };
 }
 
-/** `ding` is the Ding dictionary; everything else in this corpus is a word list. */
+/**
+ * `ding` is the Ding dictionary, `b2-list` the supplied B2 vocabulary document,
+ * and the rest of the corpus is the Goethe/Lingster word lists. The B2 list is
+ * not one of those: it is course-style material with a gloss and a translated
+ * example per entry, so calling it a word list would overstate what the other
+ * lists provide and understate this one.
+ */
 function toTranslationProvenance(value: string | undefined): TranslationProvenance {
-  return value === 'ding' ? 'dictionary' : 'wordlist';
+  if (value === 'ding') return 'dictionary';
+  if (value === 'b2-list') return 'course-material';
+  return 'wordlist';
 }
 
 const ARTICLES = new Set(['der', 'die', 'das']);

@@ -52,6 +52,7 @@ CATEGORIES = [
     ("leisure", "\U0001F3AC", "Leisure and entertainment"),
     ("travel", "✈️", "Travel and the wider world"),
     ("education", "\U0001F393", "Education and work"),
+    ("b2topics", "\U0001F5E3️", "B2 topics"),
     # Every card also sits under its CEFR level, so the whole vocabulary can be
     # browsed by level and not only by the GCSE document's own topics.
     ("levels", "\U0001F4C8", "By level"),
@@ -271,6 +272,61 @@ CEFR = Path(__file__).resolve().parent.parent / "data" / "cefr.json"
 # A card built from the CEFR word lists rather than from the GCSE document.
 CEFR_SOURCE = "Goethe-Institut word lists (A1/A2/B1) and Lingster Academy A1-B2"
 
+B2_SOURCE = ROOT / "b2-vocabulary-source.json"
+B2_TITLE = "German Vocabulary — Level B2 (supplied by the project owner)"
+
+# The B2 list's own 25 topic headings, as browsable categories. The slug and the
+# emoji are this project's; the heading and the words under it are the
+# document's, and no word is moved between topics.
+B2_TOPICS = {
+    "Arbeit & Beruf": ("work", "Work & career", "\U0001F4BC"),
+    "Bildung": ("education", "Education", "\U0001F393"),
+    "Gesundheit": ("health", "Health", "\U0001FA7A"),
+    "Umwelt": ("environment", "Environment", "\U0001F30D"),
+    "Gesellschaft": ("society", "Society", "\U0001F46A"),
+    "Politik": ("politics", "Politics", "\U0001F3DB️"),
+    "Wirtschaft": ("economy", "Economy", "\U0001F4C8"),
+    "Technologie": ("technology", "Technology", "\U0001F4BB"),
+    "Medien": ("media", "Media", "\U0001F4F0"),
+    "Reisen & Kultur": ("travel-culture", "Travel & culture", "\U0001F9F3"),
+    "Beziehungen & Gefühle": ("relationships", "Relationships & feelings", "\U0001F495"),
+    "Meinung & Diskussion": ("opinion", "Opinion & discussion", "\U0001F4AC"),
+    "Wissenschaft": ("science", "Science", "\U0001F52C"),
+    "Recht": ("law", "Law", "⚖️"),
+    "Natur & Tiere": ("nature", "Nature & animals", "\U0001F33F"),
+    "Wohnen & Alltag": ("living", "Living & everyday life", "\U0001F3E1"),
+    "Kunst & Literatur": ("arts", "Arts & literature", "\U0001F3A8"),
+    "Sport & Freizeit": ("sport-leisure", "Sport & leisure", "⚽"),
+    "Charaktereigenschaften": ("character", "Character traits", "\U0001F9ED"),
+    "Abstrakte Substantive": ("abstract-nouns", "Abstract nouns", "\U0001F4AD"),
+    "Komplexe Verben": ("complex-verbs", "Complex verbs", "⚡"),
+    "Erweiterte Adjektive": ("advanced-adjectives", "Advanced adjectives", "\U0001F3A8"),
+    "Zeit & Veränderung": ("time-change", "Time & change", "⏳"),
+    "Kommunikation": ("communication", "Communication", "\U0001F4E3"),
+    "Probleme & Lösungen": ("problems", "Problems & solutions", "\U0001F9E9"),
+}
+
+
+def load_b2() -> list[dict]:
+    """The extracted B2 list, or nothing.
+
+    Absent is a supported state: the extractor needs the PDF, which is not
+    committed, so a checkout without it still builds — one source lighter and
+    counted as such, never silently.
+    """
+    if not B2_SOURCE.exists():
+        return []
+    data = json.loads(B2_SOURCE.read_text(encoding="utf-8"))
+    return data.get("entries", [])
+
+
+def b2_placement(topic: str) -> dict | None:
+    """Where a B2-list word sits in the topic browser."""
+    entry = B2_TOPICS.get(topic)
+    if entry is None:
+        return None
+    return {"category": "b2topics", "subcategory": entry[0], "tier": "", "page": 0}
+
 
 def level_placement(level: str) -> dict:
     """The same shape the GCSE placements use, so nothing downstream changes."""
@@ -466,6 +522,7 @@ def main() -> int:
                 "plural": plural,
                 "example": ann["example"],
                 "exampleTranslation": ann["exampleTranslation"],
+                "exampleSource": "",
                 "note": note,
                 "needsReview": term in NEEDS_REVIEW,
                 "categories": [placement],
@@ -539,10 +596,83 @@ def main() -> int:
             "plural": False,
             "example": entry.get("example", ""),
             "exampleTranslation": entry.get("exampleTranslation", ""),
+            "exampleSource": "",
             "note": entry.get("preposition", "") and
                     f"Takes the preposition {entry['preposition']}.",
             "needsReview": False,
             "categories": [level_placement(entry["level"])],
+        })
+
+    # --- the B2 list --------------------------------------------------------
+    # The project's thinnest level: B2 rested on one publisher's judgement and
+    # most of its cards had no example at all. This list brings 25 topics, an
+    # example for every word and a translation for every example.
+    #
+    # Two passes, and the order matters. First every word it shares with the
+    # corpus is enriched in place — an existing card keeps its level, because a
+    # level is the lowest any source assigns and this document does not get to
+    # raise one. Only then are the words nothing else carries imported as new.
+    b2_entries = load_b2()
+    b2_by_word = {}
+    for entry in b2_entries:
+        head = headword_of(clean_term(entry["word"]))
+        b2_by_word.setdefault(head.lower(), entry)
+
+    b2_examples = 0
+    b2_placed = 0
+    for word in word_list:
+        entry = b2_by_word.get(word["word"].lower())
+        if entry is None:
+            continue
+        placement = b2_placement(entry["topic"])
+        if placement and placement not in word["categories"]:
+            word["categories"].append(placement)
+            b2_placed += 1
+        # An example is only ever added where there is none. Replacing a
+        # sentence a card already carries would quietly restate its source.
+        if not word["example"].strip() and entry["example"].strip():
+            word["example"] = entry["example"]
+            word["exampleTranslation"] = entry["exampleTranslation"]
+            word["exampleSource"] = B2_TITLE
+            b2_examples += 1
+
+    b2_imported = 0
+    for entry in b2_entries:
+        term = clean_term(entry["word"])
+        head = headword_of(term)
+        if head.lower() in known:
+            continue
+        known.add(head.lower())
+        b2_imported += 1
+        placement = b2_placement(entry["topic"])
+        word_list.append({
+            "id": "",
+            "language": "de",
+            "level": "B2",
+            "cefr": "B2",
+            "cefrApprox": "B2",
+            # This document states B2 for every word it lists, and says so on
+            # its first page. That is a statement, not a tier approximation.
+            "cefrSource": "b2-list",
+            "source": B2_TITLE,
+            "sourcePage": 0,
+            "regionalVariant": "",
+            "pluralForm": "",
+            "verbForms": {},
+            "word": head,
+            "term": term,
+            "variants": variants_of(term, head),
+            "translation": entry["translation"],
+            "translationSource": "b2-list",
+            "type": word_type_of({"article": entry["article"], "word": head}),
+            "article": entry["article"],
+            "plural": False,
+            "example": entry["example"],
+            "exampleTranslation": entry["exampleTranslation"],
+            "exampleSource": "",
+            "note": "",
+            "needsReview": False,
+            "categories": [level_placement("B2")] + ([placement] if placement else []),
         })
 
     for i, word in enumerate(word_list, 1):
@@ -574,7 +704,13 @@ def main() -> int:
     categories = []
     for cat_id, emoji, name in CATEGORIES:
         subs = []
-        if cat_id == "levels":
+        if cat_id == "b2topics":
+            for heading, (slug, label, emoji_) in B2_TOPICS.items():
+                if any(any(c["subcategory"] == slug and c["category"] == "b2topics"
+                           for c in w["categories"]) for w in word_list):
+                    subs.append({"id": slug, "name": label,
+                                 "documentName": heading, "emoji": emoji_})
+        elif cat_id == "levels":
             for level in LEVELS_ORDER:
                 if any(w.get("cefr") == level for w in word_list):
                     subs.append({"id": level.lower(), "name": f"{level} vocabulary",
@@ -629,6 +765,11 @@ def main() -> int:
               f"tier approximation")
         print(f"cefr imports   : {imported} new cards from the word lists, "
               f"{skipped_no_english} skipped for having no English")
+        if b2_entries:
+            print(f"b2 list        : {b2_imported} new cards, {b2_examples} examples added "
+                  f"to existing cards, {b2_placed} cards placed in its 25 topics")
+        else:
+            print("b2 list        : not present, skipped")
         counts = {lv: sum(1 for w in word_list if w.get("cefr") == lv) for lv in LEVELS_ORDER}
         print("                 " + " · ".join(f"{k} {v}" for k, v in counts.items()))
     if frequency_meta:
