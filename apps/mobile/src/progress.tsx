@@ -12,6 +12,10 @@
  * cannot afford.
  */
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Text, View } from 'react-native';
+import { PrimaryButton } from './components/PrimaryButton';
+import { strings } from './strings';
+import { palette, spacing } from './theme';
 import {
   KeyValueProgressStore,
   type AttemptRecord,
@@ -60,16 +64,25 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [attempts, setAttempts] = useState<readonly AttemptRecord[]>([]);
   const [studyDays, setStudyDays] = useState<readonly StudyDay[]>([]);
   const [ready, setReady] = useState(false);
+  const [loadError, setLoadError] = useState(false);
 
   const reload = useCallback(async () => {
-    const all = await store.all(LOCAL_USER);
-    setRecords(new Map(all.map((record) => [record.itemId, record])));
-    setAttempts(await store.recentAttempts(LOCAL_USER, 500));
-    setStudyDays(await store.studyDays(LOCAL_USER));
-    setReady(true);
+    setLoadError(false);
+    try {
+      const all = await store.all(LOCAL_USER);
+      const recent = await store.recentAttempts(LOCAL_USER, 500);
+      const days = await store.studyDays(LOCAL_USER);
+      setRecords(new Map(all.map((record) => [record.itemId, record])));
+      setAttempts(recent);
+      setStudyDays(days);
+      setReady(true);
+    } catch (error) {
+      setLoadError(true);
+      throw error;
+    }
   }, [store]);
 
-  useEffect(() => { void reload(); }, [reload]);
+  useEffect(() => { void reload().catch(() => {}); }, [reload]);
 
   const save = useCallback(async (record: ItemProgress, attempt?: AttemptRecord) => {
     await store.put(record);
@@ -95,6 +108,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const value = useMemo<ProgressContextValue>(
     () => ({ store, records, attempts, studyDays, ready, save, reload, clear }),
     [store, records, attempts, studyDays, ready, save, reload, clear],
+  );
+
+  if (loadError && !ready) return (
+    <View style={{ flex: 1, justifyContent: 'center', padding: spacing.lg, gap: spacing.md, backgroundColor: palette.background }}>
+      <Text accessibilityRole="alert" style={{ color: palette.text }}>{strings.progressLoadFailed}</Text>
+      <PrimaryButton label={strings.retryLoad} onPress={() => { void reload().catch(() => {}); }} />
+    </View>
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

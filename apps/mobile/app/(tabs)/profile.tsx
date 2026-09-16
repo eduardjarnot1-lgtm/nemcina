@@ -15,6 +15,16 @@ import { palette, spacing, type as typeScale } from '../../src/theme';
 export default function ProfileScreen() {
   const { records, clear } = useProgress();
   const [confirming, setConfirming] = useState(false);
+  const [clearing, setClearing] = useState(false);
+  const [clearError, setClearError] = useState(false);
+  const resetProgress = async () => {
+    if (clearing) return;
+    setClearing(true);
+    setClearError(false);
+    try { await clear(); setConfirming(false); }
+    catch { setClearError(true); }
+    finally { setClearing(false); }
+  };
 
   const summary = useMemo(() => totals(records.values()), [records]);
   const activity = useStudySummary();
@@ -46,18 +56,21 @@ export default function ProfileScreen() {
         <Card style={styles.block}>
           <Text style={styles.blockTitle}>{strings.profileReset}</Text>
           <Text style={styles.note}>{strings.profileResetExplain}</Text>
+          {clearError ? <Text accessibilityRole="alert" style={styles.note}>{strings.resetFailed}</Text> : null}
           {confirming ? (
             <View style={styles.confirmRow}>
               <View style={styles.confirmButton}>
                 <PrimaryButton
                   label={strings.profileResetConfirm}
-                  onPress={() => { void clear(); setConfirming(false); }}
+                  disabled={clearing}
+                  onPress={() => { void resetProgress(); }}
                 />
               </View>
               <View style={styles.confirmButton}>
                 <PrimaryButton
                   label={strings.profileResetCancel}
                   tone="quiet"
+                  disabled={clearing}
                   onPress={() => setConfirming(false)}
                 />
               </View>

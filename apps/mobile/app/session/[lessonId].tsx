@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View,
 } from 'react-native';
@@ -16,6 +16,8 @@ import { useCourse } from '../../src/course';
 import { LOCAL_USER, useProgress } from '../../src/progress';
 import { usePreferences } from '../../src/preferences';
 import { strings } from '../../src/strings';
+import { useAnswerPersistence } from '../../src/answerPersistence';
+import { AnswerSaveStatus } from '../../src/components/AnswerSaveStatus';
 import { palette, radius, spacing, type as typeScale } from '../../src/theme';
 
 /** The lesson id that means "everything the scheduler says is due", not a lesson. */
@@ -37,7 +39,9 @@ export default function SessionScreen() {
   const { lessonId } = useLocalSearchParams<{ lessonId: string }>();
   const { repository, lessonsById } = useCourse();
   const { records, ready, save } = useProgress();
-  const { preferences } = usePreferences();
+  const persistence = useAnswerPersistence(save);
+  const answering = useRef(false);
+  const { preferences, ready: preferencesReady } = usePreferences();
 
   const [session, setSession] = useState<StudySession | null>(null);
   const [outcome, setOutcome] = useState<AnswerOutcome | null>(null);
@@ -64,10 +68,10 @@ export default function SessionScreen() {
     // as it stood when the session opened. Re-planning on every answer would
     // rewrite the queue underneath the learner.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lessonId, lessonsById, repository]);
+  }, [lessonId, lessonsById, repository, ready]);
 
   useEffect(() => {
-    if (!ready || session) return;
+    if (!ready || !preferencesReady || session) return;
     // The session is as long as the learner said a session should be. New
     // items stay a minority of it so review work is never crowded out.
     const total = preferences.dailyGoal;
@@ -77,21 +81,24 @@ export default function SessionScreen() {
     }));
     // Same reason as above: built once, when progress has loaded.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ready, session, plan]);
+  }, [ready, preferencesReady, session, plan]);
 
   const check = useCallback(async (given: string) => {
-    if (!session || outcome) return;
+    if (!session || outcome || answering.current) return;
+    answering.current = true;
     const result = session.answer(given, { hintShown });
     setOutcome(result);
-    await save(result.progress, result.attempt);
-  }, [session, outcome, hintShown, save]);
+    await persistence.persist(result.progress, result.attempt);
+  }, [session, outcome, hintShown, persistence.persist]);
 
   const advance = useCallback(() => {
+    if (persistence.status !== 'saved') return;
+    answering.current = false;
     setOutcome(null);
     setTyped('');
     setHintShown(false);
     bump((n) => n + 1);
-  }, []);
+  }, [persistence.status]);
 
   if (!session) {
     return (
@@ -205,7 +212,10 @@ export default function SessionScreen() {
 
         {outcome ? (
           <View style={styles.footer}>
-            <PrimaryButton label={strings.next} onPress={advance} />
+            <>
+              <AnswerSaveStatus status={persistence.status} retry={persistence.retry} />
+              <PrimaryButton label={strings.next} onPress={advance} disabled={persistence.status !== 'saved'} />
+            </>
           </View>
         ) : item ? (
           <View style={styles.footer}>

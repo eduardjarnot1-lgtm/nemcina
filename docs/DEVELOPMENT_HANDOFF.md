@@ -76,3 +76,7 @@ Validation: 308 core tests pass, core/mobile/server TypeScript checks pass, Expo
 Storage migration: the attempts key now holds a version-2 envelope with recent answers and daily summaries. Existing arrays migrate from the history still present. Already-discarded answers cannot be reconstructed. Daily summaries retain item IDs and first-correct XP but no answer text; they are local and are not added to account sync in this scope. An older app version cannot read the new envelope.
 
 Next: make failed answer saves visible and retryable; fix review sessions opened before progress finishes loading; check these paths in the browser. Keep integrations deferred.
+
+## Answer persistence reliability
+
+Failed answer saves now block Continue and offer a retry of the same evaluated answer; double taps cannot count twice. Initial storage failures are visible and retryable, reset failures keep the confirmation, and direct review routes wait for stored progress. Mobile typecheck and 10 Chrome reliability checks passed. Google/email authentication is now explicitly requested by the owner; the prior deferral no longer applies. Claude owns grammar/vocabulary changes.
