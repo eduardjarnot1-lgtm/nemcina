@@ -55,14 +55,14 @@ function read(collection) {
   return value;
 }
 
-function write(collection) {
+function write(collection, change = { type: 'write' }) {
   try {
     localStorage.setItem(key(collection), JSON.stringify(cache.get(collection)));
   } catch {
     // Private mode or a full quota: the session keeps working in memory.
     available = false;
   }
-  for (const listener of listeners) listener(collection);
+  for (const listener of listeners) listener(collection, change);
 }
 
 export const storageAvailable = () => available;
@@ -78,15 +78,40 @@ export function get(collection, id) {
 }
 
 export function put(collection, id, record) {
-  read(collection)[id] = record;
+  read(collection)[id] = { ...record, updatedAt: Date.now() };
   write(collection);
-  return record;
+  return read(collection)[id];
 }
 
 export function update(collection, id, patch) {
   const current = read(collection)[id] || {};
   const next = { ...current, ...patch };
   return put(collection, id, next);
+}
+
+/** Apply a Firestore record only when it is newer than the browser copy. */
+export function applyRemoteRecord(collection, id, record) {
+  const current = read(collection)[id];
+  if (current && (current.updatedAt || 0) >= (record.updatedAt || 0)) return current;
+  read(collection)[id] = record;
+  write(collection);
+  return record;
+}
+
+/** Bind locally created records to a Firebase Authentication user before sync. */
+export function bindCloudUser(user) {
+  if (!user?.uid) return;
+  const profile = ensureProfile();
+  put('profile', 'me', {
+    ...profile,
+    userId: user.uid,
+    displayName: user.displayName || profile.displayName,
+  });
+  for (const collection of COLLECTIONS.filter((name) => name !== 'profile')) {
+    for (const [id, record] of Object.entries(read(collection))) {
+      if (record.userId !== user.uid) put(collection, id, { ...record, userId: user.uid });
+    }
+  }
 }
 
 export function all(collection) {
@@ -101,7 +126,7 @@ export function remove(collection, id) {
 export function clearAll() {
   for (const collection of COLLECTIONS) {
     cache.set(collection, {});
-    write(collection);
+    write(collection, { type: 'clear' });
   }
   ensureProfile();
 }
