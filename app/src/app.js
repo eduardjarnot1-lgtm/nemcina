@@ -11,6 +11,7 @@ import { initProgress, setStatus, toggleStatus, getStatus, resetAllProgress, STA
 import { setTargetLevel, getProfile } from './db.js';
 import { searchWords } from './search.js';
 import { GRADE } from './srs.js';
+import { firebaseConfigured, watchAuthentication, signIn, signUp, signInWithGoogle, signOut, startCloudSync, stopCloudSync } from './firebase.js';
 import { initAudio, speak, listenOnce, listenProblem } from './audio.js';
 import { buildLesson, reviewLesson, dueForReview, scopedLesson } from './lessons.js';
 import { buildGrammarExercise, grammarExercisesFor, checkAnswer } from './exercises.js';
@@ -30,11 +31,26 @@ import {
 
 const main = document.getElementById('main');
 const searchInput = document.getElementById('search');
+const account = document.getElementById('account');
 let searchDebounce = null;
 
 // The shared runner drives every activity: lessons, review, grammar practice
 // and the "Practise these" button on a word list.
 let run = null;
+let appReady = false;
+
+function renderAccount(user = null, error = '') {
+  if (!account) return;
+  if (!firebaseConfigured()) {
+    account.innerHTML = '<span class="account__status">Local only</span>';
+    return;
+  }
+  if (user) {
+    account.innerHTML = `<span class="account__status">${escapeHtml(user.displayName || user.email || 'Signed in')}</span><button class="btn btn--ghost account__button" type="button" data-auth-action="sign-out">Sign out</button>`;
+    return;
+  }
+  account.innerHTML = `<details class="account__menu"><summary>Account</summary><form class="account__form" data-auth-form><label>Email<input name="email" type="email" autocomplete="email" required></label><label>Password<input name="password" type="password" autocomplete="current-password" minlength="6" required></label><div><button class="btn" name="intent" value="sign-in" type="submit">Sign in</button><button class="btn btn--ghost" name="intent" value="sign-up" type="submit">Create account</button></div><button class="btn btn--ghost" type="button" data-auth-action="google">Continue with Google</button>${error ? `<p class="account__error">${escapeHtml(error)}</p>` : ''}</form></details>`;
+}
 
 // --- routing ----------------------------------------------------------------
 
@@ -392,19 +408,60 @@ if (searchInput) {
   });
 }
 
+document.addEventListener('submit', async (event) => {
+  const form = event.target.closest('[data-auth-form]');
+  if (!form) return;
+  event.preventDefault();
+  const data = new FormData(form);
+  try {
+    if (event.submitter?.value === 'sign-up') await signUp(data.get('email'), data.get('password'));
+    else await signIn(data.get('email'), data.get('password'));
+  } catch (error) { renderAccount(null, error.message || 'Could not sign in.'); }
+});
+
+document.addEventListener('click', async (event) => {
+  const action = event.target.closest('[data-auth-action]')?.dataset.authAction;
+  if (!action) return;
+  try {
+    if (action === 'google') await signInWithGoogle();
+    if (action === 'sign-out') await signOut();
+  } catch (error) { renderAccount(null, error.message || 'Could not sign in.'); }
+});
+
 window.addEventListener('hashchange', render);
 
 // --- start ------------------------------------------------------------------
 
+function initialiseCloud() {
+  // Firebase is deliberately non-blocking. A learner can still study from the
+  // local cache when offline or when the CDN is temporarily unreachable.
+  watchAuthentication(async (user) => {
+    try {
+      if (user) await startCloudSync(user);
+      else await stopCloudSync();
+    } catch (error) {
+      console.warn('Cloud sync unavailable:', error);
+    }
+    renderAccount(user);
+    if (appReady) render();
+  }).catch((error) => {
+    console.warn('Firebase unavailable:', error);
+    renderAccount(null, 'Cloud sync is temporarily unavailable.');
+  });
+}
+
 (async function start() {
   try {
     initProgress();
+    renderAccount();
     // Voice lists load asynchronously; ask for them before the first render so
     // that speaker buttons are available on the very first screen.
     initAudio();
     await Promise.all([loadVocabulary(), loadGrammar()]);
+    appReady = true;
     document.body.classList.remove('is-loading');
     render();
+    initialiseCloud();
   } catch (error) {
     main.innerHTML = `<p class="empty">The content could not be loaded (${escapeHtml(error.message)}).
       Open the app through a web server rather than from the file system.</p>`;

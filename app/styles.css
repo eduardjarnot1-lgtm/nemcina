@@ -438,6 +438,18 @@ a { color: var(--primary); }
 .weakspots { margin-bottom: 1.5rem; }
 .topbar__link--quiet { background: transparent; color: var(--ink-muted); }
 
+/* --- account --------------------------------------------------------------*/
+.account { display: inline-flex; align-items: center; gap: .4rem; }
+.account__status { color: var(--ink-muted); font-size: .82rem; white-space: nowrap; }
+.account__button { padding: .3rem .55rem; }
+.account__menu { position: relative; font-size: .9rem; }
+.account__menu summary { cursor: pointer; color: var(--primary); font-weight: 700; }
+.account__form { position: absolute; right: 0; z-index: 4; width: min(280px, 88vw); display: grid; gap: .5rem; padding: .8rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); box-shadow: var(--shadow); }
+.account__form label { display: grid; gap: .15rem; font-size: .78rem; color: var(--ink-muted); }
+.account__form input { min-width: 0; border: 1px solid var(--line); border-radius: 8px; padding: .45rem .55rem; background: var(--surface-2); color: inherit; font: inherit; }
+.account__form > div { display: flex; flex-wrap: wrap; gap: .4rem; }
+.account__error { margin: 0; color: var(--learning); font-size: .78rem; }
+
 /* --- runner ---------------------------------------------------------------*/
 
 .quiz__top { display: flex; justify-content: space-between; align-items: center; gap: .5rem; flex-wrap: wrap; }
