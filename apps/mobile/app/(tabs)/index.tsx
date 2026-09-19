@@ -7,6 +7,7 @@ import { Card } from '../../src/components/Card';
 import { PrimaryButton } from '../../src/components/PrimaryButton';
 import { ProgressBar } from '../../src/components/ProgressBar';
 import { CoachPanel } from '../../src/components/CoachPanel';
+import { Reveal } from '../../src/components/Reveal';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
 import { usePreferences } from '../../src/preferences';
@@ -53,14 +54,20 @@ export default function LearnScreen() {
   return (
     <Screen>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-        <Text style={styles.appName}>{strings.appName}</Text>
+        {/* The screen assembles top-down, then stops. The order is the order
+            of importance, so attention lands on the one thing to do next
+            rather than on whatever moved last. */}
+        <Reveal index={0}>
+          <Text style={styles.appName}>{strings.appName}</Text>
+        </Reveal>
 
-        <View style={styles.statRow}>
+        <Reveal index={1} style={styles.statRow}>
           <Stat label={strings.wordsLearned} value={summary.learned} />
           <Stat label={strings.wordsMastered} value={summary.mastered} />
           <Stat label={strings.dueToday} value={dueCount} />
-        </View>
+        </Reveal>
 
+        <Reveal index={2}>
         {dueCount > 0 ? (
           <Card tone="accent" style={styles.block}>
             <Text style={styles.blockTitle}>{strings.dueToday}</Text>
@@ -75,9 +82,13 @@ export default function LearnScreen() {
             <Text style={styles.blockMeta}>{strings.dueNone}</Text>
           </Card>
         )}
+        </Reveal>
 
-        <CoachPanel />
+        <Reveal index={3}>
+          <CoachPanel />
+        </Reveal>
 
+        <Reveal index={4}>
         {next && nextStatus ? (
           <Card style={styles.block}>
             <Text style={styles.blockTitle}>{strings.lessonOf(next.index, next.total)}</Text>
@@ -95,6 +106,7 @@ export default function LearnScreen() {
             <Text style={styles.blockMeta}>{strings.allLessonsDone}</Text>
           </Card>
         ) : null}
+        </Reveal>
       </ScrollView>
     </Screen>
   );

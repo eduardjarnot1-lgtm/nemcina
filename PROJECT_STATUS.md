@@ -129,6 +129,78 @@ accounts, no sync, and no mobile shell.
 
 ---
 
+## 2b. Motion and feedback (added this session)
+
+**`apps/mobile/src/motion.ts`** is the single source for durations, curves and
+animations, as `theme.ts` is for colour. Screens never write their own timings.
+
+    duration   instant 70 · fast 140 · normal 220 · slow 320 · celebration 600
+    easing     standard · enter · exit · spring
+    hooks      useReducedMotion · usePressScale · useEntrance · useShake
+               usePulse · useCountUp · useProgressScale
+
+Two rules hold everywhere:
+
+* **Only `transform` and `opacity` are animated**, with `useNativeDriver`, so a
+  lesson keeps frame rate while the JS thread saves progress. The progress bar
+  scales a full-width fill rather than animating `width` — a composite per
+  answer instead of a layout pass.
+* **Reduced motion removes movement rather than shortening it.** The state
+  change still happens, instantly and completely.
+
+**`apps/mobile/src/haptics.ts`** exposes four meanings — `selection`,
+`success`, `warning`, `achievement` — not four APIs. No-ops on web, honours the
+new `haptics` preference (toggle in Profile). A wrong answer uses the *warning*
+pattern, never `Error`.
+
+### Implemented
+
+| Area | What it does |
+|---|---|
+| Buttons, options, cards | Scale under the finger; press-in fires before the answer is checked |
+| Correct answer | One soft pulse + success haptic |
+| Wrong answer | One short shake + warning haptic; gentle by design |
+| Question changes | Fade-and-rise; no frame-swap |
+| Progress bar | Travels to its new value |
+| Session end | Three staggered parts, numbers count up, stronger headline and haptic for a perfect session |
+| Home screen | Assembles top-down, then stops |
+
+### What remains
+
+* **Master Fuka has no animated states.** The mascot exists in the web
+  prototype only; the mobile app has no asset. `Reveal` and the haptic levels
+  are the hooks a future mascot would use — nothing was faked in the meantime.
+* **No sound.** A `sound` preference is stored and defaults **off**; there are
+  no audio assets. A setting that promises a sound it cannot play is worse than
+  no setting.
+* **No XP-fly-to-counter animation.** The core has real XP (`xpFor`,
+  `totalXp`, `levelFor`), but the session screen does not yet show a running
+  XP total to fly toward, and inventing one would be a feature, not polish.
+* **No streak or daily-goal animation.** `streak()` is real data and the
+  profile shows it; neither is on the lesson path yet.
+* **No course-map or unlock animation.** The lesson list is a flat list, not a
+  map, so there is no locked→unlocked transition to animate.
+* **Achievements are listed, not celebrated.** `achievements()` and `earned()`
+  exist; nothing watches for the moment one is first earned.
+* **No analytics events.** `lesson_started`, `lesson_completed` and the rest
+  are not emitted anywhere; there is no analytics layer to emit them to.
+
+### Known animation issues
+
+* `useCountUp` drives its value through a JS listener, because a number has to
+  reach JavaScript to be rendered as text. It runs for a fraction of a second,
+  once, on the results screen — never during a lesson.
+* Verified in a browser at 420×900, normal and reduced motion: a 21-answer
+  session, no console errors, no blocking, slowest answer round trip 316ms
+  normal / 113ms reduced. Not yet verified on a physical device — see §4.
+
+### Future asset requirements
+
+* Master Fuka: idle, happy, celebrating, thinking, encouraging, surprised,
+  lesson-complete. Lottie or sprite; the component boundary is `Reveal`.
+* Sounds: correct, incorrect, lesson complete, achievement, level unlock.
+  Short, soft, optional.
+
 ## 3. What does NOT exist
 
 Stated plainly, because spec §43 forbids calling these done.
