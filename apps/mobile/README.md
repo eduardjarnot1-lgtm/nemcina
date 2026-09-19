@@ -91,15 +91,28 @@ of those is a 404, and the first screen is chosen from a URL path the router
 has never heard of.
 
 ```bash
-npx expo export --platform web --output-dir dist
-node tools/prepare-web-artifact.mjs dist web-artifact
+npm run publish:web     # export --clear, then prepare
 ```
 
-That moves the bundle out of the reserved `_expo/` prefix, makes the asset
-paths relative, and writes an `index.html` that holds the address still so a
-reload finds the app again. Expo's own `experiments.baseUrl` is the better
-answer whenever the path is known at build time; it is baked into the bundle,
-so it cannot be used when the host assigns the path afterwards.
+That moves the scripts out of the reserved `_expo/` prefix, makes the asset and
+lazy-chunk paths relative, and writes an `index.html` that holds the address
+still so a reload finds the app again. Expo's own `experiments.baseUrl` is the
+better answer whenever the path is known at build time; it is baked into the
+bundle, so it cannot be used when the host assigns the path afterwards.
+
+**Export with `--clear`, which is why there is a script for it.** `e2e/sync.mjs`
+exports the app with `EXPO_PUBLIC_API_URL` set to its own throwaway server, and
+Metro caches the transformed module with that value inlined — so a later export
+without `--clear` reuses it and ships a build that tries to reach a server on
+the reader's own machine. That was published once. `prepare-web-artifact.mjs`
+now reads the compiled `API_URL` back out and refuses a bundle pointing at the
+build machine, so the mistake fails at the last step instead of shipping. If
+your shell exports `EXPO_PUBLIC_API_URL`, unset it for the build too.
+
+A dynamic `import()` anywhere in the app makes Metro split the bundle. The
+prepare step handles that — it keeps the page's own scripts in the order Expo
+gave them and rewrites the lazy chunk map, which Metro resolves against the
+page URL rather than the script's.
 
 ## Audio
 

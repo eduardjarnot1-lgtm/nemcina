@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ActivityIndicator, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useAccount } from '../account';
 import { ApiError } from '../api';
+import { readableAuthError } from '../firebaseAuth';
 import { strings } from '../strings';
 import { palette, radius, spacing, type as typeScale } from '../theme';
 import { Card } from './Card';
@@ -47,7 +48,10 @@ export function AccountPanel() {
     try {
       await work();
     } catch (thrown) {
-      setError(thrown instanceof ApiError ? thrown.message : 'Something went wrong.');
+      // The server writes messages a person can read, so those pass through.
+      // Firebase emits codes, which are translated. "Something went wrong" is
+      // the last resort, not the default — it tells nobody what to do next.
+      setError(thrown instanceof ApiError ? thrown.message : readableAuthError(thrown));
     } finally {
       setBusy(false);
     }

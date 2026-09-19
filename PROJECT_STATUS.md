@@ -104,6 +104,30 @@ finding the work on the second device. **It has never been run on a physical dev
 nothing native — gestures, the keyboard, layout on a real screen, performance
 on a cheap phone — has been seen by anyone.
 
+### Accounts — two backends, one chosen at runtime
+
+There are two ways to hold an account, and the app picks between them without
+being configured:
+
+| Backend | Chosen when | Used by |
+| --- | --- | --- |
+| `server` | `EXPO_PUBLIC_API_URL` is set | nothing yet — nothing is deployed |
+| `firebase` | it is not, and Firebase is configured | the mobile app and the published build |
+| `none` | neither | the account panel says so plainly |
+
+`apps/mobile/src/account.tsx` holds that choice in `accountBackend()`. Firebase
+is reached through `src/firebaseAuth.ts`, which loads the SDK with a dynamic
+`import()` so a learner who never signs in never downloads it.
+
+Both clients write to the same project (**master-german**) and the same path,
+so one person has one account across the prototype and the app. Deleting an
+account from the panel is not offered on Firebase: it needs a recent
+re-authentication the panel does not ask for, so it signs out instead.
+
+`firestore.rules` scopes every document to its owner's UID. **Committing that
+file does not deploy it** — see `FIREBASE.md`, which also explains why the
+`apiKey` in the client is not a secret.
+
 ### `packages/server` — accounts and sync
 
 Holds what a phone must not be trusted with (§31): identity, session lifetime,
@@ -124,8 +148,9 @@ vocabulary browsing by topic and by level, 121 grammar topics, lessons, review,
 progress, search, frequency-ordered core words, speech in and out where the
 browser supports it, and a single-file offline build.
 
-It is a **prototype, not the product.** It is desktop-web shaped, has no
-accounts, no sync, and no mobile shell.
+It is a **prototype, not the product.** It is desktop-web shaped and has no
+mobile shell. It does now have accounts: email/password and Google through
+Firebase, writing progress to `users/{uid}/progress/{itemId}`.
 
 ---
 
@@ -239,7 +264,16 @@ Stated plainly, because spec §43 forbids calling these done.
    judgements are one publisher's, and some look high. The official Goethe B2
    Wortliste could not be obtained — `goethe.de` is blocked from the build
    environment.
-4. **PR #7 is still open and unmerged.** It restores the licensing boundary,
+4. **A published build once carried a localhost API URL.** `e2e/sync.mjs`
+   exports the app with `EXPO_PUBLIC_API_URL` pointing at its own throwaway
+   server. Metro inlines that value and **caches the transformed module**, so
+   every later `expo export` without `--clear` silently reused it. The build
+   that was published this way tried to reach a server on the reader's own
+   machine, which is why creating an account reported "Could not reach the
+   server" instead of using Firebase. Fixed by exporting with `--clear`;
+   `tools/prepare-web-artifact.mjs` now reads the compiled `API_URL` back out
+   of the bundle and refuses to prepare one that points at the build machine.
+5. **PR #7 is still open and unmerged.** It restores the licensing boundary,
    the `german/` docstring fix and the Netlify removal that were approved but
    stranded when PR #2 merged early. Until it lands, `main` has **no rule**
    saying the repository stays private and unmonetised.
@@ -257,8 +291,14 @@ In the order they block a store submission.
    `app/ZDROJE.md`. This is the single largest blocker and it is legal, not
    technical.
 2. No mobile application exists.
-3. No accounts, so no cross-device progress — spec §47 requires it.
-4. No backend, so no server-side validation of premium or AI limits (§31).
+3. No backend of our own, so no server-side validation of premium or AI limits
+   (§31). Accounts and cross-device progress (§47) now work through Firebase,
+   which covers identity and sync but not entitlements — a phone must not be
+   trusted to assert its own tier, and against Firestore alone it would be.
+4. **The Firestore rules have not been confirmed deployed.** Until someone runs
+   `firebase deploy --only firestore:rules` and checks the console, the
+   database may still be in test mode, which is world-readable and -writable
+   until its expiry and denies everything after. See `FIREBASE.md`.
 
 ---
 
