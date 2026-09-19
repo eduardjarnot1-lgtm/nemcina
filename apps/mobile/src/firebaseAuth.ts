@@ -7,60 +7,57 @@
  * is the one that works today, against a project that already exists and that
  * the web prototype already writes to.
  *
- * Everything is loaded on demand. The SDK is large and most sessions never
- * open the account panel, so nothing here is imported until someone does —
- * which keeps it out of the first screen a learner waits for.
+ * The SDK is imported statically, which was not the first choice. It was
+ * loaded on demand at first, so a learner who never signs in would not pay for
+ * it — but the account context asks who is signed in as soon as the app
+ * mounts, so the download happened on the first screen anyway. Measured in a
+ * browser: every chunk was fetched before any interaction. What the dynamic
+ * import did buy was a split bundle, whose chunk map Metro resolves against
+ * the page URL, which the host assigns. A deferral that never deferred is not
+ * worth that.
  *
  * Progress stays local-first. The device database remains the truth the UI
  * reads; the cloud gets a copy. That is deliberate: a learner on a train must
  * be able to study, and a sync that has not happened yet must never be able to
  * empty the screen.
  */
+import { getApp, getApps, initializeApp } from 'firebase/app';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+  type Auth,
+} from 'firebase/auth';
+import {
+  collection,
+  doc,
+  getDocs,
+  getFirestore,
+  writeBatch,
+  type Firestore,
+} from 'firebase/firestore';
+
 import type { ItemProgress } from '@nemcina/core';
 import { firebaseConfig, firebaseConfigured } from './firebaseConfig';
+
+interface Services {
+  readonly auth: Auth;
+  readonly db: Firestore;
+}
 
 export interface FirebaseUser {
   readonly uid: string;
   readonly email: string | null;
 }
 
-interface Services {
-  readonly auth: import('firebase/auth').Auth;
-  readonly db: import('firebase/firestore').Firestore;
-  readonly authSdk: typeof import('firebase/auth');
-  readonly storeSdk: typeof import('firebase/firestore');
-}
-
-let servicesPromise: Promise<Services | null> | null = null;
-
-async function services(): Promise<Services | null> {
+function services(): Services | null {
   if (!firebaseConfigured()) return null;
-  if (!servicesPromise) {
-    servicesPromise = (async () => {
-      const [appSdk, authSdk, storeSdk] = await Promise.all([
-        import('firebase/app'),
-        import('firebase/auth'),
-        import('firebase/firestore'),
-      ]);
-      // getApps() first: Expo Router can evaluate a module twice in development
-      // and initializeApp throws on the second call.
-      const app = appSdk.getApps().length > 0
-        ? appSdk.getApp()
-        : appSdk.initializeApp(firebaseConfig);
-      return {
-        authSdk,
-        storeSdk,
-        auth: authSdk.getAuth(app),
-        db: storeSdk.getFirestore(app),
-      };
-    })().catch((error) => {
-      // A blocked network or a misconfigured project must not take the app
-      // down: the learner keeps studying locally and the panel says why.
-      servicesPromise = null;
-      throw error;
-    });
-  }
-  return servicesPromise;
+  // getApps() first: Expo Router can evaluate a module twice in development
+  // and initializeApp throws on the second call.
+  const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+  return { auth: getAuth(app), db: getFirestore(app) };
 }
 
 const toUser = (user: { uid: string; email: string | null } | null): FirebaseUser | null =>
@@ -99,32 +96,41 @@ export function readableAuthError(error: unknown): string {
 export async function watchUser(
   onChange: (user: FirebaseUser | null) => void,
 ): Promise<() => void> {
-  const sdk = await services().catch(() => null);
+  let sdk: Services | null = null;
+  // A misconfigured project must not take the app down: the learner keeps
+  // studying locally and the panel says why.
+  try { sdk = services(); } catch { sdk = null; }
   if (!sdk) {
     onChange(null);
     return () => {};
   }
-  return sdk.authSdk.onAuthStateChanged(sdk.auth, (user) => onChange(toUser(user)));
+  return onAuthStateChanged(sdk.auth, (user) => onChange(toUser(user)));
+}
+
+/** Throws rather than returning null: every caller has a panel to show it in. */
+function required(): Services {
+  const sdk = services();
+  if (!sdk) throw new Error('Accounts are not configured in this build.');
+  return sdk;
 }
 
 export async function createAccount(email: string, password: string): Promise<FirebaseUser> {
-  const sdk = await services();
-  if (!sdk) throw new Error('Accounts are not configured in this build.');
-  const credential = await sdk.authSdk.createUserWithEmailAndPassword(sdk.auth, email, password);
+  const { auth } = required();
+  const credential = await createUserWithEmailAndPassword(auth, email, password);
   return toUser(credential.user)!;
 }
 
 export async function signInWithPassword(email: string, password: string): Promise<FirebaseUser> {
-  const sdk = await services();
-  if (!sdk) throw new Error('Accounts are not configured in this build.');
-  const credential = await sdk.authSdk.signInWithEmailAndPassword(sdk.auth, email, password);
+  const { auth } = required();
+  const credential = await signInWithEmailAndPassword(auth, email, password);
   return toUser(credential.user)!;
 }
 
 export async function signOutOfFirebase(): Promise<void> {
-  const sdk = await services().catch(() => null);
+  let sdk: Services | null = null;
+  try { sdk = services(); } catch { sdk = null; }
   if (!sdk) return;
-  await sdk.authSdk.signOut(sdk.auth);
+  await signOut(sdk.auth);
 }
 
 /** `users/{uid}/progress/{itemId}` — the shape the web prototype already uses. */
@@ -140,14 +146,12 @@ const progressPath = (uid: string) => `users/${uid}/progress`;
 export async function pushProgress(
   uid: string, records: readonly ItemProgress[],
 ): Promise<number> {
-  const sdk = await services();
-  if (!sdk) throw new Error('Accounts are not configured in this build.');
-  const { writeBatch, doc, collection } = sdk.storeSdk;
-  const target = collection(sdk.db, progressPath(uid));
+  const { db } = required();
+  const target = collection(db, progressPath(uid));
   let written = 0;
   for (let start = 0; start < records.length; start += 400) {
     const slice = records.slice(start, start + 400);
-    const batch = writeBatch(sdk.db);
+    const batch = writeBatch(db);
     for (const record of slice) batch.set(doc(target, record.itemId), record);
     await batch.commit();
     written += slice.length;
@@ -157,9 +161,7 @@ export async function pushProgress(
 
 /** Everything the cloud holds for this learner. */
 export async function pullProgress(uid: string): Promise<readonly ItemProgress[]> {
-  const sdk = await services();
-  if (!sdk) throw new Error('Accounts are not configured in this build.');
-  const { getDocs, collection } = sdk.storeSdk;
-  const snapshot = await getDocs(collection(sdk.db, progressPath(uid)));
+  const { db } = required();
+  const snapshot = await getDocs(collection(db, progressPath(uid)));
   return snapshot.docs.map((entry) => entry.data() as ItemProgress);
 }

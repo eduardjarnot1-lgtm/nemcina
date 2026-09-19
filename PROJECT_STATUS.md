@@ -116,8 +116,11 @@ being configured:
 | `none` | neither | the account panel says so plainly |
 
 `apps/mobile/src/account.tsx` holds that choice in `accountBackend()`. Firebase
-is reached through `src/firebaseAuth.ts`, which loads the SDK with a dynamic
-`import()` so a learner who never signs in never downloads it.
+is reached through `src/firebaseAuth.ts`. The SDK is imported statically: it
+was loaded on demand at first, but the account context asks who is signed in as
+soon as the app mounts, so measured in a browser every chunk was fetched before
+any interaction. The deferral deferred nothing and cost a split bundle, whose
+chunk map Metro resolves against a page URL the host assigns.
 
 Both clients write to the same project (**master-german**) and the same path,
 so one person has one account across the prototype and the app. Deleting an
