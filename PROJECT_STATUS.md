@@ -361,8 +361,9 @@ Nothing here blocks the work above; placeholders are in place where needed.
 | Needed | For | Blocking now? |
 |---|---|---|
 | Licensing decision or content replacement plan | Any public or paid release | **Yes, for release** |
-| A host, a domain and a TLS certificate | Sync reaching anyone | Yes, for sync to be usable |
-| A mail provider | Email verification and password reset | Not yet |
+| **Deploying the Firestore rules, and confirming it in the console** | Keeping one learner's progress out of another's hands | **Yes.** `firebase deploy --only firestore:rules` — see `FIREBASE.md`. Cannot be done from the build environment; Google is blocked from it. |
+| A host, a domain and a TLS certificate | A sync server of our own. Accounts themselves work through Firebase. | Not for accounts; yes for server-side entitlements |
+| A mail provider | Email verification and password reset against our own server. Firebase can send both; neither is wired up. | Not yet |
 | `ANTHROPIC_API_KEY` | The coach's phrasing. Without it the app shows its own advice and says so. | Not blocking |
 | Apple Developer / Google Play accounts | Store submission | Not yet |
 | AdMob identifiers | Advertising | Not yet |
@@ -382,8 +383,8 @@ A new session has no memory of previous ones and will not continue on its own.
 git clone https://github.com/eduardjarnot1-lgtm/nemcina /home/user/nemcina
 cd /home/user/nemcina
 npm install
-npm test --workspaces                      # 207 tests
-python3 app/tools/validate_content.py      # 105 546 checks
+npm test --workspaces                      # 394 tests
+python3 app/tools/validate_content.py      # 86 264 checks
 python3 -m http.server 8000                # then http://localhost:8000/app/
 
 cd apps/mobile && EXPO_OFFLINE=1 npx expo start   # the mobile app
