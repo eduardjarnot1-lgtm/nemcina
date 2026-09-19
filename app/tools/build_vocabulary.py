@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build german/data/vocabulary.json from the extracted source list + annotations.
+"""Build app/data/vocabulary.json from the extracted source list + annotations.
 
 Pipeline
 --------
