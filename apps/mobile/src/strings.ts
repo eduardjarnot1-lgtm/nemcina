@@ -117,7 +117,7 @@ export const strings = {
   profileResetConfirm: 'Delete everything?',
   profileResetCancel: 'Cancel',
   welcomeTitle: 'Němčina',
-  welcomeLead: 'German vocabulary and grammar from published word lists and coursebooks. Nothing in the course is machine-generated.',
+  welcomeLead: 'Vocabulary written for this course. Grammar from published coursebooks, credited on every topic.',
   welcomeGoalTitle: 'How much is a session?',
   welcomeGoalNote: 'You can change this later.',
   goalWords: (count: number) => `${count} words`,
@@ -194,7 +194,7 @@ export const strings = {
 
   profileSources: 'Content sources',
   profileSourcesExplain:
-    'Vocabulary and grammar come from published word lists and coursebooks, credited in ZDROJE.md. Nothing in the course is machine-generated.',
+    'The vocabulary was written for this course — no exam board list, publisher word list or dictionary. The grammar comes from published coursebooks and every topic names the one it came from. ZDROJE.md lists them all.',
 
   levelLabel: (level: string) => level,
   approxLevel: (level: string) => `${level} (approx.)`,

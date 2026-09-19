@@ -151,9 +151,14 @@ vocabulary browsing by topic and by level, 121 grammar topics, lessons, review,
 progress, search, frequency-ordered core words, speech in and out where the
 browser supports it, and a single-file offline build.
 
-It is a **prototype, not the product.** It is desktop-web shaped and has no
-mobile shell. It does now have accounts: email/password and Google through
-Firebase, writing progress to `users/{uid}/progress/{itemId}`.
+It is a **prototype, not the product**, and it is now **frozen**: it is no
+longer published anywhere and no further work goes into it. The code stays
+because `app/data` (the corpus) and `app/tools` (the pipeline) live under the
+same directory and are very much alive.
+
+It has accounts — email/password and Google through Firebase, writing to
+`users/{uid}/progress/{itemId}`, the same path the app uses — but it is
+desktop-web shaped and has no mobile shell.
 
 ---
 
@@ -228,6 +233,36 @@ pattern, never `Error`.
   lesson-complete. Lottie or sprite; the component boundary is `Reveal`.
 * Sounds: correct, incorrect, lesson complete, achievement, level unlock.
   Short, soft, optional.
+
+## 2c. Publishing — one address, no hands
+
+**https://eduardjarnot1-lgtm.github.io/nemcina/**
+
+`.github/workflows/deploy-pages.yml` builds `apps/mobile` and deploys it on
+every push to `main` touching the app, the engine or the corpus. There is
+nothing to publish by hand and nothing to forget.
+
+Pages serves from a folder, so `experiments.baseUrl` bakes the `/nemcina`
+prefix in at build time — Expo's supported answer, and better than rewriting
+paths afterwards because the router then writes real URLs. `404.html` is a copy
+of the page, so an unknown path boots the app and it reads the URL: deep links
+and reloads land on the right screen with the address intact.
+
+Because the prefix is baked in, a Pages build works **only** under it. So it
+comes from `EXPO_BASE_URL` through `app.config.js`, and only `build:pages` sets
+it. The artifact build runs without it and is unchanged.
+
+Two gates run before a deploy, and both have caught something real:
+
+| Gate | Refuses |
+|---|---|
+| `validate_content.py` | Any card carrying a third-party translation source |
+| `tools/assert-api-url.mjs` | A bundle with a loopback API URL baked in |
+
+The second one lives in its own module precisely so both publishing routes run
+it. Two ways to publish must not mean one of them is unguarded.
+
+---
 
 ## 3. What does NOT exist
 
