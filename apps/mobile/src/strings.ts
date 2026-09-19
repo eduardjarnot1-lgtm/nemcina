@@ -84,6 +84,11 @@ export const strings = {
   sessionDone: 'Session finished',
   sessionAccuracy: (percent: number) => `${percent}% right first time`,
   sessionStudied: (count: number) => `${count} words studied`,
+  sessionPerfect: 'Perfect session',
+  sessionPerfectNote: 'Every answer right first time.',
+  feedbackSetting: 'Vibration',
+  hapticsOn: 'On',
+  hapticsOff: 'Off',
   backToLessons: 'Back to lessons',
 
   levelTitle: 'Level',

@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import {
-  KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View,
+  KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, View,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import {
@@ -12,6 +12,10 @@ import { Card } from '../../src/components/Card';
 import { PrimaryButton } from '../../src/components/PrimaryButton';
 import { ProgressBar } from '../../src/components/ProgressBar';
 import { SpeakButton } from '../../src/components/SpeakButton';
+import { AnswerOption } from '../../src/components/AnswerOption';
+import { SessionComplete } from '../../src/components/SessionComplete';
+import { Animated, useEntrance, usePulse, useShake } from '../../src/motion';
+import { haptic } from '../../src/haptics';
 import { useCourse } from '../../src/course';
 import { LOCAL_USER, useProgress } from '../../src/progress';
 import { usePreferences } from '../../src/preferences';
@@ -83,6 +87,9 @@ export default function SessionScreen() {
     if (!session || outcome) return;
     const result = session.answer(given, { hintShown });
     setOutcome(result);
+    // The feel goes out before the write: the learner should know the moment
+    // they know, not once storage has caught up.
+    haptic(result.verdict.correct ? 'success' : 'warning');
     await save(result.progress, result.attempt);
   }, [session, outcome, hintShown, save]);
 
@@ -113,17 +120,9 @@ export default function SessionScreen() {
   }
 
   if (session.finished && !outcome) {
-    const summary = session.summary;
     return (
       <Screen>
-        <View style={styles.centre}>
-          <Text style={styles.summaryTitle}>{strings.sessionDone}</Text>
-          <Text style={styles.summaryLine}>{strings.sessionStudied(summary.itemsStudied)}</Text>
-          <Text style={styles.summaryLine}>
-            {strings.sessionAccuracy(Math.round(summary.accuracy * 100))}
-          </Text>
-          <PrimaryButton label={strings.backToLessons} onPress={() => router.back()} />
-        </View>
+        <SessionComplete summary={session.summary} onDone={() => router.back()} />
       </Screen>
     );
   }
@@ -148,7 +147,7 @@ export default function SessionScreen() {
           {outcome ? (
             <Feedback outcome={outcome} item={item} />
           ) : question ? (
-            <>
+            <QuestionBody questionKey={`${position.index}:${question.subject}`}>
               <Text style={styles.prompt}>{PROMPTS[question.kind]}</Text>
               <Text style={styles.subject}>{question.subject}</Text>
               {question.subjectTranslation ? (
@@ -158,14 +157,12 @@ export default function SessionScreen() {
               {question.options.length > 0 ? (
                 <View style={styles.options}>
                   {question.options.map((option) => (
-                    <Pressable
+                    <AnswerOption
                       key={option}
-                      accessibilityRole="button"
+                      label={option}
+                      disabled={Boolean(outcome)}
                       onPress={() => { void check(option); }}
-                      style={({ pressed }) => [styles.option, pressed && styles.optionPressed]}
-                    >
-                      <Text style={styles.optionLabel}>{option}</Text>
-                    </Pressable>
+                    />
                   ))}
                 </View>
               ) : (
@@ -199,7 +196,7 @@ export default function SessionScreen() {
                   ) : null}
                 </>
               )}
-            </>
+            </QuestionBody>
           ) : null}
         </ScrollView>
 
@@ -222,11 +219,30 @@ export default function SessionScreen() {
 }
 
 /**
+ * Carries one question out and the next one in.
+ *
+ * Keyed on the question so it replays per question rather than per render. The
+ * movement is small and the fade does the work: at speed a learner should see
+ * the screen change, not watch something travel.
+ */
+function QuestionBody({
+  questionKey, children,
+}: { questionKey: string; children: ReactNode }) {
+  const style = useEntrance(questionKey);
+  return <Animated.View style={[styles.questionBody, style]}>{children}</Animated.View>;
+}
+
+/**
  * What happened, and why.
  *
  * A near miss is shown as a near miss rather than as a failure — the learner
  * knew the word and mistyped it, and telling them otherwise is both wrong and
  * discouraging.
+ *
+ * Correct pulses once; anything else shakes once, briefly. The shake is the
+ * only "no" in the app and it is deliberately gentle: the card is already the
+ * right colour and the correction is already on screen, so the movement only
+ * has to catch the eye, not scold.
  */
 function Feedback({
   outcome, item,
@@ -236,7 +252,19 @@ function Feedback({
     ? strings.correct
     : outcome.verdict.close ? strings.almost : strings.wrong;
 
+  const entrance = useEntrance(outcome.attempt.itemId + String(outcome.attempt.at));
+  const { pulse, style: pulseStyle } = usePulse();
+  const { shake, style: shakeStyle } = useShake();
+
+  useEffect(() => {
+    if (outcome.verdict.correct) pulse();
+    else shake();
+    // Once per outcome. `pulse`/`shake` are stable callbacks.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [outcome]);
+
   return (
+    <Animated.View style={[entrance, pulseStyle, shakeStyle]}>
     <Card tone={tone} style={styles.feedback}>
       <Text style={[styles.feedbackTitle, styles[`${tone}Text`]]}>{heading}</Text>
       {!outcome.verdict.correct ? (
@@ -255,10 +283,12 @@ function Feedback({
         />
       ) : null}
     </Card>
+    </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
+  questionBody: { gap: spacing.md },
   flex: { flex: 1 },
   loading: { ...typeScale.caption, color: palette.textMuted, padding: spacing.md },
   content: { paddingVertical: spacing.lg, gap: spacing.md },
@@ -267,15 +297,6 @@ const styles = StyleSheet.create({
   subject: { ...typeScale.display, color: palette.text },
   subjectTranslation: { ...typeScale.caption, color: palette.textMuted, fontStyle: 'italic' },
   options: { gap: spacing.sm },
-  option: {
-    backgroundColor: palette.surface,
-    borderRadius: radius.md,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: palette.border,
-    padding: spacing.md,
-  },
-  optionPressed: { backgroundColor: palette.accentSoft },
-  optionLabel: { ...typeScale.body, color: palette.text },
   input: {
     backgroundColor: palette.surface,
     borderRadius: radius.md,

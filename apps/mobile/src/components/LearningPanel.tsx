@@ -44,6 +44,20 @@ export function LearningPanel() {
         ))}
       </View>
 
+      <Text style={styles.title}>{strings.feedbackSetting}</Text>
+      <View style={styles.row}>
+        <Chip
+          label={strings.hapticsOn}
+          active={preferences.haptics}
+          onPress={() => void update({ haptics: true })}
+        />
+        <Chip
+          label={strings.hapticsOff}
+          active={!preferences.haptics}
+          onPress={() => void update({ haptics: false })}
+        />
+      </View>
+
       <PrimaryButton
         label={strings.placementRetake}
         tone="quiet"

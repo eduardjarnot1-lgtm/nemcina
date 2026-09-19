@@ -12,6 +12,7 @@ import {
 } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CEFR_LEVELS, type CefrLevel } from '@nemcina/core';
+import { setHapticsEnabled } from './haptics';
 
 const KEY = 'nemcina:preferences:v1';
 
@@ -22,6 +23,11 @@ export interface Preferences {
   readonly startingLevel: CefrLevel | null;
   /** Items per session. The learner's own answer to "how much is a day". */
   readonly dailyGoal: number;
+  /** Buzz on answers and rewards. On by default, off in one tap. */
+  readonly haptics: boolean;
+  /** Sound is built but ships silent: there are no audio assets yet, and a
+   *  setting that promises a sound it cannot play is worse than no setting. */
+  readonly sound: boolean;
 }
 
 /** Offered as three answers rather than a slider: a number nobody picked is a number nobody keeps. */
@@ -31,6 +37,8 @@ export const DEFAULT_PREFERENCES: Preferences = {
   onboarded: false,
   startingLevel: null,
   dailyGoal: 12,
+  haptics: true,
+  sound: false,
 };
 
 interface PreferencesContextValue {
@@ -54,7 +62,15 @@ function parse(raw: string | null): Preferences {
     const goal = typeof value.dailyGoal === 'number' && Number.isFinite(value.dailyGoal)
       ? Math.min(50, Math.max(4, Math.round(value.dailyGoal)))
       : DEFAULT_PREFERENCES.dailyGoal;
-    return { onboarded: value.onboarded === true, startingLevel: level, dailyGoal: goal };
+    return {
+      onboarded: value.onboarded === true,
+      startingLevel: level,
+      dailyGoal: goal,
+      // Absent means "not chosen yet", which is the default rather than false —
+      // an older stored preferences blob must not silently turn haptics off.
+      haptics: typeof value.haptics === 'boolean' ? value.haptics : DEFAULT_PREFERENCES.haptics,
+      sound: typeof value.sound === 'boolean' ? value.sound : DEFAULT_PREFERENCES.sound,
+    };
   } catch {
     // Corrupt preferences must not stop the app; the defaults are all usable.
     return DEFAULT_PREFERENCES;
@@ -64,6 +80,11 @@ function parse(raw: string | null): Preferences {
 export function PreferencesProvider({ children }: { children: ReactNode }) {
   const [preferences, setPreferences] = useState<Preferences>(DEFAULT_PREFERENCES);
   const [ready, setReady] = useState(false);
+
+  // The haptics module is asked once here rather than threaded through every
+  // screen, so a button deep in a lesson does not need the preferences context
+  // just to know whether it may buzz.
+  useEffect(() => { setHapticsEnabled(preferences.haptics); }, [preferences.haptics]);
 
   useEffect(() => {
     let cancelled = false;
