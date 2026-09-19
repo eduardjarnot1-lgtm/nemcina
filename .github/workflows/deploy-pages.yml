@@ -1,9 +1,31 @@
+# The one published address: https://eduardjarnot1-lgtm.github.io/nemcina/
+#
+# It serves the mobile app — apps/mobile, the real product — not the web
+# prototype in app/, which is frozen. Every push to main that touches the app,
+# the engine or the corpus rebuilds and redeploys it, so the link is always the
+# current state of main and nobody has to publish anything by hand.
+#
+# Two gates stand before the deploy, and both are the point rather than
+# ceremony:
+#
+#   validate_content.py  fails on any card carrying a third-party translation
+#                        source. The corpus was rebuilt from lists written for
+#                        this project; this is what stops borrowed material
+#                        being served from a public address again.
+#
+#   assert-api-url.mjs   (inside build:pages) refuses a bundle with a loopback
+#                        API URL baked in, which Metro's transform cache has
+#                        produced once before.
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
-    paths: ["app/**"]
+    paths:
+      - "apps/mobile/**"
+      - "packages/**"
+      - "app/data/**"
+      - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -23,9 +45,42 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: npm ci
+
+      # The licensing gate. Nothing is published if the corpus is not ours.
+      - name: Validate content
+        run: python3 app/tools/validate_content.py
+
+      # The 394 engine and server tests. The mobile workspace's own test is the
+      # browser smoke run, which skips here because it needs an export that
+      # does not exist yet at this point — it is run before a push, not in CI.
+      - name: Check the engine still passes its own tests
+        run: npm test --workspaces --if-present
+        env:
+          CI: "1"
+
+      # EXPO_BASE_URL is set by the script: Pages serves from /nemcina/, so the
+      # prefix is baked in and the router writes links that survive a reload.
+      - name: Build the app for Pages
+        run: npm run build:pages -w @nemcina/mobile
+        env:
+          EXPO_OFFLINE: "1"
+          EXPO_NO_TELEMETRY: "1"
+          CI: "1"
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: app
+          path: apps/mobile/dist-pages
       - id: deployment
         uses: actions/deploy-pages@v4

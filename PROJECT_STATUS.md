@@ -1,338 +1,443 @@
 # Project status
 
-**Scope of this document.** A documentation-level audit of the repository as it
-stands, written for Phase 1A. It is based on the root `README.md`,
-`app/README.md`, `COLLABORATION.md`, `CLAUDE.md` and an inspection of the file
-tree. **No build, validation or test command was executed while writing it**, and
-no data file was opened. Every number and behaviour below is therefore
-*documented* rather than *verified in this pass*; claims that have not been
-re-checked are marked as such. Verifying them is the first item of Phase 1B.
+Living status document. Rewritten 2026-09-15, replacing the Phase 1A
+documentation audit — that audit described the repository as *documented*; this
+one separates what has been **verified by running it** from what has not.
 
-**Phase 1B addendum.** The content validator has since been executed and its
-factual result is recorded in section 3, "Validation command — recorded run".
-Nothing else in this document has been re-verified.
-
-Last updated: 2026-09-14.
+Target product: a commercial German-learning mobile app for Android and iOS.
+Current reality: a mobile app that runs, a tested engine behind it, a sync
+server that works and is not deployed, and a content pipeline that refuses bad
+input. What is still missing is stated below rather than smoothed over.
 
 ---
 
-## 1. What the repository contains
+## 1. Verified this session
 
-```
-README.md              project overview (Czech)
-COLLABORATION.md       agent/human workflow rules (Czech)
-CLAUDE.md              agent instructions
-PROJECT_STATUS.md      this document
-.github/workflows/     claude.yml (the only workflow)
-app/                   the learning application
-```
+Everything in this section was executed, not read.
 
-There is no `package.json`, no lockfile, no build tool config, no test
-directory and no CI workflow other than the Claude agent workflow. The project
-is a static site plus a Python content pipeline.
-
-### `app/` layout
-
-| Path | Contents |
+| Command | Result |
 |---|---|
-| `app/index.html` | Application shell (top bar, search, main region) |
-| `app/styles.css` | Light and dark theme, no CSS framework |
-| `app/src/` | 16 ES modules, ~127 KB total — see the list below |
-| `app/data/` | 4 generated JSON databases, ~6 MB total |
-| `app/tools/` | Python extraction/build/validation pipeline, plus annotation sources |
-| `app/assets/` | `master-fuka.jpg` (~414 KB) |
-| `app/docs/` | `skills-integration-brief.md` |
-| `app/ZDROJE.md` | Source and licence overview |
-| `app/README.md` | The detailed technical document for the app |
+| `npm test --workspaces` | **386 passed, 0 failed** (297 core · 89 server) |
+| `node apps/mobile/e2e/smoke.mjs` | **35 browser checks passed** |
+| `node apps/mobile/e2e/sync.mjs` | **13 checks passed** — two devices, real server, real bundle |
+| `npx tsc --noEmit` (core, server, mobile) | clean |
+| `python3 app/tools/validate_content.py` | **PASSED** — 110 384 checks, 0 errors, 1 warning |
 
-### Source modules
+The one warning is long-standing and genuine: the source list prints
+*einwerfen* twice with slightly different glosses, so both cards are kept and
+flagged for a human.
 
-`data.js`, `grammar.js` (loading and indexing), `db.js` (learner database),
-`srs.js` (FSRS-5), `audio.js` (speech in/out), `progress.js`, `exercises.js`,
-`lessons.js`, `coach.js`, `runner.js` (activity state machine), `search.js`,
-`fuka.js`, `ui.js`, `views.js`, `learnViews.js`, `app.js` (hash router).
+---
 
-### Generated data
+## 2. What actually exists
 
-| File | Size on disk | Documented contents |
+### Content — solid, the strongest part of the project
+
+| | Count | Provenance |
 |---|---|---|
-| `app/data/vocabulary.json` | ~4.05 MB | 4 768 cards, levelled A1–B2 |
-| `app/data/cefr.json` | ~1.17 MB | 4 442 levelled headwords with sources |
-| `app/data/grammar.json` | ~604 KB | 121 topics, 615 examples, 615 exercises |
-| `app/data/frequency.json` | ~163 KB | 2 586 ranked word forms |
+| Vocabulary cards | 4 646 | OCR GCSE list + Goethe A1/A2/B1 Wortlisten + Lingster A1–B2 |
+| — levelled by a word list | 4 055 | a source's statement |
+| — levelled by tier approximation | 591 | labelled "approx." everywhere it appears |
+| Grammar topics | 121 | DaF kompakt (87), Sicher! C1 (32), CC BY-NC gap-fill (2) |
+| Grammar exercises | 615 | |
+| CEFR headwords with sources | 4 442 | |
+| Frequency-ranked forms | 2 586 | OpenSubtitles corpus |
 
-Sizes are from the file tree; counts are from `app/README.md` and were not
-re-counted here.
+Levels: **A1 812 · A2 1 239 · B1 2 082 · B2 513** — 54, 83, 139 and 34 lessons
+respectively, plus 138 lessons cut by topic category. 448 lessons in all. C1 has grammar only, no
+vocabulary. C2 has nothing and says so — no level claims completeness it does
+not have (spec §2).
+
+The Python pipeline is reproducible and refuses to build on bad input: a grammar
+example that does not occur verbatim in its own source text fails the build, and
+the CEFR importer refuses below a 75 % verification rate against the official
+PDFs.
+
+### `packages/core` — new this session
+
+Platform-agnostic learning engine. No DOM, no network, no storage backend, no
+German-specific branching.
+
+| Module | What it owns | Tests |
+|---|---|---|
+| `types.ts` | Domain model; language-specific metadata typed per target language | — |
+| `srs.ts` | FSRS-5 scheduling | 16 |
+| `answers.ts` | Lenient answer checking + FSRS grade inference | 16 |
+| `selection.ts` | Session planning (§8) and exercise difficulty ladder (§7) | 20 |
+| `storage.ts` | `ProgressStore` port + in-memory and key-value implementations | 17 |
+| `content.ts` | `ContentRepository` port, filters and search (§24) | 20 |
+| `lessons.ts` | Lesson units of 10–20 items and progress through them (§5) | 26 |
+| `pipeline.ts` | The typed boundary to the Python pipeline's JSON | 17 |
+| `exercises.ts` | Building a question: distractors, gaps, direction | 23 |
+| `session.ts` | One study session, including the retry of a failed item | 17 |
+| `stats.ts` | Totals, streaks, daily activity | 15 |
+| `grammar.ts` | Practising a topic: order, grading, the explanation | 19 |
+| `sync.ts` | The merge rule: the later review wins | 13 |
+| `placement.ts` | The adaptive placement test | 19 |
+| `coach.ts` | The coach's evidence, and advice derived from it | 19 |
+| `achievements.ts` | XP, levels and achievements, all derived from the attempt log | 19 |
+| `syncClient.ts` | The client half of sync, transport injected | — |
+| real-data suite | The engine against the project's actual 4 637 cards | 20 |
+
+Toolchain: **zero runtime dependencies.** Node 22 runs TypeScript tests
+natively, so tests use `node:test` with no framework and no build step.
+`typescript` and `@types/node` are devDependencies used only for type checking.
+
+### `apps/mobile` — the Android and iOS app
+
+Expo Router over React Native, consuming `@nemcina/core`. Working today:
+the next lesson on opening, a study session that runs to a summary with the
+question form rising as an item is learned, wrong answers returning easier,
+progress written per answer to AsyncStorage, search across words and grammar,
+lessons browsable by level and by topic, all 121 grammar topics with their
+explanations and 615 exercises, a coach that speaks only from the learner's own
+answers, levels and achievements recomputed from the attempt log, spoken German
+where the device has a voice, a profile with totals, a streak and a progress reset, an account that
+carries progress between devices, and a welcome flow
+with an adaptive placement test that decides where lessons start and how long
+a session is.
+
+`e2e/smoke.mjs` drives all of that in Chromium against the real bundle and
+asserts 35 things about it; `e2e/sync.mjs` starts the real server, exports the
+app against it and drives two browser contexts through registering, syncing and
+finding the work on the second device. **It has never been run on a physical device**, so
+nothing native — gestures, the keyboard, layout on a real screen, performance
+on a cheap phone — has been seen by anyone.
+
+### Accounts — two backends, one chosen at runtime
+
+There are two ways to hold an account, and the app picks between them without
+being configured:
+
+| Backend | Chosen when | Used by |
+| --- | --- | --- |
+| `server` | `EXPO_PUBLIC_API_URL` is set | nothing yet — nothing is deployed |
+| `firebase` | it is not, and Firebase is configured | the mobile app and the published build |
+| `none` | neither | the account panel says so plainly |
+
+`apps/mobile/src/account.tsx` holds that choice in `accountBackend()`. Firebase
+is reached through `src/firebaseAuth.ts`. The SDK is imported statically: it
+was loaded on demand at first, but the account context asks who is signed in as
+soon as the app mounts, so measured in a browser every chunk was fetched before
+any interaction. The deferral deferred nothing and cost a split bundle, whose
+chunk map Metro resolves against a page URL the host assigns.
+
+Both clients write to the same project (**master-german**) and the same path,
+so one person has one account across the prototype and the app. Deleting an
+account from the panel is not offered on Firebase: it needs a recent
+re-authentication the panel does not ask for, so it signs out instead.
+
+`firestore.rules` scopes every document to its owner's UID. **Committing that
+file does not deploy it** — see `FIREBASE.md`, which also explains why the
+`apiKey` in the client is not a secret.
+
+### `packages/server` — accounts and sync
+
+Holds what a phone must not be trusted with (§31): identity, session lifetime,
+entitlements, and the coach's prompt and quota. It schedules nothing. Opaque revocable tokens rather than
+JWTs, scrypt at the OWASP parameters, length as the only password rule, and
+identical answers for a wrong password, an unknown address and one already
+registered. A client may only write its own rows and can never assert its own
+tier. One runtime dependency (`@anthropic-ai/sdk`, confined to one file); otherwise
+`node:http`, `node:crypto` and `node:sqlite` alone.
+
+**Nothing is deployed.** There is no hosting, no domain and no certificate, so
+the mobile app talks to no server unless you run one yourself.
+
+### `app/` — the working web prototype
+
+Vanilla ES modules, no build step, `localStorage` persistence. Genuinely works:
+vocabulary browsing by topic and by level, 121 grammar topics, lessons, review,
+progress, search, frequency-ordered core words, speech in and out where the
+browser supports it, and a single-file offline build.
+
+It is a **prototype, not the product**, and it is now **frozen**: it is no
+longer published anywhere and no further work goes into it. The code stays
+because `app/data` (the corpus) and `app/tools` (the pipeline) live under the
+same directory and are very much alive.
+
+It has accounts — email/password and Google through Firebase, writing to
+`users/{uid}/progress/{itemId}`, the same path the app uses — but it is
+desktop-web shaped and has no mobile shell.
 
 ---
 
-## 2. Implemented features (as documented)
+## 2b. Motion and feedback (added this session)
 
-* **German Learning hub** — coach summary, four sections, target level.
-* **Vocabulary** — topic → sub-topic → word type → card, with article, meaning,
-  example sentence and English translation.
-* **Grammar** — 121 topics A1–C1, grouped by level then by the source's own
-  section, each with an English summary, rules, source examples and 4–7
-  exercises.
-* **Lessons** — a personalised mix of new words, weak words, overdue reviews and
-  one grammar exercise, composed from the learner's own records.
-* **Review** — everything the spaced-repetition schedule reports as due.
-* **Progress** — per topic, per grammar unit, streak, XP, weak words, recent
-  mistakes, recent sessions.
-* **Core words** — cards carrying a subtitle-frequency rank, most frequent first.
-* **Search** — German, English and grammar topics in one input.
-* **Learning Coach** — deterministic recommendations computed from the local
-  database; there is no language model at runtime.
+**`apps/mobile/src/motion.ts`** is the single source for durations, curves and
+animations, as `theme.ts` is for colour. Screens never write their own timings.
 
-**Exercise types.** Vocabulary: German→English, English→German, multiple choice,
-article, sentence context, sentence reading, word recognition. Grammar: fill in
-the blank, multiple choice, transformation, sentence reconstruction, error
-correction, context selection. Plural-form and verb-table exercises are
-deliberately disabled because the underlying fields are absent from the current
-source data; they self-enable per word when `pluralForm` or `verbForms` is
-populated. Dictation and pronunciation depend on browser speech APIs and hide
-themselves when unavailable.
+    duration   instant 70 · fast 140 · normal 220 · slow 320 · celebration 600
+    easing     standard · enter · exit · spring
+    hooks      useReducedMotion · usePressScale · useEntrance · useShake
+               usePulse · useCountUp · useProgressScale
 
-**Answer checking** is lenient: case, punctuation, ß/ss and whitespace are
-ignored, multiple accepted answers are supported, and a near miss is reported as
-"almost".
+Two rules hold everywhere:
 
-**Spaced repetition** is FSRS-5, reimplemented in `src/srs.js` with the
-published default parameters (no npm dependency, because the app has no build
-step). The learner never self-rates; the grade is inferred from the answer
-(wrong → Again, one-typo near miss → Hard, correct → Good, correct production by
-typing or speech without a hint → Easy). Records written by the earlier SM-2
-scheduler are migrated non-destructively on read.
+* **Only `transform` and `opacity` are animated**, with `useNativeDriver`, so a
+  lesson keeps frame rate while the JS thread saves progress. The progress bar
+  scales a full-width fill rather than animating `width` — a composite per
+  answer instead of a layout pass.
+* **Reduced motion removes movement rather than shortening it.** The state
+  change still happens, instantly and completely.
 
-**Persistence** is `localStorage`, but the schema is keyed by `userId` across
-five collections (`profile`, `vocabProgress`, `grammarProgress`, `sessions`,
-`events`) so the adapter can be replaced by a server without touching call
-sites. This is the single most important existing decision for the planned
-accounts/cloud-sync work.
+**`apps/mobile/src/haptics.ts`** exposes four meanings — `selection`,
+`success`, `warning`, `achievement` — not four APIs. No-ops on web, honours the
+new `haptics` preference (toggle in Profile). A wrong answer uses the *warning*
+pattern, never `Error`.
 
-**Single-file build.** `app/tools/build_artifact.py` inlines CSS, modules, both
-databases and the image into `dist/master-fuka-german.html`, which runs with no
-server and no network.
+### Implemented
+
+| Area | What it does |
+|---|---|
+| Buttons, options, cards | Scale under the finger; press-in fires before the answer is checked |
+| Correct answer | One soft pulse + success haptic |
+| Wrong answer | One short shake + warning haptic; gentle by design |
+| Question changes | Fade-and-rise; no frame-swap |
+| Progress bar | Travels to its new value |
+| Session end | Three staggered parts, numbers count up, stronger headline and haptic for a perfect session |
+| Home screen | Assembles top-down, then stops |
+
+### What remains
+
+* **Master Fuka has no animated states.** The mascot exists in the web
+  prototype only; the mobile app has no asset. `Reveal` and the haptic levels
+  are the hooks a future mascot would use — nothing was faked in the meantime.
+* **No sound.** A `sound` preference is stored and defaults **off**; there are
+  no audio assets. A setting that promises a sound it cannot play is worse than
+  no setting.
+* **No XP-fly-to-counter animation.** The core has real XP (`xpFor`,
+  `totalXp`, `levelFor`), but the session screen does not yet show a running
+  XP total to fly toward, and inventing one would be a feature, not polish.
+* **No streak or daily-goal animation.** `streak()` is real data and the
+  profile shows it; neither is on the lesson path yet.
+* **No course-map or unlock animation.** The lesson list is a flat list, not a
+  map, so there is no locked→unlocked transition to animate.
+* **Achievements are listed, not celebrated.** `achievements()` and `earned()`
+  exist; nothing watches for the moment one is first earned.
+* **No analytics events.** `lesson_started`, `lesson_completed` and the rest
+  are not emitted anywhere; there is no analytics layer to emit them to.
+
+### Known animation issues
+
+* `useCountUp` drives its value through a JS listener, because a number has to
+  reach JavaScript to be rendered as text. It runs for a fraction of a second,
+  once, on the results screen — never during a lesson.
+* Verified in a browser at 420×900, normal and reduced motion: a 21-answer
+  session, no console errors, no blocking, slowest answer round trip 316ms
+  normal / 113ms reduced. Not yet verified on a physical device — see §4.
+
+### Future asset requirements
+
+* Master Fuka: idle, happy, celebrating, thinking, encouraging, surprised,
+  lesson-complete. Lottie or sprite; the component boundary is `Reveal`.
+* Sounds: correct, incorrect, lesson complete, achievement, level unlock.
+  Short, soft, optional.
+
+## 2c. Publishing — one address, no hands
+
+**https://eduardjarnot1-lgtm.github.io/nemcina/**
+
+`.github/workflows/deploy-pages.yml` builds `apps/mobile` and deploys it on
+every push to `main` touching the app, the engine or the corpus. There is
+nothing to publish by hand and nothing to forget.
+
+Pages serves from a folder, so `experiments.baseUrl` bakes the `/nemcina`
+prefix in at build time — Expo's supported answer, and better than rewriting
+paths afterwards because the router then writes real URLs. `404.html` is a copy
+of the page, so an unknown path boots the app and it reads the URL: deep links
+and reloads land on the right screen with the address intact.
+
+Because the prefix is baked in, a Pages build works **only** under it. So it
+comes from `EXPO_BASE_URL` through `app.config.js`, and only `build:pages` sets
+it. The artifact build runs without it and is unchanged.
+
+Two gates run before a deploy, and both have caught something real:
+
+| Gate | Refuses |
+|---|---|
+| `validate_content.py` | Any card carrying a third-party translation source |
+| `tools/assert-api-url.mjs` | A bundle with a loopback API URL baked in |
+
+The second one lives in its own module precisely so both publishing routes run
+it. Two ways to publish must not mean one of them is unguarded.
 
 ---
 
-## 3. Architecture
+## 3. What does NOT exist
 
-```
-PDF / list sources (not committed)
-        │  extract_pdf.py, extract_c1_grammar.py, extract_daf_grammar.py,
-        │  extract_web_grammar.py, build_cefr.py, build_frequency.py
-        ▼
-app/tools/*.json + app/tools/annotations/*.tsv|*.json   (committed, reviewable)
-        │  build_vocabulary.py, build_grammar.py
-        ▼
-app/data/*.json
-        │  validate_content.py
-        ▼
-Browser: ES modules loaded over HTTP, localStorage for learner state
-```
+Stated plainly, because spec §43 forbids calling these done.
 
-Key properties, as documented in `app/README.md`:
+| Area | Status |
+|---|---|
+| Deployment | **Nothing.** The server runs locally and is not hosted anywhere, so sync works only against one you start yourself. |
+| Email verification / password reset | **Nothing.** Both need a mail provider — a decision and a credential nobody has supplied. |
+| AI Learning Coach | **Built, unkeyed.** Evidence and advice are computed from the learner's records; the server will ask Claude to phrase them, under a closed intent list and a server-side quota. No `ANTHROPIC_API_KEY` is set, so it answers `no-model-configured` and the app shows its own advice. |
+| Subscriptions / premium | **Half.** The server owns the entitlement, will not let a client claim it, and premium now buys something real (50 coach requests a day against 5). Nothing sells one and no store receipt is verified. |
+| Advertising | **Nothing.** |
+| Analytics | **Nothing.** |
+| Audio | Both use the platform's own synthesiser. No recorded pronunciation, no TTS provider, no pronunciation scoring. |
+| Notifications | **Nothing.** |
+| App icons | Expo template placeholders. |
 
-* No build step for the app itself; no runtime dependencies; no server.
-* The grammar build refuses to produce output unless every example sentence
-  occurs verbatim in its own topic's source text; content authored for practice
-  is flagged `fromSource: false`.
-* The CEFR build cross-checks a third-party transcription against the official
-  PDF text and refuses to build below a 75 % verification rate.
-* A word takes the **lowest** level any source assigns it.
-* Source PDFs are not committed — only extracted structured data.
+---
 
-### Runtime and tooling requirements
+## 4. Known problems
 
-* A browser with ES module support (the app must be served over HTTP; `file://`
-  does not work).
-* Python 3 for the content pipeline. `python3 -m http.server` is sufficient to
-  serve the app.
+0. **The content bug found by running the app.** 1 293 cards were glossed with
+   the translation of their example sentence rather than of the word, because
+   the Goethe transcription's third column translates the sentence. Fixed in
+   `build_cefr.py`, and `validate_content.py` now refuses to build data with
+   that shape. Worth recording because it was invisible to every unit test and
+   obvious within one screen of the running app.
+1. **The learning logic now exists twice.** `app/src/srs.js` and
+   `packages/core/src/srs.ts` implement the same FSRS-5. The web app was not
+   rewired to the core in this change, deliberately — the app has no build step
+   and the core is TypeScript. **This will drift if left.** Resolution options
+   are in §6.
+2. **`app/src/coach.js` is named "Learning Coach" but is not AI.** The UI and
+   README say so explicitly, so it is not deceptive, but the name invites the
+   wrong expectation.
+3. **B2 vocabulary rests on a single source** (Lingster Academy). Its level
+   judgements are one publisher's, and some look high. The official Goethe B2
+   Wortliste could not be obtained — `goethe.de` is blocked from the build
+   environment.
+4. **A published build once carried a localhost API URL.** `e2e/sync.mjs`
+   exports the app with `EXPO_PUBLIC_API_URL` pointing at its own throwaway
+   server. Metro inlines that value and **caches the transformed module**, so
+   every later `expo export` without `--clear` silently reused it. The build
+   that was published this way tried to reach a server on the reader's own
+   machine, which is why creating an account reported "Could not reach the
+   server" instead of using Firebase. Fixed by exporting with `--clear`;
+   `tools/prepare-web-artifact.mjs` now reads the compiled `API_URL` back out
+   of the bundle and refuses to prepare one that points at the build machine.
+5. **PR #7 is still open and unmerged.** It restores the licensing boundary,
+   the `german/` docstring fix and the Netlify removal that were approved but
+   stranded when PR #2 merged early. Until it lands, `main` has **no rule**
+   saying the repository stays private and unmonetised.
 
-### Documented local start
+---
+
+## 5. Release blockers
+
+In the order they block a store submission.
+
+1. **Licensing.** 119 of 121 grammar topics and most example sentences come from
+   paid Klett and Hueber coursebooks and Goethe-Institut lists, with no
+   permission. Two topics are CC BY-NC (non-commercial only). **A paid or
+   publicly listed app cannot ship this content as it stands.** See
+   `app/ZDROJE.md`. This is the single largest blocker and it is legal, not
+   technical.
+2. No mobile application exists.
+3. No backend of our own, so no server-side validation of premium or AI limits
+   (§31). Accounts and cross-device progress (§47) now work through Firebase,
+   which covers identity and sync but not entitlements — a phone must not be
+   trusted to assert its own tier, and against Firestore alone it would be.
+4. **The Firestore rules have not been confirmed deployed.** Until someone runs
+   `firebase deploy --only firestore:rules` and checks the console, the
+   database may still be in test mode, which is world-readable and -writable
+   until its expiry and denies everything after. See `FIREBASE.md`.
+
+---
+
+## 6. Architectural decisions taken
+
+| Decision | Why |
+|---|---|
+| Extract the engine into `packages/core` before building any mobile UI | Otherwise the mobile app copies the logic and the copies drift. |
+| TypeScript + `node:test`, no test framework | Node 22 runs TS natively; a framework would be a dependency solving no problem (§44). |
+| `ProgressStore` as a port, async even where local storage is sync | The implementation that matters later is the network. Making it async now avoids rewriting every call site. |
+| Mastery from scheduler stability, not attempt counts | "Mastered" should mean the scheduler will leave it alone for two months, not that a counter hit three. A lapse then correctly demotes it. |
+| Grade inferred from the answer, never self-rated | Self-rating is the step users skip. |
+| Language-specific metadata typed per target language | Adding Spanish must not touch the scheduler (§20). |
+
+### Open decision: how the web app consumes the core
+
+Three options, none yet chosen:
+
+- **(a)** Emit JS from `tsc` into `app/vendor/` and commit it. Keeps the app's
+  no-build-step property; puts generated code in git.
+- **(b)** Give `app/` a small bundler. Costs the no-build-step property.
+- **(c)** Freeze `app/` as the prototype and let the mobile app be the only
+  consumer of the core. Accepts the duplication until the prototype is retired.
+
+**(c) is the current de-facto state and the recommendation** if mobile work
+starts immediately, since the prototype then has a short remaining life. If
+mobile work is delayed, (a) is better than leaving two copies drifting.
+
+---
+
+## 7. Next priorities
+
+1. ~~Content repository + lesson units in the core.~~ **Done.**
+2. ~~Decide the mobile stack and scaffold it.~~ **Done** — Expo Router, running
+   and tested end to end in a browser.
+3. **Run it on a real device.** Everything so far is verified through the web
+   export. Nothing native — gestures, keyboard, layout on a real screen — has
+   been seen. This is the next thing that can prove or disprove the app.
+4. ~~A grammar screen.~~ **Done.**
+5. ~~Backend + auth + sync.~~ **Done** — `packages/server`, and the app signs in
+   and syncs. Not deployed.
+6. **Deploy the server.** Needs a host, a domain and a certificate; all three
+   are decisions, not code. Until then sync is real but unreachable.
+7. ~~Real AI coach.~~ **Built** — closed intents, prompts written server-side,
+   quotas counted server-side, and no model configured. Needs a key and the
+   deployment above to be reachable.
+8. ~~Onboarding and a placement test.~~ **Done** — an adaptive test places a
+   learner in about twenty questions, and the app opens on a welcome flow
+   rather than on lesson one of A1.
+
+---
+
+## 8. Credentials and decisions still needed from the owner
+
+Nothing here blocks the work above; placeholders are in place where needed.
+
+| Needed | For | Blocking now? |
+|---|---|---|
+| Licensing decision or content replacement plan | Any public or paid release | **Yes, for release** |
+| **Deploying the Firestore rules, and confirming it in the console** | Keeping one learner's progress out of another's hands | **Yes.** `firebase deploy --only firestore:rules` — see `FIREBASE.md`. Cannot be done from the build environment; Google is blocked from it. |
+| A host, a domain and a TLS certificate | A sync server of our own. Accounts themselves work through Firebase. | Not for accounts; yes for server-side entitlements |
+| A mail provider | Email verification and password reset against our own server. Firebase can send both; neither is wired up. | Not yet |
+| `ANTHROPIC_API_KEY` | The coach's phrasing. Without it the app shows its own advice and says so. | Not blocking |
+| Apple Developer / Google Play accounts | Store submission | Not yet |
+| AdMob identifiers | Advertising | Not yet |
+| Subscription product IDs | Premium | Not yet |
+
+---
+
+## 9. Resuming work
+
+A new session has no memory of previous ones and will not continue on its own.
+
+> Pracuješ na repozitáři `eduardjarnot1-lgtm/nemcina`. Přečti si
+> `PROJECT_STATUS.md`, `CLAUDE.md` a `COLLABORATION.md` a pokračuj od sekce
+> „Next priorities". Nic nepushuj do `main`, pracuj na feature větvi.
 
 ```bash
-python3 -m http.server 8000     # from the repository root
-# then open http://localhost:8000/app/
+git clone https://github.com/eduardjarnot1-lgtm/nemcina /home/user/nemcina
+cd /home/user/nemcina
+npm install
+npm test --workspaces                      # 394 tests
+python3 app/tools/validate_content.py      # 86 264 checks
+python3 -m http.server 8000                # then http://localhost:8000/app/
+
+cd apps/mobile && EXPO_OFFLINE=1 npx expo start   # the mobile app
+npm start -w @nemcina/server                      # the sync server
 ```
 
-### Validation command — recorded run
-
-Command, run from the repository root:
+Source documents are **not** committed — only derived data. To re-run the
+extractors, fetch the inputs again:
 
 ```bash
-python3 app/tools/validate_content.py
+git clone --depth 1 https://github.com/technologiestiftung/sprach-o-mat.git        # Goethe A1/A2/B1 PDFs
+git clone --depth 1 https://github.com/ilkermeliksitki/goethe-institute-wordlist.git
+git clone --depth 1 https://github.com/Hazrat-Ali9/Deutschland-Vocabulary-A1-B2.git   # Lingster
+git clone --depth 1 https://github.com/SavSanta/ding-de.git                         # Ding dictionary
+git clone --depth 1 https://github.com/abdullahbutt/deutsch-lernen-goethe-a1-c2.git  # CC BY-NC grammar
 ```
 
-**Result: PASSED — 0 errors, 1 warning. 98 776 checks run.** Exit status 0
-(`main()` returns 0 on the no-error path, `validate_content.py:255`).
-Environment: Python 3.12.3 on Linux, run 2026-09-14 in CI.
-
-Verbatim output:
-
-```
-vocabulary: 4768 words checked
-grammar: 121 topics, 615 exercises checked
-
-98776 checks run
-  warning: vocabulary: near-duplicate variants for 'einwerfen': w0788 'to post' / w0938 'to post (a letter)'
-PASSED — 0 errors, 1 warning(s)
-```
-
-Notes on the result:
-
-* **Errors: none.**
-* **Warnings: one** — the near-duplicate gloss for `einwerfen` (`w0788` "to
-  post" vs `w0938` "to post (a letter)"). This is the duplicate gloss
-  `app/README.md` describes as a genuine artefact of the OCR source that is
-  intentionally left standing; the run confirms it is still the only warning.
-* The run confirms the previously unverified counts **4 768 vocabulary words**
-  and **121 grammar topics / 615 exercises** quoted in section 1 and section 2.
-* The check total, **98 776**, was not previously documented anywhere; it is
-  recorded here as the observed figure for this data set.
-* `app/README.md` writes the last line as `PASSED — 0 errors, 1 warning`; the
-  program actually prints `1 warning(s)`. A cosmetic documentation mismatch
-  only, not corrected in this pass (Phase 1B is scoped to recording the result).
-* The validator checks *content only* — limitation 1 in section 4 stands
-  unchanged: this is not a test suite for the learning engine.
-
----
-
-## 4. Known limitations
-
-1. **No automated test suite.** `validate_content.py` checks *content* only.
-   There are no unit tests for `srs.js`, `exercises.js`, `lessons.js`,
-   `coach.js` or `db.js`, and no browser/end-to-end tests. Nothing in CI runs
-   either.
-2. **Local-only progress.** All learner state lives in `localStorage`: it is
-   per-browser, per-device, lost when site data is cleared, and there is no
-   export, import or sync.
-3. **No accounts, no backend.** Not started.
-4. **Single UI language.** The interface is English-for-German-learners; there
-   is no i18n layer, so adding a second interface language today means touching
-   view code.
-5. **Web only.** No Android or iOS packaging, no PWA manifest or service worker
-   in the file tree, so no offline install path other than the single-file
-   artifact.
-6. **Level coverage is uneven and must not be overstated.** Grammar exists for
-   A1, A2, B1 and C1; **B2 and C2 grammar are empty**. Vocabulary is levelled
-   A1–B2, with B2 resting on a single source. Some cards carry only an
-   *approximate* CEFR mapping derived from a GCSE Foundation/Higher tier. The
-   project must not claim CEFR completeness.
-7. **Frequency data is surface-form only.** 785 of 2 047 OCR cards carry a rank;
-   no lemma matching; case-folded counts are flagged `frequencyShared`. Ranks
-   come from a film/TV subtitle corpus and must be labelled as such.
-8. **Speech features are browser-dependent.** Speech recognition is effectively
-   Chromium-only and needs microphone permission; a genuine German TTS voice is
-   common but not guaranteed.
-9. **Rebuilding content is not reproducible from the repository alone.** The
-   extractors require source PDFs and lists that are deliberately not committed
-   and, in at least one documented case, were fetched from a host blocked by the
-   original environment.
-10. **Large committed JSON.** ~6 MB of generated data in git; every rebuild
-    produces a large diff, and the browser loads multi-megabyte files on start.
-    No lazy loading or chunking is described.
-11. **The AI Learning Coach is not AI.** It is deterministic and data-driven.
-    This is a correct and honest design for a static app, but it means the
-    planned AI Coach is entirely unbuilt.
-12. **Documentation is split across two languages** (Czech root README and
-    `COLLABORATION.md`, English `app/README.md`), and the root README does not
-    mention the validation command or the single-file build.
-13. **`app/README.md` refers to Netlify publishing the repository root**, but no
-    Netlify configuration file is present in the tree — the deployment setup is
-    either external to the repository or stale. Not changed in this pass.
-
----
-
-## 5. External credentials and assets required
-
-None are required to run the app as it exists today — it has no network calls,
-no API keys and no accounts.
-
-Required for planned work, and **not present in the repository** (and never to
-be committed, per `CLAUDE.md` and `COLLABORATION.md`):
-
-| Need | Purpose | Status |
-|---|---|---|
-| Backend/auth provider credentials | Accounts, cloud sync | Not chosen, not provisioned |
-| AI provider API key | AI Learning Coach | Not chosen; must be server-side, never in client code |
-| Apple Developer account / Google Play account | iOS and Android release | Not provisioned |
-| Hosting/deploy tokens | Web deployment (Netlify or successor) | Not visible in the repository |
-| Source documents for content rebuilds | Re-running the extractors | Not committed by design; must be supplied per build |
-
-Any of these must be supplied through repository/organisation secrets or a local
-`.env` that is never committed.
-
----
-
-## 6. Release blockers
-
-Blocking a credible public release, roughly in order:
-
-1. No automated test coverage of the learning engine, and no CI running any
-   check on pull requests.
-2. Progress can be lost silently (single-browser `localStorage`, no export).
-3. No accounts or sync, so a learner cannot move between devices.
-4. No mobile packaging or offline-install path.
-5. Content-coverage claims must be audited against the data before any store
-   listing or marketing copy — B2/C2 grammar is absent and some levels are
-   approximations.
-6. Source attribution and licence terms must be re-checked per source before
-   distribution; at least one source is CC BY-NC (non-commercial), which
-   directly constrains a paid/premium tier.
-7. No privacy policy, terms, or data-handling statement — mandatory for app
-   stores and for anything that stores user data server-side.
-8. No free/premium boundary exists in the code.
-9. Startup cost of multi-megabyte JSON on mobile networks is unmeasured.
-
----
-
-## 7. Phased roadmap
-
-Deliberately short, and limited to what the current codebase supports. No dates.
-
-**Phase 1B — verify the audit.** Run `python3 app/tools/validate_content.py` and
-record the exact output; smoke-test the documented local start path; confirm the
-content counts quoted above; fix clear defects found. Correct any documentation
-inconsistency the run exposes (including items 12 and 13 above).
-
-**Phase 2 — testing and CI.** Add a minimal test runner and unit tests for
-`srs.js` (FSRS behaviour and SM-2 migration), `exercises.js` (answer checking and
-availability) and `db.js` (schema, migration). Add a CI workflow that runs the
-tests and `validate_content.py` on every pull request. No framework rewrite.
-
-**Phase 3 — durable learner data.** Introduce progress export/import, then
-define the storage adapter boundary explicitly so `localStorage` and a future
-remote store are interchangeable. No backend yet.
-
-**Phase 4 — mobile readiness.** PWA manifest, service worker, offline caching,
-data-loading cost measured and reduced if needed. Then evaluate a wrapper
-(Capacitor or equivalent) for store distribution.
-
-**Phase 5 — accounts and sync.** Choose a provider, implement server-side auth
-and sync behind the Phase 3 adapter, add the privacy policy and data-handling
-documentation. Requires credentials listed in section 5.
-
-**Phase 6 — multi-language interface.** Extract UI strings behind an i18n layer;
-add a second interface language as the proof.
-
-**Phase 7 — AI Learning Coach.** Keep the deterministic coach as the fallback
-and the source of ground truth. Any model call goes through a server-side
-endpoint with the key held server-side, is grounded in the learner's records,
-and must never be able to assert progress the database does not show.
-
-**Phase 8 — content depth and premium structure.** Fill documented gaps (B2
-grammar first), re-verify licences per source, then design the free/premium
-split around what the licences actually permit.
-
----
-
-## 8. Open decisions for the maintainer
-
-* Backend and auth provider (Phase 5) — affects Phase 3's adapter design.
-* Whether a premium tier is compatible with the CC BY-NC content currently in
-  the grammar database, or whether that content must be replaced first.
-* Documentation language policy: keep Czech root docs with an English app, or
-  unify.
-* Whether generated JSON should stay in git or move to a build artifact.
+**Environment limits:** `github.com` works via `git clone`; `goethe.de`,
+`chatgpt.com`, `api.openai.com`, Wikipedia/Wiktionary, `archive.org` and
+`huggingface.co` are blocked by the egress policy. That is why B2 rests on a
+single source.

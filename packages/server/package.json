@@ -1,0 +1,24 @@
+{
+  "name": "@nemcina/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Accounts and progress sync. Owns everything the client must not be trusted with.",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "start": "node --experimental-sqlite src/main.ts",
+    "test": "node --experimental-sqlite --test 'test/**/*.test.ts'",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.125.0",
+    "@nemcina/core": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "typescript": "^5.9.3"
+  }
+}

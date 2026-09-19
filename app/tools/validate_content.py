@@ -25,6 +25,50 @@ VALID_ARTICLES = {"der", "die", "das", ""}
 VALID_LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2", "GCSE"}
 VALID_TYPES = {"noun", "verb", "adjective", "adverb", "pronoun",
                "preposition", "conjunction", "other"}
+# Every card now comes from a list composed for this project. "wordlist"
+# and "ding" belong to the corpus this replaced and are kept so the checks
+# still read data built before the rebuild.
+TRANSLATION_SOURCES = {"", "wordlist", "ding", "b2-list", "clean-list"}
+CLEAN_SOURCES = {"b2-list", "clean-list"}
+
+
+# Endings that only look like the end of a sentence. Ding writes "sth." and
+# "sb." constantly, and a gloss ending in one is still a gloss.
+GLOSS_ABBREVIATIONS = ("sth.", "sb.", "etc.", "i.e.", "e.g.", "vs.", "tog.")
+
+
+# Notation a dictionary uses about a word, which is not part of its meaning:
+# Ding writes irregular forms in {braces}, subject domains in [brackets] and
+# alternative spellings in <angles>. Any of it reaching a card means the gloss
+# was cut out of the dictionary badly.
+DICTIONARY_NOTATION = re.compile(r"[{}\[\]<>]")
+
+
+def has_dictionary_notation(meaning: str) -> bool:
+    if DICTIONARY_NOTATION.search(meaning):
+        return True
+    # An unbalanced parenthesis is the same fault wearing a commoner bracket.
+    return meaning.count("(") != meaning.count(")")
+
+
+def looks_like_a_sentence(word: dict) -> bool:
+    """Is this card's meaning a sentence rather than a gloss?
+
+    Deliberately conservative. Interjections really are glossed with
+    exclamations — *Prost!* means "Cheers!" — so a card whose German side is
+    itself punctuated is left alone, and a short gloss is never flagged. What it
+    catches is the long, full-stopped, question-marked English that belongs to
+    an example sentence.
+    """
+    meaning = (word.get("translation") or "").strip()
+    german = (word.get("word") or "").strip()
+    if not meaning or german.endswith("!") or german.endswith("?"):
+        return False
+    if not re.search(r"[.?!]$", meaning):
+        return False
+    if meaning.lower().endswith(GLOSS_ABBREVIATIONS):
+        return False
+    return len(meaning.split()) >= 6
 
 
 class Report:
@@ -83,13 +127,30 @@ def validate_vocabulary(report: Report) -> None:
         report.check(w["level"] in VALID_LEVELS, f"vocabulary {wid}: invalid level {w['level']!r}")
         report.check(bool(w.get("source")), f"vocabulary {wid}: missing source")
 
+        # A meaning is a gloss of the word, not a translation of a sentence.
+        # This is not a style rule: the Goethe transcription's third column
+        # translates the example sentence, and reading it as the headword's
+        # meaning once put "How many letters are there in the alphabet in your
+        # language?" on the card for *Alphabet*. Both checks below would have
+        # caught that.
+        report.check(
+            not w["exampleTranslation"].strip()
+            or w["translation"].strip() != w["exampleTranslation"].strip(),
+            f"vocabulary {wid}: the meaning is a copy of the example's translation")
+        report.check(not has_dictionary_notation(w["translation"]),
+                     f"vocabulary {wid}: {w['word']!r} carries dictionary notation "
+                     f"in its meaning: {w['translation']!r}")
+        report.check(not looks_like_a_sentence(w),
+                     f"vocabulary {wid}: {w['word']!r} is glossed with a sentence: "
+                     f"{w['translation']!r}")
+
         # Two kinds of card now sit in this file and they carry different
         # evidence, so they are checked differently rather than one standard
         # being relaxed for both. A card read out of the paginated GCSE document
         # must cite its page and carry a translated example. A card imported
-        # from a word list has no page to cite, and the lists print a German
-        # example without an English one — so the example is optional, but if it
-        # is there it must not be half-built.
+        # from a word list has no page to cite and may have no example at all —
+        # so the example is optional, but if it is there it must not be
+        # half-built.
         from_document = bool(w.get("sourcePage"))
         if from_document:
             report.check(isinstance(w["sourcePage"], int) and w["sourcePage"] > 0,
@@ -107,9 +168,31 @@ def validate_vocabulary(report: Report) -> None:
         report.check(bool(level) == bool(level_source),
                      f"vocabulary {wid}: CEFR level and its source disagree "
                      f"({level!r}, {level_source!r})")
-        report.check(w.get("translationSource", "") in ("", "wordlist", "ding"),
+        report.check(w.get("translationSource", "") in TRANSLATION_SOURCES,
                      f"vocabulary {wid}: unknown translation source "
                      f"{w.get('translationSource')!r}")
+
+        # An example borrowed from another document must say so, and must say
+        # something: an exampleSource equal to the card's own source would be a
+        # redundant claim, and one with no example behind it would be a false
+        # one.
+        example_source = w.get("exampleSource", "")
+        report.check(not example_source or bool(w["example"].strip()),
+                     f"vocabulary {wid}: example source {example_source!r} but no example")
+        report.check(example_source != w.get("source"),
+                     f"vocabulary {wid}: example source repeats the card's own source")
+
+        # The B2 list prints an article for every noun and a translated example
+        # for every entry, so a card built from it that is missing either was
+        # not built from what the document actually says.
+        if w.get("translationSource") in CLEAN_SOURCES:
+            report.check(bool(w["example"].strip()) and bool(w["exampleTranslation"].strip()),
+                         f"vocabulary {wid}: clean-list card without a translated example")
+            report.check(w["cefr"] == w["level"] and w["cefr"] in VALID_LEVELS,
+                         f"vocabulary {wid}: clean-list card levelled "
+                         f"{w['level']!r}/{w['cefr']!r}")
+            report.check(w.get("cefrSource", "") != "tier-approximation",
+                         f"vocabulary {wid}: clean-list card carries a tier approximation")
         report.check(bool(w["categories"]), f"vocabulary {wid}: no category")
         # A plural form, when present, must look like a German plural rather
         # than a stray article or a sentence.
@@ -137,6 +220,22 @@ def validate_vocabulary(report: Report) -> None:
     for rank, heads in by_rank.items():
         report.check(len(heads) == 1,
                      f"vocabulary: rank {rank} claimed by different words {sorted(heads)}")
+    # Every placement must point at a category and subcategory the database
+    # actually declares, or the card is filed somewhere the app cannot browse to.
+    declared = {(c["id"], sub["id"]) for c in db["categories"] for sub in c["subcategories"]}
+    for w in words:
+        for placement in w["categories"]:
+            report.check((placement["category"], placement["subcategory"]) in declared,
+                         f"vocabulary {w['id']}: filed under undeclared "
+                         f"{placement['category']}/{placement['subcategory']}")
+
+    # The point of the rebuild: nothing in the shipped corpus may come from a
+    # third party's list or dictionary. This is the check that keeps it true.
+    borrowed = [w["id"] for w in words if w.get("translationSource") not in CLEAN_SOURCES]
+    report.check(not borrowed,
+                 f"vocabulary: {len(borrowed)} card(s) still carry a third-party "
+                 f"translation source, e.g. {borrowed[:5]}")
+
     meta_cefr = db["meta"].get("cefr")
     if meta_cefr:
         for level, count in meta_cefr["levelCounts"].items():

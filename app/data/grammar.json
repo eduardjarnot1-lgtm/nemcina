@@ -15,6 +15,12 @@
     "topicCount": 87
    },
    {
+    "key": "b2-grammar",
+    "title": "Deutsche Grammatik – Niveau B2",
+    "credit": "Generated for this project by the project owner with the german-vocab/german-grammar Claude skill, which composes its own explanations and example sentences rather than reproducing a published course. Rules and examples in German and English.",
+    "topicCount": 15
+   },
+   {
     "key": "web-b1",
     "title": "B1 grammar not covered by the course documents",
     "credit": "Zustandspassiv from deutsch-lernen-goethe-a1-c2 by Abdullah Butt, CC BY-NC 4.0 (creativecommons.org/licenses/by-nc/4.0/); verb + preposition list from „Der deutsche Wortschatz von A1 bis B2“, Lingster Academy.",
@@ -25,11 +31,12 @@
    "A1",
    "A2",
    "B1",
+   "B2",
    "C1"
   ],
-  "topicCount": 121,
-  "exerciseCount": 615,
-  "exampleCount": 615
+  "topicCount": 136,
+  "exerciseCount": 690,
+  "exampleCount": 675
  },
  "levels": [
   {
@@ -240,6 +247,35 @@
      "name": "II. Verben",
      "topics": [
       "g-web-b1-verben-mit-praeposition"
+     ]
+    }
+   ]
+  },
+  {
+   "level": "B2",
+   "topicCount": 15,
+   "sources": [
+    "Deutsche Grammatik – Niveau B2"
+   ],
+   "groups": [
+    {
+     "name": "Deutsche Grammatik B2",
+     "topics": [
+      "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen",
+      "g-b2-2-passiv-mit-modalverben",
+      "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
+      "g-b2-4-nominalisierung-vom-verb-zum-nomen",
+      "g-b2-5-konzessive-und-kausale-konnektoren",
+      "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu",
+      "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung",
+      "g-b2-8-indirekte-rede-mit-konjunktiv-i",
+      "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+      "g-b2-10-erweiterte-partizipialattribute",
+      "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien",
+      "g-b2-12-zweiteilige-konnektoren",
+      "g-b2-13-temporale-nebensaetze",
+      "g-b2-14-subjektiver-gebrauch-der-modalverben",
+      "g-b2-15-passiversatzformen"
      ]
     }
    ]
@@ -14808,6 +14844,2628 @@
    "sourcePage": 1,
    "sourcePages": [
     1
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 1,
+   "title": "Konjunktiv II – irreale Wünsche und Bedingungen",
+   "titleEn": "Konjunktiv II – unreal wishes and conditions",
+   "summary": "würde + Infinitiv for most verbs, but hätte/wäre/könnte for the common ones — and never würde in the past.",
+   "category": "Verben",
+   "tags": [
+    "Konjunktiv II",
+    "Irrealis",
+    "Bedingungssatz",
+    "Höflichkeit"
+   ],
+   "difficulty": 4,
+   "prerequisites": [
+    "g-daf-a2-second-conditional-haben-sein-werden-k-n",
+    "g-daf-b1-second-conditional",
+    "g-daf-b1-improbable-conditional-sentences"
+   ],
+   "explanation": [
+    {
+     "heading": "What it marks",
+     "text": "Konjunktiv II says that something is not real. The document names three uses: a wish, a hypothetical condition, and a polite request. The same forms cover all three — what changes is the context, not the verb."
+    },
+    {
+     "heading": "Two ways to build it",
+     "text": "For most verbs, modern German uses würde + infinitive: ich würde gehen. For a small set of very common verbs — haben, sein, werden, können, müssen, dürfen, wissen, mögen — the dedicated form is preferred instead: ich hätte, ich wäre, ich könnte. This is the split worth memorising; everything else follows from it."
+    },
+    {
+     "heading": "The past has only one form",
+     "text": "The past Konjunktiv II is always hätte or wäre plus the Partizip II. There is no würde version of it at all. Wenn er früher losgefahren wäre — not 'würde losgefahren sein'."
+    },
+    {
+     "heading": "Why B2 needs it",
+     "text": "At B1 you meet the second conditional as a pattern. At B2 the polite request (Könnten Sie ...?) and the past counterfactual become everyday tools, and using würde where the dedicated form belongs is the mistake that marks a learner out."
+    }
+   ],
+   "rules": [
+    "Konjunktiv II expresses something unreal: a wish, a hypothetical condition, or a polite request.",
+    "Most verbs form it with würde + Infinitiv (ich würde gehen).",
+    "haben, sein, werden, können, müssen, dürfen, wissen and mögen use their own Konjunktiv II form instead (ich hätte, ich wäre, ich könnte).",
+    "The past is always hätte/wäre + Partizip II — never würde.",
+    "Achtung: würde haben, würde sein and würde können sound wrong to native ears; use hätte, wäre, könnte."
+   ],
+   "examples": [
+    {
+     "de": "Wenn ich mehr Zeit hätte, würde ich öfter kochen.",
+     "note": "If I had more time, I would cook more often. — hätte (dedicated form) in the wenn-clause, würde in the main clause."
+    },
+    {
+     "de": "An deiner Stelle würde ich den Vertrag noch einmal lesen.",
+     "note": "If I were you, I'd read the contract one more time. — advice, with no wenn-clause at all."
+    },
+    {
+     "de": "Könnten Sie mir bitte kurz helfen?",
+     "note": "Could you please help me for a moment? — the polite request; können takes its own form."
+    },
+    {
+     "de": "Wenn er früher losgefahren wäre, hätte er den Zug nicht verpasst.",
+     "note": "If he had left earlier, he wouldn't have missed the train. — past: wäre/hätte + Partizip II."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen-e1",
+     "topicId": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen",
+     "type": "choice",
+     "prompt": "Which opening does the document use?",
+     "text": "",
+     "from": "",
+     "options": [
+      "Wenn ich mehr Zeit hätte",
+      "Wenn ich mehr Zeit haben würde",
+      "Wenn ich mehr Zeit würde haben"
+     ],
+     "answers": [
+      "Wenn ich mehr Zeit hätte"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "haben is one of the verbs that keeps its own Konjunktiv II form. 'würde haben' is exactly what the Achtung warns against.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen-e2",
+     "topicId": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen",
+     "type": "fill",
+     "prompt": "Complete the sentence with the Konjunktiv II of haben.",
+     "text": "Wenn ich mehr Zeit ___, würde ich öfter kochen.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "hätte"
+     ],
+     "tokens": [],
+     "hint": "Not würde — haben has its own form.",
+     "explain": "hätte. The main clause then uses würde, because kochen is an ordinary verb.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen-e3",
+     "topicId": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen",
+     "type": "reorder",
+     "prompt": "Build the polite request.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Könnten Sie mir bitte kurz helfen?"
+     ],
+     "tokens": [
+      "Könnten",
+      "Sie",
+      "mir",
+      "bitte",
+      "kurz",
+      "helfen?"
+     ],
+     "hint": "",
+     "explain": "The Konjunktiv II of können turns a demand into a request.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen-e4",
+     "topicId": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen",
+     "type": "transform",
+     "prompt": "Put this into the past Konjunktiv II — he did miss the train, so say what would have happened otherwise.",
+     "text": "",
+     "from": "Er ist nicht früher losgefahren und hat den Zug verpasst.",
+     "options": [],
+     "answers": [
+      "Wenn er früher losgefahren wäre, hätte er den Zug nicht verpasst."
+     ],
+     "tokens": [],
+     "hint": "wäre / hätte + Partizip II.",
+     "explain": "The past Konjunktiv II never uses würde: losgefahren wäre, verpasst hätte.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen-e5",
+     "topicId": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen",
+     "type": "error",
+     "prompt": "This breaks the rule in the Achtung box. Write it the way the document would.",
+     "text": "Wenn ich mehr Zeit haben würde, würde ich öfter kochen.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Wenn ich mehr Zeit hätte, würde ich öfter kochen."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "haben keeps its own form: hätte, not 'haben würde'.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 1,
+   "sourcePages": [
+    1
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-2-passiv-mit-modalverben",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 2,
+   "title": "Passiv mit Modalverben",
+   "titleEn": "Passive voice with modal verbs",
+   "summary": "Modal verb in position 2, Partizip II near the end, and werden stays in the infinitive at the very end.",
+   "category": "Passiv",
+   "tags": [
+    "Passiv",
+    "Modalverben",
+    "Satzklammer",
+    "Präteritum"
+   ],
+   "difficulty": 4,
+   "prerequisites": [
+    "g-daf-a2-active-passive",
+    "g-daf-a2-modal-verbs",
+    "g-daf-b1-modal-verbs-in-the-perfect"
+   ],
+   "explanation": [
+    {
+     "heading": "The frame",
+     "text": "The document gives the pattern outright: Subjekt + Modalverb + ... + Partizip II + werden. The conjugated modal verb takes position 2, and the clause closes with two verb forms in a fixed order — the Partizip II first, then werden."
+    },
+    {
+     "heading": "werden never moves",
+     "text": "At the end of the clause, werden is an infinitive and stays one. It is not conjugated and does not change with the tense. Everything that would normally happen to a verb happens to the modal instead."
+    },
+    {
+     "heading": "Changing tense",
+     "text": "In the Präteritum only the modal verb changes: müssen becomes musste, können becomes konnte. The rest of the structure is untouched, which is why Der Termin musste verschoben werden differs from Der Termin muss verschoben werden by exactly one word."
+    },
+    {
+     "heading": "Why it matters at B2",
+     "text": "This is the register of rules, instructions and workplace German — Die Unterlagen müssen eingereicht werden. Reading it is easy; producing it means getting three verb positions right at once."
+    }
+   ],
+   "rules": [
+    "Pattern: Subjekt + Modalverb + ... + Partizip II + werden.",
+    "The conjugated modal verb stands in position 2.",
+    "The Partizip II of the main verb comes next to last; werden closes the clause.",
+    "werden at the end is always an infinitive — never wird, never wurde.",
+    "In the Präteritum only the modal verb takes the past form; the rest stays the same."
+   ],
+   "examples": [
+    {
+     "de": "Die Unterlagen müssen bis Freitag eingereicht werden.",
+     "note": "The documents must be submitted by Friday. — müssen in position 2, eingereicht + werden at the end."
+    },
+    {
+     "de": "Das Problem konnte schnell gelöst werden.",
+     "note": "The problem could be solved quickly. — Präteritum: only konnte carries the tense."
+    },
+    {
+     "de": "Diese Regeln sollen ab nächstem Jahr geändert werden.",
+     "note": "These rules are supposed to be changed starting next year."
+    },
+    {
+     "de": "Der Termin musste leider verschoben werden.",
+     "note": "The appointment unfortunately had to be postponed. — musste, then verschoben werden."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-2-passiv-mit-modalverben-e1",
+     "topicId": "g-b2-2-passiv-mit-modalverben",
+     "type": "fill",
+     "prompt": "Close the clause. Which form of werden belongs here?",
+     "text": "Die Unterlagen müssen bis Freitag eingereicht ___.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "werden"
+     ],
+     "tokens": [],
+     "hint": "It is the last word, and it never changes.",
+     "explain": "werden stays in the infinitive at the end. The tense sits on müssen.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-2-passiv-mit-modalverben-e2",
+     "topicId": "g-b2-2-passiv-mit-modalverben",
+     "type": "choice",
+     "prompt": "Which sentence follows the pattern the document gives?",
+     "text": "",
+     "from": "",
+     "options": [
+      "Das Problem konnte schnell gelöst werden.",
+      "Das Problem konnte schnell gelöst wurde.",
+      "Das Problem konnte schnell werden gelöst.",
+      "Das Problem wurde schnell gelöst können."
+     ],
+     "answers": [
+      "Das Problem konnte schnell gelöst werden."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "Partizip II then werden, in that order, with the modal carrying the tense.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-2-passiv-mit-modalverben-e3",
+     "topicId": "g-b2-2-passiv-mit-modalverben",
+     "type": "reorder",
+     "prompt": "Put the clause in order.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Der Termin musste leider verschoben werden."
+     ],
+     "tokens": [
+      "Der",
+      "Termin",
+      "musste",
+      "leider",
+      "verschoben",
+      "werden."
+     ],
+     "hint": "",
+     "explain": "Subjekt + Modalverb + ... + Partizip II + werden.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-2-passiv-mit-modalverben-e4",
+     "topicId": "g-b2-2-passiv-mit-modalverben",
+     "type": "transform",
+     "prompt": "Put the sentence into the Präteritum. Only one word changes.",
+     "text": "",
+     "from": "Der Termin muss leider verschoben werden.",
+     "options": [],
+     "answers": [
+      "Der Termin musste leider verschoben werden."
+     ],
+     "tokens": [],
+     "hint": "The modal verb carries the tense on its own.",
+     "explain": "muss becomes musste; verschoben werden is untouched.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-2-passiv-mit-modalverben-e5",
+     "topicId": "g-b2-2-passiv-mit-modalverben",
+     "type": "error",
+     "prompt": "The last word breaks the rule in the Achtung box. Correct the sentence.",
+     "text": "Diese Regeln sollen ab nächstem Jahr geändert wurden.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Diese Regeln sollen ab nächstem Jahr geändert werden."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "werden is never conjugated in this position — no wird, no wurde.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 1,
+   "sourcePages": [
+    1,
+    2
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 3,
+   "title": "Relativsätze mit Präposition und im Genitiv",
+   "titleEn": "Relative clauses with a preposition or in the genitive",
+   "summary": "The preposition comes before the relative pronoun and sets its case; dessen/deren agree with the noun that follows.",
+   "category": "Satzverbindungen",
+   "tags": [
+    "Relativsatz",
+    "Relativpronomen",
+    "Genitiv",
+    "Präposition"
+   ],
+   "difficulty": 4,
+   "prerequisites": [
+    "g-daf-a2-relative-clauses-and-relative-pronouns",
+    "g-daf-b1-relative-pronouns-was-wo-r"
+   ],
+   "explanation": [
+    {
+     "heading": "The preposition leads",
+     "text": "When the relative clause needs a preposition, German puts it in front of the relative pronoun and never at the end: der Kollege, mit dem ich telefoniert habe. English can strand the preposition (the colleague I spoke to); German cannot."
+    },
+    {
+     "heading": "The preposition picks the case",
+     "text": "The pronoun's case comes from the preposition, not from the main clause: mit takes the dative, so mit dem; für takes the accusative, so für die. Gender and number still come from the noun being described."
+    },
+    {
+     "heading": "dessen and deren",
+     "text": "The genitive relative pronoun replaces a possessive: der Mann, dessen Auto gestohlen wurde. dessen for a masculine or neuter noun, deren for a feminine or plural one."
+    },
+    {
+     "heading": "The trap the document flags",
+     "text": "dessen and deren agree with the person or thing that possesses — but the noun straight after them is the thing possessed, and it does not change the form. Die Autorin, deren Bücher ... stays deren because die Autorin is feminine, even though Bücher is plural."
+    }
+   ],
+   "rules": [
+    "A preposition in a relative clause stands before the relative pronoun, never at the end.",
+    "The preposition determines the pronoun's case: mit dem (dative), für die (accusative).",
+    "Gender and number of the pronoun come from the noun it refers back to.",
+    "dessen (masculine/neuter) and deren (feminine/plural) are the genitive relative pronouns and replace a possessive.",
+    "Achtung: the form of dessen/deren follows the noun it belongs to — not the noun that comes immediately after it."
+   ],
+   "examples": [
+    {
+     "de": "Das ist der Kollege, mit dem ich gestern telefoniert habe.",
+     "note": "That's the colleague I spoke to on the phone yesterday. — mit + dative, so mit dem."
+    },
+    {
+     "de": "Die Firma, für die sie arbeitet, wurde letztes Jahr gegründet.",
+     "note": "The company she works for was founded last year. — für + accusative, feminine: für die."
+    },
+    {
+     "de": "Das ist der Mann, dessen Auto letzte Woche gestohlen wurde.",
+     "note": "That's the man whose car was stolen last week. — der Mann is masculine, so dessen."
+    },
+    {
+     "de": "Die Autorin, deren Bücher ich sehr mag, kommt aus Hamburg.",
+     "note": "The author whose books I really like is from Hamburg. — die Autorin is feminine, so deren, despite Bücher being plural."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv-e1",
+     "topicId": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
+     "type": "fill",
+     "prompt": "Complete the relative clause. Which pronoun does mit require?",
+     "text": "Das ist der Kollege, mit ___ ich gestern telefoniert habe.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "dem"
+     ],
+     "tokens": [],
+     "hint": "mit always takes the dative.",
+     "explain": "mit + dative, masculine: mit dem.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv-e2",
+     "topicId": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
+     "type": "choice",
+     "prompt": "Which genitive relative pronoun belongs after die Autorin?",
+     "text": "Die Autorin, ___ Bücher ich sehr mag, kommt aus Hamburg.",
+     "from": "",
+     "options": [
+      "deren",
+      "dessen",
+      "denen",
+      "derer"
+     ],
+     "answers": [
+      "deren"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "die Autorin is feminine, so deren. Bücher being plural does not change it — that is exactly the trap in the Achtung box.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv-e3",
+     "topicId": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
+     "type": "choice",
+     "prompt": "Which sentence puts the preposition where German wants it?",
+     "text": "",
+     "from": "",
+     "options": [
+      "Die Firma, für die sie arbeitet, wurde letztes Jahr gegründet.",
+      "Die Firma, die sie für arbeitet, wurde letztes Jahr gegründet.",
+      "Die Firma, die sie arbeitet für, wurde letztes Jahr gegründet."
+     ],
+     "answers": [
+      "Die Firma, für die sie arbeitet, wurde letztes Jahr gegründet."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "German never strands the preposition; it leads the relative clause.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv-e4",
+     "topicId": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
+     "type": "reorder",
+     "prompt": "Build the relative clause with the genitive pronoun.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Das ist der Mann, dessen Auto letzte Woche gestohlen wurde."
+     ],
+     "tokens": [
+      "Das",
+      "ist",
+      "der",
+      "Mann,",
+      "dessen",
+      "Auto",
+      "letzte",
+      "Woche",
+      "gestohlen",
+      "wurde."
+     ],
+     "hint": "",
+     "explain": "dessen for a masculine noun, then the thing possessed.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv-e5",
+     "topicId": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
+     "type": "error",
+     "prompt": "The relative pronoun agrees with the wrong noun. Correct the sentence.",
+     "text": "Die Autorin, dessen Bücher ich sehr mag, kommt aus Hamburg.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Die Autorin, deren Bücher ich sehr mag, kommt aus Hamburg."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "The form follows die Autorin (feminine), not Bücher.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 2,
+   "sourcePages": [
+    2,
+    3
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-4-nominalisierung-vom-verb-zum-nomen",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 4,
+   "title": "Nominalisierung – vom Verb zum Nomen",
+   "titleEn": "Nominalization – turning verbs into nouns",
+   "summary": "A subordinate clause becomes a preposition plus a noun plus a genitive — compact, formal, and stiff in speech.",
+   "category": "Wortbildung",
+   "tags": [
+    "Nominalisierung",
+    "Genitiv",
+    "Präpositionen",
+    "Stil"
+   ],
+   "difficulty": 4,
+   "prerequisites": [
+    "g-daf-a2-adjectives-in-the-genitive",
+    "g-daf-b1-preposition-w-hrend-genitive-standard-us"
+   ],
+   "explanation": [
+    {
+     "heading": "What changes",
+     "text": "A clause with a conjugated verb turns into a noun phrase. Nach der Ankunft des Zuges says what Nachdem der Zug angekommen war says, in half the words and with no verb left in that part of the sentence."
+    },
+    {
+     "heading": "The shape",
+     "text": "A preposition (nach, durch, bei, vor, während) plus the nominalized verb plus a genitive naming who or what is involved: bei der Planung der Reise, durch die Verspätung des Fluges."
+    },
+    {
+     "heading": "Where the nouns come from",
+     "text": "The examples show the usual patterns: ankommen becomes die Ankunft, sich verspäten becomes die Verspätung, überprüfen becomes die Überprüfung, planen becomes die Planung. The -ung nouns are always feminine."
+    },
+    {
+     "heading": "When not to use it",
+     "text": "The document is explicit that this register is stiff in conversation. In spoken German a weil- or wenn-clause usually still sounds more natural, so treat nominalization as a reading and writing skill rather than a way to sound advanced."
+    }
+   ],
+   "rules": [
+    "Nominalization replaces a subordinate clause with a preposition + noun + genitive.",
+    "Common frames: nach der Ankunft ..., durch die Verspätung ..., bei der Planung ..., während der Prüfung ...",
+    "The genitive names who or what the action belongs to: die Ankunft des Zuges.",
+    "Verbs in -en often become -ung nouns, which are feminine: planen → die Planung.",
+    "Achtung: nominalized sentences sound stiff in everyday speech — a weil/wenn clause is usually the more natural spoken choice."
+   ],
+   "examples": [
+    {
+     "de": "Nach der Ankunft des Zuges verließen alle Passagiere den Bahnsteig.",
+     "note": "After the train's arrival, all passengers left the platform. — nach + Dativ, then the genitive des Zuges."
+    },
+    {
+     "de": "Durch die Verspätung des Fluges verpasste sie ihren Anschluss.",
+     "note": "Because of the flight's delay, she missed her connection. — durch names the cause."
+    },
+    {
+     "de": "Die Überprüfung der Unterlagen dauert etwa zwei Wochen.",
+     "note": "The review of the documents takes about two weeks. — here the nominalization is the subject itself."
+    },
+    {
+     "de": "Bei der Planung der Reise haben wir das Wetter nicht bedacht.",
+     "note": "When planning the trip, we didn't take the weather into account. — bei + Dativ replaces an als/wenn clause."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-4-nominalisierung-vom-verb-zum-nomen-e1",
+     "topicId": "g-b2-4-nominalisierung-vom-verb-zum-nomen",
+     "type": "fill",
+     "prompt": "Complete the genitive.",
+     "text": "Nach der Ankunft ___ Zuges verließen alle Passagiere den Bahnsteig.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "des"
+     ],
+     "tokens": [],
+     "hint": "der Zug, in the genitive.",
+     "explain": "des Zuges — the genitive names whose arrival it is.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-4-nominalisierung-vom-verb-zum-nomen-e2",
+     "topicId": "g-b2-4-nominalisierung-vom-verb-zum-nomen",
+     "type": "choice",
+     "prompt": "Which noun does planen give?",
+     "text": "Bei der ___ der Reise haben wir das Wetter nicht bedacht.",
+     "from": "",
+     "options": [
+      "Planung",
+      "Plan",
+      "Planen",
+      "Geplant"
+     ],
+     "answers": [
+      "Planung"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "planen → die Planung. The -ung nouns are feminine, hence bei der Planung.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-4-nominalisierung-vom-verb-zum-nomen-e3",
+     "topicId": "g-b2-4-nominalisierung-vom-verb-zum-nomen",
+     "type": "transform",
+     "prompt": "Rewrite the clause as a nominalization with durch.",
+     "text": "",
+     "from": "Weil sich der Flug verspätete, verpasste sie ihren Anschluss.",
+     "options": [],
+     "answers": [
+      "Durch die Verspätung des Fluges verpasste sie ihren Anschluss."
+     ],
+     "tokens": [],
+     "hint": "sich verspäten → die Verspätung.",
+     "explain": "The weil-clause becomes durch + noun + genitive.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-4-nominalisierung-vom-verb-zum-nomen-e4",
+     "topicId": "g-b2-4-nominalisierung-vom-verb-zum-nomen",
+     "type": "reorder",
+     "prompt": "Build the sentence in which the nominalization is the subject.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Die Überprüfung der Unterlagen dauert etwa zwei Wochen."
+     ],
+     "tokens": [
+      "Die",
+      "Überprüfung",
+      "der",
+      "Unterlagen",
+      "dauert",
+      "etwa",
+      "zwei",
+      "Wochen."
+     ],
+     "hint": "",
+     "explain": "überprüfen → die Überprüfung, followed by the genitive der Unterlagen.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-4-nominalisierung-vom-verb-zum-nomen-e5",
+     "topicId": "g-b2-4-nominalisierung-vom-verb-zum-nomen",
+     "type": "choice",
+     "prompt": "You are talking to a friend in a café. Which version does the document call the more natural spoken choice?",
+     "text": "",
+     "from": "",
+     "options": [
+      "Weil sich der Flug verspätet hat, habe ich meinen Anschluss verpasst.",
+      "Durch die Verspätung des Fluges habe ich meinen Anschluss verpasst.",
+      "Infolge flugseitiger Verspätung erfolgte die Anschlussversäumnis."
+     ],
+     "answers": [
+      "Weil sich der Flug verspätet hat, habe ich meinen Anschluss verpasst."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "The Achtung box is explicit: nominalized sentences sound stiff in everyday speech, where a weil-clause is more natural.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 3,
+   "sourcePages": [
+    3,
+    4
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-5-konzessive-und-kausale-konnektoren",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 5,
+   "title": "Konzessive und kausale Konnektoren",
+   "titleEn": "Concessive and causal connectors",
+   "summary": "obwohl and weil send the verb to the end; trotzdem, deshalb and daher are adverbs that keep it in position 2.",
+   "category": "Satzverbindungen",
+   "tags": [
+    "Konnektoren",
+    "konzessiv",
+    "kausal",
+    "Wortstellung",
+    "indem"
+   ],
+   "difficulty": 4,
+   "prerequisites": [
+    "g-daf-b1-giving-a-counter-argument-concessive-cla",
+    "g-daf-b1-giving-counter-arguments-concessive-conn",
+    "g-daf-b1-giving-reasons-causal-connectives"
+   ],
+   "explanation": [
+    {
+     "heading": "Two word classes, one meaning",
+     "text": "The hard part is not the meaning but the grammar. obwohl and weil are subordinating conjunctions and push the conjugated verb to the end of their clause. trotzdem, dennoch, deshalb, weshalb and daher are adverbs, and an adverb leaves the verb in position 2."
+    },
+    {
+     "heading": "The same thought, two builds",
+     "text": "Obwohl es stark regnete, sind wir spazieren gegangen and Es regnete stark, trotzdem sind wir spazieren gegangen say the same thing. The first is a subordinate clause; the second is two main clauses. Choosing the connector decides the word order."
+    },
+    {
+     "heading": "The position-1 trap",
+     "text": "When trotzdem or deshalb opens a clause, it fills position 1 by itself, so the verb comes straight after it and the subject follows the verb: trotzdem sind wir ... — never 'trotzdem wir sind ...'."
+    },
+    {
+     "heading": "indem is different",
+     "text": "indem does not give a reason or a concession — it names the means by which something was achieved: indem er jeden Tag Zeitung gelesen hat. It is a subordinating conjunction, so the verb goes to the end."
+    }
+   ],
+   "rules": [
+    "obwohl is a subordinating conjunction: the conjugated verb goes to the end of its clause.",
+    "trotzdem and dennoch are adverbs: they take position 1 or follow the verb, and the verb stays in position 2.",
+    "Causal works the same way: weil sends the verb to the end; deshalb, weshalb and daher are adverbs with the verb in position 2.",
+    "indem names the means by which something is achieved, and sends the verb to the end.",
+    "Achtung: trotzdem and deshalb fill position 1 on their own — the verb follows immediately, then the subject."
+   ],
+   "examples": [
+    {
+     "de": "Obwohl es stark regnete, sind wir spazieren gegangen.",
+     "note": "Although it was raining heavily, we went for a walk. — obwohl sends regnete to the end."
+    },
+    {
+     "de": "Es regnete stark, trotzdem sind wir spazieren gegangen.",
+     "note": "It was raining heavily; nevertheless, we went for a walk. — trotzdem in position 1, then the verb sind."
+    },
+    {
+     "de": "Sie war krank, deshalb konnte sie nicht zur Prüfung kommen.",
+     "note": "She was sick, which is why she couldn't come to the exam. — deshalb in position 1, verb konnte second."
+    },
+    {
+     "de": "Er hat sein Deutsch verbessert, indem er jeden Tag Zeitung gelesen hat.",
+     "note": "He improved his German by reading the newspaper every day. — indem names the means; the verb closes the clause."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-5-konzessive-und-kausale-konnektoren-e1",
+     "topicId": "g-b2-5-konzessive-und-kausale-konnektoren",
+     "type": "choice",
+     "prompt": "Which sentence puts the verb where trotzdem requires it?",
+     "text": "",
+     "from": "",
+     "options": [
+      "Es regnete stark, trotzdem sind wir spazieren gegangen.",
+      "Es regnete stark, trotzdem wir sind spazieren gegangen.",
+      "Es regnete stark, trotzdem wir spazieren gegangen sind."
+     ],
+     "answers": [
+      "Es regnete stark, trotzdem sind wir spazieren gegangen."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "trotzdem is an adverb filling position 1, so the verb comes next and the subject after it.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-5-konzessive-und-kausale-konnektoren-e2",
+     "topicId": "g-b2-5-konzessive-und-kausale-konnektoren",
+     "type": "fill",
+     "prompt": "obwohl opens the clause. Where does regnete go?",
+     "text": "Obwohl es stark ___, sind wir spazieren gegangen.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "regnete"
+     ],
+     "tokens": [],
+     "hint": "A subordinating conjunction sends the conjugated verb to the end of its clause.",
+     "explain": "obwohl es stark regnete — the verb closes the subordinate clause.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-5-konzessive-und-kausale-konnektoren-e3",
+     "topicId": "g-b2-5-konzessive-und-kausale-konnektoren",
+     "type": "transform",
+     "prompt": "Say the same thing with obwohl instead of trotzdem.",
+     "text": "",
+     "from": "Es regnete stark, trotzdem sind wir spazieren gegangen.",
+     "options": [],
+     "answers": [
+      "Obwohl es stark regnete, sind wir spazieren gegangen."
+     ],
+     "tokens": [],
+     "hint": "Changing the connector changes the word order.",
+     "explain": "The adverb becomes a subordinating conjunction, so the verb moves to the end of its clause.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-5-konzessive-und-kausale-konnektoren-e4",
+     "topicId": "g-b2-5-konzessive-und-kausale-konnektoren",
+     "type": "choice",
+     "prompt": "Which connector names the means by which he improved his German?",
+     "text": "Er hat sein Deutsch verbessert, ___ er jeden Tag Zeitung gelesen hat.",
+     "from": "",
+     "options": [
+      "indem",
+      "obwohl",
+      "deshalb",
+      "trotzdem"
+     ],
+     "answers": [
+      "indem"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "indem answers 'how?', not 'why?' or 'in spite of what?'.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-5-konzessive-und-kausale-konnektoren-e5",
+     "topicId": "g-b2-5-konzessive-und-kausale-konnektoren",
+     "type": "error",
+     "prompt": "The word order after deshalb is wrong. Correct the sentence.",
+     "text": "Sie war krank, deshalb sie konnte nicht zur Prüfung kommen.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Sie war krank, deshalb konnte sie nicht zur Prüfung kommen."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "deshalb occupies position 1 alone, so the verb konnte comes next and sie follows it.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 4,
+   "sourcePages": [
+    4
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 6,
+   "title": "Infinitivkonstruktionen: um...zu, ohne...zu, statt...zu",
+   "titleEn": "Infinitive constructions: um...zu, ohne...zu, statt...zu",
+   "summary": "Purpose, absence and alternative in one compact clause — but only when both halves share a subject.",
+   "category": "Satzverbindungen",
+   "tags": [
+    "Infinitivsatz",
+    "um zu",
+    "ohne zu",
+    "statt zu",
+    "damit"
+   ],
+   "difficulty": 4,
+   "prerequisites": [
+    "g-daf-b1-infinitive-phrases",
+    "g-daf-b1-naming-the-aim-final-dependent-clauses-a"
+   ],
+   "explanation": [
+    {
+     "heading": "Three connectors, one shape",
+     "text": "Each opens a clause that has no subject and no conjugated verb: the clause ends in zu plus the infinitive. um ... zu gives the purpose, ohne ... zu says what did not happen alongside, statt ... zu names what was done instead."
+    },
+    {
+     "heading": "Where zu sits",
+     "text": "zu comes immediately before the infinitive at the end of the clause: um die Prüfung zu bestehen. With a separable verb, zu goes inside the word — but the examples here keep it simple: sich zu verabschieden, zu schreiben, zu prüfen."
+    },
+    {
+     "heading": "The subject rule",
+     "text": "This is the condition the document puts in the Achtung box. An infinitive clause has no subject of its own, so it borrows the one from the main clause. That only works if both halves are about the same person."
+    },
+    {
+     "heading": "What to use instead",
+     "text": "When the subjects differ, um ... zu is not available and you need a full clause with damit: Ich erkläre es noch einmal, damit alle es verstehen. Trying to force um ... zu there is the classic B2 mistake."
+    }
+   ],
+   "rules": [
+    "um ... zu names the purpose, ohne ... zu what did not happen, statt ... zu what was done instead.",
+    "The infinitive clause has no subject and no conjugated verb; it ends in zu + Infinitiv.",
+    "The subject is borrowed from the main clause.",
+    "Achtung: if the two halves have different subjects, um ... zu does not work — use a full clause with damit.",
+    "statt ... zu can open the sentence, with the main clause following it."
+   ],
+   "examples": [
+    {
+     "de": "Sie lernt jeden Tag Deutsch, um die Prüfung zu bestehen.",
+     "note": "She studies German every day (in order) to pass the exam. — purpose; she studies and she passes, same subject."
+    },
+    {
+     "de": "Er verließ das Meeting, ohne sich zu verabschieden.",
+     "note": "He left the meeting without saying goodbye. — what did not happen alongside."
+    },
+    {
+     "de": "Statt eine Antwort zu schreiben, hat er einfach angerufen.",
+     "note": "Instead of writing a reply, he simply called. — the infinitive clause opens the sentence."
+    },
+    {
+     "de": "Wir sind losgefahren, ohne die Karte zu prüfen.",
+     "note": "We set off without checking the map."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu-e1",
+     "topicId": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu",
+     "type": "fill",
+     "prompt": "Complete the purpose clause.",
+     "text": "Sie lernt jeden Tag Deutsch, um die Prüfung ___ bestehen.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "zu"
+     ],
+     "tokens": [],
+     "hint": "It goes directly before the infinitive.",
+     "explain": "zu bestehen closes the clause.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu-e2",
+     "topicId": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu",
+     "type": "choice",
+     "prompt": "Which connector says what he did instead?",
+     "text": "___ eine Antwort zu schreiben, hat er einfach angerufen.",
+     "from": "",
+     "options": [
+      "Statt",
+      "Um",
+      "Ohne",
+      "Damit"
+     ],
+     "answers": [
+      "Statt"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "statt ... zu names the alternative that was chosen.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu-e3",
+     "topicId": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu",
+     "type": "reorder",
+     "prompt": "Build the sentence.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Er verließ das Meeting, ohne sich zu verabschieden."
+     ],
+     "tokens": [
+      "Er",
+      "verließ",
+      "das",
+      "Meeting,",
+      "ohne",
+      "sich",
+      "zu",
+      "verabschieden."
+     ],
+     "hint": "",
+     "explain": "ohne ... zu, with the reflexive pronoun before zu + Infinitiv.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu-e4",
+     "topicId": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu",
+     "type": "choice",
+     "prompt": "Two different subjects: I explain, they understand. Which is possible?",
+     "text": "",
+     "from": "",
+     "options": [
+      "Ich erkläre es noch einmal, damit alle es verstehen.",
+      "Ich erkläre es noch einmal, um alle es zu verstehen.",
+      "Ich erkläre es noch einmal, um alle zu verstehen es."
+     ],
+     "answers": [
+      "Ich erkläre es noch einmal, damit alle es verstehen."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "The Achtung box: different subjects rule out um ... zu, so the full damit-clause is needed.",
+     "fromSource": false
+    },
+    {
+     "id": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu-e5",
+     "topicId": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu",
+     "type": "transform",
+     "prompt": "Both halves are about us, so shorten the clause to ohne ... zu.",
+     "text": "",
+     "from": "Wir sind losgefahren, und wir haben die Karte nicht geprüft.",
+     "options": [],
+     "answers": [
+      "Wir sind losgefahren, ohne die Karte zu prüfen."
+     ],
+     "tokens": [],
+     "hint": "One subject, so the infinitive clause works.",
+     "explain": "ohne ... zu replaces a negated second clause when the subject is shared.",
+     "fromSource": true
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 4,
+   "sourcePages": [
+    4,
+    5
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 7,
+   "title": "Futur II – vollendete Zukunft und Vermutung",
+   "titleEn": "Futur II – the completed future and assumptions about the past",
+   "summary": "werden + Partizip II + haben/sein — either 'will have done it by then' or 'will probably have done it'.",
+   "category": "Verben",
+   "tags": [
+    "Futur II",
+    "Vermutung",
+    "Zeitformen",
+    "Hilfsverb"
+   ],
+   "difficulty": 4,
+   "prerequisites": [
+    "g-daf-b1-future-i",
+    "g-daf-b1-past-perfect-for-active-verbs"
+   ],
+   "explanation": [
+    {
+     "heading": "One form, two jobs",
+     "text": "Futur II is werden + Partizip II + haben or sein in the infinitive. The same form covers two quite different meanings, and only the context tells them apart: something finished by a future point, or a guess about something already over."
+    },
+    {
+     "heading": "The completed future",
+     "text": "Bis nächsten Freitag werde ich den Bericht fertig geschrieben haben. There is a deadline, and the action will be behind you when it arrives. A bis- or in-phrase is almost always present."
+    },
+    {
+     "heading": "The guess about the past",
+     "text": "Sie wird den Zug wohl verpasst haben. Nothing here is in the future at all — the train has already gone. This is the more common use in everyday German, and it is what the signal words wohl, wahrscheinlich, vermutlich and sicher mark."
+    },
+    {
+     "heading": "Where the auxiliary goes",
+     "text": "haben or sein closes the clause and stays an infinitive. Whatever tense marking there is sits on werden at position 2."
+    }
+   ],
+   "rules": [
+    "Futur II = werden + Partizip II + haben or sein in the infinitive.",
+    "Meaning 1: an action that will be finished by a point in the future.",
+    "Meaning 2: an assumption about something that already happened.",
+    "In meaning 2 the sentence almost always carries wohl, wahrscheinlich, vermutlich or sicher.",
+    "Achtung: haben/sein stays in the infinitive at the end — wird geschrieben haben, never 'wird geschrieben hat'."
+   ],
+   "examples": [
+    {
+     "de": "Bis nächsten Freitag werde ich den Bericht fertig geschrieben haben.",
+     "note": "By next Friday I will have finished writing the report. — the completed future, with a deadline."
+    },
+    {
+     "de": "Sie wird den Zug wohl verpasst haben, sonst wäre sie längst hier.",
+     "note": "She'll probably have missed the train, otherwise she'd have been here long ago. — a guess about the past; note wohl."
+    },
+    {
+     "de": "In zehn Jahren wird sich die Stadt stark verändert haben.",
+     "note": "In ten years the city will have changed a great deal."
+    },
+    {
+     "de": "Er wird gestern vermutlich zu lange gearbeitet haben.",
+     "note": "He'll probably have worked too long yesterday. — gestern plus vermutlich: unmistakably a guess, not a future."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung-e1",
+     "topicId": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung",
+     "type": "fill",
+     "prompt": "Close the clause with the auxiliary.",
+     "text": "Bis nächsten Freitag werde ich den Bericht fertig geschrieben ___.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "haben"
+     ],
+     "tokens": [],
+     "hint": "It is an infinitive and it goes last.",
+     "explain": "geschrieben haben — the auxiliary never gets conjugated here.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung-e2",
+     "topicId": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung",
+     "type": "choice",
+     "prompt": "Which sentence is a guess about the past rather than a statement about the future?",
+     "text": "",
+     "from": "",
+     "options": [
+      "Er wird gestern vermutlich zu lange gearbeitet haben.",
+      "In zehn Jahren wird sich die Stadt stark verändert haben.",
+      "Bis nächsten Freitag werde ich den Bericht fertig geschrieben haben."
+     ],
+     "answers": [
+      "Er wird gestern vermutlich zu lange gearbeitet haben."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "gestern and vermutlich together can only be a guess about something over and done with.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung-e3",
+     "topicId": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung",
+     "type": "reorder",
+     "prompt": "Build the assumption.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "In zehn Jahren wird sich die Stadt stark verändert haben."
+     ],
+     "tokens": [
+      "In",
+      "zehn",
+      "Jahren",
+      "wird",
+      "sich",
+      "die",
+      "Stadt",
+      "stark",
+      "verändert",
+      "haben."
+     ],
+     "hint": "",
+     "explain": "werden at position 2, Partizip II next to last, haben at the end.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung-e4",
+     "topicId": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung",
+     "type": "transform",
+     "prompt": "Turn this into a guess in Futur II. Keep wohl.",
+     "text": "",
+     "from": "Sie hat den Zug wohl verpasst.",
+     "options": [],
+     "answers": [
+      "Sie wird den Zug wohl verpasst haben."
+     ],
+     "tokens": [],
+     "hint": "werden ... Partizip II ... haben.",
+     "explain": "The Perfekt states it; Futur II marks it as the speaker's assumption.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung-e5",
+     "topicId": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung",
+     "type": "error",
+     "prompt": "The auxiliary at the end is conjugated, which the Achtung box forbids. Correct it.",
+     "text": "Bis nächsten Freitag werde ich den Bericht fertig geschrieben hat.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Bis nächsten Freitag werde ich den Bericht fertig geschrieben haben."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "haben stays an infinitive.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 1,
+   "sourcePages": [
+    1
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-8-indirekte-rede-mit-konjunktiv-i",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 8,
+   "title": "Indirekte Rede mit Konjunktiv I",
+   "titleEn": "Reported speech with Konjunktiv I",
+   "summary": "er sage, er habe, er sei — and Konjunktiv II whenever Konjunktiv I would look like the indicative.",
+   "category": "Indirekte Rede",
+   "tags": [
+    "Konjunktiv I",
+    "indirekte Rede",
+    "Nachrichtensprache"
+   ],
+   "difficulty": 5,
+   "prerequisites": [
+    "g-daf-a2-indirect-questions",
+    "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen"
+   ],
+   "explanation": [
+    {
+     "heading": "What it is for",
+     "text": "Konjunktiv I marks words as somebody else's. It does not say whether they are true — it says you are quoting rather than asserting. That is why it is the register of news reports, newspapers and summaries."
+    },
+    {
+     "heading": "How to build it",
+     "text": "Take the infinitive stem and add the ending: sagen → er sage, haben → er habe. sein is the irregular one worth learning outright: er sei, sie seien. The past is habe or sei plus the Partizip II."
+    },
+    {
+     "heading": "The escape hatch",
+     "text": "In the plural, Konjunktiv I usually looks exactly like the indicative — sie sagen is both. When the form would be ambiguous, German switches to Konjunktiv II instead: sie würden sagen. This is a rule, not sloppiness."
+    },
+    {
+     "heading": "It builds on topic 1",
+     "text": "You already have Konjunktiv II from the first topic in this set. Here it comes back in a second role: as the stand-in whenever Konjunktiv I cannot do its job."
+    }
+   ],
+   "rules": [
+    "Konjunktiv I reports what somebody else said: sagen → er sage, haben → er habe, sein → er sei.",
+    "It is built from the infinitive stem plus the ending.",
+    "Where the Konjunktiv I form is identical to the indicative, use Konjunktiv II instead (sie würden sagen).",
+    "The past is habe/sei + Partizip II, whatever tense the original sentence had.",
+    "Achtung: Konjunktiv I is not doubt — it only marks the words as somebody else's."
+   ],
+   "examples": [
+    {
+     "de": "Der Minister sagte, die Lage sei ernst.",
+     "note": "The minister said the situation was serious. — sei, the Konjunktiv I of sein."
+    },
+    {
+     "de": "Sie erklärte, sie habe den Termin völlig vergessen.",
+     "note": "She explained that she had completely forgotten the appointment. — habe + Partizip II for the past."
+    },
+    {
+     "de": "Die Zeitung berichtet, die Preise würden weiter steigen.",
+     "note": "The newspaper reports that prices will keep rising. — plural, so Konjunktiv I would read as the indicative; würden steps in."
+    },
+    {
+     "de": "Er behauptet, er sei den ganzen Abend zu Hause gewesen.",
+     "note": "He claims he was at home all evening."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-8-indirekte-rede-mit-konjunktiv-i-e1",
+     "topicId": "g-b2-8-indirekte-rede-mit-konjunktiv-i",
+     "type": "fill",
+     "prompt": "Put sein into Konjunktiv I.",
+     "text": "Der Minister sagte, die Lage ___ ernst.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "sei"
+     ],
+     "tokens": [],
+     "hint": "sein is the one irregular form worth memorising.",
+     "explain": "sei — Konjunktiv I of sein, third person singular.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-8-indirekte-rede-mit-konjunktiv-i-e2",
+     "topicId": "g-b2-8-indirekte-rede-mit-konjunktiv-i",
+     "type": "choice",
+     "prompt": "Why does this sentence use würden and not the Konjunktiv I?",
+     "text": "Die Zeitung berichtet, die Preise würden weiter steigen.",
+     "from": "",
+     "options": [
+      "Because the Konjunktiv I form would look identical to the indicative.",
+      "Because the newspaper doubts the claim.",
+      "Because steigen has no Konjunktiv I.",
+      "Because the sentence is in the past."
+     ],
+     "answers": [
+      "Because the Konjunktiv I form would look identical to the indicative."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "sie steigen is both indicative and Konjunktiv I, so German switches to Konjunktiv II.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-8-indirekte-rede-mit-konjunktiv-i-e3",
+     "topicId": "g-b2-8-indirekte-rede-mit-konjunktiv-i",
+     "type": "transform",
+     "prompt": "Report this as a newspaper would, with Konjunktiv I.",
+     "text": "",
+     "from": "Sie sagt: „Ich habe den Termin völlig vergessen.“",
+     "options": [],
+     "answers": [
+      "Sie erklärte, sie habe den Termin völlig vergessen."
+     ],
+     "tokens": [],
+     "hint": "habe + Partizip II.",
+     "explain": "The direct quote becomes habe + vergessen.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-8-indirekte-rede-mit-konjunktiv-i-e4",
+     "topicId": "g-b2-8-indirekte-rede-mit-konjunktiv-i",
+     "type": "reorder",
+     "prompt": "Build the reported claim.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Er behauptet, er sei den ganzen Abend zu Hause gewesen."
+     ],
+     "tokens": [
+      "Er",
+      "behauptet,",
+      "er",
+      "sei",
+      "den",
+      "ganzen",
+      "Abend",
+      "zu",
+      "Hause",
+      "gewesen."
+     ],
+     "hint": "",
+     "explain": "sei + gewesen is the past of sein in Konjunktiv I.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-8-indirekte-rede-mit-konjunktiv-i-e5",
+     "topicId": "g-b2-8-indirekte-rede-mit-konjunktiv-i",
+     "type": "choice",
+     "prompt": "Someone says 'Er sagt, er sei krank.' What does the Konjunktiv I tell you?",
+     "text": "",
+     "from": "",
+     "options": [
+      "That the speaker is passing on his words, without judging them.",
+      "That the speaker does not believe him.",
+      "That he is definitely not ill."
+     ],
+     "answers": [
+      "That the speaker is passing on his words, without judging them."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "The Achtung box is explicit: Konjunktiv I marks the source of the words, not the speaker's opinion of them.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 1,
+   "sourcePages": [
+    1,
+    2
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 9,
+   "title": "Partizip I und Partizip II als Attribut",
+   "titleEn": "Partizip I and Partizip II used as attributes",
+   "summary": "das lachende Kind is doing it; das reparierte Auto had it done to it — and both take adjective endings.",
+   "category": "Adjektive",
+   "tags": [
+    "Partizip I",
+    "Partizip II",
+    "Attribut",
+    "Adjektivendung"
+   ],
+   "difficulty": 3,
+   "prerequisites": [
+    "g-daf-a2-adjectives-after-the-definite-article",
+    "g-daf-a2-adjectives-after-ein-kein-mein"
+   ],
+   "explanation": [
+    {
+     "heading": "A verb doing an adjective's job",
+     "text": "Both participles can stand in front of a noun exactly where an adjective would, and once there they behave like adjectives in every way — including taking the ending that the article, gender and case demand."
+    },
+    {
+     "heading": "Partizip I: active, happening now",
+     "text": "Infinitive + d, then the ending: lachen → lachend → das lachende Kind. The noun is doing the action itself, at the same time."
+    },
+    {
+     "heading": "Partizip II: passive, already done",
+     "text": "The perfect participle plus the ending: reparieren → repariert → der reparierte Drucker. The action was done to the noun, and it is finished."
+    },
+    {
+     "heading": "How to choose",
+     "text": "Ask who is doing what. If the noun is the one acting, you want Partizip I; if the noun is on the receiving end, Partizip II. das lesende Kind reads; das gelesene Buch gets read."
+    }
+   ],
+   "rules": [
+    "Both participles can stand before a noun like an adjective and take an adjective ending.",
+    "Partizip I = infinitive + d (+ ending): active and simultaneous — das lachende Kind.",
+    "Partizip II (+ ending): passive or completed — das reparierte Auto.",
+    "The ending follows article, gender and case exactly as for any adjective.",
+    "Achtung: the two are not interchangeable — das lesende Kind does the reading, das gelesene Buch is read."
+   ],
+   "examples": [
+    {
+     "de": "Das schlafende Kind wurde von dem Lärm nicht wach.",
+     "note": "The sleeping child did not wake up from the noise. — Partizip I: the child is doing the sleeping."
+    },
+    {
+     "de": "Der reparierte Drucker funktioniert wieder einwandfrei.",
+     "note": "The repaired printer works perfectly again. — Partizip II: somebody repaired it."
+    },
+    {
+     "de": "Wir suchen eine überzeugende Lösung für dieses Problem.",
+     "note": "We are looking for a convincing solution. — Partizip I with the ending for eine + feminine accusative."
+    },
+    {
+     "de": "Die eingeladenen Gäste warteten bereits im Garten.",
+     "note": "The invited guests were already waiting in the garden. — Partizip II, plural ending."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-9-partizip-i-und-partizip-ii-als-attribut-e1",
+     "topicId": "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+     "type": "choice",
+     "prompt": "Which participle belongs here — the child is doing the sleeping.",
+     "text": "Das ___ Kind wurde von dem Lärm nicht wach.",
+     "from": "",
+     "options": [
+      "schlafende",
+      "geschlafene",
+      "schlafend",
+      "schliefende"
+     ],
+     "answers": [
+      "schlafende"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "Partizip I (schlafen + d) plus the ending for das + neuter nominative.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-9-partizip-i-und-partizip-ii-als-attribut-e2",
+     "topicId": "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+     "type": "fill",
+     "prompt": "Somebody repaired it. Complete the participle with its ending.",
+     "text": "Der ___ Drucker funktioniert wieder einwandfrei.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "reparierte"
+     ],
+     "tokens": [],
+     "hint": "Partizip II plus an adjective ending.",
+     "explain": "reparierte — passive and finished, with the ending for der + masculine nominative.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-9-partizip-i-und-partizip-ii-als-attribut-e3",
+     "topicId": "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+     "type": "reorder",
+     "prompt": "Build the sentence.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Die eingeladenen Gäste warteten bereits im Garten."
+     ],
+     "tokens": [
+      "Die",
+      "eingeladenen",
+      "Gäste",
+      "warteten",
+      "bereits",
+      "im",
+      "Garten."
+     ],
+     "hint": "",
+     "explain": "The guests were invited by somebody, so Partizip II.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-9-partizip-i-und-partizip-ii-als-attribut-e4",
+     "topicId": "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+     "type": "transform",
+     "prompt": "Shorten the relative clause to a participial attribute.",
+     "text": "",
+     "from": "Wir suchen eine Lösung, die überzeugt.",
+     "options": [],
+     "answers": [
+      "Wir suchen eine überzeugende Lösung für dieses Problem.",
+      "Wir suchen eine überzeugende Lösung."
+     ],
+     "tokens": [],
+     "hint": "überzeugen → Partizip I.",
+     "explain": "The clause collapses into überzeugende in front of the noun.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-9-partizip-i-und-partizip-ii-als-attribut-e5",
+     "topicId": "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+     "type": "choice",
+     "prompt": "Which phrase means the book that somebody has read?",
+     "text": "",
+     "from": "",
+     "options": [
+      "das gelesene Buch",
+      "das lesende Buch",
+      "das zu lesende Buch"
+     ],
+     "answers": [
+      "das gelesene Buch"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "Partizip II is the passive, finished one. das lesende Buch would be a book that reads.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 2,
+   "sourcePages": [
+    2,
+    3
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-10-erweiterte-partizipialattribute",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 10,
+   "title": "Erweiterte Partizipialattribute",
+   "titleEn": "Extended participial attributes",
+   "summary": "A whole relative clause squeezed in between the article and the noun — the written register's shortcut.",
+   "category": "Satzstrukturen",
+   "tags": [
+    "Partizipialattribut",
+    "Schriftsprache",
+    "Relativsatz",
+    "Attribut"
+   ],
+   "difficulty": 5,
+   "prerequisites": [
+    "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+    "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv"
+   ],
+   "explanation": [
+    {
+     "heading": "The participle brings company",
+     "text": "Once you can put a participle in front of a noun, it can bring its own additions with it — a time phrase, an agent, a place. They all go inside, between the article and the noun: der [seit Wochen andauernde] Streit."
+    },
+    {
+     "heading": "The same thing a relative clause says",
+     "text": "das von ihm geschriebene Buch and das Buch, das von ihm geschrieben wurde carry identical information. The participial version is shorter and belongs to writing; the relative clause is what you would actually say out loud."
+    },
+    {
+     "heading": "Read it backwards",
+     "text": "The bracket can get long, and the ending that tells you the case is on the participle at the very end of it. Find the noun first, then the participle immediately before it, then work leftwards through the additions."
+    },
+    {
+     "heading": "Where you will meet it",
+     "text": "Newspapers, official letters, academic and technical writing. At B2 this is primarily something to decode confidently; producing it is a C1 skill."
+    }
+   ],
+   "rules": [
+    "A participial attribute can carry its own additions, placed between the article and the noun.",
+    "The additions come directly in front of the participle: der seit Wochen andauernde Streit.",
+    "It says what a relative clause says, only shorter: das von ihm geschriebene Buch = das Buch, das von ihm geschrieben wurde.",
+    "The construction belongs to newspapers, reports and specialist texts, not to conversation.",
+    "Achtung: the adjective ending sits on the participle at the end of the bracket — read the construction backwards."
+   ],
+   "examples": [
+    {
+     "de": "Der seit Wochen andauernde Streit belastet das ganze Team.",
+     "note": "The dispute that has been going on for weeks is a strain on the whole team. — Partizip I with a time phrase inside."
+    },
+    {
+     "de": "Das von der Kommission geprüfte Konzept wurde schließlich angenommen.",
+     "note": "The concept examined by the commission was finally accepted. — Partizip II with the agent inside."
+    },
+    {
+     "de": "Die im letzten Jahr eingeführten Regeln gelten weiterhin.",
+     "note": "The rules introduced last year still apply."
+    },
+    {
+     "de": "Wir danken allen an dem Projekt beteiligten Kolleginnen und Kollegen.",
+     "note": "We thank all colleagues involved in the project."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-10-erweiterte-partizipialattribute-e1",
+     "topicId": "g-b2-10-erweiterte-partizipialattribute",
+     "type": "choice",
+     "prompt": "Which relative clause says the same as 'das von der Kommission geprüfte Konzept'?",
+     "text": "",
+     "from": "",
+     "options": [
+      "das Konzept, das von der Kommission geprüft wurde",
+      "das Konzept, das die Kommission prüfen will",
+      "die Kommission, die das Konzept geprüft hat"
+     ],
+     "answers": [
+      "das Konzept, das von der Kommission geprüft wurde"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "Partizip II plus an agent phrase is a passive relative clause in compressed form.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-10-erweiterte-partizipialattribute-e2",
+     "topicId": "g-b2-10-erweiterte-partizipialattribute",
+     "type": "fill",
+     "prompt": "Complete the participle, including its ending.",
+     "text": "Der seit Wochen ___ Streit belastet das ganze Team.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "andauernde"
+     ],
+     "tokens": [],
+     "hint": "andauern → Partizip I, plus the ending for der + masculine nominative.",
+     "explain": "andauernde — the time phrase seit Wochen sits inside the bracket, in front of it.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-10-erweiterte-partizipialattribute-e3",
+     "topicId": "g-b2-10-erweiterte-partizipialattribute",
+     "type": "transform",
+     "prompt": "Compress the relative clause into an extended participial attribute.",
+     "text": "",
+     "from": "Die Regeln, die im letzten Jahr eingeführt wurden, gelten weiterhin.",
+     "options": [],
+     "answers": [
+      "Die im letzten Jahr eingeführten Regeln gelten weiterhin."
+     ],
+     "tokens": [],
+     "hint": "Everything from the clause moves in between Die and Regeln.",
+     "explain": "The clause folds into the bracket, and the ending lands on eingeführten.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-10-erweiterte-partizipialattribute-e4",
+     "topicId": "g-b2-10-erweiterte-partizipialattribute",
+     "type": "reorder",
+     "prompt": "Build the sentence.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Wir danken allen an dem Projekt beteiligten Kolleginnen und Kollegen."
+     ],
+     "tokens": [
+      "Wir",
+      "danken",
+      "allen",
+      "an",
+      "dem",
+      "Projekt",
+      "beteiligten",
+      "Kolleginnen",
+      "und",
+      "Kollegen."
+     ],
+     "hint": "",
+     "explain": "allen ... beteiligten is the bracket; the participle closes it right before the noun.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-10-erweiterte-partizipialattribute-e5",
+     "topicId": "g-b2-10-erweiterte-partizipialattribute",
+     "type": "choice",
+     "prompt": "You are telling a friend about the dispute at work. Which is the natural spoken version?",
+     "text": "",
+     "from": "",
+     "options": [
+      "Der Streit dauert schon seit Wochen an und belastet das ganze Team.",
+      "Der seit Wochen andauernde Streit belastet das ganze Team.",
+      "Der sich seit Wochen in Andauer befindliche Streit belastet das Team."
+     ],
+     "answers": [
+      "Der Streit dauert schon seit Wochen an und belastet das ganze Team."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "The participial version is correct but written. Spoken German unpacks it.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 3,
+   "sourcePages": [
+    3
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 11,
+   "title": "Verben mit festen Präpositionen und Präpositionaladverbien",
+   "titleEn": "Verbs with fixed prepositions, and the da(r)- / wo(r)- forms",
+   "summary": "Learn the preposition with the verb — then darauf for things, auf ihn for people.",
+   "category": "Adverbien und Präpositionen",
+   "tags": [
+    "feste Präposition",
+    "Präpositionaladverb",
+    "darauf",
+    "worauf"
+   ],
+   "difficulty": 4,
+   "prerequisites": [
+    "g-web-b1-verben-mit-praeposition",
+    "g-daf-b1-question-word-wo-r-prepositional-pronoun"
+   ],
+   "explanation": [
+    {
+     "heading": "The preposition is part of the word",
+     "text": "sich freuen auf, sich interessieren für, warten auf, denken an — the preposition is not predictable from the meaning, so it has to be learned together with the verb, like a noun's gender. It also fixes the case that follows."
+    },
+    {
+     "heading": "Referring back to a thing",
+     "text": "When what you are referring to is a thing or a whole idea, you do not repeat the noun and you cannot use a plain pronoun. Preposition plus noun becomes one word: da + preposition, with an r inserted before a vowel — darauf, dafür, daran, darüber."
+    },
+    {
+     "heading": "Asking about a thing",
+     "text": "The question works the same way: wo + preposition, again with the r — worauf, wofür, woran, worüber. Worauf wartest du? asks what you are waiting for."
+    },
+    {
+     "heading": "People are the exception",
+     "text": "For a person, none of this applies. The preposition simply keeps its normal pronoun or question word: Auf wen wartest du? — Ich warte auf ihn. Using darauf of a person is the mistake this topic exists to prevent."
+    }
+   ],
+   "rules": [
+    "Many verbs take a fixed preposition that must be learned with the verb, and it sets the case.",
+    "Referring to a thing: preposition + noun becomes da(r) + preposition — darauf, dafür, daran.",
+    "Asking about a thing: wo(r) + preposition — worauf, wofür, woran.",
+    "The r appears when the preposition begins with a vowel: darauf, darüber, woran.",
+    "Achtung: da(r)- and wo(r)- are for things only. For people use auf wen / auf ihn."
+   ],
+   "examples": [
+    {
+     "de": "Ich freue mich schon sehr auf den Urlaub im September.",
+     "note": "I'm really looking forward to the holiday in September. — sich freuen auf + accusative."
+    },
+    {
+     "de": "Worauf wartest du eigentlich noch?",
+     "note": "What are you actually still waiting for? — warten auf, asking about a thing."
+    },
+    {
+     "de": "Sie interessiert sich vor allem für alte Sprachen.",
+     "note": "She is interested above all in ancient languages. — sich interessieren für."
+    },
+    {
+     "de": "Wir haben lange darüber gesprochen, aber nichts entschieden.",
+     "note": "We talked about it for a long time but decided nothing. — darüber refers back to the whole matter."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien-e1",
+     "topicId": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien",
+     "type": "fill",
+     "prompt": "Which preposition does sich freuen take here?",
+     "text": "Ich freue mich schon sehr ___ den Urlaub im September.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "auf"
+     ],
+     "tokens": [],
+     "hint": "It is fixed, and it takes the accusative.",
+     "explain": "sich freuen auf + Akkusativ, for something still to come.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien-e2",
+     "topicId": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien",
+     "type": "choice",
+     "prompt": "Ask about a thing: which question word goes with warten auf?",
+     "text": "___ wartest du eigentlich noch?",
+     "from": "",
+     "options": [
+      "Worauf",
+      "Auf wen",
+      "Wofür",
+      "Darauf"
+     ],
+     "answers": [
+      "Worauf"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "wo + auf, with the r inserted. Auf wen would ask about a person.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien-e3",
+     "topicId": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien",
+     "type": "fill",
+     "prompt": "Replace 'über die Sache' with one word.",
+     "text": "Wir haben lange ___ gesprochen, aber nichts entschieden.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "darüber"
+     ],
+     "tokens": [],
+     "hint": "da + über, with the r.",
+     "explain": "darüber — a thing, so the da(r)- form rather than über sie.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien-e4",
+     "topicId": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien",
+     "type": "reorder",
+     "prompt": "Build the sentence.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Sie interessiert sich vor allem für alte Sprachen."
+     ],
+     "tokens": [
+      "Sie",
+      "interessiert",
+      "sich",
+      "vor",
+      "allem",
+      "für",
+      "alte",
+      "Sprachen."
+     ],
+     "hint": "",
+     "explain": "sich interessieren für is fixed; the reflexive pronoun follows the verb.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien-e5",
+     "topicId": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien",
+     "type": "choice",
+     "prompt": "You are waiting for your brother. Which is right?",
+     "text": "",
+     "from": "",
+     "options": [
+      "Ich warte auf ihn.",
+      "Ich warte darauf.",
+      "Ich warte worauf."
+     ],
+     "answers": [
+      "Ich warte auf ihn."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "A person, so the preposition keeps its pronoun. darauf would make your brother a thing.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 3,
+   "sourcePages": [
+    3,
+    4
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-12-zweiteilige-konnektoren",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 12,
+   "title": "Zweiteilige Konnektoren",
+   "titleEn": "Two-part connectors",
+   "summary": "sowohl … als auch, entweder … oder, weder … noch, je … desto — pairs that must both turn up.",
+   "category": "Satzverbindungen",
+   "tags": [
+    "zweiteilige Konnektoren",
+    "je desto",
+    "weder noch",
+    "entweder oder"
+   ],
+   "difficulty": 4,
+   "prerequisites": [
+    "g-daf-b1-alternatives-entweder-oder",
+    "g-daf-b1-expressing-how-one-thing-relates-to-anot"
+   ],
+   "explanation": [
+    {
+     "heading": "They come in pairs",
+     "text": "Each of these connectors has two halves and both have to appear. sowohl … als auch means both; entweder … oder means one of the two; weder … noch means neither; nicht nur … sondern auch adds a second and stronger item."
+    },
+    {
+     "heading": "je … desto has its own word order",
+     "text": "This is the one that trips people up. In the je-part the verb goes to the end, because it is a subordinate clause: Je länger ich darüber nachdenke. In the desto-part the verb comes straight after desto plus the comparative: desto weniger verstehe ich es."
+    },
+    {
+     "heading": "Comparatives on both sides",
+     "text": "je … desto always joins two comparatives — länger and weniger, mehr and besser. Without them the construction does not work."
+    },
+    {
+     "heading": "weder … noch is already negative",
+     "text": "It carries the negation in itself, so no extra nicht or kein belongs anywhere near it."
+    }
+   ],
+   "rules": [
+    "sowohl … als auch = both; entweder … oder = one of the two; weder … noch = neither.",
+    "nicht nur … sondern auch adds a second, stronger item.",
+    "je … desto joins two comparatives: verb at the end in the je-part, straight after desto + comparative in the other.",
+    "Both halves of the pair must be present.",
+    "Achtung: weder … noch is already a negation — adding nicht is wrong."
+   ],
+   "examples": [
+    {
+     "de": "Je länger ich darüber nachdenke, desto weniger verstehe ich es.",
+     "note": "The longer I think about it, the less I understand it. — nachdenke at the end, verstehe right after desto weniger."
+    },
+    {
+     "de": "Sie spricht sowohl Französisch als auch Portugiesisch.",
+     "note": "She speaks both French and Portuguese."
+    },
+    {
+     "de": "Wir können entweder heute anfangen oder bis Montag warten.",
+     "note": "We can either start today or wait until Monday."
+    },
+    {
+     "de": "Er hat weder angerufen noch eine Nachricht geschrieben.",
+     "note": "He neither called nor wrote a message. — no extra nicht anywhere."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-12-zweiteilige-konnektoren-e1",
+     "topicId": "g-b2-12-zweiteilige-konnektoren",
+     "type": "fill",
+     "prompt": "Complete the second half of the pair.",
+     "text": "Je länger ich darüber nachdenke, ___ weniger verstehe ich es.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "desto"
+     ],
+     "tokens": [],
+     "hint": "The partner of je.",
+     "explain": "je … desto, each with a comparative.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-12-zweiteilige-konnektoren-e2",
+     "topicId": "g-b2-12-zweiteilige-konnektoren",
+     "type": "choice",
+     "prompt": "Which sentence has the word order je … desto requires?",
+     "text": "",
+     "from": "",
+     "options": [
+      "Je länger ich darüber nachdenke, desto weniger verstehe ich es.",
+      "Je länger ich denke darüber nach, desto weniger ich verstehe es.",
+      "Je länger denke ich darüber nach, desto weniger ich es verstehe."
+     ],
+     "answers": [
+      "Je länger ich darüber nachdenke, desto weniger verstehe ich es."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "Verb last in the je-part, verb straight after desto + comparative in the other.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-12-zweiteilige-konnektoren-e3",
+     "topicId": "g-b2-12-zweiteilige-konnektoren",
+     "type": "fill",
+     "prompt": "Neither of the two things happened. Complete the pair.",
+     "text": "Er hat weder angerufen ___ eine Nachricht geschrieben.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "noch"
+     ],
+     "tokens": [],
+     "hint": "The partner of weder.",
+     "explain": "weder … noch, and no nicht anywhere.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-12-zweiteilige-konnektoren-e4",
+     "topicId": "g-b2-12-zweiteilige-konnektoren",
+     "type": "reorder",
+     "prompt": "Build the sentence about both languages.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Sie spricht sowohl Französisch als auch Portugiesisch."
+     ],
+     "tokens": [
+      "Sie",
+      "spricht",
+      "sowohl",
+      "Französisch",
+      "als",
+      "auch",
+      "Portugiesisch."
+     ],
+     "hint": "",
+     "explain": "sowohl … als auch brackets the two items.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-12-zweiteilige-konnektoren-e5",
+     "topicId": "g-b2-12-zweiteilige-konnektoren",
+     "type": "error",
+     "prompt": "There is one negation too many. Correct the sentence.",
+     "text": "Er hat weder nicht angerufen noch eine Nachricht geschrieben.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Er hat weder angerufen noch eine Nachricht geschrieben."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "weder … noch already negates; the nicht has to go.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 4,
+   "sourcePages": [
+    4,
+    5
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-13-temporale-nebensaetze",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 13,
+   "title": "Temporale Nebensätze",
+   "titleEn": "Temporal subordinate clauses",
+   "summary": "während, bevor, sobald, seitdem — and nachdem, which needs the two clauses one time step apart.",
+   "category": "Satzverbindungen",
+   "tags": [
+    "temporal",
+    "nachdem",
+    "während",
+    "Zeitenfolge"
+   ],
+   "difficulty": 4,
+   "prerequisites": [
+    "g-daf-a2-temporal-subordinate-clauses-with-wenn-a",
+    "g-daf-a2-naming-a-point-of-time-in-the-past-tempo",
+    "g-daf-b1-past-perfect-for-active-verbs"
+   ],
+   "explanation": [
+    {
+     "heading": "All of them send the verb to the end",
+     "text": "These are subordinating conjunctions, so whatever else changes, the conjugated verb closes their clause. That part is the same as weil and obwohl."
+    },
+    {
+     "heading": "Which one means what",
+     "text": "während = at the same time as; bevor = before; sobald = the moment that; seitdem = starting from when. Each picks out a different relationship in time, and they are not interchangeable."
+    },
+    {
+     "heading": "nachdem is the difficult one",
+     "text": "nachdem needs its clause to be one time step further back than the main clause. Past perfect with simple past, or perfect with present. Both halves in the same tense is wrong, and it is the mistake almost everybody makes."
+    },
+    {
+     "heading": "Why the offset exists",
+     "text": "nachdem means the first action was already complete when the second began. The tense has to show that completion, which is exactly what the perfect and past perfect are for."
+    }
+   ],
+   "rules": [
+    "während, bevor, sobald, seitdem and nachdem all send the conjugated verb to the end of their clause.",
+    "während = simultaneous; bevor = earlier; sobald = immediately after; seitdem = the starting point.",
+    "nachdem needs the two clauses one time step apart: Plusquamperfekt with Präteritum, or Perfekt with Präsens.",
+    "The offset is what shows that the first action was finished before the second began.",
+    "Achtung: putting both halves of a nachdem sentence in the same tense is the standard mistake."
+   ],
+   "examples": [
+    {
+     "de": "Nachdem wir gegessen hatten, gingen wir noch eine Runde spazieren.",
+     "note": "After we had eaten, we went for a walk. — Plusquamperfekt then Präteritum."
+    },
+    {
+     "de": "Während sie telefonierte, machte er schon das Abendessen.",
+     "note": "While she was on the phone, he was already making dinner. — two things at once."
+    },
+    {
+     "de": "Sobald der Vertrag unterschrieben ist, beginnen wir mit der Arbeit.",
+     "note": "As soon as the contract is signed, we'll start work."
+    },
+    {
+     "de": "Seitdem er in Hamburg wohnt, sehen wir uns nur noch selten.",
+     "note": "Since he's been living in Hamburg, we hardly ever see each other. — seitdem names the starting point."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-13-temporale-nebensaetze-e1",
+     "topicId": "g-b2-13-temporale-nebensaetze",
+     "type": "choice",
+     "prompt": "Which connector says that the two things happened at the same time?",
+     "text": "___ sie telefonierte, machte er schon das Abendessen.",
+     "from": "",
+     "options": [
+      "Während",
+      "Nachdem",
+      "Bevor",
+      "Seitdem"
+     ],
+     "answers": [
+      "Während"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "während is the simultaneous one.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-13-temporale-nebensaetze-e2",
+     "topicId": "g-b2-13-temporale-nebensaetze",
+     "type": "fill",
+     "prompt": "nachdem needs the earlier clause one step further back. Complete it.",
+     "text": "Nachdem wir gegessen ___, gingen wir noch eine Runde spazieren.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "hatten"
+     ],
+     "tokens": [],
+     "hint": "The main clause is Präteritum, so this one is Plusquamperfekt.",
+     "explain": "gegessen hatten — Plusquamperfekt against the Präteritum of the main clause.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-13-temporale-nebensaetze-e3",
+     "topicId": "g-b2-13-temporale-nebensaetze",
+     "type": "reorder",
+     "prompt": "Build the sentence with seitdem.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Seitdem er in Hamburg wohnt, sehen wir uns nur noch selten."
+     ],
+     "tokens": [
+      "Seitdem",
+      "er",
+      "in",
+      "Hamburg",
+      "wohnt,",
+      "sehen",
+      "wir",
+      "uns",
+      "nur",
+      "noch",
+      "selten."
+     ],
+     "hint": "",
+     "explain": "wohnt closes the subordinate clause; the main clause then starts with its verb.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-13-temporale-nebensaetze-e4",
+     "topicId": "g-b2-13-temporale-nebensaetze",
+     "type": "transform",
+     "prompt": "Join these with nachdem, getting the tenses right.",
+     "text": "",
+     "from": "Wir haben gegessen. Dann gingen wir noch eine Runde spazieren.",
+     "options": [],
+     "answers": [
+      "Nachdem wir gegessen hatten, gingen wir noch eine Runde spazieren."
+     ],
+     "tokens": [],
+     "hint": "The first action has to move one step back.",
+     "explain": "The Perfekt becomes Plusquamperfekt, because the main clause is in the Präteritum.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-13-temporale-nebensaetze-e5",
+     "topicId": "g-b2-13-temporale-nebensaetze",
+     "type": "error",
+     "prompt": "Both halves are in the same tense, which nachdem does not allow. Correct it.",
+     "text": "Nachdem wir essen, gehen wir noch eine Runde spazieren.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Nachdem wir gegessen haben, gehen wir noch eine Runde spazieren."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "With a present-tense main clause, the nachdem-clause goes into the Perfekt.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 5,
+   "sourcePages": [
+    5
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-14-subjektiver-gebrauch-der-modalverben",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 14,
+   "title": "Subjektiver Gebrauch der Modalverben",
+   "titleEn": "Modal verbs used subjectively",
+   "summary": "Not what someone must do, but how sure the speaker is — and whose claim it is.",
+   "category": "Modalverben",
+   "tags": [
+    "subjektive Bedeutung",
+    "Modalverben",
+    "Vermutung",
+    "sollen",
+    "wollen"
+   ],
+   "difficulty": 5,
+   "prerequisites": [
+    "g-daf-a2-modal-verbs-and-their-uses",
+    "g-daf-b1-modal-verbs-in-the-perfect"
+   ],
+   "explanation": [
+    {
+     "heading": "A second meaning on top of the first",
+     "text": "Er muss arbeiten normally says he is obliged to. Used subjectively, Er muss krank sein says the speaker is almost certain that he is ill. Same verb, completely different job — and only the context separates them."
+    },
+    {
+     "heading": "Degrees of certainty",
+     "text": "müssen is the strongest: the speaker has no proof but is sure. dürfte and können are weaker, marking something as likely or merely possible."
+    },
+    {
+     "heading": "sollen and wollen report a claim",
+     "text": "These two do not measure certainty at all — they name a source. sollen passes on what other people say, which the speaker has not verified. wollen reports what the person claims about themselves, usually with a hint of scepticism."
+    },
+    {
+     "heading": "The past",
+     "text": "Modal + Partizip II + haben or sein: Er muss den Brief gelesen haben. Note this is also where the topic meets Sicher! C1, which covers the same ground in more depth — here it is the everyday B2 core."
+    }
+   ],
+   "rules": [
+    "Modal verbs have a second, subjective meaning: how certain the speaker is, or whose claim it is.",
+    "müssen = strong certainty; dürfte and können = possibility.",
+    "sollen reports what other people say about somebody, unverified by the speaker.",
+    "wollen reports what the person claims about themselves.",
+    "The past is modal + Partizip II + haben or sein.",
+    "Achtung: sollen and wollen differ only in whose claim it is — others, or the person themselves."
+   ],
+   "examples": [
+    {
+     "de": "Er muss den Brief schon gelesen haben, er reagiert ja darauf.",
+     "note": "He must have read the letter already — he's reacting to it. — strong certainty about the past."
+    },
+    {
+     "de": "Sie soll früher einmal in Japan gelebt haben.",
+     "note": "She is said to have lived in Japan at one time. — other people say so."
+    },
+    {
+     "de": "Er will von der ganzen Sache nichts gewusst haben.",
+     "note": "He claims to have known nothing about the whole thing. — his own claim about himself."
+    },
+    {
+     "de": "Das dürfte für die meisten Teilnehmer kein Problem sein.",
+     "note": "That should not be a problem for most participants. — a careful, likely assumption."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-14-subjektiver-gebrauch-der-modalverben-e1",
+     "topicId": "g-b2-14-subjektiver-gebrauch-der-modalverben",
+     "type": "choice",
+     "prompt": "Other people say it about her. Which modal verb?",
+     "text": "Sie ___ früher einmal in Japan gelebt haben.",
+     "from": "",
+     "options": [
+      "soll",
+      "will",
+      "muss",
+      "darf"
+     ],
+     "answers": [
+      "soll"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "sollen passes on somebody else's claim.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-14-subjektiver-gebrauch-der-modalverben-e2",
+     "topicId": "g-b2-14-subjektiver-gebrauch-der-modalverben",
+     "type": "choice",
+     "prompt": "He says it about himself. Which modal verb?",
+     "text": "Er ___ von der ganzen Sache nichts gewusst haben.",
+     "from": "",
+     "options": [
+      "will",
+      "soll",
+      "kann",
+      "möchte"
+     ],
+     "answers": [
+      "will"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "wollen reports the person's own claim — and quietly signals doubt.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-14-subjektiver-gebrauch-der-modalverben-e3",
+     "topicId": "g-b2-14-subjektiver-gebrauch-der-modalverben",
+     "type": "fill",
+     "prompt": "The speaker is almost certain. Complete the past form.",
+     "text": "Er muss den Brief schon gelesen ___, er reagiert ja darauf.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "haben"
+     ],
+     "tokens": [],
+     "hint": "Modal + Partizip II + haben/sein.",
+     "explain": "gelesen haben — the subjective past.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-14-subjektiver-gebrauch-der-modalverben-e4",
+     "topicId": "g-b2-14-subjektiver-gebrauch-der-modalverben",
+     "type": "reorder",
+     "prompt": "Build the careful assumption.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Das dürfte für die meisten Teilnehmer kein Problem sein."
+     ],
+     "tokens": [
+      "Das",
+      "dürfte",
+      "für",
+      "die",
+      "meisten",
+      "Teilnehmer",
+      "kein",
+      "Problem",
+      "sein."
+     ],
+     "hint": "",
+     "explain": "dürfte marks it as likely rather than certain.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-14-subjektiver-gebrauch-der-modalverben-e5",
+     "topicId": "g-b2-14-subjektiver-gebrauch-der-modalverben",
+     "type": "choice",
+     "prompt": "Someone says 'Er will das Auto selbst repariert haben.' Who is making the claim?",
+     "text": "",
+     "from": "",
+     "options": [
+      "He is, about himself.",
+      "Other people are, about him.",
+      "The speaker is, about him."
+     ],
+     "answers": [
+      "He is, about himself."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "wollen = the person's own claim. sollen would make it other people's.",
+     "fromSource": false
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 5,
+   "sourcePages": [
+    5,
+    6
+   ],
+   "subtopics": []
+  },
+  {
+   "id": "g-b2-15-passiversatzformen",
+   "language": "de",
+   "level": "B2",
+   "group": "Deutsche Grammatik B2",
+   "groupOrder": 50,
+   "order": 15,
+   "title": "Passiversatzformen",
+   "titleEn": "Alternatives to the passive",
+   "summary": "sich lassen, sein + zu + Infinitiv and -bar adjectives: active in form, passive in feel.",
+   "category": "Passiv",
+   "tags": [
+    "Passiversatz",
+    "sich lassen",
+    "sein zu",
+    "-bar"
+   ],
+   "difficulty": 5,
+   "prerequisites": [
+    "g-daf-a2-active-passive",
+    "g-b2-2-passiv-mit-modalverben",
+    "g-daf-b1-sich-lassen-verb"
+   ],
+   "explanation": [
+    {
+     "heading": "Why they exist",
+     "text": "A text full of muss … werden reads badly. German has three active constructions that keep the agent out of sight just as the passive does, and they make written German sound much lighter."
+    },
+    {
+     "heading": "sich lassen + Infinitiv",
+     "text": "Das Problem lässt sich lösen = Das Problem kann gelöst werden. It only replaces the können-passive; it cannot express obligation."
+    },
+    {
+     "heading": "sein + zu + Infinitiv",
+     "text": "Die Formulare sind abzugeben. This one covers both können and müssen, and the context decides which. With a separable verb the zu goes inside: abzugeben."
+    },
+    {
+     "heading": "Adjectives in -bar",
+     "text": "lesbar, machbar, erreichbar — an adjective built from the verb, expressing possibility. Der Text ist gut lesbar = kann gut gelesen werden."
+    }
+   ],
+   "rules": [
+    "All three are grammatically active but name no agent, like the passive.",
+    "sich lassen + Infinitiv replaces the können-passive: Das Problem lässt sich lösen.",
+    "sein + zu + Infinitiv replaces können or müssen: Die Formulare sind abzugeben.",
+    "Adjectives in -bar express possibility: Der Text ist gut lesbar.",
+    "Achtung: sein + zu + Infinitiv can mean können or müssen — only the context decides."
+   ],
+   "examples": [
+    {
+     "de": "Das Problem lässt sich in wenigen Minuten lösen.",
+     "note": "The problem can be solved in a few minutes. — sich lassen, so the können-passive."
+    },
+    {
+     "de": "Die Formulare sind bis Freitag im Sekretariat abzugeben.",
+     "note": "The forms are to be handed in by Friday. — sein + zu, here meaning müssen."
+    },
+    {
+     "de": "Die Handschrift auf dem Umschlag ist kaum lesbar.",
+     "note": "The handwriting on the envelope is barely legible. — the -bar adjective."
+    },
+    {
+     "de": "Dieser Fehler ließ sich leider nicht mehr korrigieren.",
+     "note": "Unfortunately this mistake could no longer be corrected. — sich lassen in the Präteritum."
+    }
+   ],
+   "exercises": [
+    {
+     "id": "g-b2-15-passiversatzformen-e1",
+     "topicId": "g-b2-15-passiversatzformen",
+     "type": "transform",
+     "prompt": "Rewrite without the passive, using sich lassen.",
+     "text": "",
+     "from": "Das Problem kann in wenigen Minuten gelöst werden.",
+     "options": [],
+     "answers": [
+      "Das Problem lässt sich in wenigen Minuten lösen."
+     ],
+     "tokens": [],
+     "hint": "lassen + sich + Infinitiv.",
+     "explain": "sich lassen carries the können on its own.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-15-passiversatzformen-e2",
+     "topicId": "g-b2-15-passiversatzformen",
+     "type": "fill",
+     "prompt": "Complete the sein + zu + Infinitiv form of abgeben.",
+     "text": "Die Formulare sind bis Freitag im Sekretariat ___.",
+     "from": "",
+     "options": [],
+     "answers": [
+      "abzugeben"
+     ],
+     "tokens": [],
+     "hint": "A separable verb takes the zu inside.",
+     "explain": "abzugeben — and here the construction means müssen.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-15-passiversatzformen-e3",
+     "topicId": "g-b2-15-passiversatzformen",
+     "type": "choice",
+     "prompt": "Does 'Die Formulare sind bis Freitag abzugeben' mean können or müssen?",
+     "text": "",
+     "from": "",
+     "options": [
+      "müssen — it is an instruction with a deadline.",
+      "können — it says handing them in is possible.",
+      "Neither; it is a simple statement of fact."
+     ],
+     "answers": [
+      "müssen — it is an instruction with a deadline."
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "Only the context decides, and a deadline makes it an obligation.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-15-passiversatzformen-e4",
+     "topicId": "g-b2-15-passiversatzformen",
+     "type": "choice",
+     "prompt": "Which -bar adjective belongs here?",
+     "text": "Die Handschrift auf dem Umschlag ist kaum ___.",
+     "from": "",
+     "options": [
+      "lesbar",
+      "leslich",
+      "gelesen",
+      "lesend"
+     ],
+     "answers": [
+      "lesbar"
+     ],
+     "tokens": [],
+     "hint": "",
+     "explain": "lesbar = kann gelesen werden.",
+     "fromSource": true
+    },
+    {
+     "id": "g-b2-15-passiversatzformen-e5",
+     "topicId": "g-b2-15-passiversatzformen",
+     "type": "reorder",
+     "prompt": "Build the sentence in the Präteritum.",
+     "text": "",
+     "from": "",
+     "options": [],
+     "answers": [
+      "Dieser Fehler ließ sich leider nicht mehr korrigieren."
+     ],
+     "tokens": [
+      "Dieser",
+      "Fehler",
+      "ließ",
+      "sich",
+      "leider",
+      "nicht",
+      "mehr",
+      "korrigieren."
+     ],
+     "hint": "",
+     "explain": "sich lassen works in every tense; here ließ.",
+     "fromSource": true
+    }
+   ],
+   "kursbuch": "",
+   "subsection": "",
+   "source": "Deutsche Grammatik – Niveau B2",
+   "sourceKey": "b2-grammar",
+   "sourcePage": 6,
+   "sourcePages": [
+    6,
+    7
    ],
    "subtopics": []
   },

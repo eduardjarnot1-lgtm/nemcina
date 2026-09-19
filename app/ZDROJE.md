@@ -5,44 +5,75 @@ pravidlo pochází z některého z dokumentů níže a build je odmítne, pokud 
 v původním zdroji nenajde. Původní PDF se do repozitáře **necommitují** — jen
 strukturovaná data, která z nich vznikla.
 
+## Slovní zásoba — přepsána načisto
+
+Slovní zásoba **už nepochází od nikoho jiného**. Celý korpus byl nahrazen
+seznamy sestavenými přímo pro tento projekt: každé slovo, jeho anglický
+překlad i příkladová věta s překladem vznikly zde.
+
 | Obsah | Zdroj | Licence / poznámka |
 |---|---|---|
-| Slovní zásoba (2 047 karet) | OCR GCSE German Vocabulary List | podklad pro výuku |
-| Úrovně A1 / A2 / B1 | Oficiální Wortlisten Goethe-Institutu (A1 Start Deutsch 1, A2, B1) | © Goethe-Institut |
-| Úroveň B2 | Der deutsche Wortschatz von A1 bis B2, Lingster Academy | © Lingster Academy |
-| Anglické překlady slov, která seznamy nepřekládají | Ding German–English dictionary, TU Chemnitz | **GPL v2 nebo novější** |
+| Slovní zásoba A1 (600 hesel, 12 témat) | *German Vocabulary — Level A1*, sestaveno pro tento projekt | vlastní obsah |
+| Slovní zásoba A2 (900 hesel, 15 témat) | *German Vocabulary — Level A2*, sestaveno pro tento projekt | vlastní obsah |
+| Slovní zásoba B1 (1 000 hesel, 18 témat) | *German Vocabulary — Level B1*, sestaveno pro tento projekt | vlastní obsah |
+| Slovní zásoba B2 (500 hesel, 25 témat) | *German Vocabulary — Level B2*, sestaveno pro tento projekt | vlastní obsah |
+| Gramatika B2 (15 témat) | *Deutsche Grammatik – Niveau B2*, díl 1 a 2, sestaveno pro tento projekt | vlastní obsah |
+| Frekvence slov | hermitdave/FrequencyWords (korpus OpenSubtitles) | otevřená licence, jen doplňuje pořadí |
+
+Po sloučení hesel, která se opakují na více úrovních, z 3 000 vstupních
+záznamů vznikne **2 758 karet**: A1 600 · A2 854 · B1 983 · B2 321.
+
+### Co bylo odstraněno
+
+Tyto zdroje z aplikace **zmizely i s daty, která z nich byla odvozena**:
+
+* OCR GCSE German Vocabulary List (2 047 karet)
+* Wortlisten Goethe-Institutu A1 / A2 / B1
+* Der deutsche Wortschatz von A1 bis B2, Lingster Academy
+* Ding German–English dictionary (GPL v2+) — překlady slov, která seznamy
+  nepřekládaly
+
+Smazány byly soubory `app/tools/source-entries.json`, `app/data/cefr.json`,
+`app/tools/annotations/*.tsv` a nástroje, které je četly (`extract_pdf.py`,
+`build_cefr.py`, `extract_goethe_b1.py`). Kontrola `validate_content.py` nově
+**odmítne build**, ve kterém by se objevila karta s cizím zdrojem překladu —
+aby se to nemohlo vrátit nepozorovaně.
+
+## Gramatika A1–C1 — tady problém trvá
+
+| Obsah | Zdroj | Licence / poznámka |
+|---|---|---|
 | Gramatika A1–B1 (87 témat) | DaF kompakt neu A1/A2/B1, Grammatikerklärungen | © Ernst Klett Sprachen, Stuttgart 2018 |
 | Gramatika C1 (32 témat) | Sicher! C1 Grammatikübersicht | © Hueber Verlag |
 | Zustandspassiv + slovesa s pevnou předložkou | deutsch-lernen-goethe-a1-c2, Abdullah Butt | **CC BY-NC 4.0** |
-| Frekvence slov | hermitdave/FrequencyWords (korpus OpenSubtitles) | titulkový korpus |
 
-## Na co si dát pozor
+**Toto je teď jediná zbývající licenční překážka vydání.** 121 ze 136
+gramatických témat pochází z učebnic Klett a Hueber a build je záměrně přebírá
+**doslova** — příkladovou větu odmítne, pokud se slovo od slova nevyskytuje ve
+zdrojovém dokumentu. Pro přesnost je to výborné a přesně proto je to šíření
+cizího textu. Souhlas nakladatelství nikdo nemá.
+
+Cesta ven je stejná jako u slovíček: 15 témat B2 už vzniklo pro tento projekt,
+zbytek by šlo napsat stejně.
 
 * **CC BY-NC 4.0** u témat Zustandspassiv a slovesa s předložkou zakazuje
   **komerční užití**. Dokud aplikace zůstane nekomerční, je to v pořádku;
   jakmile by se na ní mělo vydělávat, je nutné tuto část nahradit nebo si
   vyžádat svolení. Uvedení autora je podmínkou licence a je vypsané u tématu
   přímo v aplikaci.
-* **GPL v2+** u slovníku Ding se vztahuje na slovníková data. Týká se
-  `data/cefr.json` a těch karet, které mají `translationSource: "ding"`.
-* Materiály nakladatelství (Klett, Hueber, Goethe-Institut) jsou v repozitáři
-  jen jako **odvozená strukturovaná data v rozsahu nutném pro výuku**, ne jako
-  kopie původních dokumentů.
 
-## Známá chyba ve zdroji
+## Co historie repozitáře pořád obsahuje
 
-Seznam Lingster uvádí `glauben an D`. To je chyba — `glauben an` se pojí
-s **akuzativem** (*Ich glaube an dich*). Aplikace zdroj cituje tak, jak je
-vytištěný, a chybu výslovně označuje; neopravuje ji potichu ani ji potichu
-neučí.
+Smazání odstranilo soubory z pracovní kopie, ale **git historie je má dál** —
+starší commity obsahují odvozená data Goethe, GCSE i Ding. Kdo si vyklonuje
+repozitář, dostane i je. Vyčistit to jde jen přepsáním historie nebo založením
+nového repozitáře; obojí je rozhodnutí vlastníka, ne úklid, který by šlo udělat
+mimochodem.
 
 ## Co v repozitáři není
 
-* **Goethe-Zertifikat B2 Wortliste** — oficiální seznam pro B2 se nepodařilo
-  získat, `goethe.de` je z prostředí nedostupné. B2 proto stojí jen na seznamu
-  Lingster.
 * **Tatoeba `deu-eng`** (~330 000 dvojic vět) — nikdy nebyl dodán. Doplnil by
   generované příkladové věty a doplňovačky.
 
-Obojí projde stejným řetězcem `extract → build → validate` jako všechno
-ostatní, jakmile bude soubor k dispozici.
+Projde stejným řetězcem `extract → build → validate` jako všechno ostatní,
+jakmile bude soubor k dispozici.

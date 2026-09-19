@@ -18,103 +18,84 @@ On Netlify the site publishes the repository root, so the app is served at
 
 ## Sources
 
+The vocabulary was rebuilt from scratch. It used to be an exam board's list
+levelled against publishers' word lists and glossed from a dictionary — all
+accurate, all carefully attributed, and none of it ours, which made vocabulary
+the project's first release blocker. Every word in the app is now from a list
+composed for it.
+
 | Content | Source | Status |
 |---|---|---|
-| Vocabulary — 4 768 cards | OCR GCSE list (2 047) + the CEFR word lists below (2 721) | imported |
-| CEFR levels A1/A2/B1 | Official Goethe-Institut Wortlisten (A1 Start Deutsch 1, A2, B1) | imported |
-| CEFR level B2 | Der deutsche Wortschatz von A1 bis B2, Lingster Academy | imported |
-| English glosses for unlisted words | Ding German–English dictionary, TU Chemnitz (GPL v2+) | imported |
-| B1 grammar gaps | deutsch-lernen-goethe-a1-c2, Abdullah Butt (CC BY-NC 4.0) | imported |
+| Vocabulary — 2 758 cards | Four lists composed for this project: A1 (600), A2 (900), B1 (1 000), B2 (500) | imported |
+| Grammar — 15 B2 topics | *Deutsche Grammatik – Niveau B2*, parts 1–2, composed for this project | imported |
 | Grammar — 87 A1/A2/B1 topics | DaF kompakt neu A1/A2/B1, Grammatikerklärungen, © Ernst Klett Sprachen GmbH, Stuttgart 2018 | imported |
 | Grammar — 32 C1 topics | Sicher! C1 Grammatikübersicht, © Hueber Verlag | imported |
+| B1 grammar gaps | deutsch-lernen-goethe-a1-c2, Abdullah Butt (CC BY-NC 4.0) | imported |
 | Word frequency — 2 586 forms | hermitdave/FrequencyWords, German (OpenSubtitles corpus) | imported |
-| Goethe-Zertifikat B1 Wortliste | **not supplied** — see below | **missing** |
 
-### The Goethe B1 Wortliste has since been found
+The grammar is still 121 topics of Klett and Hueber. **That is now the only
+licensing blocker left**, and `app/ZDROJE.md` says so plainly.
 
-It was located later, on GitHub, alongside the official A1 and A2 lists — the
-`sprach-o-mat` project carries all three as the Goethe-Institut's own PDFs. They
-are now the level authority for A1–B1. The section below records why it was
-missing in the first place.
+## The vocabulary rebuild
 
-### Why it was missing originally
+Four lists, each printing a headword, its article, an English gloss, an example
+sentence and that sentence's translation — so nothing has to be borrowed from a
+dictionary and nothing is inferred.
 
-That task named two PDFs. Only one arrived: `Sicher_C1_Grammatikuebersicht.pdf`
-(the DaF kompakt grammar PDF came later, with a separate request). In place of
-the Goethe B1 Wortliste there was a text file containing a fliphtml5 link, and
-that host is blocked by this environment's network egress policy, so the list
-could not be fetched.
-
-No substitute was invented at the time. The list is now imported through
-`build_cefr.py`, described below; `extract_goethe_b1.py` remains as the record
-of the record shape that was designed for it.
-
-## CEFR levels
-
-Every card carries a level, and the level is a source's statement rather than a
-guess wherever one exists.
-
-```bash
-python3 app/tools/build_cefr.py \
-  --goethe-dir <dir with the three Goethe Wortliste PDFs> \
-  --tsv-dir    <dir with a1/ a2/ b1/ transcriptions> \
-  --lingster   <Der-deutsche-Wortschatz-von-A1-bis-B2.pdf> \
-  --ding       <de-en.txt.xz>
-# entries 4442 -> data/cefr.json
-#   B1: 4439 of 4460 transcribed entries verified against the official PDF (100%)
-#   A2: 2006 of 2022 verified (99%)
-#   A1: 1694 of 1694 verified (100%)
-#   levels: A1 850 · A2 945 · B1 2072 · B2 575
+```
+A1   600 entries, 12 topics        B1  1 000 entries, 18 topics
+A2   900 entries, 15 topics        B2    500 entries, 25 topics
+                                   ----------------------------
+3 000 entries in -> 2 758 cards    A1 600 · A2 854 · B1 983 · B2 321
 ```
 
-### Why a PDF *and* a transcription of the same list
+`extract_clean_vocabulary.py` reads them. Three arrived as PDFs in the same
+generated layout the B2 list uses, so the parse keys on the font rather than on
+column positions: every cell is its own text run, a wrapped cell is two runs in
+one font, and consecutive runs of a font are one cell. The fourth arrived as
+JSON and is read and checked the same way, so the build sees one kind of source.
 
-The official PDFs are the authority on which word sits at which level, but two
-of the three are laid out in columns that do not survive text extraction — the
-B1 list interleaves headwords and example sentences out of order. A third-party
-TSV transcription is clean, but a transcription can quietly drift from the
-original.
+### The Czech headings arrived damaged, and are repaired explicitly
 
-So they are used against each other: the TSV supplies the headword, example and
-English, and that headword must then occur in the raw text of the official PDF
-for its level or the row is dropped and counted. The build prints the
-verification rate, so a drop in transcription quality is visible rather than
-silent, and refuses to build below 75 %.
+The A1 and A2 PDFs were written with a WinAnsi font, which has no ř, č or ě.
+Those characters were dropped and ReportLab substituted a ZapfDingbats box, so
+`Počasí` extracts as `Po`, a box, and `así`. The German and English entry data
+is untouched — only the Czech headings.
 
-### The levelling rule
+Two things make that safe to repair rather than guess at. Each heading is
+`Czech — English` and **the English half is undamaged**, so every repair is
+checked against a label the document still states. And the repairs are an
+explicit table in the extractor, not a rule: a damaged heading it has no entry
+for stops the extraction rather than reaching a learner mangled.
 
-A word sits at the **lowest** level any source assigns it. A word taught at A1
-is an A1 word even though it reappears in the B1 list; letting a later list
-overwrite an earlier one would push almost everything to B1.
+### The rules that survived the rebuild
 
-| | Count |
-|---|---|
-| Cards levelled by a word list | 4 177 |
-| Cards no list carries, keeping the GCSE Foundation/Higher approximation | 591 |
-| New cards imported from the word lists | 2 721 |
-| Word-list entries skipped for having no English at all | 234 |
+They were never about the old sources:
 
-A1 829 · A2 1 270 · B1 2 157 · B2 512.
+* A word sits at the **lowest** level any list assigns it. 207 entries repeat a
+  word an earlier list already taught; they add their topic to the existing card
+  rather than making a second one.
+* A further 35 repeat a word with slightly different wording — `to reconcile /
+  make up` at B1 against `to reconcile` at B2. Those merge too, keeping the
+  gloss that names more senses. A shared sense is required, and so are the
+  article and the part of speech.
+* The same headword with a **different** meaning is a homonym and keeps its own
+  card. `der Morgen` and `morgen` are not one word, and neither are `die Orange`
+  and `orange` — different article, different word class, different meaning.
+  German capitalisation is part of the word, so the merge key never folds case.
+* Nothing is invented. A part of speech is used where a list states one, and
+  derived only from what the entry prints otherwise: an article makes a noun,
+  three B2 headings name a word class for their entries, and a gloss beginning
+  `to ` is the list calling the entry a verb. Everything else stays
+  unclassified rather than guessed at.
 
-B2 rests on the Lingster list alone — it is the only source here that reaches
-B2 — and that is stated in the data rather than smoothed over. Cards whose
-English comes from the Ding dictionary rather than a course word list say so on
-the card, because a dictionary lookup and a curated gloss are not the same kind
-of evidence.
+### What this bought
 
-Levels shown as "approx." on a card or in the level picker come from mapping
-the GCSE document's Foundation/Higher tier, never from a list that states a
-level. The two are never presented as the same thing.
-
-### Plural forms
-
-The word lists write plurals as a shorthand, and the three lists do not agree
-with each other: B1 writes `-¨er`, A1 splits the same thing across fields as
-`-ö, er`. Both are expanded into a readable form, with the umlaut landing on the
-*last* stem vowel — `Abflug → Abflüge`, never `äbfluge`, and `Haus → Häuser`,
-never `Haüser`, because the `u` of `Haus` belongs to the diphthong. A marker
-outside those shapes is dropped rather than mangled: a wrong plural on a card is
-worse than no plural.
+The content gate now passes with **0 errors and 0 warnings** — the first time
+it has. The one long-standing warning was *einwerfen*, printed twice with
+different glosses in the GCSE list, which is gone. `validate_content.py` also
+gained the check that keeps the rebuild true: a card carrying a third-party
+translation source fails the build.
 
 ## What the app does
 
@@ -197,14 +178,14 @@ scheduler had arrived at becomes the starting stability.
 
 `tools/build_frequency.py` turns the raw `<form> <count>` list into
 `data/frequency.json`, and `build_vocabulary.py` stamps a `frequencyRank` onto
-every card whose **printed headword is itself a listed form**. 785 of the 2 047
-cards match.
+every card whose **printed headword is itself a listed form**. 496 of the
+2 758 cards match.
 
 No lemma matching is attempted. The corpus lists surface forms, so `ist` and
 `sind` are separate entries and neither resolves to `sein`; attaching `sein`'s
 card to their counts would put a number on a card the corpus never measured.
-The remaining 1 815 listed forms are function words and inflections the GCSE
-list does not carry as headwords.
+The remaining listed forms are function words and inflections the vocabulary
+lists do not carry as headwords.
 
 The corpus is also case-folded, so where two cards share a spelling —
 *morgen*/*Morgen*, *wagen*/*Wagen*, *Paar*/*paar* — the count covers both. Those
@@ -251,9 +232,9 @@ grammar topics, unknown or circular prerequisites.
 
 ```bash
 python3 app/tools/validate_content.py
-# vocabulary: 4768 words checked
+# vocabulary: 2758 words checked
 # grammar: 121 topics, 615 exercises checked
-# PASSED — 0 errors, 1 warning
+# PASSED — 0 errors, 0 warnings
 ```
 
 The one warning is genuine and left standing: the OCR list prints *einwerfen —
@@ -265,30 +246,39 @@ Higher tier, so both are kept and flagged for a human.
 The app has A1–C2 as structure. It does **not** claim to hold an A1–C2
 curriculum.
 
-A1, A2, B1 and C1 hold grammar, and those labels are the documents' own: DaF
-kompakt prints `(A1)`, `(A2)` or `(B1)` beside every block, and the extractor
-reads the level off the heading rather than guessing it. B2 and C2 are empty
-and say so.
+A1, A2, B1, B2 and C1 hold grammar, and those labels are the documents' own:
+DaF kompakt prints `(A1)`, `(A2)` or `(B1)` beside every block and the extractor
+reads the level off the heading; Sicher! is C1 throughout; the B2 set states B2
+in its own title. C2 is empty and says so.
 
-The vocabulary is labelled `GCSE`, because that is what the document is, with
-an *approximate* CEFR mapping of its Foundation/Higher tiers (`cefrApprox`)
-that is labelled as approximate everywhere it appears.
+Every vocabulary card states its level too, because each list says which level
+it is. Nothing is approximated any more — the `cefrApprox` fallback existed for
+the GCSE list, which graded by Foundation/Higher tier and stated no CEFR level
+at all, and a core test now asserts that no card falls back to it.
 
 ## The pipeline
 
 ```
-Sicher_C1_...pdf     DaF_kompakt_neu_...pdf      OCR GCSE vocabulary PDF
-  │ extract_c1_         │ extract_daf_             │ tools/extract_pdf.py
-  │   grammar.py        │   grammar.py             ▼
-  ▼                     ▼                        tools/source-entries.json
-tools/c1-source.json  tools/daf-source.json        2060 entries
-  32 topics             87 topics                   │ tools/annotations/*.tsv
-  + raw source text     + raw source text           │   type, article, example,
-  │                     │                           │   translation, note
-  │ tools/annotations/grammar/*.json                │
-  │   summary, rules, examples, exercises           │
-  ▼ tools/build_grammar.py                          ▼ tools/build_vocabulary.py
-data/grammar.json                                 data/vocabulary.json
+Sicher_C1_...pdf   DaF_kompakt_...pdf   German_Grammar_B2_1+2.pdf
+  │ extract_c1_       │ extract_daf_        │ extract_b2_grammar.py
+  │   grammar.py      │   grammar.py        ▼
+  ▼                   ▼                   tools/b2-grammar-source.json
+tools/c1-source.json  tools/daf-source.json   15 topics
+  │                   │                     │
+  │  tools/annotations/grammar/*.json        │
+  │    summary, rules, examples, exercises   │
+  ▼ tools/build_grammar.py ◄─────────────────┘
+data/grammar.json
+
+German_Vocabulary_A1_600.pdf   A2_900.pdf   B1_1000.json   B2.pdf
+  │                              │            │              │
+  └──── tools/extract_clean_vocabulary.py ────┘              │ extract_b2_
+             │  --pdf / --json, per level                    │  vocabulary.py
+             ▼                                               ▼
+  tools/clean-a1-source.json  clean-a2-…  clean-b1-…   b2-vocabulary-source.json
+             └──────────────┬──────────────────────────────┘
+                            ▼ tools/build_vocabulary.py
+                       data/vocabulary.json
         └──────────────────────┬─────────────────────────┘
                                ▼  tools/validate_content.py
                           the learning engine
@@ -303,18 +293,34 @@ entry, not touching the app.
 Rebuild everything:
 
 ```bash
+# grammar
 python3 app/tools/extract_c1_grammar.py <Sicher_C1_Grammatikuebersicht.pdf>
 python3 app/tools/extract_daf_grammar.py <DaF_kompakt_neu_A1_A2_B1_Grammar_English.pdf>
+python3 app/tools/extract_b2_grammar.py \
+  --pdf <German_Grammar_B2_1.pdf> --pdf <German_Grammar_B2_2.pdf> --expect 15
 python3 app/tools/build_grammar.py
+
+# vocabulary
+python3 app/tools/extract_clean_vocabulary.py \
+  --pdf <German_Vocabulary_A1_600.pdf> --level A1 --expect 600 \
+  --out app/tools/clean-a1-source.json
+python3 app/tools/extract_clean_vocabulary.py \
+  --pdf <German_Vocabulary_A2_900.pdf> --level A2 --expect 900 \
+  --out app/tools/clean-a2-source.json
+python3 app/tools/extract_clean_vocabulary.py \
+  --json <German_Vocabulary_B1_1000.json> --level B1 --expect 1000 \
+  --out app/tools/clean-b1-source.json
+python3 app/tools/extract_b2_vocabulary.py --pdf <German_Vocabulary_B2.pdf>
 python3 app/tools/build_frequency.py <de_top2000_frequency.txt>
 python3 app/tools/build_vocabulary.py
+
 python3 app/tools/validate_content.py
 python3 app/tools/build_artifact.py          # single-file bundle
 ```
 
 Both builds fail loudly rather than silently dropping content: the vocabulary
-build fails if an annotation row count or German term diverges from the source;
-the grammar build fails on an ungrounded example, a missing answer, a choice
+extractors refuse to write unless every entry parses and the totals match
+`--expect`; the grammar build fails on an ungrounded example, a missing answer, a choice
 whose answer is not among its options, or an unannotated topic.
 
 Source PDFs are not committed — only the extracted structured data, so the
@@ -327,7 +333,7 @@ number.
 app/
   index.html            shell: top bar, search, main region
   styles.css            light + dark theme, no framework
-  data/vocabulary.json  4768 cards, levelled A1–B2
+  data/vocabulary.json  4646 cards, levelled A1–B2
   data/cefr.json        4442 levelled headwords with their sources
   data/frequency.json   2586 ranked word forms
   data/grammar.json     121 topics, 615 examples, 615 exercises
