@@ -37,7 +37,8 @@
     "publish:web": "expo export --platform web --output-dir dist --clear && node tools/prepare-web-artifact.mjs dist web-artifact",
     "typecheck": "tsc --noEmit",
     "test:e2e": "node e2e/smoke.mjs",
-    "test": "node e2e/smoke.mjs"
+    "test": "node e2e/smoke.mjs",
+    "build:pages": "EXPO_BASE_URL=/nemcina expo export --platform web --output-dir dist-pages --clear && node tools/finish-pages.mjs dist-pages"
   },
   "private": true
 }

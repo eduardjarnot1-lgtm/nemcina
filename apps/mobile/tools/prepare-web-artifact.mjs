@@ -38,6 +38,7 @@ import { cp, mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/pro
 import { existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import process from 'node:process';
+import { assertApiUrl } from './assert-api-url.mjs';
 
 const [source = 'dist', target = 'web-artifact'] = process.argv.slice(2);
 const from = resolve(source);
@@ -84,48 +85,13 @@ for (const name of scripts) {
 }
 await rm(join(to, '_expo'), { recursive: true, force: true });
 
-// 2. The API URL is checked before anything is published.
-//
-// `e2e/sync.mjs` exports the app with EXPO_PUBLIC_API_URL pointing at its own
-// local server, and Metro caches that inlined value — so a later `expo export`
-// without `--clear` reuses it and ships a build that tries to reach a server on
-// the reader's own machine. That shipped once. It does not get to ship twice.
-//
-// The check reads the one value that matters rather than scanning for loopback
-// strings, because a scan does not hold: the Firebase Auth SDK carries
-// `http://localhost` as an OAuth request literal, so a scan either fails on
-// every build or needs a vendor exception that would also hide a real one.
-// `src/api.ts` compiles to a string constant and the predicate built from it:
-//
-//   const t='',o=()=>t.trim().length>0
-//
-// Both quote styles have been seen from the same source — the minifier picks
-// whichever escapes less — so the pattern accepts either.
-//
-// Failing to find it is itself a failure. A gate that cannot see what it guards
-// is not a gate, and silently passing is how the first bad build got out.
-const apiUrlPattern = /const (\w+)=(["'])((?:\\.|(?!\2)[^\\])*)\2,\w+=\(\)=>\1\.trim\(\)\.length>0/;
-let apiUrl = null;
-for (const name of scripts) {
-  const found = (await readFile(join(to, 'bundle', name), 'utf8')).match(apiUrlPattern);
-  if (found) apiUrl = found[3];
-}
-if (apiUrl === null) {
-  throw new Error(
-    'could not find the compiled API_URL in the export, so it cannot be checked.\n'
-    + 'src/api.ts or the minifier changed shape — update the pattern in this script\n'
-    + 'rather than publishing an unchecked bundle.',
-  );
-}
-if (/^https?:\/\/(?:127\.0\.0\.1|localhost|\[::1\])(?::\d+)?(?:\/|$)/i.test(apiUrl)) {
-  throw new Error(
-    `the bundle has a loopback API URL baked in (${apiUrl}).\n`
-    + "It would send every reader's account requests to their own machine.\n"
-    + 'This is Metro reusing a cached transform from e2e/sync.mjs.\n'
-    + 'Re-export with a cleared cache before publishing:\n'
-    + '  EXPO_PUBLIC_API_URL= npx expo export --platform web --output-dir dist --clear',
-  );
-}
+// 2. The API URL is checked before anything is published. The Pages build
+// runs the same check; see tools/assert-api-url.mjs for why it reads the
+// compiled constant rather than scanning for loopback strings.
+const apiUrl = await assertApiUrl(
+  scripts.map((name) => join(to, 'bundle', name)),
+  'EXPO_PUBLIC_API_URL= npx expo export --platform web --output-dir dist --clear',
+);
 
 // 3. Absolute asset and chunk paths become relative, in every script.
 let fixedAssets = 0;
@@ -195,3 +161,4 @@ console.log(`prepared ${to}`);
 console.log(`  ${eager.length} script(s) loaded by the page, ${scripts.length - eager.length} lazy chunk(s)`);
 console.log(`  ${fixedAssets} absolute asset paths made relative`);
 console.log(`  ${fixedChunks} absolute chunk paths made relative`);
+console.log(`  API_URL = ${apiUrl === '' ? '(unset — Firebase accounts)' : apiUrl}`);
