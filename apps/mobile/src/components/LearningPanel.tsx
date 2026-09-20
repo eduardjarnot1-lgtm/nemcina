@@ -1,10 +1,11 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { CEFR_LEVELS, type CefrLevel } from '@nemcina/core';
 import { GOAL_CHOICES, usePreferences } from '../preferences';
 import { strings } from '../strings';
 import { palette, radius, spacing, type as typeScale } from '../theme';
 import { Card } from './Card';
+import { Selectable } from './Selectable';
 import { PrimaryButton } from './PrimaryButton';
 
 /**
@@ -69,14 +70,9 @@ export function LearningPanel() {
 
 function Chip({ label, active, onPress }: { label: string; active: boolean; onPress: () => void }) {
   return (
-    <Pressable
-      accessibilityRole="button"
-      accessibilityState={{ selected: active }}
-      onPress={onPress}
-      style={[styles.chip, active && styles.chipActive]}
-    >
+    <Selectable selected={active} onPress={onPress} style={[styles.chip, active && styles.chipActive]}>
       <Text style={[styles.chipLabel, active && styles.chipLabelActive]}>{label}</Text>
-    </Pressable>
+    </Selectable>
   );
 }
 

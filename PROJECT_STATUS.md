@@ -169,8 +169,9 @@ animations, as `theme.ts` is for colour. Screens never write their own timings.
 
     duration   instant 70 · fast 140 · normal 220 · slow 320 · celebration 600
     easing     standard · enter · exit · spring
+    emphasis   soft 1.035 · strong 1.08
     hooks      useReducedMotion · usePressScale · useEntrance · useShake
-               usePulse · useCountUp · useProgressScale
+               usePulse · useCountUp · useProgressScale · useEarned
 
 Two rules hold everywhere:
 
@@ -197,35 +198,93 @@ pattern, never `Error`.
 | Progress bar | Travels to its new value |
 | Session end | Three staggered parts, numbers count up, stronger headline and haptic for a perfect session |
 | Home screen | Assembles top-down, then stops |
+| Answer runs | `3\u00D7 in a row` from three; no haptic, no pulse — the smallest reward in the app |
+| XP and level | The earned figure counts up; the span beside it does not |
+| Achievements | Strong pulse + haptic on the false-to-true edge only |
+| Streaks | Milestones at 3, 7, 14, 30, 50, 100 days; silent between them |
+| Choices | Shared `Selectable`: press scale, selection haptic, edge acknowledgement |
+| Lesson list | Staggered by position |
+| Coach | Three breathing dots while a reply is in flight, fade on arrival |
+| Loading | Skeleton in the shape of a question, shimmer on opacity only |
+| Empty states | Keyed on their message, so a second fruitless search re-announces |
+
+**The reward hierarchy is the point**, not the individual animations. A run of
+correct answers is almost silent; a correct answer pulses softly; a finished
+session staggers and counts; a perfect one changes the headline and the haptic;
+a badge or a streak milestone pulses strongly and buzzes. `usePulse` takes a
+named strength precisely so this cannot drift into everything being equally
+exciting, which is the same as nothing being.
+
+**`useEarned` fires on edges, never on render.** Opening the profile does not
+replay achievements the learner already had, and arriving at a screen with a
+choice already made is silent. Re-announcing an old decision is noise.
+
+### Sound and measurement — built, deliberately not switched on
+
+**`src/sound.ts`** mirrors `haptics.ts` in shape: five cues, a `Player`
+interface, and no player registered, so every call is a no-op. No audio library
+is a dependency. `preferences.sound` already defaulted to off and still does —
+a setting that promises a sound it cannot play is worse than no setting. What
+this buys is that adding assets later touches one file.
+
+**`src/analytics.ts`** records the learning funnel only: lesson started,
+completed or abandoned, review started, streak extended, achievement unlocked.
+Abandonment is detected on unmount when a started session never reached its
+summary, so the wiring is real rather than decorative. **No sink is installed,
+so nothing leaves the device.** There is no event for what was answered, which
+word it was, or how long anyone hesitated — these describe a flow, not a
+person. Installing a sink belongs in a privacy notice before it belongs in
+code.
+
+Without it, every future claim about whether a change helped is taste. "The
+animations feel better" cannot be checked; "more sessions reach their summary"
+can.
 
 ### What remains
 
 * **Master Fuka has no animated states.** The mascot exists in the web
-  prototype only; the mobile app has no asset. `Reveal` and the haptic levels
-  are the hooks a future mascot would use — nothing was faked in the meantime.
-* **No sound.** A `sound` preference is stored and defaults **off**; there are
-  no audio assets. A setting that promises a sound it cannot play is worse than
-  no setting.
-* **No XP-fly-to-counter animation.** The core has real XP (`xpFor`,
-  `totalXp`, `levelFor`), but the session screen does not yet show a running
-  XP total to fly toward, and inventing one would be a feature, not polish.
-* **No streak or daily-goal animation.** `streak()` is real data and the
-  profile shows it; neither is on the lesson path yet.
-* **No course-map or unlock animation.** The lesson list is a flat list, not a
-  map, so there is no locked→unlocked transition to animate.
-* **Achievements are listed, not celebrated.** `achievements()` and `earned()`
-  exist; nothing watches for the moment one is first earned.
-* **No analytics events.** `lesson_started`, `lesson_completed` and the rest
-  are not emitted anywhere; there is no analytics layer to emit them to.
+  prototype only; the mobile app has no asset. `Reveal`, `usePulse` and the
+  haptic levels are the hooks a future mascot would use — nothing was faked in
+  the meantime.
+* **No audio assets.** `src/sound.ts` is the architecture; the five cues have
+  nothing to play and the preference stays off until they do.
+* **No XP flying to a counter.** The core has real XP (`xpFor`, `totalXp`,
+  `levelFor`) and the profile animates it, but the session screen shows no
+  running XP total to fly toward. Adding one is a feature, not polish.
+* **There is no daily goal.** `preferences.dailyGoal` is the *length of a
+  session*, not a daily XP target, so there is nothing to fill. Building a
+  daily-goal system would be a new retention mechanic rather than motion work,
+  and §30's near-goal messages are therefore driven by level XP instead, where
+  the data is real.
+* **No course map, so no unlock animation.** The lesson list is a flat list.
+  Rows now arrive staggered, but there is no locked→unlocked transition
+  because nothing is locked.
+* **No unit or CEFR-level celebration.** The reward hierarchy stops at a
+  perfect session; the course has no unit boundary to fire on.
+* **Analytics has no sink**, by choice. The events are emitted; nothing
+  receives them.
+* **Never run on a physical device.** Everything below was verified through the
+  web export in Chromium at phone width. Whether these animations hold frame
+  rate on a cheap Android phone is unknown, and that is the single biggest
+  open question about all of it.
 
 ### Known animation issues
 
 * `useCountUp` drives its value through a JS listener, because a number has to
   reach JavaScript to be rendered as text. It runs for a fraction of a second,
   once, on the results screen — never during a lesson.
-* Verified in a browser at 420×900, normal and reduced motion: a 21-answer
-  session, no console errors, no blocking, slowest answer round trip 316ms
-  normal / 113ms reduced. Not yet verified on a physical device — see §4.
+* `useCountUp` on the profile now runs on a screen the learner may scroll while
+  it animates. It is capped at `duration.normal` there rather than
+  `celebration`, so it is over before a scroll could fight it.
+* `Thinking` and `Skeleton` both run `Animated.loop`. Both stop on unmount and
+  neither starts at all under reduced motion, but a loop is a timer: if either
+  is ever rendered in a list, that needs checking again.
+* Verified in Chromium at 390×844, normal and reduced motion: every tab
+  renders, a full session with correct answers driven from the shipped corpus
+  (12 consecutive correct, the run badge appearing at 3 and climbing to 12,
+  nothing at 1 or 2), three simultaneous taps on one answer rejected as a
+  single submission, no console errors in either mode.
+* Not yet verified on a physical device — see “What remains”.
 
 ### Future asset requirements
 

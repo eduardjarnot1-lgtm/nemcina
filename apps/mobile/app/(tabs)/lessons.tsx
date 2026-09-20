@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { lessonStatus, type Lesson } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { LessonRow } from '../../src/components/LessonRow';
+import { Selectable } from '../../src/components/Selectable';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
 import { usePreferences } from '../../src/preferences';
@@ -81,9 +82,10 @@ export default function LessonsScreen() {
         keyExtractor={(lesson: Lesson) => lesson.id}
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <LessonRow
             lesson={item}
+            index={index}
             status={lessonStatus(item, records)}
             onPress={() => router.push(`/session/${encodeURIComponent(item.id)}`)}
           />
@@ -95,14 +97,9 @@ export default function LessonsScreen() {
 
 function Choice({ label, active, onPress }: { label: string; active: boolean; onPress: () => void }) {
   return (
-    <Pressable
-      accessibilityRole="button"
-      accessibilityState={{ selected: active }}
-      onPress={onPress}
-      style={[styles.choice, active && styles.choiceActive]}
-    >
+    <Selectable selected={active} onPress={onPress} style={[styles.choice, active && styles.choiceActive]}>
       <Text style={[styles.choiceLabel, active && styles.choiceLabelActive]}>{label}</Text>
-    </Pressable>
+    </Selectable>
   );
 }
 

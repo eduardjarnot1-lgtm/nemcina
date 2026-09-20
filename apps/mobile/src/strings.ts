@@ -93,6 +93,10 @@ export const strings = {
 
   levelTitle: 'Level',
   levelProgress: (into: number, span: number) => `${into} / ${span} XP`,
+  // Shown only when it is true, and it says what is left rather than urging.
+  levelAlmost: (xp: number) => `${xp} XP to the next level`,
+  streakBest: (days: number) => `best ${days}`,
+  combo: (run: number) => `${run}\u00D7 in a row`,
   achievementsTitle: 'Achievements',
   achievementsEarned: (count: number, total: number) => `${count} of ${total}`,
   achievementNames: {

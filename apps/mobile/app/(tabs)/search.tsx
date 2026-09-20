@@ -2,6 +2,7 @@ import { useDeferredValue, useMemo, useState } from 'react';
 import { FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
 import type { SearchHit } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
+import { EmptyState } from '../../src/components/EmptyState';
 import { Card } from '../../src/components/Card';
 import { SpeakButton } from '../../src/components/SpeakButton';
 import { useCourse } from '../../src/course';
@@ -39,9 +40,9 @@ export default function SearchScreen() {
         clearButtonMode="while-editing"
       />
       {deferred.trim().length < 2 ? (
-        <Text style={styles.hint}>{strings.searchEmpty}</Text>
+        <EmptyState message={strings.searchEmpty} />
       ) : hits.length === 0 ? (
-        <Text style={styles.hint}>{strings.searchNoResults}</Text>
+        <EmptyState message={strings.searchNoResults} />
       ) : (
         <FlatList
           data={hits}

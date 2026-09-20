@@ -175,24 +175,62 @@ export function useShake() {
 }
 
 /**
- * One soft pulse, for a correct answer.
+ * How much a pulse is worth.
  *
- * Up and back in under a fifth of a second. Anything longer and the learner is
- * waiting on applause instead of answering the next question.
+ * The whole point of having names here is that the app cannot reward a correct
+ * answer as loudly as a finished course. `soft` happens many times a minute and
+ * has to stay almost unnoticed; `strong` is for something a learner earned once
+ * and will not see again for days. Scattering raw scale values through screens
+ * is how every event ends up equally exciting, which is the same as none of
+ * them being.
  */
-export function usePulse() {
+export const emphasis = {
+  soft: 1.035,
+  strong: 1.08,
+} as const;
+
+export type Emphasis = keyof typeof emphasis;
+
+/**
+ * One pulse, for something that just went right.
+ *
+ * Up and back in under a fifth of a second at `soft`. Anything longer and the
+ * learner is waiting on applause instead of answering the next question. A
+ * `strong` pulse is slower because it is allowed to be: it is reserved for
+ * things that happen once a lesson or less.
+ */
+export function usePulse(strength: Emphasis = 'soft') {
   const reduced = useReducedMotion();
   const scale = useRef(new Animated.Value(1)).current;
+  const to = emphasis[strength];
+  const settle = strength === 'strong' ? duration.normal : duration.fast;
 
   const pulse = useCallback(() => {
     if (reduced) return;
     Animated.sequence([
-      timing(scale, { toValue: 1.035, duration: duration.instant, easing: easing.enter }),
-      timing(scale, { toValue: 1, duration: duration.fast, easing: easing.spring }),
+      timing(scale, { toValue: to, duration: duration.instant, easing: easing.enter }),
+      timing(scale, { toValue: 1, duration: settle, easing: easing.spring }),
     ]).start();
-  }, [reduced, scale]);
+  }, [reduced, scale, to, settle]);
 
   return { pulse, style: { transform: [{ scale }] } };
+}
+
+/**
+ * Fires once, when something stops being false.
+ *
+ * An achievement is earned at the moment a lesson pushes the count over the
+ * line, and that is the only moment worth marking. This watches a boolean and
+ * calls back on the false-to-true edge only — never on mount, so opening the
+ * profile does not replay every badge the learner already has. That would be
+ * celebrating the past, which is noise.
+ */
+export function useEarned(done: boolean, onEarned: () => void) {
+  const was = useRef(done);
+  useEffect(() => {
+    if (done && !was.current) onEarned();
+    was.current = done;
+  }, [done, onEarned]);
 }
 
 /**

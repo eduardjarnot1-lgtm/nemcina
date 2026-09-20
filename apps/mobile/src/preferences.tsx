@@ -13,6 +13,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CEFR_LEVELS, type CefrLevel } from '@nemcina/core';
 import { setHapticsEnabled } from './haptics';
+import { setSoundEnabled } from './sound';
 
 const KEY = 'nemcina:preferences:v1';
 
@@ -85,6 +86,9 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
   // screen, so a button deep in a lesson does not need the preferences context
   // just to know whether it may buzz.
   useEffect(() => { setHapticsEnabled(preferences.haptics); }, [preferences.haptics]);
+  // Same for sound, which currently has no player registered and so does
+  // nothing at all. Wiring it now means adding the assets touches one file.
+  useEffect(() => { setSoundEnabled(preferences.sound); }, [preferences.sound]);
 
   useEffect(() => {
     let cancelled = false;
