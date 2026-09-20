@@ -10,6 +10,27 @@ GitHub je jediný společný zdroj pravdy pro projekt. Každá změna musí být
 4. Claude provádí nezávislou revizi pull requestu: chyby, bezpečnost, srozumitelnost a chybějící testy.
 5. Po zapracování připomínek se pull request sloučí do `main`.
 
+## Jedna aplikace, jedna adresa
+
+Všechno, co vlastník vidí, běží na **jedné adrese**:
+
+> https://eduardjarnot1-lgtm.github.io/nemcina/
+
+Staví se z `apps/mobile` při každém pushi do `main`. **Veškerá práce patří do
+té aplikace.** Pokyn vlastníka, 2026-09-20.
+
+Upravuj tedy to, co tu nasazenou aplikaci zlepší: `apps/mobile` (aplikace),
+`packages/core` (motor), `app/data` a `app/tools` (korpus a pipeline),
+`.github/workflows/deploy-pages.yml` (nasazení).
+
+**Neupravuj `app/index.html` ani `app/src/`.** To je původní webový prototyp.
+Je zamrazený, nikde se nepublikuje a oprava v něm se k nikomu nedostane —
+adresář přežívá jen proto, že vedle něj leží `app/data` a `app/tools`. Když je
+něco špatně v prototypu, řeší se to v `apps/mobile`.
+
+Aplikaci nepublikuj nikam jinam. Druhý hosting ani ruční export jen vrátí
+rozcházení, kvůli kterému ta jediná adresa vznikla.
+
 ## Pravidla pro agenty
 
 - Neměň `main` přímo.
