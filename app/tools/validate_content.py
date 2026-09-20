@@ -59,10 +59,20 @@ def looks_like_a_sentence(word: dict) -> bool:
     itself punctuated is left alone, and a short gloss is never flagged. What it
     catches is the long, full-stopped, question-marked English that belongs to
     an example sentence.
+
+    The C1 list adds a second legitimate shape: a phrase frame with a gap in
+    it, such as *Ziel dieser Arbeit ist es, ...* — "the aim of this paper is to
+    ...". The gloss is long and ends in a stop because the headword is itself a
+    fragment, not because a sentence was pasted into the wrong column. A
+    headword carrying an ellipsis is therefore exempt, and that exemption
+    cannot re-admit the bug this exists for: *Alphabet* has no ellipsis, and
+    neither did any of the 1 293 cards that were glossed with their example.
     """
     meaning = (word.get("translation") or "").strip()
     german = (word.get("word") or "").strip()
     if not meaning or german.endswith("!") or german.endswith("?"):
+        return False
+    if "..." in german or "\u2026" in german:
         return False
     if not re.search(r"[.?!]$", meaning):
         return False

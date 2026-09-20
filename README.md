@@ -11,7 +11,7 @@ každém pushu se sama přestaví a nasadí, nic se nepublikuje ručně. Odkazy
 uvnitř fungují, takže `…/nemcina/grammar` si můžeš uložit a vrátit se rovnou
 tam.
 
-Obsah: **2 758 slovíček** A1–B2 (A1 600 · A2 854 · B1 983 · B2 321) a
+Obsah: **5 484 slovíček** A1–C1 (A1 600 · A2 854 · B1 983 · B2 1 774 · C1 1 273) a
 **136 gramatických témat** A1–C1 včetně vlastní sekce B2, opakování podle
 FSRS-5, personalizované lekce, umístňovací test, kouč a účet přes Firebase.
 
@@ -54,7 +54,8 @@ který před nasazením projde dvěma branami:
 ## Původ obsahu a licence
 
 Slovní zásoba **nepatří nikomu jinému** — celý korpus vznikl ze čtyř seznamů
-sestavených pro tento projekt (3 000 vstupů → 2 758 karet).
+sestavených pro tento projekt (6 000 vstupů → 5 484 karet). C1 je zatím
+neúplné — dodány byly tři části ze čtyř, tedy 1 500 z 2 000 hesel.
 
 Gramatika je jiný případ a **je to zbývající licenční překážka**: 121 ze 136
 témat pochází z učebnic Klett a Hueber, doslovně (build doslovnost přímo

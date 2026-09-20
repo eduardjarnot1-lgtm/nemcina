@@ -6,10 +6,18 @@ Usage:
       --level A1 --expect 600 --out clean-a1-source.json
   python3 extract_clean_vocabulary.py --json German_Vocabulary_B1_1000.json \
       --level B1 --expect 1000 --out clean-b1-source.json
+  python3 extract_clean_vocabulary.py --json part1of3.json part2of3.json part3of3.json \
+      --level B2 --expect 1500 --out clean-b2-source.json
 
-One list was supplied as JSON rather than as a PDF. It is read and checked the
-same way and reduced to the same shape, so the build sees one kind of source
-and the difference stops at this file.
+Some lists are supplied as JSON rather than as a PDF. They are read and checked
+the same way and reduced to the same shape, so the build sees one kind of
+source and the difference stops at this file.
+
+A long list may arrive split across several files. They are read in the order
+given and checked as one list, so a headword repeated across two parts is
+caught exactly as it would be within one. Concatenating them by hand outside
+this script would skip that check, which is the whole reason --json takes more
+than one path.
 
 These lists were composed for this project rather than taken from a course, so
 they are the ones that carry no licensing question. They use the same generated
@@ -222,21 +230,31 @@ def parse(pdf: Path, level: str):
     return entries, topics, problems
 
 
-def from_json(path: Path, level: str):
-    """A list supplied as JSON rather than as a PDF.
+def from_json(paths: list[Path], level: str):
+    """A list supplied as JSON rather than as a PDF, in one file or several.
 
     It arrives already close to a card, so this only pulls out the fields the
     build uses and checks that each one is actually there. Its topic sits in
     the entry's own `categories`, Czech name and English label, which is the
     same pair the PDFs print in their headings.
-    """
-    payload = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(payload, list):
-        return [], [], [f"{path.name}: expected a list of entries"]
 
+    Parts are read in the order given and returned as one list, so every check
+    downstream — the repeated-headword check especially — sees the whole thing
+    rather than one part at a time.
+    """
     entries: list[dict] = []
     topics: list[dict] = []
     problems: list[str] = []
+
+    payload: list = []
+    for path in paths:
+        part = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(part, list):
+            problems.append(f"{path.name}: expected a list of entries")
+            continue
+        payload += part
+    if problems:
+        return [], [], problems
 
     for index, raw in enumerate(payload, start=1):
         where = raw.get("word") or f"entry {index}"
@@ -281,7 +299,7 @@ def from_json(path: Path, level: str):
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pdf", type=Path)
-    parser.add_argument("--json", dest="json_path", type=Path)
+    parser.add_argument("--json", dest="json_path", type=Path, nargs="+")
     parser.add_argument("--level", required=True)
     parser.add_argument("--expect", type=int, default=0)
     parser.add_argument("--out", required=True, type=Path)
@@ -289,9 +307,9 @@ def main() -> int:
 
     if bool(args.pdf) == bool(args.json_path):
         raise SystemExit("give exactly one of --pdf or --json")
-    supplied = args.pdf or args.json_path
-    if not supplied.exists():
-        raise SystemExit(f"no such file: {supplied}")
+    for supplied in ([args.pdf] if args.pdf else args.json_path):
+        if not supplied.exists():
+            raise SystemExit(f"no such file: {supplied}")
 
     if args.pdf:
         entries, topics, problems = parse(args.pdf, args.level)
