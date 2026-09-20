@@ -10,6 +10,8 @@ import { strings } from '../strings';
 import { palette, spacing, type as typeScale } from '../theme';
 import { Card } from './Card';
 import { PrimaryButton } from './PrimaryButton';
+import { Thinking } from './Thinking';
+import { Animated, useEntrance } from '../motion';
 
 /**
  * What one piece of advice says, in the interface language.
@@ -87,7 +89,9 @@ export function CoachPanel() {
     <Card style={styles.block}>
       <Text style={styles.title}>{strings.coachTitle}</Text>
 
-      {text ? <Text style={styles.spoken}>{text}</Text> : null}
+      {/* The waiting state sits where the answer will appear, so the reply
+          arrives in place rather than pushing the panel around. */}
+      {busy ? <Thinking /> : text ? <Spoken text={text} /> : null}
 
       <Text style={styles.source}>{strings.coachFromYourRecords}</Text>
       {advice.map((entry) => (
@@ -116,6 +120,18 @@ export function CoachPanel() {
       )}
     </Card>
   );
+}
+
+/**
+ * The coach's own sentence, fading in when it arrives.
+ *
+ * Only the arrival is animated — the text is not revealed word by word. The
+ * model is not slowed down to look thoughtful; if the reply is ready it is
+ * readable immediately.
+ */
+function Spoken({ text }: { text: string }) {
+  const entrance = useEntrance(text);
+  return <Animated.Text style={[styles.spoken, entrance]}>{text}</Animated.Text>;
 }
 
 const styles = StyleSheet.create({

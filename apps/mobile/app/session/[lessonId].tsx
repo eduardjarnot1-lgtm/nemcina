@@ -13,6 +13,8 @@ import { PrimaryButton } from '../../src/components/PrimaryButton';
 import { ProgressBar } from '../../src/components/ProgressBar';
 import { SpeakButton } from '../../src/components/SpeakButton';
 import { AnswerOption } from '../../src/components/AnswerOption';
+import { ComboBadge } from '../../src/components/ComboBadge';
+import { Skeleton } from '../../src/components/Skeleton';
 import { SessionComplete } from '../../src/components/SessionComplete';
 import { Animated, useEntrance, usePulse, useShake } from '../../src/motion';
 import { haptic } from '../../src/haptics';
@@ -47,6 +49,9 @@ export default function SessionScreen() {
   const [outcome, setOutcome] = useState<AnswerOutcome | null>(null);
   const [typed, setTyped] = useState('');
   const [hintShown, setHintShown] = useState(false);
+  // Consecutive correct answers. Presentation only — the session's own queue,
+  // grading and scheduling never read it.
+  const [run, setRun] = useState(0);
   // The session is a mutable object, so React has to be told when it moved.
   const [, bump] = useState(0);
 
@@ -90,6 +95,7 @@ export default function SessionScreen() {
     // The feel goes out before the write: the learner should know the moment
     // they know, not once storage has caught up.
     haptic(result.verdict.correct ? 'success' : 'warning');
+    setRun((previous) => (result.verdict.correct ? previous + 1 : 0));
     await save(result.progress, result.attempt);
   }, [session, outcome, hintShown, save]);
 
@@ -103,7 +109,11 @@ export default function SessionScreen() {
   if (!session) {
     return (
       <Screen>
-        <Text style={styles.loading}>{strings.loading}</Text>
+        {/* The shape of a question, so the screen does not jump when the real
+            one arrives a frame later. */}
+        <View style={styles.loading}>
+          <Skeleton lines={4} />
+        </View>
       </Screen>
     );
   }
@@ -138,6 +148,7 @@ export default function SessionScreen() {
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
         <ProgressBar value={position.total === 0 ? 0 : position.index / position.total} />
+        <ComboBadge run={run} />
 
         <ScrollView
           contentContainerStyle={styles.content}
@@ -290,7 +301,7 @@ function Feedback({
 const styles = StyleSheet.create({
   questionBody: { gap: spacing.md },
   flex: { flex: 1 },
-  loading: { ...typeScale.caption, color: palette.textMuted, padding: spacing.md },
+  loading: { paddingVertical: spacing.lg },
   content: { paddingVertical: spacing.lg, gap: spacing.md },
   centre: { flex: 1, justifyContent: 'center', gap: spacing.md },
   prompt: { ...typeScale.caption, color: palette.textMuted },
