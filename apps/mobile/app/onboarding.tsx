@@ -3,6 +3,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { Screen } from '../src/components/Screen';
 import { Card } from '../src/components/Card';
+import { Selectable } from '../src/components/Selectable';
 import { PrimaryButton } from '../src/components/PrimaryButton';
 import { GOAL_CHOICES, usePreferences } from '../src/preferences';
 import { strings } from '../src/strings';
@@ -38,10 +39,9 @@ export default function OnboardingScreen() {
           <Text style={styles.heading}>{strings.welcomeGoalTitle}</Text>
           <View style={styles.choices}>
             {GOAL_CHOICES.map((choice) => (
-              <Pressable
+              <Selectable
                 key={choice}
-                accessibilityRole="button"
-                accessibilityState={{ selected: choice === goal }}
+                selected={choice === goal}
                 onPress={() => setGoal(choice)}
                 style={[styles.choice, choice === goal && styles.choiceActive]}
               >
@@ -51,7 +51,7 @@ export default function OnboardingScreen() {
                 <Text style={[styles.choiceLabel, choice === goal && styles.choiceActiveText]}>
                   {GOAL_LABELS[choice]}
                 </Text>
-              </Pressable>
+              </Selectable>
             ))}
           </View>
           <Text style={styles.note}>{strings.welcomeGoalNote}</Text>
