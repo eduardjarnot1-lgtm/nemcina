@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import {
   KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, View,
 } from 'react-native';
@@ -15,6 +15,7 @@ import { SpeakButton } from '../../src/components/SpeakButton';
 import { AnswerOption } from '../../src/components/AnswerOption';
 import { ComboBadge } from '../../src/components/ComboBadge';
 import { Skeleton } from '../../src/components/Skeleton';
+import { track } from '../../src/analytics';
 import { SessionComplete } from '../../src/components/SessionComplete';
 import { Animated, useEntrance, usePulse, useShake } from '../../src/motion';
 import { haptic } from '../../src/haptics';
@@ -75,15 +76,41 @@ export default function SessionScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lessonId, lessonsById, repository]);
 
+  // The funnel, recorded at the two moments that define it: a session that
+  // began, and a session that did not reach its summary. `track` has no sink
+  // installed, so none of this leaves the device — see src/analytics.ts.
+  const started = useRef(false);
+  const finishedRef = useRef(false);
+  const answeredRef = useRef(0);
+  const plannedRef = useRef(0);
+
+  useEffect(() => () => {
+    // On unmount: if the session began and never finished, it was abandoned.
+    if (started.current && !finishedRef.current) {
+      track({
+        name: 'lesson_abandoned',
+        answered: answeredRef.current,
+        items: plannedRef.current,
+      });
+    }
+  }, []);
+
   useEffect(() => {
     if (!ready || session) return;
     // The session is as long as the learner said a session should be. New
     // items stay a minority of it so review work is never crowded out.
     const total = preferences.dailyGoal;
-    setSession(StudySession.plan(LOCAL_USER, plan.items, records, {
+    const planned = StudySession.plan(LOCAL_USER, plan.items, records, {
       pool: plan.pool,
       mix: { total, maxNew: Math.max(3, Math.round(total * 0.4)), maxMaintenance: 1 },
-    }));
+    });
+    setSession(planned);
+    started.current = true;
+    plannedRef.current = planned.position.total;
+    const id = decodeURIComponent(String(lessonId ?? ''));
+    track(id === REVIEW
+      ? { name: 'review_started', due: planned.position.total }
+      : { name: 'lesson_started', lessonId: id, items: planned.position.total });
     // Same reason as above: built once, when progress has loaded.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, session, plan]);
@@ -96,6 +123,7 @@ export default function SessionScreen() {
     // they know, not once storage has caught up.
     haptic(result.verdict.correct ? 'success' : 'warning');
     setRun((previous) => (result.verdict.correct ? previous + 1 : 0));
+    answeredRef.current += 1;
     await save(result.progress, result.attempt);
   }, [session, outcome, hintShown, save]);
 
@@ -130,6 +158,14 @@ export default function SessionScreen() {
   }
 
   if (session.finished && !outcome) {
+    if (!finishedRef.current) {
+      finishedRef.current = true;
+      track({
+        name: 'lesson_completed',
+        items: session.summary.itemsStudied,
+        accuracy: session.summary.accuracy,
+      });
+    }
     return (
       <Screen>
         <SessionComplete summary={session.summary} onDone={() => router.back()} />
