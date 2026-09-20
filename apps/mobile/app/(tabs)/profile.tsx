@@ -10,6 +10,8 @@ import { LevelPanel } from '../../src/components/LevelPanel';
 import { useProgress } from '../../src/progress';
 import { strings } from '../../src/strings';
 import { palette, spacing, type as typeScale } from '../../src/theme';
+import { StreakRow } from '../../src/components/StreakRow';
+import { Reveal } from '../../src/components/Reveal';
 
 export default function ProfileScreen() {
   const { records, clear } = useProgress();
@@ -36,14 +38,14 @@ export default function ProfileScreen() {
           <Row label={strings.wordsLearned} value={summary.learned} />
           <Row label={strings.wordsMastered} value={summary.mastered} />
           <Row label={strings.dueToday} value={summary.due} />
-          <Row label={strings.streak} value={days.current} />
+          <StreakRow days={days.current} longest={days.longest} />
         </Card>
 
-        <LevelPanel />
+        <Reveal index={1}><LevelPanel /></Reveal>
 
-        <LearningPanel />
+        <Reveal index={2}><LearningPanel /></Reveal>
 
-        <AccountPanel />
+        <Reveal index={3}><AccountPanel /></Reveal>
 
         <Card style={styles.block}>
           <Text style={styles.blockTitle}>{strings.profileSources}</Text>
