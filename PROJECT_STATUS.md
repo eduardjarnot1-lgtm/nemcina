@@ -35,23 +35,26 @@ flagged for a human.
 
 | | Count | Provenance |
 |---|---|---|
-| Vocabulary cards | 4 646 | OCR GCSE list + Goethe A1/A2/B1 Wortlisten + Lingster A1–B2 |
-| — levelled by a word list | 4 055 | a source's statement |
-| — levelled by tier approximation | 591 | labelled "approx." everywhere it appears |
-| Grammar topics | 121 | DaF kompakt (87), Sicher! C1 (32), CC BY-NC gap-fill (2) |
-| Grammar exercises | 615 | |
-| CEFR headwords with sources | 4 442 | |
-| Frequency-ranked forms | 2 586 | OpenSubtitles corpus |
+| Vocabulary cards | 5 484 | six lists written for this project |
+| — levelled by a word list | 5 484 | every list states the level of its own words |
+| — levelled by tier approximation | 0 | the fallback the GCSE list needed; nothing uses it now |
+| Grammar topics | 136 | DaF kompakt (87), Sicher! C1 (32), written here (15), CC BY-NC gap-fill (2) |
+| Grammar exercises | 690 | |
+| Frequency-ranked forms | 2 586 | OpenSubtitles corpus, rank only |
 
-Levels: **A1 812 · A2 1 239 · B1 2 082 · B2 513** — 54, 83, 139 and 34 lessons
-respectively, plus 138 lessons cut by topic category. 448 lessons in all. C1 has grammar only, no
-vocabulary. C2 has nothing and says so — no level claims completeness it does
-not have (spec §2).
+Levels: **A1 600 · A2 854 · B1 983 · B2 1 774 · C1 1 273** — 40, 57, 66, 118 and
+85 level lessons respectively, plus lessons cut by topic category. C2 has
+nothing and says so — no level claims completeness it does not have (spec §2).
+
+**C1 vocabulary is new and incomplete.** Three of four supplied parts are in:
+1 500 of an announced 2 000 headwords, missing `clean-c1-0001`–`0500`. Adding
+the fourth part is one more path on the extractor command and a rebuild.
 
 The Python pipeline is reproducible and refuses to build on bad input: a grammar
-example that does not occur verbatim in its own source text fails the build, and
-the CEFR importer refuses below a 75 % verification rate against the official
-PDFs.
+example that does not occur verbatim in its own source text fails the build, an
+extractor writes nothing unless every entry parses and the count matches
+`--expect`, and `validate_content.py` fails on any card carrying a third-party
+translation source.
 
 ### `packages/core` — new this session
 
@@ -478,7 +481,7 @@ git clone https://github.com/eduardjarnot1-lgtm/nemcina /home/user/nemcina
 cd /home/user/nemcina
 npm install
 npm test --workspaces                      # 394 tests
-python3 app/tools/validate_content.py      # 86 264 checks
+python3 app/tools/validate_content.py      # 165 695 checks
 python3 -m http.server 8000                # then http://localhost:8000/app/
 
 cd apps/mobile && EXPO_OFFLINE=1 npx expo start   # the mobile app

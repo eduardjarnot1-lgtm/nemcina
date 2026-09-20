@@ -56,8 +56,9 @@ CEFR_NOTE = (
     "in more than one list is filed at the lowest of them."
 )
 
-LEVELS_ORDER = ["A1", "A2", "B1", "B2"]
-LEVEL_EMOJI = {"A1": "\U0001F331", "A2": "\U0001F33F", "B1": "\U0001F333", "B2": "\U0001F332"}
+LEVELS_ORDER = ["A1", "A2", "B1", "B2", "C1"]
+LEVEL_EMOJI = {"A1": "\U0001F331", "A2": "\U0001F33F", "B1": "\U0001F333",
+               "B2": "\U0001F332", "C1": "\U0001F5FB"}
 
 # level -> (source file, category id, category name, category emoji)
 SOURCES = [
@@ -65,6 +66,13 @@ SOURCES = [
     ("A2", "clean-a2-source.json", "a2topics", "A2 topics", "\U0001F33F"),
     ("B1", "clean-b1-source.json", "b1topics", "B1 topics", "\U0001F333"),
     ("B2", "b2-vocabulary-source.json", "b2topics", "B2 topics", "\U0001F332"),
+    # A second B2 list, written for this project like the others. The two are
+    # almost disjoint — 14 headwords in common out of 1 986 — so both are kept
+    # and the overlap merges the way any repeat across lists does. They share a
+    # category id on purpose: a learner browsing B2 should see one B2, not two
+    # lists that happen to have arrived separately.
+    ("B2", "clean-b2-source.json", "b2topics", "B2 topics", "\U0001F332"),
+    ("C1", "clean-c1-source.json", "c1topics", "C1 topics", "\U0001F5FB"),
 ]
 
 WORD_TYPES = [
@@ -203,22 +211,34 @@ def merge_same_word(word_list: list[dict]) -> tuple[list[dict], int]:
     glosses "orange (fruit)" and "orange" name different things.
     """
     keep: list[dict] = []
-    by_word: dict[tuple[str, str, str], dict] = {}
+    # A list per key, not one card per key. Three lists can teach one word: an
+    # earlier build compared each new card only against the most recent one
+    # with the same key, so a card that failed to merge replaced the card
+    # before it and hid it from everything after. With abwägen taught at B1,
+    # B2 and C1 that lost a real merge — B1 "to weigh up" and C1 "to weigh up /
+    # consider carefully" never met, because the B2 gloss sat between them and
+    # shares a sense with neither.
+    by_word: dict[tuple[str, str, str], list[dict]] = {}
     merged = 0
     for word in word_list:
         key = (word["word"], word["article"], word["type"])
-        first = by_word.get(key)
-        if first is not None and senses(first["translation"]) & senses(word["translation"]):
+        earlier = by_word.setdefault(key, [])
+        target = next(
+            (card for card in earlier
+             if senses(card["translation"]) & senses(word["translation"])),
+            None,
+        )
+        if target is not None:
             for placement in word["categories"]:
-                if placement not in first["categories"]:
-                    first["categories"].append(placement)
+                if placement not in target["categories"]:
+                    target["categories"].append(placement)
             # Keep whichever gloss names more senses; it is the more useful card
             # and neither list is more authoritative than the other.
-            if len(senses(word["translation"])) > len(senses(first["translation"])):
-                first["translation"] = word["translation"]
+            if len(senses(word["translation"])) > len(senses(target["translation"])):
+                target["translation"] = word["translation"]
             merged += 1
             continue
-        by_word[key] = word
+        earlier.append(word)
         keep.append(word)
     return keep, merged
 

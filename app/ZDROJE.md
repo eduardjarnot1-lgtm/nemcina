@@ -17,11 +17,21 @@ překlad i příkladová věta s překladem vznikly zde.
 | Slovní zásoba A2 (900 hesel, 15 témat) | *German Vocabulary — Level A2*, sestaveno pro tento projekt | vlastní obsah |
 | Slovní zásoba B1 (1 000 hesel, 18 témat) | *German Vocabulary — Level B1*, sestaveno pro tento projekt | vlastní obsah |
 | Slovní zásoba B2 (500 hesel, 25 témat) | *German Vocabulary — Level B2*, sestaveno pro tento projekt | vlastní obsah |
+| Slovní zásoba B2 (1 500 hesel, 20 témat) | *German Vocabulary — B2 1500*, 3 části, sestaveno pro tento projekt | vlastní obsah |
+| Slovní zásoba C1 (1 500 hesel, 15 témat) | *German Vocabulary — C1 2000*, části 2–4, sestaveno pro tento projekt | vlastní obsah |
 | Gramatika B2 (15 témat) | *Deutsche Grammatik – Niveau B2*, díl 1 a 2, sestaveno pro tento projekt | vlastní obsah |
 | Frekvence slov | hermitdave/FrequencyWords (korpus OpenSubtitles) | otevřená licence, jen doplňuje pořadí |
 
-Po sloučení hesel, která se opakují na více úrovních, z 3 000 vstupních
-záznamů vznikne **2 758 karet**: A1 600 · A2 854 · B1 983 · B2 321.
+Po sloučení hesel, která se opakují na více úrovních, z 6 000 vstupních
+záznamů vznikne **5 484 karet**: A1 600 · A2 854 · B1 983 · B2 1 774 · C1 1 273.
+
+**C1 je neúplné.** Dodány byly části 2, 3 a 4 ze čtyř, tedy 1 500 z ohlášených
+2 000 hesel; část 1 (`clean-c1-0001`–`0500`) zatím chybí. Až dorazí, stačí ji
+přidat do stejného příkazu extraktoru a korpus přestavět — nic dalšího se
+neměří ani neupravuje.
+
+Dva seznamy B2 stojí vedle sebe záměrně: mají společných jen 14 hesel z 1 986,
+takže je to jedna úroveň ze dvou téměř disjunktních seznamů, ne duplicita.
 
 ### Co bylo odstraněno
 

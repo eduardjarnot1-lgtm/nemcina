@@ -187,10 +187,14 @@ describe('the importer reads the real pipeline output', () => {
       }
       // Interjections really are glossed with exclamations — Prost! means
       // "Cheers!" — so a punctuated German side is exempt, and short glosses
-      // are never flagged.
+      // are never flagged. So is a phrase frame with a gap in it: the C1 list
+      // teaches "Ziel dieser Arbeit ist es, ..." whose gloss is long and ends
+      // in a stop because the headword is itself a fragment. Neither exemption
+      // can re-admit the bug — Alphabet carries no punctuation and no ellipsis.
       const german = entry.term.trim();
       const meaning = entry.translation.trim();
       if (german.endsWith('!') || german.endsWith('?')) continue;
+      if (german.includes('...') || german.includes('\u2026')) continue;
       if (!/[.?!]$/.test(meaning)) continue;
       if (abbreviations.some((a) => meaning.toLowerCase().endsWith(a))) continue;
       assert.ok(meaning.split(/\s+/).length < 6,
