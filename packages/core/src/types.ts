@@ -117,6 +117,27 @@ export interface GrammarTable {
   readonly rows: readonly (readonly string[])[];
 }
 
+export interface GrammarComparisonRow {
+  /** What is being compared — "Verb position", "Meaning". */
+  readonly aspect: string;
+  readonly left: string;
+  readonly right: string;
+}
+
+/**
+ * Two structures learners confuse, set against each other.
+ *
+ * Written for this project, and a weaker claim than a paradigm table: a
+ * declension is a closed system anyone can check, whereas choosing which two
+ * structures to contrast and what to say about each is a teaching decision.
+ * Each one is attached to a topic that teaches at least one side of it.
+ */
+export interface GrammarComparison {
+  readonly left: string;
+  readonly right: string;
+  readonly rows: readonly GrammarComparisonRow[];
+}
+
 export interface GrammarExample {
   readonly text: string;
   readonly note: string;
@@ -190,6 +211,8 @@ export interface GrammarTopic {
    * is usage rather than a closed paradigm have none, and that is correct.
    */
   readonly tables: readonly GrammarTable[];
+  /** Null on the topics — most of them — that contrast nothing. */
+  readonly comparison: GrammarComparison | null;
   /** 1 (easiest) to 5. */
   readonly difficulty: number;
   readonly source: SourceReference;

@@ -42,6 +42,7 @@ function topic(over: Partial<GrammarTopic> & { id: string; title: string }): Gra
     summary: '',
     category: '',
     tables: [],
+    comparison: null,
     explanation: [],
     rules: [],
     examples: [],

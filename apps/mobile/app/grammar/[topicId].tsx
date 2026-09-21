@@ -13,6 +13,7 @@ import { Section } from '../../src/components/grammar/Section';
 import { Collapsible } from '../../src/components/grammar/Collapsible';
 import { GrammarTable } from '../../src/components/grammar/GrammarTable';
 import { CommonMistake } from '../../src/components/grammar/CommonMistake';
+import { GrammarComparison } from '../../src/components/grammar/GrammarComparison';
 import { familyTone } from '../../src/grammarTheme';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
@@ -93,6 +94,17 @@ export default function GrammarTopicScreen() {
               {topic.tables.map((table, index) => (
                 <GrammarTable key={index} table={table} />
               ))}
+            </Card>
+          </Reveal>
+        ) : null}
+
+        {topic.comparison ? (
+          <Reveal index={3}>
+            <Card style={styles.block}>
+              <Text style={styles.sectionLabel}>
+                {strings.grammarVersus(topic.comparison.left, topic.comparison.right)}
+              </Text>
+              <GrammarComparison comparison={topic.comparison} />
             </Card>
           </Reveal>
         ) : null}
