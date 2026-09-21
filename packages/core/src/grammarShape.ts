@@ -47,6 +47,22 @@ export function ruleShape(rule: string): RuleShape {
 }
 
 /**
+ * Is this explanation section about an exception, rather than the rule?
+ *
+ * Five sections in the corpus say so in their own heading — "The one
+ * exception", "The commonest mistake", "People are the exception". Those are
+ * the authors flagging the part learners get wrong, and a section that says
+ * that about itself should not look like the four paragraphs around it.
+ *
+ * Only the heading is read. Nothing scans the prose for a sentence that sounds
+ * like an exception, because "not" and "never" appear in 54 topics and almost
+ * none of them are exceptions — they are ordinary rules stated negatively.
+ */
+export function isExceptionHeading(heading: string): boolean {
+  return /\b(exception|mistake)\b/i.test(heading);
+}
+
+/**
  * The broad grammatical family a topic belongs to.
  *
  * The corpus states a `category` per topic — twenty of them, in German. They

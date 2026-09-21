@@ -12,6 +12,7 @@ import { ExampleList } from '../../src/components/grammar/ExampleList';
 import { Section } from '../../src/components/grammar/Section';
 import { Collapsible } from '../../src/components/grammar/Collapsible';
 import { GrammarTable } from '../../src/components/grammar/GrammarTable';
+import { CommonMistake } from '../../src/components/grammar/CommonMistake';
 import { familyTone } from '../../src/grammarTheme';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
@@ -56,6 +57,9 @@ export default function GrammarTopicScreen() {
   const tone = familyTone[grammarFamily(topic.category)];
   const first = topic.explanation.slice(0, OPEN_SECTIONS);
   const rest = topic.explanation.slice(OPEN_SECTIONS);
+  // The topic's own error-correction exercise, shown worked. 89 of 136 topics
+  // have one; the rest simply do not get this card.
+  const mistake = topic.exercises.find((exercise) => exercise.kind === 'error-correction');
 
   return (
     <Screen>
@@ -98,6 +102,22 @@ export default function GrammarTopicScreen() {
             <Card style={styles.block}>
               <Text style={styles.sectionLabel}>{strings.grammarExamples}</Text>
               <ExampleList examples={topic.examples} />
+            </Card>
+          </Reveal>
+        ) : null}
+
+        {mistake ? (
+          <Reveal index={4}>
+            <Card style={styles.block}>
+              <Text style={styles.sectionLabel}>{strings.grammarCommonMistake}</Text>
+              {/* Closed by default: this is one of the topic's own exercises,
+                  and opening it spends that answer. The learner decides. */}
+              <Collapsible
+                label={strings.grammarShowLess}
+                collapsedLabel={strings.grammarShowMistake}
+              >
+                <CommonMistake exercise={mistake} />
+              </Collapsible>
             </Card>
           </Reveal>
         ) : null}
