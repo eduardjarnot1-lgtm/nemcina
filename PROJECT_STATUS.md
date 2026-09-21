@@ -368,8 +368,34 @@ The highlight is a tint **and** a weight change, so it survives greyscale.
 naming the point ("regular ending -e"), not English, and is not laid out as a
 translation.
 
-Nothing infers a "common mistake", an "exception" or a comparison between two
-structures. The corpus does not mark them.
+### Common mistakes and exceptions — also from the corpus's own marks
+
+**A worked mistake per topic.** The corpus carries an error-correction exercise
+for **89 of 136** topics: a wrong sentence, its correction, and one line saying
+why. That is exactly what a learner wants before practising, and it is real
+content rather than a pattern invented to fill a component.
+
+It is **shown closed**, because it is one of that topic's own exercises and
+opening it spends that answer. Behind a control the learner chooses, the trade
+is fair: reading a worked mistake before practice is how a textbook teaches,
+and the practice set has several other items. Putting it on the page open would
+have spent the answer without asking.
+
+Right and wrong are marked by a word, a symbol **and** a colour together.
+
+**Exception boxes.** Five explanation sections say so in their own heading —
+"The one exception", "The commonest mistake". Those are boxed rather than left
+looking like the paragraphs around them. Only headings are read: "not" and
+"never" appear in 54 topics and are almost always an ordinary rule stated
+negatively, so scanning prose would box the wrong things. The count is pinned
+in a test.
+
+**Still not inferred: comparisons between two structures.** `weil` vs `denn`,
+`als` vs `wenn` and the rest would each need a table of two columns the corpus
+does not carry. Three topics have a heading reading "Same meaning, different
+structure", which is a hint and not a comparison. Writing them would be writing
+grammar, and unlike the closed paradigms above, which structure to contrast and
+what to say about it is a teaching decision, not a fact that can be checked.
 
 ---
 

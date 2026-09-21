@@ -56,6 +56,12 @@ export const strings = {
   grammarWatchOut: 'Watch out',
   grammarInShort: 'In short',
   grammarForms: 'The forms',
+  grammarCommonMistake: 'Common mistake',
+  grammarShowMistake: 'Show the common mistake',
+  // The tick and cross are never the only signal; these name them.
+  grammarRight: 'Correct',
+  grammarWrong: 'Incorrect',
+  grammarException: 'Exception',
   grammarHowItWorks: 'How it works',
   grammarMoreDetail: 'More detail',
   grammarShowMore: (n: number) => `Show ${n} more`,

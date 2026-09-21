@@ -1,11 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { grammarFamily, ruleShape } from '../src/grammarShape.ts';
+import { grammarFamily, isExceptionHeading, ruleShape } from '../src/grammarShape.ts';
 
 const corpus = JSON.parse(
   readFileSync(new URL('../../../app/data/grammar.json', import.meta.url), 'utf8'),
-) as { topics: { category: string; rules: string[] }[] };
+) as { topics: { category: string; rules: string[]; explanation: { heading: string }[] }[] };
 
 test('grammar shapes', async (t) => {
   await t.test('the corpus\'s own "Achtung:" becomes a warning, and loses the label', () => {
@@ -44,6 +44,23 @@ test('grammar shapes', async (t) => {
     // Pinned, so that a corpus edit removing the authors' emphasis — or a
     // parser change that stops seeing it — is noticed rather than silent.
     assert.equal(warnings, 14, 'expected the 14 Achtung rules the corpus carries');
+  });
+
+  await t.test('a heading that calls itself an exception is one', () => {
+    assert.equal(isExceptionHeading('The one exception'), true);
+    assert.equal(isExceptionHeading('The commonest mistake'), true);
+    // Prose is not scanned: "not" and "never" appear in 54 topics and are
+    // almost always an ordinary rule stated negatively.
+    assert.equal(isExceptionHeading('What it is for'), false);
+    assert.equal(isExceptionHeading('The verb does not move'), false);
+  });
+
+  await t.test('the corpus carries exactly the five exception headings', () => {
+    const found = corpus.topics.flatMap((topic) =>
+      topic.explanation.filter((section) => isExceptionHeading(section.heading)));
+    // Pinned: if the corpus gains or loses one, the count says so rather than
+    // the box quietly appearing on a different number of pages.
+    assert.equal(found.length, 5);
   });
 
   await t.test('every category in the real corpus has a family', () => {
