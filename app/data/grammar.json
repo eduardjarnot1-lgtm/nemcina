@@ -2272,22 +2272,42 @@
     {
      "de": "Am Sonntag ist das Brunnenstüberl geöffnet.",
      "note": "time first, subject after the verb",
-     "marks": []
+     "marks": [
+      [
+       11,
+       14
+      ]
+     ]
     },
     {
      "de": "Das Brunnenstüberl ist am Sonntag geöffnet.",
      "note": "subject first",
-     "marks": []
+     "marks": [
+      [
+       19,
+       22
+      ]
+     ]
     },
     {
      "de": "Das Wetter ist leider nicht so gut.",
      "note": "subject first",
-     "marks": []
+     "marks": [
+      [
+       11,
+       14
+      ]
+     ]
     },
     {
      "de": "Leider ist das Wetter nicht so gut.",
      "note": "adverb first, subject after the verb",
-     "marks": []
+     "marks": [
+      [
+       7,
+       10
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -2412,27 +2432,60 @@
     {
      "de": "Woher kommen Sie?",
      "note": "W-question, verb in position 2",
-     "marks": []
+     "marks": [
+      [
+       0,
+       5
+      ],
+      [
+       6,
+       12
+      ]
+     ]
     },
     {
      "de": "Ich komme aus Marokko.",
      "note": "statement, verb in position 2",
-     "marks": []
+     "marks": [
+      [
+       4,
+       9
+      ]
+     ]
     },
     {
      "de": "Wo wohnst du?",
      "note": "W-question",
-     "marks": []
+     "marks": [
+      [
+       0,
+       2
+      ],
+      [
+       3,
+       9
+      ]
+     ]
     },
     {
      "de": "Kommen Sie aus Tunesien?",
      "note": "yes/no question, verb in position 1",
-     "marks": []
+     "marks": [
+      [
+       0,
+       6
+      ]
+     ]
     },
     {
      "de": "Wohnst du in Stuttgart?",
      "note": "yes/no question",
-     "marks": []
+     "marks": [
+      [
+       0,
+       6
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -2562,12 +2615,30 @@
     {
      "de": "Beatriz muss in der Woche früh aufstehen.",
      "note": "müssen + aufstehen",
-     "marks": []
+     "marks": [
+      [
+       8,
+       12
+      ],
+      [
+       31,
+       40
+      ]
+     ]
     },
     {
      "de": "Am Wochenende kann sie lange schlafen.",
      "note": "time first, modal verb second",
-     "marks": []
+     "marks": [
+      [
+       14,
+       18
+      ],
+      [
+       29,
+       37
+      ]
+     ]
     },
     {
      "de": "Man darf im Bus nicht laut Musik hören.",
@@ -2582,12 +2653,34 @@
     {
      "de": "Beatriz und Leopold wollen heute ins Kino gehen.",
      "note": "wollen + gehen",
-     "marks": []
+     "marks": [
+      [
+       20,
+       26
+      ],
+      [
+       42,
+       47
+      ]
+     ]
     },
     {
      "de": "Wann möchtet ihr nach Hause fahren?",
      "note": "W-question with a modal verb",
-     "marks": []
+     "marks": [
+      [
+       0,
+       4
+      ],
+      [
+       5,
+       12
+      ],
+      [
+       28,
+       34
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -2710,7 +2803,16 @@
     {
      "de": "Darf man im Bus laut Musik hören?",
      "note": "modal verb first, infinitive last",
-     "marks": []
+     "marks": [
+      [
+       0,
+       4
+      ],
+      [
+       27,
+       32
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -3911,7 +4013,20 @@
     {
      "de": "Wo ist / liegt das Buch?",
      "note": "the question",
-     "marks": []
+     "marks": [
+      [
+       0,
+       2
+      ],
+      [
+       3,
+       6
+      ],
+      [
+       9,
+       14
+      ]
+     ]
     },
     {
      "de": "Das Buch ist auf / unter / an dem Tisch (← der Tisch)",
@@ -4191,7 +4306,12 @@
     {
      "de": "beim Bahnhof",
      "note": "bei dem → beim",
-     "marks": []
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     },
     {
      "de": "in den Park",
@@ -4230,7 +4350,12 @@
     {
      "de": "in der Schweiz",
      "note": "wo? — feminine dative",
-     "marks": []
+     "marks": [
+      [
+       0,
+       2
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -4594,7 +4719,20 @@
     {
      "de": "Meine Mutter ist nicht verheiratet und sie erzieht meinen Bruder und mich allein.",
      "note": "und — addition",
-     "marks": []
+     "marks": [
+      [
+       13,
+       16
+      ],
+      [
+       35,
+       38
+      ],
+      [
+       43,
+       50
+      ]
+     ]
     },
     {
      "de": "Sie heiraten noch einmal oder sie leben ohne Trauschein.",
@@ -8872,7 +9010,20 @@
     {
      "de": "Jörg soll die Kärntner Straße entlang gehen.",
      "note": "entlang follows the noun",
-     "marks": []
+     "marks": [
+      [
+       5,
+       9
+      ],
+      [
+       30,
+       37
+      ],
+      [
+       38,
+       43
+      ]
+     ]
     },
     {
      "de": "Jörg geht in das Wien Museum rein.",
@@ -8897,12 +9048,30 @@
     {
      "de": "Komm heraus!",
      "note": "her- — towards the speaker",
-     "marks": []
+     "marks": [
+      [
+       0,
+       4
+      ],
+      [
+       5,
+       11
+      ]
+     ]
     },
     {
      "de": "Jörg geht aus dem Museum hinaus.",
      "note": "hin- — away from the speaker",
-     "marks": []
+     "marks": [
+      [
+       5,
+       9
+      ],
+      [
+       25,
+       31
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -9084,7 +9253,20 @@
     {
      "de": "Witikon liegt etwas außerhalb, aber es hat gute Verkehrsverbindungen.",
      "note": "aber",
-     "marks": []
+     "marks": [
+      [
+       8,
+       13
+      ],
+      [
+       31,
+       35
+      ],
+      [
+       39,
+       42
+      ]
+     ]
     },
     {
      "de": "Lindenhof ist schön, denn es liegt in der Altstadt.",
@@ -9099,7 +9281,20 @@
     {
      "de": "In Witikon sind die Mieten nicht so hoch und die Verkehrsverbindungen sind gut.",
      "note": "und",
-     "marks": []
+     "marks": [
+      [
+       11,
+       15
+      ],
+      [
+       41,
+       44
+      ],
+      [
+       70,
+       74
+      ]
+     ]
     },
     {
      "de": "Frankfurt liegt nicht westlich (von Mainz), sondern (es liegt) östlich von Mainz.",
@@ -9114,7 +9309,16 @@
     {
      "de": "Lara und Andrea möchten in Enge oder (sie möchten) in Lindenhof wohnen.",
      "note": "oder with the repeated part left out",
-     "marks": []
+     "marks": [
+      [
+       16,
+       23
+      ],
+      [
+       32,
+       36
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -9302,7 +9506,24 @@
     {
      "de": "Ich soll mich ausruhen, darum / deshalb / deswegen habe ich Urlaub genommen.",
      "note": "the same content with the connector",
-     "marks": []
+     "marks": [
+      [
+       24,
+       29
+      ],
+      [
+       32,
+       39
+      ],
+      [
+       42,
+       50
+      ],
+      [
+       51,
+       55
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -9482,7 +9703,16 @@
     {
      "de": "Wir finden, dass Köln eine schöne Stadt ist.",
      "note": "dass after finden",
-     "marks": []
+     "marks": [
+      [
+       12,
+       16
+      ],
+      [
+       40,
+       43
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -9670,7 +9900,16 @@
     {
      "de": "Es gab ein großes Gedränge, als der Krimiautor eintraf.",
      "note": "main clause first",
-     "marks": []
+     "marks": [
+      [
+       28,
+       31
+      ],
+      [
+       47,
+       54
+      ]
+     ]
     },
     {
      "de": "Ruis Portemonnaie war weg, als er an der Kasse zahlen wollte.",
@@ -9685,7 +9924,20 @@
     {
      "de": "Als der Krimiautor eintraf, gab es ein großes Gedränge.",
      "note": "als clause first — gab comes straight after the comma",
-     "marks": []
+     "marks": [
+      [
+       0,
+       3
+      ],
+      [
+       19,
+       26
+      ],
+      [
+       28,
+       31
+      ]
+     ]
     },
     {
      "de": "Als er an der Kasse zahlen wollte, war Ruis Portemonnaie weg.",
@@ -9852,12 +10104,30 @@
     {
      "de": "Rui bekommt Zinsen, wenn er Geld auf einem Sparkonto hat.",
      "note": "main clause first",
-     "marks": []
+     "marks": [
+      [
+       20,
+       24
+      ],
+      [
+       53,
+       56
+      ]
+     ]
     },
     {
      "de": "Die EC-Karte kostet nichts, wenn Rui nur Online-Banking macht.",
      "note": "main clause first",
-     "marks": []
+     "marks": [
+      [
+       28,
+       32
+      ],
+      [
+       56,
+       61
+      ]
+     ]
     },
     {
      "de": "Wenn Rui Geld anlegen will, kann er es auf ein Sparkonto einzahlen",
@@ -9872,7 +10142,20 @@
     {
      "de": "Wenn Rui nicht nur Online-Banking macht, kostet die EC-Karte 6,50 €pro Jahr.",
      "note": "wenn clause first; the document prints 6,50 €pro Jahr without a space",
-     "marks": []
+     "marks": [
+      [
+       0,
+       4
+      ],
+      [
+       34,
+       39
+      ],
+      [
+       41,
+       47
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -10270,7 +10553,12 @@
     {
      "de": "Gibt es auch Führungen zum Thema „Film“?",
      "note": "the direct yes/no question",
-     "marks": []
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     },
     {
      "de": "Ich möchte wissen, ob es auch Führungen zum Thema „Film“ gibt.",
@@ -10285,17 +10573,44 @@
     {
      "de": "Können Sie mir sagen, wie lange die Führung dauert?",
      "note": "the question word is kept",
-     "marks": []
+     "marks": [
+      [
+       22,
+       25
+      ],
+      [
+       44,
+       50
+      ]
+     ]
     },
     {
      "de": "Können Sie mir auf dem Plan zeigen, wo der Treffpunkt ist?",
      "note": "wo, with ist at the end",
-     "marks": []
+     "marks": [
+      [
+       36,
+       38
+      ],
+      [
+       54,
+       57
+      ]
+     ]
     },
     {
      "de": "Ich möchte gern wissen, welches Ticket am besten ist.",
      "note": "welches, with ist at the end",
-     "marks": []
+     "marks": [
+      [
+       24,
+       31
+      ],
+      [
+       49,
+       52
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -10896,17 +11211,32 @@
     {
      "de": "Jörg ist diese Woche schon fünfmal im Kino gewesen.",
      "note": "diese Woche (time) before im Kino (place); gewesen closes the sentence",
-     "marks": []
+     "marks": [
+      [
+       9,
+       20
+      ]
+     ]
     },
     {
      "de": "Jörg und Michael sind nach dem Frühstück sofort ins Museum gegangen.",
      "note": "nach dem Frühstück (time) before ins Museum (place)",
-     "marks": []
+     "marks": [
+      [
+       22,
+       40
+      ]
+     ]
     },
     {
      "de": "Sie waren fast zwei Stunden im Museum.",
      "note": "time before place with no closing verb",
-     "marks": []
+     "marks": [
+      [
+       10,
+       27
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -11579,7 +11909,20 @@
     {
      "de": "Christian lässt sich in der Informatikabteilung das Passwort vom Computer geben .",
      "note": "present tense",
-     "marks": []
+     "marks": [
+      [
+       10,
+       15
+      ],
+      [
+       16,
+       20
+      ],
+      [
+       74,
+       79
+      ]
+     ]
     },
     {
      "de": "Christian hat sich schon das Intranet zeigen lassen .",
@@ -13078,7 +13421,12 @@
     {
      "de": "Sie dankt Bernd für die Bewerbung.",
      "note": "the answer keeps the preposition für",
-     "marks": []
+     "marks": [
+      [
+       16,
+       19
+      ]
+     ]
     },
     {
      "de": "Worin möchte Bernd Erfahrungen sammeln?",
@@ -13093,12 +13441,22 @@
     {
      "de": "Bernd hat ein kleines Zimmer. Darin stehen wenig Möbel.",
      "note": "darin = in dem Zimmer",
-     "marks": []
+     "marks": [
+      [
+       30,
+       35
+      ]
+     ]
     },
     {
      "de": "Bernd arbeitet bei Frau Egger. Er freut sich darüber.",
      "note": "darüber points at the whole previous sentence",
-     "marks": []
+     "marks": [
+      [
+       45,
+       52
+      ]
+     ]
     },
     {
      "de": "Frau Egger kann sich darauf verlassen, dass Bernd drei Monate bleibt.",
@@ -13499,12 +13857,30 @@
     {
      "de": "Ich studiere in Berlin, und es gibt vieles, was super funktioniert.",
      "note": "was after vieles",
-     "marks": []
+     "marks": [
+      [
+       44,
+       47
+      ],
+      [
+       54,
+       66
+      ]
+     ]
     },
     {
      "de": "Es gibt politisch nichts mehr, was mich wirklich beeindruckt.",
      "note": "was after nichts",
-     "marks": []
+     "marks": [
+      [
+       31,
+       34
+      ],
+      [
+       49,
+       60
+      ]
+     ]
     },
     {
      "de": "Man kann damit auf etwas aufmerksam machen, womit man nicht einverstanden ist.",
@@ -14262,12 +14638,30 @@
     {
      "de": "Ich kenne das Wort „Gerät“ nicht, also muss ich im Wörterbuch nachschlagen.",
      "note": "also in position 1 of the second clause",
-     "marks": []
+     "marks": [
+      [
+       34,
+       38
+      ],
+      [
+       39,
+       43
+      ]
+     ]
     },
     {
      "de": "Ich kenne das Wort „Gerät“ nicht, ich muss also im Wörterbuch nachschlagen.",
      "note": "the same with also in the middle",
-     "marks": []
+     "marks": [
+      [
+       38,
+       42
+      ],
+      [
+       43,
+       47
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -14817,7 +15211,20 @@
     {
      "de": "Während seines Besuchs / seinem Besuch sieht Karl viel von Berlin.",
      "note": "the genitive and the colloquial dative side by side",
-     "marks": []
+     "marks": [
+      [
+       0,
+       7
+      ],
+      [
+       8,
+       22
+      ],
+      [
+       25,
+       38
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -15362,7 +15769,16 @@
     {
      "de": "Das Restaurant ist weder besonders schick noch ist die Speisekarte aufregend.",
      "note": "weder … noch — neither applies",
-     "marks": []
+     "marks": [
+      [
+       19,
+       24
+      ],
+      [
+       42,
+       46
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -15518,12 +15934,30 @@
     {
      "de": "Wir duzen unsere Professoren, was komplett anders ist.",
      "note": "was refers to the whole preceding statement",
-     "marks": []
+     "marks": [
+      [
+       30,
+       33
+      ],
+      [
+       50,
+       53
+      ]
+     ]
     },
     {
      "de": "Ich mag alles, was mit Sport zu tun hat.",
      "note": "was refers to the pronoun alles",
-     "marks": []
+     "marks": [
+      [
+       15,
+       18
+      ],
+      [
+       36,
+       39
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -15675,17 +16109,52 @@
     {
      "de": "Wenn ich nicht so unordentlich wäre, könnte ich jetzt nachforschen.",
      "note": "Nebensatz mit wenn",
-     "marks": []
+     "marks": [
+      [
+       0,
+       4
+      ],
+      [
+       31,
+       35
+      ],
+      [
+       37,
+       43
+      ]
+     ]
     },
     {
      "de": "Wäre ich nicht so unordentlich, könnte ich jetzt nachforschen.",
      "note": "Nebensatz ohne wenn — the verb opens the clause",
-     "marks": []
+     "marks": [
+      [
+       0,
+       4
+      ],
+      [
+       32,
+       38
+      ]
+     ]
     },
     {
      "de": "Ich könnte jetzt nachforschen, wenn ich nicht so unordentlich wäre.",
      "note": "main clause first",
-     "marks": []
+     "marks": [
+      [
+       4,
+       10
+      ],
+      [
+       31,
+       35
+      ],
+      [
+       62,
+       66
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -15875,7 +16344,20 @@
     {
      "de": "Bevor ich endlich die Füße hochlegen konnte, musste ich noch mit Marlene zum türkischen Markt.",
      "note": "bevor — the hochlegen comes later in time",
-     "marks": []
+     "marks": [
+      [
+       0,
+       5
+      ],
+      [
+       37,
+       43
+      ],
+      [
+       45,
+       51
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -16045,7 +16527,16 @@
     {
      "de": "Lateinkenntnisse können im Studium sehr hilfreich sein. Deshalb war das „Latinum“ früher fast immer Pflicht.",
      "note": "the plain reason, before it becomes the counter-argument",
-     "marks": []
+     "marks": [
+      [
+       56,
+       63
+      ],
+      [
+       64,
+       67
+      ]
+     ]
     },
     {
      "de": "Obwohl Lateinkenntnisse im Studium sehr hilfreich sein können, ist das „Latinum“ heute nur noch selten Pflicht.",
@@ -16460,17 +16951,48 @@
     {
      "de": "Man arbeitet als WWOOFer, um praktische Erfahrung im Bio-Landbau zu sammeln.",
      "note": "um … zu — the same subject in both halves",
-     "marks": []
+     "marks": [
+      [
+       26,
+       28
+      ],
+      [
+       65,
+       75
+      ]
+     ]
     },
     {
      "de": "Um praktische Erfahrung im Bio-Landbau zu sammeln, arbeitet man als WWOOFer.",
      "note": "the infinitive phrase first",
-     "marks": []
+     "marks": [
+      [
+       0,
+       2
+      ],
+      [
+       39,
+       49
+      ],
+      [
+       51,
+       59
+      ]
+     ]
     },
     {
      "de": "Für die Mithilfe auf einem Hof erhalten die WWOOFer Verpflegung, Unterkunft und manchmal ein Taschengeld.",
      "note": "für + noun",
-     "marks": []
+     "marks": [
+      [
+       0,
+       3
+      ],
+      [
+       31,
+       39
+      ]
+     ]
     },
     {
      "de": "WWOOFen ist aber kein Ferienjob zum Geldverdienen.",
@@ -16644,7 +17166,24 @@
     {
      "de": "Es ist so anstrengend mehrere Stunden am Tag eine Fremdsprache zu lernen, dass man manchmal einfach nur müde ist und dann leichter Fehler macht.",
      "note": "split: so with the adjective, dass opening the clause",
-     "marks": []
+     "marks": [
+      [
+       7,
+       9
+      ],
+      [
+       74,
+       78
+      ],
+      [
+       109,
+       112
+      ],
+      [
+       138,
+       143
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -17073,32 +17612,66 @@
     {
      "de": "glauben an D",
      "note": "quoted as the list prints it — but standard German is the accusative: Ich glaube an dich.",
-     "marks": []
+     "marks": [
+      [
+       8,
+       10
+      ]
+     ]
     },
     {
      "de": "nachdenken über A",
      "note": "Ich denke über das Angebot nach.",
-     "marks": []
+     "marks": [
+      [
+       11,
+       15
+      ]
+     ]
     },
     {
      "de": "(sich) erinnern an A",
      "note": "Erinnerst du dich an den Abend?",
-     "marks": []
+     "marks": [
+      [
+       16,
+       18
+      ]
+     ]
     },
     {
      "de": "(sich) entschuldigen bei D für A",
      "note": "two objects: bei whom, für what",
-     "marks": []
+     "marks": [
+      [
+       21,
+       24
+      ],
+      [
+       27,
+       30
+      ]
+     ]
     },
     {
      "de": "sich gewöhnen an A",
      "note": "to get used to something",
-     "marks": []
+     "marks": [
+      [
+       14,
+       16
+      ]
+     ]
     },
     {
      "de": "sich interessieren für A",
      "note": "to be interested in something",
-     "marks": []
+     "marks": [
+      [
+       19,
+       22
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -17686,12 +18259,30 @@
     {
      "de": "Die Firma, für die sie arbeitet, wurde letztes Jahr gegründet.",
      "note": "The company she works for was founded last year. — für + accusative, feminine: für die.",
-     "marks": []
+     "marks": [
+      [
+       11,
+       18
+      ],
+      [
+       23,
+       31
+      ]
+     ]
     },
     {
      "de": "Das ist der Mann, dessen Auto letzte Woche gestohlen wurde.",
      "note": "That's the man whose car was stolen last week. — der Mann is masculine, so dessen.",
-     "marks": []
+     "marks": [
+      [
+       18,
+       24
+      ],
+      [
+       53,
+       58
+      ]
+     ]
     },
     {
      "de": "Die Autorin, deren Bücher ich sehr mag, kommt aus Hamburg.",
@@ -17890,7 +18481,16 @@
     {
      "de": "Die Überprüfung der Unterlagen dauert etwa zwei Wochen.",
      "note": "The review of the documents takes about two weeks. — here the nominalization is the subject itself.",
-     "marks": []
+     "marks": [
+      [
+       0,
+       15
+      ],
+      [
+       16,
+       30
+      ]
+     ]
     },
     {
      "de": "Bei der Planung der Reise haben wir das Wetter nicht bedacht.",
@@ -18089,7 +18689,16 @@
     {
      "de": "Sie war krank, deshalb konnte sie nicht zur Prüfung kommen.",
      "note": "She was sick, which is why she couldn't come to the exam. — deshalb in position 1, verb konnte second.",
-     "marks": []
+     "marks": [
+      [
+       15,
+       22
+      ],
+      [
+       23,
+       29
+      ]
+     ]
     },
     {
      "de": "Er hat sein Deutsch verbessert, indem er jeden Tag Zeitung gelesen hat.",
@@ -19303,7 +19912,20 @@
     {
      "de": "Sie interessiert sich vor allem für alte Sprachen.",
      "note": "She is interested above all in ancient languages. — sich interessieren für.",
-     "marks": []
+     "marks": [
+      [
+       4,
+       16
+      ],
+      [
+       17,
+       21
+      ],
+      [
+       32,
+       35
+      ]
+     ]
     },
     {
      "de": "Wir haben lange darüber gesprochen, aber nichts entschieden.",
@@ -19490,12 +20112,30 @@
     {
      "de": "Sie spricht sowohl Französisch als auch Portugiesisch.",
      "note": "She speaks both French and Portuguese.",
-     "marks": []
+     "marks": [
+      [
+       12,
+       18
+      ],
+      [
+       31,
+       39
+      ]
+     ]
     },
     {
      "de": "Wir können entweder heute anfangen oder bis Montag warten.",
      "note": "We can either start today or wait until Monday.",
-     "marks": []
+     "marks": [
+      [
+       11,
+       19
+      ],
+      [
+       35,
+       39
+      ]
+     ]
     },
     {
      "de": "Er hat weder angerufen noch eine Nachricht geschrieben.",
@@ -20699,7 +21339,20 @@
     {
      "de": "Obwohl Samira oft abends oder am Wochenende Dienst hat, hat sie ihre Entscheidung noch nicht bereut.",
      "note": "the same content with obwohl.",
-     "marks": []
+     "marks": [
+      [
+       0,
+       6
+      ],
+      [
+       51,
+       54
+      ],
+      [
+       56,
+       59
+      ]
+     ]
     },
     {
      "de": "Wie sehr sich die Auszubildende auch bemüht, alles richtig zu machen, manche Tätigkeiten fallen ihr noch schwer.",
@@ -20714,22 +21367,62 @@
     {
      "de": "es sei denn, dass unser Kind krank wird.",
      "note": "restrictive — the one case that cancels the plan.",
-     "marks": []
+     "marks": [
+      [
+       0,
+       11
+      ],
+      [
+       13,
+       17
+      ],
+      [
+       35,
+       39
+      ]
+     ]
     },
     {
      "de": "außer wenn unser Kind krank wird.",
      "note": "the same restriction with außer wenn.",
-     "marks": []
+     "marks": [
+      [
+       0,
+       10
+      ],
+      [
+       28,
+       32
+      ]
+     ]
     },
     {
      "de": "Die beiden Hotelzimmer sind fast gleich, außer dass Sie im teureren Zimmer Alpenblick haben.",
      "note": "außer dass names the single difference.",
-     "marks": []
+     "marks": [
+      [
+       41,
+       51
+      ],
+      [
+       86,
+       91
+      ]
+     ]
     },
     {
      "de": "Die beiden Hotelzimmer sind fast gleich, nur dass Sie im teureren Zimmer Alpenblick haben.",
      "note": "nur dass — always the second clause.",
-     "marks": []
+     "marks": [
+      [
+       41,
+       49
+      ],
+      [
+       84,
+       89
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -22567,12 +23260,22 @@
     {
      "de": "Nach (der) Meinung /Aussage von Max Liebermann …",
      "note": "nach + Dativ, preceding",
-     "marks": []
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     },
     {
      "de": "Max Liebermanns Meinung /Aussage nach …",
      "note": "nach following the phrase",
-     "marks": []
+     "marks": [
+      [
+       33,
+       37
+      ]
+     ]
     },
     {
      "de": "Laut (der) Meinung /Aussage von Max Liebermann …",
@@ -22607,7 +23310,20 @@
     {
      "de": "Wie Max Liebermann meinte / sagte,",
      "note": "a wie-clause does the same job",
-     "marks": []
+     "marks": [
+      [
+       0,
+       3
+      ],
+      [
+       19,
+       25
+      ],
+      [
+       28,
+       33
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -22769,7 +23485,16 @@
     {
      "de": "Sie studiert fern (von) ihrer Heimatstadt.",
      "note": "fern + Dativ; also possible with the genitive",
-     "marks": []
+     "marks": [
+      [
+       13,
+       17
+      ],
+      [
+       19,
+       22
+      ]
+     ]
     },
     {
      "de": "Seinen Eltern zuliebe hat er Jura studiert.",
@@ -23555,7 +24280,20 @@
     {
      "de": "Herr Müller hat sich verschuldet , weil / da seine Scheidung teuer war.",
      "note": "Nebensatz mit weil / da",
-     "marks": []
+     "marks": [
+      [
+       35,
+       39
+      ],
+      [
+       42,
+       44
+      ],
+      [
+       67,
+       70
+      ]
+     ]
     },
     {
      "de": "Ihm ist das nicht so wichtig, zumal / besonders weil er inzwischen eine neue Stelle hat.",
@@ -23570,17 +24308,40 @@
     {
      "de": "Er ist enttäuscht, denn er hat schon zweimal Schiffbruch erlitten.",
      "note": "Hauptsatzkonnektor denn",
-     "marks": []
+     "marks": [
+      [
+       19,
+       23
+      ],
+      [
+       27,
+       30
+      ]
+     ]
     },
     {
      "de": "Wegen seiner Scheidung hat Herr Müller sich verschuldet.",
      "note": "wegen + Genitiv",
-     "marks": []
+     "marks": [
+      [
+       0,
+       5
+      ],
+      [
+       23,
+       26
+      ]
+     ]
     },
     {
      "de": "Viele verschulden sich mangels Erfahrung im Umgang mit Geld.",
      "note": "mangels + Genitiv",
-     "marks": []
+     "marks": [
+      [
+       23,
+       30
+      ]
+     ]
     },
     {
      "de": "Er kocht vor Wut.",
@@ -24403,17 +25164,68 @@
     {
      "de": "Wenn / Falls / Sofern wir viele Schadstoffe produzieren, werden wir schlechte Luft einatmen.",
      "note": "konditionaler Nebensatz",
-     "marks": []
+     "marks": [
+      [
+       0,
+       4
+      ],
+      [
+       7,
+       12
+      ],
+      [
+       15,
+       21
+      ],
+      [
+       44,
+       55
+      ],
+      [
+       57,
+       63
+      ]
+     ]
     },
     {
      "de": "Je nachdem, wie es mir gefällt, bleibe ich einen Tag länger.",
      "note": "je nachdem, wie",
-     "marks": []
+     "marks": [
+      [
+       0,
+       10
+      ],
+      [
+       23,
+       30
+      ],
+      [
+       32,
+       38
+      ]
+     ]
     },
     {
      "de": "Bei / Im Falle hoher Schadstoffproduktion atmen wir schlechte Luft ein.",
      "note": "konditionale Präposition",
-     "marks": []
+     "marks": [
+      [
+       0,
+       3
+      ],
+      [
+       6,
+       14
+      ],
+      [
+       42,
+       47
+      ],
+      [
+       67,
+       70
+      ]
+     ]
     },
     {
      "de": "Ohne den Einsatz von Glashaus-Techniken funktioniert die vertikale Landwirtschaft nicht.",
@@ -24428,17 +25240,60 @@
     {
      "de": "Auch wenn / Selbst wenn er wohlhabend war, war Wolfgang mit seinem Leben nicht zufrieden.",
      "note": "konzessiver Nebensatz",
-     "marks": []
+     "marks": [
+      [
+       0,
+       9
+      ],
+      [
+       12,
+       23
+      ],
+      [
+       38,
+       41
+      ],
+      [
+       43,
+       46
+      ]
+     ]
     },
     {
      "de": "Es ist ein Ort mit Tradition. Trotzdem / Dennoch / Allerdings haben sich die Kreßberger an die neuen Bewohner gewöhnt.",
      "note": "konzessiver Hauptsatzkonnektor",
-     "marks": []
+     "marks": [
+      [
+       30,
+       38
+      ],
+      [
+       41,
+       48
+      ],
+      [
+       51,
+       61
+      ],
+      [
+       62,
+       67
+      ]
+     ]
     },
     {
      "de": "Selbst bei einer alternativen Lebensweise kann man von traditionsbewussten Dorfbewohnern akzeptiert werden.",
      "note": "selbst bei + Dativ",
-     "marks": []
+     "marks": [
+      [
+       0,
+       10
+      ],
+      [
+       42,
+       46
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -24620,7 +25475,16 @@
     {
      "de": "Den Lesern gefällt, dass er um aktuelle Bezüge bemüht ist.",
      "note": "bemüht um + Akkusativ",
-     "marks": []
+     "marks": [
+      [
+       28,
+       30
+      ],
+      [
+       47,
+       53
+      ]
+     ]
     },
     {
      "de": "Ich bin schon gespannt auf seinen nächsten Roman.",
@@ -24635,7 +25499,16 @@
     {
      "de": "Die Kreßberger sind verwundert über die alternative Lebensweise der Aussteiger.",
      "note": "verwundert über + Akkusativ",
-     "marks": []
+     "marks": [
+      [
+       20,
+       30
+      ],
+      [
+       31,
+       35
+      ]
+     ]
     },
     {
      "de": "Sie ist stets aufgeschlossen gegenüber Neuem.",
@@ -24654,7 +25527,16 @@
     {
      "de": "Er ist erfahren im Verfassen von Bestsellern.",
      "note": "erfahren in + Dativ",
-     "marks": []
+     "marks": [
+      [
+       7,
+       15
+      ],
+      [
+       16,
+       18
+      ]
+     ]
     },
     {
      "de": "Ich bin überzeugt davon, dass Kleinstädte einiges zu bieten haben.",
@@ -25040,32 +25922,90 @@
     {
      "de": "Vorkommen kann es immer wieder.",
      "note": "infinitive to the modal verb in the Vorfeld",
-     "marks": []
+     "marks": [
+      [
+       0,
+       9
+      ],
+      [
+       10,
+       14
+      ]
+     ]
     },
     {
      "de": "Verstanden habe ich den Roman sofort.",
      "note": "Partizip II in the Vorfeld (perfect)",
-     "marks": []
+     "marks": [
+      [
+       0,
+       10
+      ],
+      [
+       11,
+       15
+      ]
+     ]
     },
     {
      "de": "Übersetzt wurde er in mehrere Sprachen.",
      "note": "Partizip II in the Vorfeld (passive)",
-     "marks": []
+     "marks": [
+      [
+       0,
+       9
+      ],
+      [
+       10,
+       15
+      ]
+     ]
     },
     {
      "de": "Lesen mag anstrengender sein als Fernsehen.",
      "note": "comparison moved into the Nachfeld",
-     "marks": []
+     "marks": [
+      [
+       0,
+       5
+      ],
+      [
+       6,
+       9
+      ]
+     ]
     },
     {
      "de": "Der Autor hat gerade angefangen zu schreiben.",
      "note": "infinitive with zu in the Nachfeld",
-     "marks": []
+     "marks": [
+      [
+       10,
+       13
+      ],
+      [
+       21,
+       31
+      ],
+      [
+       32,
+       44
+      ]
+     ]
     },
     {
      "de": "Man ist nicht immer einverstanden mit der Meinung des Autors.",
      "note": "afterthought in the Nachfeld",
-     "marks": []
+     "marks": [
+      [
+       20,
+       33
+      ],
+      [
+       34,
+       37
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -25430,7 +26370,24 @@
     {
      "de": "Wenn der Wecker klingelt, steht Dr. Kauter auf.",
      "note": "wenn — repeated event",
-     "marks": []
+     "marks": [
+      [
+       0,
+       4
+      ],
+      [
+       16,
+       24
+      ],
+      [
+       26,
+       31
+      ],
+      [
+       43,
+       46
+      ]
+     ]
     },
     {
      "de": "Als der Wecker gestern Morgen klingelte, wollte Fredi nicht aufstehen.",
@@ -25445,17 +26402,56 @@
     {
      "de": "Bevor / Ehe Dr. Kauter ins Bad geht, nimmt er Ballaststoffe ein.",
      "note": "bevor / ehe",
-     "marks": []
+     "marks": [
+      [
+       0,
+       5
+      ],
+      [
+       8,
+       11
+      ],
+      [
+       31,
+       35
+      ],
+      [
+       37,
+       42
+      ],
+      [
+       60,
+       63
+      ]
+     ]
     },
     {
      "de": "Im Stehen trank er eine Tasse Kaffee.",
      "note": "im + nominalised infinitive — a state",
-     "marks": []
+     "marks": [
+      [
+       0,
+       9
+      ],
+      [
+       10,
+       15
+      ]
+     ]
     },
     {
      "de": "Beim Telefonieren macht er sich Notizen.",
      "note": "beim + nominalised infinitive — an action",
-     "marks": []
+     "marks": [
+      [
+       0,
+       17
+      ],
+      [
+       18,
+       23
+      ]
+     ]
     },
     {
      "de": "Um sich von seiner Frau zu verabschieden, geht er ins Schlafzimmer.",
@@ -25470,7 +26466,16 @@
     {
      "de": "Dr. Kauter verlässt das Schlafzimmer leise, damit seine Frau nicht aufwacht.",
      "note": "damit — different subjects",
-     "marks": []
+     "marks": [
+      [
+       44,
+       49
+      ],
+      [
+       67,
+       75
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -25652,12 +26657,34 @@
     {
      "de": "Schweizer haben ein Gefühl für Höflichkeit, sodass sie sensibel auf Zwischentöne reagieren.",
      "note": "sodass attaches the consequence",
-     "marks": []
+     "marks": [
+      [
+       44,
+       50
+      ],
+      [
+       81,
+       90
+      ]
+     ]
     },
     {
      "de": "Deutsche sind eine direktere Kommunikation gewöhnt, weshalb / weswegen sie auf Schweizer oft arrogant wirken.",
      "note": "weshalb / weswegen",
-     "marks": []
+     "marks": [
+      [
+       52,
+       59
+      ],
+      [
+       62,
+       70
+      ],
+      [
+       102,
+       108
+      ]
+     ]
     },
     {
      "de": "Infolge eines Missverständnisses habe ich den Geschäftspartner falsch angesprochen.",
@@ -25682,17 +26709,48 @@
     {
      "de": "Eric macht ein Auslandspraktikum, womit sein Lebenslauf attraktiver für Arbeitgeber wird.",
      "note": "womit attaches the result",
-     "marks": []
+     "marks": [
+      [
+       34,
+       39
+      ],
+      [
+       84,
+       88
+      ]
+     ]
     },
     {
      "de": "Durch häufigen Kontakt mit anderen Kulturen erwirbt man interkulturelle Kompetenz.",
      "note": "durch + Akkusativ",
-     "marks": []
+     "marks": [
+      [
+       0,
+       5
+      ],
+      [
+       44,
+       51
+      ]
+     ]
     },
     {
      "de": "Mittels / Mithilfe neuer Techniken kann man Kontakt halten.",
      "note": "mittels / mithilfe + Genitiv",
-     "marks": []
+     "marks": [
+      [
+       0,
+       7
+      ],
+      [
+       10,
+       18
+      ],
+      [
+       35,
+       39
+      ]
+     ]
     }
    ],
    "tables": [],
@@ -26205,7 +27263,16 @@
     {
      "de": "angesichts des hohen Preisgeldes",
      "note": "= wenn man das hohe Preisgeld betrachtet",
-     "marks": []
+     "marks": [
+      [
+       0,
+       10
+      ],
+      [
+       11,
+       32
+      ]
+     ]
     },
     {
      "de": "anlässlich eines spannenden Wettbewerbs",
@@ -26230,17 +27297,32 @@
     {
      "de": "mithilfe spezieller 3D-Drucker",
      "note": "= indem man 3D-Drucker verwendet",
-     "marks": []
+     "marks": [
+      [
+       0,
+       8
+      ]
+     ]
     },
     {
      "de": "mittels einer Matratze",
      "note": "= unter Verwendung einer Matratze",
-     "marks": []
+     "marks": [
+      [
+       0,
+       7
+      ]
+     ]
     },
     {
      "de": "oberhalb der Einkommensgrenze",
      "note": "= über der Einkommensgrenze",
-     "marks": []
+     "marks": [
+      [
+       0,
+       8
+      ]
+     ]
     },
     {
      "de": "unweit seines Trägers",
