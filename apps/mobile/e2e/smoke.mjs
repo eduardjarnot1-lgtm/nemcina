@@ -263,6 +263,17 @@ try {
   check(topic.includes('From '), 'a topic credits the source it came from');
   check(/Rules|Examples/.test(topic), 'a topic shows its explanation');
 
+  // The English under an example is written for this project — the corpus has
+  // none — so it is checked on screen, against the data the build produced,
+  // rather than only in the build log. The topic the list opens on is not
+  // fixed, so the assertion is "whichever topic this is, its own examples
+  // carry their English", which is the claim that matters.
+  const database = JSON.parse(await readFile(resolve(import.meta.dirname, '..', '..', '..', 'app', 'data', 'grammar.json'), 'utf8'));
+  const onScreen = database.topics.filter((t) => t.title && topic.includes(t.title));
+  const glosses = onScreen.flatMap((t) => t.examples.map((e) => e.en)).filter(Boolean);
+  check(glosses.length > 0 && glosses.some((en) => topic.includes(en)),
+    `the examples carry their English (${glosses.length} gloss(es) for this topic)`);
+
   await tap('Practise');
   await page.waitForTimeout(1_000);
   const beforeAnswer = await page.innerText('body');

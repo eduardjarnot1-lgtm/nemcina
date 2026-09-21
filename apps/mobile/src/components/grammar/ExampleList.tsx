@@ -20,8 +20,15 @@ import { palette, radius, spacing, type as typeScale } from '../../theme';
  * The highlight is a tinted box behind the word **and** a weight change, so it
  * survives greyscale and does not depend on colour alone.
  *
- * These annotations are **not translations** and are not laid out as such. The
- * corpus has no English for grammar examples — only a note naming the point.
+ * **Three lines, three different things**, and they are not interchangeable:
+ * the German; then the English, which was written for this project because the
+ * corpus has none; then the note, which is the corpus's own annotation naming
+ * the point being made ("regular ending -e"). The note was never a translation
+ * and is not laid out as one. The English is set in italic so that a glance
+ * tells it from the German above it and the note below it without a label.
+ *
+ * An example with no English shows none. Four of them are English notes the
+ * corpus stored in the German field, and restating those would be noise.
  */
 export function ExampleList({ examples }: { examples: readonly GrammarExample[] }) {
   return (
@@ -35,6 +42,7 @@ export function ExampleList({ examples }: { examples: readonly GrammarExample[] 
               </Text>
             ))}
           </Text>
+          {example.en ? <Text style={styles.english} selectable>{example.en}</Text> : null}
           {example.note ? <Text style={styles.note}>{example.note}</Text> : null}
         </View>
       ))}
@@ -71,6 +79,16 @@ const styles = StyleSheet.create({
     borderRadius: radius.sm,
   },
   german: { ...typeScale.body, color: palette.text, lineHeight: 24 },
+  english: {
+    ...typeScale.caption,
+    fontSize: 14,
+    fontStyle: 'italic',
+    // Darker than the note under it. The English is content — it is what the
+    // sentence means — while the note is metadata about the sentence, and a
+    // learner should be able to tell which is which without reading either.
+    color: palette.textSecond,
+    lineHeight: 20,
+  },
   marked: {
     color: palette.accent,
     fontWeight: '700',

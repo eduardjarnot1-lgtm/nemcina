@@ -35,7 +35,7 @@ const topic: GrammarTopic = {
   summary: 'The endings -e, -st, -t, -en, -t, -en.',
   explanation: [{ heading: 'The endings', text: 'Stem plus -e, -st, -t, -en, -t, -en.' }],
   rules: ['kommen: ich komme, du kommst.'],
-  examples: [{ text: 'ich komme', note: 'regular ending -e', marks: [] }],
+  examples: [{ text: 'ich komme', note: 'regular ending -e', en: 'I come', marks: [] }],
   exercises: [
     exercise({ id: 'e1' }),
     exercise({ id: 'e2', kind: 'choice', options: ['heißt', 'heißst', 'heißest', 'heißen'], answers: ['heißt'] }),

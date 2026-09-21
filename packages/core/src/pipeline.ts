@@ -251,7 +251,7 @@ export function toExercise(raw: RawExercise): Exercise {
 }
 
 function toGrammarExample(
-  raw: { de?: string; note?: string; marks?: readonly (readonly number[])[] },
+  raw: { de?: string; note?: string; en?: string; marks?: readonly (readonly number[])[] },
 ): GrammarExample {
   const text = raw.de ?? '';
   // A span that does not fit the string it indexes is dropped rather than
@@ -265,7 +265,7 @@ function toGrammarExample(
     if (start < 0 || start >= end || end > text.length) continue;
     marks.push([start, end]);
   }
-  return { text, note: raw.note ?? '', marks };
+  return { text, note: raw.note ?? '', en: raw.en ?? '', marks };
 }
 
 function toExplanation(raw: { heading?: string; text?: string }): ExplanationSection {

@@ -142,6 +142,16 @@ export interface GrammarExample {
   readonly text: string;
   readonly note: string;
   /**
+   * English for `text`, written for this project and empty when none was.
+   *
+   * The corpus has no translations. Its `note` names the point being made —
+   * "regular ending -e" — which is an annotation, not a gloss, so a learner
+   * who cannot yet read the sentence has nothing to go on. Empty is a real
+   * state, not a defect: four examples are English notes the corpus stored in
+   * the German field, and restating those would be noise.
+   */
+  readonly en: string;
+  /**
    * Where in `text` the forms this topic teaches sit, as `[start, end)` pairs
    * into the string.
    *

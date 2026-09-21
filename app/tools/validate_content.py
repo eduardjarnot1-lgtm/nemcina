@@ -293,6 +293,8 @@ def validate_grammar(report: Report) -> None:
 
     known = {t["id"] for t in topics}
     exercise_ids: Counter = Counter()
+    grammar_translated = [0]
+    grammar_untranslated: list[str] = []
 
     for t in topics:
         tid = t["id"]
@@ -342,6 +344,19 @@ def validate_grammar(report: Report) -> None:
         for example in t["examples"]:
             text = example.get("de", "")
             marks = example.get("marks", [])
+            # The English is written for this project, so it is checked here for
+            # the two ways a hand-written gloss goes wrong silently: an empty
+            # one that renders as a blank line, and one that is a copy of the
+            # German, which looks translated and is not.
+            english = example.get("en", "")
+            if english:
+                grammar_translated[0] += 1
+                report.check(bool(english.strip()),
+                             f"grammar {tid}: empty English for {text!r}")
+                report.check(english.strip() != text.strip(),
+                             f"grammar {tid}: English for {text!r} is the German again")
+            else:
+                grammar_untranslated.append(f"{tid}: {text}")
             previous_end = 0
             for span in marks:
                 ok = (isinstance(span, list) and len(span) == 2
@@ -388,8 +403,17 @@ def validate_grammar(report: Report) -> None:
     for tid in order:
         report.check(walk(tid), f"grammar: prerequisite cycle involving {tid}")
 
+    # Coverage is a warning, not a failure: an example with no English still
+    # reads correctly, it just teaches less. It is reported so that a drop shows
+    # up in the build log rather than only on a screen nobody opened.
+    total_examples = sum(len(t["examples"]) for t in topics)
+    report.check(grammar_translated[0] >= total_examples - 8,
+                 f"grammar: {len(grammar_untranslated)} example(s) carry no English "
+                 f"({grammar_untranslated[:4]})", warn=True)
+
     print(f"grammar: {len(topics)} topics, "
           f"{sum(len(t['exercises']) for t in topics)} exercises checked")
+    print(f"grammar: {grammar_translated[0]} of {total_examples} examples carry English")
 
 
 def main() -> int:
