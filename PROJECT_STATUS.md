@@ -296,6 +296,61 @@ can.
 * Sounds: correct, incorrect, lesson complete, achievement, level unlock.
   Short, soft, optional.
 
+## 2b-grammar. How a grammar topic is presented
+
+The corpus is prose: a summary, headed explanation sections, rule sentences,
+and examples with a short annotation. It carries **no tags**, so the topic page
+had no way to tell a rule from a paragraph and rendered five identical cards in
+source order. That is what made it a wall of text.
+
+The page now answers three questions in the order they are asked — what is
+this (summary), what must I remember (rules), what does it look like
+(examples) — and puts the longer explanation after, because that is what you
+read when the first three were not enough. **No content changed. Order and
+weight did.**
+
+`packages/core/src/grammarShape.ts` reads only the marks the corpus carries:
+
+| Mark | Count | Rendered as |
+|---|---|---|
+| A rule opening `Achtung:` | 14 | A warning box, with the label dropped |
+| `category` (20 values) | every topic | One of six grammatical families |
+
+Families give the colour system. A hue means one thing everywhere — verbs are
+one colour, the noun phrase another — and it is always **named in words beside
+it**, so the colour groups and never informs. Six saturated colours on a screen
+is a toy; these are muted and read as stationery.
+
+Explanation sections past the first two fold behind a control that says how
+many there are, because the count is what decides whether to open it.
+
+### What the data will not support, and was therefore not built
+
+Two of the most-requested pieces are absent on purpose:
+
+* **Grammar tables.** Exactly **one** rule in 626 is a full six-person
+  paradigm. A conjugation table would render on one topic out of 136.
+* **Colour-coded example sentences.** Highlighting the verb or the subject
+  needs to know which word that is. The annotation names a word in the sentence
+  in **4 %** of examples (28 of 675); a keyword from the title lands in 14 %.
+  Highlighting the wrong word teaches the wrong grammar.
+
+A transformation component for the 91 rules containing `→` was written and then
+removed: the arrow appears mid-sentence ("the only difference is masculine der →
+den"), rules stack two colons before it, and a naive split drops the forms after
+the first change. The rationale is in the module docstring so it is not
+rediscovered and reattempted.
+
+**Grammar examples have no translations.** The `note` is an annotation naming
+the point ("regular ending -e"), not English. Laying it out as a translation
+would be a claim the data does not make.
+
+Nothing infers a "common mistake", an "exception" or a comparison between two
+structures. The corpus does not mark them, and guessing would put invented
+grammar on the page.
+
+---
+
 ## 2c. Publishing — one address, no hands
 
 **https://eduardjarnot1-lgtm.github.io/nemcina/**

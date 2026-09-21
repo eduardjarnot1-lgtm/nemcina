@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Pressable, StyleSheet, View, type ViewStyle } from 'react-native';
+import { Pressable, StyleSheet, View, type StyleProp, type ViewStyle } from 'react-native';
 import { palette, radius, spacing } from '../theme';
 import { Animated, usePressScale } from '../motion';
 
@@ -8,7 +8,7 @@ export function Card({
 }: {
   children: ReactNode;
   onPress?: () => void;
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   tone?: 'plain' | 'accent' | 'correct' | 'wrong' | 'almost';
 }) {
   const press = usePressScale(0.985);

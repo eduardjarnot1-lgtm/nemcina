@@ -51,6 +51,15 @@ export const strings = {
     + 'source document, and exercises. Exercises built on a document sentence are marked as '
     + 'such; the rest are labelled as practice.',
   b2GrammarEmpty: 'B2 grammar is not built yet.',
+  // The grammar page's own section headings. Each one is the whole message:
+  // the colour beside it groups, it never informs.
+  grammarWatchOut: 'Watch out',
+  grammarInShort: 'In short',
+  grammarHowItWorks: 'How it works',
+  grammarMoreDetail: 'More detail',
+  grammarShowMore: (n: number) => `Show ${n} more`,
+  grammarShowLess: 'Show less',
+  grammarTopicsIn: (n: number) => `${n} topics`,
   grammarRules: 'Rules',
   grammarExamples: 'Examples',
   grammarPractise: 'Practise',
