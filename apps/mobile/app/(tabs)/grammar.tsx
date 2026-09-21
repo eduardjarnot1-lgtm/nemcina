@@ -1,12 +1,18 @@
 import { useMemo, useState } from 'react';
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { SectionList, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
-import { CEFR_LEVELS, topicProgress, type CefrLevel, type GrammarTopic } from '@nemcina/core';
+import {
+  CEFR_LEVELS, grammarFamily, topicProgress,
+  type CefrLevel, type GrammarFamily, type GrammarTopic,
+} from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
 import { ProgressBar } from '../../src/components/ProgressBar';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
+import { Selectable } from '../../src/components/Selectable';
+import { Chip } from '../../src/components/grammar/Chip';
+import { familyTone } from '../../src/grammarTheme';
 import { strings } from '../../src/strings';
 import { palette, radius, spacing, type as typeScale } from '../../src/theme';
 
@@ -16,6 +22,11 @@ import { palette, radius, spacing, type as typeScale } from '../../src/theme';
  * Grouped by level rather than by the source document: a learner looking for
  * the dative does not care which coursebook it came from, and mixing three
  * publishers' section numbering into one list helps nobody.
+ *
+ * Within a level it is grouped again, by what the grammar *is*. A level holds
+ * up to thirty-four topics, and thirty-four titles in a row is a list you read
+ * rather than scan. The families come from the category the corpus states, so
+ * the grouping is the source's own classification and not one invented here.
  */
 export default function GrammarScreen() {
   const router = useRouter();
@@ -35,10 +46,21 @@ export default function GrammarScreen() {
 
   const [level, setLevel] = useState<CefrLevel | null>(null);
   const active = level && levels.includes(level) ? level : levels[0] ?? null;
-  const shown = useMemo(
-    () => topics.filter((topic) => topic.level === active),
-    [topics, active],
-  );
+  // One section per family, in a fixed order so the page does not reshuffle
+  // between levels, and empty families simply do not appear.
+  const sections = useMemo(() => {
+    const order: GrammarFamily[] = [
+      'verb', 'nounPhrase', 'modifier', 'connector', 'sentence', 'other',
+    ];
+    const shown = topics.filter((topic) => topic.level === active);
+    return order
+      .map((family) => ({
+        family,
+        tone: familyTone[family],
+        data: shown.filter((topic) => grammarFamily(topic.category) === family),
+      }))
+      .filter((section) => section.data.length > 0);
+  }, [topics, active]);
 
   return (
     <Screen>
@@ -47,17 +69,16 @@ export default function GrammarScreen() {
 
       <View style={styles.levelRow}>
         {levels.map((entry) => (
-          <Pressable
+          <Selectable
             key={entry}
-            accessibilityRole="button"
-            accessibilityState={{ selected: entry === active }}
+            selected={entry === active}
             onPress={() => setLevel(entry)}
             style={[styles.level, entry === active && styles.levelActive]}
           >
             <Text style={[styles.levelLabel, entry === active && styles.levelLabelActive]}>
               {entry}
             </Text>
-          </Pressable>
+          </Selectable>
         ))}
       </View>
 
@@ -77,16 +98,25 @@ export default function GrammarScreen() {
         </Card>
       ) : null}
 
-      <FlatList
-        data={shown}
+      <SectionList
+        sections={sections}
         keyExtractor={(topic: GrammarTopic) => topic.id}
         contentContainerStyle={styles.list}
+        stickySectionHeadersEnabled={false}
         showsVerticalScrollIndicator={false}
+        renderSectionHeader={({ section }) => (
+          <View style={styles.familyHeader}>
+            <View style={[styles.familyRail, { backgroundColor: section.tone.ink }]} />
+            <Text style={styles.familyLabel}>{section.tone.label}</Text>
+            <Text style={styles.familyCount}>{strings.grammarTopicsIn(section.data.length)}</Text>
+          </View>
+        )}
         renderItem={({ item }) => {
           const done = topicProgress(item, records);
+          const tone = familyTone[grammarFamily(item.category)];
           return (
             <Card
-              style={styles.card}
+              style={[styles.card, { borderLeftWidth: 3, borderLeftColor: tone.ink }]}
               onPress={() => router.push(`/grammar/${encodeURIComponent(item.id)}`)}
             >
               <Text style={styles.topicTitle}>{item.title}</Text>
@@ -137,6 +167,16 @@ const styles = StyleSheet.create({
   b2Title: { ...typeScale.heading, color: palette.text },
   b2Hint: { ...typeScale.caption, color: palette.textMuted },
   list: { paddingBottom: spacing.xl },
+  familyHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    paddingTop: spacing.md,
+    paddingBottom: spacing.xs,
+  },
+  familyRail: { width: 3, height: 14, borderRadius: 2 },
+  familyLabel: { ...typeScale.label, color: palette.text },
+  familyCount: { ...typeScale.caption, color: palette.textMuted },
   card: { marginBottom: spacing.sm, gap: spacing.xs },
   topicTitle: { ...typeScale.heading, color: palette.text },
   summary: { ...typeScale.caption, color: palette.textMuted },

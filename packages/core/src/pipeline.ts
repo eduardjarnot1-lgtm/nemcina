@@ -78,6 +78,7 @@ export interface RawTopic {
   readonly exercises?: readonly RawExercise[];
   readonly prerequisites?: readonly string[];
   readonly difficulty?: number;
+  readonly category?: string;
   readonly source?: string;
   readonly sourcePage?: number;
 }
@@ -257,6 +258,7 @@ export function toGrammarTopic(raw: RawTopic): GrammarTopic {
     exercises: (raw.exercises ?? []).map(toExercise),
     prerequisites: raw.prerequisites ?? [],
     difficulty: raw.difficulty ?? 1,
+    category: raw.category ?? '',
     source: { title: raw.source ?? '', page: raw.sourcePage ?? 0 },
   };
 }

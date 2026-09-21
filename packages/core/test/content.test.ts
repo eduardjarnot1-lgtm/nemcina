@@ -40,6 +40,7 @@ function topic(over: Partial<GrammarTopic> & { id: string; title: string }): Gra
     level: 'A1' as CefrLevel,
     titleInSourceLanguage: over.title,
     summary: '',
+    category: '',
     explanation: [],
     rules: [],
     examples: [],

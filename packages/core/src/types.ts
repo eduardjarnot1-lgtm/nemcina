@@ -150,6 +150,13 @@ export interface GrammarTopic {
   readonly examples: readonly GrammarExample[];
   readonly exercises: readonly Exercise[];
   readonly prerequisites: readonly string[];
+  /**
+   * The grammatical family the source files this topic under — "Verben",
+   * "Satzverbindungen", and eighteen others. Carried through because it is the
+   * only grammatical classification the corpus states, so it is what lets the
+   * app group topics by what they are rather than only by level.
+   */
+  readonly category: string;
   /** 1 (easiest) to 5. */
   readonly difficulty: number;
   readonly source: SourceReference;
