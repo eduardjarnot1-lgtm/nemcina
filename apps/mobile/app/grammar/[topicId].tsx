@@ -11,6 +11,7 @@ import { RuleList } from '../../src/components/grammar/RuleList';
 import { ExampleList } from '../../src/components/grammar/ExampleList';
 import { Section } from '../../src/components/grammar/Section';
 import { Collapsible } from '../../src/components/grammar/Collapsible';
+import { GrammarTable } from '../../src/components/grammar/GrammarTable';
 import { familyTone } from '../../src/grammarTheme';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
@@ -81,8 +82,19 @@ export default function GrammarTopicScreen() {
           </Reveal>
         ) : null}
 
-        {topic.examples.length > 0 ? (
+        {topic.tables.length > 0 ? (
           <Reveal index={2}>
+            <Card style={styles.block}>
+              <Text style={styles.sectionLabel}>{strings.grammarForms}</Text>
+              {topic.tables.map((table, index) => (
+                <GrammarTable key={index} table={table} />
+              ))}
+            </Card>
+          </Reveal>
+        ) : null}
+
+        {topic.examples.length > 0 ? (
+          <Reveal index={3}>
             <Card style={styles.block}>
               <Text style={styles.sectionLabel}>{strings.grammarExamples}</Text>
               <ExampleList examples={topic.examples} />
@@ -91,7 +103,7 @@ export default function GrammarTopicScreen() {
         ) : null}
 
         {topic.explanation.length > 0 ? (
-          <Reveal index={3}>
+          <Reveal index={4}>
             <Card style={styles.block}>
               <Text style={styles.sectionLabel}>{strings.grammarHowItWorks}</Text>
               {first.map((section, index) => (

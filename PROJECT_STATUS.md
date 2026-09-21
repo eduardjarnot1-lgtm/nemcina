@@ -324,30 +324,52 @@ is a toy; these are muted and read as stationery.
 Explanation sections past the first two fold behind a control that says how
 many there are, because the count is what decides whether to open it.
 
-### What the data will not support, and was therefore not built
+### Tables and highlighting — built, by adding the missing data
 
-Two of the most-requested pieces are absent on purpose:
+Neither could be derived from the corpus, so both were built by putting the
+missing piece into the pipeline instead of guessing at render time.
 
-* **Grammar tables.** Exactly **one** rule in 626 is a full six-person
-  paradigm. A conjugation table would render on one topic out of 136.
-* **Colour-coded example sentences.** Highlighting the verb or the subject
-  needs to know which word that is. The annotation names a word in the sentence
-  in **4 %** of examples (28 of 675); a keyword from the title lands in 14 %.
-  Highlighting the wrong word teaches the wrong grammar.
+**Tables.** Exactly one of 626 rules is a full paradigm, so nothing could be
+extracted. `app/tools/annotations/grammar/tables.json` holds ten tables —
+article, `ein-`/`kein-`, personal pronouns, possessives, and the three
+adjective-ending patterns — attached to the ten topics that teach those
+systems. They are **written for this project**, and that is recorded in the
+file and in the type. It is defensible because these are *closed* paradigms:
+finite, fixed, and checkable against any reference grammar. Anything that is
+usage rather than a closed system is not in there and stays prose.
 
-A transformation component for the 91 rules containing `→` was written and then
-removed: the arrow appears mid-sentence ("the only difference is masculine der →
-den"), rules stack two colons before it, and a naive split drops the forms after
-the first change. The rationale is in the module docstring so it is not
-rediscovered and reattempted.
+The build refuses a ragged row and the validator re-checks every cell, because
+a row shifted by one in a declension table is a wrong form, not a layout bug.
 
-**Grammar examples have no translations.** The `note` is an annotation naming
-the point ("regular ending -e"), not English. Laying it out as a translation
-would be a claim the data does not make.
+**Highlighting.** The question was always *which word*. The answer is in the
+corpus: **a topic's own exercise answers are the forms it teaches.** A gap-fill
+for the perfect tense answers with the participle; a conjugation choice answers
+with the conjugated verb. So the build marks those forms in that topic's
+examples, and `317 of 675` examples carry a highlight.
+
+Only short answers from form-targeting exercises count — a reorder answer is
+the whole sentence and would mark every word in it, place names included — and
+a small English blocklist keeps `the` and `preterite` from being marked inside
+the handful of examples that are English notes.
+
+Spans are computed **once, at build time**, and stored as `[start, end)` pairs.
+The app slices the string it was given and never runs a match of its own, so
+what is highlighted was decided where it could be checked. The importer drops a
+span that does not fit its sentence rather than clamping it, and the validator
+fails on an out-of-range or overlapping span.
+
+**Nothing identifies "the verb" or "the subject".** That needs a parser, and a
+wrong guess teaches wrong grammar. An example the build could not mark is not
+highlighted, which is a normal state.
+
+The highlight is a tint **and** a weight change, so it survives greyscale.
+
+**Grammar examples still have no translations.** The `note` is an annotation
+naming the point ("regular ending -e"), not English, and is not laid out as a
+translation.
 
 Nothing infers a "common mistake", an "exception" or a comparison between two
-structures. The corpus does not mark them, and guessing would put invented
-grammar on the page.
+structures. The corpus does not mark them.
 
 ---
 

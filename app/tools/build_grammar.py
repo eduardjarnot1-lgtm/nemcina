@@ -28,6 +28,23 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 ANNOTATIONS = ROOT / "annotations" / "grammar"
+TABLES_FILE = "tables.json"
+
+# Exercise types whose answer is a *form* rather than a whole sentence. A
+# reorder answer is the sentence itself and says nothing about which word the
+# topic is teaching, so it is not a signal.
+FORM_EXERCISES = {"choice", "fill", "transform", "error", "context"}
+
+# A handful of the corpus's "examples" are English notes stored in the German
+# field, and a few exercise answers are English words. Highlighting "the" or
+# "preterite" inside them would mark a word that is not a German form at all.
+# This is a blocklist of English function words rather than a language detector:
+# it is small, it is checkable, and it cannot accidentally reject a German form.
+NOT_A_FORM = {
+    "the", "and", "for", "use", "instead", "of", "with", "but", "not", "to",
+    "is", "are", "was", "were", "preterite", "perfect", "present", "past",
+    "this", "that", "they", "you", "verb", "noun", "form", "case", "or",
+}
 OUT = ROOT.parent / "data" / "grammar.json"
 
 # Each source names itself, says where its level comes from, and says how its
@@ -124,15 +141,101 @@ def load_sources() -> dict:
     return topics
 
 
+def load_tables() -> dict[str, list[dict]]:
+    """Paradigm tables, written for this project and keyed by topic id.
+
+    The corpus explains the article, pronoun and adjective-ending systems in
+    prose; exactly one of its 626 rules is a full paradigm, so a table cannot be
+    extracted from it. These are written separately because those systems are
+    closed and finite — they can be checked against any reference grammar, which
+    is what makes writing them different from inventing grammar.
+    """
+    path = ANNOTATIONS / TABLES_FILE
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    tables = data.get("tables", {})
+    for tid, group in tables.items():
+        for table in group:
+            width = len(table["columns"])
+            for row in table["rows"]:
+                if len(row) != width:
+                    raise SystemExit(
+                        f"{TABLES_FILE}: {tid} / {table['caption']!r} has a row of "
+                        f"{len(row)} in a table {width} wide")
+    return tables
+
+
+def focus_forms(exercises: list[dict]) -> set[str]:
+    """The forms a topic actually teaches, as its own exercises state them.
+
+    This is the corpus pointing at its own target: the answer to a gap-fill for
+    the perfect tense is the participle, and the answer to a conjugation choice
+    is the conjugated verb. Nothing here guesses which word in a sentence is the
+    verb — a guess that is wrong teaches the wrong grammar, and across this
+    corpus the annotations name a word in the sentence only 4 % of the time.
+
+    Only short answers from form-targeting exercises count. A whole-sentence
+    answer would contribute every word in it, including the place names.
+    """
+    forms: set[str] = set()
+    for exercise in exercises:
+        if exercise.get("type") not in FORM_EXERCISES:
+            continue
+        for answer in exercise.get("answers", []):
+            answer = answer.strip()
+            if not answer or len(answer.split()) > 2:
+                continue
+            for word in re.findall(r"[A-Za-zÄÖÜäöüß]{2,}", answer):
+                if word.lower() in NOT_A_FORM:
+                    continue
+                forms.add(word)
+    return forms
+
+
+def mark_examples(examples: list[dict], forms: set[str]) -> int:
+    """Record where each taught form sits in each example, as character spans.
+
+    Spans rather than a word list, so the app slices the string it was given and
+    never runs a match of its own — what is highlighted is decided once, here,
+    where it can be checked.
+    """
+    marked = 0
+    for example in examples:
+        text = example.get("de", "")
+        spans: list[list[int]] = []
+        for form in forms:
+            for found in re.finditer(
+                r"(?<![\wÄÖÜäöüß])" + re.escape(form) + r"(?![\wÄÖÜäöüß])", text, re.IGNORECASE
+            ):
+                spans.append([found.start(), found.end()])
+        # Overlapping spans would render as nested highlights; keep the longest
+        # at each position by preferring an earlier start and a later end.
+        spans.sort(key=lambda s: (s[0], -s[1]))
+        kept: list[list[int]] = []
+        for span in spans:
+            if kept and span[0] < kept[-1][1]:
+                continue
+            kept.append(span)
+        example["marks"] = kept
+        if kept:
+            marked += 1
+    return marked
+
+
 def main() -> int:
     source = load_sources()
-    files = sorted(ANNOTATIONS.glob("*.json"))
+    # tables.json is reference data keyed by topic id, not a list of topics.
+    files = sorted(f for f in ANNOTATIONS.glob("*.json") if f.name != TABLES_FILE)
+    tables = load_tables()
     if not files:
         raise SystemExit(f"no annotation files in {ANNOTATIONS}")
 
     problems: list[str] = []
     topics: list[dict] = []
     seen: set[str] = set()
+    marked_examples = 0
+    with_tables = 0
 
     for path in files:
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -223,6 +326,7 @@ def main() -> int:
                 "explanation": entry.get("explanation", []),
                 "rules": entry.get("rules", []),
                 "examples": entry.get("examples", []),
+                "tables": tables.get(tid, []),
                 "exercises": exercises,
                 "kursbuch": src.get("kursbuch", ""),
                 "subsection": src.get("subsection", ""),
@@ -232,6 +336,11 @@ def main() -> int:
                 "sourcePages": src["pages"],
                 "subtopics": src.get("subtopics", []),
             })
+
+            topic = topics[-1]
+            marked_examples += mark_examples(topic["examples"], focus_forms(exercises))
+            if topic["tables"]:
+                with_tables += 1
 
     missing = sorted(tid for tid in source if tid not in seen)
     if missing:
@@ -291,6 +400,8 @@ def main() -> int:
     meta = database["meta"]
     print(f"topics {meta['topicCount']} · examples {meta['exampleCount']} · "
           f"exercises {meta['exerciseCount']} -> {OUT}")
+    print(f"highlighted  {marked_examples} of {meta['exampleCount']} examples carry a taught form")
+    print(f"tables       {with_tables} topic(s) carry a paradigm table")
     for entry in levels:
         print(f"  {entry['level']}: {entry['topicCount']} topics in {len(entry['groups'])} groups")
     return 0

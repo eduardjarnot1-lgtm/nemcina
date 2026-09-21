@@ -55,6 +55,7 @@ export const strings = {
   // the colour beside it groups, it never informs.
   grammarWatchOut: 'Watch out',
   grammarInShort: 'In short',
+  grammarForms: 'The forms',
   grammarHowItWorks: 'How it works',
   grammarMoreDetail: 'More detail',
   grammarShowMore: (n: number) => `Show ${n} more`,

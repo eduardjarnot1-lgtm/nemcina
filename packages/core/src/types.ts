@@ -109,9 +109,31 @@ export interface VocabularyItem<L extends LanguageCode = LanguageCode> {
   readonly note: string;
 }
 
+export interface GrammarTable {
+  readonly caption: string;
+  /** The first column is the row label, so its header is usually empty. */
+  readonly columns: readonly string[];
+  /** Each row has exactly `columns.length` cells; the build refuses otherwise. */
+  readonly rows: readonly (readonly string[])[];
+}
+
 export interface GrammarExample {
   readonly text: string;
   readonly note: string;
+  /**
+   * Where in `text` the forms this topic teaches sit, as `[start, end)` pairs
+   * into the string.
+   *
+   * Decided once at build time, from the topic's own exercise answers — the
+   * corpus pointing at its own target — and never recomputed by a screen. The
+   * app slices the string it was given, so what is highlighted was checked
+   * where it could be checked, rather than re-derived by a regex per render.
+   *
+   * Nothing here identifies "the verb" or "the subject". That needs a parser,
+   * and a wrong guess teaches wrong grammar. Examples the build could not mark
+   * carry an empty list and simply are not highlighted.
+   */
+  readonly marks: readonly (readonly [number, number])[];
 }
 
 /** One headed paragraph of a grammar explanation, as the source document lays it out. */
@@ -157,6 +179,17 @@ export interface GrammarTopic {
    * app group topics by what they are rather than only by level.
    */
   readonly category: string;
+  /**
+   * Paradigm tables for this topic, where one exists.
+   *
+   * Written for this project rather than extracted: the corpus explains the
+   * article, pronoun and adjective-ending systems in prose, and exactly one of
+   * its 626 rules is a full paradigm. Those systems are closed and finite, so
+   * they can be written down and checked against any reference grammar — which
+   * is what separates writing them from inventing grammar. Topics whose content
+   * is usage rather than a closed paradigm have none, and that is correct.
+   */
+  readonly tables: readonly GrammarTable[];
   /** 1 (easiest) to 5. */
   readonly difficulty: number;
   readonly source: SourceReference;

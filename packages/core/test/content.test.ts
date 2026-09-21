@@ -41,6 +41,7 @@ function topic(over: Partial<GrammarTopic> & { id: string; title: string }): Gra
     titleInSourceLanguage: over.title,
     summary: '',
     category: '',
+    tables: [],
     explanation: [],
     rules: [],
     examples: [],
