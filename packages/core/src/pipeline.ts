@@ -83,6 +83,13 @@ export interface RawTopic {
   readonly prerequisites?: readonly string[];
   readonly difficulty?: number;
   readonly category?: string;
+  readonly comparison?: {
+    readonly left?: string;
+    readonly right?: string;
+    readonly rows?: readonly {
+      readonly aspect?: string; readonly left?: string; readonly right?: string;
+    }[];
+  } | null;
   readonly tables?: readonly {
     readonly caption?: string;
     readonly columns?: readonly string[];
@@ -282,6 +289,15 @@ export function toGrammarTopic(raw: RawTopic): GrammarTopic {
     prerequisites: raw.prerequisites ?? [],
     difficulty: raw.difficulty ?? 1,
     category: raw.category ?? '',
+    comparison: raw.comparison
+      ? {
+        left: raw.comparison.left ?? '',
+        right: raw.comparison.right ?? '',
+        rows: (raw.comparison.rows ?? []).map((row) => ({
+          aspect: row.aspect ?? '', left: row.left ?? '', right: row.right ?? '',
+        })),
+      }
+      : null,
     tables: (raw.tables ?? []).map((table) => ({
       caption: table.caption ?? '',
       columns: table.columns ?? [],

@@ -390,12 +390,30 @@ looking like the paragraphs around them. Only headings are read: "not" and
 negatively, so scanning prose would box the wrong things. The count is pinned
 in a test.
 
-**Still not inferred: comparisons between two structures.** `weil` vs `denn`,
-`als` vs `wenn` and the rest would each need a table of two columns the corpus
-does not carry. Three topics have a heading reading "Same meaning, different
-structure", which is a hint and not a comparison. Writing them would be writing
-grammar, and unlike the closed paradigms above, which structure to contrast and
-what to say about it is a teaching decision, not a fact that can be checked.
+### Comparisons — written, and flagged as the weaker claim
+
+Seven pairs learners confuse, each attached to a topic that actually teaches at
+least one side of it:
+
+`weil` / `denn` · `als` / `wenn` · `obwohl` / `trotzdem` ·
+`Präteritum` / `Perfekt` · `Akkusativ` / `Dativ` (two-way prepositions) ·
+`Aktiv` / `Passiv` · `Konjunktiv I` / `Konjunktiv II`
+
+`wenn` / `wann` is **not** among them: the corpus has no topic teaching `wann`
+as a conjunction, and the brief asks for comparisons only where they match the
+real content.
+
+**This is a weaker claim than the paradigm tables, and the file says so.** A
+declension is a closed system anyone can check. Choosing *which* two structures
+to contrast, and what to say about each, is a teaching decision. So the
+distinctions used are the standard ones every reference grammar states, each
+one is anchored to a topic that teaches one side, and `comparisons.json`
+records that it was written here.
+
+Two columns rather than a wide scrolling table — a comparison you have to
+scroll sideways to finish is not one — and each row names its aspect on its own
+line, so at 360 px nothing is squeezed into a third column. The two sides are
+tinted **and** headed by name.
 
 ---
 

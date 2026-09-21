@@ -46,6 +46,7 @@ const topic: GrammarTopic = {
   difficulty: 1,
   category: 'Verben',
   tables: [],
+  comparison: null,
   source: { title: 'DaF kompakt', page: 1 },
 };
 

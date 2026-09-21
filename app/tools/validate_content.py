@@ -323,6 +323,19 @@ def validate_grammar(report: Report) -> None:
                 report.check(all(str(cell).strip() for cell in row),
                              f"grammar {tid}: table {table.get('caption','')!r} has an empty cell")
 
+        # A comparison with an empty cell renders as a blank half, which on a
+        # page whose whole point is the contrast says the opposite of nothing.
+        comparison = t.get("comparison")
+        if comparison:
+            report.check(bool(str(comparison.get("left", "")).strip())
+                         and bool(str(comparison.get("right", "")).strip()),
+                         f"grammar {tid}: comparison is missing a heading")
+            report.check(bool(comparison.get("rows")),
+                         f"grammar {tid}: comparison has no rows")
+            for row in comparison.get("rows", []):
+                report.check(all(str(row.get(f, "")).strip() for f in ("aspect", "left", "right")),
+                             f"grammar {tid}: comparison row {row!r} has an empty cell")
+
         # Highlight spans index the sentence they belong to. One that does not
         # fit, or that overlaps its neighbour, would mark the wrong characters —
         # which on a grammar example means pointing at the wrong form.

@@ -1,0 +1,81 @@
+{
+  "note": "Side-by-side comparisons of two structures learners confuse, written for this project.",
+  "why": "The corpus explains each structure on its own page and never sets two against each other, so a comparison cannot be extracted from it. Unlike the paradigm tables in tables.json — which are closed systems anyone can check — choosing WHICH two structures to contrast, and what to say about each, is a teaching decision. That is why each one is attached to a topic that actually teaches at least one side of it, why the distinctions here are the standard ones every reference grammar states, and why this file says out loud that it was written here.",
+  "provenance": "authored-for-this-project",
+  "comparisons": {
+    "g-daf-a2-expressing-reasons-dependent-clauses-wit": {
+      "left": "weil",
+      "right": "denn",
+      "rows": [
+        { "aspect": "Meaning", "left": "because", "right": "because" },
+        { "aspect": "Kind of word", "left": "subordinating conjunction", "right": "coordinating conjunction" },
+        { "aspect": "Clause it opens", "left": "a subordinate clause", "right": "a main clause" },
+        { "aspect": "Verb position", "left": "last", "right": "second, as usual" },
+        { "aspect": "Example", "left": "Ich bleibe zu Hause, weil ich krank bin.", "right": "Ich bleibe zu Hause, denn ich bin krank." }
+      ]
+    },
+    "g-daf-a2-temporal-subordinate-clauses-with-wenn-a": {
+      "left": "als",
+      "right": "wenn",
+      "rows": [
+        { "aspect": "Used for", "left": "one single event in the past", "right": "something repeated, or in the present and future" },
+        { "aspect": "Rough English", "left": "when (that one time)", "right": "when / whenever" },
+        { "aspect": "Verb position", "left": "last", "right": "last" },
+        { "aspect": "Example", "left": "Als ich zehn war, zogen wir um.", "right": "Wenn ich Zeit habe, koche ich." },
+        { "aspect": "Test", "left": "Did it happen once?", "right": "Does it happen more than once?" }
+      ]
+    },
+    "g-b2-5-konzessive-und-kausale-konnektoren": {
+      "left": "obwohl",
+      "right": "trotzdem",
+      "rows": [
+        { "aspect": "Meaning", "left": "although", "right": "all the same, even so" },
+        { "aspect": "Kind of word", "left": "subordinating conjunction", "right": "adverb" },
+        { "aspect": "Verb position", "left": "last, in its own clause", "right": "second — and trotzdem itself takes first place" },
+        { "aspect": "Example", "left": "Obwohl es regnet, gehen wir spazieren.", "right": "Es regnet. Trotzdem gehen wir spazieren." }
+      ]
+    },
+    "g-daf-a2-preterite": {
+      "left": "Präteritum",
+      "right": "Perfekt",
+      "rows": [
+        { "aspect": "Where you meet it", "left": "writing: news, novels, reports", "right": "speech and everyday writing" },
+        { "aspect": "Built from", "left": "one word: the verb itself", "right": "haben or sein + Partizip II" },
+        { "aspect": "Example", "left": "Er ging nach Hause.", "right": "Er ist nach Hause gegangen." },
+        { "aspect": "The exception", "left": "haben, sein and the modal verbs use the Präteritum in speech too — ich war, ich hatte, ich musste", "right": "ich bin gewesen and ich habe gehabt exist, but sound heavy" }
+      ]
+    },
+    "g-daf-a2-dual-case-prepositions-an-auf-in-ber-unt": {
+      "left": "Akkusativ",
+      "right": "Dativ",
+      "rows": [
+        { "aspect": "Question it answers", "left": "wohin? — where to?", "right": "wo? — where?" },
+        { "aspect": "Describes", "left": "movement towards a place", "right": "a position, with no change of place" },
+        { "aspect": "Example", "left": "Ich hänge das Bild an die Wand.", "right": "Das Bild hängt an der Wand." },
+        { "aspect": "Article, masculine", "left": "an den", "right": "an dem / am" },
+        { "aspect": "Article, feminine", "left": "an die", "right": "an der" }
+      ]
+    },
+    "g-daf-a2-active-passive": {
+      "left": "Aktiv",
+      "right": "Passiv",
+      "rows": [
+        { "aspect": "In focus", "left": "who does it", "right": "what happens to what" },
+        { "aspect": "Built from", "left": "the verb on its own", "right": "werden + Partizip II" },
+        { "aspect": "Example", "left": "Der Mechaniker repariert das Auto.", "right": "Das Auto wird repariert." },
+        { "aspect": "The doer", "left": "is the subject", "right": "can be left out, or added with von" },
+        { "aspect": "Used when", "left": "the doer matters", "right": "the doer is unknown, obvious or beside the point" }
+      ]
+    },
+    "g-b2-8-indirekte-rede-mit-konjunktiv-i": {
+      "left": "Konjunktiv I",
+      "right": "Konjunktiv II",
+      "rows": [
+        { "aspect": "Job", "left": "reporting what someone said, without judging it", "right": "marking something as unreal: a wish, a condition, a polite request" },
+        { "aspect": "Where you meet it", "left": "news reports, minutes, academic writing", "right": "speech and writing alike" },
+        { "aspect": "Example", "left": "Er sagt, er habe keine Zeit.", "right": "Wenn er Zeit hätte, käme er." },
+        { "aspect": "Why they cross over", "left": "when the Konjunktiv I form looks exactly like the indicative — sie haben — it says nothing", "right": "so the Konjunktiv II is used instead: sie hätten" }
+      ]
+    }
+  }
+}

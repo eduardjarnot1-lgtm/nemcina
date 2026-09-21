@@ -29,6 +29,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 ANNOTATIONS = ROOT / "annotations" / "grammar"
 TABLES_FILE = "tables.json"
+COMPARISONS_FILE = "comparisons.json"
 
 # Exercise types whose answer is a *form* rather than a whole sentence. A
 # reorder answer is the sentence itself and says nothing about which word the
@@ -166,6 +167,36 @@ def load_tables() -> dict[str, list[dict]]:
     return tables
 
 
+def load_comparisons() -> dict[str, dict]:
+    """Side-by-side comparisons of two structures learners confuse.
+
+    Written for this project, like the paradigm tables, but for a different
+    reason and with a weaker claim. A declension table is a closed system anyone
+    can check; choosing *which* two structures to set against each other, and
+    what to say about each, is a teaching decision. So each one is attached to a
+    topic that actually teaches at least one side of it, the distinctions are
+    the standard ones every reference grammar states, and the annotation file
+    says out loud that it was written here.
+    """
+    path = ANNOTATIONS / COMPARISONS_FILE
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    found = data.get("comparisons", {})
+    for tid, comparison in found.items():
+        for field in ("left", "right"):
+            if not str(comparison.get(field, "")).strip():
+                raise SystemExit(f"{COMPARISONS_FILE}: {tid} has no {field} heading")
+        if not comparison.get("rows"):
+            raise SystemExit(f"{COMPARISONS_FILE}: {tid} has no rows")
+        for row in comparison["rows"]:
+            for field in ("aspect", "left", "right"):
+                if not str(row.get(field, "")).strip():
+                    raise SystemExit(
+                        f"{COMPARISONS_FILE}: {tid} has a row with an empty {field}")
+    return found
+
+
 def focus_forms(exercises: list[dict]) -> set[str]:
     """The forms a topic actually teaches, as its own exercises state them.
 
@@ -226,8 +257,10 @@ def mark_examples(examples: list[dict], forms: set[str]) -> int:
 def main() -> int:
     source = load_sources()
     # tables.json is reference data keyed by topic id, not a list of topics.
-    files = sorted(f for f in ANNOTATIONS.glob("*.json") if f.name != TABLES_FILE)
+    reference = {TABLES_FILE, COMPARISONS_FILE}
+    files = sorted(f for f in ANNOTATIONS.glob("*.json") if f.name not in reference)
     tables = load_tables()
+    comparisons = load_comparisons()
     if not files:
         raise SystemExit(f"no annotation files in {ANNOTATIONS}")
 
@@ -236,6 +269,7 @@ def main() -> int:
     seen: set[str] = set()
     marked_examples = 0
     with_tables = 0
+    with_comparison = 0
 
     for path in files:
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -327,6 +361,7 @@ def main() -> int:
                 "rules": entry.get("rules", []),
                 "examples": entry.get("examples", []),
                 "tables": tables.get(tid, []),
+                "comparison": comparisons.get(tid),
                 "exercises": exercises,
                 "kursbuch": src.get("kursbuch", ""),
                 "subsection": src.get("subsection", ""),
@@ -341,6 +376,8 @@ def main() -> int:
             marked_examples += mark_examples(topic["examples"], focus_forms(exercises))
             if topic["tables"]:
                 with_tables += 1
+            if topic["comparison"]:
+                with_comparison += 1
 
     missing = sorted(tid for tid in source if tid not in seen)
     if missing:
@@ -402,6 +439,7 @@ def main() -> int:
           f"exercises {meta['exerciseCount']} -> {OUT}")
     print(f"highlighted  {marked_examples} of {meta['exampleCount']} examples carry a taught form")
     print(f"tables       {with_tables} topic(s) carry a paradigm table")
+    print(f"comparisons  {with_comparison} topic(s) carry a side-by-side comparison")
     for entry in levels:
         print(f"  {entry['level']}: {entry['topicCount']} topics in {len(entry['groups'])} groups")
     return 0

@@ -56,6 +56,7 @@ export const strings = {
   grammarWatchOut: 'Watch out',
   grammarInShort: 'In short',
   grammarForms: 'The forms',
+  grammarVersus: (left: string, right: string) => `${left} or ${right}?`,
   grammarCommonMistake: 'Common mistake',
   grammarShowMistake: 'Show the common mistake',
   // The tick and cross are never the only signal; these name them.
