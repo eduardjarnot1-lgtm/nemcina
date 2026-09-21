@@ -30,6 +30,7 @@ ROOT = Path(__file__).resolve().parent
 ANNOTATIONS = ROOT / "annotations" / "grammar"
 TABLES_FILE = "tables.json"
 COMPARISONS_FILE = "comparisons.json"
+WORDORDER_FILE = "wordorder.json"
 
 # Exercise types whose answer is a *form* rather than a whole sentence. A
 # reorder answer is the sentence itself and says nothing about which word the
@@ -197,6 +198,65 @@ def load_comparisons() -> dict[str, dict]:
     return found
 
 
+def load_wordorder() -> dict[tuple[str, str], list[str]]:
+    """Highlights written by hand for the topics the automatic rule cannot reach.
+
+    Word-order topics teach a *position*, and their exercises answer with a
+    whole sentence, so `focus_forms` finds nothing to mark in them — 114
+    examples came out bare. The alternative to writing these was a parser
+    guessing which word is the finite verb, and a wrong guess there teaches
+    wrong grammar, so they are written one example at a time.
+
+    Keyed on the topic and the example's exact text, so an annotation that no
+    longer matches any example is a build failure rather than a silent no-op.
+    """
+    path = ANNOTATIONS / WORDORDER_FILE
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    out: dict[tuple[str, str], list[str]] = {}
+    for entry in data.get("marks", []):
+        key = (entry["topic"], entry["text"])
+        if key in out:
+            raise SystemExit(f"{WORDORDER_FILE}: {entry['topic']} annotates the same example twice")
+        out[key] = entry["mark"]
+    return out
+
+
+def spans_for(text: str, marks: list[str], where: str) -> list[list[int]]:
+    """Turn written marks into character spans.
+
+    A mark is the word to highlight. "word[2]" picks the second occurrence,
+    which is how a sentence containing the same word twice — one clause's verb
+    and the next one's — can mark only the one that is meant.
+
+    A mark that does not occur is a mistake in the annotation, and it stops the
+    build: a highlight silently going missing is exactly the failure this file
+    exists to avoid.
+    """
+    spans: list[list[int]] = []
+    for mark in marks:
+        wanted = 1
+        token = mark
+        matched = re.fullmatch(r"(.+)\[(\d+)\]", mark)
+        if matched:
+            token, wanted = matched.group(1), int(matched.group(2))
+        found = [m for m in re.finditer(
+            r"(?<![\wÄÖÜäöüß])" + re.escape(token) + r"(?![\wÄÖÜäöüß])", text)]
+        if len(found) < wanted:
+            raise SystemExit(
+                f"{WORDORDER_FILE}: {where}: {mark!r} occurs {len(found)} time(s) in {text!r}")
+        hit = found[wanted - 1]
+        spans.append([hit.start(), hit.end()])
+    spans.sort(key=lambda s: (s[0], -s[1]))
+    kept: list[list[int]] = []
+    for span in spans:
+        if kept and span[0] < kept[-1][1]:
+            continue
+        kept.append(span)
+    return kept
+
+
 def focus_forms(exercises: list[dict]) -> set[str]:
     """The forms a topic actually teaches, as its own exercises state them.
 
@@ -257,10 +317,11 @@ def mark_examples(examples: list[dict], forms: set[str]) -> int:
 def main() -> int:
     source = load_sources()
     # tables.json is reference data keyed by topic id, not a list of topics.
-    reference = {TABLES_FILE, COMPARISONS_FILE}
+    reference = {TABLES_FILE, COMPARISONS_FILE, WORDORDER_FILE}
     files = sorted(f for f in ANNOTATIONS.glob("*.json") if f.name not in reference)
     tables = load_tables()
     comparisons = load_comparisons()
+    hand_marks = load_wordorder()
     if not files:
         raise SystemExit(f"no annotation files in {ANNOTATIONS}")
 
@@ -270,6 +331,7 @@ def main() -> int:
     marked_examples = 0
     with_tables = 0
     with_comparison = 0
+    by_hand = 0
 
     for path in files:
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -374,6 +436,17 @@ def main() -> int:
 
             topic = topics[-1]
             marked_examples += mark_examples(topic["examples"], focus_forms(exercises))
+            # Hand-written marks come after, and win: they were written for an
+            # example the automatic rule had nothing to say about.
+            for example in topic["examples"]:
+                written = hand_marks.pop((tid, example.get("de", "")), None)
+                if written is None:
+                    continue
+                was_bare = not example["marks"]
+                example["marks"] = spans_for(example["de"], written, tid)
+                if was_bare and example["marks"]:
+                    marked_examples += 1
+                by_hand += 1
             if topic["tables"]:
                 with_tables += 1
             if topic["comparison"]:
@@ -390,6 +463,10 @@ def main() -> int:
                 problems.append(f"{topic['id']}: prerequisite {prerequisite!r} does not exist")
             elif prerequisite == topic["id"]:
                 problems.append(f"{topic['id']}: is its own prerequisite")
+
+    if hand_marks:
+        for (tid, text) in list(hand_marks)[:10]:
+            problems.append(f"{WORDORDER_FILE}: {tid} annotates {text!r}, which is not one of its examples")
 
     if problems:
         print(f"{len(problems)} problem(s):", file=sys.stderr)
@@ -440,6 +517,7 @@ def main() -> int:
     print(f"highlighted  {marked_examples} of {meta['exampleCount']} examples carry a taught form")
     print(f"tables       {with_tables} topic(s) carry a paradigm table")
     print(f"comparisons  {with_comparison} topic(s) carry a side-by-side comparison")
+    print(f"by hand      {by_hand} example(s) use written word-order marks")
     for entry in levels:
         print(f"  {entry['level']}: {entry['topicCount']} topics in {len(entry['groups'])} groups")
     return 0

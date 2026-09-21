@@ -358,9 +358,22 @@ what is highlighted was decided where it could be checked. The importer drops a
 span that does not fit its sentence rather than clamping it, and the validator
 fails on an out-of-range or overlapping span.
 
-**Nothing identifies "the verb" or "the subject".** That needs a parser, and a
-wrong guess teaches wrong grammar. An example the build could not mark is not
-highlighted, which is a normal state.
+**Word-order topics are marked by hand.** They teach a *position*, and their
+exercises answer with a whole sentence, so the automatic rule found nothing in
+them and 114 examples came out bare. `annotations/grammar/wordorder.json` names
+the words for each of those 114, one example at a time — `Als … eintraf` and
+then `gab`, the V-final and V-2 pattern in one sentence. Coverage is **431 of
+675**.
+
+A mark is the word to highlight, and `word[2]` picks the second occurrence
+where a sentence carries the same word twice. **The build fails if a mark does
+not occur, or if an annotation matches no example** — which caught seven topic
+ids I had guessed from a truncated listing. A highlight going silently missing
+is the failure this file exists to prevent.
+
+**Nothing identifies "the verb" or "the subject" automatically.** That needs a
+parser, and a wrong guess teaches wrong grammar. Writing 114 marks by hand was
+the alternative to guessing, and it is why they are right.
 
 The highlight is a tint **and** a weight change, so it survives greyscale.
 
