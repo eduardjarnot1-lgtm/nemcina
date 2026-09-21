@@ -135,7 +135,7 @@ describe('grammar topics', () => {
   test('the explanation survives the trip — it is the teaching, not decoration', () => {
     const topic = toGrammarTopic(raw);
     assert.deepEqual(topic.explanation, [{ heading: 'The endings', text: '-e, -st, -t, -en, -t, -en.' }]);
-    assert.deepEqual(topic.examples, [{ text: 'ich komme', note: 'regular ending -e', marks: [] }]);
+    assert.deepEqual(topic.examples, [{ text: 'ich komme', note: 'regular ending -e', en: '', marks: [] }]);
     assert.equal(topic.exercises[0]?.kind, 'typing');
     assert.equal(topic.source.title, 'DaF kompakt');
     assert.equal(topic.source.page, 1);

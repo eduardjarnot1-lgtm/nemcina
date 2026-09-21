@@ -31,6 +31,7 @@ ANNOTATIONS = ROOT / "annotations" / "grammar"
 TABLES_FILE = "tables.json"
 COMPARISONS_FILE = "comparisons.json"
 WORDORDER_FILE = "wordorder.json"
+TRANSLATIONS_FILE = "translations.json"
 
 # Exercise types whose answer is a *form* rather than a whole sentence. A
 # reorder answer is the sentence itself and says nothing about which word the
@@ -223,6 +224,28 @@ def load_wordorder() -> dict[tuple[str, str], list[str]]:
     return out
 
 
+def load_translations() -> dict[str, str]:
+    """English for the German in the examples, written for this project.
+
+    The corpus carries no translation. Its `note` field names the point being
+    made ("regular ending -e"), which is an annotation, not a gloss, so a
+    learner who cannot yet read the sentence has nothing to go on. These are
+    keyed on the example's exact German, because the same sentence recurs
+    across topics and should read the same way in each.
+    """
+    path = ANNOTATIONS / TRANSLATIONS_FILE
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    out: dict[str, str] = {}
+    for german, english in data.get("translations", {}).items():
+        text = english.strip()
+        if not text:
+            raise SystemExit(f"{TRANSLATIONS_FILE}: {german!r} has an empty translation")
+        out[german.strip()] = text
+    return out
+
+
 def spans_for(text: str, marks: list[str], where: str) -> list[list[int]]:
     """Turn written marks into character spans.
 
@@ -317,11 +340,12 @@ def mark_examples(examples: list[dict], forms: set[str]) -> int:
 def main() -> int:
     source = load_sources()
     # tables.json is reference data keyed by topic id, not a list of topics.
-    reference = {TABLES_FILE, COMPARISONS_FILE, WORDORDER_FILE}
+    reference = {TABLES_FILE, COMPARISONS_FILE, WORDORDER_FILE, TRANSLATIONS_FILE}
     files = sorted(f for f in ANNOTATIONS.glob("*.json") if f.name not in reference)
     tables = load_tables()
     comparisons = load_comparisons()
     hand_marks = load_wordorder()
+    translations = load_translations()
     if not files:
         raise SystemExit(f"no annotation files in {ANNOTATIONS}")
 
@@ -332,6 +356,9 @@ def main() -> int:
     with_tables = 0
     with_comparison = 0
     by_hand = 0
+    translated = 0
+    untranslated: set[str] = set()
+    used_translations: set[str] = set()
 
     for path in files:
         data = json.loads(path.read_text(encoding="utf-8"))
@@ -447,6 +474,14 @@ def main() -> int:
                 if was_bare and example["marks"]:
                     marked_examples += 1
                 by_hand += 1
+            for example in topic["examples"]:
+                english = translations.get(example.get("de", "").strip())
+                if english:
+                    example["en"] = english
+                    used_translations.add(example["de"].strip())
+                    translated += 1
+                else:
+                    untranslated.add(example.get("de", ""))
             if topic["tables"]:
                 with_tables += 1
             if topic["comparison"]:
@@ -467,6 +502,11 @@ def main() -> int:
     if hand_marks:
         for (tid, text) in list(hand_marks)[:10]:
             problems.append(f"{WORDORDER_FILE}: {tid} annotates {text!r}, which is not one of its examples")
+
+    stale = sorted(set(translations) - used_translations)
+    if stale:
+        for text in stale[:10]:
+            problems.append(f"{TRANSLATIONS_FILE}: {text!r} is not an example in any topic")
 
     if problems:
         print(f"{len(problems)} problem(s):", file=sys.stderr)
@@ -518,6 +558,10 @@ def main() -> int:
     print(f"tables       {with_tables} topic(s) carry a paradigm table")
     print(f"comparisons  {with_comparison} topic(s) carry a side-by-side comparison")
     print(f"by hand      {by_hand} example(s) use written word-order marks")
+    print(f"translated   {translated} of {meta['exampleCount']} examples carry English")
+    if untranslated:
+        print(f"  no English for {len(untranslated)} distinct example(s); "
+              f"the app shows the German alone")
     for entry in levels:
         print(f"  {entry['level']}: {entry['topicCount']} topics in {len(entry['groups'])} groups")
     return 0

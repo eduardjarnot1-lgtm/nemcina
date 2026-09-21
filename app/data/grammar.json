@@ -421,7 +421,8 @@
     {
      "de": "ich komme",
      "note": "regular ending -e",
-     "marks": []
+     "marks": [],
+     "en": "I come"
     },
     {
      "de": "du kommst",
@@ -431,7 +432,8 @@
        3,
        9
       ]
-     ]
+     ],
+     "en": "you come"
     },
     {
      "de": "arbeitest",
@@ -441,7 +443,8 @@
        0,
        9
       ]
-     ]
+     ],
+     "en": "(you) work"
     },
     {
      "de": "heißt",
@@ -451,17 +454,20 @@
        0,
        5
       ]
-     ]
+     ],
+     "en": "(you / he) are called"
     },
     {
      "de": "bin",
      "note": "sein, ich-form",
-     "marks": []
+     "marks": [],
+     "en": "(I) am"
     },
     {
      "de": "sind",
      "note": "sein, wir-form",
-     "marks": []
+     "marks": [],
+     "en": "(we / they) are"
     }
    ],
    "tables": [],
@@ -609,27 +615,32 @@
        14,
        16
       ]
-     ]
+     ],
+     "en": "I'll call you."
     },
     {
      "de": "Wann stehst du auf?",
      "note": "aufstehen",
-     "marks": []
+     "marks": [],
+     "en": "When do you get up?"
     },
     {
      "de": "Wir probieren das Lauftraining aus",
      "note": "ausprobieren",
-     "marks": []
+     "marks": [],
+     "en": "We're trying out the running training"
     },
     {
      "de": "Ihr kommt zum Leonardo-Campus-Run mit.",
      "note": "mitkommen",
-     "marks": []
+     "marks": [],
+     "en": "You're coming along to the Leonardo Campus Run."
     },
     {
      "de": "Annika und Tobias machen beim Lauftraining mit.",
      "note": "mitmachen",
-     "marks": []
+     "marks": [],
+     "en": "Annika and Tobias are taking part in the running training."
     }
    ],
    "tables": [],
@@ -755,12 +766,14 @@
     {
      "de": "Ich möchte unbedingt beim Lauftraining mitmachen.",
      "note": "mitmachen stays whole",
-     "marks": []
+     "marks": [],
+     "en": "I really want to take part in the running training."
     },
     {
      "de": "Tim kann uns im Auto mitnehmen.",
      "note": "mitnehmen stays whole",
-     "marks": []
+     "marks": [],
+     "en": "Tim can give us a lift in the car."
     }
    ],
    "tables": [],
@@ -892,12 +905,14 @@
     {
      "de": "du liest",
      "note": "e → ie",
-     "marks": []
+     "marks": [],
+     "en": "you read"
     },
     {
      "de": "er/sie/es lie st",
      "note": "e → ie in the er-form",
-     "marks": []
+     "marks": [],
+     "en": "he / she / it reads"
     },
     {
      "de": "sprichst",
@@ -907,22 +922,26 @@
        0,
        8
       ]
-     ]
+     ],
+     "en": "(you) speak"
     },
     {
      "de": "fährst",
      "note": "du-form, a → ä",
-     "marks": []
+     "marks": [],
+     "en": "(you) drive, go"
     },
     {
      "de": "läufst",
      "note": "du-form, au → äu",
-     "marks": []
+     "marks": [],
+     "en": "(you) run"
     },
     {
      "de": "weiß",
      "note": "wissen, ich-form",
-     "marks": []
+     "marks": [],
+     "en": "(I / he) know"
     }
    ],
    "tables": [],
@@ -1077,7 +1096,8 @@
        7,
        11
       ]
-     ]
+     ],
+     "en": "Tomorrow I'm going to the Zentrum Paul Klee."
     },
     {
      "de": "For haben and sein use mainly preterite instead of perfect!",
@@ -1221,17 +1241,20 @@
     {
      "de": "ich habe getroffen",
      "note": "irregular, -en ending",
-     "marks": []
+     "marks": [],
+     "en": "I have met"
     },
     {
      "de": "bin gefahren",
      "note": "movement verb, sein",
-     "marks": []
+     "marks": [],
+     "en": "(I) have driven, gone"
     },
     {
      "de": "habe gewusst",
      "note": "mixed verb: vowel change + -t",
-     "marks": []
+     "marks": [],
+     "en": "(I) have known"
     },
     {
      "de": "haben gedacht",
@@ -1241,7 +1264,8 @@
        6,
        13
       ]
-     ]
+     ],
+     "en": "(we / they) have thought"
     },
     {
      "de": "bin gewesen",
@@ -1251,7 +1275,8 @@
        4,
        11
       ]
-     ]
+     ],
+     "en": "(I) have been"
     }
    ],
    "tables": [],
@@ -1403,7 +1428,8 @@
        9,
        18
       ]
-     ]
+     ],
+     "en": "I have managed it"
     },
     {
      "de": "bin gestartet",
@@ -1413,7 +1439,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "(I) have started"
     },
     {
      "de": "habe trainiert",
@@ -1423,7 +1450,8 @@
        5,
        14
       ]
-     ]
+     ],
+     "en": "(I) have trained"
     },
     {
      "de": "ist passiert",
@@ -1433,7 +1461,8 @@
        4,
        12
       ]
-     ]
+     ],
+     "en": "(it) has happened"
     }
    ],
    "tables": [],
@@ -1580,17 +1609,20 @@
        20,
        29
       ]
-     ]
+     ],
+     "en": "I haven't forgotten you."
     },
     {
      "de": "Du hast den Hausmeister nicht erreicht.",
      "note": "er-, regular, no ge-",
-     "marks": []
+     "marks": [],
+     "en": "You didn't reach the caretaker."
     },
     {
      "de": "Er hat keine Notiz hinterlassen .",
      "note": "hinter-, no ge-",
-     "marks": []
+     "marks": [],
+     "en": "He didn't leave a note."
     },
     {
      "de": "Wir haben unsere Eltern besucht.",
@@ -1600,7 +1632,8 @@
        24,
        31
       ]
-     ]
+     ],
+     "en": "We visited our parents."
     }
    ],
    "tables": [],
@@ -1733,12 +1766,14 @@
        29,
        38
       ]
-     ]
+     ],
+     "en": "I called you several times today."
     },
     {
      "de": "Du hast leider nicht zurückgerufen.",
      "note": "zurück + ge + rufen",
-     "marks": []
+     "marks": [],
+     "en": "Unfortunately you didn't call back."
     },
     {
      "de": "Er hat den Antrag vom Studierendenwohnheim ausgefüllt.",
@@ -1748,12 +1783,14 @@
        43,
        53
       ]
-     ]
+     ],
+     "en": "He filled in the hall of residence application."
     },
     {
      "de": "Sie sind heute Morgen weggefahren.",
      "note": "movement verb, sein",
-     "marks": []
+     "marks": [],
+     "en": "They left this morning."
     },
     {
      "de": "Am Sonntag bin ich erst um 11.00 Uhr aufgestanden.",
@@ -1763,7 +1800,8 @@
        11,
        14
       ]
-     ]
+     ],
+     "en": "On Sunday I didn't get up until 11.00."
     }
    ],
    "tables": [],
@@ -1902,22 +1940,26 @@
        11,
        15
       ]
-     ]
+     ],
+     "en": "you come → Come!"
     },
     {
      "de": "ihr kommt → Kommt!",
      "note": "ihr-imperative",
-     "marks": []
+     "marks": [],
+     "en": "you (pl.) come → Come!"
     },
     {
      "de": "Sie kommen → Kommen Sie!",
      "note": "formal imperative",
-     "marks": []
+     "marks": [],
+     "en": "you (polite) come → Come!"
     },
     {
      "de": "du wartest → Warte!",
      "note": "stem in -t, so -e is added",
-     "marks": []
+     "marks": [],
+     "en": "you wait → Wait!"
     },
     {
      "de": "du liest → Lies!",
@@ -1927,17 +1969,20 @@
        11,
        15
       ]
-     ]
+     ],
+     "en": "you read → Read!"
     },
     {
      "de": "du fährst → F ahr!",
      "note": "a → ä dropped",
-     "marks": []
+     "marks": [],
+     "en": "you drive → Drive!"
     },
     {
      "de": "du passt auf → Pass auf!",
      "note": "separable verb",
-     "marks": []
+     "marks": [],
+     "en": "you pay attention → Watch out!"
     },
     {
      "de": "du bist → Sei vorsichtig!",
@@ -1947,7 +1992,8 @@
        10,
        13
       ]
-     ]
+     ],
+     "en": "you are → Be careful!"
     }
    ],
    "tables": [],
@@ -2115,12 +2161,14 @@
     {
      "de": "Sollen / wollen wir einen Kaffee trinken?",
      "note": "proposal",
-     "marks": []
+     "marks": [],
+     "en": "Shall we have a coffee?"
     },
     {
      "de": "Soll ich helfen?",
      "note": "offering help",
-     "marks": []
+     "marks": [],
+     "en": "Shall I help?"
     },
     {
      "de": "Gehen wir doch ins Kino!",
@@ -2130,7 +2178,8 @@
        10,
        14
       ]
-     ]
+     ],
+     "en": "Let's go to the cinema!"
     },
     {
      "de": "Kochen wir doch mal zusammen!",
@@ -2140,7 +2189,8 @@
        11,
        15
       ]
-     ]
+     ],
+     "en": "Let's cook together some time!"
     }
    ],
    "tables": [],
@@ -2277,7 +2327,8 @@
        11,
        14
       ]
-     ]
+     ],
+     "en": "On Sunday the Brunnenstüberl is open."
     },
     {
      "de": "Das Brunnenstüberl ist am Sonntag geöffnet.",
@@ -2287,7 +2338,8 @@
        19,
        22
       ]
-     ]
+     ],
+     "en": "The Brunnenstüberl is open on Sunday."
     },
     {
      "de": "Das Wetter ist leider nicht so gut.",
@@ -2297,7 +2349,8 @@
        11,
        14
       ]
-     ]
+     ],
+     "en": "The weather is unfortunately not very good."
     },
     {
      "de": "Leider ist das Wetter nicht so gut.",
@@ -2307,7 +2360,8 @@
        7,
        10
       ]
-     ]
+     ],
+     "en": "Unfortunately the weather is not very good."
     }
    ],
    "tables": [],
@@ -2441,7 +2495,8 @@
        6,
        12
       ]
-     ]
+     ],
+     "en": "Where do you come from?"
     },
     {
      "de": "Ich komme aus Marokko.",
@@ -2451,7 +2506,8 @@
        4,
        9
       ]
-     ]
+     ],
+     "en": "I come from Morocco."
     },
     {
      "de": "Wo wohnst du?",
@@ -2465,7 +2521,8 @@
        3,
        9
       ]
-     ]
+     ],
+     "en": "Where do you live?"
     },
     {
      "de": "Kommen Sie aus Tunesien?",
@@ -2475,7 +2532,8 @@
        0,
        6
       ]
-     ]
+     ],
+     "en": "Do you come from Tunisia?"
     },
     {
      "de": "Wohnst du in Stuttgart?",
@@ -2485,7 +2543,8 @@
        0,
        6
       ]
-     ]
+     ],
+     "en": "Do you live in Stuttgart?"
     }
    ],
    "tables": [],
@@ -2624,7 +2683,8 @@
        31,
        40
       ]
-     ]
+     ],
+     "en": "During the week Beatriz has to get up early."
     },
     {
      "de": "Am Wochenende kann sie lange schlafen.",
@@ -2638,7 +2698,8 @@
        29,
        37
       ]
-     ]
+     ],
+     "en": "At the weekend she can sleep in."
     },
     {
      "de": "Man darf im Bus nicht laut Musik hören.",
@@ -2648,7 +2709,8 @@
        33,
        38
       ]
-     ]
+     ],
+     "en": "You aren't allowed to play music loudly on the bus."
     },
     {
      "de": "Beatriz und Leopold wollen heute ins Kino gehen.",
@@ -2662,7 +2724,8 @@
        42,
        47
       ]
-     ]
+     ],
+     "en": "Beatriz and Leopold want to go to the cinema today."
     },
     {
      "de": "Wann möchtet ihr nach Hause fahren?",
@@ -2680,7 +2743,8 @@
        28,
        34
       ]
-     ]
+     ],
+     "en": "When do you want to go home?"
     }
    ],
    "tables": [],
@@ -2812,7 +2876,8 @@
        27,
        32
       ]
-     ]
+     ],
+     "en": "Are you allowed to play music loudly on the bus?"
     }
    ],
    "tables": [],
@@ -2924,7 +2989,8 @@
     {
      "de": "der Computer",
      "note": "masculine nominative",
-     "marks": []
+     "marks": [],
+     "en": "the computer (nominative)"
     },
     {
      "de": "den Computer",
@@ -2934,12 +3000,14 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "the computer (accusative)"
     },
     {
      "de": "das Telefon",
      "note": "neuter — unchanged",
-     "marks": []
+     "marks": [],
+     "en": "the telephone"
     },
     {
      "de": "die Kamera",
@@ -2949,7 +3017,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "the camera"
     },
     {
      "de": "die Kassetten",
@@ -2959,7 +3028,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "the cassettes"
     }
    ],
    "tables": [
@@ -3113,12 +3183,14 @@
     {
      "de": "ein / kein Computer",
      "note": "masculine nominative",
-     "marks": []
+     "marks": [],
+     "en": "a / no computer (nominative)"
     },
     {
      "de": "ein en / kein en Computer",
      "note": "masculine accusative",
-     "marks": []
+     "marks": [],
+     "en": "a / no computer (accusative)"
     },
     {
      "de": "eine / keine Kamera",
@@ -3128,7 +3200,8 @@
        7,
        12
       ]
-     ]
+     ],
+     "en": "a / no camera"
     },
     {
      "de": "- / keine Kassetten",
@@ -3138,7 +3211,8 @@
        4,
        9
       ]
-     ]
+     ],
+     "en": "— / no cassettes"
     }
    ],
    "tables": [
@@ -3293,12 +3367,14 @@
        4,
        8
       ]
-     ]
+     ],
+     "en": "I → me"
     },
     {
      "de": "du dich",
      "note": "2nd person singular",
-     "marks": []
+     "marks": [],
+     "en": "you → you"
     },
     {
      "de": "ihn / es / sie",
@@ -3312,7 +3388,8 @@
        6,
        8
       ]
-     ]
+     ],
+     "en": "him / it / her"
     },
     {
      "de": "wir uns",
@@ -3322,7 +3399,8 @@
        4,
        7
       ]
-     ]
+     ],
+     "en": "we → us"
     },
     {
      "de": "ihr euch",
@@ -3332,7 +3410,8 @@
        4,
        8
       ]
-     ]
+     ],
+     "en": "you (pl.) → you"
     }
    ],
    "tables": [
@@ -3547,7 +3626,8 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "my son"
     },
     {
      "de": "mein Kind",
@@ -3561,7 +3641,8 @@
        5,
        9
       ]
-     ]
+     ],
+     "en": "my child"
     },
     {
      "de": "meine Tochter",
@@ -3575,7 +3656,8 @@
        6,
        13
       ]
-     ]
+     ],
+     "en": "my daughter"
     },
     {
      "de": "meine Söhne, Töchter, Kinder",
@@ -3585,17 +3667,20 @@
        0,
        5
       ]
-     ]
+     ],
+     "en": "my sons, daughters, children"
     },
     {
      "de": "du dein dein deine deine",
      "note": "the du row: M, N, F, plural",
-     "marks": []
+     "marks": [],
+     "en": "you → your (masc., neut., fem., pl.)"
     },
     {
      "de": "seine / ihre",
      "note": "feminine and plural forms for er/es and for sie",
-     "marks": []
+     "marks": [],
+     "en": "his / her"
     },
     {
      "de": "The endings on possessive articles are the same as the indefinite article and the negative article.",
@@ -3824,7 +3909,8 @@
        11,
        17
       ]
-     ]
+     ],
+     "en": "I'm not bringing anything to the party (e.g. no sausage, no present)."
     },
     {
      "de": "Ich bringe etwas zur Party mit.",
@@ -3834,7 +3920,8 @@
        11,
        16
       ]
-     ]
+     ],
+     "en": "I'm bringing something to the party."
     },
     {
      "de": "Man bringt zu einer Party ein Geschenk mit",
@@ -3848,7 +3935,8 @@
        4,
        10
       ]
-     ]
+     ],
+     "en": "You bring a present to a party"
     },
     {
      "de": "Alle (hier: Gäste) haben einen Salat mitgebracht.",
@@ -3858,7 +3946,8 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "Everyone (here: the guests) brought a salad."
     }
    ],
    "tables": [],
@@ -4026,7 +4115,8 @@
        9,
        14
       ]
-     ]
+     ],
+     "en": "Where is / lies the book?"
     },
     {
      "de": "Das Buch ist auf / unter / an dem Tisch (← der Tisch)",
@@ -4040,7 +4130,8 @@
        43,
        46
       ]
-     ]
+     ],
+     "en": "The book is on / under / at the table (← der Tisch)"
     },
     {
      "de": "liegt neben / in dem Sofa (← das Sofa)",
@@ -4050,7 +4141,8 @@
        17,
        20
       ]
-     ]
+     ],
+     "en": "lies next to / in the sofa (← das Sofa)"
     },
     {
      "de": "vor / hinter der Kommode (← die Kommode)",
@@ -4060,7 +4152,8 @@
        13,
        16
       ]
-     ]
+     ],
+     "en": "in front of / behind the chest of drawers (← die Kommode)"
     },
     {
      "de": "über / zwischen den Regalen (← die Regale, Pl.)",
@@ -4070,7 +4163,8 @@
        16,
        19
       ]
-     ]
+     ],
+     "en": "above / between the shelves (← die Regale, pl.)"
     }
    ],
    "tables": [],
@@ -4233,7 +4327,8 @@
        6,
        9
       ]
-     ]
+     ],
+     "en": "through the park / through the shopping centre / through the town"
     },
     {
      "de": "um den Haupteingang / um das Haus / um die Ecke herum",
@@ -4243,7 +4338,8 @@
        3,
        6
       ]
-     ]
+     ],
+     "en": "around the main entrance / around the house / round the corner"
     },
     {
      "de": "vom Bahnhof",
@@ -4253,7 +4349,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "from the station"
     },
     {
      "de": "von der Zytglogge",
@@ -4263,7 +4360,8 @@
        8,
        17
       ]
-     ]
+     ],
+     "en": "from the Zytglogge"
     },
     {
      "de": "zum Park",
@@ -4273,7 +4371,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "to the park"
     },
     {
      "de": "zur Zytglogge",
@@ -4287,7 +4386,8 @@
        4,
        13
       ]
-     ]
+     ],
+     "en": "to the Zytglogge"
     },
     {
      "de": "vom Münster (bis) zum Bahnhof",
@@ -4301,7 +4401,8 @@
        18,
        21
       ]
-     ]
+     ],
+     "en": "from the minster (as far as) the station"
     },
     {
      "de": "beim Bahnhof",
@@ -4311,7 +4412,8 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "by the station"
     },
     {
      "de": "in den Park",
@@ -4321,7 +4423,8 @@
        3,
        6
       ]
-     ]
+     ],
+     "en": "into the park"
     },
     {
      "de": "ins Haus",
@@ -4331,7 +4434,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "into the house"
     },
     {
      "de": "im Bärenpark",
@@ -4345,7 +4449,8 @@
        3,
        12
       ]
-     ]
+     ],
+     "en": "in the bear park"
     },
     {
      "de": "in der Schweiz",
@@ -4355,7 +4460,8 @@
        0,
        2
       ]
-     ]
+     ],
+     "en": "in Switzerland"
     }
    ],
    "tables": [],
@@ -4529,7 +4635,8 @@
        31,
        35
       ]
-     ]
+     ],
+     "en": "Beatriz likes going to the theatre, because she loves literature"
     },
     {
      "de": "Beatriz und Leopold kaufen Brot und Wurst, denn sie wollen ein Picknick machen.",
@@ -4539,7 +4646,8 @@
        43,
        47
       ]
-     ]
+     ],
+     "en": "Beatriz and Leopold are buying bread and sausage, because they want to have a picnic."
     }
    ],
    "tables": [],
@@ -4704,7 +4812,8 @@
        34,
        38
       ]
-     ]
+     ],
+     "en": "That is the ordinary nuclear family, but it is no longer the rule today."
     },
     {
      "de": "Man bekommt Kinder, aber man heiratet nicht immer.",
@@ -4714,7 +4823,8 @@
        20,
        24
       ]
-     ]
+     ],
+     "en": "People have children, but they don't always marry."
     },
     {
      "de": "Meine Mutter ist nicht verheiratet und sie erzieht meinen Bruder und mich allein.",
@@ -4732,7 +4842,8 @@
        43,
        50
       ]
-     ]
+     ],
+     "en": "My mother isn't married and she is raising my brother and me on her own."
     },
     {
      "de": "Sie heiraten noch einmal oder sie leben ohne Trauschein.",
@@ -4742,7 +4853,8 @@
        25,
        29
       ]
-     ]
+     ],
+     "en": "They marry again, or they live together without a marriage certificate."
     }
    ],
    "tables": [],
@@ -4902,7 +5014,8 @@
        6,
        10
       ]
-     ]
+     ],
+     "en": "Beate should sleep a lot."
     },
     {
      "de": "Beate darf nicht arbeiten.",
@@ -4912,17 +5025,20 @@
        6,
        10
       ]
-     ]
+     ],
+     "en": "Beate isn't allowed to work."
     },
     {
      "de": "Beate muss sich ausruhen.",
      "note": "necessary",
-     "marks": []
+     "marks": [],
+     "en": "Beate has to rest."
     },
     {
      "de": "Beate braucht keine Diät zu machen.",
      "note": "not necessary — brauchen … kein … zu",
-     "marks": []
+     "marks": [],
+     "en": "Beate doesn't need to go on a diet."
     },
     {
      "de": "Beate kann verreisen.",
@@ -4932,7 +5048,8 @@
        6,
        10
       ]
-     ]
+     ],
+     "en": "Beate can travel."
     }
    ],
    "tables": [],
@@ -5079,12 +5196,14 @@
     {
      "de": "ich konnte",
      "note": "können, umlaut gone",
-     "marks": []
+     "marks": [],
+     "en": "I could"
     },
     {
      "de": "wollte",
      "note": "wollen, preterite",
-     "marks": []
+     "marks": [],
+     "en": "(I / he) wanted"
     },
     {
      "de": "musste",
@@ -5094,17 +5213,20 @@
        0,
        6
       ]
-     ]
+     ],
+     "en": "(I / he) had to"
     },
     {
      "de": "durfte",
      "note": "dürfen, preterite — no umlaut",
-     "marks": []
+     "marks": [],
+     "en": "(I / he) was allowed to"
     },
     {
      "de": "wir konnten",
      "note": "regular plural ending",
-     "marks": []
+     "marks": [],
+     "en": "we could"
     }
    ],
    "tables": [],
@@ -5240,12 +5362,14 @@
        4,
        10
       ]
-     ]
+     ],
+     "en": "I looked for"
     },
     {
      "de": "wartete",
      "note": "regular; stem in -t, so -ete",
-     "marks": []
+     "marks": [],
+     "en": "(I / he) waited"
     },
     {
      "de": "ging",
@@ -5255,17 +5379,20 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "(I / he) went"
     },
     {
      "de": "lief",
      "note": "laufen, irregular",
-     "marks": []
+     "marks": [],
+     "en": "(I / he) ran, walked"
     },
     {
      "de": "rannte",
      "note": "rennen, mixed verb",
-     "marks": []
+     "marks": [],
+     "en": "(I / he) ran"
     },
     {
      "de": "dachte",
@@ -5275,7 +5402,8 @@
        0,
        6
       ]
-     ]
+     ],
+     "en": "(I / he) thought"
     }
    ],
    "tables": [],
@@ -5454,22 +5582,26 @@
     {
      "de": "Die Eheleute gründen 1912 die Fabrik .",
      "note": "active",
-     "marks": []
+     "marks": [],
+     "en": "The couple found the factory in 1912."
     },
     {
      "de": "Die Fabrik wird 1912 (von den Eheleuten) gegründet.",
      "note": "passive, agent optional",
-     "marks": []
+     "marks": [],
+     "en": "The factory is founded in 1912 (by the couple)."
     },
     {
      "de": "Im Museumsshop verkauft man Bücher und Plakate.",
      "note": "active with man",
-     "marks": []
+     "marks": [],
+     "en": "In the museum shop they sell books and posters."
     },
     {
      "de": "Im Museumsshop werden Bücher und Plakate verkauft.",
      "note": "passive, no agent",
-     "marks": []
+     "marks": [],
+     "en": "In the museum shop books and posters are sold."
     },
     {
      "de": "Die Fabrik wurde 1912 von den Eheleuten gegründet.",
@@ -5479,7 +5611,8 @@
        11,
        16
       ]
-     ]
+     ],
+     "en": "The factory was founded in 1912 by the couple."
     }
    ],
    "tables": [],
@@ -5657,12 +5790,14 @@
     {
      "de": "ich hätte",
      "note": "haben, with umlaut",
-     "marks": []
+     "marks": [],
+     "en": "I would have"
     },
     {
      "de": "wäre",
      "note": "sein",
-     "marks": []
+     "marks": [],
+     "en": "(I / he) would be"
     },
     {
      "de": "würde",
@@ -5672,22 +5807,26 @@
        0,
        5
       ]
-     ]
+     ],
+     "en": "(I / he) would"
     },
     {
      "de": "könnte",
      "note": "können, with umlaut",
-     "marks": []
+     "marks": [],
+     "en": "(I / he) could"
     },
     {
      "de": "dürfte",
      "note": "dürfen, with umlaut",
-     "marks": []
+     "marks": [],
+     "en": "(I / he) would be allowed to"
     },
     {
      "de": "sollte",
      "note": "sollen — no umlaut",
-     "marks": []
+     "marks": [],
+     "en": "(I / he) should"
     }
    ],
    "tables": [],
@@ -5842,7 +5981,8 @@
        11,
        14
       ]
-     ]
+     ],
+     "en": "the skirt → the little skirt"
     },
     {
      "de": "Jacke → Jäckchen",
@@ -5852,7 +5992,8 @@
        8,
        16
       ]
-     ]
+     ],
+     "en": "jacket → little jacket"
     }
    ],
    "tables": [],
@@ -5985,12 +6126,14 @@
     {
      "de": "dem Sohn",
      "note": "masculine dative",
-     "marks": []
+     "marks": [],
+     "en": "to the son (dative)"
     },
     {
      "de": "de r Tochter",
      "note": "feminine dative — der, not die",
-     "marks": []
+     "marks": [],
+     "en": "to the daughter (dative)"
     },
     {
      "de": "den Söhne n / Kinder n / Töchter n",
@@ -6000,7 +6143,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "to the sons / children / daughters (dative plural)"
     },
     {
      "de": "(aber: den T-Shirts / Festivals / Autos)",
@@ -6014,7 +6158,8 @@
        34,
        39
       ]
-     ]
+     ],
+     "en": "(but: den T-Shirts / Festivals / Autos — no extra -n)"
     }
    ],
    "tables": [
@@ -6184,22 +6329,26 @@
     {
      "de": "ein en / kein en / mein en",
      "note": "masculine accusative",
-     "marks": []
+     "marks": [],
+     "en": "a / no / my (masculine accusative)"
     },
     {
      "de": "ein em / kein em / mein em",
      "note": "masculine dative",
-     "marks": []
+     "marks": [],
+     "en": "a / no / my (masculine and neuter dative)"
     },
     {
      "de": "eine r / keine r / meine r",
      "note": "feminine dative",
-     "marks": []
+     "marks": [],
+     "en": "a / no / my (feminine dative)"
     },
     {
      "de": "- / kein en / mein en Söhne n /",
      "note": "dative plural: article -en, noun -n",
-     "marks": []
+     "marks": [],
+     "en": "— / no / my sons (dative plural)"
     }
    ],
    "tables": [
@@ -6363,22 +6512,26 @@
     {
      "de": "der /ein Herr / Nachbar / Kollege",
      "note": "nominative singular — no ending",
-     "marks": []
+     "marks": [],
+     "en": "the / a gentleman / neighbour / colleague"
     },
     {
      "de": "den / einen Herr n / Nachbar n / Kollege n",
      "note": "accusative singular takes -(e)n",
-     "marks": []
+     "marks": [],
+     "en": "the / a gentleman / neighbour / colleague (accusative)"
     },
     {
      "de": "mit dem / einem Herr n / Nachbar n / Kollege n",
      "note": "dative singular takes -(e)n",
-     "marks": []
+     "marks": [],
+     "en": "with the / a gentleman / neighbour / colleague"
     },
     {
      "de": "die / - Herr en / Nachbar n / Kollege n",
      "note": "plural",
-     "marks": []
+     "marks": [],
+     "en": "the / — gentlemen / neighbours / colleagues"
     }
    ],
    "tables": [],
@@ -6519,7 +6672,8 @@
        8,
        11
       ]
-     ]
+     ],
+     "en": "to me, to you, to him"
     },
     {
      "de": "ihnen / Ihnen",
@@ -6533,17 +6687,20 @@
        8,
        13
       ]
-     ]
+     ],
+     "en": "to them / to you (polite)"
     },
     {
      "de": "mich dich ihn",
      "note": "the start of the accusative row",
-     "marks": []
+     "marks": [],
+     "en": "me, you, him"
     },
     {
      "de": "uns euch",
      "note": "the plural forms, identical in the accusative and the dative",
-     "marks": []
+     "marks": [],
+     "en": "us, you (pl.)"
     }
    ],
    "tables": [
@@ -6779,7 +6936,8 @@
     {
      "de": "der → meiner",
      "note": "nominative masculine",
-     "marks": []
+     "marks": [],
+     "en": "the one → mine (masculine nominative)"
     },
     {
      "de": "das → meins",
@@ -6789,22 +6947,26 @@
        6,
        11
       ]
-     ]
+     ],
+     "en": "the one → mine (neuter)"
     },
     {
      "de": "den → meinen",
      "note": "accusative masculine",
-     "marks": []
+     "marks": [],
+     "en": "the one → mine (masculine accusative)"
     },
     {
      "de": "dem → meinem",
      "note": "dative masculine and neuter",
-     "marks": []
+     "marks": [],
+     "en": "the one → mine (dative)"
     },
     {
      "de": "der → meiner",
      "note": "dative feminine — the same shape as the nominative masculine",
-     "marks": []
+     "marks": [],
+     "en": "the one → mine (masculine nominative)"
     }
    ],
    "tables": [],
@@ -6960,32 +7122,38 @@
        38,
        44
       ]
-     ]
+     ],
+     "en": "Which jumper do you like better? → This one / This one here."
     },
     {
      "de": "Zu welcher Bluse passt der Rock?",
      "note": "zu takes the dative, feminine welcher",
-     "marks": []
+     "marks": [],
+     "en": "Which blouse does the skirt go with?"
     },
     {
      "de": "Schau die Kleider. Welches gefällt dir am besten? → Dieses / Das da.",
      "note": "nominative neuter",
-     "marks": []
+     "marks": [],
+     "en": "Look at the dresses. Which one do you like best? → This one / That one."
     },
     {
      "de": "Und da die Hosen. Welche ist schicker?",
      "note": "die Hose is feminine, so welche",
-     "marks": []
+     "marks": [],
+     "en": "And the trousers there. Which is smarter?"
     },
     {
      "de": "Welcher Pullover? → dieser / der",
      "note": "nominative masculine, from the table",
-     "marks": []
+     "marks": [],
+     "en": "Which jumper? → this one / that one"
     },
     {
      "de": "Zu welchem Modell? → zu diesem / dem",
      "note": "dative neuter, from the table",
-     "marks": []
+     "marks": [],
+     "en": "With which model? → with this one / that one"
     }
    ],
    "tables": [],
@@ -7145,22 +7313,26 @@
        13,
        17
       ]
-     ]
+     ],
+     "en": "every / (not) a man / (not) one"
     },
     {
      "de": "jedes (k)ein Fest / (k)eins",
      "note": "nominative and accusative neuter",
-     "marks": []
+     "marks": [],
+     "en": "every / (not) a party / (not) one"
     },
     {
      "de": "alle / viele / wenige",
      "note": "the plural, nominative and accusative",
-     "marks": []
+     "marks": [],
+     "en": "all / many / few"
     },
     {
      "de": "allen / vielen / wenigen",
      "note": "the plural, dative",
-     "marks": []
+     "marks": [],
+     "en": "to all / many / few (dative)"
     },
     {
      "de": "jedem (k)einem",
@@ -7170,7 +7342,8 @@
        0,
        5
       ]
-     ]
+     ],
+     "en": "to every / (not) a (dative)"
     }
    ],
    "tables": [],
@@ -7324,37 +7497,44 @@
     {
      "de": "der lebendige Dialekt",
      "note": "Nominativ M",
-     "marks": []
+     "marks": [],
+     "en": "the living dialect"
     },
     {
      "de": "das neue Leben",
      "note": "Nominativ and Akkusativ N",
-     "marks": []
+     "marks": [],
+     "en": "the new life"
     },
     {
      "de": "die lange Tradition",
      "note": "Nominativ and Akkusativ F",
-     "marks": []
+     "marks": [],
+     "en": "the long tradition"
     },
     {
      "de": "den lebendigen Dialekt",
      "note": "Akkusativ M — the only accusative with -en",
-     "marks": []
+     "marks": [],
+     "en": "the living dialect (accusative)"
     },
     {
      "de": "dem neuen Leben",
      "note": "Dativ N",
-     "marks": []
+     "marks": [],
+     "en": "to the new life"
     },
     {
      "de": "der langen Tradition",
      "note": "Dativ F",
-     "marks": []
+     "marks": [],
+     "en": "of / to the long tradition"
     },
     {
      "de": "den alten Liedern",
      "note": "Dativ Plural — noun ends in -n as well",
-     "marks": []
+     "marks": [],
+     "en": "to the old songs"
     }
    ],
    "tables": [
@@ -7569,52 +7749,62 @@
     {
      "de": "ein neuer Trend",
      "note": "Nominativ M — the adjective carries the -er",
-     "marks": []
+     "marks": [],
+     "en": "a new trend"
     },
     {
      "de": "mein festliches Kleid",
      "note": "Nominativ N",
-     "marks": []
+     "marks": [],
+     "en": "my festive dress"
     },
     {
      "de": "eine neue Phase",
      "note": "Nominativ F",
-     "marks": []
+     "marks": [],
+     "en": "a new phase"
     },
     {
      "de": "meinen teuren Anzug",
      "note": "Akkusativ M",
-     "marks": []
+     "marks": [],
+     "en": "my expensive suit (accusative)"
     },
     {
      "de": "mein schwarzes Barett",
      "note": "Akkusativ N",
-     "marks": []
+     "marks": [],
+     "en": "my black beret"
     },
     {
      "de": "eine große Party",
      "note": "Akkusativ F",
-     "marks": []
+     "marks": [],
+     "en": "a big party"
     },
     {
      "de": "meinem schwarzen Talar",
      "note": "Dativ M",
-     "marks": []
+     "marks": [],
+     "en": "to my black gown"
     },
     {
      "de": "einer schicken Frisur",
      "note": "Dativ F",
-     "marks": []
+     "marks": [],
+     "en": "of / to a smart hairstyle"
     },
     {
      "de": "meinen / keinen stolzen Eltern",
      "note": "Dativ Plural",
-     "marks": []
+     "marks": [],
+     "en": "to my / to no proud parents"
     },
     {
      "de": "langen Abendkleidern",
      "note": "Dativ Plural without an article",
-     "marks": []
+     "marks": [],
+     "en": "to long evening dresses"
     }
    ],
    "tables": [
@@ -7827,12 +8017,14 @@
        17,
        24
       ]
-     ]
+     ],
+     "en": "the → living dialect (no article)"
     },
     {
      "de": "das → neues Leben",
      "note": "Nominativ and Akkusativ N",
-     "marks": []
+     "marks": [],
+     "en": "the → new life (no article)"
     },
     {
      "de": "die → lange Tradition",
@@ -7842,7 +8034,8 @@
        6,
        11
       ]
-     ]
+     ],
+     "en": "the → long tradition (no article)"
     },
     {
      "de": "den → lebendigen Dialekt",
@@ -7852,7 +8045,8 @@
        17,
        24
       ]
-     ]
+     ],
+     "en": "the → living dialect (accusative, no article)"
     },
     {
      "de": "dem → lebendigem Dialekt",
@@ -7866,17 +8060,20 @@
        17,
        24
       ]
-     ]
+     ],
+     "en": "the → to living dialect (dative, no article)"
     },
     {
      "de": "der → langer Tradition",
      "note": "Dativ F",
-     "marks": []
+     "marks": [],
+     "en": "the → of long tradition (no article)"
     },
     {
      "de": "den → alten Liedern",
      "note": "Dativ Plural",
-     "marks": []
+     "marks": [],
+     "en": "the → to old songs (no article)"
     }
    ],
    "tables": [
@@ -8068,32 +8265,38 @@
     {
      "de": "des großen Erfolgs",
      "note": "definite article, M",
-     "marks": []
+     "marks": [],
+     "en": "of the great success"
     },
     {
      "de": "eines großen Erfolgs",
      "note": "indefinite article, M",
-     "marks": []
+     "marks": [],
+     "en": "of a great success"
     },
     {
      "de": "meines großen Erfolgs",
      "note": "possessive article, M",
-     "marks": []
+     "marks": [],
+     "en": "of my great success"
     },
     {
      "de": "großen Erfolgs",
      "note": "no article, M — still -en",
-     "marks": []
+     "marks": [],
+     "en": "of great success"
     },
     {
      "de": "der kurzen Karriere",
      "note": "definite article, F",
-     "marks": []
+     "marks": [],
+     "en": "of the short career"
     },
     {
      "de": "kurzer Karriere",
      "note": "no article, F — the one place -er appears",
-     "marks": []
+     "marks": [],
+     "en": "of a short career"
     },
     {
      "de": "unserer gestressten Manager",
@@ -8103,7 +8306,8 @@
        20,
        27
       ]
-     ]
+     ],
+     "en": "of our stressed managers"
     },
     {
      "de": "gestresster Manager",
@@ -8117,7 +8321,8 @@
        12,
        19
       ]
-     ]
+     ],
+     "en": "of stressed managers"
     }
    ],
    "tables": [],
@@ -8279,7 +8484,8 @@
        72,
        75
       ]
-     ]
+     ],
+     "en": "More and more Germans are just as happy spending their holiday in Germany as abroad."
     },
     {
      "de": "Für den Urlaub findet Niclas die Ostsee nicht so attraktiv wie die Alpen.",
@@ -8289,7 +8495,8 @@
        59,
        62
       ]
-     ]
+     ],
+     "en": "For a holiday Niclas doesn't find the Baltic as attractive as the Alps."
     },
     {
      "de": "Linus meint, Urlaub in Deutschland ist billiger als im Ausland.",
@@ -8299,7 +8506,8 @@
        48,
        51
       ]
-     ]
+     ],
+     "en": "Linus thinks a holiday in Germany is cheaper than abroad."
     },
     {
      "de": "Viele denken, die Luft auf dem Land ist gesünder als die Luft in der Stadt.",
@@ -8309,7 +8517,8 @@
        49,
        52
       ]
-     ]
+     ],
+     "en": "Many people think the air in the country is healthier than the air in the city."
     },
     {
      "de": "Niclas möchte lieber mit Freunden als allein in Urlaub fahren.",
@@ -8323,7 +8532,8 @@
        34,
        37
       ]
-     ]
+     ],
+     "en": "Niclas would rather go on holiday with friends than alone."
     },
     {
      "de": "Niclas findet, die Alpen bieten mehr Sportmöglichkeiten als die Ostsee.",
@@ -8333,7 +8543,8 @@
        56,
        59
       ]
-     ]
+     ],
+     "en": "Niclas thinks the Alps offer more sporting options than the Baltic."
     }
    ],
    "tables": [],
@@ -8490,7 +8701,8 @@
        22,
        24
       ]
-     ]
+     ],
+     "en": "attractive, more attractive, most attractive"
     },
     {
      "de": "bekannt bekannter am bekanntesten",
@@ -8500,7 +8712,8 @@
        18,
        20
       ]
-     ]
+     ],
+     "en": "well known, better known, best known"
     },
     {
      "de": "groß größer am größten",
@@ -8510,7 +8723,8 @@
        12,
        14
       ]
-     ]
+     ],
+     "en": "big, bigger, biggest"
     },
     {
      "de": "alt älter am ältesten",
@@ -8524,7 +8738,8 @@
        13,
        21
       ]
-     ]
+     ],
+     "en": "old, older, oldest"
     },
     {
      "de": "teuer teurer am teuersten",
@@ -8538,7 +8753,8 @@
        13,
        15
       ]
-     ]
+     ],
+     "en": "expensive, more expensive, most expensive"
     },
     {
      "de": "hoch höher am höchsten",
@@ -8548,7 +8764,8 @@
        11,
        13
       ]
-     ]
+     ],
+     "en": "high, higher, highest"
     },
     {
      "de": "gut besser am besten",
@@ -8562,7 +8779,8 @@
        11,
        13
       ]
-     ]
+     ],
+     "en": "good, better, best"
     },
     {
      "de": "gern lieber am liebsten",
@@ -8576,7 +8794,8 @@
        15,
        23
       ]
-     ]
+     ],
+     "en": "gladly, rather, most of all"
     },
     {
      "de": "viel mehr am meisten",
@@ -8590,7 +8809,8 @@
        10,
        12
       ]
-     ]
+     ],
+     "en": "much, more, most"
     }
    ],
    "tables": [],
@@ -8769,7 +8989,8 @@
        17,
        20
       ]
-     ]
+     ],
+     "en": "Put the coffee on the shelf!"
     },
     {
      "de": "Der Kaffee steht im Regal.",
@@ -8779,7 +9000,8 @@
        17,
        19
       ]
-     ]
+     ],
+     "en": "The coffee is on the shelf."
     },
     {
      "de": "an das → ans, auf das → aufs, in das → ins",
@@ -8789,7 +9011,8 @@
        39,
        42
       ]
-     ]
+     ],
+     "en": "an das → ans, auf das → aufs, in das → ins (contractions)"
     },
     {
      "de": "an dem → am, in dem → im",
@@ -8799,7 +9022,8 @@
        22,
        24
       ]
-     ]
+     ],
+     "en": "an dem → am, in dem → im (contractions)"
     }
    ],
    "tables": [],
@@ -8995,7 +9219,8 @@
        11,
        14
       ]
-     ]
+     ],
+     "en": "these four contract: to the (masculine/neuter) = zum, to the (feminine) = zur, at the = beim, from the = vom"
     },
     {
      "de": "Jörg soll bis zum Ring gehen. / bis zur Dumbastraße gehen.",
@@ -9005,7 +9230,8 @@
        14,
        17
       ]
-     ]
+     ],
+     "en": "Jörg should walk as far as the Ring. / as far as Dumbastraße."
     },
     {
      "de": "Jörg soll die Kärntner Straße entlang gehen.",
@@ -9023,7 +9249,8 @@
        38,
        43
       ]
-     ]
+     ],
+     "en": "Jörg should walk along Kärntner Straße."
     },
     {
      "de": "Jörg geht in das Wien Museum rein.",
@@ -9033,7 +9260,8 @@
        10,
        12
       ]
-     ]
+     ],
+     "en": "Jörg goes into the Wien Museum."
     },
     {
      "de": "Jörg geht aus dem Wien Museum raus.",
@@ -9043,7 +9271,8 @@
        30,
        34
       ]
-     ]
+     ],
+     "en": "Jörg comes out of the Wien Museum."
     },
     {
      "de": "Komm heraus!",
@@ -9057,7 +9286,8 @@
        5,
        11
       ]
-     ]
+     ],
+     "en": "Come out!"
     },
     {
      "de": "Jörg geht aus dem Museum hinaus.",
@@ -9071,7 +9301,8 @@
        25,
        31
       ]
-     ]
+     ],
+     "en": "Jörg goes out of the museum."
     }
    ],
    "tables": [],
@@ -9266,7 +9497,8 @@
        39,
        42
       ]
-     ]
+     ],
+     "en": "Witikon is a bit out of the way, but it has good transport connections."
     },
     {
      "de": "Lindenhof ist schön, denn es liegt in der Altstadt.",
@@ -9276,7 +9508,8 @@
        21,
        25
       ]
-     ]
+     ],
+     "en": "Lindenhof is lovely, because it is in the old town."
     },
     {
      "de": "In Witikon sind die Mieten nicht so hoch und die Verkehrsverbindungen sind gut.",
@@ -9294,7 +9527,8 @@
        70,
        74
       ]
-     ]
+     ],
+     "en": "In Witikon the rents aren't so high and the transport connections are good."
     },
     {
      "de": "Frankfurt liegt nicht westlich (von Mainz), sondern (es liegt) östlich von Mainz.",
@@ -9304,7 +9538,8 @@
        44,
        51
       ]
-     ]
+     ],
+     "en": "Frankfurt isn't west (of Mainz), but east of Mainz."
     },
     {
      "de": "Lara und Andrea möchten in Enge oder (sie möchten) in Lindenhof wohnen.",
@@ -9318,7 +9553,8 @@
        32,
        36
       ]
-     ]
+     ],
+     "en": "Lara and Andrea would like to live in Enge or in Lindenhof."
     }
    ],
    "tables": [],
@@ -9481,7 +9717,8 @@
        28,
        32
       ]
-     ]
+     ],
+     "en": "Because I'm supposed to exercise, I go walking every other day."
     },
     {
      "de": "Ich soll Sport machen, darum / deshalb / deswegen gehe ich jeden zweiten Tag walken.",
@@ -9491,7 +9728,8 @@
        50,
        54
       ]
-     ]
+     ],
+     "en": "I'm supposed to exercise, so I go walking every other day."
     },
     {
      "de": "Ich habe Urlaub genommen, weil ich mich ausruhen soll.",
@@ -9501,7 +9739,8 @@
        26,
        30
       ]
-     ]
+     ],
+     "en": "I took time off, because I'm supposed to rest."
     },
     {
      "de": "Ich soll mich ausruhen, darum / deshalb / deswegen habe ich Urlaub genommen.",
@@ -9523,7 +9762,8 @@
        51,
        55
       ]
-     ]
+     ],
+     "en": "I'm supposed to rest, so I took time off."
     }
    ],
    "tables": [],
@@ -9688,7 +9928,8 @@
        35,
        39
       ]
-     ]
+     ],
+     "en": "Bernhard would like to study in Cologne, because he has no language problems there."
     },
     {
      "de": "Ich möchte im Ausland studieren, weil Auslandserfahrung wichtig ist.",
@@ -9698,7 +9939,8 @@
        33,
        37
       ]
-     ]
+     ],
+     "en": "I'd like to study abroad, because experience abroad is important."
     },
     {
      "de": "Wir finden, dass Köln eine schöne Stadt ist.",
@@ -9712,7 +9954,8 @@
        40,
        43
       ]
-     ]
+     ],
+     "en": "We think that Cologne is a beautiful city."
     }
    ],
    "tables": [],
@@ -9909,7 +10152,8 @@
        47,
        54
       ]
-     ]
+     ],
+     "en": "There was a big crush when the crime writer arrived."
     },
     {
      "de": "Ruis Portemonnaie war weg, als er an der Kasse zahlen wollte.",
@@ -9919,7 +10163,8 @@
        18,
        21
       ]
-     ]
+     ],
+     "en": "Rui's wallet was gone when he wanted to pay at the till."
     },
     {
      "de": "Als der Krimiautor eintraf, gab es ein großes Gedränge.",
@@ -9937,7 +10182,8 @@
        28,
        31
       ]
-     ]
+     ],
+     "en": "When the crime writer arrived, there was a big crush."
     },
     {
      "de": "Als er an der Kasse zahlen wollte, war Ruis Portemonnaie weg.",
@@ -9947,7 +10193,8 @@
        35,
        38
       ]
-     ]
+     ],
+     "en": "When he wanted to pay at the till, Rui's wallet was gone."
     }
    ],
    "tables": [],
@@ -10113,7 +10360,8 @@
        53,
        56
       ]
-     ]
+     ],
+     "en": "Rui gets interest if he has money in a savings account."
     },
     {
      "de": "Die EC-Karte kostet nichts, wenn Rui nur Online-Banking macht.",
@@ -10127,7 +10375,8 @@
        56,
        61
       ]
-     ]
+     ],
+     "en": "The bank card costs nothing if Rui only does online banking."
     },
     {
      "de": "Wenn Rui Geld anlegen will, kann er es auf ein Sparkonto einzahlen",
@@ -10137,7 +10386,8 @@
        28,
        32
       ]
-     ]
+     ],
+     "en": "If Rui wants to invest money, he can pay it into a savings account"
     },
     {
      "de": "Wenn Rui nicht nur Online-Banking macht, kostet die EC-Karte 6,50 €pro Jahr.",
@@ -10155,7 +10405,8 @@
        41,
        47
       ]
-     ]
+     ],
+     "en": "If Rui doesn't only do online banking, the bank card costs €6.50 a year."
     }
    ],
    "tables": [],
@@ -10330,7 +10581,8 @@
        34,
        37
       ]
-     ]
+     ],
+     "en": "Beate is in constant pain since she has been working on her master's thesis."
     },
     {
      "de": "Beate war bei keinem Arzt mehr, seit(dem) ihr alter Hausarzt in Rente ist.",
@@ -10344,7 +10596,8 @@
        37,
        40
       ]
-     ]
+     ],
+     "en": "Beate hasn't been to a doctor since her old GP retired."
     },
     {
      "de": "Es dauert noch 2 Wochen, bis Beate zu Dr. Rosmann gehen kann.",
@@ -10354,7 +10607,8 @@
        25,
        28
       ]
-     ]
+     ],
+     "en": "It will be another 2 weeks before Beate can go to Dr Rosmann."
     },
     {
      "de": "Es dauerte 2 Wochen, bis Beate einen Arzttermin bekam.",
@@ -10364,7 +10618,8 @@
        21,
        24
       ]
-     ]
+     ],
+     "en": "It took 2 weeks before Beate got a doctor's appointment."
     },
     {
      "de": "Seit(dem) Beate so viel arbeitet, hat sie dauernd Schmerzen.",
@@ -10382,7 +10637,8 @@
        34,
        37
       ]
-     ]
+     ],
+     "en": "Since Beate has been working so much, she is in constant pain."
     },
     {
      "de": "Bis Beate zu Dr. Rosmann gehen kann, dauert es noch 2 Wochen.",
@@ -10392,7 +10648,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "Before Beate can go to Dr Rosmann, it will be another 2 weeks."
     }
    ],
    "tables": [],
@@ -10558,7 +10815,8 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "Are there also guided tours on the subject of film?"
     },
     {
      "de": "Ich möchte wissen, ob es auch Führungen zum Thema „Film“ gibt.",
@@ -10568,7 +10826,8 @@
        19,
        21
       ]
-     ]
+     ],
+     "en": "I'd like to know whether there are also guided tours on the subject of film."
     },
     {
      "de": "Können Sie mir sagen, wie lange die Führung dauert?",
@@ -10582,7 +10841,8 @@
        44,
        50
       ]
-     ]
+     ],
+     "en": "Can you tell me how long the tour lasts?"
     },
     {
      "de": "Können Sie mir auf dem Plan zeigen, wo der Treffpunkt ist?",
@@ -10596,7 +10856,8 @@
        54,
        57
       ]
-     ]
+     ],
+     "en": "Can you show me on the map where the meeting point is?"
     },
     {
      "de": "Ich möchte gern wissen, welches Ticket am besten ist.",
@@ -10610,7 +10871,8 @@
        49,
        52
       ]
-     ]
+     ],
+     "en": "I'd like to know which ticket is best."
     }
    ],
    "tables": [],
@@ -10775,7 +11037,8 @@
        25,
        28
       ]
-     ]
+     ],
+     "en": "I had an adviser who was very competent."
     },
     {
      "de": "Nom. der das die die",
@@ -10785,7 +11048,8 @@
        5,
        8
       ]
-     ]
+     ],
+     "en": "Nom. der, das, die, die (relative pronouns)"
     },
     {
      "de": "Akk. den den die die",
@@ -10799,7 +11063,8 @@
        9,
        12
       ]
-     ]
+     ],
+     "en": "Acc. den, den, die, die"
     },
     {
      "de": "Dat. dem dem der denen",
@@ -10813,7 +11078,8 @@
        17,
        22
       ]
-     ]
+     ],
+     "en": "Dat. dem, dem, der, denen"
     }
    ],
    "tables": [],
@@ -10978,7 +11244,8 @@
        36,
        39
       ]
-     ]
+     ],
+     "en": "The weather unfortunately wasn't very good when we arrived"
     },
     {
      "de": "Als wir dort waren, hat eine Musikgruppe traditionelle Musik gespielt.",
@@ -10988,7 +11255,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "When we were there, a band played traditional music."
     },
     {
      "de": "(Immer) wenn das Wetter gut war, haben wir Wanderungen in den Bergen gemacht.",
@@ -10998,7 +11266,8 @@
        8,
        12
       ]
-     ]
+     ],
+     "en": "Whenever the weather was good, we went hiking in the mountains."
     },
     {
      "de": "(Jedes Mal) wenn wir sehr müde waren, haben wir einen Pausentag eingeplant.",
@@ -11008,7 +11277,8 @@
        12,
        16
       ]
-     ]
+     ],
+     "en": "Every time we were very tired, we planned a rest day."
     },
     {
      "de": "Man erholt sich am besten, wenn man faulenzt.",
@@ -11018,7 +11288,8 @@
        27,
        31
       ]
-     ]
+     ],
+     "en": "You recover best when you do nothing at all."
     },
     {
      "de": "Wenn das Wetter morgen schön ist, (dann) machen wir einen Ausflug.",
@@ -11028,7 +11299,8 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "If the weather is nice tomorrow, we'll go on a trip."
     }
    ],
    "tables": [],
@@ -11216,7 +11488,8 @@
        9,
        20
       ]
-     ]
+     ],
+     "en": "Jörg has already been to the cinema five times this week."
     },
     {
      "de": "Jörg und Michael sind nach dem Frühstück sofort ins Museum gegangen.",
@@ -11226,7 +11499,8 @@
        22,
        40
       ]
-     ]
+     ],
+     "en": "Jörg and Michael went straight to the museum after breakfast."
     },
     {
      "de": "Sie waren fast zwei Stunden im Museum.",
@@ -11236,7 +11510,8 @@
        10,
        27
       ]
-     ]
+     ],
+     "en": "They were in the museum for almost two hours."
     }
    ],
    "tables": [],
@@ -11394,7 +11669,8 @@
        30,
        33
       ]
-     ]
+     ],
+     "en": "In his first weeks in Dresden Christian had to work a lot."
     },
     {
      "de": "Er hat daher das Schloss noch nicht besuchen können .",
@@ -11404,7 +11680,8 @@
        3,
        6
       ]
-     ]
+     ],
+     "en": "So he hasn't been able to visit the castle yet."
     }
    ],
    "tables": [],
@@ -11544,7 +11821,8 @@
        45,
        51
       ]
-     ]
+     ],
+     "en": "After we had made it as far as Bahnhof Zoo, it started to rain."
     },
     {
      "de": "Nachdem wir ein bisschen herumgelaufen waren , haben wir dort gegessen .",
@@ -11558,7 +11836,8 @@
        39,
        44
       ]
-     ]
+     ],
+     "en": "After we had walked around a bit, we ate there."
     }
    ],
    "tables": [],
@@ -11713,12 +11992,14 @@
        17,
        22
       ]
-     ]
+     ],
+     "en": "To prepare, I'm going to take a Swedish course."
     },
     {
      "de": "Wir werden ab August zusammen in Berlin wohnen.",
      "note": "prediction with a certain outcome",
-     "marks": []
+     "marks": [],
+     "en": "From August we'll be living together in Berlin."
     },
     {
      "de": "Ich werde vermutlich / wohl / wahrscheinlich Portugal vermissen.",
@@ -11732,7 +12013,8 @@
        30,
        44
       ]
-     ]
+     ],
+     "en": "I'll probably miss Portugal."
     },
     {
      "de": "Es wird schon klappen.",
@@ -11742,7 +12024,8 @@
        8,
        13
       ]
-     ]
+     ],
+     "en": "It'll work out."
     },
     {
      "de": "Ich werde als Dolmetscher bestimmt / sicherlich / sicher gute Chancen haben.",
@@ -11752,7 +12035,8 @@
        4,
        9
       ]
-     ]
+     ],
+     "en": "As an interpreter I'll certainly have good prospects."
     }
    ],
    "tables": [],
@@ -11922,7 +12206,8 @@
        74,
        79
       ]
-     ]
+     ],
+     "en": "Christian gets the IT department to give him the computer password."
     },
     {
      "de": "Christian hat sich schon das Intranet zeigen lassen .",
@@ -11936,7 +12221,8 @@
        45,
        51
       ]
-     ]
+     ],
+     "en": "Christian has already had the intranet shown to him."
     },
     {
      "de": "Christian muss den Urlaubsantrag der Personalabteilung zukommen lassen .",
@@ -11946,7 +12232,8 @@
        64,
        70
       ]
-     ]
+     ],
+     "en": "Christian has to let HR have the holiday request."
     }
    ],
    "tables": [],
@@ -12072,12 +12359,14 @@
     {
      "de": "Christian lässt sein Handy im Büro.",
      "note": "lassen + noun",
-     "marks": []
+     "marks": [],
+     "en": "Christian leaves his phone in the office."
     },
     {
      "de": "Christian lässt es im Büro.",
      "note": "lassen + pronoun",
-     "marks": []
+     "marks": [],
+     "en": "Christian leaves it in the office."
     },
     {
      "de": "Christian hat sein Handy im Büro gelassen .",
@@ -12087,7 +12376,8 @@
        33,
        41
       ]
-     ]
+     ],
+     "en": "Christian left his phone in the office."
     }
    ],
    "tables": [],
@@ -12224,7 +12514,8 @@
        70,
        72
       ]
-     ]
+     ],
+     "en": "You only need to order the brochure “Länderinformationsschrift Österreich”."
     },
     {
      "de": "Sie brauchen nicht lange zu warten .",
@@ -12234,7 +12525,8 @@
        25,
        27
       ]
-     ]
+     ],
+     "en": "You don't need to wait long."
     },
     {
      "de": "Sie brauchen keine weiteren Informationen im Internet zu suchen .",
@@ -12244,7 +12536,8 @@
        54,
        56
       ]
-     ]
+     ],
+     "en": "You don't need to look for any further information online."
     }
    ],
    "tables": [],
@@ -12380,7 +12673,8 @@
        8,
        14
       ]
-     ]
+     ],
+     "en": "had been crowned"
     },
     {
      "de": "Nachdem 1871 der erste deutsche Nationalstaat gegründet worden war , wurde Berlin",
@@ -12390,7 +12684,8 @@
        56,
        62
       ]
-     ]
+     ],
+     "en": "After the first German nation state had been founded in 1871, Berlin became"
     }
    ],
    "tables": [],
@@ -12521,17 +12816,20 @@
     {
      "de": "“er schaute nach” --> “er würde nachschauen”",
      "note": "regular verb → würde + infinitive",
-     "marks": []
+     "marks": [],
+     "en": "“he checked” → “he would check”"
     },
     {
      "de": "“ich hatte” --> “ich hätte”",
      "note": "preterite + umlaut",
-     "marks": []
+     "marks": [],
+     "en": "“I had” → “I would have”"
     },
     {
      "de": "“du konntest” --> “du könntest”",
      "note": "modal verb",
-     "marks": []
+     "marks": [],
+     "en": "“you could” → “you would be able to”"
     },
     {
      "de": "“er wusste” --> “er wüsste”",
@@ -12541,7 +12839,8 @@
        20,
        26
       ]
-     ]
+     ],
+     "en": "“he knew” → “he would know”"
     },
     {
      "de": "“ich kam” --> “ich käme”",
@@ -12551,12 +12850,14 @@
        19,
        23
       ]
-     ]
+     ],
+     "en": "“I came” → “I would come”"
     },
     {
      "de": "“er ging” -",
      "note": "irregular: ging → ginge",
-     "marks": []
+     "marks": [],
+     "en": "“he went” →"
     }
    ],
    "tables": [],
@@ -12708,12 +13009,14 @@
     {
      "de": "Dasselbe habe ich auch gedacht.",
      "note": "used as a pronoun, standing for a whole statement",
-     "marks": []
+     "marks": [],
+     "en": "I thought the same thing."
     },
     {
      "de": "Das ist nicht mehr dieselbe Stadt, in der wir vor 30 Jahren studiert haben.",
      "note": "used as an article before Stadt",
-     "marks": []
+     "marks": [],
+     "en": "This isn't the same city any more that we studied in 30 years ago."
     },
     {
      "de": "der große Platz → derselbe Platz",
@@ -12731,7 +13034,8 @@
        27,
        32
       ]
-     ]
+     ],
+     "en": "the big square → the same square"
     }
    ],
    "tables": [],
@@ -12885,22 +13189,26 @@
     {
      "de": "mancher",
      "note": "nominative masculine, like der",
-     "marks": []
+     "marks": [],
+     "en": "many a, some (nominative)"
     },
     {
      "de": "manchen",
      "note": "accusative masculine, like den",
-     "marks": []
+     "marks": [],
+     "en": "some (accusative / dative plural)"
     },
     {
      "de": "manchem",
      "note": "dative masculine and neuter, like dem",
-     "marks": []
+     "marks": [],
+     "en": "to some (dative)"
     },
     {
      "de": "einige",
      "note": "nominative and accusative plural",
-     "marks": []
+     "marks": [],
+     "en": "a few, some"
     },
     {
      "de": "einigen",
@@ -12910,7 +13218,8 @@
        0,
        7
       ]
-     ]
+     ],
+     "en": "to a few (dative)"
     },
     {
      "de": "The endings match those of the definite article.",
@@ -13075,22 +13384,26 @@
        9,
        19
       ]
-     ]
+     ],
+     "en": "when → at some point"
     },
     {
      "de": "wo --> irgendwo",
      "note": "question word → adverb",
-     "marks": []
+     "marks": [],
+     "en": "where → somewhere"
     },
     {
      "de": "ein --> irgendein",
      "note": "indefinite article",
-     "marks": []
+     "marks": [],
+     "en": "a → some … or other"
     },
     {
      "de": "jemand --> irgendjemand",
      "note": "indefinite pronoun",
-     "marks": []
+     "marks": [],
+     "en": "someone → anyone at all"
     },
     {
      "de": "etwas --> irgendetwas (colloquially: was --> irgendwas)",
@@ -13100,7 +13413,8 @@
        45,
        54
       ]
-     ]
+     ],
+     "en": "something → anything at all (colloquially: was → irgendwas)"
     }
    ],
    "tables": [],
@@ -13270,7 +13584,8 @@
        36,
        48
       ]
-     ]
+     ],
+     "en": "nowhere, to nowhere, from nowhere"
     }
    ],
    "tables": [],
@@ -13416,7 +13731,8 @@
        0,
        5
       ]
-     ]
+     ],
+     "en": "What is Frau Egger thanking Bernd for?"
     },
     {
      "de": "Sie dankt Bernd für die Bewerbung.",
@@ -13426,7 +13742,8 @@
        16,
        19
       ]
-     ]
+     ],
+     "en": "She thanks Bernd for the application."
     },
     {
      "de": "Worin möchte Bernd Erfahrungen sammeln?",
@@ -13436,7 +13753,8 @@
        0,
        5
       ]
-     ]
+     ],
+     "en": "What would Bernd like to gain experience in?"
     },
     {
      "de": "Bernd hat ein kleines Zimmer. Darin stehen wenig Möbel.",
@@ -13446,7 +13764,8 @@
        30,
        35
       ]
-     ]
+     ],
+     "en": "Bernd has a small room. There isn't much furniture in it."
     },
     {
      "de": "Bernd arbeitet bei Frau Egger. Er freut sich darüber.",
@@ -13456,7 +13775,8 @@
        45,
        52
       ]
-     ]
+     ],
+     "en": "Bernd works for Frau Egger. He's pleased about it."
     },
     {
      "de": "Frau Egger kann sich darauf verlassen, dass Bernd drei Monate bleibt.",
@@ -13466,7 +13786,8 @@
        21,
        27
       ]
-     ]
+     ],
+     "en": "Frau Egger can rely on Bernd staying three months."
     },
     {
      "de": "Bernd bleibt drei Monate. Darauf kann sich Frau Egger verlassen.",
@@ -13476,7 +13797,8 @@
        26,
        32
       ]
-     ]
+     ],
+     "en": "Bernd is staying three months. Frau Egger can rely on that."
     }
    ],
    "tables": [],
@@ -13654,7 +13976,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "people greet each other"
     },
     {
      "de": "wir begrüßen uns",
@@ -13664,7 +13987,8 @@
        13,
        16
       ]
-     ]
+     ],
+     "en": "we greet each other"
     },
     {
      "de": "ihr begrüßt euch",
@@ -13674,12 +13998,14 @@
        12,
        16
       ]
-     ]
+     ],
+     "en": "you greet each other"
     },
     {
      "de": "sie / Sie begrüßen sich",
      "note": "3rd person plural and the polite form",
-     "marks": []
+     "marks": [],
+     "en": "they / you greet each other"
     },
     {
      "de": "man nickt sich zu",
@@ -13689,7 +14015,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "people nod to each other"
     },
     {
      "de": "wir nicken uns zu",
@@ -13699,7 +14026,8 @@
        11,
        14
       ]
-     ]
+     ],
+     "en": "we nod to each other"
     }
    ],
    "tables": [],
@@ -13866,7 +14194,8 @@
        54,
        66
       ]
-     ]
+     ],
+     "en": "I study in Berlin, and there's a lot that works really well."
     },
     {
      "de": "Es gibt politisch nichts mehr, was mich wirklich beeindruckt.",
@@ -13880,7 +14209,8 @@
        49,
        60
       ]
-     ]
+     ],
+     "en": "Politically there's nothing left that really impresses me."
     },
     {
      "de": "Man kann damit auf etwas aufmerksam machen, womit man nicht einverstanden ist.",
@@ -13890,7 +14220,8 @@
        44,
        49
       ]
-     ]
+     ],
+     "en": "You can use it to draw attention to something you don't agree with."
     },
     {
      "de": "Das ist etwas, worauf wir vom Asta aufmerksam machen wollten.",
@@ -13900,7 +14231,8 @@
        15,
        21
       ]
-     ]
+     ],
+     "en": "That's something we at the student union wanted to draw attention to."
     }
    ],
    "tables": [],
@@ -14055,22 +14387,26 @@
     {
      "de": "der Genuss frischen Fisches",
      "note": "M — -en on the adjective, -es on the noun",
-     "marks": []
+     "marks": [],
+     "en": "the enjoyment of fresh fish"
     },
     {
      "de": "ein Beispiel erfolgreichen Engagements",
      "note": "N — the same pattern",
-     "marks": []
+     "marks": [],
+     "en": "an example of successful commitment"
     },
     {
      "de": "Fisch bester Qualität",
      "note": "F — -er",
-     "marks": []
+     "marks": [],
+     "en": "fish of the best quality"
     },
     {
      "de": "ein Fotomotiv begeisterter Besucher",
      "note": "Plural — -er",
-     "marks": []
+     "marks": [],
+     "en": "a photo subject for enthusiastic visitors"
     }
    ],
    "tables": [],
@@ -14232,37 +14568,44 @@
     {
      "de": "der hohe Berg der höhere Berg der höchste Berg",
      "note": "M with the definite article: basic, comparative, superlative",
-     "marks": []
+     "marks": [],
+     "en": "the high mountain, the higher mountain, the highest mountain"
     },
     {
      "de": "die kurze Grenze die kürzere Grenze die kürzeste Grenze",
      "note": "F — the superlative adds -est after -z",
-     "marks": []
+     "marks": [],
+     "en": "the short border, the shorter border, the shortest border"
     },
     {
      "de": "das kleine Land das kleinere Land das kleinste Land",
      "note": "N",
-     "marks": []
+     "marks": [],
+     "en": "the small country, the smaller country, the smallest country"
     },
     {
      "de": "die hohen Berge die höheren Berge die höchsten Berge",
      "note": "Plural, all -en",
-     "marks": []
+     "marks": [],
+     "en": "the high mountains, the higher mountains, the highest mountains"
     },
     {
      "de": "ein / kein / sein höherer Berg",
      "note": "comparative after ein- takes the strong -er",
-     "marks": []
+     "marks": [],
+     "en": "a / no / his higher mountain"
     },
     {
      "de": "kein / sein höchster Berg",
      "note": "no ein- in this row — a superlative cannot follow ein-",
-     "marks": []
+     "marks": [],
+     "en": "no / his highest mountain"
     },
     {
      "de": "hohe Berge höhere Berge höchste Berge",
      "note": "plural with no article",
-     "marks": []
+     "marks": [],
+     "en": "high mountains, higher mountains, highest mountains"
     }
    ],
    "tables": [],
@@ -14434,7 +14777,8 @@
        6,
        9
       ]
-     ]
+     ],
+     "en": "Because of the mix of theory and practice, studying at a university of applied sciences would certainly be interesting."
     },
     {
      "de": "Ich muss ein Auslandssemester machen. Ich habe nämlich vor, später für eine internationale Organisation zu arbeiten.",
@@ -14444,7 +14788,8 @@
        47,
        54
       ]
-     ]
+     ],
+     "en": "I have to do a semester abroad. You see, I'm planning to work for an international organisation later."
     }
    ],
    "tables": [],
@@ -14623,7 +14968,8 @@
        77,
        80
       ]
-     ]
+     ],
+     "en": "Learning a foreign language for several hours a day is tiring. Consequently you're sometimes simply tired and then make mistakes more easily."
     },
     {
      "de": "Man ist folglich manchmal einfach nur müde und macht dann leichter Fehler.",
@@ -14633,7 +14979,8 @@
        4,
        7
       ]
-     ]
+     ],
+     "en": "Consequently you're sometimes simply tired and then make mistakes more easily."
     },
     {
      "de": "Ich kenne das Wort „Gerät“ nicht, also muss ich im Wörterbuch nachschlagen.",
@@ -14647,7 +14994,8 @@
        39,
        43
       ]
-     ]
+     ],
+     "en": "I don't know the word “Gerät”, so I have to look it up in the dictionary."
     },
     {
      "de": "Ich kenne das Wort „Gerät“ nicht, ich muss also im Wörterbuch nachschlagen.",
@@ -14661,7 +15009,8 @@
        43,
        47
       ]
-     ]
+     ],
+     "en": "I don't know the word “Gerät”, so I have to look it up in the dictionary."
     }
    ],
    "tables": [],
@@ -14826,7 +15175,8 @@
        56,
        64
       ]
-     ]
+     ],
+     "en": "A knowledge of Latin can be very useful at university. All the same, the “Latinum” is rarely compulsory today."
     },
     {
      "de": "Dennoch ist das „Latinum“ heute nur noch selten Pflicht.",
@@ -14836,7 +15186,8 @@
        0,
        7
       ]
-     ]
+     ],
+     "en": "Even so, the “Latinum” is rarely compulsory today."
     },
     {
      "de": "Zwar Lateinkenntnisse können im Studium sehr hilfreich sein, aber das „Latinum“ ist heute nur noch selten Pflicht.",
@@ -14846,7 +15197,8 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "A knowledge of Latin can indeed be very useful at university, but the “Latinum” is rarely compulsory today."
     },
     {
      "de": "Trotz der Nützlichkeit von Lateinkenntnissen ist das „Latinum“ heute nur noch selten Pflicht.",
@@ -14856,7 +15208,8 @@
        6,
        9
       ]
-     ]
+     ],
+     "en": "Despite the usefulness of Latin, the “Latinum” is rarely compulsory today."
     }
    ],
    "tables": [],
@@ -15021,7 +15374,8 @@
        19,
        24
       ]
-     ]
+     ],
+     "en": "Instead of the Greens, Lisa will vote for a different party next time."
     },
     {
      "de": "Statt im Mai, war die Wahl im Juni.",
@@ -15031,7 +15385,8 @@
        0,
        5
       ]
-     ]
+     ],
+     "en": "Instead of in May, the election was in June."
     },
     {
      "de": "Statt für die SPD hat sie für die Grünen gestimmt.",
@@ -15049,7 +15404,8 @@
        26,
        29
       ]
-     ]
+     ],
+     "en": "Instead of for the SPD she voted for the Greens."
     }
    ],
    "tables": [],
@@ -15224,7 +15580,8 @@
        25,
        38
       ]
-     ]
+     ],
+     "en": "During his visit Karl sees a lot of Berlin."
     }
    ],
    "tables": [],
@@ -15371,7 +15728,8 @@
        40,
        44
       ]
-     ]
+     ],
+     "en": "Either we go to “Criminal Dinner” or we see “The Threepenny Opera”."
     },
     {
      "de": "Entweder gehen wir ins Theater im Hafen oder wir besuchen das Stadtfest.",
@@ -15385,7 +15743,8 @@
        40,
        44
       ]
-     ]
+     ],
+     "en": "Either we go to the harbour theatre or we go to the town festival."
     },
     {
      "de": "Wir können entweder in „Criminal Dinner“ oder das Musical gehen.",
@@ -15399,7 +15758,8 @@
        41,
        45
       ]
-     ]
+     ],
+     "en": "We can go either to “Criminal Dinner” or to the musical."
     }
    ],
    "tables": [],
@@ -15565,7 +15925,8 @@
        34,
        39
       ]
-     ]
+     ],
+     "en": "The higher up a person is, the better their chances are."
     },
     {
      "de": "Je mehr Stimmen ein Partei erhält, umso mehr Sitze bekommt sie.",
@@ -15575,7 +15936,8 @@
        35,
        39
       ]
-     ]
+     ],
+     "en": "The more votes a party gets, the more seats it receives."
     }
    ],
    "tables": [],
@@ -15750,7 +16112,8 @@
        35,
        39
       ]
-     ]
+     ],
+     "en": "Innsbruck offers both culture and nature."
     },
     {
      "de": "Besucher können dort nicht nur die Architektur, sondern auch die Aussicht bewundern.",
@@ -15764,7 +16127,8 @@
        56,
        60
       ]
-     ]
+     ],
+     "en": "There visitors can admire not only the architecture but also the view."
     },
     {
      "de": "Das Restaurant ist weder besonders schick noch ist die Speisekarte aufregend.",
@@ -15778,7 +16142,8 @@
        42,
        46
       ]
-     ]
+     ],
+     "en": "The restaurant is neither particularly smart nor is the menu exciting."
     }
    ],
    "tables": [],
@@ -15943,7 +16308,8 @@
        50,
        53
       ]
-     ]
+     ],
+     "en": "We use “du” with our professors, which is completely different."
     },
     {
      "de": "Ich mag alles, was mit Sport zu tun hat.",
@@ -15957,7 +16323,8 @@
        36,
        39
       ]
-     ]
+     ],
+     "en": "I like everything that has to do with sport."
     }
    ],
    "tables": [],
@@ -16104,7 +16471,8 @@
        28,
        33
       ]
-     ]
+     ],
+     "en": "If Markus had the parcel slip, he could find out where his sister's parcel is."
     },
     {
      "de": "Wenn ich nicht so unordentlich wäre, könnte ich jetzt nachforschen.",
@@ -16122,7 +16490,8 @@
        37,
        43
       ]
-     ]
+     ],
+     "en": "If I weren't so untidy, I could look into it now."
     },
     {
      "de": "Wäre ich nicht so unordentlich, könnte ich jetzt nachforschen.",
@@ -16136,7 +16505,8 @@
        32,
        38
       ]
-     ]
+     ],
+     "en": "Were I not so untidy, I could look into it now."
     },
     {
      "de": "Ich könnte jetzt nachforschen, wenn ich nicht so unordentlich wäre.",
@@ -16154,7 +16524,8 @@
        62,
        66
       ]
-     ]
+     ],
+     "en": "I could look into it now if I weren't so untidy."
     }
    ],
    "tables": [],
@@ -16329,7 +16700,8 @@
        0,
        7
       ]
-     ]
+     ],
+     "en": "While we were drinking coffee there, I watched"
     },
     {
      "de": "Nachdem wir es bis zum Bahnhof Zoo geschafft hatten, fing es an zu regnen.",
@@ -16339,7 +16711,8 @@
        0,
        7
       ]
-     ]
+     ],
+     "en": "After we had made it as far as Bahnhof Zoo, it started to rain."
     },
     {
      "de": "Bevor ich endlich die Füße hochlegen konnte, musste ich noch mit Marlene zum türkischen Markt.",
@@ -16357,7 +16730,8 @@
        45,
        51
       ]
-     ]
+     ],
+     "en": "Before I could finally put my feet up, I still had to go to the Turkish market with Marlene."
     }
    ],
    "tables": [],
@@ -16536,7 +16910,8 @@
        64,
        67
       ]
-     ]
+     ],
+     "en": "A knowledge of Latin can be very useful at university. That's why the “Latinum” used to be almost always compulsory."
     },
     {
      "de": "Obwohl Lateinkenntnisse im Studium sehr hilfreich sein können, ist das „Latinum“ heute nur noch selten Pflicht.",
@@ -16546,7 +16921,8 @@
        0,
        6
       ]
-     ]
+     ],
+     "en": "Although a knowledge of Latin can be very useful at university, the “Latinum” is rarely compulsory today."
     },
     {
      "de": "Das „Latinum“ ist heute nur noch selten Pflicht, obwohl Lateinkenntnisse im Studium sehr hilfreich sein können.",
@@ -16556,7 +16932,8 @@
        49,
        55
       ]
-     ]
+     ],
+     "en": "The “Latinum” is rarely compulsory today, although a knowledge of Latin can be very useful at university."
     }
    ],
    "tables": [],
@@ -16720,7 +17097,8 @@
        32,
        34
       ]
-     ]
+     ],
+     "en": "Irina would like to go to the harbour festival."
     },
     {
      "de": "Eleni findet es gut, ins Theater zu gehen.",
@@ -16730,7 +17108,8 @@
        33,
        35
       ]
-     ]
+     ],
+     "en": "Eleni thinks going to the theatre is a good idea."
     },
     {
      "de": "Irinas Bruder hat vor, ins Musical zu gehen.",
@@ -16740,7 +17119,8 @@
        35,
        37
       ]
-     ]
+     ],
+     "en": "Irina's brother is planning to go to the musical."
     },
     {
      "de": "Antonia liebt es, auf einem Schiff mit zu fahren.",
@@ -16750,7 +17130,8 @@
        39,
        41
       ]
-     ]
+     ],
+     "en": "Antonia loves going along on a boat."
     },
     {
      "de": "Es ist am schlimmsten, angerempelt zu werden.",
@@ -16764,7 +17145,8 @@
        38,
        44
       ]
-     ]
+     ],
+     "en": "The worst thing is being jostled."
     }
    ],
    "tables": [],
@@ -16936,7 +17318,8 @@
        62,
        67
       ]
-     ]
+     ],
+     "en": "You should first write to the farmers, so that they get to know their future helpers in advance."
     },
     {
      "de": "Damit die Landwirte ihre zukünftigen Helfer vorher kennen lernen, sollte man sich zuerst schriftlich bei diesen melden.",
@@ -16946,7 +17329,8 @@
        0,
        5
       ]
-     ]
+     ],
+     "en": "So that the farmers get to know their future helpers in advance, you should write to them first."
     },
     {
      "de": "Man arbeitet als WWOOFer, um praktische Erfahrung im Bio-Landbau zu sammeln.",
@@ -16960,7 +17344,8 @@
        65,
        75
       ]
-     ]
+     ],
+     "en": "You work as a WWOOFer in order to gain practical experience in organic farming."
     },
     {
      "de": "Um praktische Erfahrung im Bio-Landbau zu sammeln, arbeitet man als WWOOFer.",
@@ -16978,7 +17363,8 @@
        51,
        59
       ]
-     ]
+     ],
+     "en": "In order to gain practical experience in organic farming, you work as a WWOOFer."
     },
     {
      "de": "Für die Mithilfe auf einem Hof erhalten die WWOOFer Verpflegung, Unterkunft und manchmal ein Taschengeld.",
@@ -16992,7 +17378,8 @@
        31,
        39
       ]
-     ]
+     ],
+     "en": "For helping out on a farm, WWOOFers get food, accommodation and sometimes pocket money."
     },
     {
      "de": "WWOOFen ist aber kein Ferienjob zum Geldverdienen.",
@@ -17002,7 +17389,8 @@
        32,
        35
       ]
-     ]
+     ],
+     "en": "But WWOOFing isn't a holiday job for making money."
     }
    ],
    "tables": [],
@@ -17161,7 +17549,8 @@
        71,
        77
       ]
-     ]
+     ],
+     "en": "Learning a foreign language for several hours a day is tiring, so that you're sometimes simply tired and then make mistakes more easily."
     },
     {
      "de": "Es ist so anstrengend mehrere Stunden am Tag eine Fremdsprache zu lernen, dass man manchmal einfach nur müde ist und dann leichter Fehler macht.",
@@ -17183,7 +17572,8 @@
        138,
        143
       ]
-     ]
+     ],
+     "en": "Learning a foreign language for several hours a day is so tiring that you're sometimes simply tired and then make mistakes more easily."
     }
    ],
    "tables": [],
@@ -17348,12 +17738,14 @@
        8,
        11
       ]
-     ]
+     ],
+     "en": "The door is open."
     },
     {
      "de": "Die Tür wird geöffnet.",
      "note": "process — somebody is opening it",
-     "marks": []
+     "marks": [],
+     "en": "The door is being opened."
     },
     {
      "de": "Das Problem ist gelöst.",
@@ -17363,7 +17755,8 @@
        12,
        15
       ]
-     ]
+     ],
+     "en": "The problem is solved."
     },
     {
      "de": "Das Auto ist repariert.",
@@ -17373,7 +17766,8 @@
        9,
        12
       ]
-     ]
+     ],
+     "en": "The car is repaired."
     },
     {
      "de": "Das Haus ist gebaut worden.",
@@ -17383,12 +17777,14 @@
        9,
        12
       ]
-     ]
+     ],
+     "en": "The house has been built."
     },
     {
      "de": "Das Haus wird gebaut.",
      "note": "werden-passive, Präsens",
-     "marks": []
+     "marks": [],
+     "en": "The house is being built."
     }
    ],
    "tables": [],
@@ -17577,7 +17973,8 @@
        15,
        18
       ]
-     ]
+     ],
+     "en": "I'm looking forward to the holidays."
     },
     {
      "de": "Ein Team besteht aus 5 Spielern.",
@@ -17587,7 +17984,8 @@
        17,
        20
       ]
-     ]
+     ],
+     "en": "A team consists of 5 players."
     },
     {
      "de": "warten auf A",
@@ -17597,7 +17995,8 @@
        7,
        10
       ]
-     ]
+     ],
+     "en": "to wait for (+ accusative)"
     },
     {
      "de": "träumen von D",
@@ -17607,7 +18006,8 @@
        8,
        11
       ]
-     ]
+     ],
+     "en": "to dream of (+ dative)"
     },
     {
      "de": "glauben an D",
@@ -17617,7 +18017,8 @@
        8,
        10
       ]
-     ]
+     ],
+     "en": "to believe in (+ dative)"
     },
     {
      "de": "nachdenken über A",
@@ -17627,7 +18028,8 @@
        11,
        15
       ]
-     ]
+     ],
+     "en": "to think about (+ accusative)"
     },
     {
      "de": "(sich) erinnern an A",
@@ -17637,7 +18039,8 @@
        16,
        18
       ]
-     ]
+     ],
+     "en": "to remember (+ accusative)"
     },
     {
      "de": "(sich) entschuldigen bei D für A",
@@ -17651,7 +18054,8 @@
        27,
        30
       ]
-     ]
+     ],
+     "en": "to apologise to (+ dative) for (+ accusative)"
     },
     {
      "de": "sich gewöhnen an A",
@@ -17661,7 +18065,8 @@
        14,
        16
       ]
-     ]
+     ],
+     "en": "to get used to (+ accusative)"
     },
     {
      "de": "sich interessieren für A",
@@ -17671,7 +18076,8 @@
        19,
        22
       ]
-     ]
+     ],
+     "en": "to be interested in (+ accusative)"
     }
    ],
    "tables": [],
@@ -17873,17 +18279,20 @@
        19,
        24
       ]
-     ]
+     ],
+     "en": "If I had more time, I would cook more often."
     },
     {
      "de": "An deiner Stelle würde ich den Vertrag noch einmal lesen.",
      "note": "If I were you, I'd read the contract one more time. — advice, with no wenn-clause at all.",
-     "marks": []
+     "marks": [],
+     "en": "If I were you, I'd read the contract once more."
     },
     {
      "de": "Könnten Sie mir bitte kurz helfen?",
      "note": "Could you please help me for a moment? — the polite request; können takes its own form.",
-     "marks": []
+     "marks": [],
+     "en": "Could you help me for a moment, please?"
     },
     {
      "de": "Wenn er früher losgefahren wäre, hätte er den Zug nicht verpasst.",
@@ -17893,7 +18302,8 @@
        33,
        38
       ]
-     ]
+     ],
+     "en": "If he had left earlier, he wouldn't have missed the train."
     }
    ],
    "tables": [],
@@ -18058,7 +18468,8 @@
        46,
        52
       ]
-     ]
+     ],
+     "en": "The documents must be submitted by Friday."
     },
     {
      "de": "Das Problem konnte schnell gelöst werden.",
@@ -18068,7 +18479,8 @@
        34,
        40
       ]
-     ]
+     ],
+     "en": "The problem could be solved quickly."
     },
     {
      "de": "Diese Regeln sollen ab nächstem Jahr geändert werden.",
@@ -18078,7 +18490,8 @@
        46,
        52
       ]
-     ]
+     ],
+     "en": "These rules are to be changed from next year."
     },
     {
      "de": "Der Termin musste leider verschoben werden.",
@@ -18088,7 +18501,8 @@
        36,
        42
       ]
-     ]
+     ],
+     "en": "The appointment unfortunately had to be postponed."
     }
    ],
    "tables": [],
@@ -18254,7 +18668,8 @@
        25,
        28
       ]
-     ]
+     ],
+     "en": "That's the colleague I spoke to on the phone yesterday."
     },
     {
      "de": "Die Firma, für die sie arbeitet, wurde letztes Jahr gegründet.",
@@ -18268,7 +18683,8 @@
        23,
        31
       ]
-     ]
+     ],
+     "en": "The company she works for was founded last year."
     },
     {
      "de": "Das ist der Mann, dessen Auto letzte Woche gestohlen wurde.",
@@ -18282,7 +18698,8 @@
        53,
        58
       ]
-     ]
+     ],
+     "en": "That's the man whose car was stolen last week."
     },
     {
      "de": "Die Autorin, deren Bücher ich sehr mag, kommt aus Hamburg.",
@@ -18292,7 +18709,8 @@
        13,
        18
       ]
-     ]
+     ],
+     "en": "The author whose books I really like comes from Hamburg."
     }
    ],
    "tables": [],
@@ -18466,7 +18884,8 @@
        17,
        20
       ]
-     ]
+     ],
+     "en": "After the arrival of the train all the passengers left the platform."
     },
     {
      "de": "Durch die Verspätung des Fluges verpasste sie ihren Anschluss.",
@@ -18476,7 +18895,8 @@
        21,
        24
       ]
-     ]
+     ],
+     "en": "Because of the delay to the flight she missed her connection."
     },
     {
      "de": "Die Überprüfung der Unterlagen dauert etwa zwei Wochen.",
@@ -18490,7 +18910,8 @@
        16,
        30
       ]
-     ]
+     ],
+     "en": "Checking the documents takes about two weeks."
     },
     {
      "de": "Bei der Planung der Reise haben wir das Wetter nicht bedacht.",
@@ -18500,7 +18921,8 @@
        8,
        15
       ]
-     ]
+     ],
+     "en": "When planning the trip we didn't take the weather into account."
     }
    ],
    "tables": [],
@@ -18674,7 +19096,8 @@
        16,
        23
       ]
-     ]
+     ],
+     "en": "Although it was raining hard, we went for a walk."
     },
     {
      "de": "Es regnete stark, trotzdem sind wir spazieren gegangen.",
@@ -18684,7 +19107,8 @@
        3,
        10
       ]
-     ]
+     ],
+     "en": "It was raining hard; all the same we went for a walk."
     },
     {
      "de": "Sie war krank, deshalb konnte sie nicht zur Prüfung kommen.",
@@ -18698,7 +19122,8 @@
        23,
        29
       ]
-     ]
+     ],
+     "en": "She was ill, so she couldn't come to the exam."
     },
     {
      "de": "Er hat sein Deutsch verbessert, indem er jeden Tag Zeitung gelesen hat.",
@@ -18708,7 +19133,8 @@
        32,
        37
       ]
-     ]
+     ],
+     "en": "He improved his German by reading the newspaper every day."
     }
    ],
    "tables": [],
@@ -18896,7 +19322,8 @@
        44,
        46
       ]
-     ]
+     ],
+     "en": "She studies German every day in order to pass the exam."
     },
     {
      "de": "Er verließ das Meeting, ohne sich zu verabschieden.",
@@ -18906,7 +19333,8 @@
        34,
        36
       ]
-     ]
+     ],
+     "en": "He left the meeting without saying goodbye."
     },
     {
      "de": "Statt eine Antwort zu schreiben, hat er einfach angerufen.",
@@ -18920,7 +19348,8 @@
        19,
        21
       ]
-     ]
+     ],
+     "en": "Instead of writing a reply, he simply phoned."
     },
     {
      "de": "Wir sind losgefahren, ohne die Karte zu prüfen.",
@@ -18930,7 +19359,8 @@
        37,
        39
       ]
-     ]
+     ],
+     "en": "We set off without checking the map."
     }
    ],
    "tables": [],
@@ -19102,7 +19532,8 @@
        62,
        67
       ]
-     ]
+     ],
+     "en": "By next Friday I will have finished writing the report."
     },
     {
      "de": "Sie wird den Zug wohl verpasst haben, sonst wäre sie längst hier.",
@@ -19112,7 +19543,8 @@
        31,
        36
       ]
-     ]
+     ],
+     "en": "She will probably have missed the train, otherwise she'd have been here long ago."
     },
     {
      "de": "In zehn Jahren wird sich die Stadt stark verändert haben.",
@@ -19122,7 +19554,8 @@
        51,
        56
       ]
-     ]
+     ],
+     "en": "In ten years the city will have changed a great deal."
     },
     {
      "de": "Er wird gestern vermutlich zu lange gearbeitet haben.",
@@ -19132,7 +19565,8 @@
        47,
        52
       ]
-     ]
+     ],
+     "en": "He will presumably have worked too long yesterday."
     }
    ],
    "tables": [],
@@ -19299,17 +19733,20 @@
        29,
        32
       ]
-     ]
+     ],
+     "en": "The minister said the situation was serious."
     },
     {
      "de": "Sie erklärte, sie habe den Termin völlig vergessen.",
      "note": "She explained that she had completely forgotten the appointment. — habe + Partizip II for the past.",
-     "marks": []
+     "marks": [],
+     "en": "She explained that she had completely forgotten the appointment."
     },
     {
      "de": "Die Zeitung berichtet, die Preise würden weiter steigen.",
      "note": "The newspaper reports that prices will keep rising. — plural, so Konjunktiv I would read as the indicative; würden steps in.",
-     "marks": []
+     "marks": [],
+     "en": "The paper reports that prices will continue to rise."
     },
     {
      "de": "Er behauptet, er sei den ganzen Abend zu Hause gewesen.",
@@ -19319,7 +19756,8 @@
        17,
        20
       ]
-     ]
+     ],
+     "en": "He claims he was at home all evening."
     }
    ],
    "tables": [],
@@ -19518,7 +19956,8 @@
        4,
        14
       ]
-     ]
+     ],
+     "en": "The sleeping child wasn't woken by the noise."
     },
     {
      "de": "Der reparierte Drucker funktioniert wieder einwandfrei.",
@@ -19528,17 +19967,20 @@
        4,
        14
       ]
-     ]
+     ],
+     "en": "The repaired printer works perfectly again."
     },
     {
      "de": "Wir suchen eine überzeugende Lösung für dieses Problem.",
      "note": "We are looking for a convincing solution. — Partizip I with the ending for eine + feminine accusative.",
-     "marks": []
+     "marks": [],
+     "en": "We're looking for a convincing solution to this problem."
     },
     {
      "de": "Die eingeladenen Gäste warteten bereits im Garten.",
      "note": "The invited guests were already waiting in the garden. — Partizip II, plural ending.",
-     "marks": []
+     "marks": [],
+     "en": "The invited guests were already waiting in the garden."
     }
    ],
    "tables": [],
@@ -19710,22 +20152,26 @@
        16,
        26
       ]
-     ]
+     ],
+     "en": "The dispute that has been going on for weeks is a strain on the whole team."
     },
     {
      "de": "Das von der Kommission geprüfte Konzept wurde schließlich angenommen.",
      "note": "The concept examined by the commission was finally accepted. — Partizip II with the agent inside.",
-     "marks": []
+     "marks": [],
+     "en": "The concept examined by the commission was finally accepted."
     },
     {
      "de": "Die im letzten Jahr eingeführten Regeln gelten weiterhin.",
      "note": "The rules introduced last year still apply.",
-     "marks": []
+     "marks": [],
+     "en": "The rules introduced last year still apply."
     },
     {
      "de": "Wir danken allen an dem Projekt beteiligten Kolleginnen und Kollegen.",
      "note": "We thank all colleagues involved in the project.",
-     "marks": []
+     "marks": [],
+     "en": "We thank all the colleagues involved in the project."
     }
    ],
    "tables": [],
@@ -19897,7 +20343,8 @@
        26,
        29
       ]
-     ]
+     ],
+     "en": "I'm really looking forward to the holiday in September."
     },
     {
      "de": "Worauf wartest du eigentlich noch?",
@@ -19907,7 +20354,8 @@
        0,
        6
       ]
-     ]
+     ],
+     "en": "What exactly are you still waiting for?"
     },
     {
      "de": "Sie interessiert sich vor allem für alte Sprachen.",
@@ -19925,7 +20373,8 @@
        32,
        35
       ]
-     ]
+     ],
+     "en": "She is interested above all in ancient languages."
     },
     {
      "de": "Wir haben lange darüber gesprochen, aber nichts entschieden.",
@@ -19935,7 +20384,8 @@
        16,
        23
       ]
-     ]
+     ],
+     "en": "We talked about it for a long time but decided nothing."
     }
    ],
    "tables": [],
@@ -20107,7 +20557,8 @@
        33,
        38
       ]
-     ]
+     ],
+     "en": "The longer I think about it, the less I understand it."
     },
     {
      "de": "Sie spricht sowohl Französisch als auch Portugiesisch.",
@@ -20121,7 +20572,8 @@
        31,
        39
       ]
-     ]
+     ],
+     "en": "She speaks both French and Portuguese."
     },
     {
      "de": "Wir können entweder heute anfangen oder bis Montag warten.",
@@ -20135,7 +20587,8 @@
        35,
        39
       ]
-     ]
+     ],
+     "en": "We can either start today or wait until Monday."
     },
     {
      "de": "Er hat weder angerufen noch eine Nachricht geschrieben.",
@@ -20145,7 +20598,8 @@
        23,
        27
       ]
-     ]
+     ],
+     "en": "He neither called nor wrote a message."
     }
    ],
    "tables": [],
@@ -20312,7 +20766,8 @@
        21,
        27
       ]
-     ]
+     ],
+     "en": "After we had eaten, we went for another walk."
     },
     {
      "de": "Während sie telefonierte, machte er schon das Abendessen.",
@@ -20322,17 +20777,20 @@
        0,
        7
       ]
-     ]
+     ],
+     "en": "While she was on the phone, he was already making dinner."
     },
     {
      "de": "Sobald der Vertrag unterschrieben ist, beginnen wir mit der Arbeit.",
      "note": "As soon as the contract is signed, we'll start work.",
-     "marks": []
+     "marks": [],
+     "en": "As soon as the contract is signed, we'll start work."
     },
     {
      "de": "Seitdem er in Hamburg wohnt, sehen wir uns nur noch selten.",
      "note": "Since he's been living in Hamburg, we hardly ever see each other. — seitdem names the starting point.",
-     "marks": []
+     "marks": [],
+     "en": "Since he has been living in Hamburg we only rarely see each other."
     }
    ],
    "tables": [],
@@ -20504,7 +20962,8 @@
        32,
        37
       ]
-     ]
+     ],
+     "en": "He must have read the letter already — he's reacting to it."
     },
     {
      "de": "Sie soll früher einmal in Japan gelebt haben.",
@@ -20518,7 +20977,8 @@
        39,
        44
       ]
-     ]
+     ],
+     "en": "She is said to have lived in Japan once."
     },
     {
      "de": "Er will von der ganzen Sache nichts gewusst haben.",
@@ -20532,12 +20992,14 @@
        44,
        49
       ]
-     ]
+     ],
+     "en": "He claims to have known nothing about the whole business."
     },
     {
      "de": "Das dürfte für die meisten Teilnehmer kein Problem sein.",
      "note": "That should not be a problem for most participants. — a careful, likely assumption.",
-     "marks": []
+     "marks": [],
+     "en": "That shouldn't be a problem for most participants."
     }
    ],
    "tables": [],
@@ -20711,7 +21173,8 @@
     {
      "de": "Das Problem lässt sich in wenigen Minuten lösen.",
      "note": "The problem can be solved in a few minutes. — sich lassen, so the können-passive.",
-     "marks": []
+     "marks": [],
+     "en": "The problem can be solved in a few minutes."
     },
     {
      "de": "Die Formulare sind bis Freitag im Sekretariat abzugeben.",
@@ -20721,7 +21184,8 @@
        46,
        55
       ]
-     ]
+     ],
+     "en": "The forms are to be handed in at the office by Friday."
     },
     {
      "de": "Die Handschrift auf dem Umschlag ist kaum lesbar.",
@@ -20731,12 +21195,14 @@
        42,
        48
       ]
-     ]
+     ],
+     "en": "The handwriting on the envelope is barely legible."
     },
     {
      "de": "Dieser Fehler ließ sich leider nicht mehr korrigieren.",
      "note": "Unfortunately this mistake could no longer be corrected. — sich lassen in the Präteritum.",
-     "marks": []
+     "marks": [],
+     "en": "Unfortunately this mistake could no longer be corrected."
     }
    ],
    "tables": [],
@@ -20902,7 +21368,8 @@
        3,
        7
       ]
-     ]
+     ],
+     "en": "It must be an addiction."
     },
     {
      "de": "Auch beim letzten Fall muss es sich um die neue Sucht gehandelt haben.",
@@ -20912,12 +21379,14 @@
        23,
        27
       ]
-     ]
+     ],
+     "en": "In the last case too it must have been the new addiction."
     },
     {
      "de": "Er müsste den Zug eigentlich noch bekommen, da er glücklicherweise Verspätung hat.",
      "note": "90 % — the speaker supposes it.",
-     "marks": []
+     "marks": [],
+     "en": "He ought to still catch the train, since luckily it is delayed."
     },
     {
      "de": "Die Sucht dürfte besonders junge Leute betreffen.",
@@ -20927,7 +21396,8 @@
        10,
        16
       ]
-     ]
+     ],
+     "en": "The addiction probably affects young people in particular."
     },
     {
      "de": "Die Nervosität könnte von der Handysucht kommen.",
@@ -20937,17 +21407,20 @@
        15,
        21
       ]
-     ]
+     ],
+     "en": "The nervousness could come from the phone addiction."
     },
     {
      "de": "Der Täter soll sich zurzeit im Ausland aufhalten.",
      "note": "sollen — reported by others.",
-     "marks": []
+     "marks": [],
+     "en": "The offender is said to be abroad at the moment."
     },
     {
      "de": "Eine 56-Jährige will durch den Ärmelkanal geschwommen sein.",
      "note": "wollen — she claims it about herself.",
-     "marks": []
+     "marks": [],
+     "en": "A 56-year-old claims to have swum across the English Channel."
     }
    ],
    "tables": [],
@@ -21136,37 +21609,44 @@
     {
      "de": "Max misstraut den Berichten über solche Rekordversuche.",
      "note": "miss- — trauen becomes its opposite.",
-     "marks": []
+     "marks": [],
+     "en": "Max distrusts the reports about such record attempts."
     },
     {
      "de": "Man sollte die Glücksmomente aber nicht zerreden.",
      "note": "zer- — talking something to pieces.",
-     "marks": []
+     "marks": [],
+     "en": "But you should not talk the moments of happiness to death."
     },
     {
      "de": "Dem Modell ist das Make-up total zerlaufen.",
      "note": "zer- — running and coming apart.",
-     "marks": []
+     "marks": [],
+     "en": "The model's make-up has run completely."
     },
     {
      "de": "Bei manchen beginnt die Entspannung bereits, wenn sie sich entkleiden.",
      "note": "ent- — taking clothes off.",
-     "marks": []
+     "marks": [],
+     "en": "For some people relaxation begins as soon as they undress."
     },
     {
      "de": "Plastikabfall wurde in speziellen Containern entsorgt.",
      "note": "ent- — getting rid of.",
-     "marks": []
+     "marks": [],
+     "en": "Plastic waste was disposed of in special containers."
     },
     {
      "de": "Ein Kollege hilft mir, das alte Programm auf dem Computer zu deinstallieren.",
      "note": "de- — undoing the installation.",
-     "marks": []
+     "marks": [],
+     "en": "A colleague is helping me uninstall the old program on the computer."
     },
     {
      "de": "Durch das viele Laufen wurden die Wirbel wieder leicht destabilisiert.",
      "note": "de- — undoing the stabilisation.",
-     "marks": []
+     "marks": [],
+     "en": "All the running destabilised the vertebrae slightly again."
     }
    ],
    "tables": [],
@@ -21334,7 +21814,8 @@
        12,
        16
       ]
-     ]
+     ],
+     "en": "Even though Samira is often on duty in the evening or at the weekend, she has not regretted her decision."
     },
     {
      "de": "Obwohl Samira oft abends oder am Wochenende Dienst hat, hat sie ihre Entscheidung noch nicht bereut.",
@@ -21352,7 +21833,8 @@
        56,
        59
       ]
-     ]
+     ],
+     "en": "Although Samira is often on duty in the evening or at the weekend, she has not regretted her decision."
     },
     {
      "de": "Wie sehr sich die Auszubildende auch bemüht, alles richtig zu machen, manche Tätigkeiten fallen ihr noch schwer.",
@@ -21362,7 +21844,8 @@
        32,
        36
       ]
-     ]
+     ],
+     "en": "However hard the trainee tries to do everything right, some tasks are still difficult for her."
     },
     {
      "de": "es sei denn, dass unser Kind krank wird.",
@@ -21380,7 +21863,8 @@
        35,
        39
       ]
-     ]
+     ],
+     "en": "unless our child gets ill."
     },
     {
      "de": "außer wenn unser Kind krank wird.",
@@ -21394,7 +21878,8 @@
        28,
        32
       ]
-     ]
+     ],
+     "en": "except when our child gets ill."
     },
     {
      "de": "Die beiden Hotelzimmer sind fast gleich, außer dass Sie im teureren Zimmer Alpenblick haben.",
@@ -21408,7 +21893,8 @@
        86,
        91
       ]
-     ]
+     ],
+     "en": "The two hotel rooms are almost the same, except that the more expensive one has a view of the Alps."
     },
     {
      "de": "Die beiden Hotelzimmer sind fast gleich, nur dass Sie im teureren Zimmer Alpenblick haben.",
@@ -21422,7 +21908,8 @@
        84,
        89
       ]
-     ]
+     ],
+     "en": "The two hotel rooms are almost the same, only that the more expensive one has a view of the Alps."
     }
    ],
    "tables": [],
@@ -21609,37 +22096,44 @@
     {
      "de": "zur Auswahl stehen",
      "note": "= ausgewählt werden können",
-     "marks": []
+     "marks": [],
+     "en": "to be available to choose from"
     },
     {
      "de": "zur Verfügung stellen",
      "note": "= bereitstellen",
-     "marks": []
+     "marks": [],
+     "en": "to make available"
     },
     {
      "de": "Vorbereitungen treffen",
      "note": "= etwas vorbereiten",
-     "marks": []
+     "marks": [],
+     "en": "to make preparations"
     },
     {
      "de": "das Verständnis vertiefen",
      "note": "= besser verstehen",
-     "marks": []
+     "marks": [],
+     "en": "to deepen one's understanding"
     },
     {
      "de": "in Kauf nehmen",
      "note": "= akzeptieren",
-     "marks": []
+     "marks": [],
+     "en": "to put up with, to accept as a drawback"
     },
     {
      "de": "auf Kritik stoßen",
      "note": "= kritisiert werden",
-     "marks": []
+     "marks": [],
+     "en": "to meet with criticism"
     },
     {
      "de": "infrage kommen",
      "note": "= möglich, denkbar sein",
-     "marks": []
+     "marks": [],
+     "en": "to be an option, to be worth considering"
     }
    ],
    "tables": [],
@@ -21807,37 +22301,44 @@
     {
      "de": "Der Mensch kann sich der Außenwelt anpassen.",
      "note": "können — the starting sentence.",
-     "marks": []
+     "marks": [],
+     "en": "Human beings can adapt to the outside world."
     },
     {
      "de": "Er hat das Recht / die Erlaubnis / die Genehmigung,",
      "note": "können / dürfen as permission.",
-     "marks": []
+     "marks": [],
+     "en": "He has the right / the permission / the authorisation to"
     },
     {
      "de": "Sie waren immer schon gezwungen, ihr Gehirn anzustrengen.",
      "note": "müssen → gezwungen sein.",
-     "marks": []
+     "marks": [],
+     "en": "They have always been forced to exert their brains."
     },
     {
      "de": "Er hat die Arbeit rechtzeitig zu erledigen.",
      "note": "müssen → haben + zu + Infinitiv.",
-     "marks": []
+     "marks": [],
+     "en": "He has to get the work done on time."
     },
     {
      "de": "Ich habe den Wunsch, mehr Zeit für mich zu haben.",
      "note": "wollen → den Wunsch haben.",
-     "marks": []
+     "marks": [],
+     "en": "I have the wish to have more time for myself."
     },
     {
      "de": "Er weigerte sich, unsere Entscheidung zu akzeptieren.",
      "note": "nicht wollen → sich weigern.",
-     "marks": []
+     "marks": [],
+     "en": "He refused to accept our decision."
     },
     {
      "de": "Man sollte flexibel sein.",
      "note": "sollte — recommendation.",
-     "marks": []
+     "marks": [],
+     "en": "One should be flexible."
     }
    ],
    "tables": [],
@@ -22024,12 +22525,14 @@
        87,
        93
       ]
-     ]
+     ],
+     "en": "Everyday office life is too stressful for anyone to carry out good resolutions about their health."
     },
     {
      "de": "Das Buch war zu interessant, als dass ich mit dem Lesen hätte aufhören können.",
      "note": "past: hätte … können.",
-     "marks": []
+     "marks": [],
+     "en": "The book was too interesting for me to have been able to stop reading."
     },
     {
      "de": "Die Vorgänge im Körper sind zu komplex, als dass man sie schnell erklären könnte.",
@@ -22039,12 +22542,14 @@
        74,
        80
       ]
-     ]
+     ],
+     "en": "The processes in the body are too complex for anyone to explain them quickly."
     },
     {
      "de": "Die Vorgänge im Körper sind zu komplex, um sie schnell zu erklären.",
      "note": "the same content with um … zu; können drops.",
-     "marks": []
+     "marks": [],
+     "en": "The processes in the body are too complex to explain quickly."
     }
    ],
    "tables": [],
@@ -22189,37 +22694,44 @@
     {
      "de": "alle / sämtliche interessierten Mitarbeiter",
      "note": "wie nach bestimmtem Artikel",
-     "marks": []
+     "marks": [],
+     "en": "all / all of the interested employees"
     },
     {
      "de": "keine größeren Enttäuschungen",
      "note": "wie nach bestimmtem Artikel",
-     "marks": []
+     "marks": [],
+     "en": "no major disappointments"
     },
     {
      "de": "solche / welche standardisierten Tests",
      "note": "wie nach bestimmtem Artikel",
-     "marks": []
+     "marks": [],
+     "en": "such / which standardised tests"
     },
     {
      "de": "renommierte Unternehmen",
      "note": "nach einige / mehrere / verschiedene / etliche — wie nach Nullartikel im Plural",
-     "marks": []
+     "marks": [],
+     "en": "renowned companies"
     },
     {
      "de": "anspruchsvolle Aufgaben",
      "note": "nach viele / wenige — wie nach Nullartikel im Plural",
-     "marks": []
+     "marks": [],
+     "en": "demanding tasks"
     },
     {
      "de": "aktuelle Fragestellungen",
      "note": "nach folgende / zahlreiche — wie nach Nullartikel im Plural",
-     "marks": []
+     "marks": [],
+     "en": "current questions"
     },
     {
      "de": "die vielen, wenigen, verschiedenen, zahlreichen, folgenden",
      "note": "with the definite article in front, everything takes -en",
-     "marks": []
+     "marks": [],
+     "en": "the many, the few, the various, the numerous, the following"
     }
    ],
    "tables": [],
@@ -22394,7 +22906,8 @@
        18,
        22
       ]
-     ]
+     ],
+     "en": "It is wonderful that so many opportunities present themselves."
     },
     {
      "de": "Für diese Menschen ist es sinnvoller, eine vielseitige Tätigkeit anzustreben.",
@@ -22404,7 +22917,8 @@
        23,
        25
       ]
-     ]
+     ],
+     "en": "For these people it makes more sense to aim for a varied job."
     },
     {
      "de": "Es ist fraglich, ob das stimmt.",
@@ -22414,7 +22928,8 @@
        0,
        2
       ]
-     ]
+     ],
+     "en": "It is questionable whether that is true."
     },
     {
      "de": "Sie besorgt nicht nur das Geschenk, sie verpackt es auch.",
@@ -22424,7 +22939,8 @@
        49,
        51
       ]
-     ]
+     ],
+     "en": "She not only gets the present, she wraps it too."
     },
     {
      "de": "Meine Kolleginnen sind topfit, ich bin es leider nicht.",
@@ -22434,7 +22950,8 @@
        39,
        41
       ]
-     ]
+     ],
+     "en": "My colleagues are in top shape; unfortunately I am not."
     },
     {
      "de": "Es regnet. Es schneit. Es donnert.",
@@ -22452,7 +22969,8 @@
        23,
        25
       ]
-     ]
+     ],
+     "en": "It is raining. It is snowing. It is thundering."
     },
     {
      "de": "Er hat es eilig.",
@@ -22462,7 +22980,8 @@
        7,
        9
       ]
-     ]
+     ],
+     "en": "He is in a hurry."
     }
    ],
    "tables": [],
@@ -22640,7 +23159,8 @@
     {
      "de": "brand neu / aktuell / gefährlich",
      "note": "brand- as an intensifier",
-     "marks": []
+     "marks": [],
+     "en": "brand new / bang up to date / highly dangerous"
     },
     {
      "de": "hyper aktiv / modern / nervös",
@@ -22650,12 +23170,14 @@
        0,
        5
       ]
-     ]
+     ],
+     "en": "hyperactive / ultra-modern / extremely nervous"
     },
     {
      "de": "tod schick / traurig",
      "note": "tod- as an intensifier",
-     "marks": []
+     "marks": [],
+     "en": "dead stylish / dead sad"
     },
     {
      "de": "top aktuell / fit / modisch",
@@ -22665,7 +23187,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "totally up to date / in top shape / highly fashionable"
     },
     {
      "de": "voll automatisch / funktionsfähig",
@@ -22675,12 +23198,14 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "fully automatic / fully operational"
     },
     {
      "de": "bildschön, aber nicht bildnett",
      "note": "the combinations are fixed",
-     "marks": []
+     "marks": [],
+     "en": "bildschön (stunningly beautiful) works, but bildnett does not"
     }
    ],
    "tables": [],
@@ -22829,22 +23354,26 @@
     {
      "de": "Der Bildhauer bearbeitet die Skulptur.",
      "note": "be- + Akkusativ",
-     "marks": []
+     "marks": [],
+     "en": "The sculptor is working the sculpture."
     },
     {
      "de": "Der Bildhauer arbeitet an der Skulptur.",
      "note": "the plain verb with a preposition",
-     "marks": []
+     "marks": [],
+     "en": "The sculptor is working on the sculpture."
     },
     {
      "de": "Der Kritiker beurteilt die Kunstwerke.",
      "note": "be- + Akkusativ",
-     "marks": []
+     "marks": [],
+     "en": "The critic assesses the works of art."
     },
     {
      "de": "Der Kritiker urteilt über die Kunstwerke.",
      "note": "the plain verb with a preposition",
-     "marks": []
+     "marks": [],
+     "en": "The critic passes judgement on the works of art."
     },
     {
      "de": "Dann habe ich mich auch noch am Telefon verwählt.",
@@ -22854,17 +23383,20 @@
        40,
        48
       ]
-     ]
+     ],
+     "en": "Then on top of that I dialled the wrong number."
     },
     {
      "de": "Mit ein paar Bildern kann man ein Zimmer verschönern.",
      "note": "ver- — a changed state",
-     "marks": []
+     "marks": [],
+     "en": "With a few pictures you can make a room more beautiful."
     },
     {
      "de": "Der Bildhauer verbringt viel Zeit in seinem Atelier.",
      "note": "ver- — neutral meaning",
-     "marks": []
+     "marks": [],
+     "en": "The sculptor spends a lot of time in his studio."
     }
    ],
    "tables": [],
@@ -23037,12 +23569,14 @@
     {
      "de": "Die Leute fragten,",
      "note": "the introducing verb",
-     "marks": []
+     "marks": [],
+     "en": "The people asked,"
     },
     {
      "de": "warum die documenta eigentlich so heiße.",
      "note": "question word + Konjunktiv I at the end",
-     "marks": []
+     "marks": [],
+     "en": "why the documenta is actually called that."
     },
     {
      "de": "ob dort die weltbesten Künstler vertreten seien.",
@@ -23052,12 +23586,14 @@
        0,
        2
       ]
-     ]
+     ],
+     "en": "whether the world's best artists were represented there."
     },
     {
      "de": "ich solle eine Bewerbungsmappe schicken.",
      "note": "imperative → sollen (neutral request)",
-     "marks": []
+     "marks": [],
+     "en": "that I should send an application portfolio."
     },
     {
      "de": "ich möge die Studienordnung lesen.",
@@ -23067,7 +23603,8 @@
        4,
        8
       ]
-     ]
+     ],
+     "en": "that I should read the course regulations."
     },
     {
      "de": "ich müsse mich bis März anmelden.",
@@ -23077,12 +23614,14 @@
        4,
        9
       ]
-     ]
+     ],
+     "en": "that I had to register by March."
     },
     {
      "de": "ich solle / dürfe mich nicht verunsichern lassen.",
      "note": "negative request",
-     "marks": []
+     "marks": [],
+     "en": "that I should not / must not let myself be unsettled."
     }
    ],
    "tables": [],
@@ -23265,7 +23804,8 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "In the opinion / according to the statement of Max Liebermann …"
     },
     {
      "de": "Max Liebermanns Meinung /Aussage nach …",
@@ -23275,7 +23815,8 @@
        33,
        37
       ]
-     ]
+     ],
+     "en": "According to Max Liebermann's opinion / statement …"
     },
     {
      "de": "Laut (der) Meinung /Aussage von Max Liebermann …",
@@ -23285,7 +23826,8 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "According to the opinion / statement of Max Liebermann …"
     },
     {
      "de": "Laut Max Liebermann …",
@@ -23295,7 +23837,8 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "According to Max Liebermann …"
     },
     {
      "de": "Max Liebermann zufolge …",
@@ -23305,7 +23848,8 @@
        15,
        22
       ]
-     ]
+     ],
+     "en": "As stated by Max Liebermann …"
     },
     {
      "de": "Wie Max Liebermann meinte / sagte,",
@@ -23323,7 +23867,8 @@
        28,
        33
       ]
-     ]
+     ],
+     "en": "As Max Liebermann thought / said,"
     }
    ],
    "tables": [],
@@ -23470,7 +24015,8 @@
        24,
        36
       ]
-     ]
+     ],
+     "en": "Double degree programmes are possible in accordance with the new course regulations."
     },
     {
      "de": "Im Vorlesungsverzeichnis findet man den Namen samt der E-Mail-Adresse.",
@@ -23480,7 +24026,8 @@
        46,
        50
       ]
-     ]
+     ],
+     "en": "In the course catalogue you find the name together with the email address."
     },
     {
      "de": "Sie studiert fern (von) ihrer Heimatstadt.",
@@ -23494,7 +24041,8 @@
        19,
        22
       ]
-     ]
+     ],
+     "en": "She studies far from her home town."
     },
     {
      "de": "Seinen Eltern zuliebe hat er Jura studiert.",
@@ -23504,7 +24052,8 @@
        14,
        21
       ]
-     ]
+     ],
+     "en": "For his parents' sake he studied law."
     }
    ],
    "tables": [],
@@ -23651,22 +24200,26 @@
     {
      "de": "Enthusiasmus",
      "note": "der — suffix -asmus",
-     "marks": []
+     "marks": [],
+     "en": "enthusiasm"
     },
     {
      "de": "Mechanismus",
      "note": "der — suffix -ismus",
-     "marks": []
+     "marks": [],
+     "en": "mechanism"
     },
     {
      "de": "Bibliothekar",
      "note": "der — male job title in -ar",
-     "marks": []
+     "marks": [],
+     "en": "librarian"
     },
     {
      "de": "Experiment",
      "note": "das — suffix -ment",
-     "marks": []
+     "marks": [],
+     "en": "experiment"
     },
     {
      "de": "Eleganz",
@@ -23676,7 +24229,8 @@
        0,
        7
       ]
-     ]
+     ],
+     "en": "elegance"
     },
     {
      "de": "Intelligenz",
@@ -23686,7 +24240,8 @@
        0,
        11
       ]
-     ]
+     ],
+     "en": "intelligence"
     },
     {
      "de": "das Vokabular",
@@ -23696,7 +24251,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "the vocabulary"
     }
    ],
    "tables": [],
@@ -23859,7 +24415,8 @@
     {
      "de": "Das kannte ich so nicht.",
      "note": "das points back to the whole previous statement",
-     "marks": []
+     "marks": [],
+     "en": "I did not know it like that."
     },
     {
      "de": "Dem stimme ich zu.",
@@ -23869,12 +24426,14 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "I agree with that."
     },
     {
      "de": "Da habe ich immer Ansprechpartner gefunden.",
      "note": "da points back to a place or situation",
-     "marks": []
+     "marks": [],
+     "en": "That is where I always found someone to turn to."
     },
     {
      "de": "Stattdessen / Dafür lernen wir in den Ferien umso mehr.",
@@ -23884,7 +24443,8 @@
        0,
        11
       ]
-     ]
+     ],
+     "en": "Instead / In return we study all the more in the holidays."
     },
     {
      "de": "Dadurch bleibt leider wenig Energie für anderes.",
@@ -23894,7 +24454,8 @@
        0,
        7
       ]
-     ]
+     ],
+     "en": "As a result there is unfortunately little energy left for anything else."
     },
     {
      "de": "Dementsprechend / Infolgedessen / Demzufolge ist man fachlich nicht auf dem neuesten Stand.",
@@ -23908,7 +24469,8 @@
        72,
        75
       ]
-     ]
+     ],
+     "en": "Accordingly / Consequently / As a result one is not professionally up to date."
     }
    ],
    "tables": [],
@@ -24068,7 +24630,8 @@
        30,
        33
       ]
-     ]
+     ],
+     "en": "the differing reaction of people"
     },
     {
      "de": "Die Veränderung der Gesellschaft",
@@ -24078,7 +24641,8 @@
        16,
        19
       ]
-     ]
+     ],
+     "en": "the change in society"
     },
     {
      "de": "Seine Analyse der Gesellschaft machte ihn unzufrieden.",
@@ -24088,17 +24652,20 @@
        14,
        17
       ]
-     ]
+     ],
+     "en": "His analysis of society made him dissatisfied."
     },
     {
      "de": "Die freiwillige Gabe von Kleidung freut ihn.",
      "note": "Nomen ohne Artikel → von + Dativ",
-     "marks": []
+     "marks": [],
+     "en": "The voluntary donation of clothing pleases him."
     },
     {
      "de": "Ihr Interesse an Ferienjobs",
      "note": "Verb + Präposition → Nomen + Präposition",
-     "marks": []
+     "marks": [],
+     "en": "their interest in holiday jobs"
     },
     {
      "de": "Die Aufbesserung des Taschengeldes durch manche Eltern",
@@ -24108,7 +24675,8 @@
        35,
        40
       ]
-     ]
+     ],
+     "en": "the topping up of pocket money by some parents"
     },
     {
      "de": "Die Hilfe der Schuldnerberatung für den Jugendlichen",
@@ -24118,7 +24686,8 @@
        10,
        13
       ]
-     ]
+     ],
+     "en": "the help the debt counselling service gives the young person"
     }
    ],
    "tables": [],
@@ -24293,7 +24862,8 @@
        67,
        70
       ]
-     ]
+     ],
+     "en": "Mr Müller got into debt because his divorce was expensive."
     },
     {
      "de": "Ihm ist das nicht so wichtig, zumal / besonders weil er inzwischen eine neue Stelle hat.",
@@ -24303,7 +24873,8 @@
        30,
        35
       ]
-     ]
+     ],
+     "en": "It is not that important to him, especially as he now has a new job."
     },
     {
      "de": "Er ist enttäuscht, denn er hat schon zweimal Schiffbruch erlitten.",
@@ -24317,7 +24888,8 @@
        27,
        30
       ]
-     ]
+     ],
+     "en": "He is disappointed, because he has already suffered shipwreck twice."
     },
     {
      "de": "Wegen seiner Scheidung hat Herr Müller sich verschuldet.",
@@ -24331,7 +24903,8 @@
        23,
        26
       ]
-     ]
+     ],
+     "en": "Because of his divorce Mr Müller got into debt."
     },
     {
      "de": "Viele verschulden sich mangels Erfahrung im Umgang mit Geld.",
@@ -24341,7 +24914,8 @@
        23,
        30
       ]
-     ]
+     ],
+     "en": "Many get into debt for lack of experience in handling money."
     },
     {
      "de": "Er kocht vor Wut.",
@@ -24351,7 +24925,8 @@
        9,
        12
       ]
-     ]
+     ],
+     "en": "He is seething with rage."
     },
     {
      "de": "Dank neuer technischer Entwicklungen gibt es Hoffnung für die Städte der Zukunft.",
@@ -24361,7 +24936,8 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "Thanks to new technical developments there is hope for the cities of the future."
     }
    ],
    "tables": [],
@@ -24522,7 +25098,8 @@
     {
      "de": "das baldige Wiedersehen",
      "note": "temporal — from bald",
-     "marks": []
+     "marks": [],
+     "en": "the early reunion"
     },
     {
      "de": "der morgige Tag",
@@ -24532,7 +25109,8 @@
        4,
        11
       ]
-     ]
+     ],
+     "en": "tomorrow's day"
     },
     {
      "de": "die gestrige Sitzung",
@@ -24542,12 +25120,14 @@
        4,
        12
       ]
-     ]
+     ],
+     "en": "yesterday's meeting"
     },
     {
      "de": "das dortige Bürgerbüro",
      "note": "local — from dort",
-     "marks": []
+     "marks": [],
+     "en": "the citizens' office there"
     },
     {
      "de": "die hiesige Situation",
@@ -24557,12 +25137,14 @@
        4,
        11
       ]
-     ]
+     ],
+     "en": "the situation here"
     },
     {
      "de": "die sonstigen Kosten",
      "note": "modal — from sonst",
-     "marks": []
+     "marks": [],
+     "en": "the other costs"
     }
    ],
    "tables": [],
@@ -24722,37 +25304,44 @@
     {
      "de": "ein dringend zu lösendes Problem",
      "note": "Gerundiv",
-     "marks": []
+     "marks": [],
+     "en": "a problem that urgently needs solving"
     },
     {
      "de": "ein Problem, das dringend gelöst werden muss (soll)",
      "note": "Passiv mit Modalverb",
-     "marks": []
+     "marks": [],
+     "en": "a problem that urgently must (should) be solved"
     },
     {
      "de": "ein Problem, das dringend zu lösen ist",
      "note": "Infinitiv + zu",
-     "marks": []
+     "marks": [],
+     "en": "a problem that is urgently to be solved"
     },
     {
      "de": "ein einfach durchzuführender Test",
      "note": "Gerundiv expressing possibility",
-     "marks": []
+     "marks": [],
+     "en": "a test that is easy to carry out"
     },
     {
      "de": "ein Test, der sich einfach durchführen lässt",
      "note": "sich lassen + Infinitiv",
-     "marks": []
+     "marks": [],
+     "en": "a test that can easily be carried out"
     },
     {
      "de": "Die Autorin will Eltern in die Lage versetzen, mit Auffälligkeiten ihrer Kinder umzugehen.",
      "note": "Aktiv mit wollen",
-     "marks": []
+     "marks": [],
+     "en": "The author wants to enable parents to deal with anything unusual in their children."
     },
     {
      "de": "Der Leser bekommt anschaulich dargelegt, wie ein Umdenken gelingen kann.",
      "note": "bekommen + Partizip II",
-     "marks": []
+     "marks": [],
+     "en": "The reader is shown vividly how a change of thinking can succeed."
     }
    ],
    "tables": [],
@@ -24929,7 +25518,8 @@
     {
      "de": "der reale Austausch =",
      "note": "= der konkrete Austausch",
-     "marks": []
+     "marks": [],
+     "en": "the real, actual exchange ="
     },
     {
      "de": "reelle Chancen auf mehr Erfolg =",
@@ -24939,12 +25529,14 @@
        0,
        6
       ]
-     ]
+     ],
+     "en": "genuine chances of more success ="
     },
     {
      "de": "die ideale Entscheidung =",
      "note": "= die bestmögliche Entscheidung",
-     "marks": []
+     "marks": [],
+     "en": "the ideal decision ="
     },
     {
      "de": "ideelle Werte =",
@@ -24954,7 +25546,8 @@
        0,
        7
       ]
-     ]
+     ],
+     "en": "non-material values ="
     },
     {
      "de": "rationelle Arbeitsabläufe =",
@@ -24964,12 +25557,14 @@
        0,
        10
       ]
-     ]
+     ],
+     "en": "efficient work processes ="
     },
     {
      "de": "Der Vorschlag ist nicht praktikabel.",
      "note": "-bel = kann praktiziert werden",
-     "marks": []
+     "marks": [],
+     "en": "The proposal is not workable."
     },
     {
      "de": "Menschen mit einem Putzzwang sind extrem penibel.",
@@ -24979,7 +25574,8 @@
        41,
        48
       ]
-     ]
+     ],
+     "en": "People with a compulsion to clean are extremely fussy."
     }
    ],
    "tables": [],
@@ -25185,7 +25781,8 @@
        57,
        63
       ]
-     ]
+     ],
+     "en": "If / In case / Provided that we produce a lot of pollutants, we will breathe bad air."
     },
     {
      "de": "Je nachdem, wie es mir gefällt, bleibe ich einen Tag länger.",
@@ -25203,7 +25800,8 @@
        32,
        38
       ]
-     ]
+     ],
+     "en": "Depending on how much I like it, I will stay a day longer."
     },
     {
      "de": "Bei / Im Falle hoher Schadstoffproduktion atmen wir schlechte Luft ein.",
@@ -25225,7 +25823,8 @@
        67,
        70
       ]
-     ]
+     ],
+     "en": "With / In the case of high pollutant production we breathe bad air."
     },
     {
      "de": "Ohne den Einsatz von Glashaus-Techniken funktioniert die vertikale Landwirtschaft nicht.",
@@ -25235,7 +25834,8 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "Without the use of greenhouse techniques vertical farming does not work."
     },
     {
      "de": "Auch wenn / Selbst wenn er wohlhabend war, war Wolfgang mit seinem Leben nicht zufrieden.",
@@ -25257,7 +25857,8 @@
        43,
        46
       ]
-     ]
+     ],
+     "en": "Even though / Even if he was well off, Wolfgang was not satisfied with his life."
     },
     {
      "de": "Es ist ein Ort mit Tradition. Trotzdem / Dennoch / Allerdings haben sich die Kreßberger an die neuen Bewohner gewöhnt.",
@@ -25279,7 +25880,8 @@
        62,
        67
       ]
-     ]
+     ],
+     "en": "It is a place with tradition. Nevertheless / Even so / However the people of Kreßberg have got used to the new residents."
     },
     {
      "de": "Selbst bei einer alternativen Lebensweise kann man von traditionsbewussten Dorfbewohnern akzeptiert werden.",
@@ -25293,7 +25895,8 @@
        42,
        46
       ]
-     ]
+     ],
+     "en": "Even with an alternative way of life you can be accepted by tradition-minded villagers."
     }
    ],
    "tables": [],
@@ -25470,7 +26073,8 @@
        7,
        10
       ]
-     ]
+     ],
+     "en": "He depends on his readers."
     },
     {
      "de": "Den Lesern gefällt, dass er um aktuelle Bezüge bemüht ist.",
@@ -25484,7 +26088,8 @@
        47,
        53
       ]
-     ]
+     ],
+     "en": "Readers like the fact that he makes an effort to refer to current events."
     },
     {
      "de": "Ich bin schon gespannt auf seinen nächsten Roman.",
@@ -25494,7 +26099,8 @@
        23,
        26
       ]
-     ]
+     ],
+     "en": "I am already eager for his next novel."
     },
     {
      "de": "Die Kreßberger sind verwundert über die alternative Lebensweise der Aussteiger.",
@@ -25508,7 +26114,8 @@
        31,
        35
       ]
-     ]
+     ],
+     "en": "The people of Kreßberg are astonished at the alternative way of life of the dropouts."
     },
     {
      "de": "Sie ist stets aufgeschlossen gegenüber Neuem.",
@@ -25522,7 +26129,8 @@
        29,
        38
       ]
-     ]
+     ],
+     "en": "She is always open to new things."
     },
     {
      "de": "Er ist erfahren im Verfassen von Bestsellern.",
@@ -25536,7 +26144,8 @@
        16,
        18
       ]
-     ]
+     ],
+     "en": "He is experienced in writing bestsellers."
     },
     {
      "de": "Ich bin überzeugt davon, dass Kleinstädte einiges zu bieten haben.",
@@ -25546,7 +26155,8 @@
        18,
        23
       ]
-     ]
+     ],
+     "en": "I am convinced that small towns have quite a lot to offer."
     }
    ],
    "tables": [],
@@ -25715,7 +26325,8 @@
        58,
        68
       ]
-     ]
+     ],
+     "en": "Urban agriculture, called urban or guerrilla gardening, is in fashion."
     },
     {
      "de": "Ich war mit ihm bekannt beziehungsweise befreundet.",
@@ -25725,7 +26336,8 @@
        24,
        39
       ]
-     ]
+     ],
+     "en": "I knew him, or rather was friends with him."
     },
     {
      "de": "Sie fand die Aufgaben schwierig respektive unmöglich.",
@@ -25735,7 +26347,8 @@
        32,
        42
       ]
-     ]
+     ],
+     "en": "She found the tasks difficult, or rather impossible."
     },
     {
      "de": "Die Zukunft gehört ökologischen Lebensformen, und zwar speziell Projekten wie dem Prinzessinnengarten.",
@@ -25749,7 +26362,8 @@
        50,
        54
       ]
-     ]
+     ],
+     "en": "The future belongs to ecological ways of living, and specifically to projects like the Prinzessinnengarten."
     },
     {
      "de": "Es geht nicht nur um Fassaden, vielmehr geht es um die Stadtlandschaft.",
@@ -25759,7 +26373,8 @@
        31,
        39
       ]
-     ]
+     ],
+     "en": "It is not just about facades; rather, it is about the urban landscape."
     },
     {
      "de": "Er ist nicht dumm, vielmehr weiß er gut Bescheid.",
@@ -25769,7 +26384,8 @@
        19,
        27
       ]
-     ]
+     ],
+     "en": "He is not stupid; on the contrary, he knows what he is talking about."
     }
    ],
    "tables": [],
@@ -25931,7 +26547,8 @@
        10,
        14
       ]
-     ]
+     ],
+     "en": "It can happen again and again."
     },
     {
      "de": "Verstanden habe ich den Roman sofort.",
@@ -25945,7 +26562,8 @@
        11,
        15
       ]
-     ]
+     ],
+     "en": "I understood the novel straight away."
     },
     {
      "de": "Übersetzt wurde er in mehrere Sprachen.",
@@ -25959,7 +26577,8 @@
        10,
        15
       ]
-     ]
+     ],
+     "en": "It was translated into several languages."
     },
     {
      "de": "Lesen mag anstrengender sein als Fernsehen.",
@@ -25973,7 +26592,8 @@
        6,
        9
       ]
-     ]
+     ],
+     "en": "Reading may be more tiring than watching television."
     },
     {
      "de": "Der Autor hat gerade angefangen zu schreiben.",
@@ -25991,7 +26611,8 @@
        32,
        44
       ]
-     ]
+     ],
+     "en": "The author has just started writing."
     },
     {
      "de": "Man ist nicht immer einverstanden mit der Meinung des Autors.",
@@ -26005,7 +26626,8 @@
        34,
        37
       ]
-     ]
+     ],
+     "en": "You do not always agree with the author's opinion."
     }
    ],
    "tables": [],
@@ -26180,32 +26802,38 @@
     {
      "de": "Manipulation, Intention, Kreation",
      "note": "die — suffix -(a)tion",
-     "marks": []
+     "marks": [],
+     "en": "manipulation, intention, creation"
     },
     {
      "de": "Fantasie, Harmonie, Ökonomie",
      "note": "die — suffix -ie",
-     "marks": []
+     "marks": [],
+     "en": "imagination, harmony, economy"
     },
     {
      "de": "Aktivität, Kreativität, Stabilität",
      "note": "die — suffix -ität",
-     "marks": []
+     "marks": [],
+     "en": "activity, creativity, stability"
     },
     {
      "de": "Figur, Statur, Fraktur",
      "note": "die — suffix -ur",
-     "marks": []
+     "marks": [],
+     "en": "figure, stature, fracture"
     },
     {
      "de": "Wachstum, Eigentum",
      "note": "das — suffix -tum",
-     "marks": []
+     "marks": [],
+     "en": "growth, property"
     },
     {
      "de": "Medium, Stadium, Studium",
      "note": "das — suffix -ium",
-     "marks": []
+     "marks": [],
+     "en": "medium, stage, course of study"
     },
     {
      "de": "aber: der Reichtum",
@@ -26215,7 +26843,8 @@
        10,
        18
       ]
-     ]
+     ],
+     "en": "but: der Reichtum (wealth)"
     }
    ],
    "tables": [],
@@ -26387,7 +27016,8 @@
        43,
        46
       ]
-     ]
+     ],
+     "en": "When the alarm clock rings, Dr Kauter gets up."
     },
     {
      "de": "Als der Wecker gestern Morgen klingelte, wollte Fredi nicht aufstehen.",
@@ -26397,7 +27027,8 @@
        0,
        3
       ]
-     ]
+     ],
+     "en": "When the alarm clock rang yesterday morning, Fredi did not want to get up."
     },
     {
      "de": "Bevor / Ehe Dr. Kauter ins Bad geht, nimmt er Ballaststoffe ein.",
@@ -26423,7 +27054,8 @@
        60,
        63
       ]
-     ]
+     ],
+     "en": "Before Dr Kauter goes to the bathroom, he takes fibre."
     },
     {
      "de": "Im Stehen trank er eine Tasse Kaffee.",
@@ -26437,7 +27069,8 @@
        10,
        15
       ]
-     ]
+     ],
+     "en": "Standing up, he drank a cup of coffee."
     },
     {
      "de": "Beim Telefonieren macht er sich Notizen.",
@@ -26451,7 +27084,8 @@
        18,
        23
       ]
-     ]
+     ],
+     "en": "While on the phone he takes notes."
     },
     {
      "de": "Um sich von seiner Frau zu verabschieden, geht er ins Schlafzimmer.",
@@ -26461,7 +27095,8 @@
        0,
        2
       ]
-     ]
+     ],
+     "en": "To say goodbye to his wife, he goes into the bedroom."
     },
     {
      "de": "Dr. Kauter verlässt das Schlafzimmer leise, damit seine Frau nicht aufwacht.",
@@ -26475,7 +27110,8 @@
        67,
        75
       ]
-     ]
+     ],
+     "en": "Dr Kauter leaves the bedroom quietly so that his wife does not wake up."
     }
    ],
    "tables": [],
@@ -26666,7 +27302,8 @@
        81,
        90
       ]
-     ]
+     ],
+     "en": "Swiss people have a feel for politeness, so that they react sensitively to undertones."
     },
     {
      "de": "Deutsche sind eine direktere Kommunikation gewöhnt, weshalb / weswegen sie auf Schweizer oft arrogant wirken.",
@@ -26684,7 +27321,8 @@
        102,
        108
       ]
-     ]
+     ],
+     "en": "Germans are used to more direct communication, which is why they often seem arrogant to Swiss people."
     },
     {
      "de": "Infolge eines Missverständnisses habe ich den Geschäftspartner falsch angesprochen.",
@@ -26694,7 +27332,8 @@
        0,
        7
       ]
-     ]
+     ],
+     "en": "As a result of a misunderstanding I addressed the business partner wrongly."
     },
     {
      "de": "Ich bereite mich auf eine Geschäftsreise vor, indem ich mich bei Freunden nach ihren Erfahrungen erkundige.",
@@ -26704,7 +27343,8 @@
        46,
        51
       ]
-     ]
+     ],
+     "en": "I prepare for a business trip by asking friends about their experiences."
     },
     {
      "de": "Eric macht ein Auslandspraktikum, womit sein Lebenslauf attraktiver für Arbeitgeber wird.",
@@ -26718,7 +27358,8 @@
        84,
        88
       ]
-     ]
+     ],
+     "en": "Eric is doing an internship abroad, which makes his CV more attractive to employers."
     },
     {
      "de": "Durch häufigen Kontakt mit anderen Kulturen erwirbt man interkulturelle Kompetenz.",
@@ -26732,7 +27373,8 @@
        44,
        51
       ]
-     ]
+     ],
+     "en": "Through frequent contact with other cultures you acquire intercultural competence."
     },
     {
      "de": "Mittels / Mithilfe neuer Techniken kann man Kontakt halten.",
@@ -26750,7 +27392,8 @@
        35,
        39
       ]
-     ]
+     ],
+     "en": "By means of / With the help of new technologies you can keep in touch."
     }
    ],
    "tables": [],
@@ -26923,12 +27566,14 @@
     {
      "de": "eleganterer Anzug",
      "note": "impliziter Vergleich, maskulin",
-     "marks": []
+     "marks": [],
+     "en": "more elegant suit"
     },
     {
      "de": "ein eleganteres Hemd",
      "note": "impliziter Vergleich, neutral",
-     "marks": []
+     "marks": [],
+     "en": "a more elegant shirt"
     },
     {
      "de": "eine elegantere Hose",
@@ -26938,17 +27583,20 @@
        0,
        4
       ]
-     ]
+     ],
+     "en": "a more elegant pair of trousers"
     },
     {
      "de": "der elegantesten",
      "note": "relativer Superlativ im Genitiv Plural",
-     "marks": []
+     "marks": [],
+     "en": "of the most elegant"
     },
     {
      "de": "die ich je hatte",
      "note": "the relative clause that delimits the group",
-     "marks": []
+     "marks": [],
+     "en": "that I ever had"
     }
    ],
    "tables": [],
@@ -27091,22 +27739,26 @@
     {
      "de": "eröffnen, erröten, erkälten, erschrecken",
      "note": "er- — Veränderung eines Zustands",
-     "marks": []
+     "marks": [],
+     "en": "to open, to blush, to catch a cold, to frighten"
     },
     {
      "de": "erarbeiten, erbauen, ersetzen",
      "note": "er- — etwas durch eine Handlung erreichen",
-     "marks": []
+     "marks": [],
+     "en": "to work out, to build, to replace"
     },
     {
      "de": "reflektieren, reimportieren",
      "note": "re- — zurück",
-     "marks": []
+     "marks": [],
+     "en": "to reflect, to re-import"
     },
     {
      "de": "reagieren, reanimieren",
      "note": "re- — wieder",
-     "marks": []
+     "marks": [],
+     "en": "to react, to resuscitate"
     }
    ],
    "tables": [],
@@ -27272,7 +27924,8 @@
        11,
        32
       ]
-     ]
+     ],
+     "en": "in view of the high prize money"
     },
     {
      "de": "anlässlich eines spannenden Wettbewerbs",
@@ -27282,7 +27935,8 @@
        0,
        10
       ]
-     ]
+     ],
+     "en": "on the occasion of an exciting competition"
     },
     {
      "de": "hinsichtlich der gesammelten Kriterien",
@@ -27292,7 +27946,8 @@
        0,
        12
       ]
-     ]
+     ],
+     "en": "with regard to the criteria collected"
     },
     {
      "de": "mithilfe spezieller 3D-Drucker",
@@ -27302,7 +27957,8 @@
        0,
        8
       ]
-     ]
+     ],
+     "en": "with the help of special 3D printers"
     },
     {
      "de": "mittels einer Matratze",
@@ -27312,7 +27968,8 @@
        0,
        7
       ]
-     ]
+     ],
+     "en": "by means of a mattress"
     },
     {
      "de": "oberhalb der Einkommensgrenze",
@@ -27322,7 +27979,8 @@
        0,
        8
       ]
-     ]
+     ],
+     "en": "above the income limit"
     },
     {
      "de": "unweit seines Trägers",
@@ -27332,7 +27990,8 @@
        0,
        6
       ]
-     ]
+     ],
+     "en": "not far from its wearer"
     }
    ],
    "tables": [],
@@ -27481,27 +28140,32 @@
     {
      "de": "Vom sinnvollen Einsatz überzeugt entwickelten die Wissenschaftler einen Roboter, der Gefühle zeigen kann.",
      "note": "Partizip II, resolves with weil",
-     "marks": []
+     "marks": [],
+     "en": "Convinced that it would be put to good use, the scientists developed a robot that can show feelings."
     },
     {
      "de": "Der erste Versuch, obwohl gut durchdacht, war ein Misserfolg, denn der Roboter konnte nicht lächeln.",
      "note": "Partizip II inserted into the main clause",
-     "marks": []
+     "marks": [],
+     "en": "The first attempt, although well thought out, was a failure, because the robot could not smile."
     },
     {
      "de": "Den munteren Kaspar auf dem Arm tragend entscheiden die Kinder selbst, wann und wie sie mit der Puppe kommunizieren wollen.",
      "note": "Partizip I, resolves with während / wenn",
-     "marks": []
+     "marks": [],
+     "en": "Carrying the cheerful Kaspar in their arms, the children decide for themselves when and how they want to communicate with the doll."
     },
     {
      "de": "Mit Mund und Augen lächelnd wendet sich der Roboter seinen Kommunikationspartnern zu.",
      "note": "Partizip I, resolves with indem",
-     "marks": []
+     "marks": [],
+     "en": "Smiling with its mouth and eyes, the robot turns to the people it is communicating with."
     },
     {
      "de": "Indem er mit Mund und Augen lächelt, wendet sich der Roboter seinen Kommunikationspartnern zu.",
      "note": "the resolved variant",
-     "marks": []
+     "marks": [],
+     "en": "By smiling with its mouth and eyes, the robot turns to the people it is communicating with."
     }
    ],
    "tables": [],
@@ -27679,37 +28343,44 @@
     {
      "de": "Man schaut durch ein Mikroskop durch.",
      "note": "trennbar, betont — wörtlich",
-     "marks": []
+     "marks": [],
+     "en": "You look through a microscope."
     },
     {
      "de": "Man durchschaut einen Kartentrick.",
      "note": "untrennbar, unbetont — übertragen",
-     "marks": []
+     "marks": [],
+     "en": "You see through a card trick."
     },
     {
      "de": "Ich rate dir, einen Pulli überzuziehen.",
      "note": "trennbar — wörtlich",
-     "marks": []
+     "marks": [],
+     "en": "I advise you to pull on a jumper."
     },
     {
      "de": "Es kostet etwas, sein Konto zu überziehen.",
      "note": "untrennbar — übertragen",
-     "marks": []
+     "marks": [],
+     "en": "It costs something to overdraw your account."
     },
     {
      "de": "Wir haben ein Straßenschild umgefahren.",
      "note": "trennbar — das Schild fiel um",
-     "marks": []
+     "marks": [],
+     "en": "We knocked over a road sign."
     },
     {
      "de": "Wir haben das Stadtzentrum umfahren.",
      "note": "untrennbar — wir fuhren darum herum",
-     "marks": []
+     "marks": [],
+     "en": "We drove around the town centre."
     },
     {
      "de": "Ich unterstelle dir keine bösen Absichten.",
      "note": "untrennbar — übertragen",
-     "marks": []
+     "marks": [],
+     "en": "I am not imputing any bad intentions to you."
     }
    ],
    "tables": [],

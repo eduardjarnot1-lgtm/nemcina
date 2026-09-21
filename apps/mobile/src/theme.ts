@@ -13,6 +13,12 @@ export const palette = {
   border: '#e3e3e9',
   text: '#16161d',
   textMuted: '#6c6c7a',
+  /**
+   * Between `text` and `textMuted`, for a line that is content but secondary —
+   * the English under a German example. Quieter than the sentence it glosses,
+   * clearly louder than the note under it.
+   */
+  textSecond: '#4a4a57',
   accent: '#2f5bd7',
   accentSoft: '#e8eefc',
   correct: '#1f7a4d',
