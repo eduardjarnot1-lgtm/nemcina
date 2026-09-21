@@ -309,6 +309,37 @@ def validate_grammar(report: Report) -> None:
                      f"grammar {tid}: missing or malformed source page")
         report.check(isinstance(t["difficulty"], int) and 1 <= t["difficulty"] <= 5,
                      f"grammar {tid}: difficulty out of range")
+
+        # A paradigm table is a grid or it is nothing: a ragged row renders as a
+        # column shifted by one, which in a declension table is a wrong form.
+        for table in t.get("tables", []):
+            width = len(table.get("columns", []))
+            report.check(width >= 2, f"grammar {tid}: table {table.get('caption','')!r} has no columns")
+            report.check(bool(table.get("rows")), f"grammar {tid}: table {table.get('caption','')!r} has no rows")
+            for row in table.get("rows", []):
+                report.check(len(row) == width,
+                             f"grammar {tid}: table {table.get('caption','')!r} has a row of "
+                             f"{len(row)} in a table {width} wide")
+                report.check(all(str(cell).strip() for cell in row),
+                             f"grammar {tid}: table {table.get('caption','')!r} has an empty cell")
+
+        # Highlight spans index the sentence they belong to. One that does not
+        # fit, or that overlaps its neighbour, would mark the wrong characters —
+        # which on a grammar example means pointing at the wrong form.
+        for example in t["examples"]:
+            text = example.get("de", "")
+            marks = example.get("marks", [])
+            previous_end = 0
+            for span in marks:
+                ok = (isinstance(span, list) and len(span) == 2
+                      and all(isinstance(v, int) for v in span)
+                      and 0 <= span[0] < span[1] <= len(text))
+                report.check(ok, f"grammar {tid}: highlight {span} does not fit {text!r}")
+                if not ok:
+                    continue
+                report.check(span[0] >= previous_end,
+                             f"grammar {tid}: highlights overlap in {text!r}")
+                previous_end = span[1]
         for prerequisite in t["prerequisites"]:
             report.check(prerequisite in known, f"grammar {tid}: unknown prerequisite {prerequisite}")
             report.check(prerequisite != tid, f"grammar {tid}: is its own prerequisite")

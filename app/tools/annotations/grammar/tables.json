@@ -1,0 +1,136 @@
+{
+  "note": "Paradigm tables, written for this project.",
+  "why": "The grammar corpus explains these systems in prose. Exactly one of its 626 rules is a full six-person paradigm, so a table cannot be extracted from it. These were written here instead, from the closed paradigms of standard German — the article, pronoun and adjective-ending systems are fixed, finite and checkable against any reference grammar, which is why they can be written without inventing anything. Anything that is a matter of usage rather than a closed paradigm is NOT here: it stays prose.",
+  "provenance": "authored-for-this-project",
+  "tables": {
+    "g-daf-a1-definite-articles-in-the-nominative-and-": [
+      {
+        "caption": "Definite article",
+        "columns": ["", "masculine", "feminine", "neuter", "plural"],
+        "rows": [
+          ["Nominativ", "der", "die", "das", "die"],
+          ["Akkusativ", "den", "die", "das", "die"]
+        ]
+      }
+    ],
+    "g-daf-a1-indefinite-articles-and-negative-article": [
+      {
+        "caption": "ein- and kein-",
+        "columns": ["", "masculine", "feminine", "neuter", "plural"],
+        "rows": [
+          ["Nominativ", "ein / kein", "eine / keine", "ein / kein", "— / keine"],
+          ["Akkusativ", "einen / keinen", "eine / keine", "ein / kein", "— / keine"]
+        ]
+      }
+    ],
+    "g-daf-a1-personal-pronouns-in-the-accusative-case": [
+      {
+        "caption": "Personal pronouns",
+        "columns": ["", "Nominativ", "Akkusativ"],
+        "rows": [
+          ["1st sg.", "ich", "mich"],
+          ["2nd sg.", "du", "dich"],
+          ["3rd sg. m.", "er", "ihn"],
+          ["3rd sg. f.", "sie", "sie"],
+          ["3rd sg. n.", "es", "es"],
+          ["1st pl.", "wir", "uns"],
+          ["2nd pl.", "ihr", "euch"],
+          ["3rd pl.", "sie", "sie"],
+          ["polite", "Sie", "Sie"]
+        ]
+      }
+    ],
+    "g-daf-a1-possessive-articles-in-nominative": [
+      {
+        "caption": "Possessive article, nominative",
+        "columns": ["", "masculine / neuter", "feminine / plural"],
+        "rows": [
+          ["ich", "mein", "meine"],
+          ["du", "dein", "deine"],
+          ["er / es", "sein", "seine"],
+          ["sie", "ihr", "ihre"],
+          ["wir", "unser", "unsere"],
+          ["ihr", "euer", "eure"],
+          ["sie / Sie", "ihr / Ihr", "ihre / Ihre"]
+        ]
+      }
+    ],
+    "g-daf-a2-inflections-with-the-definite-article": [
+      {
+        "caption": "Definite article, all four cases",
+        "columns": ["", "masculine", "feminine", "neuter", "plural"],
+        "rows": [
+          ["Nominativ", "der", "die", "das", "die"],
+          ["Akkusativ", "den", "die", "das", "die"],
+          ["Dativ", "dem", "der", "dem", "den + -n"],
+          ["Genitiv", "des + -(e)s", "der", "des + -(e)s", "der"]
+        ]
+      }
+    ],
+    "g-daf-a2-inflections-with-the-indefinite-article-": [
+      {
+        "caption": "ein- / kein- / mein-, all four cases",
+        "columns": ["", "masculine", "feminine", "neuter", "plural"],
+        "rows": [
+          ["Nominativ", "ein", "eine", "ein", "keine"],
+          ["Akkusativ", "einen", "eine", "ein", "keine"],
+          ["Dativ", "einem", "einer", "einem", "keinen + -n"],
+          ["Genitiv", "eines + -(e)s", "einer", "eines + -(e)s", "keiner"]
+        ]
+      }
+    ],
+    "g-daf-a2-personal-pronouns-in-nominative-accusati": [
+      {
+        "caption": "Personal pronouns",
+        "columns": ["", "Nominativ", "Akkusativ", "Dativ"],
+        "rows": [
+          ["1st sg.", "ich", "mich", "mir"],
+          ["2nd sg.", "du", "dich", "dir"],
+          ["3rd sg. m.", "er", "ihn", "ihm"],
+          ["3rd sg. f.", "sie", "sie", "ihr"],
+          ["3rd sg. n.", "es", "es", "ihm"],
+          ["1st pl.", "wir", "uns", "uns"],
+          ["2nd pl.", "ihr", "euch", "euch"],
+          ["3rd pl.", "sie", "sie", "ihnen"],
+          ["polite", "Sie", "Sie", "Ihnen"]
+        ]
+      }
+    ],
+    "g-daf-a2-adjectives-after-the-definite-article": [
+      {
+        "caption": "Adjective endings after der / die / das",
+        "columns": ["", "masculine", "feminine", "neuter", "plural"],
+        "rows": [
+          ["Nominativ", "-e", "-e", "-e", "-en"],
+          ["Akkusativ", "-en", "-e", "-e", "-en"],
+          ["Dativ", "-en", "-en", "-en", "-en"],
+          ["Genitiv", "-en", "-en", "-en", "-en"]
+        ]
+      }
+    ],
+    "g-daf-a2-adjectives-after-ein-kein-mein": [
+      {
+        "caption": "Adjective endings after ein- / kein- / mein-",
+        "columns": ["", "masculine", "feminine", "neuter", "plural"],
+        "rows": [
+          ["Nominativ", "-er", "-e", "-es", "-en"],
+          ["Akkusativ", "-en", "-e", "-es", "-en"],
+          ["Dativ", "-en", "-en", "-en", "-en"],
+          ["Genitiv", "-en", "-en", "-en", "-en"]
+        ]
+      }
+    ],
+    "g-daf-a2-adjectives-before-nouns-without-an-artic": [
+      {
+        "caption": "Adjective endings with no article",
+        "columns": ["", "masculine", "feminine", "neuter", "plural"],
+        "rows": [
+          ["Nominativ", "-er", "-e", "-es", "-e"],
+          ["Akkusativ", "-en", "-e", "-es", "-e"],
+          ["Dativ", "-em", "-er", "-em", "-en"],
+          ["Genitiv", "-en", "-er", "-en", "-er"]
+        ]
+      }
+    ]
+  }
+}

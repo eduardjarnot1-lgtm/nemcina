@@ -74,11 +74,20 @@ export interface RawTopic {
   readonly summary?: string;
   readonly explanation?: readonly { readonly heading?: string; readonly text?: string }[];
   readonly rules?: readonly string[];
-  readonly examples?: readonly { readonly de?: string; readonly note?: string }[];
+  readonly examples?: readonly {
+    readonly de?: string;
+    readonly note?: string;
+    readonly marks?: readonly (readonly number[])[];
+  }[];
   readonly exercises?: readonly RawExercise[];
   readonly prerequisites?: readonly string[];
   readonly difficulty?: number;
   readonly category?: string;
+  readonly tables?: readonly {
+    readonly caption?: string;
+    readonly columns?: readonly string[];
+    readonly rows?: readonly (readonly string[])[];
+  }[];
   readonly source?: string;
   readonly sourcePage?: number;
 }
@@ -234,8 +243,22 @@ export function toExercise(raw: RawExercise): Exercise {
   };
 }
 
-function toGrammarExample(raw: { de?: string; note?: string }): GrammarExample {
-  return { text: raw.de ?? '', note: raw.note ?? '' };
+function toGrammarExample(
+  raw: { de?: string; note?: string; marks?: readonly (readonly number[])[] },
+): GrammarExample {
+  const text = raw.de ?? '';
+  // A span that does not fit the string it indexes is dropped rather than
+  // clamped: a highlight in the wrong place is worse than no highlight, and a
+  // clamped one would look deliberate.
+  const marks: (readonly [number, number])[] = [];
+  for (const span of raw.marks ?? []) {
+    const [start, end] = span;
+    if (typeof start !== 'number' || typeof end !== 'number') continue;
+    if (!Number.isInteger(start) || !Number.isInteger(end)) continue;
+    if (start < 0 || start >= end || end > text.length) continue;
+    marks.push([start, end]);
+  }
+  return { text, note: raw.note ?? '', marks };
 }
 
 function toExplanation(raw: { heading?: string; text?: string }): ExplanationSection {
@@ -259,6 +282,11 @@ export function toGrammarTopic(raw: RawTopic): GrammarTopic {
     prerequisites: raw.prerequisites ?? [],
     difficulty: raw.difficulty ?? 1,
     category: raw.category ?? '',
+    tables: (raw.tables ?? []).map((table) => ({
+      caption: table.caption ?? '',
+      columns: table.columns ?? [],
+      rows: table.rows ?? [],
+    })),
     source: { title: raw.source ?? '', page: raw.sourcePage ?? 0 },
   };
 }

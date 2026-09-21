@@ -135,10 +135,19 @@ describe('grammar topics', () => {
   test('the explanation survives the trip — it is the teaching, not decoration', () => {
     const topic = toGrammarTopic(raw);
     assert.deepEqual(topic.explanation, [{ heading: 'The endings', text: '-e, -st, -t, -en, -t, -en.' }]);
-    assert.deepEqual(topic.examples, [{ text: 'ich komme', note: 'regular ending -e' }]);
+    assert.deepEqual(topic.examples, [{ text: 'ich komme', note: 'regular ending -e', marks: [] }]);
     assert.equal(topic.exercises[0]?.kind, 'typing');
     assert.equal(topic.source.title, 'DaF kompakt');
     assert.equal(topic.source.page, 1);
+  });
+
+  test('a highlight span that does not fit its sentence is dropped, not clamped', () => {
+    // Clamping would put a highlight somewhere deliberate-looking and wrong.
+    const topic = toGrammarTopic({
+      ...raw,
+      examples: [{ de: 'ich komme', note: '', marks: [[0, 3], [5, 99], [4, 4], [-1, 2]] }],
+    });
+    assert.deepEqual(topic.examples[0]?.marks, [[0, 3]]);
   });
 
   test('a topic with an unusable level is refused loudly, not shown at the wrong level', () => {

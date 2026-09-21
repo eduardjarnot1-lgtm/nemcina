@@ -420,29 +420,51 @@
    "examples": [
     {
      "de": "ich komme",
-     "note": "regular ending -e"
+     "note": "regular ending -e",
+     "marks": []
     },
     {
      "de": "du kommst",
-     "note": "regular ending -st"
+     "note": "regular ending -st",
+     "marks": [
+      [
+       3,
+       9
+      ]
+     ]
     },
     {
      "de": "arbeitest",
-     "note": "du-form; the stem ends in -t, so -est"
+     "note": "du-form; the stem ends in -t, so -est",
+     "marks": [
+      [
+       0,
+       9
+      ]
+     ]
     },
     {
      "de": "heißt",
-     "note": "du-form; the stem ends in -ß, so just -t"
+     "note": "du-form; the stem ends in -ß, so just -t",
+     "marks": [
+      [
+       0,
+       5
+      ]
+     ]
     },
     {
      "de": "bin",
-     "note": "sein, ich-form"
+     "note": "sein, ich-form",
+     "marks": []
     },
     {
      "de": "sind",
-     "note": "sein, wir-form"
+     "note": "sein, wir-form",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-regular-verbs-in-the-present-tense-e1",
@@ -580,25 +602,36 @@
    "examples": [
     {
      "de": "Ich rufe dich an.",
-     "note": "anrufen"
+     "note": "anrufen",
+     "marks": [
+      [
+       14,
+       16
+      ]
+     ]
     },
     {
      "de": "Wann stehst du auf?",
-     "note": "aufstehen"
+     "note": "aufstehen",
+     "marks": []
     },
     {
      "de": "Wir probieren das Lauftraining aus",
-     "note": "ausprobieren"
+     "note": "ausprobieren",
+     "marks": []
     },
     {
      "de": "Ihr kommt zum Leonardo-Campus-Run mit.",
-     "note": "mitkommen"
+     "note": "mitkommen",
+     "marks": []
     },
     {
      "de": "Annika und Tobias machen beim Lauftraining mit.",
-     "note": "mitmachen"
+     "note": "mitmachen",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-present-verbs-with-a-separable-prefix-e1",
@@ -719,13 +752,16 @@
    "examples": [
     {
      "de": "Ich möchte unbedingt beim Lauftraining mitmachen.",
-     "note": "mitmachen stays whole"
+     "note": "mitmachen stays whole",
+     "marks": []
     },
     {
      "de": "Tim kann uns im Auto mitnehmen.",
-     "note": "mitnehmen stays whole"
+     "note": "mitnehmen stays whole",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-present-verbs-with-a-separable-prefix-an-e1",
@@ -852,29 +888,41 @@
    "examples": [
     {
      "de": "du liest",
-     "note": "e → ie"
+     "note": "e → ie",
+     "marks": []
     },
     {
      "de": "er/sie/es lie st",
-     "note": "e → ie in the er-form"
+     "note": "e → ie in the er-form",
+     "marks": []
     },
     {
      "de": "sprichst",
-     "note": "du-form, e → i"
+     "note": "du-form, e → i",
+     "marks": [
+      [
+       0,
+       8
+      ]
+     ]
     },
     {
      "de": "fährst",
-     "note": "du-form, a → ä"
+     "note": "du-form, a → ä",
+     "marks": []
     },
     {
      "de": "läufst",
-     "note": "du-form, au → äu"
+     "note": "du-form, au → äu",
+     "marks": []
     },
     {
      "de": "weiß",
-     "note": "wissen, ich-form"
+     "note": "wissen, ich-form",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-present-verbs-with-a-stem-vowel-change-e1",
@@ -1015,17 +1063,30 @@
    "examples": [
     {
      "de": "Morgen gehe ich ins Zentrum Paul Klee.",
-     "note": "present tense, future meaning"
+     "note": "present tense, future meaning",
+     "marks": [
+      [
+       0,
+       6
+      ],
+      [
+       7,
+       11
+      ]
+     ]
     },
     {
      "de": "For haben and sein use mainly preterite instead of perfect!",
-     "note": "the document's own note"
+     "note": "the document's own note",
+     "marks": []
     },
     {
      "de": "sitzen : use haben for the perfect tense, but in south Germany and CH use sein .",
-     "note": "a regional difference the document points out"
+     "note": "a regional difference the document points out",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-use-of-the-present-tense-e1",
@@ -1154,25 +1215,41 @@
    "examples": [
     {
      "de": "ich habe getroffen",
-     "note": "irregular, -en ending"
+     "note": "irregular, -en ending",
+     "marks": []
     },
     {
      "de": "bin gefahren",
-     "note": "movement verb, sein"
+     "note": "movement verb, sein",
+     "marks": []
     },
     {
      "de": "habe gewusst",
-     "note": "mixed verb: vowel change + -t"
+     "note": "mixed verb: vowel change + -t",
+     "marks": []
     },
     {
      "de": "haben gedacht",
-     "note": "mixed verb"
+     "note": "mixed verb",
+     "marks": [
+      [
+       6,
+       13
+      ]
+     ]
     },
     {
      "de": "bin gewesen",
-     "note": "the perfect of sein"
+     "note": "the perfect of sein",
+     "marks": [
+      [
+       4,
+       11
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-perfect-irregular-and-mixed-verbs-e1",
@@ -1314,21 +1391,46 @@
    "examples": [
     {
      "de": "ich habe geschafft",
-     "note": "haben + ge-…-t"
+     "note": "haben + ge-…-t",
+     "marks": [
+      [
+       9,
+       18
+      ]
+     ]
     },
     {
      "de": "bin gestartet",
-     "note": "sein, stem in -t so -et"
+     "note": "sein, stem in -t so -et",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "habe trainiert",
-     "note": "-ieren verb, no ge-"
+     "note": "-ieren verb, no ge-",
+     "marks": [
+      [
+       5,
+       14
+      ]
+     ]
     },
     {
      "de": "ist passiert",
-     "note": "sein + no ge-"
+     "note": "sein + no ge-",
+     "marks": [
+      [
+       4,
+       12
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-perfect-regular-verbs-e1",
@@ -1465,21 +1567,36 @@
    "examples": [
     {
      "de": "Ich habe euch nicht vergessen .",
-     "note": "ver-, irregular, no ge-"
+     "note": "ver-, irregular, no ge-",
+     "marks": [
+      [
+       20,
+       29
+      ]
+     ]
     },
     {
      "de": "Du hast den Hausmeister nicht erreicht.",
-     "note": "er-, regular, no ge-"
+     "note": "er-, regular, no ge-",
+     "marks": []
     },
     {
      "de": "Er hat keine Notiz hinterlassen .",
-     "note": "hinter-, no ge-"
+     "note": "hinter-, no ge-",
+     "marks": []
     },
     {
      "de": "Wir haben unsere Eltern besucht.",
-     "note": "be-, regular, no ge-"
+     "note": "be-, regular, no ge-",
+     "marks": [
+      [
+       24,
+       31
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-perfect-verbs-with-inseparable-prefixes--e1",
@@ -1602,25 +1719,46 @@
    "examples": [
     {
      "de": "Ich habe dich heute mehrmals angerufen.",
-     "note": "an + ge + rufen"
+     "note": "an + ge + rufen",
+     "marks": [
+      [
+       29,
+       38
+      ]
+     ]
     },
     {
      "de": "Du hast leider nicht zurückgerufen.",
-     "note": "zurück + ge + rufen"
+     "note": "zurück + ge + rufen",
+     "marks": []
     },
     {
      "de": "Er hat den Antrag vom Studierendenwohnheim ausgefüllt.",
-     "note": "aus + ge + füllt"
+     "note": "aus + ge + füllt",
+     "marks": [
+      [
+       43,
+       53
+      ]
+     ]
     },
     {
      "de": "Sie sind heute Morgen weggefahren.",
-     "note": "movement verb, sein"
+     "note": "movement verb, sein",
+     "marks": []
     },
     {
      "de": "Am Sonntag bin ich erst um 11.00 Uhr aufgestanden.",
-     "note": "movement verb, sein"
+     "note": "movement verb, sein",
+     "marks": [
+      [
+       11,
+       14
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-perfect-verbs-with-separable-prefixes-e--e1",
@@ -1749,37 +1887,61 @@
    "examples": [
     {
      "de": "du kommst →Komm!",
-     "note": "du-imperative"
+     "note": "du-imperative",
+     "marks": [
+      [
+       11,
+       15
+      ]
+     ]
     },
     {
      "de": "ihr kommt → Kommt!",
-     "note": "ihr-imperative"
+     "note": "ihr-imperative",
+     "marks": []
     },
     {
      "de": "Sie kommen → Kommen Sie!",
-     "note": "formal imperative"
+     "note": "formal imperative",
+     "marks": []
     },
     {
      "de": "du wartest → Warte!",
-     "note": "stem in -t, so -e is added"
+     "note": "stem in -t, so -e is added",
+     "marks": []
     },
     {
      "de": "du liest → Lies!",
-     "note": "e → ie kept"
+     "note": "e → ie kept",
+     "marks": [
+      [
+       11,
+       15
+      ]
+     ]
     },
     {
      "de": "du fährst → F ahr!",
-     "note": "a → ä dropped"
+     "note": "a → ä dropped",
+     "marks": []
     },
     {
      "de": "du passt auf → Pass auf!",
-     "note": "separable verb"
+     "note": "separable verb",
+     "marks": []
     },
     {
      "de": "du bist → Sei vorsichtig!",
-     "note": "sein is irregular"
+     "note": "sein is irregular",
+     "marks": [
+      [
+       10,
+       13
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-imperative-sentences-e1",
@@ -1942,21 +2104,36 @@
    "examples": [
     {
      "de": "Sollen / wollen wir einen Kaffee trinken?",
-     "note": "proposal"
+     "note": "proposal",
+     "marks": []
     },
     {
      "de": "Soll ich helfen?",
-     "note": "offering help"
+     "note": "offering help",
+     "marks": []
     },
     {
      "de": "Gehen wir doch ins Kino!",
-     "note": "invitation with the wir-form"
+     "note": "invitation with the wir-form",
+     "marks": [
+      [
+       10,
+       14
+      ]
+     ]
     },
     {
      "de": "Kochen wir doch mal zusammen!",
-     "note": "invitation with doch"
+     "note": "invitation with doch",
+     "marks": [
+      [
+       11,
+       15
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-suggestions-with-sollen-wollen-wir-soll--e1",
@@ -2083,21 +2260,26 @@
    "examples": [
     {
      "de": "Am Sonntag ist das Brunnenstüberl geöffnet.",
-     "note": "time first, subject after the verb"
+     "note": "time first, subject after the verb",
+     "marks": []
     },
     {
      "de": "Das Brunnenstüberl ist am Sonntag geöffnet.",
-     "note": "subject first"
+     "note": "subject first",
+     "marks": []
     },
     {
      "de": "Das Wetter ist leider nicht so gut.",
-     "note": "subject first"
+     "note": "subject first",
+     "marks": []
     },
     {
      "de": "Leider ist das Wetter nicht so gut.",
-     "note": "adverb first, subject after the verb"
+     "note": "adverb first, subject after the verb",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-subject-position-e1",
@@ -2217,25 +2399,31 @@
    "examples": [
     {
      "de": "Woher kommen Sie?",
-     "note": "W-question, verb in position 2"
+     "note": "W-question, verb in position 2",
+     "marks": []
     },
     {
      "de": "Ich komme aus Marokko.",
-     "note": "statement, verb in position 2"
+     "note": "statement, verb in position 2",
+     "marks": []
     },
     {
      "de": "Wo wohnst du?",
-     "note": "W-question"
+     "note": "W-question",
+     "marks": []
     },
     {
      "de": "Kommen Sie aus Tunesien?",
-     "note": "yes/no question, verb in position 1"
+     "note": "yes/no question, verb in position 1",
+     "marks": []
     },
     {
      "de": "Wohnst du in Stuttgart?",
-     "note": "yes/no question"
+     "note": "yes/no question",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-word-order-for-positive-statements-w-que-e1",
@@ -2360,25 +2548,36 @@
    "examples": [
     {
      "de": "Beatriz muss in der Woche früh aufstehen.",
-     "note": "müssen + aufstehen"
+     "note": "müssen + aufstehen",
+     "marks": []
     },
     {
      "de": "Am Wochenende kann sie lange schlafen.",
-     "note": "time first, modal verb second"
+     "note": "time first, modal verb second",
+     "marks": []
     },
     {
      "de": "Man darf im Bus nicht laut Musik hören.",
-     "note": "dürfen + hören"
+     "note": "dürfen + hören",
+     "marks": [
+      [
+       33,
+       38
+      ]
+     ]
     },
     {
      "de": "Beatriz und Leopold wollen heute ins Kino gehen.",
-     "note": "wollen + gehen"
+     "note": "wollen + gehen",
+     "marks": []
     },
     {
      "de": "Wann möchtet ihr nach Hause fahren?",
-     "note": "W-question with a modal verb"
+     "note": "W-question with a modal verb",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-word-order-for-statements-and-w-question-e1",
@@ -2496,9 +2695,11 @@
    "examples": [
     {
      "de": "Darf man im Bus laut Musik hören?",
-     "note": "modal verb first, infinitive last"
+     "note": "modal verb first, infinitive last",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-word-order-for-yes-no-questions-e1",
@@ -2605,23 +2806,71 @@
    "examples": [
     {
      "de": "der Computer",
-     "note": "masculine nominative"
+     "note": "masculine nominative",
+     "marks": []
     },
     {
      "de": "den Computer",
-     "note": "masculine accusative"
+     "note": "masculine accusative",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "das Telefon",
-     "note": "neuter — unchanged"
+     "note": "neuter — unchanged",
+     "marks": []
     },
     {
      "de": "die Kamera",
-     "note": "feminine — unchanged"
+     "note": "feminine — unchanged",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "die Kassetten",
-     "note": "plural — unchanged"
+     "note": "plural — unchanged",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
+    }
+   ],
+   "tables": [
+    {
+     "caption": "Definite article",
+     "columns": [
+      "",
+      "masculine",
+      "feminine",
+      "neuter",
+      "plural"
+     ],
+     "rows": [
+      [
+       "Nominativ",
+       "der",
+       "die",
+       "das",
+       "die"
+      ],
+      [
+       "Akkusativ",
+       "den",
+       "die",
+       "das",
+       "die"
+      ]
+     ]
     }
    ],
    "exercises": [
@@ -2745,19 +2994,61 @@
    "examples": [
     {
      "de": "ein / kein Computer",
-     "note": "masculine nominative"
+     "note": "masculine nominative",
+     "marks": []
     },
     {
      "de": "ein en / kein en Computer",
-     "note": "masculine accusative"
+     "note": "masculine accusative",
+     "marks": []
     },
     {
      "de": "eine / keine Kamera",
-     "note": "feminine, both cases"
+     "note": "feminine, both cases",
+     "marks": [
+      [
+       7,
+       12
+      ]
+     ]
     },
     {
      "de": "- / keine Kassetten",
-     "note": "plural: ein has no plural"
+     "note": "plural: ein has no plural",
+     "marks": [
+      [
+       4,
+       9
+      ]
+     ]
+    }
+   ],
+   "tables": [
+    {
+     "caption": "ein- and kein-",
+     "columns": [
+      "",
+      "masculine",
+      "feminine",
+      "neuter",
+      "plural"
+     ],
+     "rows": [
+      [
+       "Nominativ",
+       "ein / kein",
+       "eine / keine",
+       "ein / kein",
+       "— / keine"
+      ],
+      [
+       "Akkusativ",
+       "einen / keinen",
+       "eine / keine",
+       "ein / kein",
+       "— / keine"
+      ]
+     ]
     }
    ],
    "exercises": [
@@ -2877,23 +3168,109 @@
    "examples": [
     {
      "de": "ich mich",
-     "note": "nominative → accusative, 1st person singular"
+     "note": "nominative → accusative, 1st person singular",
+     "marks": [
+      [
+       4,
+       8
+      ]
+     ]
     },
     {
      "de": "du dich",
-     "note": "2nd person singular"
+     "note": "2nd person singular",
+     "marks": []
     },
     {
      "de": "ihn / es / sie",
-     "note": "the accusative of er / es / sie"
+     "note": "the accusative of er / es / sie",
+     "marks": [
+      [
+       0,
+       3
+      ],
+      [
+       6,
+       8
+      ]
+     ]
     },
     {
      "de": "wir uns",
-     "note": "1st person plural"
+     "note": "1st person plural",
+     "marks": [
+      [
+       4,
+       7
+      ]
+     ]
     },
     {
      "de": "ihr euch",
-     "note": "2nd person plural"
+     "note": "2nd person plural",
+     "marks": [
+      [
+       4,
+       8
+      ]
+     ]
+    }
+   ],
+   "tables": [
+    {
+     "caption": "Personal pronouns",
+     "columns": [
+      "",
+      "Nominativ",
+      "Akkusativ"
+     ],
+     "rows": [
+      [
+       "1st sg.",
+       "ich",
+       "mich"
+      ],
+      [
+       "2nd sg.",
+       "du",
+       "dich"
+      ],
+      [
+       "3rd sg. m.",
+       "er",
+       "ihn"
+      ],
+      [
+       "3rd sg. f.",
+       "sie",
+       "sie"
+      ],
+      [
+       "3rd sg. n.",
+       "es",
+       "es"
+      ],
+      [
+       "1st pl.",
+       "wir",
+       "uns"
+      ],
+      [
+       "2nd pl.",
+       "ihr",
+       "euch"
+      ],
+      [
+       "3rd pl.",
+       "sie",
+       "sie"
+      ],
+      [
+       "polite",
+       "Sie",
+       "Sie"
+      ]
+     ]
     }
    ],
    "exercises": [
@@ -3044,31 +3421,113 @@
    "examples": [
     {
      "de": "mein Sohn",
-     "note": "masculine, no ending"
+     "note": "masculine, no ending",
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     },
     {
      "de": "mein Kind",
-     "note": "neuter, no ending"
+     "note": "neuter, no ending",
+     "marks": [
+      [
+       0,
+       4
+      ],
+      [
+       5,
+       9
+      ]
+     ]
     },
     {
      "de": "meine Tochter",
-     "note": "feminine, -e"
+     "note": "feminine, -e",
+     "marks": [
+      [
+       0,
+       5
+      ],
+      [
+       6,
+       13
+      ]
+     ]
     },
     {
      "de": "meine Söhne, Töchter, Kinder",
-     "note": "plural, -e for all three genders"
+     "note": "plural, -e for all three genders",
+     "marks": [
+      [
+       0,
+       5
+      ]
+     ]
     },
     {
      "de": "du dein dein deine deine",
-     "note": "the du row: M, N, F, plural"
+     "note": "the du row: M, N, F, plural",
+     "marks": []
     },
     {
      "de": "seine / ihre",
-     "note": "feminine and plural forms for er/es and for sie"
+     "note": "feminine and plural forms for er/es and for sie",
+     "marks": []
     },
     {
      "de": "The endings on possessive articles are the same as the indefinite article and the negative article.",
-     "note": "the document's own summary of the pattern"
+     "note": "the document's own summary of the pattern",
+     "marks": []
+    }
+   ],
+   "tables": [
+    {
+     "caption": "Possessive article, nominative",
+     "columns": [
+      "",
+      "masculine / neuter",
+      "feminine / plural"
+     ],
+     "rows": [
+      [
+       "ich",
+       "mein",
+       "meine"
+      ],
+      [
+       "du",
+       "dein",
+       "deine"
+      ],
+      [
+       "er / es",
+       "sein",
+       "seine"
+      ],
+      [
+       "sie",
+       "ihr",
+       "ihre"
+      ],
+      [
+       "wir",
+       "unser",
+       "unsere"
+      ],
+      [
+       "ihr",
+       "euer",
+       "eure"
+      ],
+      [
+       "sie / Sie",
+       "ihr / Ihr",
+       "ihre / Ihre"
+      ]
+     ]
     }
    ],
    "exercises": [
@@ -3238,21 +3697,50 @@
    "examples": [
     {
      "de": "Ich bringe nichts zur Party mit (z. B. keine Wurst, kein Geschenk).",
-     "note": "nichts — no things at all"
+     "note": "nichts — no things at all",
+     "marks": [
+      [
+       11,
+       17
+      ]
+     ]
     },
     {
      "de": "Ich bringe etwas zur Party mit.",
-     "note": "etwas — something, not yet specified"
+     "note": "etwas — something, not yet specified",
+     "marks": [
+      [
+       11,
+       16
+      ]
+     ]
     },
     {
      "de": "Man bringt zu einer Party ein Geschenk mit",
-     "note": "man — what people generally do"
+     "note": "man — what people generally do",
+     "marks": [
+      [
+       0,
+       3
+      ],
+      [
+       4,
+       10
+      ]
+     ]
     },
     {
      "de": "Alle (hier: Gäste) haben einen Salat mitgebracht.",
-     "note": "alle — the whole group"
+     "note": "alle — the whole group",
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-indefinite-pronouns-e1",
@@ -3402,25 +3890,55 @@
    "examples": [
     {
      "de": "Wo ist / liegt das Buch?",
-     "note": "the question"
+     "note": "the question",
+     "marks": []
     },
     {
      "de": "Das Buch ist auf / unter / an dem Tisch (← der Tisch)",
-     "note": "der Tisch → dem Tisch"
+     "note": "der Tisch → dem Tisch",
+     "marks": [
+      [
+       30,
+       33
+      ],
+      [
+       43,
+       46
+      ]
+     ]
     },
     {
      "de": "liegt neben / in dem Sofa (← das Sofa)",
-     "note": "das Sofa → dem Sofa"
+     "note": "das Sofa → dem Sofa",
+     "marks": [
+      [
+       17,
+       20
+      ]
+     ]
     },
     {
      "de": "vor / hinter der Kommode (← die Kommode)",
-     "note": "die Kommode → der Kommode"
+     "note": "die Kommode → der Kommode",
+     "marks": [
+      [
+       13,
+       16
+      ]
+     ]
     },
     {
      "de": "über / zwischen den Regalen (← die Regale, Pl.)",
-     "note": "plural dative: den + -n on the noun"
+     "note": "plural dative: den + -n on the noun",
+     "marks": [
+      [
+       16,
+       19
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-location-e1",
@@ -3573,53 +4091,128 @@
    "examples": [
     {
      "de": "durch den Park / durch das Einkaufszentrum / durch die Stadt",
-     "note": "durch + accusative in all three genders"
+     "note": "durch + accusative in all three genders",
+     "marks": [
+      [
+       6,
+       9
+      ]
+     ]
     },
     {
      "de": "um den Haupteingang / um das Haus / um die Ecke herum",
-     "note": "um … herum + accusative"
+     "note": "um … herum + accusative",
+     "marks": [
+      [
+       3,
+       6
+      ]
+     ]
     },
     {
      "de": "vom Bahnhof",
-     "note": "von dem → vom"
+     "note": "von dem → vom",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "von der Zytglogge",
-     "note": "feminine: no contraction"
+     "note": "feminine: no contraction",
+     "marks": [
+      [
+       8,
+       17
+      ]
+     ]
     },
     {
      "de": "zum Park",
-     "note": "zu dem → zum"
+     "note": "zu dem → zum",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "zur Zytglogge",
-     "note": "zu der → zur"
+     "note": "zu der → zur",
+     "marks": [
+      [
+       0,
+       3
+      ],
+      [
+       4,
+       13
+      ]
+     ]
     },
     {
      "de": "vom Münster (bis) zum Bahnhof",
-     "note": "a route"
+     "note": "a route",
+     "marks": [
+      [
+       0,
+       3
+      ],
+      [
+       18,
+       21
+      ]
+     ]
     },
     {
      "de": "beim Bahnhof",
-     "note": "bei dem → beim"
+     "note": "bei dem → beim",
+     "marks": []
     },
     {
      "de": "in den Park",
-     "note": "wohin? — accusative"
+     "note": "wohin? — accusative",
+     "marks": [
+      [
+       3,
+       6
+      ]
+     ]
     },
     {
      "de": "ins Haus",
-     "note": "in das → ins, wohin?"
+     "note": "in das → ins, wohin?",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "im Bärenpark",
-     "note": "in dem → im, wo?"
+     "note": "in dem → im, wo?",
+     "marks": [
+      [
+       0,
+       2
+      ],
+      [
+       3,
+       12
+      ]
+     ]
     },
     {
      "de": "in der Schweiz",
-     "note": "wo? — feminine dative"
+     "note": "wo? — feminine dative",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-prepositions-of-place-e1",
@@ -3783,13 +4376,26 @@
    "examples": [
     {
      "de": "Beatriz geht gern ins Theater, denn sie liebt Literatur",
-     "note": "denn in position 0, sie in 1, liebt in 2"
+     "note": "denn in position 0, sie in 1, liebt in 2",
+     "marks": [
+      [
+       31,
+       35
+      ]
+     ]
     },
     {
      "de": "Beatriz und Leopold kaufen Brot und Wurst, denn sie wollen ein Picknick machen.",
-     "note": "the modal verb wollen stays in position 2 and machen closes the clause"
+     "note": "the modal verb wollen stays in position 2 and machen closes the clause",
+     "marks": [
+      [
+       43,
+       47
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-connector-den-reason-e1",
@@ -3944,21 +4550,41 @@
    "examples": [
     {
      "de": "Das ist die normale Kleinfamilie, aber sie ist heute nicht mehr die Regel.",
-     "note": "aber — contrast; sie in position 1, ist in position 2"
+     "note": "aber — contrast; sie in position 1, ist in position 2",
+     "marks": [
+      [
+       34,
+       38
+      ]
+     ]
     },
     {
      "de": "Man bekommt Kinder, aber man heiratet nicht immer.",
-     "note": "aber"
+     "note": "aber",
+     "marks": [
+      [
+       20,
+       24
+      ]
+     ]
     },
     {
      "de": "Meine Mutter ist nicht verheiratet und sie erzieht meinen Bruder und mich allein.",
-     "note": "und — addition"
+     "note": "und — addition",
+     "marks": []
     },
     {
      "de": "Sie heiraten noch einmal oder sie leben ohne Trauschein.",
-     "note": "oder — alternative"
+     "note": "oder — alternative",
+     "marks": [
+      [
+       25,
+       29
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a1-connectors-aber-oder-und-e1",
@@ -4108,25 +4734,46 @@
    "examples": [
     {
      "de": "Beate soll viel schlafen.",
-     "note": "instruction"
+     "note": "instruction",
+     "marks": [
+      [
+       6,
+       10
+      ]
+     ]
     },
     {
      "de": "Beate darf nicht arbeiten.",
-     "note": "not allowed"
+     "note": "not allowed",
+     "marks": [
+      [
+       6,
+       10
+      ]
+     ]
     },
     {
      "de": "Beate muss sich ausruhen.",
-     "note": "necessary"
+     "note": "necessary",
+     "marks": []
     },
     {
      "de": "Beate braucht keine Diät zu machen.",
-     "note": "not necessary — brauchen … kein … zu"
+     "note": "not necessary — brauchen … kein … zu",
+     "marks": []
     },
     {
      "de": "Beate kann verreisen.",
-     "note": "possible"
+     "note": "possible",
+     "marks": [
+      [
+       6,
+       10
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-modal-verbs-and-their-uses-e1",
@@ -4268,25 +4915,36 @@
    "examples": [
     {
      "de": "ich konnte",
-     "note": "können, umlaut gone"
+     "note": "können, umlaut gone",
+     "marks": []
     },
     {
      "de": "wollte",
-     "note": "wollen, preterite"
+     "note": "wollen, preterite",
+     "marks": []
     },
     {
      "de": "musste",
-     "note": "müssen, preterite — no umlaut"
+     "note": "müssen, preterite — no umlaut",
+     "marks": [
+      [
+       0,
+       6
+      ]
+     ]
     },
     {
      "de": "durfte",
-     "note": "dürfen, preterite — no umlaut"
+     "note": "dürfen, preterite — no umlaut",
+     "marks": []
     },
     {
      "de": "wir konnten",
-     "note": "regular plural ending"
+     "note": "regular plural ending",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-modal-verbs-e1",
@@ -4412,29 +5070,51 @@
    "examples": [
     {
      "de": "ich suchte",
-     "note": "regular"
+     "note": "regular",
+     "marks": [
+      [
+       4,
+       10
+      ]
+     ]
     },
     {
      "de": "wartete",
-     "note": "regular; stem in -t, so -ete"
+     "note": "regular; stem in -t, so -ete",
+     "marks": []
     },
     {
      "de": "ging",
-     "note": "gehen, irregular"
+     "note": "gehen, irregular",
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     },
     {
      "de": "lief",
-     "note": "laufen, irregular"
+     "note": "laufen, irregular",
+     "marks": []
     },
     {
      "de": "rannte",
-     "note": "rennen, mixed verb"
+     "note": "rennen, mixed verb",
+     "marks": []
     },
     {
      "de": "dachte",
-     "note": "denken, mixed verb"
+     "note": "denken, mixed verb",
+     "marks": [
+      [
+       0,
+       6
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-preterite-e1",
@@ -4583,25 +5263,36 @@
    "examples": [
     {
      "de": "Die Eheleute gründen 1912 die Fabrik .",
-     "note": "active"
+     "note": "active",
+     "marks": []
     },
     {
      "de": "Die Fabrik wird 1912 (von den Eheleuten) gegründet.",
-     "note": "passive, agent optional"
+     "note": "passive, agent optional",
+     "marks": []
     },
     {
      "de": "Im Museumsshop verkauft man Bücher und Plakate.",
-     "note": "active with man"
+     "note": "active with man",
+     "marks": []
     },
     {
      "de": "Im Museumsshop werden Bücher und Plakate verkauft.",
-     "note": "passive, no agent"
+     "note": "passive, no agent",
+     "marks": []
     },
     {
      "de": "Die Fabrik wurde 1912 von den Eheleuten gegründet.",
-     "note": "preterite passive"
+     "note": "preterite passive",
+     "marks": [
+      [
+       11,
+       16
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-active-passive-e1",
@@ -4744,29 +5435,41 @@
    "examples": [
     {
      "de": "ich hätte",
-     "note": "haben, with umlaut"
+     "note": "haben, with umlaut",
+     "marks": []
     },
     {
      "de": "wäre",
-     "note": "sein"
+     "note": "sein",
+     "marks": []
     },
     {
      "de": "würde",
-     "note": "werden, with umlaut"
+     "note": "werden, with umlaut",
+     "marks": [
+      [
+       0,
+       5
+      ]
+     ]
     },
     {
      "de": "könnte",
-     "note": "können, with umlaut"
+     "note": "können, with umlaut",
+     "marks": []
     },
     {
      "de": "dürfte",
-     "note": "dürfen, with umlaut"
+     "note": "dürfen, with umlaut",
+     "marks": []
     },
     {
      "de": "sollte",
-     "note": "sollen — no umlaut"
+     "note": "sollen — no umlaut",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-second-conditional-haben-sein-werden-k-n-e1",
@@ -4911,13 +5614,26 @@
    "examples": [
     {
      "de": "der Rock → das Röck chen .",
-     "note": "der becomes das, o → ö"
+     "note": "der becomes das, o → ö",
+     "marks": [
+      [
+       11,
+       14
+      ]
+     ]
     },
     {
      "de": "Jacke → Jäckchen",
-     "note": "a → ä"
+     "note": "a → ä",
+     "marks": [
+      [
+       8,
+       16
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-diminutive-form-e1",
@@ -5045,19 +5761,79 @@
    "examples": [
     {
      "de": "dem Sohn",
-     "note": "masculine dative"
+     "note": "masculine dative",
+     "marks": []
     },
     {
      "de": "de r Tochter",
-     "note": "feminine dative — der, not die"
+     "note": "feminine dative — der, not die",
+     "marks": []
     },
     {
      "de": "den Söhne n / Kinder n / Töchter n",
-     "note": "dative plural with the extra -n"
+     "note": "dative plural with the extra -n",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "(aber: den T-Shirts / Festivals / Autos)",
-     "note": "plurals in -s take no extra -n"
+     "note": "plurals in -s take no extra -n",
+     "marks": [
+      [
+       7,
+       10
+      ],
+      [
+       34,
+       39
+      ]
+     ]
+    }
+   ],
+   "tables": [
+    {
+     "caption": "Definite article, all four cases",
+     "columns": [
+      "",
+      "masculine",
+      "feminine",
+      "neuter",
+      "plural"
+     ],
+     "rows": [
+      [
+       "Nominativ",
+       "der",
+       "die",
+       "das",
+       "die"
+      ],
+      [
+       "Akkusativ",
+       "den",
+       "die",
+       "das",
+       "die"
+      ],
+      [
+       "Dativ",
+       "dem",
+       "der",
+       "dem",
+       "den + -n"
+      ],
+      [
+       "Genitiv",
+       "des + -(e)s",
+       "der",
+       "des + -(e)s",
+       "der"
+      ]
+     ]
     }
    ],
    "exercises": [
@@ -5183,19 +5959,65 @@
    "examples": [
     {
      "de": "ein en / kein en / mein en",
-     "note": "masculine accusative"
+     "note": "masculine accusative",
+     "marks": []
     },
     {
      "de": "ein em / kein em / mein em",
-     "note": "masculine dative"
+     "note": "masculine dative",
+     "marks": []
     },
     {
      "de": "eine r / keine r / meine r",
-     "note": "feminine dative"
+     "note": "feminine dative",
+     "marks": []
     },
     {
      "de": "- / kein en / mein en Söhne n /",
-     "note": "dative plural: article -en, noun -n"
+     "note": "dative plural: article -en, noun -n",
+     "marks": []
+    }
+   ],
+   "tables": [
+    {
+     "caption": "ein- / kein- / mein-, all four cases",
+     "columns": [
+      "",
+      "masculine",
+      "feminine",
+      "neuter",
+      "plural"
+     ],
+     "rows": [
+      [
+       "Nominativ",
+       "ein",
+       "eine",
+       "ein",
+       "keine"
+      ],
+      [
+       "Akkusativ",
+       "einen",
+       "eine",
+       "ein",
+       "keine"
+      ],
+      [
+       "Dativ",
+       "einem",
+       "einer",
+       "einem",
+       "keinen + -n"
+      ],
+      [
+       "Genitiv",
+       "eines + -(e)s",
+       "einer",
+       "eines + -(e)s",
+       "keiner"
+      ]
+     ]
     }
    ],
    "exercises": [
@@ -5315,21 +6137,26 @@
    "examples": [
     {
      "de": "der /ein Herr / Nachbar / Kollege",
-     "note": "nominative singular — no ending"
+     "note": "nominative singular — no ending",
+     "marks": []
     },
     {
      "de": "den / einen Herr n / Nachbar n / Kollege n",
-     "note": "accusative singular takes -(e)n"
+     "note": "accusative singular takes -(e)n",
+     "marks": []
     },
     {
      "de": "mit dem / einem Herr n / Nachbar n / Kollege n",
-     "note": "dative singular takes -(e)n"
+     "note": "dative singular takes -(e)n",
+     "marks": []
     },
     {
      "de": "die / - Herr en / Nachbar n / Kollege n",
-     "note": "plural"
+     "note": "plural",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-n-declension-masculine-nouns-with-e-n-pl-e1",
@@ -5456,19 +6283,108 @@
    "examples": [
     {
      "de": "mir dir ihm",
-     "note": "the start of the dative row: ich, du, er"
+     "note": "the start of the dative row: ich, du, er",
+     "marks": [
+      [
+       0,
+       3
+      ],
+      [
+       8,
+       11
+      ]
+     ]
     },
     {
      "de": "ihnen / Ihnen",
-     "note": "dative of sie (plural) and of the polite Sie"
+     "note": "dative of sie (plural) and of the polite Sie",
+     "marks": [
+      [
+       0,
+       5
+      ],
+      [
+       8,
+       13
+      ]
+     ]
     },
     {
      "de": "mich dich ihn",
-     "note": "the start of the accusative row"
+     "note": "the start of the accusative row",
+     "marks": []
     },
     {
      "de": "uns euch",
-     "note": "the plural forms, identical in the accusative and the dative"
+     "note": "the plural forms, identical in the accusative and the dative",
+     "marks": []
+    }
+   ],
+   "tables": [
+    {
+     "caption": "Personal pronouns",
+     "columns": [
+      "",
+      "Nominativ",
+      "Akkusativ",
+      "Dativ"
+     ],
+     "rows": [
+      [
+       "1st sg.",
+       "ich",
+       "mich",
+       "mir"
+      ],
+      [
+       "2nd sg.",
+       "du",
+       "dich",
+       "dir"
+      ],
+      [
+       "3rd sg. m.",
+       "er",
+       "ihn",
+       "ihm"
+      ],
+      [
+       "3rd sg. f.",
+       "sie",
+       "sie",
+       "ihr"
+      ],
+      [
+       "3rd sg. n.",
+       "es",
+       "es",
+       "ihm"
+      ],
+      [
+       "1st pl.",
+       "wir",
+       "uns",
+       "uns"
+      ],
+      [
+       "2nd pl.",
+       "ihr",
+       "euch",
+       "euch"
+      ],
+      [
+       "3rd pl.",
+       "sie",
+       "sie",
+       "ihnen"
+      ],
+      [
+       "polite",
+       "Sie",
+       "Sie",
+       "Ihnen"
+      ]
+     ]
     }
    ],
    "exercises": [
@@ -5635,25 +6551,36 @@
    "examples": [
     {
      "de": "der → meiner",
-     "note": "nominative masculine"
+     "note": "nominative masculine",
+     "marks": []
     },
     {
      "de": "das → meins",
-     "note": "nominative and accusative neuter, shortened"
+     "note": "nominative and accusative neuter, shortened",
+     "marks": [
+      [
+       6,
+       11
+      ]
+     ]
     },
     {
      "de": "den → meinen",
-     "note": "accusative masculine"
+     "note": "accusative masculine",
+     "marks": []
     },
     {
      "de": "dem → meinem",
-     "note": "dative masculine and neuter"
+     "note": "dative masculine and neuter",
+     "marks": []
     },
     {
      "de": "der → meiner",
-     "note": "dative feminine — the same shape as the nominative masculine"
+     "note": "dative feminine — the same shape as the nominative masculine",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-possessive-pronouns-e1",
@@ -5799,29 +6726,41 @@
    "examples": [
     {
      "de": "Welchen Pullover findest du besser? → Diesen / Den hier.",
-     "note": "accusative masculine"
+     "note": "accusative masculine",
+     "marks": [
+      [
+       38,
+       44
+      ]
+     ]
     },
     {
      "de": "Zu welcher Bluse passt der Rock?",
-     "note": "zu takes the dative, feminine welcher"
+     "note": "zu takes the dative, feminine welcher",
+     "marks": []
     },
     {
      "de": "Schau die Kleider. Welches gefällt dir am besten? → Dieses / Das da.",
-     "note": "nominative neuter"
+     "note": "nominative neuter",
+     "marks": []
     },
     {
      "de": "Und da die Hosen. Welche ist schicker?",
-     "note": "die Hose is feminine, so welche"
+     "note": "die Hose is feminine, so welche",
+     "marks": []
     },
     {
      "de": "Welcher Pullover? → dieser / der",
-     "note": "nominative masculine, from the table"
+     "note": "nominative masculine, from the table",
+     "marks": []
     },
     {
      "de": "Zu welchem Modell? → zu diesem / dem",
-     "note": "dative neuter, from the table"
+     "note": "dative neuter, from the table",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-dies-der-das-die-e1",
@@ -5971,25 +6910,41 @@
    "examples": [
     {
      "de": "jeder (k)ein Mann / (k)einer",
-     "note": "nominative masculine: article and pronoun side by side"
+     "note": "nominative masculine: article and pronoun side by side",
+     "marks": [
+      [
+       13,
+       17
+      ]
+     ]
     },
     {
      "de": "jedes (k)ein Fest / (k)eins",
-     "note": "nominative and accusative neuter"
+     "note": "nominative and accusative neuter",
+     "marks": []
     },
     {
      "de": "alle / viele / wenige",
-     "note": "the plural, nominative and accusative"
+     "note": "the plural, nominative and accusative",
+     "marks": []
     },
     {
      "de": "allen / vielen / wenigen",
-     "note": "the plural, dative"
+     "note": "the plural, dative",
+     "marks": []
     },
     {
      "de": "jedem (k)einem",
-     "note": "dative masculine and neuter"
+     "note": "dative masculine and neuter",
+     "marks": [
+      [
+       0,
+       5
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-indefinite-pronouns-and-indefinite-artic-e1",
@@ -6138,31 +7093,80 @@
    "examples": [
     {
      "de": "der lebendige Dialekt",
-     "note": "Nominativ M"
+     "note": "Nominativ M",
+     "marks": []
     },
     {
      "de": "das neue Leben",
-     "note": "Nominativ and Akkusativ N"
+     "note": "Nominativ and Akkusativ N",
+     "marks": []
     },
     {
      "de": "die lange Tradition",
-     "note": "Nominativ and Akkusativ F"
+     "note": "Nominativ and Akkusativ F",
+     "marks": []
     },
     {
      "de": "den lebendigen Dialekt",
-     "note": "Akkusativ M — the only accusative with -en"
+     "note": "Akkusativ M — the only accusative with -en",
+     "marks": []
     },
     {
      "de": "dem neuen Leben",
-     "note": "Dativ N"
+     "note": "Dativ N",
+     "marks": []
     },
     {
      "de": "der langen Tradition",
-     "note": "Dativ F"
+     "note": "Dativ F",
+     "marks": []
     },
     {
      "de": "den alten Liedern",
-     "note": "Dativ Plural — noun ends in -n as well"
+     "note": "Dativ Plural — noun ends in -n as well",
+     "marks": []
+    }
+   ],
+   "tables": [
+    {
+     "caption": "Adjective endings after der / die / das",
+     "columns": [
+      "",
+      "masculine",
+      "feminine",
+      "neuter",
+      "plural"
+     ],
+     "rows": [
+      [
+       "Nominativ",
+       "-e",
+       "-e",
+       "-e",
+       "-en"
+      ],
+      [
+       "Akkusativ",
+       "-en",
+       "-e",
+       "-e",
+       "-en"
+      ],
+      [
+       "Dativ",
+       "-en",
+       "-en",
+       "-en",
+       "-en"
+      ],
+      [
+       "Genitiv",
+       "-en",
+       "-en",
+       "-en",
+       "-en"
+      ]
+     ]
     }
    ],
    "exercises": [
@@ -6333,43 +7337,95 @@
    "examples": [
     {
      "de": "ein neuer Trend",
-     "note": "Nominativ M — the adjective carries the -er"
+     "note": "Nominativ M — the adjective carries the -er",
+     "marks": []
     },
     {
      "de": "mein festliches Kleid",
-     "note": "Nominativ N"
+     "note": "Nominativ N",
+     "marks": []
     },
     {
      "de": "eine neue Phase",
-     "note": "Nominativ F"
+     "note": "Nominativ F",
+     "marks": []
     },
     {
      "de": "meinen teuren Anzug",
-     "note": "Akkusativ M"
+     "note": "Akkusativ M",
+     "marks": []
     },
     {
      "de": "mein schwarzes Barett",
-     "note": "Akkusativ N"
+     "note": "Akkusativ N",
+     "marks": []
     },
     {
      "de": "eine große Party",
-     "note": "Akkusativ F"
+     "note": "Akkusativ F",
+     "marks": []
     },
     {
      "de": "meinem schwarzen Talar",
-     "note": "Dativ M"
+     "note": "Dativ M",
+     "marks": []
     },
     {
      "de": "einer schicken Frisur",
-     "note": "Dativ F"
+     "note": "Dativ F",
+     "marks": []
     },
     {
      "de": "meinen / keinen stolzen Eltern",
-     "note": "Dativ Plural"
+     "note": "Dativ Plural",
+     "marks": []
     },
     {
      "de": "langen Abendkleidern",
-     "note": "Dativ Plural without an article"
+     "note": "Dativ Plural without an article",
+     "marks": []
+    }
+   ],
+   "tables": [
+    {
+     "caption": "Adjective endings after ein- / kein- / mein-",
+     "columns": [
+      "",
+      "masculine",
+      "feminine",
+      "neuter",
+      "plural"
+     ],
+     "rows": [
+      [
+       "Nominativ",
+       "-er",
+       "-e",
+       "-es",
+       "-en"
+      ],
+      [
+       "Akkusativ",
+       "-en",
+       "-e",
+       "-es",
+       "-en"
+      ],
+      [
+       "Dativ",
+       "-en",
+       "-en",
+       "-en",
+       "-en"
+      ],
+      [
+       "Genitiv",
+       "-en",
+       "-en",
+       "-en",
+       "-en"
+      ]
+     ]
     }
    ],
    "exercises": [
@@ -6533,31 +7589,104 @@
    "examples": [
     {
      "de": "der → lebendiger Dialekt",
-     "note": "the article's -er moves onto the adjective"
+     "note": "the article's -er moves onto the adjective",
+     "marks": [
+      [
+       17,
+       24
+      ]
+     ]
     },
     {
      "de": "das → neues Leben",
-     "note": "Nominativ and Akkusativ N"
+     "note": "Nominativ and Akkusativ N",
+     "marks": []
     },
     {
      "de": "die → lange Tradition",
-     "note": "Nominativ and Akkusativ F"
+     "note": "Nominativ and Akkusativ F",
+     "marks": [
+      [
+       6,
+       11
+      ]
+     ]
     },
     {
      "de": "den → lebendigen Dialekt",
-     "note": "Akkusativ M"
+     "note": "Akkusativ M",
+     "marks": [
+      [
+       17,
+       24
+      ]
+     ]
     },
     {
      "de": "dem → lebendigem Dialekt",
-     "note": "Dativ M"
+     "note": "Dativ M",
+     "marks": [
+      [
+       6,
+       16
+      ],
+      [
+       17,
+       24
+      ]
+     ]
     },
     {
      "de": "der → langer Tradition",
-     "note": "Dativ F"
+     "note": "Dativ F",
+     "marks": []
     },
     {
      "de": "den → alten Liedern",
-     "note": "Dativ Plural"
+     "note": "Dativ Plural",
+     "marks": []
+    }
+   ],
+   "tables": [
+    {
+     "caption": "Adjective endings with no article",
+     "columns": [
+      "",
+      "masculine",
+      "feminine",
+      "neuter",
+      "plural"
+     ],
+     "rows": [
+      [
+       "Nominativ",
+       "-er",
+       "-e",
+       "-es",
+       "-e"
+      ],
+      [
+       "Akkusativ",
+       "-en",
+       "-e",
+       "-es",
+       "-e"
+      ],
+      [
+       "Dativ",
+       "-em",
+       "-er",
+       "-em",
+       "-en"
+      ],
+      [
+       "Genitiv",
+       "-en",
+       "-er",
+       "-en",
+       "-er"
+      ]
+     ]
     }
    ],
    "exercises": [
@@ -6705,37 +7834,60 @@
    "examples": [
     {
      "de": "des großen Erfolgs",
-     "note": "definite article, M"
+     "note": "definite article, M",
+     "marks": []
     },
     {
      "de": "eines großen Erfolgs",
-     "note": "indefinite article, M"
+     "note": "indefinite article, M",
+     "marks": []
     },
     {
      "de": "meines großen Erfolgs",
-     "note": "possessive article, M"
+     "note": "possessive article, M",
+     "marks": []
     },
     {
      "de": "großen Erfolgs",
-     "note": "no article, M — still -en"
+     "note": "no article, M — still -en",
+     "marks": []
     },
     {
      "de": "der kurzen Karriere",
-     "note": "definite article, F"
+     "note": "definite article, F",
+     "marks": []
     },
     {
      "de": "kurzer Karriere",
-     "note": "no article, F — the one place -er appears"
+     "note": "no article, F — the one place -er appears",
+     "marks": []
     },
     {
      "de": "unserer gestressten Manager",
-     "note": "possessive article, plural"
+     "note": "possessive article, plural",
+     "marks": [
+      [
+       20,
+       27
+      ]
+     ]
     },
     {
      "de": "gestresster Manager",
-     "note": "no article, plural"
+     "note": "no article, plural",
+     "marks": [
+      [
+       0,
+       11
+      ],
+      [
+       12,
+       19
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-adjectives-in-the-genitive-e1",
@@ -6887,29 +8039,70 @@
    "examples": [
     {
      "de": "Immer mehr Deutsche verbringen ihren Urlaub genauso gern in Deutschland wie im Ausland.",
-     "note": "genauso … wie — equality"
+     "note": "genauso … wie — equality",
+     "marks": [
+      [
+       72,
+       75
+      ]
+     ]
     },
     {
      "de": "Für den Urlaub findet Niclas die Ostsee nicht so attraktiv wie die Alpen.",
-     "note": "nicht so … wie"
+     "note": "nicht so … wie",
+     "marks": [
+      [
+       59,
+       62
+      ]
+     ]
     },
     {
      "de": "Linus meint, Urlaub in Deutschland ist billiger als im Ausland.",
-     "note": "comparative + als"
+     "note": "comparative + als",
+     "marks": [
+      [
+       48,
+       51
+      ]
+     ]
     },
     {
      "de": "Viele denken, die Luft auf dem Land ist gesünder als die Luft in der Stadt.",
-     "note": "comparative + als"
+     "note": "comparative + als",
+     "marks": [
+      [
+       49,
+       52
+      ]
+     ]
     },
     {
      "de": "Niclas möchte lieber mit Freunden als allein in Urlaub fahren.",
-     "note": "lieber … als"
+     "note": "lieber … als",
+     "marks": [
+      [
+       14,
+       20
+      ],
+      [
+       34,
+       37
+      ]
+     ]
     },
     {
      "de": "Niclas findet, die Alpen bieten mehr Sportmöglichkeiten als die Ostsee.",
-     "note": "mehr + noun + als"
+     "note": "mehr + noun + als",
+     "marks": [
+      [
+       56,
+       59
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-comparative-sentences-e1",
@@ -7056,41 +8249,116 @@
    "examples": [
     {
      "de": "attraktiv attraktiver am attraktivsten",
-     "note": "the regular pattern"
+     "note": "the regular pattern",
+     "marks": [
+      [
+       22,
+       24
+      ]
+     ]
     },
     {
      "de": "bekannt bekannter am bekanntesten",
-     "note": "-t forces the extra e in the superlative"
+     "note": "-t forces the extra e in the superlative",
+     "marks": [
+      [
+       18,
+       20
+      ]
+     ]
     },
     {
      "de": "groß größer am größten",
-     "note": "umlaut"
+     "note": "umlaut",
+     "marks": [
+      [
+       12,
+       14
+      ]
+     ]
     },
     {
      "de": "alt älter am ältesten",
-     "note": "umlaut plus the extra e"
+     "note": "umlaut plus the extra e",
+     "marks": [
+      [
+       10,
+       12
+      ],
+      [
+       13,
+       21
+      ]
+     ]
     },
     {
      "de": "teuer teurer am teuersten",
-     "note": "the stem loses its e in the comparative"
+     "note": "the stem loses its e in the comparative",
+     "marks": [
+      [
+       6,
+       12
+      ],
+      [
+       13,
+       15
+      ]
+     ]
     },
     {
      "de": "hoch höher am höchsten",
-     "note": "irregular"
+     "note": "irregular",
+     "marks": [
+      [
+       11,
+       13
+      ]
+     ]
     },
     {
      "de": "gut besser am besten",
-     "note": "irregular"
+     "note": "irregular",
+     "marks": [
+      [
+       4,
+       10
+      ],
+      [
+       11,
+       13
+      ]
+     ]
     },
     {
      "de": "gern lieber am liebsten",
-     "note": "irregular"
+     "note": "irregular",
+     "marks": [
+      [
+       12,
+       14
+      ],
+      [
+       15,
+       23
+      ]
+     ]
     },
     {
      "de": "viel mehr am meisten",
-     "note": "irregular"
+     "note": "irregular",
+     "marks": [
+      [
+       5,
+       9
+      ],
+      [
+       10,
+       12
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-comparison-comparative-and-superlative-p-e1",
@@ -7259,21 +8527,46 @@
    "examples": [
     {
      "de": "Stell den Kaffee ins Regal!",
-     "note": "wohin? — accusative"
+     "note": "wohin? — accusative",
+     "marks": [
+      [
+       17,
+       20
+      ]
+     ]
     },
     {
      "de": "Der Kaffee steht im Regal.",
-     "note": "wo? — dative"
+     "note": "wo? — dative",
+     "marks": [
+      [
+       17,
+       19
+      ]
+     ]
     },
     {
      "de": "an das → ans, auf das → aufs, in das → ins",
-     "note": "the accusative contractions"
+     "note": "the accusative contractions",
+     "marks": [
+      [
+       39,
+       42
+      ]
+     ]
     },
     {
      "de": "an dem → am, in dem → im",
-     "note": "the dative contractions"
+     "note": "the dative contractions",
+     "marks": [
+      [
+       22,
+       24
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-dual-case-prepositions-an-auf-in-ber-unt-e1",
@@ -7429,33 +8722,61 @@
    "examples": [
     {
      "de": "zu + dem = zum, zu + der = zur, bei + dem = beim, von + dem = vom",
-     "note": "the four contractions the document lists"
+     "note": "the four contractions the document lists",
+     "marks": [
+      [
+       11,
+       14
+      ]
+     ]
     },
     {
      "de": "Jörg soll bis zum Ring gehen. / bis zur Dumbastraße gehen.",
-     "note": "bis zu + dative"
+     "note": "bis zu + dative",
+     "marks": [
+      [
+       14,
+       17
+      ]
+     ]
     },
     {
      "de": "Jörg soll die Kärntner Straße entlang gehen.",
-     "note": "entlang follows the noun"
+     "note": "entlang follows the noun",
+     "marks": []
     },
     {
      "de": "Jörg geht in das Wien Museum rein.",
-     "note": "rein with in + accusative"
+     "note": "rein with in + accusative",
+     "marks": [
+      [
+       10,
+       12
+      ]
+     ]
     },
     {
      "de": "Jörg geht aus dem Wien Museum raus.",
-     "note": "raus with aus + dative"
+     "note": "raus with aus + dative",
+     "marks": [
+      [
+       30,
+       34
+      ]
+     ]
     },
     {
      "de": "Komm heraus!",
-     "note": "her- — towards the speaker"
+     "note": "her- — towards the speaker",
+     "marks": []
     },
     {
      "de": "Jörg geht aus dem Museum hinaus.",
-     "note": "hin- — away from the speaker"
+     "note": "hin- — away from the speaker",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-prepositions-of-place-2-e1",
@@ -7632,25 +8953,41 @@
    "examples": [
     {
      "de": "Witikon liegt etwas außerhalb, aber es hat gute Verkehrsverbindungen.",
-     "note": "aber"
+     "note": "aber",
+     "marks": []
     },
     {
      "de": "Lindenhof ist schön, denn es liegt in der Altstadt.",
-     "note": "denn"
+     "note": "denn",
+     "marks": [
+      [
+       21,
+       25
+      ]
+     ]
     },
     {
      "de": "In Witikon sind die Mieten nicht so hoch und die Verkehrsverbindungen sind gut.",
-     "note": "und"
+     "note": "und",
+     "marks": []
     },
     {
      "de": "Frankfurt liegt nicht westlich (von Mainz), sondern (es liegt) östlich von Mainz.",
-     "note": "sondern after nicht; the repeated subject and verb are in brackets"
+     "note": "sondern after nicht; the repeated subject and verb are in brackets",
+     "marks": [
+      [
+       44,
+       51
+      ]
+     ]
     },
     {
      "de": "Lara und Andrea möchten in Enge oder (sie möchten) in Lindenhof wohnen.",
-     "note": "oder with the repeated part left out"
+     "note": "oder with the repeated part left out",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-aber-denn-und-sondern-oder-aduso-connect-e1",
@@ -7799,21 +9136,45 @@
    "examples": [
     {
      "de": "Weil ich Sport machen soll, gehe ich jeden zweiten Tag walken.",
-     "note": "the weil version — reason in the subordinate clause"
+     "note": "the weil version — reason in the subordinate clause",
+     "marks": [
+      [
+       0,
+       4
+      ],
+      [
+       28,
+       32
+      ]
+     ]
     },
     {
      "de": "Ich soll Sport machen, darum / deshalb / deswegen gehe ich jeden zweiten Tag walken.",
-     "note": "the connector version — verb gehe in position 2"
+     "note": "the connector version — verb gehe in position 2",
+     "marks": [
+      [
+       50,
+       54
+      ]
+     ]
     },
     {
      "de": "Ich habe Urlaub genommen, weil ich mich ausruhen soll.",
-     "note": "reason after the main clause"
+     "note": "reason after the main clause",
+     "marks": [
+      [
+       26,
+       30
+      ]
+     ]
     },
     {
      "de": "Ich soll mich ausruhen, darum / deshalb / deswegen habe ich Urlaub genommen.",
-     "note": "the same content with the connector"
+     "note": "the same content with the connector",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-expressing-reasons-causal-connectives-da-e1",
@@ -7968,17 +9329,31 @@
    "examples": [
     {
      "de": "Bernhard möchte in Köln studieren, weil er dort keine Sprachprobleme hat.",
-     "note": "hat at the end"
+     "note": "hat at the end",
+     "marks": [
+      [
+       35,
+       39
+      ]
+     ]
     },
     {
      "de": "Ich möchte im Ausland studieren, weil Auslandserfahrung wichtig ist.",
-     "note": "ist at the end"
+     "note": "ist at the end",
+     "marks": [
+      [
+       33,
+       37
+      ]
+     ]
     },
     {
      "de": "Wir finden, dass Köln eine schöne Stadt ist.",
-     "note": "dass after finden"
+     "note": "dass after finden",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-expressing-reasons-dependent-clauses-wit-e1",
@@ -8131,21 +9506,36 @@
    "examples": [
     {
      "de": "Es gab ein großes Gedränge, als der Krimiautor eintraf.",
-     "note": "main clause first"
+     "note": "main clause first",
+     "marks": []
     },
     {
      "de": "Ruis Portemonnaie war weg, als er an der Kasse zahlen wollte.",
-     "note": "the modal wollte closes the clause"
+     "note": "the modal wollte closes the clause",
+     "marks": [
+      [
+       18,
+       21
+      ]
+     ]
     },
     {
      "de": "Als der Krimiautor eintraf, gab es ein großes Gedränge.",
-     "note": "als clause first — gab comes straight after the comma"
+     "note": "als clause first — gab comes straight after the comma",
+     "marks": []
     },
     {
      "de": "Als er an der Kasse zahlen wollte, war Ruis Portemonnaie weg.",
-     "note": "the same content the other way round"
+     "note": "the same content the other way round",
+     "marks": [
+      [
+       35,
+       38
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-naming-a-point-of-time-in-the-past-tempo-e1",
@@ -8297,21 +9687,31 @@
    "examples": [
     {
      "de": "Rui bekommt Zinsen, wenn er Geld auf einem Sparkonto hat.",
-     "note": "main clause first"
+     "note": "main clause first",
+     "marks": []
     },
     {
      "de": "Die EC-Karte kostet nichts, wenn Rui nur Online-Banking macht.",
-     "note": "main clause first"
+     "note": "main clause first",
+     "marks": []
     },
     {
      "de": "Wenn Rui Geld anlegen will, kann er es auf ein Sparkonto einzahlen",
-     "note": "wenn clause first — the main clause begins with kann"
+     "note": "wenn clause first — the main clause begins with kann",
+     "marks": [
+      [
+       28,
+       32
+      ]
+     ]
     },
     {
      "de": "Wenn Rui nicht nur Online-Banking macht, kostet die EC-Karte 6,50 €pro Jahr.",
-     "note": "wenn clause first; the document prints 6,50 €pro Jahr without a space"
+     "note": "wenn clause first; the document prints 6,50 €pro Jahr without a space",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-stating-conditions-dependent-conditional-e1",
@@ -8468,29 +9868,86 @@
    "examples": [
     {
      "de": "Beate hat dauernd Schmerzen, seit(dem) sie an ihrer Masterarbeit arbeitet.",
-     "note": "seit(dem) — the starting point"
+     "note": "seit(dem) — the starting point",
+     "marks": [
+      [
+       6,
+       9
+      ],
+      [
+       29,
+       33
+      ],
+      [
+       34,
+       37
+      ]
+     ]
     },
     {
      "de": "Beate war bei keinem Arzt mehr, seit(dem) ihr alter Hausarzt in Rente ist.",
-     "note": "seit(dem) with a present-tense clause"
+     "note": "seit(dem) with a present-tense clause",
+     "marks": [
+      [
+       32,
+       36
+      ],
+      [
+       37,
+       40
+      ]
+     ]
     },
     {
      "de": "Es dauert noch 2 Wochen, bis Beate zu Dr. Rosmann gehen kann.",
-     "note": "bis — the end point"
+     "note": "bis — the end point",
+     "marks": [
+      [
+       25,
+       28
+      ]
+     ]
     },
     {
      "de": "Es dauerte 2 Wochen, bis Beate einen Arzttermin bekam.",
-     "note": "bis in the past"
+     "note": "bis in the past",
+     "marks": [
+      [
+       21,
+       24
+      ]
+     ]
     },
     {
      "de": "Seit(dem) Beate so viel arbeitet, hat sie dauernd Schmerzen.",
-     "note": "subordinate clause first"
+     "note": "subordinate clause first",
+     "marks": [
+      [
+       0,
+       4
+      ],
+      [
+       5,
+       8
+      ],
+      [
+       34,
+       37
+      ]
+     ]
     },
     {
      "de": "Bis Beate zu Dr. Rosmann gehen kann, dauert es noch 2 Wochen.",
-     "note": "subordinate clause first"
+     "note": "subordinate clause first",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-time-expressions-dependent-clauses-with--e1",
@@ -8646,25 +10103,36 @@
    "examples": [
     {
      "de": "Gibt es auch Führungen zum Thema „Film“?",
-     "note": "the direct yes/no question"
+     "note": "the direct yes/no question",
+     "marks": []
     },
     {
      "de": "Ich möchte wissen, ob es auch Führungen zum Thema „Film“ gibt.",
-     "note": "ob, with gibt at the end"
+     "note": "ob, with gibt at the end",
+     "marks": [
+      [
+       19,
+       21
+      ]
+     ]
     },
     {
      "de": "Können Sie mir sagen, wie lange die Führung dauert?",
-     "note": "the question word is kept"
+     "note": "the question word is kept",
+     "marks": []
     },
     {
      "de": "Können Sie mir auf dem Plan zeigen, wo der Treffpunkt ist?",
-     "note": "wo, with ist at the end"
+     "note": "wo, with ist at the end",
+     "marks": []
     },
     {
      "de": "Ich möchte gern wissen, welches Ticket am besten ist.",
-     "note": "welches, with ist at the end"
+     "note": "welches, with ist at the end",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-indirect-questions-e1",
@@ -8819,21 +10287,54 @@
    "examples": [
     {
      "de": "Ich hatte einen Berater, der sehr kompetent war.",
-     "note": "der Berater is masculine; the pronoun is the subject of the relative clause, so nominative"
+     "note": "der Berater is masculine; the pronoun is the subject of the relative clause, so nominative",
+     "marks": [
+      [
+       25,
+       28
+      ]
+     ]
     },
     {
      "de": "Nom. der das die die",
-     "note": "the nominative row of the table"
+     "note": "the nominative row of the table",
+     "marks": [
+      [
+       5,
+       8
+      ]
+     ]
     },
     {
      "de": "Akk. den den die die",
-     "note": "the accusative row as printed in the document"
+     "note": "the accusative row as printed in the document",
+     "marks": [
+      [
+       5,
+       8
+      ],
+      [
+       9,
+       12
+      ]
+     ]
     },
     {
      "de": "Dat. dem dem der denen",
-     "note": "the dative row — denen is the one form that differs from the article"
+     "note": "the dative row — denen is the one form that differs from the article",
+     "marks": [
+      [
+       13,
+       16
+      ],
+      [
+       17,
+       22
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-relative-clauses-and-relative-pronouns-e1",
@@ -8988,29 +10489,66 @@
    "examples": [
     {
      "de": "Das Wetter war leider nicht so gut, als wir ankamen",
-     "note": "als — one occasion in the past"
+     "note": "als — one occasion in the past",
+     "marks": [
+      [
+       36,
+       39
+      ]
+     ]
     },
     {
      "de": "Als wir dort waren, hat eine Musikgruppe traditionelle Musik gespielt.",
-     "note": "als clause first"
+     "note": "als clause first",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "(Immer) wenn das Wetter gut war, haben wir Wanderungen in den Bergen gemacht.",
-     "note": "wenn — a repeated past action"
+     "note": "wenn — a repeated past action",
+     "marks": [
+      [
+       8,
+       12
+      ]
+     ]
     },
     {
      "de": "(Jedes Mal) wenn wir sehr müde waren, haben wir einen Pausentag eingeplant.",
-     "note": "wenn with jedes Mal"
+     "note": "wenn with jedes Mal",
+     "marks": [
+      [
+       12,
+       16
+      ]
+     ]
     },
     {
      "de": "Man erholt sich am besten, wenn man faulenzt.",
-     "note": "wenn in the present"
+     "note": "wenn in the present",
+     "marks": [
+      [
+       27,
+       31
+      ]
+     ]
     },
     {
      "de": "Wenn das Wetter morgen schön ist, (dann) machen wir einen Ausflug.",
-     "note": "wenn in the future, with the optional dann"
+     "note": "wenn in the future, with the optional dann",
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-temporal-subordinate-clauses-with-wenn-a-e1",
@@ -9158,17 +10696,21 @@
    "examples": [
     {
      "de": "Jörg ist diese Woche schon fünfmal im Kino gewesen.",
-     "note": "diese Woche (time) before im Kino (place); gewesen closes the sentence"
+     "note": "diese Woche (time) before im Kino (place); gewesen closes the sentence",
+     "marks": []
     },
     {
      "de": "Jörg und Michael sind nach dem Frühstück sofort ins Museum gegangen.",
-     "note": "nach dem Frühstück (time) before ins Museum (place)"
+     "note": "nach dem Frühstück (time) before ins Museum (place)",
+     "marks": []
     },
     {
      "de": "Sie waren fast zwei Stunden im Museum.",
-     "note": "time before place with no closing verb"
+     "note": "time before place with no closing verb",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-a2-time-expressions-usually-go-in-the-middl-e1",
@@ -9316,13 +10858,26 @@
    "examples": [
     {
      "de": "In der ersten Zeit in Dresden hat Christian viel arbeiten müssen .",
-     "note": "arbeiten + müssen at the end"
+     "note": "arbeiten + müssen at the end",
+     "marks": [
+      [
+       30,
+       33
+      ]
+     ]
     },
     {
      "de": "Er hat daher das Schloss noch nicht besuchen können .",
-     "note": "besuchen + können at the end"
+     "note": "besuchen + können at the end",
+     "marks": [
+      [
+       3,
+       6
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-modal-verbs-in-the-perfect-e1",
@@ -9448,13 +11003,34 @@
    "examples": [
     {
      "de": "Nachdem wir es bis zum Bahnhof Zoo geschafft hatten , fing es an zu regnen.",
-     "note": "past perfect in the nachdem-clause, preterite in the main clause"
+     "note": "past perfect in the nachdem-clause, preterite in the main clause",
+     "marks": [
+      [
+       0,
+       7
+      ],
+      [
+       45,
+       51
+      ]
+     ]
     },
     {
      "de": "Nachdem wir ein bisschen herumgelaufen waren , haben wir dort gegessen .",
-     "note": "war-form, then the perfect in the main clause"
+     "note": "war-form, then the perfect in the main clause",
+     "marks": [
+      [
+       0,
+       7
+      ],
+      [
+       39,
+       44
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-past-perfect-for-active-verbs-e1",
@@ -9599,25 +11175,55 @@
    "examples": [
     {
      "de": "Zur Vorbereitung werde ich einen Schwedischkurs machen.",
-     "note": "intention"
+     "note": "intention",
+     "marks": [
+      [
+       17,
+       22
+      ]
+     ]
     },
     {
      "de": "Wir werden ab August zusammen in Berlin wohnen.",
-     "note": "prediction with a certain outcome"
+     "note": "prediction with a certain outcome",
+     "marks": []
     },
     {
      "de": "Ich werde vermutlich / wohl / wahrscheinlich Portugal vermissen.",
-     "note": "assumption"
+     "note": "assumption",
+     "marks": [
+      [
+       4,
+       9
+      ],
+      [
+       30,
+       44
+      ]
+     ]
     },
     {
      "de": "Es wird schon klappen.",
-     "note": "assurance — schon"
+     "note": "assurance — schon",
+     "marks": [
+      [
+       8,
+       13
+      ]
+     ]
     },
     {
      "de": "Ich werde als Dolmetscher bestimmt / sicherlich / sicher gute Chancen haben.",
-     "note": "certainty"
+     "note": "certainty",
+     "marks": [
+      [
+       4,
+       9
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-future-i-e1",
@@ -9769,17 +11375,35 @@
    "examples": [
     {
      "de": "Christian lässt sich in der Informatikabteilung das Passwort vom Computer geben .",
-     "note": "present tense"
+     "note": "present tense",
+     "marks": []
     },
     {
      "de": "Christian hat sich schon das Intranet zeigen lassen .",
-     "note": "perfect: haben + zeigen + lassen"
+     "note": "perfect: haben + zeigen + lassen",
+     "marks": [
+      [
+       38,
+       44
+      ],
+      [
+       45,
+       51
+      ]
+     ]
     },
     {
      "de": "Christian muss den Urlaubsantrag der Personalabteilung zukommen lassen .",
-     "note": "with a modal verb"
+     "note": "with a modal verb",
+     "marks": [
+      [
+       64,
+       70
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-sich-lassen-verb-e1",
@@ -9900,17 +11524,26 @@
    "examples": [
     {
      "de": "Christian lässt sein Handy im Büro.",
-     "note": "lassen + noun"
+     "note": "lassen + noun",
+     "marks": []
     },
     {
      "de": "Christian lässt es im Büro.",
-     "note": "lassen + pronoun"
+     "note": "lassen + pronoun",
+     "marks": []
     },
     {
      "de": "Christian hat sein Handy im Büro gelassen .",
-     "note": "perfect with the participle gelassen"
+     "note": "perfect with the participle gelassen",
+     "marks": [
+      [
+       33,
+       41
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-lassen-nouns-e1",
@@ -10037,17 +11670,36 @@
    "examples": [
     {
      "de": "Sie brauchen nur die Broschüre „Länderinformationsschrift Österreich“ zu bestellen .",
-     "note": "nur zu — nothing else is needed"
+     "note": "nur zu — nothing else is needed",
+     "marks": [
+      [
+       70,
+       72
+      ]
+     ]
     },
     {
      "de": "Sie brauchen nicht lange zu warten .",
-     "note": "= Sie müssen nicht lange warten"
+     "note": "= Sie müssen nicht lange warten",
+     "marks": [
+      [
+       25,
+       27
+      ]
+     ]
     },
     {
      "de": "Sie brauchen keine weiteren Informationen im Internet zu suchen .",
-     "note": "kein … zu"
+     "note": "kein … zu",
+     "marks": [
+      [
+       54,
+       56
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-brauchen-zu-infinitive-e1",
@@ -10169,13 +11821,30 @@
    "examples": [
     {
      "de": "gekrönt worden war",
-     "note": "war + Partizip II + worden"
+     "note": "war + Partizip II + worden",
+     "marks": [
+      [
+       0,
+       7
+      ],
+      [
+       8,
+       14
+      ]
+     ]
     },
     {
      "de": "Nachdem 1871 der erste deutsche Nationalstaat gegründet worden war , wurde Berlin",
-     "note": "nachdem-clause, main clause in the preterite passive"
+     "note": "nachdem-clause, main clause in the preterite passive",
+     "marks": [
+      [
+       56,
+       62
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-past-perfect-passive-e1",
@@ -10301,29 +11970,46 @@
    "examples": [
     {
      "de": "“er schaute nach” --> “er würde nachschauen”",
-     "note": "regular verb → würde + infinitive"
+     "note": "regular verb → würde + infinitive",
+     "marks": []
     },
     {
      "de": "“ich hatte” --> “ich hätte”",
-     "note": "preterite + umlaut"
+     "note": "preterite + umlaut",
+     "marks": []
     },
     {
      "de": "“du konntest” --> “du könntest”",
-     "note": "modal verb"
+     "note": "modal verb",
+     "marks": []
     },
     {
      "de": "“er wusste” --> “er wüsste”",
-     "note": "mixed verb"
+     "note": "mixed verb",
+     "marks": [
+      [
+       20,
+       26
+      ]
+     ]
     },
     {
      "de": "“ich kam” --> “ich käme”",
-     "note": "irregular: preterite + -e + umlaut"
+     "note": "irregular: preterite + -e + umlaut",
+     "marks": [
+      [
+       19,
+       23
+      ]
+     ]
     },
     {
      "de": "“er ging” -",
-     "note": "irregular: ging → ginge"
+     "note": "irregular: ging → ginge",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-second-conditional-e1",
@@ -10470,17 +12156,34 @@
    "examples": [
     {
      "de": "Dasselbe habe ich auch gedacht.",
-     "note": "used as a pronoun, standing for a whole statement"
+     "note": "used as a pronoun, standing for a whole statement",
+     "marks": []
     },
     {
      "de": "Das ist nicht mehr dieselbe Stadt, in der wir vor 30 Jahren studiert haben.",
-     "note": "used as an article before Stadt"
+     "note": "used as an article before Stadt",
+     "marks": []
     },
     {
      "de": "der große Platz → derselbe Platz",
-     "note": "the document's own comparison with the adjective ending"
+     "note": "the document's own comparison with the adjective ending",
+     "marks": [
+      [
+       10,
+       15
+      ],
+      [
+       18,
+       26
+      ],
+      [
+       27,
+       32
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-reference-to-something-identical-demonst-e1",
@@ -10629,29 +12332,41 @@
    "examples": [
     {
      "de": "mancher",
-     "note": "nominative masculine, like der"
+     "note": "nominative masculine, like der",
+     "marks": []
     },
     {
      "de": "manchen",
-     "note": "accusative masculine, like den"
+     "note": "accusative masculine, like den",
+     "marks": []
     },
     {
      "de": "manchem",
-     "note": "dative masculine and neuter, like dem"
+     "note": "dative masculine and neuter, like dem",
+     "marks": []
     },
     {
      "de": "einige",
-     "note": "nominative and accusative plural"
+     "note": "nominative and accusative plural",
+     "marks": []
     },
     {
      "de": "einigen",
-     "note": "dative plural"
+     "note": "dative plural",
+     "marks": [
+      [
+       0,
+       7
+      ]
+     ]
     },
     {
      "de": "The endings match those of the definite article.",
-     "note": "the document's own rule under the table"
+     "note": "the document's own rule under the table",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-indefinite-numbers-quantity-indefinite-p-e1",
@@ -10801,25 +12516,41 @@
    "examples": [
     {
      "de": "wann --> irgendwann",
-     "note": "question word → adverb"
+     "note": "question word → adverb",
+     "marks": [
+      [
+       9,
+       19
+      ]
+     ]
     },
     {
      "de": "wo --> irgendwo",
-     "note": "question word → adverb"
+     "note": "question word → adverb",
+     "marks": []
     },
     {
      "de": "ein --> irgendein",
-     "note": "indefinite article"
+     "note": "indefinite article",
+     "marks": []
     },
     {
      "de": "jemand --> irgendjemand",
-     "note": "indefinite pronoun"
+     "note": "indefinite pronoun",
+     "marks": []
     },
     {
      "de": "etwas --> irgendetwas (colloquially: was --> irgendwas)",
-     "note": "the written form and the spoken one"
+     "note": "the written form and the spoken one",
+     "marks": [
+      [
+       45,
+       54
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-indefinite-pronouns-and-adverbs-with-irg-e1",
@@ -10967,9 +12698,28 @@
    "examples": [
     {
      "de": "nirgendwo = nirgends, nirgendwohin, nirgendwoher",
-     "note": "the document's full list, with the equals sign marking the two equivalents"
+     "note": "the document's full list, with the equals sign marking the two equivalents",
+     "marks": [
+      [
+       0,
+       9
+      ],
+      [
+       12,
+       20
+      ],
+      [
+       22,
+       34
+      ],
+      [
+       36,
+       48
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-n-words-e1",
@@ -11105,33 +12855,61 @@
    "examples": [
     {
      "de": "Wofür dankt Frau Egger Bernd?",
-     "note": "für + was → wofür"
+     "note": "für + was → wofür",
+     "marks": [
+      [
+       0,
+       5
+      ]
+     ]
     },
     {
      "de": "Sie dankt Bernd für die Bewerbung.",
-     "note": "the answer keeps the preposition für"
+     "note": "the answer keeps the preposition für",
+     "marks": []
     },
     {
      "de": "Worin möchte Bernd Erfahrungen sammeln?",
-     "note": "in + was → worin, with r before the vowel"
+     "note": "in + was → worin, with r before the vowel",
+     "marks": [
+      [
+       0,
+       5
+      ]
+     ]
     },
     {
      "de": "Bernd hat ein kleines Zimmer. Darin stehen wenig Möbel.",
-     "note": "darin = in dem Zimmer"
+     "note": "darin = in dem Zimmer",
+     "marks": []
     },
     {
      "de": "Bernd arbeitet bei Frau Egger. Er freut sich darüber.",
-     "note": "darüber points at the whole previous sentence"
+     "note": "darüber points at the whole previous sentence",
+     "marks": []
     },
     {
      "de": "Frau Egger kann sich darauf verlassen, dass Bernd drei Monate bleibt.",
-     "note": "cataphora — darauf points forward to the dass-clause"
+     "note": "cataphora — darauf points forward to the dass-clause",
+     "marks": [
+      [
+       21,
+       27
+      ]
+     ]
     },
     {
      "de": "Bernd bleibt drei Monate. Darauf kann sich Frau Egger verlassen.",
-     "note": "anaphora — darauf points back"
+     "note": "anaphora — darauf points back",
+     "marks": [
+      [
+       26,
+       32
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-question-word-wo-r-prepositional-pronoun-e1",
@@ -11299,29 +13077,61 @@
    "examples": [
     {
      "de": "man begrüßt sich",
-     "note": "singular subject man — people greet one another"
+     "note": "singular subject man — people greet one another",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "wir begrüßen uns",
-     "note": "1st person plural"
+     "note": "1st person plural",
+     "marks": [
+      [
+       13,
+       16
+      ]
+     ]
     },
     {
      "de": "ihr begrüßt euch",
-     "note": "2nd person plural"
+     "note": "2nd person plural",
+     "marks": [
+      [
+       12,
+       16
+      ]
+     ]
     },
     {
      "de": "sie / Sie begrüßen sich",
-     "note": "3rd person plural and the polite form"
+     "note": "3rd person plural and the polite form",
+     "marks": []
     },
     {
      "de": "man nickt sich zu",
-     "note": "the separable verb zunicken"
+     "note": "the separable verb zunicken",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "wir nicken uns zu",
-     "note": "the pronoun comes before the separated prefix"
+     "note": "the pronoun comes before the separated prefix",
+     "marks": [
+      [
+       11,
+       14
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-reflexive-pronouns-reciprocal-meaning-e1",
@@ -11474,21 +13284,36 @@
    "examples": [
     {
      "de": "Ich studiere in Berlin, und es gibt vieles, was super funktioniert.",
-     "note": "was after vieles"
+     "note": "was after vieles",
+     "marks": []
     },
     {
      "de": "Es gibt politisch nichts mehr, was mich wirklich beeindruckt.",
-     "note": "was after nichts"
+     "note": "was after nichts",
+     "marks": []
     },
     {
      "de": "Man kann damit auf etwas aufmerksam machen, womit man nicht einverstanden ist.",
-     "note": "einverstanden sein mit → womit"
+     "note": "einverstanden sein mit → womit",
+     "marks": [
+      [
+       44,
+       49
+      ]
+     ]
     },
     {
      "de": "Das ist etwas, worauf wir vom Asta aufmerksam machen wollten.",
-     "note": "aufmerksam machen auf → worauf"
+     "note": "aufmerksam machen auf → worauf",
+     "marks": [
+      [
+       15,
+       21
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-relative-pronouns-was-wo-r-e1",
@@ -11638,21 +13463,26 @@
    "examples": [
     {
      "de": "der Genuss frischen Fisches",
-     "note": "M — -en on the adjective, -es on the noun"
+     "note": "M — -en on the adjective, -es on the noun",
+     "marks": []
     },
     {
      "de": "ein Beispiel erfolgreichen Engagements",
-     "note": "N — the same pattern"
+     "note": "N — the same pattern",
+     "marks": []
     },
     {
      "de": "Fisch bester Qualität",
-     "note": "F — -er"
+     "note": "F — -er",
+     "marks": []
     },
     {
      "de": "ein Fotomotiv begeisterter Besucher",
-     "note": "Plural — -er"
+     "note": "Plural — -er",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-adjectives-before-nouns-without-an-artic-2-e1",
@@ -11809,33 +13639,41 @@
    "examples": [
     {
      "de": "der hohe Berg der höhere Berg der höchste Berg",
-     "note": "M with the definite article: basic, comparative, superlative"
+     "note": "M with the definite article: basic, comparative, superlative",
+     "marks": []
     },
     {
      "de": "die kurze Grenze die kürzere Grenze die kürzeste Grenze",
-     "note": "F — the superlative adds -est after -z"
+     "note": "F — the superlative adds -est after -z",
+     "marks": []
     },
     {
      "de": "das kleine Land das kleinere Land das kleinste Land",
-     "note": "N"
+     "note": "N",
+     "marks": []
     },
     {
      "de": "die hohen Berge die höheren Berge die höchsten Berge",
-     "note": "Plural, all -en"
+     "note": "Plural, all -en",
+     "marks": []
     },
     {
      "de": "ein / kein / sein höherer Berg",
-     "note": "comparative after ein- takes the strong -er"
+     "note": "comparative after ein- takes the strong -er",
+     "marks": []
     },
     {
      "de": "kein / sein höchster Berg",
-     "note": "no ein- in this row — a superlative cannot follow ein-"
+     "note": "no ein- in this row — a superlative cannot follow ein-",
+     "marks": []
     },
     {
      "de": "hohe Berge höhere Berge höchste Berge",
-     "note": "plural with no article"
+     "note": "plural with no article",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-comparisons-comparative-and-superlative--e1",
@@ -11997,13 +13835,26 @@
    "examples": [
     {
      "de": "Wegen der Kombination aus Theorie und Praxis wäre ein Studium an einer FH sicher interessant.",
-     "note": "wegen + genitive in first position"
+     "note": "wegen + genitive in first position",
+     "marks": [
+      [
+       6,
+       9
+      ]
+     ]
     },
     {
      "de": "Ich muss ein Auslandssemester machen. Ich habe nämlich vor, später für eine internationale Organisation zu arbeiten.",
-     "note": "nämlich after the conjugated verb habe"
+     "note": "nämlich after the conjugated verb habe",
+     "marks": [
+      [
+       47,
+       54
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-giving-reasons-causal-connectives-e1",
@@ -12168,21 +14019,40 @@
    "examples": [
     {
      "de": "Mehrere Stunden am Tag eine Fremdsprache zu lernen ist anstrengend. Folglich ist man manchmal einfach nur müde und macht dann leichter Fehler.",
-     "note": "folglich in position 1, verb second"
+     "note": "folglich in position 1, verb second",
+     "marks": [
+      [
+       51,
+       54
+      ],
+      [
+       77,
+       80
+      ]
+     ]
     },
     {
      "de": "Man ist folglich manchmal einfach nur müde und macht dann leichter Fehler.",
-     "note": "the same sentence with folglich in the middle"
+     "note": "the same sentence with folglich in the middle",
+     "marks": [
+      [
+       4,
+       7
+      ]
+     ]
     },
     {
      "de": "Ich kenne das Wort „Gerät“ nicht, also muss ich im Wörterbuch nachschlagen.",
-     "note": "also in position 1 of the second clause"
+     "note": "also in position 1 of the second clause",
+     "marks": []
     },
     {
      "de": "Ich kenne das Wort „Gerät“ nicht, ich muss also im Wörterbuch nachschlagen.",
-     "note": "the same with also in the middle"
+     "note": "the same with also in the middle",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-expressing-results-consequences-e1",
@@ -12337,21 +14207,46 @@
    "examples": [
     {
      "de": "Lateinkenntnisse können im Studium sehr hilfreich sein. Trotzdem ist das „Latinum“ heute nur noch selten Pflicht.",
-     "note": "trotzdem in position 1, verb second"
+     "note": "trotzdem in position 1, verb second",
+     "marks": [
+      [
+       56,
+       64
+      ]
+     ]
     },
     {
      "de": "Dennoch ist das „Latinum“ heute nur noch selten Pflicht.",
-     "note": "dennoch — the more formal variant"
+     "note": "dennoch — the more formal variant",
+     "marks": [
+      [
+       0,
+       7
+      ]
+     ]
     },
     {
      "de": "Zwar Lateinkenntnisse können im Studium sehr hilfreich sein, aber das „Latinum“ ist heute nur noch selten Pflicht.",
-     "note": "zwar … aber, quoted exactly as the document prints it"
+     "note": "zwar … aber, quoted exactly as the document prints it",
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     },
     {
      "de": "Trotz der Nützlichkeit von Lateinkenntnissen ist das „Latinum“ heute nur noch selten Pflicht.",
-     "note": "trotz + genitive"
+     "note": "trotz + genitive",
+     "marks": [
+      [
+       6,
+       9
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-giving-counter-arguments-concessive-conn-e1",
@@ -12498,17 +14393,52 @@
    "examples": [
     {
      "de": "Statt der Grünen / Statt den Grünen wählt Lisa das nächste Mal eine andere Partei.",
-     "note": "genitive (standard) beside dative (colloquial)"
+     "note": "genitive (standard) beside dative (colloquial)",
+     "marks": [
+      [
+       0,
+       5
+      ],
+      [
+       6,
+       9
+      ],
+      [
+       19,
+       24
+      ]
+     ]
     },
     {
      "de": "Statt im Mai, war die Wahl im Juni.",
-     "note": "statt in front of a prepositional phrase"
+     "note": "statt in front of a prepositional phrase",
+     "marks": [
+      [
+       0,
+       5
+      ]
+     ]
     },
     {
      "de": "Statt für die SPD hat sie für die Grünen gestimmt.",
-     "note": "the preposition für keeps its own case"
+     "note": "the preposition für keeps its own case",
+     "marks": [
+      [
+       0,
+       5
+      ],
+      [
+       6,
+       9
+      ],
+      [
+       26,
+       29
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-preposition-statt-genitive-standard-use--e1",
@@ -12665,9 +14595,11 @@
    "examples": [
     {
      "de": "Während seines Besuchs / seinem Besuch sieht Karl viel von Berlin.",
-     "note": "the genitive and the colloquial dative side by side"
+     "note": "the genitive and the colloquial dative side by side",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-preposition-w-hrend-genitive-standard-us-e1",
@@ -12800,17 +14732,48 @@
    "examples": [
     {
      "de": "Entweder wir gehen in „Criminal Dinner“ oder wir sehen die „Dreigroschenoper“.",
-     "note": "entweder outside the count — subject wir in position 1"
+     "note": "entweder outside the count — subject wir in position 1",
+     "marks": [
+      [
+       0,
+       8
+      ],
+      [
+       40,
+       44
+      ]
+     ]
     },
     {
      "de": "Entweder gehen wir ins Theater im Hafen oder wir besuchen das Stadtfest.",
-     "note": "entweder in position 1 — verb gehen second, subject wir third"
+     "note": "entweder in position 1 — verb gehen second, subject wir third",
+     "marks": [
+      [
+       0,
+       8
+      ],
+      [
+       40,
+       44
+      ]
+     ]
     },
     {
      "de": "Wir können entweder in „Criminal Dinner“ oder das Musical gehen.",
-     "note": "the pair inside one clause, as printed in the document"
+     "note": "the pair inside one clause, as printed in the document",
+     "marks": [
+      [
+       11,
+       19
+      ],
+      [
+       41,
+       45
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-alternatives-entweder-oder-e1",
@@ -12966,13 +14929,26 @@
    "examples": [
     {
      "de": "Je weiter oben eine Person steht, desto besser sind ihre Chancen.",
-     "note": "steht at the end of the je clause; sind second in the main clause"
+     "note": "steht at the end of the je clause; sind second in the main clause",
+     "marks": [
+      [
+       34,
+       39
+      ]
+     ]
     },
     {
      "de": "Je mehr Stimmen ein Partei erhält, umso mehr Sitze bekommt sie.",
-     "note": "quoted as printed — the document has ein Partei, where standard German would be eine Partei"
+     "note": "quoted as printed — the document has ein Partei, where standard German would be eine Partei",
+     "marks": [
+      [
+       35,
+       39
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-expressing-how-one-thing-relates-to-anot-e1",
@@ -13133,17 +15109,39 @@
    "examples": [
     {
      "de": "Innsbruck bietet sowohl Kultur als auch Natur.",
-     "note": "sowohl … als auch — equal weight"
+     "note": "sowohl … als auch — equal weight",
+     "marks": [
+      [
+       31,
+       34
+      ],
+      [
+       35,
+       39
+      ]
+     ]
     },
     {
      "de": "Besucher können dort nicht nur die Architektur, sondern auch die Aussicht bewundern.",
-     "note": "the second element is emphasised"
+     "note": "the second element is emphasised",
+     "marks": [
+      [
+       48,
+       55
+      ],
+      [
+       56,
+       60
+      ]
+     ]
     },
     {
      "de": "Das Restaurant ist weder besonders schick noch ist die Speisekarte aufregend.",
-     "note": "weder … noch — neither applies"
+     "note": "weder … noch — neither applies",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-two-part-connectors-nicht-nur-sondern-au-e1",
@@ -13294,13 +15292,16 @@
    "examples": [
     {
      "de": "Wir duzen unsere Professoren, was komplett anders ist.",
-     "note": "was refers to the whole preceding statement"
+     "note": "was refers to the whole preceding statement",
+     "marks": []
     },
     {
      "de": "Ich mag alles, was mit Sport zu tun hat.",
-     "note": "was refers to the pronoun alles"
+     "note": "was refers to the pronoun alles",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-relative-clauses-with-was-e1",
@@ -13437,21 +15438,31 @@
    "examples": [
     {
      "de": "Wenn Markus den Paketschein hätte, könnte er nachforschen, wo das Paket von seiner Schwester ist.",
-     "note": "the condition is not fulfilled"
+     "note": "the condition is not fulfilled",
+     "marks": [
+      [
+       28,
+       33
+      ]
+     ]
     },
     {
      "de": "Wenn ich nicht so unordentlich wäre, könnte ich jetzt nachforschen.",
-     "note": "Nebensatz mit wenn"
+     "note": "Nebensatz mit wenn",
+     "marks": []
     },
     {
      "de": "Wäre ich nicht so unordentlich, könnte ich jetzt nachforschen.",
-     "note": "Nebensatz ohne wenn — the verb opens the clause"
+     "note": "Nebensatz ohne wenn — the verb opens the clause",
+     "marks": []
     },
     {
      "de": "Ich könnte jetzt nachforschen, wenn ich nicht so unordentlich wäre.",
-     "note": "main clause first"
+     "note": "main clause first",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-improbable-conditional-sentences-e1",
@@ -13616,17 +15627,31 @@
    "examples": [
     {
      "de": "Während wir dort Kaffee getrunken haben, habe ich beobachtet",
-     "note": "während — two things at once"
+     "note": "während — two things at once",
+     "marks": [
+      [
+       0,
+       7
+      ]
+     ]
     },
     {
      "de": "Nachdem wir es bis zum Bahnhof Zoo geschafft hatten, fing es an zu regnen.",
-     "note": "nachdem — the Plusquamperfekt geschafft hatten comes first in time"
+     "note": "nachdem — the Plusquamperfekt geschafft hatten comes first in time",
+     "marks": [
+      [
+       0,
+       7
+      ]
+     ]
     },
     {
      "de": "Bevor ich endlich die Füße hochlegen konnte, musste ich noch mit Marlene zum türkischen Markt.",
-     "note": "bevor — the hochlegen comes later in time"
+     "note": "bevor — the hochlegen comes later in time",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-simultaneity-e1",
@@ -13791,17 +15816,31 @@
    "examples": [
     {
      "de": "Lateinkenntnisse können im Studium sehr hilfreich sein. Deshalb war das „Latinum“ früher fast immer Pflicht.",
-     "note": "the plain reason, before it becomes the counter-argument"
+     "note": "the plain reason, before it becomes the counter-argument",
+     "marks": []
     },
     {
      "de": "Obwohl Lateinkenntnisse im Studium sehr hilfreich sein können, ist das „Latinum“ heute nur noch selten Pflicht.",
-     "note": "obwohl clause first — the main clause opens with ist"
+     "note": "obwohl clause first — the main clause opens with ist",
+     "marks": [
+      [
+       0,
+       6
+      ]
+     ]
     },
     {
      "de": "Das „Latinum“ ist heute nur noch selten Pflicht, obwohl Lateinkenntnisse im Studium sehr hilfreich sein können.",
-     "note": "the same content with the obwohl clause second"
+     "note": "the same content with the obwohl clause second",
+     "marks": [
+      [
+       49,
+       55
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-giving-a-counter-argument-concessive-cla-e1",
@@ -13955,25 +15994,60 @@
    "examples": [
     {
      "de": "Irina hätte Lust, das Hafenfest zu besuchen.",
-     "note": "after Lust haben"
+     "note": "after Lust haben",
+     "marks": [
+      [
+       32,
+       34
+      ]
+     ]
     },
     {
      "de": "Eleni findet es gut, ins Theater zu gehen.",
-     "note": "after es gut finden"
+     "note": "after es gut finden",
+     "marks": [
+      [
+       33,
+       35
+      ]
+     ]
     },
     {
      "de": "Irinas Bruder hat vor, ins Musical zu gehen.",
-     "note": "after vorhaben"
+     "note": "after vorhaben",
+     "marks": [
+      [
+       35,
+       37
+      ]
+     ]
     },
     {
      "de": "Antonia liebt es, auf einem Schiff mit zu fahren.",
-     "note": "separable verb — the document prints the split to show where zu goes"
+     "note": "separable verb — the document prints the split to show where zu goes",
+     "marks": [
+      [
+       39,
+       41
+      ]
+     ]
     },
     {
      "de": "Es ist am schlimmsten, angerempelt zu werden.",
-     "note": "passive infinitive"
+     "note": "passive infinitive",
+     "marks": [
+      [
+       35,
+       37
+      ],
+      [
+       38,
+       44
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-infinitive-phrases-e1",
@@ -14135,29 +16209,51 @@
    "examples": [
     {
      "de": "Man sollte sich zuerst schriftlich bei den Landwirten melden, damit diese ihre zukünftigen Helfer vorher kennen lernen.",
-     "note": "damit — the subjects differ: man / diese"
+     "note": "damit — the subjects differ: man / diese",
+     "marks": [
+      [
+       62,
+       67
+      ]
+     ]
     },
     {
      "de": "Damit die Landwirte ihre zukünftigen Helfer vorher kennen lernen, sollte man sich zuerst schriftlich bei diesen melden.",
-     "note": "damit clause first"
+     "note": "damit clause first",
+     "marks": [
+      [
+       0,
+       5
+      ]
+     ]
     },
     {
      "de": "Man arbeitet als WWOOFer, um praktische Erfahrung im Bio-Landbau zu sammeln.",
-     "note": "um … zu — the same subject in both halves"
+     "note": "um … zu — the same subject in both halves",
+     "marks": []
     },
     {
      "de": "Um praktische Erfahrung im Bio-Landbau zu sammeln, arbeitet man als WWOOFer.",
-     "note": "the infinitive phrase first"
+     "note": "the infinitive phrase first",
+     "marks": []
     },
     {
      "de": "Für die Mithilfe auf einem Hof erhalten die WWOOFer Verpflegung, Unterkunft und manchmal ein Taschengeld.",
-     "note": "für + noun"
+     "note": "für + noun",
+     "marks": []
     },
     {
      "de": "WWOOFen ist aber kein Ferienjob zum Geldverdienen.",
-     "note": "zum + nominalised verb"
+     "note": "zum + nominalised verb",
+     "marks": [
+      [
+       32,
+       35
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-naming-the-aim-final-dependent-clauses-a-e1",
@@ -14306,13 +16402,21 @@
    "examples": [
     {
      "de": "Es ist anstrengend mehrere Stunden am Tag eine Fremdsprache zu lernen, sodass man manchmal einfach nur müde ist und dann leichter Fehler macht.",
-     "note": "sodass in one piece"
+     "note": "sodass in one piece",
+     "marks": [
+      [
+       71,
+       77
+      ]
+     ]
     },
     {
      "de": "Es ist so anstrengend mehrere Stunden am Tag eine Fremdsprache zu lernen, dass man manchmal einfach nur müde ist und dann leichter Fehler macht.",
-     "note": "split: so with the adjective, dass opening the clause"
+     "note": "split: so with the adjective, dass opening the clause",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-daf-b1-stating-consequences-consecutive-sentenc-e1",
@@ -14467,29 +16571,56 @@
    "examples": [
     {
      "de": "Die Tür ist geöffnet.",
-     "note": "state — the door is open"
+     "note": "state — the door is open",
+     "marks": [
+      [
+       8,
+       11
+      ]
+     ]
     },
     {
      "de": "Die Tür wird geöffnet.",
-     "note": "process — somebody is opening it"
+     "note": "process — somebody is opening it",
+     "marks": []
     },
     {
      "de": "Das Problem ist gelöst.",
-     "note": "state — the problem is solved"
+     "note": "state — the problem is solved",
+     "marks": [
+      [
+       12,
+       15
+      ]
+     ]
     },
     {
      "de": "Das Auto ist repariert.",
-     "note": "state — the car is repaired"
+     "note": "state — the car is repaired",
+     "marks": [
+      [
+       9,
+       12
+      ]
+     ]
     },
     {
      "de": "Das Haus ist gebaut worden.",
-     "note": "werden-passive, Perfekt — note the worden"
+     "note": "werden-passive, Perfekt — note the worden",
+     "marks": [
+      [
+       9,
+       12
+      ]
+     ]
     },
     {
      "de": "Das Haus wird gebaut.",
-     "note": "werden-passive, Präsens"
+     "note": "werden-passive, Präsens",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-web-b1-zustandspassiv-e1",
@@ -14668,45 +16799,76 @@
    "examples": [
     {
      "de": "Ich freue mich auf die Ferien.",
-     "note": "sich freuen auf + Akkusativ — looking forward to something"
+     "note": "sich freuen auf + Akkusativ — looking forward to something",
+     "marks": [
+      [
+       15,
+       18
+      ]
+     ]
     },
     {
      "de": "Ein Team besteht aus 5 Spielern.",
-     "note": "bestehen aus + Dativ — to consist of"
+     "note": "bestehen aus + Dativ — to consist of",
+     "marks": [
+      [
+       17,
+       20
+      ]
+     ]
     },
     {
      "de": "warten auf A",
-     "note": "Ich warte auf den Bus."
+     "note": "Ich warte auf den Bus.",
+     "marks": [
+      [
+       7,
+       10
+      ]
+     ]
     },
     {
      "de": "träumen von D",
-     "note": "Sie träumt von einer langen Reise."
+     "note": "Sie träumt von einer langen Reise.",
+     "marks": [
+      [
+       8,
+       11
+      ]
+     ]
     },
     {
      "de": "glauben an D",
-     "note": "quoted as the list prints it — but standard German is the accusative: Ich glaube an dich."
+     "note": "quoted as the list prints it — but standard German is the accusative: Ich glaube an dich.",
+     "marks": []
     },
     {
      "de": "nachdenken über A",
-     "note": "Ich denke über das Angebot nach."
+     "note": "Ich denke über das Angebot nach.",
+     "marks": []
     },
     {
      "de": "(sich) erinnern an A",
-     "note": "Erinnerst du dich an den Abend?"
+     "note": "Erinnerst du dich an den Abend?",
+     "marks": []
     },
     {
      "de": "(sich) entschuldigen bei D für A",
-     "note": "two objects: bei whom, für what"
+     "note": "two objects: bei whom, für what",
+     "marks": []
     },
     {
      "de": "sich gewöhnen an A",
-     "note": "to get used to something"
+     "note": "to get used to something",
+     "marks": []
     },
     {
      "de": "sich interessieren für A",
-     "note": "to be interested in something"
+     "note": "to be interested in something",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-web-b1-verben-mit-praeposition-e1",
@@ -14898,21 +17060,36 @@
    "examples": [
     {
      "de": "Wenn ich mehr Zeit hätte, würde ich öfter kochen.",
-     "note": "If I had more time, I would cook more often. — hätte (dedicated form) in the wenn-clause, würde in the main clause."
+     "note": "If I had more time, I would cook more often. — hätte (dedicated form) in the wenn-clause, würde in the main clause.",
+     "marks": [
+      [
+       19,
+       24
+      ]
+     ]
     },
     {
      "de": "An deiner Stelle würde ich den Vertrag noch einmal lesen.",
-     "note": "If I were you, I'd read the contract one more time. — advice, with no wenn-clause at all."
+     "note": "If I were you, I'd read the contract one more time. — advice, with no wenn-clause at all.",
+     "marks": []
     },
     {
      "de": "Könnten Sie mir bitte kurz helfen?",
-     "note": "Could you please help me for a moment? — the polite request; können takes its own form."
+     "note": "Could you please help me for a moment? — the polite request; können takes its own form.",
+     "marks": []
     },
     {
      "de": "Wenn er früher losgefahren wäre, hätte er den Zug nicht verpasst.",
-     "note": "If he had left earlier, he wouldn't have missed the train. — past: wäre/hätte + Partizip II."
+     "note": "If he had left earlier, he wouldn't have missed the train. — past: wäre/hätte + Partizip II.",
+     "marks": [
+      [
+       33,
+       38
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen-e1",
@@ -15067,21 +17244,46 @@
    "examples": [
     {
      "de": "Die Unterlagen müssen bis Freitag eingereicht werden.",
-     "note": "The documents must be submitted by Friday. — müssen in position 2, eingereicht + werden at the end."
+     "note": "The documents must be submitted by Friday. — müssen in position 2, eingereicht + werden at the end.",
+     "marks": [
+      [
+       46,
+       52
+      ]
+     ]
     },
     {
      "de": "Das Problem konnte schnell gelöst werden.",
-     "note": "The problem could be solved quickly. — Präteritum: only konnte carries the tense."
+     "note": "The problem could be solved quickly. — Präteritum: only konnte carries the tense.",
+     "marks": [
+      [
+       34,
+       40
+      ]
+     ]
     },
     {
      "de": "Diese Regeln sollen ab nächstem Jahr geändert werden.",
-     "note": "These rules are supposed to be changed starting next year."
+     "note": "These rules are supposed to be changed starting next year.",
+     "marks": [
+      [
+       46,
+       52
+      ]
+     ]
     },
     {
      "de": "Der Termin musste leider verschoben werden.",
-     "note": "The appointment unfortunately had to be postponed. — musste, then verschoben werden."
+     "note": "The appointment unfortunately had to be postponed. — musste, then verschoben werden.",
+     "marks": [
+      [
+       36,
+       42
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-2-passiv-mit-modalverben-e1",
@@ -15237,21 +17439,36 @@
    "examples": [
     {
      "de": "Das ist der Kollege, mit dem ich gestern telefoniert habe.",
-     "note": "That's the colleague I spoke to on the phone yesterday. — mit + dative, so mit dem."
+     "note": "That's the colleague I spoke to on the phone yesterday. — mit + dative, so mit dem.",
+     "marks": [
+      [
+       25,
+       28
+      ]
+     ]
     },
     {
      "de": "Die Firma, für die sie arbeitet, wurde letztes Jahr gegründet.",
-     "note": "The company she works for was founded last year. — für + accusative, feminine: für die."
+     "note": "The company she works for was founded last year. — für + accusative, feminine: für die.",
+     "marks": []
     },
     {
      "de": "Das ist der Mann, dessen Auto letzte Woche gestohlen wurde.",
-     "note": "That's the man whose car was stolen last week. — der Mann is masculine, so dessen."
+     "note": "That's the man whose car was stolen last week. — der Mann is masculine, so dessen.",
+     "marks": []
     },
     {
      "de": "Die Autorin, deren Bücher ich sehr mag, kommt aus Hamburg.",
-     "note": "The author whose books I really like is from Hamburg. — die Autorin is feminine, so deren, despite Bücher being plural."
+     "note": "The author whose books I really like is from Hamburg. — die Autorin is feminine, so deren, despite Bücher being plural.",
+     "marks": [
+      [
+       13,
+       18
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv-e1",
@@ -15415,21 +17632,41 @@
    "examples": [
     {
      "de": "Nach der Ankunft des Zuges verließen alle Passagiere den Bahnsteig.",
-     "note": "After the train's arrival, all passengers left the platform. — nach + Dativ, then the genitive des Zuges."
+     "note": "After the train's arrival, all passengers left the platform. — nach + Dativ, then the genitive des Zuges.",
+     "marks": [
+      [
+       17,
+       20
+      ]
+     ]
     },
     {
      "de": "Durch die Verspätung des Fluges verpasste sie ihren Anschluss.",
-     "note": "Because of the flight's delay, she missed her connection. — durch names the cause."
+     "note": "Because of the flight's delay, she missed her connection. — durch names the cause.",
+     "marks": [
+      [
+       21,
+       24
+      ]
+     ]
     },
     {
      "de": "Die Überprüfung der Unterlagen dauert etwa zwei Wochen.",
-     "note": "The review of the documents takes about two weeks. — here the nominalization is the subject itself."
+     "note": "The review of the documents takes about two weeks. — here the nominalization is the subject itself.",
+     "marks": []
     },
     {
      "de": "Bei der Planung der Reise haben wir das Wetter nicht bedacht.",
-     "note": "When planning the trip, we didn't take the weather into account. — bei + Dativ replaces an als/wenn clause."
+     "note": "When planning the trip, we didn't take the weather into account. — bei + Dativ replaces an als/wenn clause.",
+     "marks": [
+      [
+       8,
+       15
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-4-nominalisierung-vom-verb-zum-nomen-e1",
@@ -15593,21 +17830,41 @@
    "examples": [
     {
      "de": "Obwohl es stark regnete, sind wir spazieren gegangen.",
-     "note": "Although it was raining heavily, we went for a walk. — obwohl sends regnete to the end."
+     "note": "Although it was raining heavily, we went for a walk. — obwohl sends regnete to the end.",
+     "marks": [
+      [
+       16,
+       23
+      ]
+     ]
     },
     {
      "de": "Es regnete stark, trotzdem sind wir spazieren gegangen.",
-     "note": "It was raining heavily; nevertheless, we went for a walk. — trotzdem in position 1, then the verb sind."
+     "note": "It was raining heavily; nevertheless, we went for a walk. — trotzdem in position 1, then the verb sind.",
+     "marks": [
+      [
+       3,
+       10
+      ]
+     ]
     },
     {
      "de": "Sie war krank, deshalb konnte sie nicht zur Prüfung kommen.",
-     "note": "She was sick, which is why she couldn't come to the exam. — deshalb in position 1, verb konnte second."
+     "note": "She was sick, which is why she couldn't come to the exam. — deshalb in position 1, verb konnte second.",
+     "marks": []
     },
     {
      "de": "Er hat sein Deutsch verbessert, indem er jeden Tag Zeitung gelesen hat.",
-     "note": "He improved his German by reading the newspaper every day. — indem names the means; the verb closes the clause."
+     "note": "He improved his German by reading the newspaper every day. — indem names the means; the verb closes the clause.",
+     "marks": [
+      [
+       32,
+       37
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-5-konzessive-und-kausale-konnektoren-e1",
@@ -15760,21 +18017,50 @@
    "examples": [
     {
      "de": "Sie lernt jeden Tag Deutsch, um die Prüfung zu bestehen.",
-     "note": "She studies German every day (in order) to pass the exam. — purpose; she studies and she passes, same subject."
+     "note": "She studies German every day (in order) to pass the exam. — purpose; she studies and she passes, same subject.",
+     "marks": [
+      [
+       44,
+       46
+      ]
+     ]
     },
     {
      "de": "Er verließ das Meeting, ohne sich zu verabschieden.",
-     "note": "He left the meeting without saying goodbye. — what did not happen alongside."
+     "note": "He left the meeting without saying goodbye. — what did not happen alongside.",
+     "marks": [
+      [
+       34,
+       36
+      ]
+     ]
     },
     {
      "de": "Statt eine Antwort zu schreiben, hat er einfach angerufen.",
-     "note": "Instead of writing a reply, he simply called. — the infinitive clause opens the sentence."
+     "note": "Instead of writing a reply, he simply called. — the infinitive clause opens the sentence.",
+     "marks": [
+      [
+       0,
+       5
+      ],
+      [
+       19,
+       21
+      ]
+     ]
     },
     {
      "de": "Wir sind losgefahren, ohne die Karte zu prüfen.",
-     "note": "We set off without checking the map."
+     "note": "We set off without checking the map.",
+     "marks": [
+      [
+       37,
+       39
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu-e1",
@@ -15936,21 +18222,46 @@
    "examples": [
     {
      "de": "Bis nächsten Freitag werde ich den Bericht fertig geschrieben haben.",
-     "note": "By next Friday I will have finished writing the report. — the completed future, with a deadline."
+     "note": "By next Friday I will have finished writing the report. — the completed future, with a deadline.",
+     "marks": [
+      [
+       62,
+       67
+      ]
+     ]
     },
     {
      "de": "Sie wird den Zug wohl verpasst haben, sonst wäre sie längst hier.",
-     "note": "She'll probably have missed the train, otherwise she'd have been here long ago. — a guess about the past; note wohl."
+     "note": "She'll probably have missed the train, otherwise she'd have been here long ago. — a guess about the past; note wohl.",
+     "marks": [
+      [
+       31,
+       36
+      ]
+     ]
     },
     {
      "de": "In zehn Jahren wird sich die Stadt stark verändert haben.",
-     "note": "In ten years the city will have changed a great deal."
+     "note": "In ten years the city will have changed a great deal.",
+     "marks": [
+      [
+       51,
+       56
+      ]
+     ]
     },
     {
      "de": "Er wird gestern vermutlich zu lange gearbeitet haben.",
-     "note": "He'll probably have worked too long yesterday. — gestern plus vermutlich: unmistakably a guess, not a future."
+     "note": "He'll probably have worked too long yesterday. — gestern plus vermutlich: unmistakably a guess, not a future.",
+     "marks": [
+      [
+       47,
+       52
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung-e1",
@@ -16107,21 +18418,36 @@
    "examples": [
     {
      "de": "Der Minister sagte, die Lage sei ernst.",
-     "note": "The minister said the situation was serious. — sei, the Konjunktiv I of sein."
+     "note": "The minister said the situation was serious. — sei, the Konjunktiv I of sein.",
+     "marks": [
+      [
+       29,
+       32
+      ]
+     ]
     },
     {
      "de": "Sie erklärte, sie habe den Termin völlig vergessen.",
-     "note": "She explained that she had completely forgotten the appointment. — habe + Partizip II for the past."
+     "note": "She explained that she had completely forgotten the appointment. — habe + Partizip II for the past.",
+     "marks": []
     },
     {
      "de": "Die Zeitung berichtet, die Preise würden weiter steigen.",
-     "note": "The newspaper reports that prices will keep rising. — plural, so Konjunktiv I would read as the indicative; würden steps in."
+     "note": "The newspaper reports that prices will keep rising. — plural, so Konjunktiv I would read as the indicative; würden steps in.",
+     "marks": []
     },
     {
      "de": "Er behauptet, er sei den ganzen Abend zu Hause gewesen.",
-     "note": "He claims he was at home all evening."
+     "note": "He claims he was at home all evening.",
+     "marks": [
+      [
+       17,
+       20
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-8-indirekte-rede-mit-konjunktiv-i-e1",
@@ -16285,21 +18611,36 @@
    "examples": [
     {
      "de": "Das schlafende Kind wurde von dem Lärm nicht wach.",
-     "note": "The sleeping child did not wake up from the noise. — Partizip I: the child is doing the sleeping."
+     "note": "The sleeping child did not wake up from the noise. — Partizip I: the child is doing the sleeping.",
+     "marks": [
+      [
+       4,
+       14
+      ]
+     ]
     },
     {
      "de": "Der reparierte Drucker funktioniert wieder einwandfrei.",
-     "note": "The repaired printer works perfectly again. — Partizip II: somebody repaired it."
+     "note": "The repaired printer works perfectly again. — Partizip II: somebody repaired it.",
+     "marks": [
+      [
+       4,
+       14
+      ]
+     ]
     },
     {
      "de": "Wir suchen eine überzeugende Lösung für dieses Problem.",
-     "note": "We are looking for a convincing solution. — Partizip I with the ending for eine + feminine accusative."
+     "note": "We are looking for a convincing solution. — Partizip I with the ending for eine + feminine accusative.",
+     "marks": []
     },
     {
      "de": "Die eingeladenen Gäste warteten bereits im Garten.",
-     "note": "The invited guests were already waiting in the garden. — Partizip II, plural ending."
+     "note": "The invited guests were already waiting in the garden. — Partizip II, plural ending.",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-9-partizip-i-und-partizip-ii-als-attribut-e1",
@@ -16461,21 +18802,31 @@
    "examples": [
     {
      "de": "Der seit Wochen andauernde Streit belastet das ganze Team.",
-     "note": "The dispute that has been going on for weeks is a strain on the whole team. — Partizip I with a time phrase inside."
+     "note": "The dispute that has been going on for weeks is a strain on the whole team. — Partizip I with a time phrase inside.",
+     "marks": [
+      [
+       16,
+       26
+      ]
+     ]
     },
     {
      "de": "Das von der Kommission geprüfte Konzept wurde schließlich angenommen.",
-     "note": "The concept examined by the commission was finally accepted. — Partizip II with the agent inside."
+     "note": "The concept examined by the commission was finally accepted. — Partizip II with the agent inside.",
+     "marks": []
     },
     {
      "de": "Die im letzten Jahr eingeführten Regeln gelten weiterhin.",
-     "note": "The rules introduced last year still apply."
+     "note": "The rules introduced last year still apply.",
+     "marks": []
     },
     {
      "de": "Wir danken allen an dem Projekt beteiligten Kolleginnen und Kollegen.",
-     "note": "We thank all colleagues involved in the project."
+     "note": "We thank all colleagues involved in the project.",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-10-erweiterte-partizipialattribute-e1",
@@ -16637,21 +18988,41 @@
    "examples": [
     {
      "de": "Ich freue mich schon sehr auf den Urlaub im September.",
-     "note": "I'm really looking forward to the holiday in September. — sich freuen auf + accusative."
+     "note": "I'm really looking forward to the holiday in September. — sich freuen auf + accusative.",
+     "marks": [
+      [
+       26,
+       29
+      ]
+     ]
     },
     {
      "de": "Worauf wartest du eigentlich noch?",
-     "note": "What are you actually still waiting for? — warten auf, asking about a thing."
+     "note": "What are you actually still waiting for? — warten auf, asking about a thing.",
+     "marks": [
+      [
+       0,
+       6
+      ]
+     ]
     },
     {
      "de": "Sie interessiert sich vor allem für alte Sprachen.",
-     "note": "She is interested above all in ancient languages. — sich interessieren für."
+     "note": "She is interested above all in ancient languages. — sich interessieren für.",
+     "marks": []
     },
     {
      "de": "Wir haben lange darüber gesprochen, aber nichts entschieden.",
-     "note": "We talked about it for a long time but decided nothing. — darüber refers back to the whole matter."
+     "note": "We talked about it for a long time but decided nothing. — darüber refers back to the whole matter.",
+     "marks": [
+      [
+       16,
+       23
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien-e1",
@@ -16813,21 +19184,36 @@
    "examples": [
     {
      "de": "Je länger ich darüber nachdenke, desto weniger verstehe ich es.",
-     "note": "The longer I think about it, the less I understand it. — nachdenke at the end, verstehe right after desto weniger."
+     "note": "The longer I think about it, the less I understand it. — nachdenke at the end, verstehe right after desto weniger.",
+     "marks": [
+      [
+       33,
+       38
+      ]
+     ]
     },
     {
      "de": "Sie spricht sowohl Französisch als auch Portugiesisch.",
-     "note": "She speaks both French and Portuguese."
+     "note": "She speaks both French and Portuguese.",
+     "marks": []
     },
     {
      "de": "Wir können entweder heute anfangen oder bis Montag warten.",
-     "note": "We can either start today or wait until Monday."
+     "note": "We can either start today or wait until Monday.",
+     "marks": []
     },
     {
      "de": "Er hat weder angerufen noch eine Nachricht geschrieben.",
-     "note": "He neither called nor wrote a message. — no extra nicht anywhere."
+     "note": "He neither called nor wrote a message. — no extra nicht anywhere.",
+     "marks": [
+      [
+       23,
+       27
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-12-zweiteilige-konnektoren-e1",
@@ -16984,21 +19370,36 @@
    "examples": [
     {
      "de": "Nachdem wir gegessen hatten, gingen wir noch eine Runde spazieren.",
-     "note": "After we had eaten, we went for a walk. — Plusquamperfekt then Präteritum."
+     "note": "After we had eaten, we went for a walk. — Plusquamperfekt then Präteritum.",
+     "marks": [
+      [
+       21,
+       27
+      ]
+     ]
     },
     {
      "de": "Während sie telefonierte, machte er schon das Abendessen.",
-     "note": "While she was on the phone, he was already making dinner. — two things at once."
+     "note": "While she was on the phone, he was already making dinner. — two things at once.",
+     "marks": [
+      [
+       0,
+       7
+      ]
+     ]
     },
     {
      "de": "Sobald der Vertrag unterschrieben ist, beginnen wir mit der Arbeit.",
-     "note": "As soon as the contract is signed, we'll start work."
+     "note": "As soon as the contract is signed, we'll start work.",
+     "marks": []
     },
     {
      "de": "Seitdem er in Hamburg wohnt, sehen wir uns nur noch selten.",
-     "note": "Since he's been living in Hamburg, we hardly ever see each other. — seitdem names the starting point."
+     "note": "Since he's been living in Hamburg, we hardly ever see each other. — seitdem names the starting point.",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-13-temporale-nebensaetze-e1",
@@ -17160,21 +19561,49 @@
    "examples": [
     {
      "de": "Er muss den Brief schon gelesen haben, er reagiert ja darauf.",
-     "note": "He must have read the letter already — he's reacting to it. — strong certainty about the past."
+     "note": "He must have read the letter already — he's reacting to it. — strong certainty about the past.",
+     "marks": [
+      [
+       32,
+       37
+      ]
+     ]
     },
     {
      "de": "Sie soll früher einmal in Japan gelebt haben.",
-     "note": "She is said to have lived in Japan at one time. — other people say so."
+     "note": "She is said to have lived in Japan at one time. — other people say so.",
+     "marks": [
+      [
+       4,
+       8
+      ],
+      [
+       39,
+       44
+      ]
+     ]
     },
     {
      "de": "Er will von der ganzen Sache nichts gewusst haben.",
-     "note": "He claims to have known nothing about the whole thing. — his own claim about himself."
+     "note": "He claims to have known nothing about the whole thing. — his own claim about himself.",
+     "marks": [
+      [
+       3,
+       7
+      ],
+      [
+       44,
+       49
+      ]
+     ]
     },
     {
      "de": "Das dürfte für die meisten Teilnehmer kein Problem sein.",
-     "note": "That should not be a problem for most participants. — a careful, likely assumption."
+     "note": "That should not be a problem for most participants. — a careful, likely assumption.",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-14-subjektiver-gebrauch-der-modalverben-e1",
@@ -17343,21 +19772,36 @@
    "examples": [
     {
      "de": "Das Problem lässt sich in wenigen Minuten lösen.",
-     "note": "The problem can be solved in a few minutes. — sich lassen, so the können-passive."
+     "note": "The problem can be solved in a few minutes. — sich lassen, so the können-passive.",
+     "marks": []
     },
     {
      "de": "Die Formulare sind bis Freitag im Sekretariat abzugeben.",
-     "note": "The forms are to be handed in by Friday. — sein + zu, here meaning müssen."
+     "note": "The forms are to be handed in by Friday. — sein + zu, here meaning müssen.",
+     "marks": [
+      [
+       46,
+       55
+      ]
+     ]
     },
     {
      "de": "Die Handschrift auf dem Umschlag ist kaum lesbar.",
-     "note": "The handwriting on the envelope is barely legible. — the -bar adjective."
+     "note": "The handwriting on the envelope is barely legible. — the -bar adjective.",
+     "marks": [
+      [
+       42,
+       48
+      ]
+     ]
     },
     {
      "de": "Dieser Fehler ließ sich leider nicht mehr korrigieren.",
-     "note": "Unfortunately this mistake could no longer be corrected. — sich lassen in the Präteritum."
+     "note": "Unfortunately this mistake could no longer be corrected. — sich lassen in the Präteritum.",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-b2-15-passiversatzformen-e1",
@@ -17513,33 +19957,61 @@
    "examples": [
     {
      "de": "Es muss sich um eine Sucht handeln.",
-     "note": "100 % — the speaker is sure, but has no proof."
+     "note": "100 % — the speaker is sure, but has no proof.",
+     "marks": [
+      [
+       3,
+       7
+      ]
+     ]
     },
     {
      "de": "Auch beim letzten Fall muss es sich um die neue Sucht gehandelt haben.",
-     "note": "Past: muss + Infinitiv Perfekt."
+     "note": "Past: muss + Infinitiv Perfekt.",
+     "marks": [
+      [
+       23,
+       27
+      ]
+     ]
     },
     {
      "de": "Er müsste den Zug eigentlich noch bekommen, da er glücklicherweise Verspätung hat.",
-     "note": "90 % — the speaker supposes it."
+     "note": "90 % — the speaker supposes it.",
+     "marks": []
     },
     {
      "de": "Die Sucht dürfte besonders junge Leute betreffen.",
-     "note": "75 % — probable."
+     "note": "75 % — probable.",
+     "marks": [
+      [
+       10,
+       16
+      ]
+     ]
     },
     {
      "de": "Die Nervosität könnte von der Handysucht kommen.",
-     "note": "50 % — possible."
+     "note": "50 % — possible.",
+     "marks": [
+      [
+       15,
+       21
+      ]
+     ]
     },
     {
      "de": "Der Täter soll sich zurzeit im Ausland aufhalten.",
-     "note": "sollen — reported by others."
+     "note": "sollen — reported by others.",
+     "marks": []
     },
     {
      "de": "Eine 56-Jährige will durch den Ärmelkanal geschwommen sein.",
-     "note": "wollen — she claims it about herself."
+     "note": "wollen — she claims it about herself.",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l01-1-e1",
@@ -17723,33 +20195,41 @@
    "examples": [
     {
      "de": "Max misstraut den Berichten über solche Rekordversuche.",
-     "note": "miss- — trauen becomes its opposite."
+     "note": "miss- — trauen becomes its opposite.",
+     "marks": []
     },
     {
      "de": "Man sollte die Glücksmomente aber nicht zerreden.",
-     "note": "zer- — talking something to pieces."
+     "note": "zer- — talking something to pieces.",
+     "marks": []
     },
     {
      "de": "Dem Modell ist das Make-up total zerlaufen.",
-     "note": "zer- — running and coming apart."
+     "note": "zer- — running and coming apart.",
+     "marks": []
     },
     {
      "de": "Bei manchen beginnt die Entspannung bereits, wenn sie sich entkleiden.",
-     "note": "ent- — taking clothes off."
+     "note": "ent- — taking clothes off.",
+     "marks": []
     },
     {
      "de": "Plastikabfall wurde in speziellen Containern entsorgt.",
-     "note": "ent- — getting rid of."
+     "note": "ent- — getting rid of.",
+     "marks": []
     },
     {
      "de": "Ein Kollege hilft mir, das alte Programm auf dem Computer zu deinstallieren.",
-     "note": "de- — undoing the installation."
+     "note": "de- — undoing the installation.",
+     "marks": []
     },
     {
      "de": "Durch das viele Laufen wurden die Wirbel wieder leicht destabilisiert.",
-     "note": "de- — undoing the stabilisation."
+     "note": "de- — undoing the stabilisation.",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l01-2-e1",
@@ -17907,33 +20387,51 @@
    "examples": [
     {
      "de": "Wenn Samira auch oft abends oder am Wochenende Dienst hat, so hat sie ihre Entscheidung noch nicht bereut.",
-     "note": "concessive wenn … auch, taken up by so."
+     "note": "concessive wenn … auch, taken up by so.",
+     "marks": [
+      [
+       12,
+       16
+      ]
+     ]
     },
     {
      "de": "Obwohl Samira oft abends oder am Wochenende Dienst hat, hat sie ihre Entscheidung noch nicht bereut.",
-     "note": "the same content with obwohl."
+     "note": "the same content with obwohl.",
+     "marks": []
     },
     {
      "de": "Wie sehr sich die Auszubildende auch bemüht, alles richtig zu machen, manche Tätigkeiten fallen ihr noch schwer.",
-     "note": "concessive wie … auch."
+     "note": "concessive wie … auch.",
+     "marks": [
+      [
+       32,
+       36
+      ]
+     ]
     },
     {
      "de": "es sei denn, dass unser Kind krank wird.",
-     "note": "restrictive — the one case that cancels the plan."
+     "note": "restrictive — the one case that cancels the plan.",
+     "marks": []
     },
     {
      "de": "außer wenn unser Kind krank wird.",
-     "note": "the same restriction with außer wenn."
+     "note": "the same restriction with außer wenn.",
+     "marks": []
     },
     {
      "de": "Die beiden Hotelzimmer sind fast gleich, außer dass Sie im teureren Zimmer Alpenblick haben.",
-     "note": "außer dass names the single difference."
+     "note": "außer dass names the single difference.",
+     "marks": []
     },
     {
      "de": "Die beiden Hotelzimmer sind fast gleich, nur dass Sie im teureren Zimmer Alpenblick haben.",
-     "note": "nur dass — always the second clause."
+     "note": "nur dass — always the second clause.",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l02-1-e1",
@@ -18115,33 +20613,41 @@
    "examples": [
     {
      "de": "zur Auswahl stehen",
-     "note": "= ausgewählt werden können"
+     "note": "= ausgewählt werden können",
+     "marks": []
     },
     {
      "de": "zur Verfügung stellen",
-     "note": "= bereitstellen"
+     "note": "= bereitstellen",
+     "marks": []
     },
     {
      "de": "Vorbereitungen treffen",
-     "note": "= etwas vorbereiten"
+     "note": "= etwas vorbereiten",
+     "marks": []
     },
     {
      "de": "das Verständnis vertiefen",
-     "note": "= besser verstehen"
+     "note": "= besser verstehen",
+     "marks": []
     },
     {
      "de": "in Kauf nehmen",
-     "note": "= akzeptieren"
+     "note": "= akzeptieren",
+     "marks": []
     },
     {
      "de": "auf Kritik stoßen",
-     "note": "= kritisiert werden"
+     "note": "= kritisiert werden",
+     "marks": []
     },
     {
      "de": "infrage kommen",
-     "note": "= möglich, denkbar sein"
+     "note": "= möglich, denkbar sein",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l02-2-e1",
@@ -18304,33 +20810,41 @@
    "examples": [
     {
      "de": "Der Mensch kann sich der Außenwelt anpassen.",
-     "note": "können — the starting sentence."
+     "note": "können — the starting sentence.",
+     "marks": []
     },
     {
      "de": "Er hat das Recht / die Erlaubnis / die Genehmigung,",
-     "note": "können / dürfen as permission."
+     "note": "können / dürfen as permission.",
+     "marks": []
     },
     {
      "de": "Sie waren immer schon gezwungen, ihr Gehirn anzustrengen.",
-     "note": "müssen → gezwungen sein."
+     "note": "müssen → gezwungen sein.",
+     "marks": []
     },
     {
      "de": "Er hat die Arbeit rechtzeitig zu erledigen.",
-     "note": "müssen → haben + zu + Infinitiv."
+     "note": "müssen → haben + zu + Infinitiv.",
+     "marks": []
     },
     {
      "de": "Ich habe den Wunsch, mehr Zeit für mich zu haben.",
-     "note": "wollen → den Wunsch haben."
+     "note": "wollen → den Wunsch haben.",
+     "marks": []
     },
     {
      "de": "Er weigerte sich, unsere Entscheidung zu akzeptieren.",
-     "note": "nicht wollen → sich weigern."
+     "note": "nicht wollen → sich weigern.",
+     "marks": []
     },
     {
      "de": "Man sollte flexibel sein.",
-     "note": "sollte — recommendation."
+     "note": "sollte — recommendation.",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l03-1-e1",
@@ -18507,21 +21021,36 @@
    "examples": [
     {
      "de": "Der Büroalltag ist zu stressig, als dass man gute Vorsätze für die Gesundheit umsetzen könnte.",
-     "note": "zu + Adjektiv, als dass + Konjunktiv II."
+     "note": "zu + Adjektiv, als dass + Konjunktiv II.",
+     "marks": [
+      [
+       87,
+       93
+      ]
+     ]
     },
     {
      "de": "Das Buch war zu interessant, als dass ich mit dem Lesen hätte aufhören können.",
-     "note": "past: hätte … können."
+     "note": "past: hätte … können.",
+     "marks": []
     },
     {
      "de": "Die Vorgänge im Körper sind zu komplex, als dass man sie schnell erklären könnte.",
-     "note": "als dass variant."
+     "note": "als dass variant.",
+     "marks": [
+      [
+       74,
+       80
+      ]
+     ]
     },
     {
      "de": "Die Vorgänge im Körper sind zu komplex, um sie schnell zu erklären.",
-     "note": "the same content with um … zu; können drops."
+     "note": "the same content with um … zu; können drops.",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l03-2-e1",
@@ -18661,33 +21190,41 @@
    "examples": [
     {
      "de": "alle / sämtliche interessierten Mitarbeiter",
-     "note": "wie nach bestimmtem Artikel"
+     "note": "wie nach bestimmtem Artikel",
+     "marks": []
     },
     {
      "de": "keine größeren Enttäuschungen",
-     "note": "wie nach bestimmtem Artikel"
+     "note": "wie nach bestimmtem Artikel",
+     "marks": []
     },
     {
      "de": "solche / welche standardisierten Tests",
-     "note": "wie nach bestimmtem Artikel"
+     "note": "wie nach bestimmtem Artikel",
+     "marks": []
     },
     {
      "de": "renommierte Unternehmen",
-     "note": "nach einige / mehrere / verschiedene / etliche — wie nach Nullartikel im Plural"
+     "note": "nach einige / mehrere / verschiedene / etliche — wie nach Nullartikel im Plural",
+     "marks": []
     },
     {
      "de": "anspruchsvolle Aufgaben",
-     "note": "nach viele / wenige — wie nach Nullartikel im Plural"
+     "note": "nach viele / wenige — wie nach Nullartikel im Plural",
+     "marks": []
     },
     {
      "de": "aktuelle Fragestellungen",
-     "note": "nach folgende / zahlreiche — wie nach Nullartikel im Plural"
+     "note": "nach folgende / zahlreiche — wie nach Nullartikel im Plural",
+     "marks": []
     },
     {
      "de": "die vielen, wenigen, verschiedenen, zahlreichen, folgenden",
-     "note": "with the definite article in front, everything takes -en"
+     "note": "with the definite article in front, everything takes -en",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l03-3-e1",
@@ -18848,33 +21385,88 @@
    "examples": [
     {
      "de": "Es ist wunderbar, dass sich so viele Möglichkeiten bieten.",
-     "note": "es represents a dass-clause."
+     "note": "es represents a dass-clause.",
+     "marks": [
+      [
+       0,
+       2
+      ],
+      [
+       18,
+       22
+      ]
+     ]
     },
     {
      "de": "Für diese Menschen ist es sinnvoller, eine vielseitige Tätigkeit anzustreben.",
-     "note": "es represents an infinitive clause."
+     "note": "es represents an infinitive clause.",
+     "marks": [
+      [
+       23,
+       25
+      ]
+     ]
     },
     {
      "de": "Es ist fraglich, ob das stimmt.",
-     "note": "es represents an indirect question."
+     "note": "es represents an indirect question.",
+     "marks": [
+      [
+       0,
+       2
+      ]
+     ]
     },
     {
      "de": "Sie besorgt nicht nur das Geschenk, sie verpackt es auch.",
-     "note": "es replaces a noun in the accusative."
+     "note": "es replaces a noun in the accusative.",
+     "marks": [
+      [
+       49,
+       51
+      ]
+     ]
     },
     {
      "de": "Meine Kolleginnen sind topfit, ich bin es leider nicht.",
-     "note": "es replaces an adjective; it cannot stand in position 1."
+     "note": "es replaces an adjective; it cannot stand in position 1.",
+     "marks": [
+      [
+       39,
+       41
+      ]
+     ]
     },
     {
      "de": "Es regnet. Es schneit. Es donnert.",
-     "note": "impersonal es — weather."
+     "note": "impersonal es — weather.",
+     "marks": [
+      [
+       0,
+       2
+      ],
+      [
+       11,
+       13
+      ],
+      [
+       23,
+       25
+      ]
+     ]
     },
     {
      "de": "Er hat es eilig.",
-     "note": "impersonal es as an object in a set expression."
+     "note": "impersonal es as an object in a set expression.",
+     "marks": [
+      [
+       7,
+       9
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l04-1-e1",
@@ -19047,29 +21639,51 @@
    "examples": [
     {
      "de": "brand neu / aktuell / gefährlich",
-     "note": "brand- as an intensifier"
+     "note": "brand- as an intensifier",
+     "marks": []
     },
     {
      "de": "hyper aktiv / modern / nervös",
-     "note": "hyper- as an intensifier"
+     "note": "hyper- as an intensifier",
+     "marks": [
+      [
+       0,
+       5
+      ]
+     ]
     },
     {
      "de": "tod schick / traurig",
-     "note": "tod- as an intensifier"
+     "note": "tod- as an intensifier",
+     "marks": []
     },
     {
      "de": "top aktuell / fit / modisch",
-     "note": "top- as an intensifier"
+     "note": "top- as an intensifier",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "voll automatisch / funktionsfähig",
-     "note": "voll- as an intensifier"
+     "note": "voll- as an intensifier",
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     },
     {
      "de": "bildschön, aber nicht bildnett",
-     "note": "the combinations are fixed"
+     "note": "the combinations are fixed",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l04-2-e1",
@@ -19213,33 +21827,46 @@
    "examples": [
     {
      "de": "Der Bildhauer bearbeitet die Skulptur.",
-     "note": "be- + Akkusativ"
+     "note": "be- + Akkusativ",
+     "marks": []
     },
     {
      "de": "Der Bildhauer arbeitet an der Skulptur.",
-     "note": "the plain verb with a preposition"
+     "note": "the plain verb with a preposition",
+     "marks": []
     },
     {
      "de": "Der Kritiker beurteilt die Kunstwerke.",
-     "note": "be- + Akkusativ"
+     "note": "be- + Akkusativ",
+     "marks": []
     },
     {
      "de": "Der Kritiker urteilt über die Kunstwerke.",
-     "note": "the plain verb with a preposition"
+     "note": "the plain verb with a preposition",
+     "marks": []
     },
     {
      "de": "Dann habe ich mich auch noch am Telefon verwählt.",
-     "note": "ver- — the result is unwanted"
+     "note": "ver- — the result is unwanted",
+     "marks": [
+      [
+       40,
+       48
+      ]
+     ]
     },
     {
      "de": "Mit ein paar Bildern kann man ein Zimmer verschönern.",
-     "note": "ver- — a changed state"
+     "note": "ver- — a changed state",
+     "marks": []
     },
     {
      "de": "Der Bildhauer verbringt viel Zeit in seinem Atelier.",
-     "note": "ver- — neutral meaning"
+     "note": "ver- — neutral meaning",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l05-1-e1",
@@ -19407,33 +22034,56 @@
    "examples": [
     {
      "de": "Die Leute fragten,",
-     "note": "the introducing verb"
+     "note": "the introducing verb",
+     "marks": []
     },
     {
      "de": "warum die documenta eigentlich so heiße.",
-     "note": "question word + Konjunktiv I at the end"
+     "note": "question word + Konjunktiv I at the end",
+     "marks": []
     },
     {
      "de": "ob dort die weltbesten Künstler vertreten seien.",
-     "note": "yes/no question → ob"
+     "note": "yes/no question → ob",
+     "marks": [
+      [
+       0,
+       2
+      ]
+     ]
     },
     {
      "de": "ich solle eine Bewerbungsmappe schicken.",
-     "note": "imperative → sollen (neutral request)"
+     "note": "imperative → sollen (neutral request)",
+     "marks": []
     },
     {
      "de": "ich möge die Studienordnung lesen.",
-     "note": "imperative → mögen (polite request)"
+     "note": "imperative → mögen (polite request)",
+     "marks": [
+      [
+       4,
+       8
+      ]
+     ]
     },
     {
      "de": "ich müsse mich bis März anmelden.",
-     "note": "imperative → müssen (urgent request)"
+     "note": "imperative → müssen (urgent request)",
+     "marks": [
+      [
+       4,
+       9
+      ]
+     ]
     },
     {
      "de": "ich solle / dürfe mich nicht verunsichern lassen.",
-     "note": "negative request"
+     "note": "negative request",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l05-2-e1",
@@ -19606,29 +22256,51 @@
    "examples": [
     {
      "de": "Nach (der) Meinung /Aussage von Max Liebermann …",
-     "note": "nach + Dativ, preceding"
+     "note": "nach + Dativ, preceding",
+     "marks": []
     },
     {
      "de": "Max Liebermanns Meinung /Aussage nach …",
-     "note": "nach following the phrase"
+     "note": "nach following the phrase",
+     "marks": []
     },
     {
      "de": "Laut (der) Meinung /Aussage von Max Liebermann …",
-     "note": "laut + Dativ"
+     "note": "laut + Dativ",
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     },
     {
      "de": "Laut Max Liebermann …",
-     "note": "laut + name alone"
+     "note": "laut + name alone",
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     },
     {
      "de": "Max Liebermann zufolge …",
-     "note": "zufolge always follows"
+     "note": "zufolge always follows",
+     "marks": [
+      [
+       15,
+       22
+      ]
+     ]
     },
     {
      "de": "Wie Max Liebermann meinte / sagte,",
-     "note": "a wie-clause does the same job"
+     "note": "a wie-clause does the same job",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l05-3-e1",
@@ -19765,21 +22437,41 @@
    "examples": [
     {
      "de": "Doppelstudiengänge sind entsprechend der neuen Studienordnung möglich.",
-     "note": "entsprechend + Dativ"
+     "note": "entsprechend + Dativ",
+     "marks": [
+      [
+       24,
+       36
+      ]
+     ]
     },
     {
      "de": "Im Vorlesungsverzeichnis findet man den Namen samt der E-Mail-Adresse.",
-     "note": "samt + Dativ"
+     "note": "samt + Dativ",
+     "marks": [
+      [
+       46,
+       50
+      ]
+     ]
     },
     {
      "de": "Sie studiert fern (von) ihrer Heimatstadt.",
-     "note": "fern + Dativ; also possible with the genitive"
+     "note": "fern + Dativ; also possible with the genitive",
+     "marks": []
     },
     {
      "de": "Seinen Eltern zuliebe hat er Jura studiert.",
-     "note": "zuliebe follows the noun"
+     "note": "zuliebe follows the noun",
+     "marks": [
+      [
+       14,
+       21
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l06-1-e1",
@@ -19921,33 +22613,56 @@
    "examples": [
     {
      "de": "Enthusiasmus",
-     "note": "der — suffix -asmus"
+     "note": "der — suffix -asmus",
+     "marks": []
     },
     {
      "de": "Mechanismus",
-     "note": "der — suffix -ismus"
+     "note": "der — suffix -ismus",
+     "marks": []
     },
     {
      "de": "Bibliothekar",
-     "note": "der — male job title in -ar"
+     "note": "der — male job title in -ar",
+     "marks": []
     },
     {
      "de": "Experiment",
-     "note": "das — suffix -ment"
+     "note": "das — suffix -ment",
+     "marks": []
     },
     {
      "de": "Eleganz",
-     "note": "die — suffix -anz, from elegant"
+     "note": "die — suffix -anz, from elegant",
+     "marks": [
+      [
+       0,
+       7
+      ]
+     ]
     },
     {
      "de": "Intelligenz",
-     "note": "die — suffix -enz, from intelligent"
+     "note": "die — suffix -enz, from intelligent",
+     "marks": [
+      [
+       0,
+       11
+      ]
+     ]
     },
     {
      "de": "das Vokabular",
-     "note": "das — a Latin word in -ar, not a job title"
+     "note": "das — a Latin word in -ar, not a job title",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l06-2-e1",
@@ -20105,29 +22820,60 @@
    "examples": [
     {
      "de": "Das kannte ich so nicht.",
-     "note": "das points back to the whole previous statement"
+     "note": "das points back to the whole previous statement",
+     "marks": []
     },
     {
      "de": "Dem stimme ich zu.",
-     "note": "dem — zustimmen takes the dative"
+     "note": "dem — zustimmen takes the dative",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "Da habe ich immer Ansprechpartner gefunden.",
-     "note": "da points back to a place or situation"
+     "note": "da points back to a place or situation",
+     "marks": []
     },
     {
      "de": "Stattdessen / Dafür lernen wir in den Ferien umso mehr.",
-     "note": "replacement / counterpart"
+     "note": "replacement / counterpart",
+     "marks": [
+      [
+       0,
+       11
+      ]
+     ]
     },
     {
      "de": "Dadurch bleibt leider wenig Energie für anderes.",
-     "note": "means or cause"
+     "note": "means or cause",
+     "marks": [
+      [
+       0,
+       7
+      ]
+     ]
     },
     {
      "de": "Dementsprechend / Infolgedessen / Demzufolge ist man fachlich nicht auf dem neuesten Stand.",
-     "note": "consequence"
+     "note": "consequence",
+     "marks": [
+      [
+       18,
+       31
+      ],
+      [
+       72,
+       75
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l06-3-e1",
@@ -20277,33 +23023,66 @@
    "examples": [
     {
      "de": "Die unterschiedliche Reaktion der Menschen",
-     "note": "Adverb → dekliniertes Adjektiv"
+     "note": "Adverb → dekliniertes Adjektiv",
+     "marks": [
+      [
+       30,
+       33
+      ]
+     ]
     },
     {
      "de": "Die Veränderung der Gesellschaft",
-     "note": "Subjekt → Genitivattribut"
+     "note": "Subjekt → Genitivattribut",
+     "marks": [
+      [
+       16,
+       19
+      ]
+     ]
     },
     {
      "de": "Seine Analyse der Gesellschaft machte ihn unzufrieden.",
-     "note": "Objekt → Genitivattribut"
+     "note": "Objekt → Genitivattribut",
+     "marks": [
+      [
+       14,
+       17
+      ]
+     ]
     },
     {
      "de": "Die freiwillige Gabe von Kleidung freut ihn.",
-     "note": "Nomen ohne Artikel → von + Dativ"
+     "note": "Nomen ohne Artikel → von + Dativ",
+     "marks": []
     },
     {
      "de": "Ihr Interesse an Ferienjobs",
-     "note": "Verb + Präposition → Nomen + Präposition"
+     "note": "Verb + Präposition → Nomen + Präposition",
+     "marks": []
     },
     {
      "de": "Die Aufbesserung des Taschengeldes durch manche Eltern",
-     "note": "verursachende Person → durch + Akkusativ"
+     "note": "verursachende Person → durch + Akkusativ",
+     "marks": [
+      [
+       35,
+       40
+      ]
+     ]
     },
     {
      "de": "Die Hilfe der Schuldnerberatung für den Jugendlichen",
-     "note": "Verb + Dativ → Nomen + Präposition"
+     "note": "Verb + Dativ → Nomen + Präposition",
+     "marks": [
+      [
+       10,
+       13
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l07-1-e1",
@@ -20460,33 +23239,56 @@
    "examples": [
     {
      "de": "Herr Müller hat sich verschuldet , weil / da seine Scheidung teuer war.",
-     "note": "Nebensatz mit weil / da"
+     "note": "Nebensatz mit weil / da",
+     "marks": []
     },
     {
      "de": "Ihm ist das nicht so wichtig, zumal / besonders weil er inzwischen eine neue Stelle hat.",
-     "note": "zumal reinforces a reason"
+     "note": "zumal reinforces a reason",
+     "marks": [
+      [
+       30,
+       35
+      ]
+     ]
     },
     {
      "de": "Er ist enttäuscht, denn er hat schon zweimal Schiffbruch erlitten.",
-     "note": "Hauptsatzkonnektor denn"
+     "note": "Hauptsatzkonnektor denn",
+     "marks": []
     },
     {
      "de": "Wegen seiner Scheidung hat Herr Müller sich verschuldet.",
-     "note": "wegen + Genitiv"
+     "note": "wegen + Genitiv",
+     "marks": []
     },
     {
      "de": "Viele verschulden sich mangels Erfahrung im Umgang mit Geld.",
-     "note": "mangels + Genitiv"
+     "note": "mangels + Genitiv",
+     "marks": []
     },
     {
      "de": "Er kocht vor Wut.",
-     "note": "vor — inner cause"
+     "note": "vor — inner cause",
+     "marks": [
+      [
+       9,
+       12
+      ]
+     ]
     },
     {
      "de": "Dank neuer technischer Entwicklungen gibt es Hoffnung für die Städte der Zukunft.",
-     "note": "dank + Genitiv, positive cause"
+     "note": "dank + Genitiv, positive cause",
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l07-2-e1",
@@ -20642,29 +23444,51 @@
    "examples": [
     {
      "de": "das baldige Wiedersehen",
-     "note": "temporal — from bald"
+     "note": "temporal — from bald",
+     "marks": []
     },
     {
      "de": "der morgige Tag",
-     "note": "temporal — from morgen"
+     "note": "temporal — from morgen",
+     "marks": [
+      [
+       4,
+       11
+      ]
+     ]
     },
     {
      "de": "die gestrige Sitzung",
-     "note": "temporal — from gestern"
+     "note": "temporal — from gestern",
+     "marks": [
+      [
+       4,
+       12
+      ]
+     ]
     },
     {
      "de": "das dortige Bürgerbüro",
-     "note": "local — from dort"
+     "note": "local — from dort",
+     "marks": []
     },
     {
      "de": "die hiesige Situation",
-     "note": "local — from hier, with a stem change"
+     "note": "local — from hier, with a stem change",
+     "marks": [
+      [
+       4,
+       11
+      ]
+     ]
     },
     {
      "de": "die sonstigen Kosten",
-     "note": "modal — from sonst"
+     "note": "modal — from sonst",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l07-3-e1",
@@ -20819,33 +23643,41 @@
    "examples": [
     {
      "de": "ein dringend zu lösendes Problem",
-     "note": "Gerundiv"
+     "note": "Gerundiv",
+     "marks": []
     },
     {
      "de": "ein Problem, das dringend gelöst werden muss (soll)",
-     "note": "Passiv mit Modalverb"
+     "note": "Passiv mit Modalverb",
+     "marks": []
     },
     {
      "de": "ein Problem, das dringend zu lösen ist",
-     "note": "Infinitiv + zu"
+     "note": "Infinitiv + zu",
+     "marks": []
     },
     {
      "de": "ein einfach durchzuführender Test",
-     "note": "Gerundiv expressing possibility"
+     "note": "Gerundiv expressing possibility",
+     "marks": []
     },
     {
      "de": "ein Test, der sich einfach durchführen lässt",
-     "note": "sich lassen + Infinitiv"
+     "note": "sich lassen + Infinitiv",
+     "marks": []
     },
     {
      "de": "Die Autorin will Eltern in die Lage versetzen, mit Auffälligkeiten ihrer Kinder umzugehen.",
-     "note": "Aktiv mit wollen"
+     "note": "Aktiv mit wollen",
+     "marks": []
     },
     {
      "de": "Der Leser bekommt anschaulich dargelegt, wie ein Umdenken gelingen kann.",
-     "note": "bekommen + Partizip II"
+     "note": "bekommen + Partizip II",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l08-1-e1",
@@ -21017,33 +23849,61 @@
    "examples": [
     {
      "de": "der reale Austausch =",
-     "note": "= der konkrete Austausch"
+     "note": "= der konkrete Austausch",
+     "marks": []
     },
     {
      "de": "reelle Chancen auf mehr Erfolg =",
-     "note": "= sehr gute Chancen"
+     "note": "= sehr gute Chancen",
+     "marks": [
+      [
+       0,
+       6
+      ]
+     ]
     },
     {
      "de": "die ideale Entscheidung =",
-     "note": "= die bestmögliche Entscheidung"
+     "note": "= die bestmögliche Entscheidung",
+     "marks": []
     },
     {
      "de": "ideelle Werte =",
-     "note": "= keine ökonomischen Werte"
+     "note": "= keine ökonomischen Werte",
+     "marks": [
+      [
+       0,
+       7
+      ]
+     ]
     },
     {
      "de": "rationelle Arbeitsabläufe =",
-     "note": "= rasche, effiziente Arbeitsabläufe"
+     "note": "= rasche, effiziente Arbeitsabläufe",
+     "marks": [
+      [
+       0,
+       10
+      ]
+     ]
     },
     {
      "de": "Der Vorschlag ist nicht praktikabel.",
-     "note": "-bel = kann praktiziert werden"
+     "note": "-bel = kann praktiziert werden",
+     "marks": []
     },
     {
      "de": "Menschen mit einem Putzzwang sind extrem penibel.",
-     "note": "penibel = genau — the -bel rule does not apply here"
+     "note": "penibel = genau — the -bel rule does not apply here",
+     "marks": [
+      [
+       41,
+       48
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l08-2-e1",
@@ -21223,33 +24083,46 @@
    "examples": [
     {
      "de": "Wenn / Falls / Sofern wir viele Schadstoffe produzieren, werden wir schlechte Luft einatmen.",
-     "note": "konditionaler Nebensatz"
+     "note": "konditionaler Nebensatz",
+     "marks": []
     },
     {
      "de": "Je nachdem, wie es mir gefällt, bleibe ich einen Tag länger.",
-     "note": "je nachdem, wie"
+     "note": "je nachdem, wie",
+     "marks": []
     },
     {
      "de": "Bei / Im Falle hoher Schadstoffproduktion atmen wir schlechte Luft ein.",
-     "note": "konditionale Präposition"
+     "note": "konditionale Präposition",
+     "marks": []
     },
     {
      "de": "Ohne den Einsatz von Glashaus-Techniken funktioniert die vertikale Landwirtschaft nicht.",
-     "note": "ohne + Akkusativ"
+     "note": "ohne + Akkusativ",
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     },
     {
      "de": "Auch wenn / Selbst wenn er wohlhabend war, war Wolfgang mit seinem Leben nicht zufrieden.",
-     "note": "konzessiver Nebensatz"
+     "note": "konzessiver Nebensatz",
+     "marks": []
     },
     {
      "de": "Es ist ein Ort mit Tradition. Trotzdem / Dennoch / Allerdings haben sich die Kreßberger an die neuen Bewohner gewöhnt.",
-     "note": "konzessiver Hauptsatzkonnektor"
+     "note": "konzessiver Hauptsatzkonnektor",
+     "marks": []
     },
     {
      "de": "Selbst bei einer alternativen Lebensweise kann man von traditionsbewussten Dorfbewohnern akzeptiert werden.",
-     "note": "selbst bei + Dativ"
+     "note": "selbst bei + Dativ",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l09-1-e1",
@@ -21416,33 +24289,65 @@
    "examples": [
     {
      "de": "Er ist auf seine Leser angewiesen.",
-     "note": "angewiesen auf + Akkusativ"
+     "note": "angewiesen auf + Akkusativ",
+     "marks": [
+      [
+       7,
+       10
+      ]
+     ]
     },
     {
      "de": "Den Lesern gefällt, dass er um aktuelle Bezüge bemüht ist.",
-     "note": "bemüht um + Akkusativ"
+     "note": "bemüht um + Akkusativ",
+     "marks": []
     },
     {
      "de": "Ich bin schon gespannt auf seinen nächsten Roman.",
-     "note": "gespannt auf + Akkusativ"
+     "note": "gespannt auf + Akkusativ",
+     "marks": [
+      [
+       23,
+       26
+      ]
+     ]
     },
     {
      "de": "Die Kreßberger sind verwundert über die alternative Lebensweise der Aussteiger.",
-     "note": "verwundert über + Akkusativ"
+     "note": "verwundert über + Akkusativ",
+     "marks": []
     },
     {
      "de": "Sie ist stets aufgeschlossen gegenüber Neuem.",
-     "note": "aufgeschlossen gegenüber + Dativ"
+     "note": "aufgeschlossen gegenüber + Dativ",
+     "marks": [
+      [
+       14,
+       28
+      ],
+      [
+       29,
+       38
+      ]
+     ]
     },
     {
      "de": "Er ist erfahren im Verfassen von Bestsellern.",
-     "note": "erfahren in + Dativ"
+     "note": "erfahren in + Dativ",
+     "marks": []
     },
     {
      "de": "Ich bin überzeugt davon, dass Kleinstädte einiges zu bieten haben.",
-     "note": "überzeugt von, here as davon + dass-Satz"
+     "note": "überzeugt von, here as davon + dass-Satz",
+     "marks": [
+      [
+       18,
+       23
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l09-2-e1",
@@ -21593,29 +24498,78 @@
    "examples": [
     {
      "de": "Städtische Landwirtschaft, Urban beziehungsweise (bzw.) / respektive Guerilla Gardening genannt, liegt im Trend.",
-     "note": "bzw. — an alternative name"
+     "note": "bzw. — an alternative name",
+     "marks": [
+      [
+       33,
+       48
+      ],
+      [
+       50,
+       53
+      ],
+      [
+       58,
+       68
+      ]
+     ]
     },
     {
      "de": "Ich war mit ihm bekannt beziehungsweise befreundet.",
-     "note": "bzw. — 'or, more exactly'"
+     "note": "bzw. — 'or, more exactly'",
+     "marks": [
+      [
+       24,
+       39
+      ]
+     ]
     },
     {
      "de": "Sie fand die Aufgaben schwierig respektive unmöglich.",
-     "note": "respektive"
+     "note": "respektive",
+     "marks": [
+      [
+       32,
+       42
+      ]
+     ]
     },
     {
      "de": "Die Zukunft gehört ökologischen Lebensformen, und zwar speziell Projekten wie dem Prinzessinnengarten.",
-     "note": "und zwar narrows down"
+     "note": "und zwar narrows down",
+     "marks": [
+      [
+       46,
+       49
+      ],
+      [
+       50,
+       54
+      ]
+     ]
     },
     {
      "de": "Es geht nicht nur um Fassaden, vielmehr geht es um die Stadtlandschaft.",
-     "note": "vielmehr corrects"
+     "note": "vielmehr corrects",
+     "marks": [
+      [
+       31,
+       39
+      ]
+     ]
     },
     {
      "de": "Er ist nicht dumm, vielmehr weiß er gut Bescheid.",
-     "note": "vielmehr corrects"
+     "note": "vielmehr corrects",
+     "marks": [
+      [
+       19,
+       27
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l09-3-e1",
@@ -21763,29 +24717,36 @@
    "examples": [
     {
      "de": "Vorkommen kann es immer wieder.",
-     "note": "infinitive to the modal verb in the Vorfeld"
+     "note": "infinitive to the modal verb in the Vorfeld",
+     "marks": []
     },
     {
      "de": "Verstanden habe ich den Roman sofort.",
-     "note": "Partizip II in the Vorfeld (perfect)"
+     "note": "Partizip II in the Vorfeld (perfect)",
+     "marks": []
     },
     {
      "de": "Übersetzt wurde er in mehrere Sprachen.",
-     "note": "Partizip II in the Vorfeld (passive)"
+     "note": "Partizip II in the Vorfeld (passive)",
+     "marks": []
     },
     {
      "de": "Lesen mag anstrengender sein als Fernsehen.",
-     "note": "comparison moved into the Nachfeld"
+     "note": "comparison moved into the Nachfeld",
+     "marks": []
     },
     {
      "de": "Der Autor hat gerade angefangen zu schreiben.",
-     "note": "infinitive with zu in the Nachfeld"
+     "note": "infinitive with zu in the Nachfeld",
+     "marks": []
     },
     {
      "de": "Man ist nicht immer einverstanden mit der Meinung des Autors.",
-     "note": "afterthought in the Nachfeld"
+     "note": "afterthought in the Nachfeld",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l10-1-e1",
@@ -21955,33 +24916,46 @@
    "examples": [
     {
      "de": "Manipulation, Intention, Kreation",
-     "note": "die — suffix -(a)tion"
+     "note": "die — suffix -(a)tion",
+     "marks": []
     },
     {
      "de": "Fantasie, Harmonie, Ökonomie",
-     "note": "die — suffix -ie"
+     "note": "die — suffix -ie",
+     "marks": []
     },
     {
      "de": "Aktivität, Kreativität, Stabilität",
-     "note": "die — suffix -ität"
+     "note": "die — suffix -ität",
+     "marks": []
     },
     {
      "de": "Figur, Statur, Fraktur",
-     "note": "die — suffix -ur"
+     "note": "die — suffix -ur",
+     "marks": []
     },
     {
      "de": "Wachstum, Eigentum",
-     "note": "das — suffix -tum"
+     "note": "das — suffix -tum",
+     "marks": []
     },
     {
      "de": "Medium, Stadium, Studium",
-     "note": "das — suffix -ium"
+     "note": "das — suffix -ium",
+     "marks": []
     },
     {
      "de": "aber: der Reichtum",
-     "note": "the exception to -tum"
+     "note": "the exception to -tum",
+     "marks": [
+      [
+       10,
+       18
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l10-2-e1",
@@ -22131,33 +25105,51 @@
    "examples": [
     {
      "de": "Wenn der Wecker klingelt, steht Dr. Kauter auf.",
-     "note": "wenn — repeated event"
+     "note": "wenn — repeated event",
+     "marks": []
     },
     {
      "de": "Als der Wecker gestern Morgen klingelte, wollte Fredi nicht aufstehen.",
-     "note": "als — one single past event"
+     "note": "als — one single past event",
+     "marks": [
+      [
+       0,
+       3
+      ]
+     ]
     },
     {
      "de": "Bevor / Ehe Dr. Kauter ins Bad geht, nimmt er Ballaststoffe ein.",
-     "note": "bevor / ehe"
+     "note": "bevor / ehe",
+     "marks": []
     },
     {
      "de": "Im Stehen trank er eine Tasse Kaffee.",
-     "note": "im + nominalised infinitive — a state"
+     "note": "im + nominalised infinitive — a state",
+     "marks": []
     },
     {
      "de": "Beim Telefonieren macht er sich Notizen.",
-     "note": "beim + nominalised infinitive — an action"
+     "note": "beim + nominalised infinitive — an action",
+     "marks": []
     },
     {
      "de": "Um sich von seiner Frau zu verabschieden, geht er ins Schlafzimmer.",
-     "note": "final clause with um zu"
+     "note": "final clause with um zu",
+     "marks": [
+      [
+       0,
+       2
+      ]
+     ]
     },
     {
      "de": "Dr. Kauter verlässt das Schlafzimmer leise, damit seine Frau nicht aufwacht.",
-     "note": "damit — different subjects"
+     "note": "damit — different subjects",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l10-3-e1",
@@ -22334,33 +25326,51 @@
    "examples": [
     {
      "de": "Schweizer haben ein Gefühl für Höflichkeit, sodass sie sensibel auf Zwischentöne reagieren.",
-     "note": "sodass attaches the consequence"
+     "note": "sodass attaches the consequence",
+     "marks": []
     },
     {
      "de": "Deutsche sind eine direktere Kommunikation gewöhnt, weshalb / weswegen sie auf Schweizer oft arrogant wirken.",
-     "note": "weshalb / weswegen"
+     "note": "weshalb / weswegen",
+     "marks": []
     },
     {
      "de": "Infolge eines Missverständnisses habe ich den Geschäftspartner falsch angesprochen.",
-     "note": "infolge + Genitiv"
+     "note": "infolge + Genitiv",
+     "marks": [
+      [
+       0,
+       7
+      ]
+     ]
     },
     {
      "de": "Ich bereite mich auf eine Geschäftsreise vor, indem ich mich bei Freunden nach ihren Erfahrungen erkundige.",
-     "note": "indem names the means"
+     "note": "indem names the means",
+     "marks": [
+      [
+       46,
+       51
+      ]
+     ]
     },
     {
      "de": "Eric macht ein Auslandspraktikum, womit sein Lebenslauf attraktiver für Arbeitgeber wird.",
-     "note": "womit attaches the result"
+     "note": "womit attaches the result",
+     "marks": []
     },
     {
      "de": "Durch häufigen Kontakt mit anderen Kulturen erwirbt man interkulturelle Kompetenz.",
-     "note": "durch + Akkusativ"
+     "note": "durch + Akkusativ",
+     "marks": []
     },
     {
      "de": "Mittels / Mithilfe neuer Techniken kann man Kontakt halten.",
-     "note": "mittels / mithilfe + Genitiv"
+     "note": "mittels / mithilfe + Genitiv",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l11-1-e1",
@@ -22528,25 +25538,36 @@
    "examples": [
     {
      "de": "eleganterer Anzug",
-     "note": "impliziter Vergleich, maskulin"
+     "note": "impliziter Vergleich, maskulin",
+     "marks": []
     },
     {
      "de": "ein eleganteres Hemd",
-     "note": "impliziter Vergleich, neutral"
+     "note": "impliziter Vergleich, neutral",
+     "marks": []
     },
     {
      "de": "eine elegantere Hose",
-     "note": "impliziter Vergleich, feminin"
+     "note": "impliziter Vergleich, feminin",
+     "marks": [
+      [
+       0,
+       4
+      ]
+     ]
     },
     {
      "de": "der elegantesten",
-     "note": "relativer Superlativ im Genitiv Plural"
+     "note": "relativer Superlativ im Genitiv Plural",
+     "marks": []
     },
     {
      "de": "die ich je hatte",
-     "note": "the relative clause that delimits the group"
+     "note": "the relative clause that delimits the group",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l11-2-e1",
@@ -22684,21 +25705,26 @@
    "examples": [
     {
      "de": "eröffnen, erröten, erkälten, erschrecken",
-     "note": "er- — Veränderung eines Zustands"
+     "note": "er- — Veränderung eines Zustands",
+     "marks": []
     },
     {
      "de": "erarbeiten, erbauen, ersetzen",
-     "note": "er- — etwas durch eine Handlung erreichen"
+     "note": "er- — etwas durch eine Handlung erreichen",
+     "marks": []
     },
     {
      "de": "reflektieren, reimportieren",
-     "note": "re- — zurück"
+     "note": "re- — zurück",
+     "marks": []
     },
     {
      "de": "reagieren, reanimieren",
-     "note": "re- — wieder"
+     "note": "re- — wieder",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l11-3-e1",
@@ -22850,33 +25876,56 @@
    "examples": [
     {
      "de": "angesichts des hohen Preisgeldes",
-     "note": "= wenn man das hohe Preisgeld betrachtet"
+     "note": "= wenn man das hohe Preisgeld betrachtet",
+     "marks": []
     },
     {
      "de": "anlässlich eines spannenden Wettbewerbs",
-     "note": "= weil ein spannender Wettbewerb stattfindet"
+     "note": "= weil ein spannender Wettbewerb stattfindet",
+     "marks": [
+      [
+       0,
+       10
+      ]
+     ]
     },
     {
      "de": "hinsichtlich der gesammelten Kriterien",
-     "note": "= in Bezug auf die gesammelten Kriterien"
+     "note": "= in Bezug auf die gesammelten Kriterien",
+     "marks": [
+      [
+       0,
+       12
+      ]
+     ]
     },
     {
      "de": "mithilfe spezieller 3D-Drucker",
-     "note": "= indem man 3D-Drucker verwendet"
+     "note": "= indem man 3D-Drucker verwendet",
+     "marks": []
     },
     {
      "de": "mittels einer Matratze",
-     "note": "= unter Verwendung einer Matratze"
+     "note": "= unter Verwendung einer Matratze",
+     "marks": []
     },
     {
      "de": "oberhalb der Einkommensgrenze",
-     "note": "= über der Einkommensgrenze"
+     "note": "= über der Einkommensgrenze",
+     "marks": []
     },
     {
      "de": "unweit seines Trägers",
-     "note": "= in der Nähe seines Trägers"
+     "note": "= in der Nähe seines Trägers",
+     "marks": [
+      [
+       0,
+       6
+      ]
+     ]
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l12-1-e1",
@@ -23020,25 +26069,31 @@
    "examples": [
     {
      "de": "Vom sinnvollen Einsatz überzeugt entwickelten die Wissenschaftler einen Roboter, der Gefühle zeigen kann.",
-     "note": "Partizip II, resolves with weil"
+     "note": "Partizip II, resolves with weil",
+     "marks": []
     },
     {
      "de": "Der erste Versuch, obwohl gut durchdacht, war ein Misserfolg, denn der Roboter konnte nicht lächeln.",
-     "note": "Partizip II inserted into the main clause"
+     "note": "Partizip II inserted into the main clause",
+     "marks": []
     },
     {
      "de": "Den munteren Kaspar auf dem Arm tragend entscheiden die Kinder selbst, wann und wie sie mit der Puppe kommunizieren wollen.",
-     "note": "Partizip I, resolves with während / wenn"
+     "note": "Partizip I, resolves with während / wenn",
+     "marks": []
     },
     {
      "de": "Mit Mund und Augen lächelnd wendet sich der Roboter seinen Kommunikationspartnern zu.",
-     "note": "Partizip I, resolves with indem"
+     "note": "Partizip I, resolves with indem",
+     "marks": []
     },
     {
      "de": "Indem er mit Mund und Augen lächelt, wendet sich der Roboter seinen Kommunikationspartnern zu.",
-     "note": "the resolved variant"
+     "note": "the resolved variant",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l12-2-e1",
@@ -23211,33 +26266,41 @@
    "examples": [
     {
      "de": "Man schaut durch ein Mikroskop durch.",
-     "note": "trennbar, betont — wörtlich"
+     "note": "trennbar, betont — wörtlich",
+     "marks": []
     },
     {
      "de": "Man durchschaut einen Kartentrick.",
-     "note": "untrennbar, unbetont — übertragen"
+     "note": "untrennbar, unbetont — übertragen",
+     "marks": []
     },
     {
      "de": "Ich rate dir, einen Pulli überzuziehen.",
-     "note": "trennbar — wörtlich"
+     "note": "trennbar — wörtlich",
+     "marks": []
     },
     {
      "de": "Es kostet etwas, sein Konto zu überziehen.",
-     "note": "untrennbar — übertragen"
+     "note": "untrennbar — übertragen",
+     "marks": []
     },
     {
      "de": "Wir haben ein Straßenschild umgefahren.",
-     "note": "trennbar — das Schild fiel um"
+     "note": "trennbar — das Schild fiel um",
+     "marks": []
     },
     {
      "de": "Wir haben das Stadtzentrum umfahren.",
-     "note": "untrennbar — wir fuhren darum herum"
+     "note": "untrennbar — wir fuhren darum herum",
+     "marks": []
     },
     {
      "de": "Ich unterstelle dir keine bösen Absichten.",
-     "note": "untrennbar — übertragen"
+     "note": "untrennbar — übertragen",
+     "marks": []
     }
    ],
+   "tables": [],
    "exercises": [
     {
      "id": "g-l12-3-e1",
