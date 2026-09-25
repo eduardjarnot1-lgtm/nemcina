@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, type ReactNode } from 'react';
 import {
   KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View,
 } from 'react-native';
@@ -8,6 +8,10 @@ import { Screen } from '../../../src/components/Screen';
 import { Card } from '../../../src/components/Card';
 import { PrimaryButton } from '../../../src/components/PrimaryButton';
 import { ProgressBar } from '../../../src/components/ProgressBar';
+import { AnswerOption } from '../../../src/components/AnswerOption';
+import { Skeleton } from '../../../src/components/Skeleton';
+import { Animated, useEntrance, usePulse, useShake, usePressScale } from '../../../src/motion';
+import { haptic } from '../../../src/haptics';
 import { useCourse } from '../../../src/course';
 import { LOCAL_USER, useProgress } from '../../../src/progress';
 import { strings } from '../../../src/strings';
@@ -54,6 +58,10 @@ export default function GrammarPracticeScreen() {
   const check = useCallback(async (given: string) => {
     if (!practice || outcome) return;
     const result = practice.answer(given, { hintShown });
+    // Fired here rather than in the feedback card, so the acknowledgement lands
+    // with the tap and not after the progress write. Same cue as a vocabulary
+    // answer: one app, one meaning per feel.
+    haptic(result.verdict.correct ? 'success' : 'warning');
     setOutcome(result);
     await save(result.progress, result.attempt);
   }, [practice, outcome, hintShown, save]);
@@ -70,7 +78,7 @@ export default function GrammarPracticeScreen() {
     return <Screen><Text style={styles.muted}>{strings.searchNoResults}</Text></Screen>;
   }
   if (!practice) {
-    return <Screen><Text style={styles.muted}>{strings.loading}</Text></Screen>;
+    return <Screen><View style={styles.loading}><Skeleton lines={4} /></View></Screen>;
   }
 
   if (practice.finished && !outcome) {
@@ -110,29 +118,17 @@ export default function GrammarPracticeScreen() {
         >
           {outcome ? (
             <>
-              <Card
-                tone={outcome.verdict.correct ? 'correct' : outcome.verdict.close ? 'almost' : 'wrong'}
-                style={styles.block}
-              >
-                <Text style={styles.verdict}>
-                  {outcome.verdict.correct
-                    ? strings.correct
-                    : outcome.verdict.close ? strings.almost : strings.wrong}
-                </Text>
-                {!outcome.verdict.correct ? (
-                  <Text style={styles.body}>
-                    {strings.theAnswerWas} {outcome.verdict.matched}
-                  </Text>
-                ) : null}
-              </Card>
+              <Verdict outcome={outcome} />
               {outcome.explanation ? (
-                <Card style={styles.block}>
-                  <Text style={styles.body}>{outcome.explanation}</Text>
-                </Card>
+                <QuestionBody questionKey={`why-${position.index}`}>
+                  <Card style={styles.block}>
+                    <Text style={styles.body}>{outcome.explanation}</Text>
+                  </Card>
+                </QuestionBody>
               ) : null}
             </>
           ) : question ? (
-            <>
+            <QuestionBody questionKey={`q-${position.index}`}>
               <Text style={styles.prompt}>
                 {question.prompt || PROMPTS[question.kind] || strings.questionFill}
               </Text>
@@ -144,14 +140,11 @@ export default function GrammarPracticeScreen() {
               {question.kind === 'choice' || question.kind === 'context' ? (
                 <View style={styles.options}>
                   {question.options.map((option) => (
-                    <Pressable
+                    <AnswerOption
                       key={option}
-                      accessibilityRole="button"
+                      label={option}
                       onPress={() => { void check(option); }}
-                      style={({ pressed }) => [styles.option, pressed && styles.optionPressed]}
-                    >
-                      <Text style={styles.optionLabel}>{option}</Text>
-                    </Pressable>
+                    />
                   ))}
                 </View>
               ) : isReorder ? (
@@ -166,14 +159,11 @@ export default function GrammarPracticeScreen() {
                       const key = `${index}:${token}`;
                       if (tokens.includes(key)) return null;
                       return (
-                        <Pressable
+                        <Token
                           key={key}
-                          accessibilityRole="button"
+                          label={token}
                           onPress={() => setTokens((current) => [...current, key])}
-                          style={styles.token}
-                        >
-                          <Text style={styles.optionLabel}>{token}</Text>
-                        </Pressable>
+                        />
                       );
                     })}
                   </View>
@@ -223,7 +213,7 @@ export default function GrammarPracticeScreen() {
                   ) : null}
                 </>
               )}
-            </>
+            </QuestionBody>
           ) : null}
         </ScrollView>
 
@@ -243,7 +233,90 @@ export default function GrammarPracticeScreen() {
   );
 }
 
+/**
+ * The question, arriving.
+ *
+ * The same wrapper the vocabulary session uses, for the same reason: keyed on
+ * the position so it replays per question and not per keystroke. Before this,
+ * a grammar question was replaced by the next one between two frames, which is
+ * the one moment in the flow where a learner needs to notice something changed.
+ */
+function QuestionBody({
+  questionKey, children,
+}: { questionKey: string; children: ReactNode }) {
+  const style = useEntrance(questionKey);
+  return <Animated.View style={[styles.questionBody, style]}>{children}</Animated.View>;
+}
+
+/**
+ * Right, nearly, or not — as one card that reacts.
+ *
+ * Correct pulses once; anything else shakes once. Identical to the vocabulary
+ * session on purpose: the two halves of this app ask the same learner the same
+ * kind of question, and until now only one of them answered back. A near miss
+ * still shakes rather than pulses, because it was not right — but the card is
+ * already the amber "almost" and the wording already says so, so the movement
+ * only has to catch the eye.
+ */
+function Verdict({ outcome }: { outcome: GrammarOutcome }) {
+  const tone = outcome.verdict.correct ? 'correct' : outcome.verdict.close ? 'almost' : 'wrong';
+  const entrance = useEntrance(outcome.attempt.itemId + String(outcome.attempt.at));
+  const { pulse, style: pulseStyle } = usePulse();
+  const { shake, style: shakeStyle } = useShake();
+
+  useEffect(() => {
+    if (outcome.verdict.correct) pulse();
+    else shake();
+    // Once per outcome. `pulse` and `shake` are stable callbacks.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [outcome]);
+
+  return (
+    <Animated.View style={[entrance, pulseStyle, shakeStyle]}>
+      <Card tone={tone} style={styles.block}>
+        <Text style={styles.verdict}>
+          {outcome.verdict.correct
+            ? strings.correct
+            : outcome.verdict.close ? strings.almost : strings.wrong}
+        </Text>
+        {!outcome.verdict.correct ? (
+          <Text style={styles.body}>
+            {strings.theAnswerWas} {outcome.verdict.matched}
+          </Text>
+        ) : null}
+      </Card>
+    </Animated.View>
+  );
+}
+
+/**
+ * One word of a sentence being reassembled.
+ *
+ * A reorder question is the most tapping in the app — a whole sentence, one
+ * word at a time — and its tokens were the only tappable thing left that did
+ * not respond at all. The press scale is the shared one; the haptic is
+ * `selection`, the same as picking an answer, because that is what it is.
+ */
+function Token({ label, onPress }: { label: string; onPress: () => void }) {
+  const press = usePressScale(0.96);
+  return (
+    <Animated.View style={press.style}>
+      <Pressable
+        accessibilityRole="button"
+        onPressIn={() => { press.onPressIn(); haptic('selection'); }}
+        onPressOut={press.onPressOut}
+        onPress={onPress}
+        style={styles.token}
+      >
+        <Text style={styles.optionLabel}>{label}</Text>
+      </Pressable>
+    </Animated.View>
+  );
+}
+
 const styles = StyleSheet.create({
+  questionBody: { gap: spacing.md },
+  loading: { paddingVertical: spacing.lg },
   flex: { flex: 1 },
   content: { paddingVertical: spacing.lg, gap: spacing.md },
   centre: { flex: 1, justifyContent: 'center', gap: spacing.md },

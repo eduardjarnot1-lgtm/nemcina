@@ -73,6 +73,7 @@ export const strings = {
   grammarExamples: 'Examples',
   grammarLegend: 'What the colours mark',
   grammarLegendTaught: 'the form taught here',
+  grammarIsolateHint: 'Dims the rest of the sentence so the pattern stands alone',
   grammarPractise: 'Practise',
   grammarSource: 'From',
   grammarNoExercises: 'This topic has no exercises yet.',

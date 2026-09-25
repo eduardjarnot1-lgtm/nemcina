@@ -289,6 +289,48 @@ can.
   single submission, no console errors in either mode.
 * Not yet verified on a physical device — see “What remains”.
 
+### Second pass: the half the first pass missed
+
+The grammar section was built *after* the motion work, so it inherited none of
+it. A second pass closed that, and found one real defect on the way.
+
+* **Grammar practice had no feedback at all.** The vocabulary session pulsed on
+  a correct answer, shook on a wrong one, faded one question out and the next
+  in, and fired a haptic on the tap. The grammar exercises — half the questions
+  in the app, asked of the same learner — did none of it, and their multiple
+  choice was a bare `Pressable` that did not respond to a press. It now reuses
+  `AnswerOption`, `useEntrance`, `usePulse`, `useShake` and the same
+  `success`/`warning` haptics, so the two halves answer back the same way. No
+  new primitive was needed; the system already had all of it.
+* **Reorder tokens were the last tappable thing in the app with no response.** A
+  reorder question is the most tapping there is — a whole sentence, one word at
+  a time. They now press and click like an answer, because that is what they
+  are.
+* **`Reveal` replayed itself inside a list.** `LessonRow` revealed on mount and
+  lives in a `FlatList`, which unmounts rows that scroll out of its window and
+  mounts them again on the way back. So every row re-animated each time it
+  returned, and a list of forty lessons never settled — the exact failure the
+  brief warns against. `Reveal` now takes a `once` key and remembers what it has
+  already shown. Measured: four elements mid-fade on the list's first paint,
+  zero 100 ms after scrolling away and back.
+* **Tap a grammar example to see only its pattern.** The one thing in the brief
+  that did not exist and was worth building, and it is worth building *now*
+  because the highlights carry word classes: tapping a sentence fades the words
+  between the marks to 0.28 and holds the marks, so `Wenn der Wecker klingelt,
+  steht Dr. Kauter auf.` reads as `Wenn … klingelt … steht … auf` — the shape
+  from the formula card, found in a real sentence. Only opacity changes and
+  nothing reflows. An example with no marks is not tappable.
+* **Entrances on the screens that had none**: the grammar index and the lesson
+  browser. Header chrome only — a `SectionList` row must not animate, for the
+  same reason `LessonRow` must not.
+
+Measured in Chromium at 390px, each at the moment the animation actually runs
+rather than a second later: question entrance 1 element mid-fade at 90 ms,
+verdict card 2 at 80 ms, next question 1 at 90 ms, all settled to 0. Reduced
+motion compared against the same flow: 4 elements mid-fade without it, 0 with;
+the sentence-isolate at 0.69 after 40 ms and 0.28 after 500 ms without it, 0.28
+immediately with it — the state change in full, with no travel.
+
 ### Future asset requirements
 
 * Master Fuka: idle, happy, celebrating, thinking, encouraging, surprised,
