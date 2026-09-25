@@ -2,11 +2,17 @@
   "name": "nemcina",
   "private": true,
   "type": "module",
-  "workspaces": ["packages/*", "apps/*"],
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "scripts": {
     "test": "npm run test --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
-    "validate:content": "python3 app/tools/validate_content.py"
+    "validate:content": "python3 app/tools/validate_content.py",
+    "gates": "./scripts/gates.sh"
   },
-  "engines": { "node": ">=22.18" }
+  "engines": {
+    "node": ">=22.18"
+  }
 }

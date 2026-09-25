@@ -2,6 +2,7 @@
 """Build german/data/frequency.json from a FrequencyWords-style word list.
 
 Usage:  python3 build_frequency.py <de_top2000_frequency.txt>
+        python3 build_frequency.py --check
 
 Input is the plain "<form> <count>" list published by the hermitdave/
 FrequencyWords project, derived from the OpenSubtitles corpus. Output is the
@@ -40,7 +41,86 @@ CORPUS_NOTE = (
 LINE = re.compile(r"^(\S+)\s+(\d+)\s*$")
 
 
+def rank(forms: list[dict]) -> list[dict]:
+    """Order by count and number the result, or refuse to.
+
+    Shared by the build and by --check so the two cannot drift: a check that
+    re-implements the rule it is checking eventually checks a different rule.
+    """
+    ordered = sorted(forms, key=lambda entry: (-entry["count"], entry["form"]))
+    for number, entry in enumerate(ordered, start=1):
+        entry["rank"] = number
+    counts = [entry["count"] for entry in ordered]
+    if counts != sorted(counts, reverse=True):
+        raise SystemExit("ranking failed: counts are not monotonically decreasing")
+    return ordered
+
+
+def check() -> int:
+    """Verify the committed frequency.json without the word list.
+
+    The list this is built from is not in the repository, so the file cannot be
+    regenerated on a runner. It was therefore the one piece of app/data that no
+    check in CI ever looked at — a hand edit, a bad merge or a truncated write
+    would have gone straight through.
+
+    This does what can be done without the source: re-derive the ranks from the
+    counts the file already carries and require the file to match, and re-count
+    the meta block. It cannot tell you the counts are the ones the corpus
+    published. It can tell you the file is internally what it claims to be.
+    """
+    if not OUT.exists():
+        raise SystemExit(f"no such file: {OUT}")
+    payload = json.loads(OUT.read_text(encoding="utf-8"))
+    forms = payload.get("forms") or []
+    if not forms:
+        raise SystemExit(f"{OUT.name}: no forms")
+
+    problems: list[str] = []
+    seen: set[str] = set()
+    for entry in forms:
+        form = entry.get("form")
+        if not isinstance(form, str) or not form:
+            problems.append(f"an entry has no form: {entry!r}")
+            continue
+        if form in seen:
+            problems.append(f"{form!r} appears twice; it should have been folded")
+        seen.add(form)
+        if not isinstance(entry.get("count"), int) or entry["count"] < 1:
+            problems.append(f"{form!r} has an unusable count {entry.get('count')!r}")
+
+    if not problems:
+        # rank() mutates, so compare against a copy and let it raise on a
+        # non-monotonic file exactly as it would during a build.
+        expected = rank([dict(entry) for entry in forms])
+        for was, should in zip(forms, expected):
+            if was["form"] != should["form"] or was["rank"] != should["rank"]:
+                problems.append(
+                    f"rank {was['rank']} holds {was['form']!r}; "
+                    f"by count it should hold {should['form']!r}")
+                break
+        meta = payload.get("meta") or {}
+        if meta.get("formCount") != len(forms):
+            problems.append(
+                f"meta.formCount is {meta.get('formCount')!r}, the file has {len(forms)}")
+        total = sum(entry["count"] for entry in forms)
+        if meta.get("totalCount") != total:
+            problems.append(f"meta.totalCount is {meta.get('totalCount')!r}, the counts sum to {total}")
+        for field in ("source", "corpus", "note"):
+            if not str(meta.get(field, "")).strip():
+                problems.append(f"meta.{field} is empty; the provenance is the point of it")
+
+    if problems:
+        for problem in problems[:20]:
+            print("  ERROR:", problem, file=sys.stderr)
+        raise SystemExit(f"{OUT.name}: {len(problems)} problem(s)")
+    print(f"frequency.json: {len(forms)} forms, ranks and tallies consistent")
+    return 0
+
+
 def main() -> int:
+    if len(sys.argv) == 2 and sys.argv[1] == "--check":
+        return check()
     if len(sys.argv) != 2:
         raise SystemExit(__doc__)
     path = Path(sys.argv[1])
@@ -75,13 +155,8 @@ def main() -> int:
     if not forms:
         raise SystemExit("no entries read")
 
-    forms.sort(key=lambda entry: (-entry["count"], entry["form"]))
-    for rank, entry in enumerate(forms, start=1):
-        entry["rank"] = rank
-
+    forms = rank(forms)
     counts = [entry["count"] for entry in forms]
-    if counts != sorted(counts, reverse=True):
-        raise SystemExit("ranking failed: counts are not monotonically decreasing")
 
     payload = {
         "meta": {
