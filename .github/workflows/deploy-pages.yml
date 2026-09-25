@@ -67,14 +67,18 @@ jobs:
       # reject a word-order mark that does not occur in its sentence, an
       # annotation matching no example, and an unknown word class. Those had
       # never executed on a pull request.
+      # frequency.json is not in here. It is built from the hermitdave/
+      # FrequencyWords list, which the builder takes as an argument and which
+      # is not in the repository — so it cannot be regenerated on a runner. It
+      # is an input that changes when that list is republished, not an output
+      # of this repository's own sources.
       - name: Rebuild the data and check nothing drifted
         run: |
-          python3 app/tools/build_frequency.py
           python3 app/tools/build_vocabulary.py
           python3 app/tools/build_grammar.py
-          if ! git diff --quiet -- app/data; then
+          if ! git diff --quiet -- app/data/vocabulary.json app/data/grammar.json; then
             echo "::error::app/data does not match what the sources build."
-            echo "Run the three builders in app/tools and commit the result."
+            echo "Run build_vocabulary.py and build_grammar.py in app/tools and commit the result."
             git diff --stat -- app/data
             exit 1
           fi
