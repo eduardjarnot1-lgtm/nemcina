@@ -1,8 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { useCallback, useRef, useState } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import type { GrammarExample, GrammarMark, MarkRole } from '@nemcina/core';
 import { roleTone } from '../../grammarTheme';
 import { palette, radius, spacing, type as typeScale } from '../../theme';
 import { strings } from '../../strings';
+import { Animated, duration, easing, useReducedMotion } from '../../motion';
 
 /**
  * The examples of a topic, with the forms it teaches picked out.
@@ -31,6 +33,17 @@ import { strings } from '../../strings';
  * things rather than four identical blobs. No parser runs anywhere; an unnamed
  * class stays unnamed.
  *
+ * **Tap a sentence to see only its pattern.** The words around the marks fade
+ * back and the marks hold, so `Wenn der Wecker klingelt, steht Dr. Kauter auf.`
+ * becomes `Wenn … klingelt … steht … auf` without the sentence moving or being
+ * rewritten. That is the shape in the formula card above, found in a real
+ * sentence — which is the step between reading a rule and seeing it.
+ *
+ * Only opacity changes, and only on the unmarked runs; nothing reflows, so the
+ * line the learner is reading stays exactly where it was. An example with no
+ * marks is not tappable, because dimming a whole sentence to reveal nothing is
+ * a control that lies about having an effect.
+ *
  * **Colour is never the only channel.** Every highlight is a tinted box and a
  * weight change, so it survives greyscale, and a topic that uses classes prints
  * a legend naming the ones it uses. The legend lists only what is on the page,
@@ -45,18 +58,10 @@ export function ExampleList({ examples }: { examples: readonly GrammarExample[] 
   return (
     <View style={styles.stack}>
       {examples.map((example, index) => (
-        <View key={index} style={styles.example}>
-          <Text style={styles.german} selectable>
-            {pieces(example).map((piece, part) => (
-              <Text key={part} style={piece.style}>{piece.text}</Text>
-            ))}
-          </Text>
-          {example.en ? <Text style={styles.english} selectable>{example.en}</Text> : null}
-          {example.note ? <Text style={styles.note}>{example.note}</Text> : null}
-        </View>
+        <Example key={index} example={example} />
       ))}
 
-      {used.length > 0 ? (
+      {used.length > 0 || anyNeutral ? (
         <View style={styles.legend} accessibilityLabel={strings.grammarLegend}>
           {used.map((role) => (
             <View key={role} style={styles.legendItem}>
@@ -75,6 +80,80 @@ export function ExampleList({ examples }: { examples: readonly GrammarExample[] 
     </View>
   );
 }
+
+/**
+ * One example, and its pattern on demand.
+ *
+ * The toggle is the sentence itself rather than a button beside it: the thing
+ * you want to look at is the thing you tap. `selectable` stays on the text, and
+ * Pressable does not fire when the touch travels, so dragging to copy a
+ * sentence still copies it.
+ */
+function Example({ example }: { example: GrammarExample }) {
+  const reduced = useReducedMotion();
+  const [isolated, setIsolated] = useState(false);
+  const dim = useRef(new Animated.Value(1)).current;
+  const canIsolate = example.marks.length > 0;
+
+  const toggle = useCallback(() => {
+    if (!canIsolate) return;
+    const next = !isolated;
+    setIsolated(next);
+    const to = next ? DIMMED : 1;
+    if (reduced) {
+      // The state change still happens in full, it simply does not travel.
+      dim.setValue(to);
+      return;
+    }
+    Animated.timing(dim, {
+      toValue: to,
+      duration: duration.normal,
+      easing: easing.standard,
+      // Opacity on text has to reach the paint, not the compositor, for the
+      // nested runs to lighten independently.
+      useNativeDriver: false,
+    }).start();
+  }, [canIsolate, isolated, reduced, dim]);
+
+  const body = (
+    <Text style={styles.german} selectable>
+      {pieces(example).map((piece, part) => (
+        piece.marked
+          ? <Text key={part} style={piece.style}>{piece.text}</Text>
+          : <Animated.Text key={part} style={[piece.style, { opacity: dim }]}>
+              {piece.text}
+            </Animated.Text>
+      ))}
+    </Text>
+  );
+
+  return (
+    <View style={[styles.example, isolated && styles.exampleIsolated]}>
+      {canIsolate ? (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ expanded: isolated }}
+          accessibilityHint={strings.grammarIsolateHint}
+          onPress={toggle}
+        >
+          {body}
+        </Pressable>
+      ) : body}
+      {example.en ? <Text style={styles.english} selectable>{example.en}</Text> : null}
+      {example.note ? <Text style={styles.note}>{example.note}</Text> : null}
+    </View>
+  );
+}
+
+/**
+ * How far the rest of the sentence steps back.
+ *
+ * Far enough that the pattern reads on its own, near enough that the words
+ * between the marks are still legible — the learner has to see what the
+ * highlighted words are doing *to*, or the pattern is a list rather than a
+ * shape.
+ */
+const DIMMED = 0.28;
 
 /** The classes this topic's examples actually use, in a fixed order. */
 const ORDER: readonly MarkRole[] = [
@@ -96,14 +175,18 @@ function legendFor(examples: readonly GrammarExample[]): MarkRole[] {
  * overlaps — so one pass is enough and no character can be emitted twice.
  */
 function pieces(example: GrammarExample) {
-  const out: { text: string; style?: object }[] = [];
+  const out: { text: string; marked: boolean; style?: object }[] = [];
   let at = 0;
   for (const mark of example.marks) {
-    if (mark.start > at) out.push({ text: example.text.slice(at, mark.start) });
-    out.push({ text: example.text.slice(mark.start, mark.end), style: markStyle(mark) });
+    if (mark.start > at) {
+      out.push({ text: example.text.slice(at, mark.start), marked: false });
+    }
+    out.push({
+      text: example.text.slice(mark.start, mark.end), marked: true, style: markStyle(mark),
+    });
     at = mark.end;
   }
-  if (at < example.text.length) out.push({ text: example.text.slice(at) });
+  if (at < example.text.length) out.push({ text: example.text.slice(at), marked: false });
   return out;
 }
 
@@ -123,6 +206,7 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     borderRadius: radius.sm,
   },
+  exampleIsolated: { borderLeftColor: palette.accent },
   german: { ...typeScale.body, color: palette.text, lineHeight: 24 },
   english: {
     ...typeScale.caption,

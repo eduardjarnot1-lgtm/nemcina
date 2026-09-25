@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { lessonStatus, type Lesson } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { LessonRow } from '../../src/components/LessonRow';
+import { Reveal } from '../../src/components/Reveal';
 import { Selectable } from '../../src/components/Selectable';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
@@ -53,14 +54,14 @@ export default function LessonsScreen() {
     <Screen>
       <Text style={styles.title}>{strings.tabLessons}</Text>
 
-      <View style={styles.switcher}>
+      <Reveal index={0} style={styles.switcher}>
         <Choice label={strings.browseByLevel} active={route === 'level'}
           onPress={() => { setRoute('level'); setGroup(null); }} />
         <Choice label={strings.browseByTopic} active={route === 'topic'}
           onPress={() => { setRoute('topic'); setGroup(null); }} />
-      </View>
+      </Reveal>
 
-      <View style={styles.groupRow}>
+      <Reveal index={1} style={styles.groupRow}>
         <FlatList
           horizontal
           data={groups}
@@ -75,7 +76,7 @@ export default function LessonsScreen() {
             />
           )}
         />
-      </View>
+      </Reveal>
 
       <FlatList
         data={shown}

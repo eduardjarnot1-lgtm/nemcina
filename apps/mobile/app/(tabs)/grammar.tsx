@@ -11,6 +11,7 @@ import { ProgressBar } from '../../src/components/ProgressBar';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
 import { Selectable } from '../../src/components/Selectable';
+import { Reveal } from '../../src/components/Reveal';
 import { Chip } from '../../src/components/grammar/Chip';
 import { familyTone } from '../../src/grammarTheme';
 import { strings } from '../../src/strings';
@@ -64,10 +65,12 @@ export default function GrammarScreen() {
 
   return (
     <Screen>
-      <Text style={styles.title}>{strings.tabGrammar}</Text>
-      <Text style={styles.count}>{strings.grammarTopics(topics.length)}</Text>
+      <Reveal index={0}>
+        <Text style={styles.title}>{strings.tabGrammar}</Text>
+        <Text style={styles.count}>{strings.grammarTopics(topics.length)}</Text>
+      </Reveal>
 
-      <View style={styles.levelRow}>
+      <Reveal index={1} style={styles.levelRow}>
         {levels.map((entry) => (
           <Selectable
             key={entry}
@@ -80,7 +83,7 @@ export default function GrammarScreen() {
             </Text>
           </Selectable>
         ))}
-      </View>
+      </Reveal>
 
       {b2.length > 0 ? (
         <Card style={styles.b2Banner} onPress={() => router.push('/grammar/b2')}>

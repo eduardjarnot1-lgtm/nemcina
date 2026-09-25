@@ -16,6 +16,10 @@ import { Reveal } from './Reveal';
  * laid out rather than as a block of finished layout appearing at once. The
  * stagger is capped inside `Reveal`, so a long level never leaves the last row
  * arriving noticeably late.
+ *
+ * The lesson's own id is passed as `once`, because these rows live in a
+ * `FlatList`: without it, every row replayed its entrance each time it scrolled
+ * back into the window, and a list of forty lessons never stopped moving.
  */
 export function LessonRow({
   lesson, status, onPress, index = 0,
@@ -26,7 +30,7 @@ export function LessonRow({
   index?: number;
 }) {
   return (
-    <Reveal index={index}>
+    <Reveal index={index} once={`lesson-${lesson.id}`}>
     <Card onPress={onPress} style={styles.card}>
       <View style={styles.header}>
         <Text style={styles.title}>{strings.lessonOf(lesson.index, lesson.total)}</Text>
