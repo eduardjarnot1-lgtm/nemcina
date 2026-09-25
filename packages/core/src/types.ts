@@ -152,19 +152,59 @@ export interface GrammarExample {
    */
   readonly en: string;
   /**
-   * Where in `text` the forms this topic teaches sit, as `[start, end)` pairs
-   * into the string.
+   * Where in `text` the forms this topic teaches sit, and what they are.
    *
-   * Decided once at build time, from the topic's own exercise answers — the
-   * corpus pointing at its own target — and never recomputed by a screen. The
-   * app slices the string it was given, so what is highlighted was checked
-   * where it could be checked, rather than re-derived by a regex per render.
+   * Decided once at build time and never recomputed by a screen. The app
+   * slices the string it was given, so what is highlighted was checked where
+   * it could be checked, rather than re-derived by a regex per render.
    *
-   * Nothing here identifies "the verb" or "the subject". That needs a parser,
-   * and a wrong guess teaches wrong grammar. Examples the build could not mark
-   * carry an empty list and simply are not highlighted.
+   * Examples the build could not mark carry an empty list and simply are not
+   * highlighted, which is a normal state and not a gap.
    */
-  readonly marks: readonly (readonly [number, number])[];
+  readonly marks: readonly GrammarMark[];
+}
+
+/** The word classes a mark may name. */
+export type MarkRole = 'conj' | 'verb' | 'prep' | 'q';
+
+/**
+ * A highlighted stretch of an example, as `[start, end)` into its text.
+ *
+ * `role` names the word class, and is `''` far more often than not. There are
+ * two kinds of mark and they make different claims:
+ *
+ * - A mark from the build's automatic pass comes from the topic's own exercise
+ *   answers — the corpus pointing at the form it asks you to produce. That says
+ *   which form is taught and nothing about its word class, so `role` is `''`.
+ * - A mark written by hand in `wordorder.json` may name a class, and does so
+ *   only where the class is closed and certain: a conjunction, a preposition, a
+ *   question word, or a verb form identified one example at a time.
+ *
+ * No parser runs anywhere. A guess at "the verb" or "the subject" teaches wrong
+ * grammar, so an unnamed class stays unnamed and renders in the neutral tone.
+ */
+export interface GrammarMark {
+  readonly start: number;
+  readonly end: number;
+  readonly role: MarkRole | '';
+}
+
+/**
+ * The shape of a construction, as a row of slots.
+ *
+ * `weil + Subject + … + Verb` is the same claim as "the conjugated verb moves
+ * to the end of the clause", in the form the claim actually has. Written by
+ * hand in `formulas.json` and never derived: deriving it needs a parser, and a
+ * wrong pattern teaches wrong grammar. A topic whose construction is not
+ * schematic carries none rather than a forced one.
+ *
+ * A slot's `role` is one of the same four classes a highlight uses, so a
+ * connector is the same colour in the formula and in the sentence under it.
+ */
+export interface GrammarFormula {
+  /** What this variant is for — "the condition first", "with a modal verb". */
+  readonly caption: string;
+  readonly slots: readonly { readonly text: string; readonly role: MarkRole | '' }[];
 }
 
 /** One headed paragraph of a grammar explanation, as the source document lays it out. */
@@ -210,6 +250,8 @@ export interface GrammarTopic {
    * app group topics by what they are rather than only by level.
    */
   readonly category: string;
+  /** The shape of the construction, empty when it is not a schematic one. */
+  readonly formulas: readonly GrammarFormula[];
   /**
    * Paradigm tables for this topic, where one exists.
    *

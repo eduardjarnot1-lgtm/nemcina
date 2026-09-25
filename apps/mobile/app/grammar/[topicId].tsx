@@ -12,6 +12,7 @@ import { ExampleList } from '../../src/components/grammar/ExampleList';
 import { Section } from '../../src/components/grammar/Section';
 import { Collapsible } from '../../src/components/grammar/Collapsible';
 import { GrammarTable } from '../../src/components/grammar/GrammarTable';
+import { GrammarFormula } from '../../src/components/grammar/GrammarFormula';
 import { CommonMistake } from '../../src/components/grammar/CommonMistake';
 import { GrammarComparison } from '../../src/components/grammar/GrammarComparison';
 import { familyTone } from '../../src/grammarTheme';
@@ -26,10 +27,12 @@ const OPEN_SECTIONS = 2;
 /**
  * One grammar topic.
  *
- * The page answers three questions in the order someone actually asks them:
- * what is this (the summary), what must I remember (the rules), what does it
- * look like (the examples) — and only then the longer explanation, because
- * that is the part you read when the first three were not enough.
+ * The page answers the questions in the order someone actually asks them: what
+ * is this (the summary), what must I remember (the rules), what shape does it
+ * have (the formula), what are the forms (the table), what does it look like
+ * (the examples), where does it go wrong (the worked mistake) — and only then
+ * the longer explanation, because that is the part you read when the rest was
+ * not enough.
  *
  * It used to be five identical cards in source order, which meant a rule, a
  * paragraph and a sentence of German all carried the same weight and the page
@@ -83,6 +86,17 @@ export default function GrammarTopicScreen() {
             <Card style={styles.block}>
               <Text style={styles.sectionLabel}>{strings.grammarInShort}</Text>
               <RuleList rules={topic.rules} />
+            </Card>
+          </Reveal>
+        ) : null}
+
+        {/* The shape of the construction comes before the paradigm table: it
+            says what the pattern is, and the table fills the pattern in. */}
+        {topic.formulas.length > 0 ? (
+          <Reveal index={2}>
+            <Card style={styles.block}>
+              <Text style={styles.sectionLabel}>{strings.grammarShape}</Text>
+              <GrammarFormula formulas={topic.formulas} />
             </Card>
           </Reveal>
         ) : null}

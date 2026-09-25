@@ -1,0 +1,140 @@
+{
+  "note": "The shape of the construction, as a row of slots.",
+  "why": "A clause pattern is a shape, and a paragraph is a bad way to show a shape. 'The conjugated verb moves to the end of the clause' is accurate and still leaves the learner to picture it; weil + Subject + … + Verb is the same claim in the form it actually has. Written here rather than derived, because deriving it needs a parser and a wrong pattern teaches wrong grammar.",
+  "provenance": "authored-for-this-project",
+  "caveat": "Each one restates a rule the topic already states in prose. Nothing here adds a rule the source does not make, and a topic whose construction is not schematic carries no formula rather than a forced one.",
+  "syntax": "A slot is \"text\" or \"text:role\", role being one of conj, verb, prep, q — the same four classes the example highlights use, so a connector is the same colour in the formula and in the sentence below it. German literals are quoted as themselves; the placeholders are in the interface language.",
+  "formulas": {
+    "g-daf-a1-subject-position": [
+      { "caption": "the subject first", "slots": ["Subject", "Verb:verb", "…"] },
+      { "caption": "something else first — the verb still comes second", "slots": ["Time or place", "Verb:verb", "Subject", "…"] }
+    ],
+    "g-daf-a1-word-order-for-positive-statements-w-que": [
+      { "caption": "statement", "slots": ["Subject", "Verb:verb", "…"] },
+      { "caption": "W-question", "slots": ["W-word:q", "Verb:verb", "Subject", "…"] },
+      { "caption": "yes/no question", "slots": ["Verb:verb", "Subject", "…"] }
+    ],
+    "g-daf-a1-word-order-for-statements-and-w-question": [
+      { "caption": "with a modal verb", "slots": ["Subject", "Modal verb:verb", "…", "Infinitive:verb"] },
+      { "caption": "as a W-question", "slots": ["W-word:q", "Modal verb:verb", "Subject", "…", "Infinitive:verb"] }
+    ],
+    "g-daf-a1-word-order-for-yes-no-questions": [
+      { "caption": "the verb opens the question", "slots": ["Verb:verb", "Subject", "…"] }
+    ],
+    "g-daf-a1-connectors-aber-oder-und": [
+      { "caption": "the connector sits outside the clause and changes nothing after it", "slots": ["Main clause", "und / oder / aber:conj", "Subject", "Verb:verb", "…"] }
+    ],
+    "g-daf-a2-aber-denn-und-sondern-oder-aduso-connect": [
+      { "caption": "an aduso-connector joins two main clauses", "slots": ["Main clause", "aduso:conj", "Subject", "Verb:verb", "…"] }
+    ],
+    "g-daf-a2-expressing-reasons-causal-connectives-da": [
+      { "caption": "the connector takes position 1, so the verb follows it", "slots": ["Main clause", "darum / deshalb / deswegen:conj", "Verb:verb", "Subject", "…"] }
+    ],
+    "g-daf-a2-expressing-reasons-dependent-clauses-wit": [
+      { "caption": "weil and dass send the verb to the end", "slots": ["Main clause", "weil / dass:conj", "Subject", "…", "Verb:verb"] }
+    ],
+    "g-daf-a2-naming-a-point-of-time-in-the-past-tempo": [
+      { "caption": "the als-clause second", "slots": ["Main clause", "als:conj", "Subject", "…", "Verb:verb"] },
+      { "caption": "the als-clause first — then it fills position 1", "slots": ["als:conj", "Subject", "…", "Verb:verb", "Verb:verb", "Subject", "…"] }
+    ],
+    "g-daf-a2-stating-conditions-dependent-conditional": [
+      { "caption": "the condition second", "slots": ["Main clause", "wenn:conj", "Subject", "…", "Verb:verb"] },
+      { "caption": "the condition first", "slots": ["wenn:conj", "Subject", "…", "Verb:verb", "Verb:verb", "Subject", "…"] }
+    ],
+    "g-daf-a2-indirect-questions": [
+      { "caption": "with a question word", "slots": ["Können Sie mir sagen,", "W-word:q", "Subject", "…", "Verb:verb"] },
+      { "caption": "without one — ob stands in for it", "slots": ["Ich möchte wissen,", "ob:conj", "Subject", "…", "Verb:verb"] }
+    ],
+    "g-daf-b1-sich-lassen-verb": [
+      { "caption": "lassen is conjugated; the other verb stays an infinitive at the end", "slots": ["Subject", "lassen:verb", "sich", "…", "Infinitive:verb"] }
+    ],
+    "g-daf-b1-question-word-wo-r-prepositional-pronoun": [
+      { "caption": "asking about a thing", "slots": ["wo(r):q", "Preposition:prep", "Verb:verb", "Subject", "…"] },
+      { "caption": "referring back to one", "slots": ["da(r):prep", "Preposition:prep", "…"] }
+    ],
+    "g-daf-b1-expressing-results-consequences": [
+      { "caption": "the consequence takes position 1", "slots": ["Main clause", "also / folglich:conj", "Verb:verb", "Subject", "…"] }
+    ],
+    "g-daf-b1-preposition-w-hrend-genitive-standard-us": [
+      { "caption": "standard, and what you will hear", "slots": ["während:prep", "Genitive", "(spoken: Dative)"] }
+    ],
+    "g-daf-b1-two-part-connectors-nicht-nur-sondern-au": [
+      { "caption": "both halves are needed", "slots": ["nicht nur:conj", "…", "sondern auch:conj", "…"] },
+      { "caption": "the other pairs work the same way", "slots": ["sowohl / weder:conj", "…", "als auch / noch:conj", "…"] }
+    ],
+    "g-daf-b1-improbable-conditional-sentences": [
+      { "caption": "with wenn", "slots": ["wenn:conj", "Subject", "…", "Konjunktiv II:verb", "Konjunktiv II:verb", "Subject", "…"] },
+      { "caption": "without it — then the verb opens the clause", "slots": ["Konjunktiv II:verb", "Subject", "…", "Konjunktiv II:verb", "Subject", "…"] }
+    ],
+    "g-daf-b1-simultaneity": [
+      { "caption": "all three send the verb to the end", "slots": ["während / bevor / nachdem:conj", "Subject", "…", "Verb:verb"] }
+    ],
+    "g-daf-b1-giving-a-counter-argument-concessive-cla": [
+      { "caption": "obwohl opens a subordinate clause", "slots": ["obwohl:conj", "Subject", "…", "Verb:verb"] },
+      { "caption": "trotzdem takes position 1 of a main clause", "slots": ["trotzdem:conj", "Verb:verb", "Subject", "…"] }
+    ],
+    "g-daf-b1-naming-the-aim-final-dependent-clauses-a": [
+      { "caption": "one subject for both clauses", "slots": ["um:conj", "…", "zu", "Infinitive:verb"] },
+      { "caption": "two different subjects", "slots": ["damit:conj", "Subject", "…", "Verb:verb"] }
+    ],
+    "g-daf-b1-stating-consequences-consecutive-sentenc": [
+      { "caption": "sodass in one piece", "slots": ["Main clause", "sodass:conj", "Subject", "…", "Verb:verb"] },
+      { "caption": "so … dass split around the adjective", "slots": ["so", "Adjective", "…", "dass:conj", "Subject", "…", "Verb:verb"] }
+    ],
+    "g-web-b1-verben-mit-praeposition": [
+      { "caption": "the preposition belongs to the verb and fixes the case", "slots": ["Verb:verb", "Preposition:prep", "Accusative or Dative"] }
+    ],
+    "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv": [
+      { "caption": "the preposition comes before the relative pronoun", "slots": ["Noun", "Preposition:prep", "Relative pronoun", "…", "Verb:verb"] },
+      { "caption": "in the genitive", "slots": ["Noun", "dessen / deren", "Noun", "…", "Verb:verb"] }
+    ],
+    "g-b2-5-konzessive-und-kausale-konnektoren": [
+      { "caption": "subordinating — verb last", "slots": ["obwohl / weil:conj", "Subject", "…", "Verb:verb"] },
+      { "caption": "position 1 of a main clause — verb second", "slots": ["trotzdem / deshalb:conj", "Verb:verb", "Subject", "…"] }
+    ],
+    "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien": [
+      { "caption": "with a noun", "slots": ["Verb:verb", "Preposition:prep", "Noun"] },
+      { "caption": "with a clause — the preposition becomes da(r)", "slots": ["Verb:verb", "da(r):prep", "Preposition:prep", ", dass", "…"] }
+    ],
+    "g-b2-12-zweiteilige-konnektoren": [
+      { "caption": "both halves are needed", "slots": ["entweder / sowohl / weder:conj", "…", "oder / als auch / noch:conj", "…"] }
+    ],
+    "g-l02-1": [
+      { "caption": "both halves are needed", "slots": ["nicht nur / sowohl:conj", "…", "sondern auch / als auch:conj", "…"] },
+      { "caption": "restricting what was just said", "slots": ["Main clause", "es sei denn / außer wenn:conj", "Subject", "…", "Verb:verb"] }
+    ],
+    "g-l05-3": [
+      { "caption": "before the name", "slots": ["nach / laut:prep", "Dative or Genitive"] },
+      { "caption": "after it", "slots": ["Dative", "zufolge:prep"] }
+    ],
+    "g-l06-1": [
+      { "caption": "these prepositions govern the dative", "slots": ["Preposition:prep", "Dative"] }
+    ],
+    "g-l07-2": [
+      { "caption": "as a clause", "slots": ["weil / da:conj", "Subject", "…", "Verb:verb"] },
+      { "caption": "as a phrase — same reason, no clause", "slots": ["wegen / mangels:prep", "Genitive"] }
+    ],
+    "g-l09-1": [
+      { "caption": "the condition as a clause", "slots": ["wenn / falls / sofern:conj", "Subject", "…", "Verb:verb"] },
+      { "caption": "the same condition as a phrase", "slots": ["bei / im Falle:prep", "Noun"] }
+    ],
+    "g-l09-2": [
+      { "caption": "the preposition belongs to the adjective", "slots": ["sein", "Adjective", "Preposition:prep", "Accusative or Dative"] }
+    ],
+    "g-l10-1": [
+      { "caption": "anything may fill position 1 — the verb stays second", "slots": ["Position 1", "Verb:verb", "Subject", "…"] }
+    ],
+    "g-l10-3": [
+      { "caption": "time as a clause", "slots": ["wenn / als / bevor:conj", "Subject", "…", "Verb:verb"] },
+      { "caption": "time as a phrase", "slots": ["im / beim:prep", "Nominalised infinitive"] },
+      { "caption": "purpose, one subject", "slots": ["um:conj", "…", "zu", "Infinitive:verb"] }
+    ],
+    "g-l11-1": [
+      { "caption": "consequence", "slots": ["Main clause", "sodass / weshalb:conj", "Subject", "…", "Verb:verb"] },
+      { "caption": "means — how it was done", "slots": ["indem:conj", "Subject", "…", "Verb:verb"] }
+    ],
+    "g-l12-1": [
+      { "caption": "these prepositions govern the genitive", "slots": ["Preposition:prep", "Genitive"] }
+    ]
+  }
+}

@@ -17,6 +17,9 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
+# Kept in step with MARK_ROLES in build_grammar.py.
+MARK_ROLES = {"conj", "verb", "prep", "q"}
+
 DATA = Path(__file__).resolve().parent.parent / "data"
 VOCABULARY = DATA / "vocabulary.json"
 GRAMMAR = DATA / "grammar.json"
@@ -294,6 +297,8 @@ def validate_grammar(report: Report) -> None:
     known = {t["id"] for t in topics}
     exercise_ids: Counter = Counter()
     grammar_translated = [0]
+    grammar_roles: Counter = Counter()
+    grammar_formulas = [0]
     grammar_untranslated: list[str] = []
 
     for t in topics:
@@ -338,6 +343,20 @@ def validate_grammar(report: Report) -> None:
                 report.check(all(str(row.get(f, "")).strip() for f in ("aspect", "left", "right")),
                              f"grammar {tid}: comparison row {row!r} has an empty cell")
 
+        # A formula is a shape, so its slots must actually form one: two or
+        # more, none empty, and no role the app cannot colour.
+        for formula in t.get("formulas", []):
+            slots = formula.get("slots", [])
+            report.check(len(slots) > 1,
+                         f"grammar {tid}: a formula of {len(slots)} slot(s) is not a shape")
+            for slot in slots:
+                report.check(bool(str(slot.get("text", "")).strip()),
+                             f"grammar {tid}: formula {formula.get('caption')!r} has an empty slot")
+                role = slot.get("role", "")
+                report.check(role in MARK_ROLES or role == "",
+                             f"grammar {tid}: formula slot names an unknown role {role!r}")
+            grammar_formulas[0] += 1
+
         # Highlight spans index the sentence they belong to. One that does not
         # fit, or that overlaps its neighbour, would mark the wrong characters —
         # which on a grammar example means pointing at the wrong form.
@@ -359,15 +378,25 @@ def validate_grammar(report: Report) -> None:
                 grammar_untranslated.append(f"{tid}: {text}")
             previous_end = 0
             for span in marks:
-                ok = (isinstance(span, list) and len(span) == 2
-                      and all(isinstance(v, int) for v in span)
-                      and 0 <= span[0] < span[1] <= len(text))
+                ok = (isinstance(span, dict)
+                      and isinstance(span.get("start"), int)
+                      and isinstance(span.get("end"), int)
+                      and 0 <= span["start"] < span["end"] <= len(text))
                 report.check(ok, f"grammar {tid}: highlight {span} does not fit {text!r}")
                 if not ok:
                     continue
-                report.check(span[0] >= previous_end,
+                report.check(span["start"] >= previous_end,
                              f"grammar {tid}: highlights overlap in {text!r}")
-                previous_end = span[1]
+                previous_end = span["end"]
+                # A role the app does not know would render as neutral, which
+                # looks like a mark that was never meant to carry a class. The
+                # set is closed on purpose — see MARK_ROLES in build_grammar.py.
+                role = span.get("role", "")
+                report.check(role in MARK_ROLES or role == "",
+                             f"grammar {tid}: highlight on {text!r} names an unknown "
+                             f"role {role!r}")
+                if role:
+                    grammar_roles[role] += 1
         for prerequisite in t["prerequisites"]:
             report.check(prerequisite in known, f"grammar {tid}: unknown prerequisite {prerequisite}")
             report.check(prerequisite != tid, f"grammar {tid}: is its own prerequisite")
@@ -414,6 +443,9 @@ def validate_grammar(report: Report) -> None:
     print(f"grammar: {len(topics)} topics, "
           f"{sum(len(t['exercises']) for t in topics)} exercises checked")
     print(f"grammar: {grammar_translated[0]} of {total_examples} examples carry English")
+    print(f"grammar: {grammar_formulas[0]} construction shapes")
+    print("grammar: highlight roles " + (", ".join(
+        f"{name} {count}" for name, count in grammar_roles.most_common()) or "none"))
 
 
 def main() -> int:

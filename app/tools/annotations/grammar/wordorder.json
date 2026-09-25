@@ -2,157 +2,1495 @@
   "note": "Which words to pick out in the examples of word-order topics.",
   "why": "The build derives highlights from a topic's own exercise answers, which works wherever the answer is a form. Word-order topics answer with a whole sentence, so 114 of their examples came out unmarked — and the thing being taught in them is a POSITION, which no list of forms can point at. These are written by hand, one example at a time, because the alternative was a parser guessing which word is the finite verb, and a wrong guess there teaches wrong grammar.",
   "provenance": "authored-for-this-project",
-  "syntax": "A mark is the word to highlight. Where a word occurs more than once in the same sentence, 'word[2]' picks the second. The build fails if a mark is not found, so a typo cannot pass silently.",
+  "syntax": "A mark is the word to highlight. \"word[2]\" picks the second occurrence. \"word:role\" names its word class, one of conj, verb, prep, q — written only where the class is closed and certain, and left off otherwise.",
   "marks": [
-    { "topic": "g-daf-a1-subject-position", "text": "Am Sonntag ist das Brunnenstüberl geöffnet.", "mark": ["ist"] },
-    { "topic": "g-daf-a1-subject-position", "text": "Das Brunnenstüberl ist am Sonntag geöffnet.", "mark": ["ist"] },
-    { "topic": "g-daf-a1-subject-position", "text": "Das Wetter ist leider nicht so gut.", "mark": ["ist"] },
-    { "topic": "g-daf-a1-subject-position", "text": "Leider ist das Wetter nicht so gut.", "mark": ["ist"] },
-
-    { "topic": "g-daf-a1-word-order-for-positive-statements-w-que", "text": "Woher kommen Sie?", "mark": ["Woher", "kommen"] },
-    { "topic": "g-daf-a1-word-order-for-positive-statements-w-que", "text": "Ich komme aus Marokko.", "mark": ["komme"] },
-    { "topic": "g-daf-a1-word-order-for-positive-statements-w-que", "text": "Wo wohnst du?", "mark": ["Wo", "wohnst"] },
-    { "topic": "g-daf-a1-word-order-for-positive-statements-w-que", "text": "Kommen Sie aus Tunesien?", "mark": ["Kommen"] },
-    { "topic": "g-daf-a1-word-order-for-positive-statements-w-que", "text": "Wohnst du in Stuttgart?", "mark": ["Wohnst"] },
-
-    { "topic": "g-daf-a1-word-order-for-statements-and-w-question", "text": "Beatriz muss in der Woche früh aufstehen.", "mark": ["muss", "aufstehen"] },
-    { "topic": "g-daf-a1-word-order-for-statements-and-w-question", "text": "Am Wochenende kann sie lange schlafen.", "mark": ["kann", "schlafen"] },
-    { "topic": "g-daf-a1-word-order-for-statements-and-w-question", "text": "Beatriz und Leopold wollen heute ins Kino gehen.", "mark": ["wollen", "gehen"] },
-    { "topic": "g-daf-a1-word-order-for-statements-and-w-question", "text": "Wann möchtet ihr nach Hause fahren?", "mark": ["Wann", "möchtet", "fahren"] },
-
-    { "topic": "g-daf-a1-word-order-for-yes-no-questions", "text": "Darf man im Bus laut Musik hören?", "mark": ["Darf", "hören"] },
-
-    { "topic": "g-daf-a1-location", "text": "Wo ist / liegt das Buch?", "mark": ["Wo", "ist", "liegt"] },
-    { "topic": "g-daf-a1-prepositions-of-place", "text": "beim Bahnhof", "mark": ["beim"] },
-    { "topic": "g-daf-a1-prepositions-of-place", "text": "in der Schweiz", "mark": ["in"] },
-
-    { "topic": "g-daf-a1-connectors-aber-oder-und", "text": "Meine Mutter ist nicht verheiratet und sie erzieht meinen Bruder und mich allein.", "mark": ["und[1]", "ist", "erzieht"] },
-
-    { "topic": "g-daf-a2-prepositions-of-place-2", "text": "Jörg soll die Kärntner Straße entlang gehen.", "mark": ["entlang", "soll", "gehen"] },
-    { "topic": "g-daf-a2-prepositions-of-place-2", "text": "Komm heraus!", "mark": ["Komm", "heraus"] },
-    { "topic": "g-daf-a2-prepositions-of-place-2", "text": "Jörg geht aus dem Museum hinaus.", "mark": ["geht", "hinaus"] },
-
-    { "topic": "g-daf-a2-aber-denn-und-sondern-oder-aduso-connect", "text": "Witikon liegt etwas außerhalb, aber es hat gute Verkehrsverbindungen.", "mark": ["aber", "liegt", "hat"] },
-    { "topic": "g-daf-a2-aber-denn-und-sondern-oder-aduso-connect", "text": "In Witikon sind die Mieten nicht so hoch und die Verkehrsverbindungen sind gut.", "mark": ["und", "sind[1]", "sind[2]"] },
-    { "topic": "g-daf-a2-aber-denn-und-sondern-oder-aduso-connect", "text": "Lara und Andrea möchten in Enge oder (sie möchten) in Lindenhof wohnen.", "mark": ["oder", "möchten[1]"] },
-
-    { "topic": "g-daf-a2-expressing-reasons-causal-connectives-da", "text": "Ich soll mich ausruhen, darum / deshalb / deswegen habe ich Urlaub genommen.", "mark": ["darum", "deshalb", "deswegen", "habe"] },
-    { "topic": "g-daf-a2-expressing-reasons-dependent-clauses-wit", "text": "Wir finden, dass Köln eine schöne Stadt ist.", "mark": ["dass", "ist"] },
-
-    { "topic": "g-daf-a2-naming-a-point-of-time-in-the-past-tempo", "text": "Es gab ein großes Gedränge, als der Krimiautor eintraf.", "mark": ["als", "eintraf"] },
-    { "topic": "g-daf-a2-naming-a-point-of-time-in-the-past-tempo", "text": "Als der Krimiautor eintraf, gab es ein großes Gedränge.", "mark": ["Als", "eintraf", "gab"] },
-
-    { "topic": "g-daf-a2-stating-conditions-dependent-conditional", "text": "Rui bekommt Zinsen, wenn er Geld auf einem Sparkonto hat.", "mark": ["wenn", "hat"] },
-    { "topic": "g-daf-a2-stating-conditions-dependent-conditional", "text": "Die EC-Karte kostet nichts, wenn Rui nur Online-Banking macht.", "mark": ["wenn", "macht"] },
-    { "topic": "g-daf-a2-stating-conditions-dependent-conditional", "text": "Wenn Rui nicht nur Online-Banking macht, kostet die EC-Karte 6,50 €pro Jahr.", "mark": ["Wenn", "macht", "kostet"] },
-
-    { "topic": "g-daf-a2-indirect-questions", "text": "Gibt es auch Führungen zum Thema „Film“?", "mark": ["Gibt"] },
-    { "topic": "g-daf-a2-indirect-questions", "text": "Können Sie mir sagen, wie lange die Führung dauert?", "mark": ["wie", "dauert"] },
-    { "topic": "g-daf-a2-indirect-questions", "text": "Können Sie mir auf dem Plan zeigen, wo der Treffpunkt ist?", "mark": ["wo", "ist"] },
-    { "topic": "g-daf-a2-indirect-questions", "text": "Ich möchte gern wissen, welches Ticket am besten ist.", "mark": ["welches", "ist"] },
-
-    { "topic": "g-daf-a2-time-expressions-usually-go-in-the-middl", "text": "Jörg ist diese Woche schon fünfmal im Kino gewesen.", "mark": ["diese Woche"] },
-    { "topic": "g-daf-a2-time-expressions-usually-go-in-the-middl", "text": "Jörg und Michael sind nach dem Frühstück sofort ins Museum gegangen.", "mark": ["nach dem Frühstück"] },
-    { "topic": "g-daf-a2-time-expressions-usually-go-in-the-middl", "text": "Sie waren fast zwei Stunden im Museum.", "mark": ["fast zwei Stunden"] },
-
-    { "topic": "g-daf-b1-sich-lassen-verb", "text": "Christian lässt sich in der Informatikabteilung das Passwort vom Computer geben .", "mark": ["lässt", "sich", "geben"] },
-
-    { "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun", "text": "Sie dankt Bernd für die Bewerbung.", "mark": ["für"] },
-    { "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun", "text": "Bernd hat ein kleines Zimmer. Darin stehen wenig Möbel.", "mark": ["Darin"] },
-    { "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun", "text": "Bernd arbeitet bei Frau Egger. Er freut sich darüber.", "mark": ["darüber"] },
-
-    { "topic": "g-daf-b1-relative-pronouns-was-wo-r", "text": "Ich studiere in Berlin, und es gibt vieles, was super funktioniert.", "mark": ["was", "funktioniert"] },
-    { "topic": "g-daf-b1-relative-pronouns-was-wo-r", "text": "Es gibt politisch nichts mehr, was mich wirklich beeindruckt.", "mark": ["was", "beeindruckt"] },
-
-    { "topic": "g-daf-b1-expressing-results-consequences", "text": "Ich kenne das Wort „Gerät“ nicht, also muss ich im Wörterbuch nachschlagen.", "mark": ["also", "muss"] },
-    { "topic": "g-daf-b1-expressing-results-consequences", "text": "Ich kenne das Wort „Gerät“ nicht, ich muss also im Wörterbuch nachschlagen.", "mark": ["also", "muss"] },
-
-    { "topic": "g-daf-b1-preposition-w-hrend-genitive-standard-us", "text": "Während seines Besuchs / seinem Besuch sieht Karl viel von Berlin.", "mark": ["Während", "seines Besuchs", "seinem Besuch"] },
-    { "topic": "g-daf-b1-two-part-connectors-nicht-nur-sondern-au", "text": "Das Restaurant ist weder besonders schick noch ist die Speisekarte aufregend.", "mark": ["weder", "noch"] },
-
-    { "topic": "g-daf-b1-relative-clauses-with-was", "text": "Wir duzen unsere Professoren, was komplett anders ist.", "mark": ["was", "ist"] },
-    { "topic": "g-daf-b1-relative-clauses-with-was", "text": "Ich mag alles, was mit Sport zu tun hat.", "mark": ["was", "hat"] },
-
-    { "topic": "g-daf-b1-improbable-conditional-sentences", "text": "Wenn ich nicht so unordentlich wäre, könnte ich jetzt nachforschen.", "mark": ["Wenn", "wäre", "könnte"] },
-    { "topic": "g-daf-b1-improbable-conditional-sentences", "text": "Wäre ich nicht so unordentlich, könnte ich jetzt nachforschen.", "mark": ["Wäre", "könnte"] },
-    { "topic": "g-daf-b1-improbable-conditional-sentences", "text": "Ich könnte jetzt nachforschen, wenn ich nicht so unordentlich wäre.", "mark": ["wenn", "wäre", "könnte"] },
-
-    { "topic": "g-daf-b1-simultaneity", "text": "Bevor ich endlich die Füße hochlegen konnte, musste ich noch mit Marlene zum türkischen Markt.", "mark": ["Bevor", "konnte", "musste"] },
-    { "topic": "g-daf-b1-giving-a-counter-argument-concessive-cla", "text": "Lateinkenntnisse können im Studium sehr hilfreich sein. Deshalb war das „Latinum“ früher fast immer Pflicht.", "mark": ["Deshalb", "war"] },
-
-    { "topic": "g-daf-b1-naming-the-aim-final-dependent-clauses-a", "text": "Man arbeitet als WWOOFer, um praktische Erfahrung im Bio-Landbau zu sammeln.", "mark": ["um", "zu sammeln"] },
-    { "topic": "g-daf-b1-naming-the-aim-final-dependent-clauses-a", "text": "Um praktische Erfahrung im Bio-Landbau zu sammeln, arbeitet man als WWOOFer.", "mark": ["Um", "zu sammeln", "arbeitet"] },
-    { "topic": "g-daf-b1-naming-the-aim-final-dependent-clauses-a", "text": "Für die Mithilfe auf einem Hof erhalten die WWOOFer Verpflegung, Unterkunft und manchmal ein Taschengeld.", "mark": ["Für", "erhalten"] },
-
-    { "topic": "g-daf-b1-stating-consequences-consecutive-sentenc", "text": "Es ist so anstrengend mehrere Stunden am Tag eine Fremdsprache zu lernen, dass man manchmal einfach nur müde ist und dann leichter Fehler macht.", "mark": ["so", "dass", "ist[2]", "macht"] },
-
-    { "topic": "g-web-b1-verben-mit-praeposition", "text": "glauben an D", "mark": ["an"] },
-    { "topic": "g-web-b1-verben-mit-praeposition", "text": "nachdenken über A", "mark": ["über"] },
-    { "topic": "g-web-b1-verben-mit-praeposition", "text": "(sich) erinnern an A", "mark": ["an"] },
-    { "topic": "g-web-b1-verben-mit-praeposition", "text": "(sich) entschuldigen bei D für A", "mark": ["bei", "für"] },
-    { "topic": "g-web-b1-verben-mit-praeposition", "text": "sich gewöhnen an A", "mark": ["an"] },
-    { "topic": "g-web-b1-verben-mit-praeposition", "text": "sich interessieren für A", "mark": ["für"] },
-
-    { "topic": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv", "text": "Die Firma, für die sie arbeitet, wurde letztes Jahr gegründet.", "mark": ["für die", "arbeitet"] },
-    { "topic": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv", "text": "Das ist der Mann, dessen Auto letzte Woche gestohlen wurde.", "mark": ["dessen", "wurde"] },
-
-    { "topic": "g-b2-4-nominalisierung-vom-verb-zum-nomen", "text": "Die Überprüfung der Unterlagen dauert etwa zwei Wochen.", "mark": ["Die Überprüfung", "der Unterlagen"] },
-    { "topic": "g-b2-5-konzessive-und-kausale-konnektoren", "text": "Sie war krank, deshalb konnte sie nicht zur Prüfung kommen.", "mark": ["deshalb", "konnte"] },
-    { "topic": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien", "text": "Sie interessiert sich vor allem für alte Sprachen.", "mark": ["interessiert", "sich", "für"] },
-
-    { "topic": "g-b2-12-zweiteilige-konnektoren", "text": "Sie spricht sowohl Französisch als auch Portugiesisch.", "mark": ["sowohl", "als auch"] },
-    { "topic": "g-b2-12-zweiteilige-konnektoren", "text": "Wir können entweder heute anfangen oder bis Montag warten.", "mark": ["entweder", "oder"] },
-
-    { "topic": "g-l02-1", "text": "Obwohl Samira oft abends oder am Wochenende Dienst hat, hat sie ihre Entscheidung noch nicht bereut.", "mark": ["Obwohl", "hat[1]", "hat[2]"] },
-    { "topic": "g-l02-1", "text": "es sei denn, dass unser Kind krank wird.", "mark": ["es sei denn", "dass", "wird"] },
-    { "topic": "g-l02-1", "text": "außer wenn unser Kind krank wird.", "mark": ["außer wenn", "wird"] },
-    { "topic": "g-l02-1", "text": "Die beiden Hotelzimmer sind fast gleich, außer dass Sie im teureren Zimmer Alpenblick haben.", "mark": ["außer dass", "haben"] },
-    { "topic": "g-l02-1", "text": "Die beiden Hotelzimmer sind fast gleich, nur dass Sie im teureren Zimmer Alpenblick haben.", "mark": ["nur dass", "haben"] },
-
-    { "topic": "g-l05-3", "text": "Nach (der) Meinung /Aussage von Max Liebermann …", "mark": ["Nach"] },
-    { "topic": "g-l05-3", "text": "Max Liebermanns Meinung /Aussage nach …", "mark": ["nach"] },
-    { "topic": "g-l05-3", "text": "Wie Max Liebermann meinte / sagte,", "mark": ["Wie", "meinte", "sagte"] },
-
-    { "topic": "g-l06-1", "text": "Sie studiert fern (von) ihrer Heimatstadt.", "mark": ["fern", "von"] },
-
-    { "topic": "g-l07-2", "text": "Herr Müller hat sich verschuldet , weil / da seine Scheidung teuer war.", "mark": ["weil", "da", "war"] },
-    { "topic": "g-l07-2", "text": "Er ist enttäuscht, denn er hat schon zweimal Schiffbruch erlitten.", "mark": ["denn", "hat"] },
-    { "topic": "g-l07-2", "text": "Wegen seiner Scheidung hat Herr Müller sich verschuldet.", "mark": ["Wegen", "hat"] },
-    { "topic": "g-l07-2", "text": "Viele verschulden sich mangels Erfahrung im Umgang mit Geld.", "mark": ["mangels"] },
-
-    { "topic": "g-l09-1", "text": "Wenn / Falls / Sofern wir viele Schadstoffe produzieren, werden wir schlechte Luft einatmen.", "mark": ["Wenn", "Falls", "Sofern", "produzieren", "werden"] },
-    { "topic": "g-l09-1", "text": "Je nachdem, wie es mir gefällt, bleibe ich einen Tag länger.", "mark": ["Je nachdem", "gefällt", "bleibe"] },
-    { "topic": "g-l09-1", "text": "Bei / Im Falle hoher Schadstoffproduktion atmen wir schlechte Luft ein.", "mark": ["Bei", "Im Falle", "atmen", "ein"] },
-    { "topic": "g-l09-1", "text": "Auch wenn / Selbst wenn er wohlhabend war, war Wolfgang mit seinem Leben nicht zufrieden.", "mark": ["Auch wenn", "Selbst wenn", "war[1]", "war[2]"] },
-    { "topic": "g-l09-1", "text": "Es ist ein Ort mit Tradition. Trotzdem / Dennoch / Allerdings haben sich die Kreßberger an die neuen Bewohner gewöhnt.", "mark": ["Trotzdem", "Dennoch", "Allerdings", "haben"] },
-    { "topic": "g-l09-1", "text": "Selbst bei einer alternativen Lebensweise kann man von traditionsbewussten Dorfbewohnern akzeptiert werden.", "mark": ["Selbst bei", "kann"] },
-
-    { "topic": "g-l09-2", "text": "Den Lesern gefällt, dass er um aktuelle Bezüge bemüht ist.", "mark": ["bemüht", "um"] },
-    { "topic": "g-l09-2", "text": "Die Kreßberger sind verwundert über die alternative Lebensweise der Aussteiger.", "mark": ["verwundert", "über"] },
-    { "topic": "g-l09-2", "text": "Er ist erfahren im Verfassen von Bestsellern.", "mark": ["erfahren", "im"] },
-
-    { "topic": "g-l10-1", "text": "Vorkommen kann es immer wieder.", "mark": ["Vorkommen", "kann"] },
-    { "topic": "g-l10-1", "text": "Verstanden habe ich den Roman sofort.", "mark": ["Verstanden", "habe"] },
-    { "topic": "g-l10-1", "text": "Übersetzt wurde er in mehrere Sprachen.", "mark": ["Übersetzt", "wurde"] },
-    { "topic": "g-l10-1", "text": "Lesen mag anstrengender sein als Fernsehen.", "mark": ["Lesen", "mag"] },
-    { "topic": "g-l10-1", "text": "Der Autor hat gerade angefangen zu schreiben.", "mark": ["hat", "angefangen", "zu schreiben"] },
-    { "topic": "g-l10-1", "text": "Man ist nicht immer einverstanden mit der Meinung des Autors.", "mark": ["einverstanden", "mit"] },
-
-    { "topic": "g-l10-3", "text": "Wenn der Wecker klingelt, steht Dr. Kauter auf.", "mark": ["Wenn", "klingelt", "steht", "auf"] },
-    { "topic": "g-l10-3", "text": "Bevor / Ehe Dr. Kauter ins Bad geht, nimmt er Ballaststoffe ein.", "mark": ["Bevor", "Ehe", "geht", "nimmt", "ein"] },
-    { "topic": "g-l10-3", "text": "Im Stehen trank er eine Tasse Kaffee.", "mark": ["Im Stehen", "trank"] },
-    { "topic": "g-l10-3", "text": "Beim Telefonieren macht er sich Notizen.", "mark": ["Beim Telefonieren", "macht"] },
-    { "topic": "g-l10-3", "text": "Dr. Kauter verlässt das Schlafzimmer leise, damit seine Frau nicht aufwacht.", "mark": ["damit", "aufwacht"] },
-
-    { "topic": "g-l11-1", "text": "Schweizer haben ein Gefühl für Höflichkeit, sodass sie sensibel auf Zwischentöne reagieren.", "mark": ["sodass", "reagieren"] },
-    { "topic": "g-l11-1", "text": "Deutsche sind eine direktere Kommunikation gewöhnt, weshalb / weswegen sie auf Schweizer oft arrogant wirken.", "mark": ["weshalb", "weswegen", "wirken"] },
-    { "topic": "g-l11-1", "text": "Eric macht ein Auslandspraktikum, womit sein Lebenslauf attraktiver für Arbeitgeber wird.", "mark": ["womit", "wird"] },
-    { "topic": "g-l11-1", "text": "Durch häufigen Kontakt mit anderen Kulturen erwirbt man interkulturelle Kompetenz.", "mark": ["Durch", "erwirbt"] },
-    { "topic": "g-l11-1", "text": "Mittels / Mithilfe neuer Techniken kann man Kontakt halten.", "mark": ["Mittels", "Mithilfe", "kann"] },
-
-    { "topic": "g-l12-1", "text": "angesichts des hohen Preisgeldes", "mark": ["angesichts", "des hohen Preisgeldes"] },
-    { "topic": "g-l12-1", "text": "mithilfe spezieller 3D-Drucker", "mark": ["mithilfe"] },
-    { "topic": "g-l12-1", "text": "mittels einer Matratze", "mark": ["mittels"] },
-    { "topic": "g-l12-1", "text": "oberhalb der Einkommensgrenze", "mark": ["oberhalb"] }
-  ]
+    {
+      "topic": "g-daf-a1-subject-position",
+      "text": "Am Sonntag ist das Brunnenstüberl geöffnet.",
+      "mark": [
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-subject-position",
+      "text": "Das Brunnenstüberl ist am Sonntag geöffnet.",
+      "mark": [
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-subject-position",
+      "text": "Das Wetter ist leider nicht so gut.",
+      "mark": [
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-subject-position",
+      "text": "Leider ist das Wetter nicht so gut.",
+      "mark": [
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-word-order-for-positive-statements-w-que",
+      "text": "Woher kommen Sie?",
+      "mark": [
+        "Woher:q",
+        "kommen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-word-order-for-positive-statements-w-que",
+      "text": "Ich komme aus Marokko.",
+      "mark": [
+        "komme:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-word-order-for-positive-statements-w-que",
+      "text": "Wo wohnst du?",
+      "mark": [
+        "Wo:q",
+        "wohnst:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-word-order-for-positive-statements-w-que",
+      "text": "Kommen Sie aus Tunesien?",
+      "mark": [
+        "Kommen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-word-order-for-positive-statements-w-que",
+      "text": "Wohnst du in Stuttgart?",
+      "mark": [
+        "Wohnst:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-word-order-for-statements-and-w-question",
+      "text": "Beatriz muss in der Woche früh aufstehen.",
+      "mark": [
+        "muss:verb",
+        "aufstehen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-word-order-for-statements-and-w-question",
+      "text": "Am Wochenende kann sie lange schlafen.",
+      "mark": [
+        "kann:verb",
+        "schlafen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-word-order-for-statements-and-w-question",
+      "text": "Beatriz und Leopold wollen heute ins Kino gehen.",
+      "mark": [
+        "wollen:verb",
+        "gehen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-word-order-for-statements-and-w-question",
+      "text": "Wann möchtet ihr nach Hause fahren?",
+      "mark": [
+        "Wann:q",
+        "möchtet:verb",
+        "fahren:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-word-order-for-yes-no-questions",
+      "text": "Darf man im Bus laut Musik hören?",
+      "mark": [
+        "Darf:verb",
+        "hören:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-location",
+      "text": "Wo ist / liegt das Buch?",
+      "mark": [
+        "Wo:q",
+        "ist:verb",
+        "liegt:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "beim Bahnhof",
+      "mark": [
+        "beim:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "in der Schweiz",
+      "mark": [
+        "in:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-connectors-aber-oder-und",
+      "text": "Meine Mutter ist nicht verheiratet und sie erzieht meinen Bruder und mich allein.",
+      "mark": [
+        "und[1]:conj",
+        "ist:verb",
+        "erzieht:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-prepositions-of-place-2",
+      "text": "Jörg soll die Kärntner Straße entlang gehen.",
+      "mark": [
+        "entlang:prep",
+        "soll:verb",
+        "gehen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-prepositions-of-place-2",
+      "text": "Komm heraus!",
+      "mark": [
+        "Komm:verb",
+        "heraus:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-prepositions-of-place-2",
+      "text": "Jörg geht aus dem Museum hinaus.",
+      "mark": [
+        "geht:verb",
+        "hinaus:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-aber-denn-und-sondern-oder-aduso-connect",
+      "text": "Witikon liegt etwas außerhalb, aber es hat gute Verkehrsverbindungen.",
+      "mark": [
+        "aber:conj",
+        "liegt:verb",
+        "hat:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-aber-denn-und-sondern-oder-aduso-connect",
+      "text": "In Witikon sind die Mieten nicht so hoch und die Verkehrsverbindungen sind gut.",
+      "mark": [
+        "und:conj",
+        "sind[1]:verb",
+        "sind[2]:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-aber-denn-und-sondern-oder-aduso-connect",
+      "text": "Lara und Andrea möchten in Enge oder (sie möchten) in Lindenhof wohnen.",
+      "mark": [
+        "oder:conj",
+        "möchten[1]:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-expressing-reasons-causal-connectives-da",
+      "text": "Ich soll mich ausruhen, darum / deshalb / deswegen habe ich Urlaub genommen.",
+      "mark": [
+        "darum:conj",
+        "deshalb:conj",
+        "deswegen:conj",
+        "habe:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-expressing-reasons-dependent-clauses-wit",
+      "text": "Wir finden, dass Köln eine schöne Stadt ist.",
+      "mark": [
+        "dass:conj",
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-naming-a-point-of-time-in-the-past-tempo",
+      "text": "Es gab ein großes Gedränge, als der Krimiautor eintraf.",
+      "mark": [
+        "als:conj",
+        "eintraf:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-naming-a-point-of-time-in-the-past-tempo",
+      "text": "Als der Krimiautor eintraf, gab es ein großes Gedränge.",
+      "mark": [
+        "Als:conj",
+        "eintraf:verb",
+        "gab:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-stating-conditions-dependent-conditional",
+      "text": "Rui bekommt Zinsen, wenn er Geld auf einem Sparkonto hat.",
+      "mark": [
+        "wenn:conj",
+        "hat:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-stating-conditions-dependent-conditional",
+      "text": "Die EC-Karte kostet nichts, wenn Rui nur Online-Banking macht.",
+      "mark": [
+        "wenn:conj",
+        "macht:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-stating-conditions-dependent-conditional",
+      "text": "Wenn Rui nicht nur Online-Banking macht, kostet die EC-Karte 6,50 €pro Jahr.",
+      "mark": [
+        "Wenn:conj",
+        "macht:verb",
+        "kostet:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-indirect-questions",
+      "text": "Gibt es auch Führungen zum Thema „Film“?",
+      "mark": [
+        "Gibt:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-indirect-questions",
+      "text": "Können Sie mir sagen, wie lange die Führung dauert?",
+      "mark": [
+        "wie:q",
+        "dauert:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-indirect-questions",
+      "text": "Können Sie mir auf dem Plan zeigen, wo der Treffpunkt ist?",
+      "mark": [
+        "wo:q",
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-indirect-questions",
+      "text": "Ich möchte gern wissen, welches Ticket am besten ist.",
+      "mark": [
+        "welches:q",
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-time-expressions-usually-go-in-the-middl",
+      "text": "Jörg ist diese Woche schon fünfmal im Kino gewesen.",
+      "mark": [
+        "diese Woche"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-time-expressions-usually-go-in-the-middl",
+      "text": "Jörg und Michael sind nach dem Frühstück sofort ins Museum gegangen.",
+      "mark": [
+        "nach dem Frühstück"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-time-expressions-usually-go-in-the-middl",
+      "text": "Sie waren fast zwei Stunden im Museum.",
+      "mark": [
+        "fast zwei Stunden"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-sich-lassen-verb",
+      "text": "Christian lässt sich in der Informatikabteilung das Passwort vom Computer geben .",
+      "mark": [
+        "lässt:verb",
+        "sich",
+        "geben:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun",
+      "text": "Sie dankt Bernd für die Bewerbung.",
+      "mark": [
+        "für:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun",
+      "text": "Bernd hat ein kleines Zimmer. Darin stehen wenig Möbel.",
+      "mark": [
+        "Darin"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun",
+      "text": "Bernd arbeitet bei Frau Egger. Er freut sich darüber.",
+      "mark": [
+        "darüber"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-relative-pronouns-was-wo-r",
+      "text": "Ich studiere in Berlin, und es gibt vieles, was super funktioniert.",
+      "mark": [
+        "was",
+        "funktioniert:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-relative-pronouns-was-wo-r",
+      "text": "Es gibt politisch nichts mehr, was mich wirklich beeindruckt.",
+      "mark": [
+        "was",
+        "beeindruckt:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-expressing-results-consequences",
+      "text": "Ich kenne das Wort „Gerät“ nicht, also muss ich im Wörterbuch nachschlagen.",
+      "mark": [
+        "also:conj",
+        "muss:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-expressing-results-consequences",
+      "text": "Ich kenne das Wort „Gerät“ nicht, ich muss also im Wörterbuch nachschlagen.",
+      "mark": [
+        "also:conj",
+        "muss:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-preposition-w-hrend-genitive-standard-us",
+      "text": "Während seines Besuchs / seinem Besuch sieht Karl viel von Berlin.",
+      "mark": [
+        "Während:prep",
+        "seines Besuchs",
+        "seinem Besuch"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-two-part-connectors-nicht-nur-sondern-au",
+      "text": "Das Restaurant ist weder besonders schick noch ist die Speisekarte aufregend.",
+      "mark": [
+        "weder:conj",
+        "noch:conj"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-relative-clauses-with-was",
+      "text": "Wir duzen unsere Professoren, was komplett anders ist.",
+      "mark": [
+        "was",
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-relative-clauses-with-was",
+      "text": "Ich mag alles, was mit Sport zu tun hat.",
+      "mark": [
+        "was",
+        "hat:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-improbable-conditional-sentences",
+      "text": "Wenn ich nicht so unordentlich wäre, könnte ich jetzt nachforschen.",
+      "mark": [
+        "Wenn:conj",
+        "wäre:verb",
+        "könnte:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-improbable-conditional-sentences",
+      "text": "Wäre ich nicht so unordentlich, könnte ich jetzt nachforschen.",
+      "mark": [
+        "Wäre:verb",
+        "könnte:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-improbable-conditional-sentences",
+      "text": "Ich könnte jetzt nachforschen, wenn ich nicht so unordentlich wäre.",
+      "mark": [
+        "wenn:conj",
+        "wäre:verb",
+        "könnte:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-simultaneity",
+      "text": "Bevor ich endlich die Füße hochlegen konnte, musste ich noch mit Marlene zum türkischen Markt.",
+      "mark": [
+        "Bevor:conj",
+        "konnte:verb",
+        "musste:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-giving-a-counter-argument-concessive-cla",
+      "text": "Lateinkenntnisse können im Studium sehr hilfreich sein. Deshalb war das „Latinum“ früher fast immer Pflicht.",
+      "mark": [
+        "Deshalb:conj",
+        "war:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-naming-the-aim-final-dependent-clauses-a",
+      "text": "Man arbeitet als WWOOFer, um praktische Erfahrung im Bio-Landbau zu sammeln.",
+      "mark": [
+        "um:conj",
+        "zu sammeln:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-naming-the-aim-final-dependent-clauses-a",
+      "text": "Um praktische Erfahrung im Bio-Landbau zu sammeln, arbeitet man als WWOOFer.",
+      "mark": [
+        "Um:conj",
+        "zu sammeln:verb",
+        "arbeitet:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-naming-the-aim-final-dependent-clauses-a",
+      "text": "Für die Mithilfe auf einem Hof erhalten die WWOOFer Verpflegung, Unterkunft und manchmal ein Taschengeld.",
+      "mark": [
+        "Für:prep",
+        "erhalten:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-stating-consequences-consecutive-sentenc",
+      "text": "Es ist so anstrengend mehrere Stunden am Tag eine Fremdsprache zu lernen, dass man manchmal einfach nur müde ist und dann leichter Fehler macht.",
+      "mark": [
+        "so",
+        "dass:conj",
+        "ist[2]:verb",
+        "macht:verb"
+      ]
+    },
+    {
+      "topic": "g-web-b1-verben-mit-praeposition",
+      "text": "glauben an D",
+      "mark": [
+        "an:prep"
+      ]
+    },
+    {
+      "topic": "g-web-b1-verben-mit-praeposition",
+      "text": "nachdenken über A",
+      "mark": [
+        "über:prep"
+      ]
+    },
+    {
+      "topic": "g-web-b1-verben-mit-praeposition",
+      "text": "(sich) erinnern an A",
+      "mark": [
+        "an:prep"
+      ]
+    },
+    {
+      "topic": "g-web-b1-verben-mit-praeposition",
+      "text": "(sich) entschuldigen bei D für A",
+      "mark": [
+        "bei:prep",
+        "für:prep"
+      ]
+    },
+    {
+      "topic": "g-web-b1-verben-mit-praeposition",
+      "text": "sich gewöhnen an A",
+      "mark": [
+        "an:prep"
+      ]
+    },
+    {
+      "topic": "g-web-b1-verben-mit-praeposition",
+      "text": "sich interessieren für A",
+      "mark": [
+        "für:prep"
+      ]
+    },
+    {
+      "topic": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
+      "text": "Die Firma, für die sie arbeitet, wurde letztes Jahr gegründet.",
+      "mark": [
+        "für die:prep",
+        "arbeitet:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
+      "text": "Das ist der Mann, dessen Auto letzte Woche gestohlen wurde.",
+      "mark": [
+        "dessen",
+        "wurde:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-4-nominalisierung-vom-verb-zum-nomen",
+      "text": "Die Überprüfung der Unterlagen dauert etwa zwei Wochen.",
+      "mark": [
+        "Die Überprüfung",
+        "der Unterlagen"
+      ]
+    },
+    {
+      "topic": "g-b2-5-konzessive-und-kausale-konnektoren",
+      "text": "Sie war krank, deshalb konnte sie nicht zur Prüfung kommen.",
+      "mark": [
+        "deshalb:conj",
+        "konnte:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien",
+      "text": "Sie interessiert sich vor allem für alte Sprachen.",
+      "mark": [
+        "interessiert:verb",
+        "sich",
+        "für:prep"
+      ]
+    },
+    {
+      "topic": "g-b2-12-zweiteilige-konnektoren",
+      "text": "Sie spricht sowohl Französisch als auch Portugiesisch.",
+      "mark": [
+        "sowohl:conj",
+        "als auch:conj"
+      ]
+    },
+    {
+      "topic": "g-b2-12-zweiteilige-konnektoren",
+      "text": "Wir können entweder heute anfangen oder bis Montag warten.",
+      "mark": [
+        "entweder:conj",
+        "oder:conj"
+      ]
+    },
+    {
+      "topic": "g-l02-1",
+      "text": "Obwohl Samira oft abends oder am Wochenende Dienst hat, hat sie ihre Entscheidung noch nicht bereut.",
+      "mark": [
+        "Obwohl:conj",
+        "hat[1]:verb",
+        "hat[2]:verb"
+      ]
+    },
+    {
+      "topic": "g-l02-1",
+      "text": "es sei denn, dass unser Kind krank wird.",
+      "mark": [
+        "es sei denn:conj",
+        "dass:conj",
+        "wird:verb"
+      ]
+    },
+    {
+      "topic": "g-l02-1",
+      "text": "außer wenn unser Kind krank wird.",
+      "mark": [
+        "außer wenn:conj",
+        "wird:verb"
+      ]
+    },
+    {
+      "topic": "g-l02-1",
+      "text": "Die beiden Hotelzimmer sind fast gleich, außer dass Sie im teureren Zimmer Alpenblick haben.",
+      "mark": [
+        "außer dass:conj",
+        "haben:verb"
+      ]
+    },
+    {
+      "topic": "g-l02-1",
+      "text": "Die beiden Hotelzimmer sind fast gleich, nur dass Sie im teureren Zimmer Alpenblick haben.",
+      "mark": [
+        "nur dass:conj",
+        "haben:verb"
+      ]
+    },
+    {
+      "topic": "g-l05-3",
+      "text": "Nach (der) Meinung /Aussage von Max Liebermann …",
+      "mark": [
+        "Nach:prep"
+      ]
+    },
+    {
+      "topic": "g-l05-3",
+      "text": "Max Liebermanns Meinung /Aussage nach …",
+      "mark": [
+        "nach:prep"
+      ]
+    },
+    {
+      "topic": "g-l05-3",
+      "text": "Wie Max Liebermann meinte / sagte,",
+      "mark": [
+        "Wie:conj",
+        "meinte:verb",
+        "sagte:verb"
+      ]
+    },
+    {
+      "topic": "g-l06-1",
+      "text": "Sie studiert fern (von) ihrer Heimatstadt.",
+      "mark": [
+        "fern:prep",
+        "von:prep"
+      ]
+    },
+    {
+      "topic": "g-l07-2",
+      "text": "Herr Müller hat sich verschuldet , weil / da seine Scheidung teuer war.",
+      "mark": [
+        "weil:conj",
+        "da:conj",
+        "war:verb"
+      ]
+    },
+    {
+      "topic": "g-l07-2",
+      "text": "Er ist enttäuscht, denn er hat schon zweimal Schiffbruch erlitten.",
+      "mark": [
+        "denn:conj",
+        "hat:verb"
+      ]
+    },
+    {
+      "topic": "g-l07-2",
+      "text": "Wegen seiner Scheidung hat Herr Müller sich verschuldet.",
+      "mark": [
+        "Wegen:prep",
+        "hat:verb"
+      ]
+    },
+    {
+      "topic": "g-l07-2",
+      "text": "Viele verschulden sich mangels Erfahrung im Umgang mit Geld.",
+      "mark": [
+        "mangels:prep"
+      ]
+    },
+    {
+      "topic": "g-l09-1",
+      "text": "Wenn / Falls / Sofern wir viele Schadstoffe produzieren, werden wir schlechte Luft einatmen.",
+      "mark": [
+        "Wenn:conj",
+        "Falls:conj",
+        "Sofern:conj",
+        "produzieren:verb",
+        "werden:verb"
+      ]
+    },
+    {
+      "topic": "g-l09-1",
+      "text": "Je nachdem, wie es mir gefällt, bleibe ich einen Tag länger.",
+      "mark": [
+        "Je nachdem:conj",
+        "gefällt:verb",
+        "bleibe:verb"
+      ]
+    },
+    {
+      "topic": "g-l09-1",
+      "text": "Bei / Im Falle hoher Schadstoffproduktion atmen wir schlechte Luft ein.",
+      "mark": [
+        "Bei:prep",
+        "Im Falle:prep",
+        "atmen:verb",
+        "ein:verb"
+      ]
+    },
+    {
+      "topic": "g-l09-1",
+      "text": "Auch wenn / Selbst wenn er wohlhabend war, war Wolfgang mit seinem Leben nicht zufrieden.",
+      "mark": [
+        "Auch wenn:conj",
+        "Selbst wenn:conj",
+        "war[1]:verb",
+        "war[2]:verb"
+      ]
+    },
+    {
+      "topic": "g-l09-1",
+      "text": "Es ist ein Ort mit Tradition. Trotzdem / Dennoch / Allerdings haben sich die Kreßberger an die neuen Bewohner gewöhnt.",
+      "mark": [
+        "Trotzdem:conj",
+        "Dennoch:conj",
+        "Allerdings:conj",
+        "haben:verb"
+      ]
+    },
+    {
+      "topic": "g-l09-1",
+      "text": "Selbst bei einer alternativen Lebensweise kann man von traditionsbewussten Dorfbewohnern akzeptiert werden.",
+      "mark": [
+        "Selbst bei:prep",
+        "kann:verb"
+      ]
+    },
+    {
+      "topic": "g-l09-2",
+      "text": "Den Lesern gefällt, dass er um aktuelle Bezüge bemüht ist.",
+      "mark": [
+        "bemüht",
+        "um:prep"
+      ]
+    },
+    {
+      "topic": "g-l09-2",
+      "text": "Die Kreßberger sind verwundert über die alternative Lebensweise der Aussteiger.",
+      "mark": [
+        "verwundert",
+        "über:prep"
+      ]
+    },
+    {
+      "topic": "g-l09-2",
+      "text": "Er ist erfahren im Verfassen von Bestsellern.",
+      "mark": [
+        "erfahren",
+        "im:prep"
+      ]
+    },
+    {
+      "topic": "g-l10-1",
+      "text": "Vorkommen kann es immer wieder.",
+      "mark": [
+        "Vorkommen:verb",
+        "kann:verb"
+      ]
+    },
+    {
+      "topic": "g-l10-1",
+      "text": "Verstanden habe ich den Roman sofort.",
+      "mark": [
+        "Verstanden:verb",
+        "habe:verb"
+      ]
+    },
+    {
+      "topic": "g-l10-1",
+      "text": "Übersetzt wurde er in mehrere Sprachen.",
+      "mark": [
+        "Übersetzt:verb",
+        "wurde:verb"
+      ]
+    },
+    {
+      "topic": "g-l10-1",
+      "text": "Lesen mag anstrengender sein als Fernsehen.",
+      "mark": [
+        "Lesen:verb",
+        "mag:verb"
+      ]
+    },
+    {
+      "topic": "g-l10-1",
+      "text": "Der Autor hat gerade angefangen zu schreiben.",
+      "mark": [
+        "hat:verb",
+        "angefangen:verb",
+        "zu schreiben:verb"
+      ]
+    },
+    {
+      "topic": "g-l10-1",
+      "text": "Man ist nicht immer einverstanden mit der Meinung des Autors.",
+      "mark": [
+        "einverstanden",
+        "mit:prep"
+      ]
+    },
+    {
+      "topic": "g-l10-3",
+      "text": "Wenn der Wecker klingelt, steht Dr. Kauter auf.",
+      "mark": [
+        "Wenn:conj",
+        "klingelt:verb",
+        "steht:verb",
+        "auf:verb"
+      ]
+    },
+    {
+      "topic": "g-l10-3",
+      "text": "Bevor / Ehe Dr. Kauter ins Bad geht, nimmt er Ballaststoffe ein.",
+      "mark": [
+        "Bevor:conj",
+        "Ehe:conj",
+        "geht:verb",
+        "nimmt:verb",
+        "ein:verb"
+      ]
+    },
+    {
+      "topic": "g-l10-3",
+      "text": "Im Stehen trank er eine Tasse Kaffee.",
+      "mark": [
+        "Im:prep",
+        "Stehen",
+        "trank:verb"
+      ]
+    },
+    {
+      "topic": "g-l10-3",
+      "text": "Beim Telefonieren macht er sich Notizen.",
+      "mark": [
+        "Beim:prep",
+        "Telefonieren",
+        "macht:verb"
+      ]
+    },
+    {
+      "topic": "g-l10-3",
+      "text": "Dr. Kauter verlässt das Schlafzimmer leise, damit seine Frau nicht aufwacht.",
+      "mark": [
+        "damit:conj",
+        "aufwacht:verb"
+      ]
+    },
+    {
+      "topic": "g-l11-1",
+      "text": "Schweizer haben ein Gefühl für Höflichkeit, sodass sie sensibel auf Zwischentöne reagieren.",
+      "mark": [
+        "sodass:conj",
+        "reagieren:verb"
+      ]
+    },
+    {
+      "topic": "g-l11-1",
+      "text": "Deutsche sind eine direktere Kommunikation gewöhnt, weshalb / weswegen sie auf Schweizer oft arrogant wirken.",
+      "mark": [
+        "weshalb:conj",
+        "weswegen:conj",
+        "wirken:verb"
+      ]
+    },
+    {
+      "topic": "g-l11-1",
+      "text": "Eric macht ein Auslandspraktikum, womit sein Lebenslauf attraktiver für Arbeitgeber wird.",
+      "mark": [
+        "womit:conj",
+        "wird:verb"
+      ]
+    },
+    {
+      "topic": "g-l11-1",
+      "text": "Durch häufigen Kontakt mit anderen Kulturen erwirbt man interkulturelle Kompetenz.",
+      "mark": [
+        "Durch:prep",
+        "erwirbt:verb"
+      ]
+    },
+    {
+      "topic": "g-l11-1",
+      "text": "Mittels / Mithilfe neuer Techniken kann man Kontakt halten.",
+      "mark": [
+        "Mittels:prep",
+        "Mithilfe:prep",
+        "kann:verb"
+      ]
+    },
+    {
+      "topic": "g-l12-1",
+      "text": "angesichts des hohen Preisgeldes",
+      "mark": [
+        "angesichts:prep",
+        "des hohen Preisgeldes"
+      ]
+    },
+    {
+      "topic": "g-l12-1",
+      "text": "mithilfe spezieller 3D-Drucker",
+      "mark": [
+        "mithilfe:prep"
+      ]
+    },
+    {
+      "topic": "g-l12-1",
+      "text": "mittels einer Matratze",
+      "mark": [
+        "mittels:prep"
+      ]
+    },
+    {
+      "topic": "g-l12-1",
+      "text": "oberhalb der Einkommensgrenze",
+      "mark": [
+        "oberhalb:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-word-order-for-statements-and-w-question",
+      "text": "Man darf im Bus nicht laut Musik hören.",
+      "mark": [
+        "hören:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "vom Bahnhof",
+      "mark": [
+        "vom:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "zum Park",
+      "mark": [
+        "zum:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "zur Zytglogge",
+      "mark": [
+        "zur:prep",
+        "Zytglogge"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "vom Münster (bis) zum Bahnhof",
+      "mark": [
+        "vom:prep",
+        "zum:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "ins Haus",
+      "mark": [
+        "ins:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "im Bärenpark",
+      "mark": [
+        "im:prep",
+        "Bärenpark"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-connectors-aber-oder-und",
+      "text": "Das ist die normale Kleinfamilie, aber sie ist heute nicht mehr die Regel.",
+      "mark": [
+        "ist[1]:verb",
+        "aber:conj",
+        "ist[2]:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-connectors-aber-oder-und",
+      "text": "Man bekommt Kinder, aber man heiratet nicht immer.",
+      "mark": [
+        "bekommt:verb",
+        "aber:conj",
+        "heiratet:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-connectors-aber-oder-und",
+      "text": "Sie heiraten noch einmal oder sie leben ohne Trauschein.",
+      "mark": [
+        "heiraten:verb",
+        "oder:conj",
+        "leben:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-prepositions-of-place-2",
+      "text": "zu + dem = zum, zu + der = zur, bei + dem = beim, von + dem = vom",
+      "mark": [
+        "zum:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-prepositions-of-place-2",
+      "text": "Jörg soll bis zum Ring gehen. / bis zur Dumbastraße gehen.",
+      "mark": [
+        "zum:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-prepositions-of-place-2",
+      "text": "Jörg geht in das Wien Museum rein.",
+      "mark": [
+        "in:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-prepositions-of-place-2",
+      "text": "Jörg geht aus dem Wien Museum raus.",
+      "mark": [
+        "raus:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-aber-denn-und-sondern-oder-aduso-connect",
+      "text": "Lindenhof ist schön, denn es liegt in der Altstadt.",
+      "mark": [
+        "ist:verb",
+        "denn:conj",
+        "liegt:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-aber-denn-und-sondern-oder-aduso-connect",
+      "text": "Frankfurt liegt nicht westlich (von Mainz), sondern (es liegt) östlich von Mainz.",
+      "mark": [
+        "liegt[1]:verb",
+        "sondern:conj",
+        "liegt[2]:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-expressing-reasons-causal-connectives-da",
+      "text": "Weil ich Sport machen soll, gehe ich jeden zweiten Tag walken.",
+      "mark": [
+        "Weil:conj",
+        "gehe:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-expressing-reasons-causal-connectives-da",
+      "text": "Ich soll Sport machen, darum / deshalb / deswegen gehe ich jeden zweiten Tag walken.",
+      "mark": [
+        "gehe:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-expressing-reasons-causal-connectives-da",
+      "text": "Ich habe Urlaub genommen, weil ich mich ausruhen soll.",
+      "mark": [
+        "weil:conj",
+        "soll:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-expressing-reasons-dependent-clauses-wit",
+      "text": "Bernhard möchte in Köln studieren, weil er dort keine Sprachprobleme hat.",
+      "mark": [
+        "weil:conj",
+        "hat:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-expressing-reasons-dependent-clauses-wit",
+      "text": "Ich möchte im Ausland studieren, weil Auslandserfahrung wichtig ist.",
+      "mark": [
+        "weil:conj",
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-naming-a-point-of-time-in-the-past-tempo",
+      "text": "Ruis Portemonnaie war weg, als er an der Kasse zahlen wollte.",
+      "mark": [
+        "war:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-naming-a-point-of-time-in-the-past-tempo",
+      "text": "Als er an der Kasse zahlen wollte, war Ruis Portemonnaie weg.",
+      "mark": [
+        "war:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-stating-conditions-dependent-conditional",
+      "text": "Wenn Rui Geld anlegen will, kann er es auf ein Sparkonto einzahlen",
+      "mark": [
+        "kann:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-indirect-questions",
+      "text": "Ich möchte wissen, ob es auch Führungen zum Thema „Film“ gibt.",
+      "mark": [
+        "ob:conj",
+        "gibt:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-sich-lassen-verb",
+      "text": "Christian hat sich schon das Intranet zeigen lassen .",
+      "mark": [
+        "zeigen:verb",
+        "lassen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-sich-lassen-verb",
+      "text": "Christian muss den Urlaubsantrag der Personalabteilung zukommen lassen .",
+      "mark": [
+        "lassen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun",
+      "text": "Wofür dankt Frau Egger Bernd?",
+      "mark": [
+        "Wofür:q"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun",
+      "text": "Worin möchte Bernd Erfahrungen sammeln?",
+      "mark": [
+        "Worin:q"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-expressing-results-consequences",
+      "text": "Mehrere Stunden am Tag eine Fremdsprache zu lernen ist anstrengend. Folglich ist man manchmal einfach nur müde und macht dann leichter Fehler.",
+      "mark": [
+        "ist[1]:verb",
+        "ist[2]:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-expressing-results-consequences",
+      "text": "Man ist folglich manchmal einfach nur müde und macht dann leichter Fehler.",
+      "mark": [
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-two-part-connectors-nicht-nur-sondern-au",
+      "text": "Innsbruck bietet sowohl Kultur als auch Natur.",
+      "mark": [
+        "als:conj",
+        "auch:conj"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-two-part-connectors-nicht-nur-sondern-au",
+      "text": "Besucher können dort nicht nur die Architektur, sondern auch die Aussicht bewundern.",
+      "mark": [
+        "sondern:conj",
+        "auch:conj"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-improbable-conditional-sentences",
+      "text": "Wenn Markus den Paketschein hätte, könnte er nachforschen, wo das Paket von seiner Schwester ist.",
+      "mark": [
+        "hätte:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-simultaneity",
+      "text": "Während wir dort Kaffee getrunken haben, habe ich beobachtet",
+      "mark": [
+        "Während:conj",
+        "haben:verb",
+        "habe:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-simultaneity",
+      "text": "Nachdem wir es bis zum Bahnhof Zoo geschafft hatten, fing es an zu regnen.",
+      "mark": [
+        "Nachdem:conj",
+        "hatten:verb",
+        "fing:verb",
+        "an:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-giving-a-counter-argument-concessive-cla",
+      "text": "Obwohl Lateinkenntnisse im Studium sehr hilfreich sein können, ist das „Latinum“ heute nur noch selten Pflicht.",
+      "mark": [
+        "Obwohl:conj",
+        "können:verb",
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-giving-a-counter-argument-concessive-cla",
+      "text": "Das „Latinum“ ist heute nur noch selten Pflicht, obwohl Lateinkenntnisse im Studium sehr hilfreich sein können.",
+      "mark": [
+        "ist:verb",
+        "obwohl:conj",
+        "können:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-naming-the-aim-final-dependent-clauses-a",
+      "text": "Man sollte sich zuerst schriftlich bei den Landwirten melden, damit diese ihre zukünftigen Helfer vorher kennen lernen.",
+      "mark": [
+        "damit:conj",
+        "kennen lernen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-naming-the-aim-final-dependent-clauses-a",
+      "text": "Damit die Landwirte ihre zukünftigen Helfer vorher kennen lernen, sollte man sich zuerst schriftlich bei diesen melden.",
+      "mark": [
+        "Damit:conj",
+        "kennen lernen:verb",
+        "sollte:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-naming-the-aim-final-dependent-clauses-a",
+      "text": "WWOOFen ist aber kein Ferienjob zum Geldverdienen.",
+      "mark": [
+        "zum:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-stating-consequences-consecutive-sentenc",
+      "text": "Es ist anstrengend mehrere Stunden am Tag eine Fremdsprache zu lernen, sodass man manchmal einfach nur müde ist und dann leichter Fehler macht.",
+      "mark": [
+        "sodass:conj",
+        "ist[2]:verb",
+        "macht:verb"
+      ]
+    },
+    {
+      "topic": "g-web-b1-verben-mit-praeposition",
+      "text": "Ich freue mich auf die Ferien.",
+      "mark": [
+        "auf:prep"
+      ]
+    },
+    {
+      "topic": "g-web-b1-verben-mit-praeposition",
+      "text": "Ein Team besteht aus 5 Spielern.",
+      "mark": [
+        "aus:prep"
+      ]
+    },
+    {
+      "topic": "g-web-b1-verben-mit-praeposition",
+      "text": "warten auf A",
+      "mark": [
+        "auf:prep"
+      ]
+    },
+    {
+      "topic": "g-web-b1-verben-mit-praeposition",
+      "text": "träumen von D",
+      "mark": [
+        "von:prep"
+      ]
+    },
+    {
+      "topic": "g-b2-5-konzessive-und-kausale-konnektoren",
+      "text": "Obwohl es stark regnete, sind wir spazieren gegangen.",
+      "mark": [
+        "regnete:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-5-konzessive-und-kausale-konnektoren",
+      "text": "Es regnete stark, trotzdem sind wir spazieren gegangen.",
+      "mark": [
+        "regnete:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-5-konzessive-und-kausale-konnektoren",
+      "text": "Er hat sein Deutsch verbessert, indem er jeden Tag Zeitung gelesen hat.",
+      "mark": [
+        "hat[1]:verb",
+        "indem:conj",
+        "hat[2]:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien",
+      "text": "Ich freue mich schon sehr auf den Urlaub im September.",
+      "mark": [
+        "auf:prep"
+      ]
+    },
+    {
+      "topic": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien",
+      "text": "Worauf wartest du eigentlich noch?",
+      "mark": [
+        "Worauf:q"
+      ]
+    },
+    {
+      "topic": "g-b2-12-zweiteilige-konnektoren",
+      "text": "Je länger ich darüber nachdenke, desto weniger verstehe ich es.",
+      "mark": [
+        "Je:conj",
+        "nachdenke:verb",
+        "desto:conj",
+        "verstehe:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-12-zweiteilige-konnektoren",
+      "text": "Er hat weder angerufen noch eine Nachricht geschrieben.",
+      "mark": [
+        "noch:conj"
+      ]
+    },
+    {
+      "topic": "g-l05-3",
+      "text": "Laut (der) Meinung /Aussage von Max Liebermann …",
+      "mark": [
+        "Laut:prep"
+      ]
+    },
+    {
+      "topic": "g-l05-3",
+      "text": "Laut Max Liebermann …",
+      "mark": [
+        "Laut:prep"
+      ]
+    },
+    {
+      "topic": "g-l05-3",
+      "text": "Max Liebermann zufolge …",
+      "mark": [
+        "zufolge:prep"
+      ]
+    },
+    {
+      "topic": "g-l06-1",
+      "text": "Doppelstudiengänge sind entsprechend der neuen Studienordnung möglich.",
+      "mark": [
+        "entsprechend:prep"
+      ]
+    },
+    {
+      "topic": "g-l06-1",
+      "text": "Im Vorlesungsverzeichnis findet man den Namen samt der E-Mail-Adresse.",
+      "mark": [
+        "samt:prep"
+      ]
+    },
+    {
+      "topic": "g-l06-1",
+      "text": "Seinen Eltern zuliebe hat er Jura studiert.",
+      "mark": [
+        "zuliebe:prep"
+      ]
+    },
+    {
+      "topic": "g-l07-2",
+      "text": "Ihm ist das nicht so wichtig, zumal / besonders weil er inzwischen eine neue Stelle hat.",
+      "mark": [
+        "zumal:conj",
+        "hat:verb"
+      ]
+    },
+    {
+      "topic": "g-l07-2",
+      "text": "Er kocht vor Wut.",
+      "mark": [
+        "vor:prep"
+      ]
+    },
+    {
+      "topic": "g-l07-2",
+      "text": "Dank neuer technischer Entwicklungen gibt es Hoffnung für die Städte der Zukunft.",
+      "mark": [
+        "Dank:prep"
+      ]
+    },
+    {
+      "topic": "g-l09-1",
+      "text": "Ohne den Einsatz von Glashaus-Techniken funktioniert die vertikale Landwirtschaft nicht.",
+      "mark": [
+        "Ohne:prep"
+      ]
+    },
+    {
+      "topic": "g-l09-2",
+      "text": "Er ist auf seine Leser angewiesen.",
+      "mark": [
+        "auf:prep"
+      ]
+    },
+    {
+      "topic": "g-l09-2",
+      "text": "Ich bin schon gespannt auf seinen nächsten Roman.",
+      "mark": [
+        "auf:prep"
+      ]
+    },
+    {
+      "topic": "g-l09-2",
+      "text": "Sie ist stets aufgeschlossen gegenüber Neuem.",
+      "mark": [
+        "aufgeschlossen",
+        "gegenüber:prep"
+      ]
+    },
+    {
+      "topic": "g-l10-3",
+      "text": "Als der Wecker gestern Morgen klingelte, wollte Fredi nicht aufstehen.",
+      "mark": [
+        "Als:conj",
+        "klingelte:verb",
+        "wollte:verb"
+      ]
+    },
+    {
+      "topic": "g-l10-3",
+      "text": "Um sich von seiner Frau zu verabschieden, geht er ins Schlafzimmer.",
+      "mark": [
+        "Um:conj",
+        "zu verabschieden:verb",
+        "geht:verb"
+      ]
+    },
+    {
+      "topic": "g-l11-1",
+      "text": "Infolge eines Missverständnisses habe ich den Geschäftspartner falsch angesprochen.",
+      "mark": [
+        "Infolge:prep"
+      ]
+    },
+    {
+      "topic": "g-l11-1",
+      "text": "Ich bereite mich auf eine Geschäftsreise vor, indem ich mich bei Freunden nach ihren Erfahrungen erkundige.",
+      "mark": [
+        "indem:conj",
+        "erkundige:verb"
+      ]
+    },
+    {
+      "topic": "g-l12-1",
+      "text": "anlässlich eines spannenden Wettbewerbs",
+      "mark": [
+        "anlässlich:prep"
+      ]
+    },
+    {
+      "topic": "g-l12-1",
+      "text": "hinsichtlich der gesammelten Kriterien",
+      "mark": [
+        "hinsichtlich:prep"
+      ]
+    },
+    {
+      "topic": "g-l12-1",
+      "text": "unweit seines Trägers",
+      "mark": [
+        "unweit:prep"
+      ]
+    }
+  ],
+  "roles": "Written by hand, per mark and not per word, because the same string is a different class in different sentences: \"auf\" is a preposition in one example and a separable prefix in another. A mark with no role is highlighted in the neutral tone, which is what every automatic mark uses."
 }

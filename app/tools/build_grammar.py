@@ -24,6 +24,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -32,6 +33,14 @@ TABLES_FILE = "tables.json"
 COMPARISONS_FILE = "comparisons.json"
 WORDORDER_FILE = "wordorder.json"
 TRANSLATIONS_FILE = "translations.json"
+FORMULAS_FILE = "formulas.json"
+
+# The word classes a mark may name. Closed classes only: a conjunction, a
+# preposition and a question word can be recognised from a finite list, and a
+# verb form in these examples was identified by hand. Nothing here is guessed at
+# build time — an unknown role stops the build rather than rendering as neutral,
+# because a silently dropped role is a highlight that teaches less than it says.
+MARK_ROLES = {"conj", "verb", "prep", "q"}
 
 # Exercise types whose answer is a *form* rather than a whole sentence. A
 # reorder answer is the sentence itself and says nothing about which word the
@@ -246,22 +255,76 @@ def load_translations() -> dict[str, str]:
     return out
 
 
-def spans_for(text: str, marks: list[str], where: str) -> list[list[int]]:
-    """Turn written marks into character spans.
+def load_formulas() -> dict[str, list[dict]]:
+    """The shape of a construction, as a row of slots, written by hand.
+
+    A clause pattern is a shape, and prose is a bad way to show one. Deriving
+    these would need a parser over the explanation text, and a wrong pattern
+    teaches wrong grammar, so they are written and checked instead.
+
+    A slot is "text" or "text:role", the role being one of the four classes the
+    example highlights use — so a connector is the same colour in the formula
+    and in the sentence under it.
+    """
+    path = ANNOTATIONS / FORMULAS_FILE
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    out: dict[str, list[dict]] = {}
+    for tid, formulas in data.get("formulas", {}).items():
+        built = []
+        for formula in formulas:
+            slots = []
+            for slot in formula["slots"]:
+                text, role = slot, ""
+                # A slot's text is prose and may itself contain a colon
+                # ("(spoken: Dative)"), so a suffix only counts as a role when
+                # it is a single word. A misspelt role is still a single word
+                # and still stops the build.
+                head, sep, tail = slot.rpartition(":")
+                if sep and tail and " " not in tail:
+                    if tail not in MARK_ROLES:
+                        raise SystemExit(
+                            f"{FORMULAS_FILE}: {tid}: {slot!r} names an unknown role {tail!r}")
+                    text, role = head, tail
+                if not text.strip():
+                    raise SystemExit(f"{FORMULAS_FILE}: {tid} has an empty slot")
+                slots.append({"text": text, "role": role})
+            if len(slots) < 2:
+                raise SystemExit(
+                    f"{FORMULAS_FILE}: {tid}: a formula of one slot is not a shape")
+            built.append({"caption": formula.get("caption", ""), "slots": slots})
+        out[tid] = built
+    return out
+
+
+def spans_for(text: str, marks: list[str], where: str) -> list[dict]:
+    """Turn written marks into character spans, each with the word class it names.
 
     A mark is the word to highlight. "word[2]" picks the second occurrence,
     which is how a sentence containing the same word twice — one clause's verb
-    and the next one's — can mark only the one that is meant.
+    and the next one's — can mark only the one that is meant. "word:role" names
+    its class, which the app colours; a mark with no role gets the neutral tone
+    every automatic mark uses.
+
+    The role is written per mark rather than per word because the same string is
+    a different class in different sentences: "auf" is a preposition in one
+    example and a separable prefix in another.
 
     A mark that does not occur is a mistake in the annotation, and it stops the
     build: a highlight silently going missing is exactly the failure this file
     exists to avoid.
     """
-    spans: list[list[int]] = []
+    spans: list[dict] = []
     for mark in marks:
+        token, role = mark, ""
+        if ":" in token:
+            token, role = token.rsplit(":", 1)
+            if role not in MARK_ROLES:
+                raise SystemExit(
+                    f"{WORDORDER_FILE}: {where}: {mark!r} names an unknown role {role!r}")
         wanted = 1
-        token = mark
-        matched = re.fullmatch(r"(.+)\[(\d+)\]", mark)
+        matched = re.fullmatch(r"(.+)\[(\d+)\]", token)
         if matched:
             token, wanted = matched.group(1), int(matched.group(2))
         found = [m for m in re.finditer(
@@ -270,11 +333,11 @@ def spans_for(text: str, marks: list[str], where: str) -> list[list[int]]:
             raise SystemExit(
                 f"{WORDORDER_FILE}: {where}: {mark!r} occurs {len(found)} time(s) in {text!r}")
         hit = found[wanted - 1]
-        spans.append([hit.start(), hit.end()])
-    spans.sort(key=lambda s: (s[0], -s[1]))
-    kept: list[list[int]] = []
+        spans.append({"start": hit.start(), "end": hit.end(), "role": role})
+    spans.sort(key=lambda s: (s["start"], -s["end"]))
+    kept: list[dict] = []
     for span in spans:
-        if kept and span[0] < kept[-1][1]:
+        if kept and span["start"] < kept[-1]["end"]:
             continue
         kept.append(span)
     return kept
@@ -313,22 +376,26 @@ def mark_examples(examples: list[dict], forms: set[str]) -> int:
     Spans rather than a word list, so the app slices the string it was given and
     never runs a match of its own — what is highlighted is decided once, here,
     where it can be checked.
+
+    These carry no role. They come from the topic's own exercise answers, which
+    say which form is being taught and nothing about its word class, so they are
+    highlighted in the neutral tone. Roles are written by hand in wordorder.json.
     """
     marked = 0
     for example in examples:
         text = example.get("de", "")
-        spans: list[list[int]] = []
+        spans: list[dict] = []
         for form in forms:
             for found in re.finditer(
                 r"(?<![\wÄÖÜäöüß])" + re.escape(form) + r"(?![\wÄÖÜäöüß])", text, re.IGNORECASE
             ):
-                spans.append([found.start(), found.end()])
+                spans.append({"start": found.start(), "end": found.end(), "role": ""})
         # Overlapping spans would render as nested highlights; keep the longest
         # at each position by preferring an earlier start and a later end.
-        spans.sort(key=lambda s: (s[0], -s[1]))
-        kept: list[list[int]] = []
+        spans.sort(key=lambda s: (s["start"], -s["end"]))
+        kept: list[dict] = []
         for span in spans:
-            if kept and span[0] < kept[-1][1]:
+            if kept and span["start"] < kept[-1]["end"]:
                 continue
             kept.append(span)
         example["marks"] = kept
@@ -340,12 +407,14 @@ def mark_examples(examples: list[dict], forms: set[str]) -> int:
 def main() -> int:
     source = load_sources()
     # tables.json is reference data keyed by topic id, not a list of topics.
-    reference = {TABLES_FILE, COMPARISONS_FILE, WORDORDER_FILE, TRANSLATIONS_FILE}
+    reference = {TABLES_FILE, COMPARISONS_FILE, WORDORDER_FILE, TRANSLATIONS_FILE,
+                 FORMULAS_FILE}
     files = sorted(f for f in ANNOTATIONS.glob("*.json") if f.name not in reference)
     tables = load_tables()
     comparisons = load_comparisons()
     hand_marks = load_wordorder()
     translations = load_translations()
+    formulas = load_formulas()
     if not files:
         raise SystemExit(f"no annotation files in {ANNOTATIONS}")
 
@@ -354,6 +423,7 @@ def main() -> int:
     seen: set[str] = set()
     marked_examples = 0
     with_tables = 0
+    with_formula = 0
     with_comparison = 0
     by_hand = 0
     translated = 0
@@ -450,6 +520,7 @@ def main() -> int:
                 "rules": entry.get("rules", []),
                 "examples": entry.get("examples", []),
                 "tables": tables.get(tid, []),
+                "formulas": formulas.get(tid, []),
                 "comparison": comparisons.get(tid),
                 "exercises": exercises,
                 "kursbuch": src.get("kursbuch", ""),
@@ -482,6 +553,8 @@ def main() -> int:
                     translated += 1
                 else:
                     untranslated.add(example.get("de", ""))
+            if topic["formulas"]:
+                with_formula += 1
             if topic["tables"]:
                 with_tables += 1
             if topic["comparison"]:
@@ -498,6 +571,11 @@ def main() -> int:
                 problems.append(f"{topic['id']}: prerequisite {prerequisite!r} does not exist")
             elif prerequisite == topic["id"]:
                 problems.append(f"{topic['id']}: is its own prerequisite")
+
+    stale_formulas = sorted(set(formulas) - seen)
+    if stale_formulas:
+        for tid in stale_formulas[:10]:
+            problems.append(f"{FORMULAS_FILE}: {tid} is not a topic in any source")
 
     if hand_marks:
         for (tid, text) in list(hand_marks)[:10]:
@@ -555,9 +633,14 @@ def main() -> int:
     print(f"topics {meta['topicCount']} · examples {meta['exampleCount']} · "
           f"exercises {meta['exerciseCount']} -> {OUT}")
     print(f"highlighted  {marked_examples} of {meta['exampleCount']} examples carry a taught form")
+    print(f"formulas     {with_formula} topic(s) carry a construction shape")
     print(f"tables       {with_tables} topic(s) carry a paradigm table")
     print(f"comparisons  {with_comparison} topic(s) carry a side-by-side comparison")
     print(f"by hand      {by_hand} example(s) use written word-order marks")
+    roles = Counter(span["role"] or "(neutral)"
+                    for topic in topics for example in topic["examples"]
+                    for span in example["marks"])
+    print("roles        " + ", ".join(f"{name} {count}" for name, count in roles.most_common()))
     print(f"translated   {translated} of {meta['exampleCount']} examples carry English")
     if untranslated:
         print(f"  no English for {len(untranslated)} distinct example(s); "
