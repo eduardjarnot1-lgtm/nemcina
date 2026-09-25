@@ -166,7 +166,7 @@ export interface GrammarExample {
 
 /** The word classes a mark may name. */
 export type MarkRole =
-  | 'conj' | 'verb' | 'prep' | 'q' | 'article' | 'pronoun' | 'adjective';
+  | 'conj' | 'verb' | 'prep' | 'q' | 'article' | 'pronoun' | 'adjective' | 'noun';
 
 /**
  * A highlighted stretch of an example, as `[start, end)` into its text.

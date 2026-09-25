@@ -18,7 +18,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 # Kept in step with MARK_ROLES in build_grammar.py.
-MARK_ROLES = {"conj", "verb", "prep", "q", "article", "pronoun", "adjective"}
+MARK_ROLES = {"conj", "verb", "prep", "q", "article", "pronoun", "adjective", "noun"}
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 VOCABULARY = DATA / "vocabulary.json"
@@ -450,6 +450,27 @@ def validate_grammar(report: Report) -> None:
             report.check(len(roles) == 1,
                          f"grammar {t['id']}: {word!r} is marked {sorted(roles)} in the same "
                          f"topic — one word, one treatment")
+
+    # All or nothing, per topic. A topic that names the class of one mark names
+    # the class of all of them. Half-classed was the state this whole check
+    # exists because of: a page where some highlights carry a colour that means
+    # something and others carry one that does not, with no way to tell which is
+    # which. If no class in the set fits a mark, the mark should not be there —
+    # a place name in a topic about prepositions teaches nothing.
+    for t in topics:
+        marks = [span for example in t["examples"] for span in example.get("marks", [])
+                 if isinstance(span, dict)]
+        named = [m for m in marks if m.get("role")]
+        bare = [m for m in marks if not m.get("role")]
+        if named and bare:
+            words = sorted({example.get("de", "")[span["start"]:span["end"]]
+                            for example in t["examples"]
+                            for span in example.get("marks", [])
+                            if isinstance(span, dict) and not span.get("role")})
+            report.check(False,
+                         f"grammar {t['id']}: names a word class for {len(named)} mark(s) "
+                         f"but not for {words[:5]} — classed and unclassed on one page "
+                         f"reads as a distinction that is not there")
 
     # Coverage is a warning, not a failure: an example with no English still
     # reads correctly, it just teaches less. It is reported so that a drop shows

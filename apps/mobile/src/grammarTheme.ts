@@ -41,7 +41,7 @@ export const familyTone: Readonly<Record<GrammarFamily, FamilyTone>> = {
 /**
  * Colour for a highlighted word inside an example, by its word class.
  *
- * Four of the seven take the hue their grammatical family already uses, so a
+ * Four of the eight take the hue their grammatical family already uses, so a
  * class means the same thing wherever it appears: a verb is the red of Verbs,
  * a connector the amber of Linking clauses, an adjective the green of
  * Adjectives & adverbs, and an article and a pronoun the purple and its
@@ -50,7 +50,7 @@ export const familyTone: Readonly<Record<GrammarFamily, FamilyTone>> = {
  * question word the teal of Sentence structure, because what it does here is
  * open a clause.
  *
- * **Seven is not seven at once.** `ExampleList` prints a legend naming only the
+ * **Eight is not eight at once.** `ExampleList` prints a legend naming only the
  * classes the topic on screen actually uses, and the most any single topic uses
  * is four. A learner never has to hold this whole table in their head, and the
  * colours are a shortcut for someone who has read the legend once — never the
@@ -79,4 +79,9 @@ export const roleTone: Readonly<Record<MarkRole, RoleTone>> = {
   pronoun: { ink: '#9c3f6d', wash: '#fbe9f2', label: 'pronoun' },
   adjective: { ink: '#1f7a4d', wash: '#e4f4ec', label: 'adjective' },
   q: { ink: '#1f6f8b', wash: '#e6f2f6', label: 'question word' },
+  // Slate, not an eighth hue. The coloured classes are all function words —
+  // what a word *does* in the clause — and the noun is the thing they do it to.
+  // Reading as ink rather than as a signal is the right weight for it, and it
+  // keeps a topic that marks both an article and a noun legible.
+  noun: { ink: '#4a4a57', wash: '#eeeef2', label: 'noun' },
 };

@@ -40,11 +40,12 @@ FORMULAS_FILE = "formulas.json"
 # build time. An unknown role stops the build rather than rendering as neutral,
 # because a silently dropped role is a highlight that teaches less than it says.
 #
-# The set is closed, and deliberately does not cover everything: a correlative
-# particle ("so ... dass", "wenn ... auch") and a bare noun phrase have no entry
-# and stay neutral, because the neutral tone already says the true thing about
-# them — that this is the form the topic teaches.
-MARK_ROLES = {"conj", "verb", "prep", "q", "article", "pronoun", "adjective"}
+# The set is closed. A correlative particle is written as `conj`, because
+# "so ... dass" and "wenn ... auch" are two-part connectors and both halves of
+# one are already marked that way. What no class fits is not marked at all — a
+# place name in a topic about prepositions teaches nothing, so it carries no
+# highlight rather than a highlight that says nothing.
+MARK_ROLES = {"conj", "verb", "prep", "q", "article", "pronoun", "adjective", "noun"}
 
 # Exercise types whose answer is a *form* rather than a whole sentence. A
 # reorder answer is the sentence itself and says nothing about which word the

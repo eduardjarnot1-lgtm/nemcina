@@ -78,7 +78,7 @@ export function ExampleList({ examples }: { examples: readonly GrammarExample[] 
 
 /** The classes this topic's examples actually use, in a fixed order. */
 const ORDER: readonly MarkRole[] = [
-  'conj', 'verb', 'prep', 'article', 'pronoun', 'adjective', 'q',
+  'conj', 'verb', 'prep', 'article', 'pronoun', 'adjective', 'q', 'noun',
 ];
 
 function legendFor(examples: readonly GrammarExample[]): MarkRole[] {
