@@ -3,6 +3,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { PlacementTest, type PlacementResult } from '@nemcina/core';
 import { Screen } from '../src/components/Screen';
+import { Skeleton } from '../src/components/Skeleton';
 import { Card } from '../src/components/Card';
 import { PrimaryButton } from '../src/components/PrimaryButton';
 import { ProgressBar } from '../src/components/ProgressBar';
@@ -37,7 +38,7 @@ export default function PlacementScreen() {
   }, [placement, repository]);
 
   if (!placement) {
-    return <Screen><Text style={styles.note}>{strings.loading}</Text></Screen>;
+    return <Screen><View style={styles.loading}><Skeleton lines={4} /></View></Screen>;
   }
 
   const result = placement.result;
@@ -104,6 +105,7 @@ export default function PlacementScreen() {
 }
 
 const styles = StyleSheet.create({
+  loading: { paddingVertical: spacing.lg },
   content: { paddingVertical: spacing.lg, gap: spacing.md },
   centre: { flex: 1, justifyContent: 'center', gap: spacing.md, alignItems: 'flex-start' },
   note: { ...typeScale.caption, color: palette.textMuted },

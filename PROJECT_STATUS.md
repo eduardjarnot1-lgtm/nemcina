@@ -324,6 +324,43 @@ it. A second pass closed that, and found one real defect on the way.
   browser. Header chrome only — a `SectionList` row must not animate, for the
   same reason `LessonRow` must not.
 
+### Third pass: what the second one left, and one real bug
+
+* **A double answer was prevented by accident, not by design.** Both exercise
+  screens guarded with `if (outcome) return`, and `outcome` is React state, so
+  two taps in the same tick both read it as null. It had held only because two
+  click events are two separate tasks and React re-renders between them —
+  protection by event-loop timing. The engine offers none of its own, and that
+  is now written down as a test: calling `answer` twice without showing the
+  first outcome **consumes two questions and records two attempts**, the second
+  against a question nobody saw. Both screens now hold a synchronous ref from
+  the answer until the learner moves on. Verified with three simultaneous taps
+  on one answer: one verdict, one question spent.
+* **Navigation had no transition on the web.** React Navigation's default there
+  is none, so a lesson replaced the list it came from between two frames.
+  One `animation` for the whole stack, `none` under reduced motion — a
+  navigator transition is not something a screen can opt out of.
+* **The remaining bare states.** A missing grammar topic and a missing practice
+  topic were a line of muted text; they are `EmptyState` now. The placement
+  test, which builds from the whole corpus, shows the shape that is coming
+  rather than the word "loading".
+
+**A measurement that was wrong, and how it was caught.** The first navigation
+probe read zero translated elements in both motion modes, which would have
+meant the transition did not work on the web at all. The probe was matching the
+fifth value of the CSS matrix — translateX — while the entrance animations move
+on Y. Run against a known-good animation as a control it also read zero, which
+is what exposed it. With the probe fixed: 12 translated elements during a known
+entrance, 6 during a navigation push, 0 with reduced motion on, 0 once settled.
+A control on every probe, from here on: a zero that cannot tell "nothing
+happened" from "I cannot see it" is not a measurement.
+
+**Not built, and why.** The `animation-library/` the scouting skill asks for is
+not here. `motion.ts` already documents every duration, curve and animation
+where the code reads them, and a second copy in Markdown is a third place to
+keep in step — the same mistake as the gate list existing twice, which was
+fixed two changes ago. The library for this app is `motion.ts`.
+
 Measured in Chromium at 390px, each at the moment the animation actually runs
 rather than a second later: question entrance 1 element mid-fade at 90 ms,
 verdict card 2 at 80 ms, next question 1 at 90 ms, all settled to 0. Reduced

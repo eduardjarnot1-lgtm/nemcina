@@ -94,6 +94,22 @@ describe('a practice run', () => {
     assert.equal(practice.current?.exerciseId, 'e1');
   });
 
+  test('answering twice spends two questions — the guard is the caller\'s', () => {
+    // Written down because it is surprising and a screen depends on it. Two
+    // taps that both reach `answer` do not answer the same question twice:
+    // they answer this question and the next one, and record an attempt
+    // against a question nobody saw. The engine has no notion of an outcome
+    // being on screen, so it cannot refuse — every caller has to hold a
+    // synchronous lock between the answer and showing it, and both screens do.
+    const practice = GrammarPractice.forTopic('u1', topic, new Map(), { now: T0 });
+    const first = practice.current;
+    practice.answer(first?.answers[0] ?? 'x', { now: T0 });
+    assert.equal(practice.position.index, 1);
+    practice.answer(first?.answers[0] ?? 'x', { now: T0 });
+    assert.equal(practice.position.index, 2, 'the second call consumed another question');
+    assert.equal(practice.summary.asked, 2, 'and recorded it as asked');
+  });
+
   test('THE point of a grammar exercise: the explanation comes back either way', () => {
     const right = GrammarPractice.forTopic('u1', topic, new Map(), { now: T0 });
     const good = right.answer('kommst', { now: T0 });

@@ -115,8 +115,20 @@ export default function SessionScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, session, plan]);
 
+  // A tap is only allowed to spend a question once.
+  //
+  // `outcome` is React state, so two taps in the same tick both read it as
+  // null. It has held so far only because two click events are two separate
+  // tasks and React re-renders between them — protection by event-loop timing,
+  // not by intent. The engine offers none of its own: calling `answer` twice
+  // without showing the first outcome consumes two questions and records two
+  // attempts, the second against a question nobody saw. A ref is synchronous,
+  // so it closes the window whatever the scheduler does.
+  const answering = useRef(false);
+
   const check = useCallback(async (given: string) => {
-    if (!session || outcome) return;
+    if (!session || outcome || answering.current) return;
+    answering.current = true;
     const result = session.answer(given, { hintShown });
     setOutcome(result);
     // The feel goes out before the write: the learner should know the moment
@@ -131,6 +143,7 @@ export default function SessionScreen() {
     setOutcome(null);
     setTyped('');
     setHintShown(false);
+    answering.current = false;
     bump((n) => n + 1);
   }, []);
 
