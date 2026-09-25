@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import {
   KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View,
 } from 'react-native';
@@ -10,6 +10,7 @@ import { PrimaryButton } from '../../../src/components/PrimaryButton';
 import { ProgressBar } from '../../../src/components/ProgressBar';
 import { AnswerOption } from '../../../src/components/AnswerOption';
 import { Skeleton } from '../../../src/components/Skeleton';
+import { EmptyState } from '../../../src/components/EmptyState';
 import { Animated, useEntrance, usePulse, useShake, usePressScale } from '../../../src/motion';
 import { haptic } from '../../../src/haptics';
 import { useCourse } from '../../../src/course';
@@ -55,8 +56,20 @@ export default function GrammarPracticeScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, practice, topic]);
 
+  // A tap is only allowed to spend a question once.
+  //
+  // `outcome` is React state, so two taps in the same tick both read it as
+  // null. It has held so far only because two click events are two separate
+  // tasks and React re-renders between them — protection by event-loop timing,
+  // not by intent. The engine offers none of its own: calling `answer` twice
+  // without showing the first outcome consumes two questions and records two
+  // attempts, the second against a question nobody saw. A ref is synchronous,
+  // so it closes the window whatever the scheduler does.
+  const answering = useRef(false);
+
   const check = useCallback(async (given: string) => {
-    if (!practice || outcome) return;
+    if (!practice || outcome || answering.current) return;
+    answering.current = true;
     const result = practice.answer(given, { hintShown });
     // Fired here rather than in the feedback card, so the acknowledgement lands
     // with the tap and not after the progress write. Same cue as a vocabulary
@@ -71,11 +84,12 @@ export default function GrammarPracticeScreen() {
     setTyped('');
     setTokens([]);
     setHintShown(false);
+    answering.current = false;
     bump((n) => n + 1);
   }, []);
 
   if (!topic) {
-    return <Screen><Text style={styles.muted}>{strings.searchNoResults}</Text></Screen>;
+    return <Screen><EmptyState message={strings.searchNoResults} /></Screen>;
   }
   if (!practice) {
     return <Screen><View style={styles.loading}><Skeleton lines={4} /></View></Screen>;

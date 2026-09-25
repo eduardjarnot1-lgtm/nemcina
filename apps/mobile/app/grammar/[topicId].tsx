@@ -3,6 +3,7 @@ import { useLocalSearchParams, useRouter, Stack } from 'expo-router';
 import { grammarFamily, topicProgress } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
+import { EmptyState } from '../../src/components/EmptyState';
 import { PrimaryButton } from '../../src/components/PrimaryButton';
 import { ProgressBar } from '../../src/components/ProgressBar';
 import { Reveal } from '../../src/components/Reveal';
@@ -52,7 +53,7 @@ export default function GrammarTopicScreen() {
   if (!topic) {
     return (
       <Screen>
-        <Text style={styles.missing}>{strings.searchNoResults}</Text>
+        <EmptyState message={strings.searchNoResults} />
       </Screen>
     );
   }
