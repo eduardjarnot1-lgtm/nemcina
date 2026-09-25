@@ -4704,11 +4704,6 @@
        "start": 4,
        "end": 7,
        "role": "article"
-      },
-      {
-       "start": 8,
-       "end": 17,
-       "role": ""
       }
      ],
      "en": "from the Zytglogge"
@@ -4733,11 +4728,6 @@
        "start": 0,
        "end": 3,
        "role": "prep"
-      },
-      {
-       "start": 4,
-       "end": 13,
-       "role": ""
       }
      ],
      "en": "to the Zytglogge"
@@ -4808,11 +4798,6 @@
        "start": 0,
        "end": 2,
        "role": "prep"
-      },
-      {
-       "start": 3,
-       "end": 12,
-       "role": ""
       }
      ],
      "en": "in the bear park"
@@ -16654,12 +16639,12 @@
       {
        "start": 8,
        "end": 22,
-       "role": ""
+       "role": "noun"
       },
       {
        "start": 25,
        "end": 38,
-       "role": ""
+       "role": "noun"
       }
      ],
      "en": "During his visit Karl sees a lot of Berlin."
@@ -19005,7 +18990,7 @@
       {
        "start": 7,
        "end": 9,
-       "role": ""
+       "role": "conj"
       },
       {
        "start": 74,
@@ -23623,9 +23608,29 @@
      "note": "concessive wenn … auch, taken up by so.",
      "marks": [
       {
+       "start": 0,
+       "end": 4,
+       "role": "conj"
+      },
+      {
        "start": 12,
        "end": 16,
-       "role": ""
+       "role": "conj"
+      },
+      {
+       "start": 54,
+       "end": 57,
+       "role": "verb"
+      },
+      {
+       "start": 59,
+       "end": 61,
+       "role": "conj"
+      },
+      {
+       "start": 62,
+       "end": 65,
+       "role": "verb"
       }
      ],
      "en": "Even though Samira is often on duty in the evening or at the weekend, she has not regretted her decision."
@@ -23657,9 +23662,24 @@
      "note": "concessive wie … auch.",
      "marks": [
       {
+       "start": 0,
+       "end": 3,
+       "role": "conj"
+      },
+      {
        "start": 32,
        "end": 36,
-       "role": ""
+       "role": "conj"
+      },
+      {
+       "start": 37,
+       "end": 43,
+       "role": "verb"
+      },
+      {
+       "start": 89,
+       "end": 95,
+       "role": "verb"
       }
      ],
      "en": "However hard the trainee tries to do everything right, some tasks are still difficult for her."
@@ -29280,7 +29300,7 @@
       {
        "start": 3,
        "end": 9,
-       "role": ""
+       "role": "noun"
       },
       {
        "start": 10,
@@ -29302,7 +29322,7 @@
       {
        "start": 5,
        "end": 17,
-       "role": ""
+       "role": "noun"
       },
       {
        "start": 18,
@@ -30289,7 +30309,7 @@
       {
        "start": 11,
        "end": 32,
-       "role": ""
+       "role": "noun"
       }
      ],
      "en": "in view of the high prize money"

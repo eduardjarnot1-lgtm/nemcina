@@ -372,8 +372,8 @@
       "text": "Während seines Besuchs / seinem Besuch sieht Karl viel von Berlin.",
       "mark": [
         "Während:prep",
-        "seines Besuchs",
-        "seinem Besuch"
+        "seines Besuchs:noun",
+        "seinem Besuch:noun"
       ]
     },
     {
@@ -472,7 +472,7 @@
       "topic": "g-daf-b1-stating-consequences-consecutive-sentenc",
       "text": "Es ist so anstrengend mehrere Stunden am Tag eine Fremdsprache zu lernen, dass man manchmal einfach nur müde ist und dann leichter Fehler macht.",
       "mark": [
-        "so",
+        "so:conj",
         "dass:conj",
         "ist[2]:verb",
         "macht:verb"
@@ -840,7 +840,7 @@
       "text": "Im Stehen trank er eine Tasse Kaffee.",
       "mark": [
         "Im:prep",
-        "Stehen",
+        "Stehen:noun",
         "trank:verb"
       ]
     },
@@ -849,7 +849,7 @@
       "text": "Beim Telefonieren macht er sich Notizen.",
       "mark": [
         "Beim:prep",
-        "Telefonieren",
+        "Telefonieren:noun",
         "macht:verb"
       ]
     },
@@ -908,7 +908,7 @@
       "text": "angesichts des hohen Preisgeldes",
       "mark": [
         "angesichts:prep",
-        "des hohen Preisgeldes"
+        "des hohen Preisgeldes:noun"
       ]
     },
     {
@@ -957,8 +957,7 @@
       "topic": "g-daf-a1-prepositions-of-place",
       "text": "zur Zytglogge",
       "mark": [
-        "zur:prep",
-        "Zytglogge"
+        "zur:prep"
       ]
     },
     {
@@ -980,8 +979,7 @@
       "topic": "g-daf-a1-prepositions-of-place",
       "text": "im Bärenpark",
       "mark": [
-        "im:prep",
-        "Bärenpark"
+        "im:prep"
       ]
     },
     {
@@ -1557,8 +1555,7 @@
       "text": "von der Zytglogge",
       "mark": [
         "von:prep",
-        "der:article",
-        "Zytglogge"
+        "der:article"
       ]
     },
     {
@@ -1625,6 +1622,27 @@
       "mark": [
         "überzeugt:adjective",
         "davon:pronoun"
+      ]
+    },
+    {
+      "topic": "g-l02-1",
+      "text": "Wenn Samira auch oft abends oder am Wochenende Dienst hat, so hat sie ihre Entscheidung noch nicht bereut.",
+      "mark": [
+        "Wenn:conj",
+        "auch:conj",
+        "hat[1]:verb",
+        "so:conj",
+        "hat[2]:verb"
+      ]
+    },
+    {
+      "topic": "g-l02-1",
+      "text": "Wie sehr sich die Auszubildende auch bemüht, alles richtig zu machen, manche Tätigkeiten fallen ihr noch schwer.",
+      "mark": [
+        "Wie:conj",
+        "auch:conj",
+        "bemüht:verb",
+        "fallen:verb"
       ]
     }
   ],
