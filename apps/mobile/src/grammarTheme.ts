@@ -41,20 +41,29 @@ export const familyTone: Readonly<Record<GrammarFamily, FamilyTone>> = {
 /**
  * Colour for a highlighted word inside an example, by its word class.
  *
- * The same four hues the families already use, chosen so a class means the same
- * thing wherever it appears: a verb is the red of the Verbs family, a connector
- * the amber of Linking clauses, a question word the teal of Sentence structure.
- * A preposition takes the purple of Nouns & articles, because a preposition is
- * what governs the noun phrase after it — the tie is the point.
+ * Four of the seven take the hue their grammatical family already uses, so a
+ * class means the same thing wherever it appears: a verb is the red of Verbs,
+ * a connector the amber of Linking clauses, an adjective the green of
+ * Adjectives & adverbs, and an article and a pronoun the purple and its
+ * neighbour from Nouns & articles. A preposition gets its own rust, because it
+ * is the thing that governs the noun phrase rather than part of it, and a
+ * question word the teal of Sentence structure, because what it does here is
+ * open a clause.
  *
- * The same two rules as above apply, and the second one does real work here:
- * `ExampleList` prints a legend naming every class the topic actually uses, so
- * the colours are a shortcut for someone who has read it once and never the
+ * **Seven is not seven at once.** `ExampleList` prints a legend naming only the
+ * classes the topic on screen actually uses, and the most any single topic uses
+ * is four. A learner never has to hold this whole table in their head, and the
+ * colours are a shortcut for someone who has read the legend once — never the
  * only way to know what is marked.
  *
- * A mark with no class renders in the neutral accent instead. That is the
- * common case — 401 of 619 marks — and it means "this is the form the topic
- * teaches", which is all the build knows about it.
+ * Every ink clears 4.5:1 against the wash behind it and against the card, so
+ * the mark is readable before its colour means anything.
+ *
+ * A mark with no class renders in the neutral accent instead, and the legend
+ * names that too. It means "this is the form the topic teaches", which is both
+ * true and all the build knows when the class was not written — for a
+ * correlative particle, or a bare noun phrase, where no class in this table
+ * fits and a forced one would be a small lie.
  */
 export interface RoleTone {
   readonly ink: string;
@@ -65,6 +74,9 @@ export interface RoleTone {
 export const roleTone: Readonly<Record<MarkRole, RoleTone>> = {
   verb: { ink: '#b3261e', wash: '#fbe9e7', label: 'verb' },
   conj: { ink: '#8a6100', wash: '#fdf1d6', label: 'connector' },
-  prep: { ink: '#6b3fa0', wash: '#f1eafa', label: 'preposition' },
+  prep: { ink: '#a2521a', wash: '#fceee2', label: 'preposition' },
+  article: { ink: '#6b3fa0', wash: '#f1eafa', label: 'article' },
+  pronoun: { ink: '#9c3f6d', wash: '#fbe9f2', label: 'pronoun' },
+  adjective: { ink: '#1f7a4d', wash: '#e4f4ec', label: 'adjective' },
   q: { ink: '#1f6f8b', wash: '#e6f2f6', label: 'question word' },
 };

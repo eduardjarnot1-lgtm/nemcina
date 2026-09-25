@@ -257,7 +257,9 @@ export function toExercise(raw: RawExercise): Exercise {
   };
 }
 
-const MARK_ROLES = new Set(['conj', 'verb', 'prep', 'q']);
+const MARK_ROLES = new Set([
+  'conj', 'verb', 'prep', 'q', 'article', 'pronoun', 'adjective',
+]);
 
 function toGrammarExample(
   raw: {

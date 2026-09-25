@@ -18,7 +18,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 # Kept in step with MARK_ROLES in build_grammar.py.
-MARK_ROLES = {"conj", "verb", "prep", "q"}
+MARK_ROLES = {"conj", "verb", "prep", "q", "article", "pronoun", "adjective"}
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 VOCABULARY = DATA / "vocabulary.json"
@@ -431,6 +431,25 @@ def validate_grammar(report: Report) -> None:
 
     for tid in order:
         report.check(walk(tid), f"grammar: prerequisite cycle involving {tid}")
+
+    # One word, one treatment, within a topic. This is the failure that showed
+    # up on screen and not in any earlier check: "Wenn" highlighted as a
+    # connector and "Als" three lines below it left neutral reads as a
+    # distinction, and there is none — the second one had simply not been
+    # written yet. Two spellings of the same word must agree too, so the check
+    # folds case.
+    for t in topics:
+        treatment: dict = defaultdict(set)
+        for example in t["examples"]:
+            for span in example.get("marks", []):
+                if not isinstance(span, dict):
+                    continue
+                word = example.get("de", "")[span.get("start", 0):span.get("end", 0)]
+                treatment[word.lower()].add(span.get("role", ""))
+        for word, roles in treatment.items():
+            report.check(len(roles) == 1,
+                         f"grammar {t['id']}: {word!r} is marked {sorted(roles)} in the same "
+                         f"topic — one word, one treatment")
 
     # Coverage is a warning, not a failure: an example with no English still
     # reads correctly, it just teaches less. It is reported so that a drop shows
