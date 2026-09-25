@@ -57,9 +57,35 @@ jobs:
 
       - run: npm ci
 
+      # app/data/*.json is generated from the sources and annotations next to
+      # it, and is committed so the app can be built without running Python.
+      # Committed output drifts: an annotation changes, the rebuild is
+      # forgotten, and the app ships the previous data while every check here
+      # passes on it. Rebuilding and diffing closes that, and it is also the
+      # only thing that runs the builders' own guards in CI — the ones that
+      # reject a word-order mark that does not occur in its sentence, an
+      # annotation matching no example, and an unknown word class. Those had
+      # never executed on a pull request.
+      - name: Rebuild the data and check nothing drifted
+        run: |
+          python3 app/tools/build_frequency.py
+          python3 app/tools/build_vocabulary.py
+          python3 app/tools/build_grammar.py
+          if ! git diff --quiet -- app/data; then
+            echo "::error::app/data does not match what the sources build."
+            echo "Run the three builders in app/tools and commit the result."
+            git diff --stat -- app/data
+            exit 1
+          fi
+
       # The licensing gate. Nothing is published if the corpus is not ours.
       - name: Validate content
         run: python3 app/tools/validate_content.py
+
+      # The validator is the licensing gate and the content gate, and until now
+      # nothing checked the gate itself. These are its own rules, on fixtures.
+      - name: Check the validator still enforces its rules
+        run: python3 -m unittest discover -s app/tools -p "test_*.py" -v
 
       # The 394 engine and server tests. The mobile workspace's own test is the
       # browser smoke run, which skips here because it needs an export that
