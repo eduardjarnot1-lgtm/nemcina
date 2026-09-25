@@ -165,7 +165,8 @@ export interface GrammarExample {
 }
 
 /** The word classes a mark may name. */
-export type MarkRole = 'conj' | 'verb' | 'prep' | 'q';
+export type MarkRole =
+  | 'conj' | 'verb' | 'prep' | 'q' | 'article' | 'pronoun' | 'adjective';
 
 /**
  * A highlighted stretch of an example, as `[start, end)` into its text.
@@ -177,8 +178,10 @@ export type MarkRole = 'conj' | 'verb' | 'prep' | 'q';
  *   answers — the corpus pointing at the form it asks you to produce. That says
  *   which form is taught and nothing about its word class, so `role` is `''`.
  * - A mark written by hand in `wordorder.json` may name a class, and does so
- *   only where the class is closed and certain: a conjunction, a preposition, a
- *   question word, or a verb form identified one example at a time.
+ *   only where the class is certain: each one was written a single example at a
+ *   time. The set covers the classes these topics actually teach and stops
+ *   there — a correlative particle and a bare noun phrase have no entry and
+ *   stay neutral, rather than being forced into a class that does not fit.
  *
  * No parser runs anywhere. A guess at "the verb" or "the subject" teaches wrong
  * grammar, so an unnamed class stays unnamed and renders in the neutral tone.

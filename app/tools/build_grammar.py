@@ -35,12 +35,16 @@ WORDORDER_FILE = "wordorder.json"
 TRANSLATIONS_FILE = "translations.json"
 FORMULAS_FILE = "formulas.json"
 
-# The word classes a mark may name. Closed classes only: a conjunction, a
-# preposition and a question word can be recognised from a finite list, and a
-# verb form in these examples was identified by hand. Nothing here is guessed at
-# build time — an unknown role stops the build rather than rendering as neutral,
+# The word classes a mark may name. Every one is a class German grammar itself
+# names, and every mark carrying one was written by hand — nothing is guessed at
+# build time. An unknown role stops the build rather than rendering as neutral,
 # because a silently dropped role is a highlight that teaches less than it says.
-MARK_ROLES = {"conj", "verb", "prep", "q"}
+#
+# The set is closed, and deliberately does not cover everything: a correlative
+# particle ("so ... dass", "wenn ... auch") and a bare noun phrase have no entry
+# and stay neutral, because the neutral tone already says the true thing about
+# them — that this is the form the topic teaches.
+MARK_ROLES = {"conj", "verb", "prep", "q", "article", "pronoun", "adjective"}
 
 # Exercise types whose answer is a *form* rather than a whole sentence. A
 # reorder answer is the sentence itself and says nothing about which word the

@@ -310,7 +310,7 @@
       "text": "Christian lässt sich in der Informatikabteilung das Passwort vom Computer geben .",
       "mark": [
         "lässt:verb",
-        "sich",
+        "sich:pronoun",
         "geben:verb"
       ]
     },
@@ -325,21 +325,21 @@
       "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun",
       "text": "Bernd hat ein kleines Zimmer. Darin stehen wenig Möbel.",
       "mark": [
-        "Darin"
+        "Darin:pronoun"
       ]
     },
     {
       "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun",
       "text": "Bernd arbeitet bei Frau Egger. Er freut sich darüber.",
       "mark": [
-        "darüber"
+        "darüber:pronoun"
       ]
     },
     {
       "topic": "g-daf-b1-relative-pronouns-was-wo-r",
       "text": "Ich studiere in Berlin, und es gibt vieles, was super funktioniert.",
       "mark": [
-        "was",
+        "was:pronoun",
         "funktioniert:verb"
       ]
     },
@@ -347,7 +347,7 @@
       "topic": "g-daf-b1-relative-pronouns-was-wo-r",
       "text": "Es gibt politisch nichts mehr, was mich wirklich beeindruckt.",
       "mark": [
-        "was",
+        "was:pronoun",
         "beeindruckt:verb"
       ]
     },
@@ -388,7 +388,7 @@
       "topic": "g-daf-b1-relative-clauses-with-was",
       "text": "Wir duzen unsere Professoren, was komplett anders ist.",
       "mark": [
-        "was",
+        "was:pronoun",
         "ist:verb"
       ]
     },
@@ -396,7 +396,7 @@
       "topic": "g-daf-b1-relative-clauses-with-was",
       "text": "Ich mag alles, was mit Sport zu tun hat.",
       "mark": [
-        "was",
+        "was:pronoun",
         "hat:verb"
       ]
     },
@@ -533,7 +533,7 @@
       "topic": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
       "text": "Das ist der Mann, dessen Auto letzte Woche gestohlen wurde.",
       "mark": [
-        "dessen",
+        "dessen:pronoun",
         "wurde:verb"
       ]
     },
@@ -558,7 +558,7 @@
       "text": "Sie interessiert sich vor allem für alte Sprachen.",
       "mark": [
         "interessiert:verb",
-        "sich",
+        "sich:pronoun",
         "für:prep"
       ]
     },
@@ -745,7 +745,7 @@
       "topic": "g-l09-2",
       "text": "Den Lesern gefällt, dass er um aktuelle Bezüge bemüht ist.",
       "mark": [
-        "bemüht",
+        "bemüht:adjective",
         "um:prep"
       ]
     },
@@ -753,7 +753,7 @@
       "topic": "g-l09-2",
       "text": "Die Kreßberger sind verwundert über die alternative Lebensweise der Aussteiger.",
       "mark": [
-        "verwundert",
+        "verwundert:adjective",
         "über:prep"
       ]
     },
@@ -761,7 +761,7 @@
       "topic": "g-l09-2",
       "text": "Er ist erfahren im Verfassen von Bestsellern.",
       "mark": [
-        "erfahren",
+        "erfahren:adjective",
         "im:prep"
       ]
     },
@@ -810,7 +810,7 @@
       "topic": "g-l10-1",
       "text": "Man ist nicht immer einverstanden mit der Meinung des Autors.",
       "mark": [
-        "einverstanden",
+        "einverstanden:adjective",
         "mit:prep"
       ]
     },
@@ -1419,6 +1419,7 @@
       "topic": "g-l09-2",
       "text": "Er ist auf seine Leser angewiesen.",
       "mark": [
+        "angewiesen:adjective",
         "auf:prep"
       ]
     },
@@ -1426,6 +1427,7 @@
       "topic": "g-l09-2",
       "text": "Ich bin schon gespannt auf seinen nächsten Roman.",
       "mark": [
+        "gespannt:adjective",
         "auf:prep"
       ]
     },
@@ -1433,7 +1435,7 @@
       "topic": "g-l09-2",
       "text": "Sie ist stets aufgeschlossen gegenüber Neuem.",
       "mark": [
-        "aufgeschlossen",
+        "aufgeschlossen:adjective",
         "gegenüber:prep"
       ]
     },
@@ -1489,6 +1491,140 @@
       "text": "unweit seines Trägers",
       "mark": [
         "unweit:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-location",
+      "text": "Das Buch ist auf / unter / an dem Tisch (← der Tisch)",
+      "mark": [
+        "auf:prep",
+        "unter:prep",
+        "an:prep",
+        "dem:article",
+        "der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-location",
+      "text": "liegt neben / in dem Sofa (← das Sofa)",
+      "mark": [
+        "liegt:verb",
+        "neben:prep",
+        "in:prep",
+        "dem:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-location",
+      "text": "vor / hinter der Kommode (← die Kommode)",
+      "mark": [
+        "vor:prep",
+        "hinter:prep",
+        "der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-location",
+      "text": "über / zwischen den Regalen (← die Regale, Pl.)",
+      "mark": [
+        "über:prep",
+        "zwischen:prep",
+        "den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "durch den Park / durch das Einkaufszentrum / durch die Stadt",
+      "mark": [
+        "durch:prep",
+        "den:article",
+        "das:article",
+        "die:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "um den Haupteingang / um das Haus / um die Ecke herum",
+      "mark": [
+        "um:prep",
+        "den:article",
+        "das:article",
+        "die:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "von der Zytglogge",
+      "mark": [
+        "von:prep",
+        "der:article",
+        "Zytglogge"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-prepositions-of-place",
+      "text": "in den Park",
+      "mark": [
+        "in:prep",
+        "den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun",
+      "text": "Frau Egger kann sich darauf verlassen, dass Bernd drei Monate bleibt.",
+      "mark": [
+        "darauf:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-question-word-wo-r-prepositional-pronoun",
+      "text": "Bernd bleibt drei Monate. Darauf kann sich Frau Egger verlassen.",
+      "mark": [
+        "Darauf:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-relative-pronouns-was-wo-r",
+      "text": "Man kann damit auf etwas aufmerksam machen, womit man nicht einverstanden ist.",
+      "mark": [
+        "womit:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-relative-pronouns-was-wo-r",
+      "text": "Das ist etwas, worauf wir vom Asta aufmerksam machen wollten.",
+      "mark": [
+        "worauf:pronoun"
+      ]
+    },
+    {
+      "topic": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
+      "text": "Das ist der Kollege, mit dem ich gestern telefoniert habe.",
+      "mark": [
+        "mit:prep",
+        "dem:pronoun"
+      ]
+    },
+    {
+      "topic": "g-b2-3-relativsaetze-mit-praeposition-und-im-genitiv",
+      "text": "Die Autorin, deren Bücher ich sehr mag, kommt aus Hamburg.",
+      "mark": [
+        "deren:pronoun"
+      ]
+    },
+    {
+      "topic": "g-b2-11-verben-mit-festen-praepositionen-und-praepositionaladverbien",
+      "text": "Wir haben lange darüber gesprochen, aber nichts entschieden.",
+      "mark": [
+        "darüber:pronoun"
+      ]
+    },
+    {
+      "topic": "g-l09-2",
+      "text": "Ich bin überzeugt davon, dass Kleinstädte einiges zu bieten haben.",
+      "mark": [
+        "überzeugt:adjective",
+        "davon:pronoun"
       ]
     }
   ],
