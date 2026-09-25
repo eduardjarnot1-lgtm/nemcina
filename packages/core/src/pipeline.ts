@@ -21,6 +21,8 @@ import {
   type ExplanationSection,
   type GermanVocabularyMetadata,
   type GrammarExample,
+  type GrammarMark,
+  type MarkRole,
   type GrammarTopic,
   type LevelProvenance,
   type TranslationProvenance,
@@ -76,13 +78,18 @@ export interface RawTopic {
   readonly rules?: readonly string[];
   readonly examples?: readonly {
     readonly de?: string;
+    readonly en?: string;
     readonly note?: string;
-    readonly marks?: readonly (readonly number[])[];
+    readonly marks?: readonly { readonly start?: number; readonly end?: number; readonly role?: string }[];
   }[];
   readonly exercises?: readonly RawExercise[];
   readonly prerequisites?: readonly string[];
   readonly difficulty?: number;
   readonly category?: string;
+  readonly formulas?: readonly {
+    readonly caption?: string;
+    readonly slots?: readonly { readonly text?: string; readonly role?: string }[];
+  }[];
   readonly comparison?: {
     readonly left?: string;
     readonly right?: string;
@@ -250,20 +257,28 @@ export function toExercise(raw: RawExercise): Exercise {
   };
 }
 
+const MARK_ROLES = new Set(['conj', 'verb', 'prep', 'q']);
+
 function toGrammarExample(
-  raw: { de?: string; note?: string; en?: string; marks?: readonly (readonly number[])[] },
+  raw: {
+    de?: string; note?: string; en?: string;
+    marks?: readonly { start?: number; end?: number; role?: string }[];
+  },
 ): GrammarExample {
   const text = raw.de ?? '';
   // A span that does not fit the string it indexes is dropped rather than
   // clamped: a highlight in the wrong place is worse than no highlight, and a
   // clamped one would look deliberate.
-  const marks: (readonly [number, number])[] = [];
+  const marks: GrammarMark[] = [];
   for (const span of raw.marks ?? []) {
-    const [start, end] = span;
+    const { start, end } = span;
     if (typeof start !== 'number' || typeof end !== 'number') continue;
     if (!Number.isInteger(start) || !Number.isInteger(end)) continue;
     if (start < 0 || start >= end || end > text.length) continue;
-    marks.push([start, end]);
+    // An unrecognised role is dropped to neutral rather than passed through:
+    // the mark is still correct, only its class is unknown here.
+    const role = span.role && MARK_ROLES.has(span.role) ? (span.role as MarkRole) : '';
+    marks.push({ start, end, role });
   }
   return { text, note: raw.note ?? '', en: raw.en ?? '', marks };
 }
@@ -289,6 +304,19 @@ export function toGrammarTopic(raw: RawTopic): GrammarTopic {
     prerequisites: raw.prerequisites ?? [],
     difficulty: raw.difficulty ?? 1,
     category: raw.category ?? '',
+    formulas: (raw.formulas ?? [])
+      .map((formula) => ({
+        caption: formula.caption ?? '',
+        slots: (formula.slots ?? [])
+          .filter((slot) => (slot.text ?? '').trim())
+          .map((slot): { text: string; role: MarkRole | '' } => ({
+            text: slot.text ?? '',
+            role: slot.role && MARK_ROLES.has(slot.role) ? (slot.role as MarkRole) : '',
+          })),
+      }))
+      // A formula of one slot is not a shape; showing it would look like a
+      // truncated pattern rather than a deliberate one.
+      .filter((formula) => formula.slots.length > 1),
     comparison: raw.comparison
       ? {
         left: raw.comparison.left ?? '',

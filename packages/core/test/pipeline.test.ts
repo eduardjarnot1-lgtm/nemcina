@@ -145,9 +145,24 @@ describe('grammar topics', () => {
     // Clamping would put a highlight somewhere deliberate-looking and wrong.
     const topic = toGrammarTopic({
       ...raw,
-      examples: [{ de: 'ich komme', note: '', marks: [[0, 3], [5, 99], [4, 4], [-1, 2]] }],
+      examples: [{
+        de: 'ich komme', note: '', marks: [
+          { start: 0, end: 3, role: 'verb' },
+          { start: 5, end: 99 }, { start: 4, end: 4 }, { start: -1, end: 2 },
+        ],
+      }],
     });
-    assert.deepEqual(topic.examples[0]?.marks, [[0, 3]]);
+    assert.deepEqual(topic.examples[0]?.marks, [{ start: 0, end: 3, role: 'verb' }]);
+  });
+
+  test('a word class the app does not know drops to neutral, keeping the highlight', () => {
+    // The span is still right; only its class is unreadable here. Passing the
+    // unknown role through would let a screen colour by a value it cannot map.
+    const topic = toGrammarTopic({
+      ...raw,
+      examples: [{ de: 'ich komme', note: '', marks: [{ start: 0, end: 3, role: 'gerund' }] }],
+    });
+    assert.deepEqual(topic.examples[0]?.marks, [{ start: 0, end: 3, role: '' }]);
   });
 
   test('a topic with an unusable level is refused loudly, not shown at the wrong level', () => {
