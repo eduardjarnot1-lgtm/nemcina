@@ -25,6 +25,7 @@ on:
       - "apps/mobile/**"
       - "packages/**"
       - "app/data/**"
+      - "app/tools/**"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
