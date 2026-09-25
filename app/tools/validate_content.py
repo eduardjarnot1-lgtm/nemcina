@@ -470,7 +470,9 @@ def validate_grammar(report: Report) -> None:
             report.check(False,
                          f"grammar {t['id']}: names a word class for {len(named)} mark(s) "
                          f"but not for {words[:5]} — classed and unclassed on one page "
-                         f"reads as a distinction that is not there")
+                         f"reads as a distinction that is not there. Write the class in "
+                         f"annotations/grammar/wordorder.json, or leave the word unmarked "
+                         f"if no class in the set fits it")
 
     # Coverage is a warning, not a failure: an example with no English still
     # reads correctly, it just teaches less. It is reported so that a drop shows
