@@ -11,6 +11,8 @@ import { palette, spacing, type as typeScale } from '../theme';
 import { Card } from './Card';
 import { PrimaryButton } from './PrimaryButton';
 import { Thinking } from './Thinking';
+import { Mascot } from './Mascot';
+import { mascotLine } from '@nemcina/core';
 import { Animated, useEntrance } from '../motion';
 
 /**
@@ -52,6 +54,9 @@ export function CoachPanel() {
   const [text, setText] = useState<string | null>(null);
   const [quota, setQuota] = useState<Quota | null>(null);
   const [busy, setBusy] = useState(false);
+  // One line per mount, not per render: the wait is already a wait, and text
+  // that changes while you read it is worse than text that does not.
+  const [waiting] = useState(() => mascotLine('thinking'));
   const [error, setError] = useState('');
 
   const evidence: CoachEvidence = useMemo(
@@ -90,8 +95,20 @@ export function CoachPanel() {
       <Text style={styles.title}>{strings.coachTitle}</Text>
 
       {/* The waiting state sits where the answer will appear, so the reply
-          arrives in place rather than pushing the panel around. */}
-      {busy ? <Thinking /> : text ? <Spoken text={text} /> : null}
+          arrives in place rather than pushing the panel around.
+
+          Fuka is the face of it. The coach speaks from the learner's own
+          answers and has done since before he had a picture — putting him here
+          makes that one voice instead of an anonymous panel that happens to be
+          next to a character. He is small, and he is here only while it is
+          working: once the answer lands, the answer is what matters. */}
+      {busy ? (
+        <View style={styles.thinking}>
+          <Mascot pose="think" size="small" />
+          <Text style={styles.thinkingLine}>{waiting.text}</Text>
+          <Thinking />
+        </View>
+      ) : text ? <Spoken text={text} /> : null}
 
       <Text style={styles.source}>{strings.coachFromYourRecords}</Text>
       {advice.map((entry) => (
@@ -135,6 +152,8 @@ function Spoken({ text }: { text: string }) {
 }
 
 const styles = StyleSheet.create({
+  thinking: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  thinkingLine: { ...typeScale.caption, color: palette.textMuted, flex: 1 },
   block: { gap: spacing.sm },
   title: { ...typeScale.heading, color: palette.text },
   spoken: { ...typeScale.body, color: palette.text, lineHeight: 23 },

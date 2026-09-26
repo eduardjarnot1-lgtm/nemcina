@@ -1,12 +1,15 @@
 import { useMemo } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Redirect, useRouter } from 'expo-router';
-import { isDue, lessonStatus, levelsFrom, nextLesson, totals } from '@nemcina/core';
+import {
+  isDue, isComeback, lessonStatus, levelsFrom, mascotLine, nextLesson, totals,
+} from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
 import { PrimaryButton } from '../../src/components/PrimaryButton';
 import { ProgressBar } from '../../src/components/ProgressBar';
 import { CoachPanel } from '../../src/components/CoachPanel';
+import { Mascot } from '../../src/components/Mascot';
 import { Reveal } from '../../src/components/Reveal';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
@@ -38,6 +41,21 @@ export default function LearnScreen() {
   }, [levelLessons, preferences.startingLevel]);
 
   const summary = useMemo(() => totals(records.values()), [records]);
+
+  /**
+   * Someone coming back after a gap, and only then.
+   *
+   * From the latest review the learner actually has — not a stored "last seen"
+   * flag, which would greet a fresh install as a returning friend. Two days is
+   * the threshold: one missed evening is not an absence. He says nothing about
+   * the gap, because they know, and they came back anyway.
+   */
+  const comeback = useMemo(() => {
+    const latest = [...records.values()]
+      .reduce((most, record) => Math.max(most, record.lastReviewed), 0);
+    if (!latest || !isComeback(latest, Date.now())) return null;
+    return mascotLine('comeback');
+  }, [records]);
   const next = useMemo(() => nextLesson(offered, records), [offered, records]);
   const nextStatus = useMemo(
     () => (next ? lessonStatus(next, records) : null),
@@ -60,6 +78,15 @@ export default function LearnScreen() {
         <Reveal index={0}>
           <Text style={styles.appName}>{strings.appName}</Text>
         </Reveal>
+
+        {/* Only after a real gap. On an ordinary day the home screen is the
+            learner's numbers and the next lesson — a guide who greets you
+            every single morning is a guide you stop reading by Thursday. */}
+        {comeback ? (
+          <Reveal index={1}>
+            <Mascot pose={comeback.pose} line={comeback.text} size="medium" />
+          </Reveal>
+        ) : null}
 
         <Reveal index={1} style={styles.statRow}>
           <Stat label={strings.wordsLearned} value={summary.learned} />

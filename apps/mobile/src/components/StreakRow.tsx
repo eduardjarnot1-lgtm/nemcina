@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { isStreakMilestone } from '@nemcina/core';
 import { strings } from '../strings';
 import { palette, spacing, type as typeScale } from '../theme';
 import { Animated, duration, useCountUp, useEarned, usePulse } from '../motion';
@@ -12,9 +13,12 @@ import { haptic } from '../haptics';
  * the second week. These are far enough apart that reaching one still means
  * something, and the gaps between them are deliberately silent.
  */
-const MILESTONES = [3, 7, 14, 30, 50, 100] as const;
 
-const isMilestone = (days: number) => MILESTONES.includes(days as (typeof MILESTONES)[number]);
+
+// The same list Fuka reacts to, from the engine. Kept in one place because
+// two would drift, and the drift would show as the guide celebrating a day the
+// number beside him did not.
+const isMilestone = isStreakMilestone;
 
 /**
  * The streak, counting up, pulsing only on the days that matter.

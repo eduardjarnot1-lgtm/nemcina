@@ -74,6 +74,7 @@ export const strings = {
   grammarLegend: 'What the colours mark',
   grammarLegendTaught: 'the form taught here',
   grammarIsolateHint: 'Dims the rest of the sentence so the pattern stands alone',
+  mascotName: 'Master Fuka',
   grammarPractise: 'Practise',
   grammarSource: 'From',
   grammarNoExercises: 'This topic has no exercises yet.',
