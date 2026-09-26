@@ -102,13 +102,25 @@ export function CoachPanel() {
           makes that one voice instead of an anonymous panel that happens to be
           next to a character. He is small, and he is here only while it is
           working: once the answer lands, the answer is what matters. */}
-      {busy ? (
-        <View style={styles.thinking}>
-          <Mascot pose="think" size="small" />
-          <Text style={styles.thinkingLine}>{waiting.text}</Text>
-          <Thinking />
+      {busy || text ? (
+        <View style={styles.coachRow}>
+          {/* He stays across the whole exchange and changes pose in place:
+              thinking while it works, pleased once the answer is here. That is
+              the one spot in the app where the dissolve is real — he turns
+              from one state into the other rather than being swapped for a
+              different picture, which is what makes the coach read as somebody
+              answering instead of a panel changing its contents. */}
+          <Mascot pose={busy ? 'think' : 'pleased'} size="small" />
+          {busy ? (
+            <>
+              <Text style={styles.thinkingLine}>{waiting.text}</Text>
+              <Thinking />
+            </>
+          ) : (
+            <View style={styles.spokenWrap}><Spoken text={text ?? ""} /></View>
+          )}
         </View>
-      ) : text ? <Spoken text={text} /> : null}
+      ) : null}
 
       <Text style={styles.source}>{strings.coachFromYourRecords}</Text>
       {advice.map((entry) => (
@@ -152,7 +164,8 @@ function Spoken({ text }: { text: string }) {
 }
 
 const styles = StyleSheet.create({
-  thinking: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  coachRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  spokenWrap: { flex: 1 },
   thinkingLine: { ...typeScale.caption, color: palette.textMuted, flex: 1 },
   block: { gap: spacing.sm },
   title: { ...typeScale.heading, color: palette.text },

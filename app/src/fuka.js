@@ -60,7 +60,7 @@ export function fukaBubble(situation, overrideText) {
   const text = overrideText || fukaSays(situation);
   return `
     <div class="fuka">
-      <img class="fuka__avatar" src="./assets/master-fuka.jpg" alt="Master Fuka" width="72" height="72">
+      <img class="fuka__avatar" src="./assets/master-fuka.webp" alt="Master Fuka" width="72" height="72">
       <div class="fuka__bubble">
         <span class="fuka__name">Master Fuka</span>
         <p class="fuka__text">${text}</p>

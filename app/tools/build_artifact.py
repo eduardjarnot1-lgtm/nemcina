@@ -9,7 +9,7 @@ with no network access at all, so this inlines everything:
     src/*.js               -> one inline module (imports/exports stripped)
     data/vocabulary.json   -> <script type="application/json">
     data/grammar.json      -> <script type="application/json">
-    assets/master-fuka.jpg -> a data: URI
+    assets/master-fuka.webp -> a data: URI
 
 Output is written to dist/master-fuka-german.html and is byte-for-byte
 reproducible from the sources — edit the sources, never the bundle.
@@ -81,7 +81,7 @@ def data_uri(path: Path) -> str:
 
 def main() -> int:
     css = (APP / "styles.css").read_text(encoding="utf-8")
-    avatar = data_uri(APP / "assets" / "master-fuka.jpg")
+    avatar = data_uri(APP / "assets" / "master-fuka.webp")
 
     payloads = {}
     for name, filename in DATA_FILES:
@@ -111,11 +111,11 @@ def main() -> int:
     if replaced != len(DATA_FILES):
         raise SystemExit(
             f"expected {len(DATA_FILES)} data fetches to inline, found {replaced} — update this script")
-    script = script.replace("./assets/master-fuka.jpg", avatar)
+    script = script.replace("./assets/master-fuka.webp", avatar)
 
     body_html = (APP / "index.html").read_text(encoding="utf-8")
     body_html = body_html.split("<body class=\"is-loading\">", 1)[1].split("</body>", 1)[0]
-    body_html = body_html.replace("./assets/master-fuka.jpg", avatar)
+    body_html = body_html.replace("./assets/master-fuka.webp", avatar)
     body_html = re.sub(r'\s*<script type="module"[^>]*></script>', "", body_html)
 
     data_blocks = "\n".join(

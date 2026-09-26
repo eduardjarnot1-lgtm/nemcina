@@ -131,8 +131,9 @@ a { color: var(--primary); }
 
 .fuka { display: flex; align-items: flex-start; gap: .8rem; margin-bottom: 1.25rem; }
 .fuka__avatar {
-  border-radius: 50%; object-fit: cover; object-position: top center; flex: none;
-  border: 3px solid var(--surface); box-shadow: var(--shadow);
+  /* A whole figure on transparency, not a face cropped to a circle: the old
+     portrait was a photograph and needed the disc; this one is the character. */
+  object-fit: contain; flex: none;
 }
 .fuka__bubble {
   position: relative; background: var(--surface); border: 1px solid var(--line);
