@@ -29,7 +29,29 @@ export interface Preferences {
   /** Sound is built but ships silent: there are no audio assets yet, and a
    *  setting that promises a sound it cannot play is worse than no setting. */
   readonly sound: boolean;
+  /**
+   * How much of the companion the learner wants.
+   *
+   * Four settings rather than one switch, because "I like him but not the
+   * chatter" and "not today" are different wishes and a single on/off makes
+   * people choose between the character and their own quiet. `still` keeps him
+   * and stops every animation he has, independently of the system-wide reduced
+   * motion setting — someone may want the rest of the app to move and not him.
+   */
+  readonly companion: CompanionSetting;
 }
+
+export type CompanionSetting =
+  /** The drawing and what he has to say. The default. */
+  | 'full'
+  /** The drawing, no speech bubble. */
+  | 'quiet'
+  /** Present, and completely still. */
+  | 'still'
+  /** Gone. Every screen still works; nothing was ever load-bearing on him. */
+  | 'off';
+
+const COMPANION_SETTINGS: readonly CompanionSetting[] = ['full', 'quiet', 'still', 'off'];
 
 /** Offered as three answers rather than a slider: a number nobody picked is a number nobody keeps. */
 export const GOAL_CHOICES = [8, 12, 20] as const;
@@ -40,6 +62,7 @@ export const DEFAULT_PREFERENCES: Preferences = {
   dailyGoal: 12,
   haptics: true,
   sound: false,
+  companion: 'full',
 };
 
 interface PreferencesContextValue {
@@ -71,6 +94,11 @@ function parse(raw: string | null): Preferences {
       // an older stored preferences blob must not silently turn haptics off.
       haptics: typeof value.haptics === 'boolean' ? value.haptics : DEFAULT_PREFERENCES.haptics,
       sound: typeof value.sound === 'boolean' ? value.sound : DEFAULT_PREFERENCES.sound,
+      // Anything unrecognised — an older blob, a hand-edited value — falls back
+      // to the default rather than hiding the companion by accident.
+      companion: COMPANION_SETTINGS.includes(value.companion as CompanionSetting)
+        ? value.companion as CompanionSetting
+        : DEFAULT_PREFERENCES.companion,
     };
   } catch {
     // Corrupt preferences must not stop the app; the defaults are all usable.

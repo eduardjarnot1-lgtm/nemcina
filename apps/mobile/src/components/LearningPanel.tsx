@@ -59,6 +59,21 @@ export function LearningPanel() {
         />
       </View>
 
+      {/* Four settings rather than one switch. "I like him but not the
+          chatter" and "not today" are different wishes, and a single on/off
+          makes people choose between the character and their own quiet. */}
+      <Text style={styles.title}>{strings.companionSetting}</Text>
+      <View style={styles.row}>
+        {(['full', 'quiet', 'still', 'off'] as const).map((choice) => (
+          <Chip
+            key={choice}
+            label={strings.companionChoice[choice]}
+            active={preferences.companion === choice}
+            onPress={() => void update({ companion: choice })}
+          />
+        ))}
+      </View>
+
       <PrimaryButton
         label={strings.placementRetake}
         tone="quiet"

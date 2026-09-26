@@ -368,7 +368,58 @@ motion compared against the same flow: 4 elements mid-fade without it, 0 with;
 the sentence-isolate at 0.69 after 40 ms and 0.28 after 500 ms without it, 0.28
 immediately with it — the state change in full, with no travel.
 
-## 2c. Master Fuka
+## 2c. Milo, and the warm theme
+
+**The companion is called Milo.** He was Master Fuka, which is still the name
+on the frozen prototype's build output; the character the app shows is Milo.
+Renaming him is one string, because nothing else ever hard-coded his name.
+
+### The palette
+
+| token | value | notes |
+|---|---|---|
+| `background` | `#f7f5f2` | warm off-white; paper, not screen |
+| `surface` | `#ffffff` | cards stay white so they lift off it |
+| `text` | `#23201d` | graphite with warmth in it, 14.9:1 |
+| `accent` | `#ac293d` | burgundy: primary actions, active tab |
+| `gold` | `#d5a63a` | **fill only** — 2.07:1, never text |
+| `goldInk` | `#8a6a12` | the same colour taken down to 4.65:1, for a label |
+
+The bright gold is 2.07:1 on the background and white on it is 2.25:1, so a
+gold badge carries graphite (7.21:1) and a gold *label* uses `goldInk`. Gold
+appears only where something was genuinely earned: an unlocked achievement and
+a streak milestone day. A second accent that turns up on ordinary controls
+stops being a reward.
+
+Correct, almost and wrong did **not** move. They carry meaning rather than
+brand, and a learner who has learned that green means right should not have to
+learn it again. All nine grammar role tones were re-checked against the new
+background and card: every one still clears 4.5:1, lowest 4.67.
+
+### Where Milo is
+
+| screen | size | what decides it |
+|---|---|---|
+| home | 200px, 148px under 430px wide | hero; the line is the learner's own position |
+| lessons | 44px in the header | one standing line |
+| grammar index | 44px beside the heading | the overview only, never beside a rule or table |
+| practice | 44px above the question | runs of 5, 10, 20 correct — never a single answer |
+| coach | 44px | thinking while it works, pleased when the answer lands |
+| results | 148px | pose and line follow the real result |
+| profile | 96px | celebrate only when a streak milestone stands today |
+
+He gives up size before the text does: at the full 200px a 390px phone had
+only ~170px left for the sentence and "Start learning" wrapped onto two lines.
+
+### The setting
+
+Four choices rather than one switch, because "I like him but not the chatter"
+and "not today" are different wishes: **with what he says**, **picture only**,
+**hold still**, **hidden**. `still` is independent of the system-wide reduced
+motion setting — someone may want the rest of the app to move and not him.
+`hidden` renders nothing at all, not a blank space.
+
+## 2d. Master Fuka
 
 **He was not invented here.** He is the name on the product — the web
 prototype ships as `master-fuka-german.html` — and `app/src/fuka.js` has had

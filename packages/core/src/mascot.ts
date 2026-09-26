@@ -53,6 +53,7 @@ export type MascotMoment =
   | 'sessionPerfect'
   | 'streakMilestone'
   | 'achievement'
+  | 'encouragement'
   | 'thinking';
 
 interface Script {
@@ -150,6 +151,24 @@ const SCRIPT: Readonly<Record<MascotMoment, Script>> = {
       'Look at that.',
     ],
   },
+  /**
+   * Mid-practice, on a long run of correct answers — and only then.
+   *
+   * Never after a single answer: the card is already the right colour, the
+   * pulse already happened, and a character who comments on every one of them
+   * is a character people switch off. Nothing here is about being clever, only
+   * about the run being real.
+   */
+  encouragement: {
+    pose: 'pleased',
+    lines: [
+      'Five in a row.',
+      'That is a run.',
+      'You are not guessing any more.',
+      'Keep going while it is flowing.',
+    ],
+  },
+
   /** While the coach is working something out. Never a joke here. */
   thinking: {
     pose: 'think',
@@ -220,6 +239,18 @@ export function sessionMoment(
 export const STREAK_MILESTONES: readonly number[] = [3, 7, 14, 30, 50, 100, 200, 365];
 
 export const isStreakMilestone = (days: number): boolean => STREAK_MILESTONES.includes(days);
+
+/**
+ * Runs of correct answers worth a word from Milo.
+ *
+ * Five, then ten, then twenty. Not three — three happens in most sessions and
+ * would put him on screen several times a lesson, which is the fastest way to
+ * make a companion into an interruption. The gaps widen for the same reason
+ * the streak milestones do.
+ */
+export const RUN_MILESTONES: readonly number[] = [5, 10, 20];
+
+export const isRunMilestone = (run: number): boolean => RUN_MILESTONES.includes(run);
 
 /**
  * Whether this is a return after a gap rather than an ordinary day.

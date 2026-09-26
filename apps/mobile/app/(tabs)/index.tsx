@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { Redirect, useRouter } from 'expo-router';
 import {
   isDue, isComeback, lessonStatus, levelsFrom, mascotLine, nextLesson, totals,
@@ -66,6 +66,18 @@ export default function LearnScreen() {
     [records],
   );
 
+  /**
+   * What Milo says on an ordinary day: the learner's own position, in a
+   * sentence. Not a random greeting — a number they can act on.
+   */
+  const { width } = useWindowDimensions();
+
+  const heroLine = useMemo(() => (
+    dueCount > 0
+      ? strings.homeDue(dueCount)
+      : summary.learned > 0 ? strings.homeCaughtUp : strings.homeFirst
+  ), [dueCount, summary.learned]);
+
   // The welcome flow is the app's front door, not a dialog over it.
   if (preferencesReady && !preferences.onboarded) return <Redirect href="/onboarding" />;
 
@@ -75,18 +87,39 @@ export default function LearnScreen() {
         {/* The screen assembles top-down, then stops. The order is the order
             of importance, so attention lands on the one thing to do next
             rather than on whatever moved last. */}
-        <Reveal index={0}>
-          <Text style={styles.appName}>{strings.appName}</Text>
-        </Reveal>
+        {/* Milo stands beside the app's name and the one thing to do next, at
+            hero size. This is the screen where he is the thing you look at;
+            everywhere else he is beside something you are reading.
 
-        {/* Only after a real gap. On an ordinary day the home screen is the
-            learner's numbers and the next lesson — a guide who greets you
-            every single morning is a guide you stop reading by Thursday. */}
-        {comeback ? (
-          <Reveal index={1}>
-            <Mascot pose={comeback.pose} line={comeback.text} size="medium" />
-          </Reveal>
-        ) : null}
+            The line changes with the situation and never with the day: coming
+            back after a gap he says so, otherwise he says nothing at all and
+            is simply there. A greeting every single morning is a greeting you
+            stop reading by Thursday. */}
+        <Reveal index={0}>
+          <View style={styles.hero}>
+            <Mascot
+              pose={comeback ? 'greet' : 'pleased'}
+              // He gives up size before the sentence and the button do. At the
+              // full 200px a 390px phone had only ~170px left for the text and
+              // "Start learning" wrapped onto two lines.
+              size={width >= 430 ? 'hero' : 'large'}
+              style={styles.heroFigure}
+            />
+            <View style={styles.heroText}>
+              <Text style={styles.appName}>{strings.appName}</Text>
+              {comeback ? (
+                <Text style={styles.heroLine}>{comeback.text}</Text>
+              ) : (
+                <Text style={styles.heroLine}>{heroLine}</Text>
+              )}
+              <PrimaryButton
+                label={dueCount > 0 ? strings.continueLesson : strings.homeStart}
+                onPress={() => router.push(
+                  dueCount > 0 ? '/session/review' : '/lessons')}
+              />
+            </View>
+          </View>
+        </Reveal>
 
         <Reveal index={1} style={styles.statRow}>
           <Stat label={strings.wordsLearned} value={summary.learned} />
@@ -149,6 +182,12 @@ function Stat({ label, value }: { label: string; value: number }) {
 }
 
 const styles = StyleSheet.create({
+  hero: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  // He gives up width before the text does: on a narrow phone the sentence and
+  // the button matter more than how big he is.
+  heroFigure: { flexShrink: 1 },
+  heroText: { flex: 1, gap: spacing.xs, minWidth: 0 },
+  heroLine: { ...typeScale.body, color: palette.textSecond, lineHeight: 22 },
   content: { paddingVertical: spacing.lg, gap: spacing.md },
   appName: { ...typeScale.display, color: palette.text },
   statRow: { flexDirection: 'row', gap: spacing.sm },

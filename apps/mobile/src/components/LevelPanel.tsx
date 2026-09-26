@@ -91,7 +91,7 @@ function Badge({ badge }: { badge: Achievement }) {
   useEarned(badge.earned, celebrate);
 
   return (
-    <Animated.View style={[styles.badge, style]}>
+    <Animated.View style={[styles.badge, badge.earned && styles.badgeEarnedRow, style]}>
       <Text style={[styles.badgeName, badge.earned && styles.badgeEarned]}>
         {strings.achievementNames[badge.id] ?? badge.id}
       </Text>
@@ -116,5 +116,11 @@ const styles = StyleSheet.create({
     borderRadius: radius.sm,
   },
   badgeName: { ...typeScale.body, color: palette.textMuted },
-  badgeEarned: { color: palette.correct, fontWeight: '600' },
+  /**
+   * Gold, because this one was earned. `goldInk` rather than `gold` — the
+   * bright one is 2.07:1 on the background and cannot be read; this is the
+   * same colour taken down until it can be.
+   */
+  badgeEarned: { color: palette.goldInk, fontWeight: '600' },
+  badgeEarnedRow: { backgroundColor: palette.goldSoft, paddingHorizontal: spacing.sm },
 });

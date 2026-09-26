@@ -11,6 +11,8 @@ import { useProgress } from '../../src/progress';
 import { strings } from '../../src/strings';
 import { palette, spacing, type as typeScale } from '../../src/theme';
 import { StreakRow } from '../../src/components/StreakRow';
+import { Mascot } from '../../src/components/Mascot';
+import { isStreakMilestone, mascotLine } from '@nemcina/core';
 import { Reveal } from '../../src/components/Reveal';
 
 export default function ProfileScreen() {
@@ -28,13 +30,35 @@ export default function ProfileScreen() {
     [records],
   );
 
+  /**
+   * A milestone that is true right now, or nothing.
+   *
+   * `isStreakMilestone` is the same list the streak number uses, so the two
+   * cannot disagree about whether today counts.
+   */
+  const milestone = useMemo(
+    () => (isStreakMilestone(days.current) ? mascotLine('streakMilestone') : null),
+    [days.current],
+  );
+
   return (
     <Screen>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <Text style={styles.title}>{strings.tabProfile}</Text>
 
+        {/* He reacts to the record, not to the visit: the celebrate pose only
+            when a streak milestone is genuinely standing today, and the line
+            is the one the engine writes for that milestone. On any other day
+            he is quietly pleased and says nothing, because "you opened the
+            profile" is not an achievement. */}
         <Card style={styles.block}>
           <Text style={styles.blockTitle}>{strings.profileProgress}</Text>
+          <Mascot
+            pose={milestone ? 'celebrate' : 'pleased'}
+            line={milestone?.text}
+            size="medium"
+            style={styles.companion}
+          />
           <Row label={strings.wordsLearned} value={summary.learned} />
           <Row label={strings.wordsMastered} value={summary.mastered} />
           <Row label={strings.dueToday} value={summary.due} />
@@ -94,6 +118,7 @@ function Row({ label, value }: { label: string; value: number }) {
 }
 
 const styles = StyleSheet.create({
+  companion: { marginBottom: spacing.xs },
   content: { paddingVertical: spacing.md, gap: spacing.md, paddingBottom: spacing.xl },
   title: { ...typeScale.display, color: palette.text },
   block: { gap: spacing.sm },
