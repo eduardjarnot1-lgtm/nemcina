@@ -433,12 +433,70 @@ nothing about the app is load-bearing on a drawing.
 * **No cosmetics or unlockables.** `MascotPose` is a closed union that a new
   pose extends, which is the extensibility that was asked for. An unlock
   system is a new mechanic, not a mascot.
-* **No idle blink, look-around or per-answer micro-reactions.** Those need
-  either more drawings or a rigged figure; one breath is what four stills can
-  honestly do.
-* **The old portrait in `app/assets/master-fuka.jpg` is untouched.** It is a
-  likeness of a real person in the frozen web prototype, which is not what
-  gets published. Whether it stays is the owner's call, not a refactor.
+* **No blink or look-around.** Those need more drawings; what four stills can
+  honestly do is below.
+### The portrait is gone
+
+`app/assets/master-fuka.jpg` — a stylised likeness of a real person — is
+deleted, and the new figure took its place in the frozen prototype as well, so
+the character is the same one everywhere. Five references were pointed at it:
+the speech bubble in `fuka.js`, the brand mark in `index.html`, the embedder
+in `build_artifact.py` (twice) and its docstring. The avatar CSS lost its
+circle crop, which existed because the old file was a photograph of a face and
+would otherwise have shown the new one from the ears up. The prototype still
+builds: 7.03 MB, no `image/jpeg` left in the output, no broken relative src.
+
+### What he actually does now
+
+One breath was all he had. Each pose now has its own resting behaviour and its
+own way of arriving.
+
+| pose | at rest | arriving |
+|---|---|---|
+| greet | breathes, sways ±0.8° over 5.2 s | leans in from −4° |
+| think | breathes, sways ±0.5° over 7 s | settles down 4 px |
+| pleased | breathes only | nods in from +2.5° |
+| celebrate | breathes only | hops 12 px with a spring |
+
+**Only the two poses that appear while nothing is being read sway.** Greeting
+sits on an onboarding screen and thinking beside a spinner, where a slow lean
+reads as someone waiting. Pleased and celebrating appear on a results screen
+with numbers on it, and a figure that keeps moving beside text someone is
+reading is what every animation brief warns about. The hop happens once, on
+arrival, and never again — a hop that repeated every four seconds would be
+unbearable by the third lesson, and unbearable-by-the-third-lesson is the test.
+
+Two loops run at 4 s and 5.2–7 s, deliberately unrelated: in step they read as
+a mechanism, out of step as something alive.
+
+**A pose change is a dissolve, not a cut** — both drawings are mounted while
+one fades into the other. Writing it exposed that nothing in the app changed
+pose, so the code was dead. It has one real use now: Fuka stays in the coach
+panel across the whole exchange and turns from thinking into pleased when the
+answer lands, which is what makes the coach read as somebody answering rather
+than a panel swapping its contents.
+
+### Measured, frame by frame
+
+Sampled with `requestAnimationFrame` inside the page rather than by polling
+from outside, so nothing falls between round-trips.
+
+* Idle over 9 s: scale 1.0000–1.0120, rotation −0.80°..+0.80°, against a spec
+  of 1.012 and ±0.8°.
+* Arrival: −4.00, −2.96, −2.66, −2.23, −1.81, −1.42, −1.00, −0.67, −0.43,
+  −0.24, −0.12, −0.03, +0.03 degrees — the designed deceleration over about
+  220 ms, then the sway takes over.
+* Reduced motion, same flow: scale 1.0000–1.0000, rotation 0.00°..0.00°. He is
+  present and completely still.
+
+The first two attempts at this measured nothing, because both sampled after
+the 220 ms gesture had already finished. A reading taken at the wrong moment
+looks exactly like an animation that does not exist.
+
+**The coach dissolve is not verified.** It needs a configured model to go from
+busy to answered, and this build has none — there is no Ask button to press.
+The code is there and the mechanism is measured everywhere else it runs; that
+one transition has not been seen.
 
 ### Future asset requirements
 
