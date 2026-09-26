@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
   label: { ...typeScale.body, color: palette.textMuted },
   values: { flexDirection: 'row', alignItems: 'baseline', gap: spacing.sm },
   value: { ...typeScale.body, color: palette.text, fontWeight: '600' },
-  milestone: { color: palette.accent },
+  // A milestone day, in the colour reserved for milestones.
+  milestone: { color: palette.goldInk },
   best: { ...typeScale.caption, color: palette.textMuted },
 });

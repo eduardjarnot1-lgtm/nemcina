@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Image, StyleSheet, Text, View, type ImageSourcePropType } from 'react-native';
 import type { MascotPose } from '@nemcina/core';
 import { Animated, duration, easing, useReducedMotion } from '../motion';
+import { usePreferences } from '../preferences';
 import { palette, radius, spacing, type as typeScale } from '../theme';
 import { strings } from '../strings';
 
@@ -19,8 +20,13 @@ const POSES: Readonly<Record<MascotPose, ImageSourcePropType>> = {
   celebrate: require('../../assets/mascot/fuka-celebrate.webp'),
 };
 
-/** Three sizes and no more, so he is the same character everywhere. */
-const SIZE = { small: 44, medium: 96, large: 148 } as const;
+/**
+ * Four sizes and no more, so he is the same character everywhere.
+ *
+ * `hero` is the home screen and a finished session — the two places where he
+ * is the thing you look at rather than something beside what you are reading.
+ */
+const SIZE = { small: 44, medium: 96, large: 148, hero: 200 } as const;
 export type MascotSize = keyof typeof SIZE;
 
 /**
@@ -80,7 +86,12 @@ export function Mascot({
   size?: MascotSize;
   style?: object;
 }) {
-  const reduced = useReducedMotion();
+  const systemReduced = useReducedMotion();
+  const { preferences } = usePreferences();
+  const setting = preferences.companion;
+  // `still` is the learner asking for this character to hold still, which is a
+  // different wish from the system-wide setting and is honoured on its own.
+  const reduced = systemReduced || setting === 'still';
   const [failed, setFailed] = useState(false);
   const px = SIZE[size];
   const behaviour = BEHAVIOUR[pose];
@@ -228,7 +239,10 @@ export function Mascot({
     </Animated.View>
   );
 
-  if (!line) return <View style={style}>{figure}</View>;
+  // Hidden means hidden: no drawing, no bubble, no reserved space. Every
+  // screen still works, because nothing was ever load-bearing on him.
+  if (setting === 'off') return null;
+  if (!line || setting === 'quiet') return <View style={style}>{figure}</View>;
 
   return (
     <View style={[styles.row, style]}>

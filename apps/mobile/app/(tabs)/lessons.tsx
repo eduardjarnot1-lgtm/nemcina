@@ -5,6 +5,7 @@ import { lessonStatus, type Lesson } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { LessonRow } from '../../src/components/LessonRow';
 import { Reveal } from '../../src/components/Reveal';
+import { Mascot } from '../../src/components/Mascot';
 import { Selectable } from '../../src/components/Selectable';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
@@ -54,14 +55,19 @@ export default function LessonsScreen() {
     <Screen>
       <Text style={styles.title}>{strings.tabLessons}</Text>
 
-      <Reveal index={0} style={styles.switcher}>
+      <Reveal index={0} style={styles.companionRow}>
+        <Mascot pose="pleased" size="small" />
+        <Text style={styles.companionLine}>{strings.lessonsCompanion}</Text>
+      </Reveal>
+
+      <Reveal index={1} style={styles.switcher}>
         <Choice label={strings.browseByLevel} active={route === 'level'}
           onPress={() => { setRoute('level'); setGroup(null); }} />
         <Choice label={strings.browseByTopic} active={route === 'topic'}
           onPress={() => { setRoute('topic'); setGroup(null); }} />
       </Reveal>
 
-      <Reveal index={1} style={styles.groupRow}>
+      <Reveal index={2} style={styles.groupRow}>
         <FlatList
           horizontal
           data={groups}
@@ -105,6 +111,8 @@ function Choice({ label, active, onPress }: { label: string; active: boolean; on
 }
 
 const styles = StyleSheet.create({
+  companionRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  companionLine: { ...typeScale.caption, color: palette.textMuted, flex: 1 },
   title: { ...typeScale.display, color: palette.text, paddingVertical: spacing.md },
   switcher: { flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.sm },
   groupRow: { marginBottom: spacing.sm },

@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import {
-  StudySession, isDue,
+  StudySession, isDue, isRunMilestone, mascotLine,
   type AnswerOutcome, type Question, type VocabularyItem,
 } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
@@ -14,6 +14,7 @@ import { ProgressBar } from '../../src/components/ProgressBar';
 import { SpeakButton } from '../../src/components/SpeakButton';
 import { AnswerOption } from '../../src/components/AnswerOption';
 import { ComboBadge } from '../../src/components/ComboBadge';
+import { Mascot } from '../../src/components/Mascot';
 import { Skeleton } from '../../src/components/Skeleton';
 import { track } from '../../src/analytics';
 import { SessionComplete } from '../../src/components/SessionComplete';
@@ -53,6 +54,14 @@ export default function SessionScreen() {
   // Consecutive correct answers. Presentation only — the session's own queue,
   // grading and scheduling never read it.
   const [run, setRun] = useState(0);
+  /**
+   * Held until the run breaks or the next question replaces it, so the line
+   * does not re-roll on every render while it is on screen.
+   */
+  const encouragement = useMemo(
+    () => (isRunMilestone(run) ? mascotLine('encouragement') : null),
+    [run],
+  );
   // The session is a mutable object, so React has to be told when it moved.
   const [, bump] = useState(0);
 
@@ -198,6 +207,20 @@ export default function SessionScreen() {
       >
         <ProgressBar value={position.total === 0 ? 0 : position.index / position.total} />
         <ComboBadge run={run} />
+
+        {/* On a run of five, ten or twenty — and never on a single answer.
+            The card is already the right colour and the pulse has already
+            happened; a companion who comments on every correct answer is one
+            people switch off by the second lesson. It sits above the question
+            and disappears with the next one, so it never covers anything. */}
+        {encouragement ? (
+          <Mascot
+            pose={encouragement.pose}
+            line={encouragement.text}
+            size="small"
+            style={styles.encouragement}
+          />
+        ) : null}
 
         <ScrollView
           contentContainerStyle={styles.content}
@@ -348,6 +371,7 @@ function Feedback({
 }
 
 const styles = StyleSheet.create({
+  encouragement: { marginBottom: spacing.xs },
   questionBody: { gap: spacing.md },
   flex: { flex: 1 },
   loading: { paddingVertical: spacing.lg },

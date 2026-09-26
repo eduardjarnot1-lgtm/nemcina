@@ -12,6 +12,7 @@ import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
 import { Selectable } from '../../src/components/Selectable';
 import { Reveal } from '../../src/components/Reveal';
+import { Mascot } from '../../src/components/Mascot';
 import { Chip } from '../../src/components/grammar/Chip';
 import { familyTone } from '../../src/grammarTheme';
 import { strings } from '../../src/strings';
@@ -65,9 +66,17 @@ export default function GrammarScreen() {
 
   return (
     <Screen>
+      {/* The overview only. Not beside a rule, not beside a table, not beside
+          an example — a guide standing next to every paragraph is a guide in
+          the way of the thing being explained. */}
       <Reveal index={0}>
-        <Text style={styles.title}>{strings.tabGrammar}</Text>
-        <Text style={styles.count}>{strings.grammarTopics(topics.length)}</Text>
+        <View style={styles.heading}>
+          <Mascot pose="think" size="small" />
+          <View style={styles.headingText}>
+            <Text style={styles.title}>{strings.tabGrammar}</Text>
+            <Text style={styles.count}>{strings.grammarTopics(topics.length)}</Text>
+          </View>
+        </View>
       </Reveal>
 
       <Reveal index={1} style={styles.levelRow}>
@@ -143,6 +152,8 @@ export default function GrammarScreen() {
 }
 
 const styles = StyleSheet.create({
+  heading: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  headingText: { flex: 1 },
   title: { ...typeScale.display, color: palette.text, paddingTop: spacing.md },
   count: { ...typeScale.caption, color: palette.textMuted, paddingBottom: spacing.md },
   levelRow: { flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.sm },

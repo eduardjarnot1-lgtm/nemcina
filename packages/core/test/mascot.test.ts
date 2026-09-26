@@ -1,13 +1,13 @@
 import { describe, test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  isComeback, isStreakMilestone, mascotLine, sessionMoment, STREAK_MILESTONES,
-  type MascotMoment,
+  isComeback, isRunMilestone, isStreakMilestone, mascotLine, RUN_MILESTONES,
+  sessionMoment, STREAK_MILESTONES, type MascotMoment,
 } from '../src/mascot.ts';
 
 const ALL: readonly MascotMoment[] = [
   'welcome', 'comeback', 'sessionDone', 'sessionStrong', 'sessionPerfect',
-  'streakMilestone', 'achievement', 'thinking',
+  'streakMilestone', 'achievement', 'encouragement', 'thinking',
 ];
 
 describe('what Master Fuka says', () => {
@@ -127,6 +127,17 @@ describe('when he reacts at all', () => {
     assert.ok(!isStreakMilestone(8));
     const gaps = STREAK_MILESTONES.slice(1)
       .map((day, i) => day - (STREAK_MILESTONES[i] as number));
+    assert.deepEqual(gaps, [...gaps].sort((a, b) => a - b), 'gaps must never narrow');
+  });
+
+  test('he does not comment on a run of three', () => {
+    // Three happens in most sessions. Reacting to it would put him on screen
+    // several times a lesson, which is the fastest way to turn a companion
+    // into an interruption.
+    assert.equal(isRunMilestone(3), false);
+    assert.equal(isRunMilestone(5), true);
+    assert.equal(isRunMilestone(6), false);
+    const gaps = RUN_MILESTONES.slice(1).map((n, i) => n - (RUN_MILESTONES[i] as number));
     assert.deepEqual(gaps, [...gaps].sort((a, b) => a - b), 'gaps must never narrow');
   });
 
