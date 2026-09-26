@@ -368,10 +368,83 @@ motion compared against the same flow: 4 elements mid-fade without it, 0 with;
 the sentence-isolate at 0.69 after 40 ms and 0.28 after 500 ms without it, 0.28
 immediately with it — the state change in full, with no travel.
 
+## 2c. Master Fuka
+
+**He was not invented here.** He is the name on the product — the web
+prototype ships as `master-fuka-german.html` — and `app/src/fuka.js` has had
+his voice since the beginning: short lines, a method rather than applause, and
+never a word of blame. *"Not quite, have a look at the card."* is what a
+teacher says. That voice was carried over rather than rewritten.
+
+What changed is that he can now be in a **state**. The prototype had one
+photograph of him, which cannot look pleased or think about anything, so he
+could only ever talk. Four drawn poses — greeting, thinking over a book,
+quietly pleased, both fists up — let him react.
+
+**Four poses carry twelve states, and that is the character rather than a
+shortfall.** He is calm, so "proud" and "encouraging" really are the same warm
+half-smile, and only a perfect round or a streak milestone earns the fists.
+
+### Where he appears, and nowhere else
+
+| moment | pose | why it is worth an interruption |
+|---|---|---|
+| onboarding | greeting | the only screen whose whole point is a welcome |
+| back after ≥2 days | greeting | the hardest moment to get right; see below |
+| session finished | pleased | the result is the news, he is the reaction |
+| strong round (≥85%, ≥4 items) | pleased | warmer, still not fireworks |
+| perfect round | celebrate | everything right, and enough asked to mean it |
+| streak milestone | celebrate | 3, 7, 14, 30, 50, 100, 200, 365 — gaps that widen |
+| achievement | celebrate | |
+| coach working | thinking | he is the face of the coach, not a separate panel |
+
+Not after a correct answer. Not on every screen. Not beside grammar rules.
+A guide who is always there is wallpaper.
+
+### Two rules the tests enforce
+
+* **The ordinary ending never praises.** That moment fires at thirteen per
+  cent as readily as at eighty — found by playing a round badly on purpose and
+  reading "Steady work." back. Hollow is how a guide stops being believed, so
+  what he offers instead is what happens next: *"The ones you missed will come
+  round sooner."* True at either end of the range. Praise lives only in the two
+  moments that earn it.
+* **The comeback lines never mention the gap.** No streak, no "it's been a
+  while", no "where have you been". They know. They came back anyway, which is
+  the hard part.
+
+Both are unit tests, checked by mutation: a blaming comeback line, a shouted
+line, praise in the ordinary ending, fists for an ordinary round, a
+two-for-two "perfect", a milestone every other day and a twelve-word ceiling
+all fail the suite. `STREAK_MILESTONES` is shared with `StreakRow`, because two
+lists would drift and the drift would show as him celebrating a day the number
+beside him did not.
+
+### Verified
+
+Onboarding and the results screen in Chromium at 390px. Breathing scale
+1.0117 normally and exactly 1.0 under reduced motion, present either way. With
+the asset requests blocked the line still reads at full width and every button
+still works — the picture carries the warmth, the text carries the meaning, and
+nothing about the app is load-bearing on a drawing.
+
+### Not built
+
+* **No cosmetics or unlockables.** `MascotPose` is a closed union that a new
+  pose extends, which is the extensibility that was asked for. An unlock
+  system is a new mechanic, not a mascot.
+* **No idle blink, look-around or per-answer micro-reactions.** Those need
+  either more drawings or a rigged figure; one breath is what four stills can
+  honestly do.
+* **The old portrait in `app/assets/master-fuka.jpg` is untouched.** It is a
+  likeness of a real person in the frozen web prototype, which is not what
+  gets published. Whether it stays is the owner's call, not a refactor.
+
 ### Future asset requirements
 
-* Master Fuka: idle, happy, celebrating, thinking, encouraging, surprised,
-  lesson-complete. Lottie or sprite; the component boundary is `Reveal`.
+* Master Fuka, to go beyond four stills: blink and look-around frames for
+  idle, a "surprised" pose for a wrong answer on a hard item, and a confused
+  pose. Lottie or a sprite sheet; the component boundary is `Mascot`.
 * Sounds: correct, incorrect, lesson complete, achievement, level unlock.
   Short, soft, optional.
 

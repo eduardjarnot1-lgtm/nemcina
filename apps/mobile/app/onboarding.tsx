@@ -3,6 +3,8 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { Screen } from '../src/components/Screen';
 import { Card } from '../src/components/Card';
+import { Mascot } from '../src/components/Mascot';
+import { mascotLine } from '@nemcina/core';
 import { Selectable } from '../src/components/Selectable';
 import { PrimaryButton } from '../src/components/PrimaryButton';
 import { GOAL_CHOICES, usePreferences } from '../src/preferences';
@@ -27,6 +29,9 @@ export default function OnboardingScreen() {
   const router = useRouter();
   const { preferences, update } = usePreferences();
   const [goal, setGoal] = useState<number>(preferences.dailyGoal);
+  // Chosen once, on mount: a line that re-rolled on every keystroke would read
+  // as a character who cannot hold a thought.
+  const [greeting] = useState(() => mascotLine('welcome'));
 
   return (
     <Screen>
@@ -34,6 +39,10 @@ export default function OnboardingScreen() {
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <Text style={styles.title}>{strings.welcomeTitle}</Text>
         <Text style={styles.lead}>{strings.welcomeLead}</Text>
+
+        {/* The only screen where he introduces himself. Everywhere else he
+            turns up because something happened. */}
+        <Mascot {...greeting} line={greeting.text} size="medium" style={styles.mascot} />
 
         <Card style={styles.block}>
           <Text style={styles.heading}>{strings.welcomeGoalTitle}</Text>
@@ -83,6 +92,7 @@ export default function OnboardingScreen() {
 }
 
 const styles = StyleSheet.create({
+  mascot: { marginBottom: spacing.xs },
   content: { paddingVertical: spacing.xl, gap: spacing.md, paddingBottom: spacing.xl },
   title: { ...typeScale.display, color: palette.text },
   lead: { ...typeScale.body, color: palette.textMuted, lineHeight: 23 },

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import type { SessionSummary } from '@nemcina/core';
 import { PrimaryButton } from './PrimaryButton';
@@ -6,6 +6,8 @@ import { ProgressBar } from './ProgressBar';
 import { palette, radius, spacing, type as typeScale } from '../theme';
 import { Animated, duration, useCountUp, useEntrance, useReducedMotion } from '../motion';
 import { haptic } from '../haptics';
+import { Mascot } from './Mascot';
+import { mascotLine, sessionMoment } from '@nemcina/core';
 import { strings } from '../strings';
 
 /**
@@ -34,6 +36,15 @@ export function SessionComplete({
   const stats = useEntrance('stats', { delay: reduced ? 0 : 120 });
   const action = useEntrance('action', { delay: reduced ? 0 : 240 });
 
+  // Decided from the summary the screen already has, by the same rule the
+  // screen uses for `perfect` — one place, so the two cannot disagree about
+  // what just happened.
+  const [fuka] = useState(() => mascotLine(sessionMoment({
+    itemsStudied: summary.itemsStudied,
+    incorrect: summary.incorrect,
+    accuracy: summary.accuracy,
+  })));
+
   const studied = useCountUp(summary.itemsStudied, { duration: duration.celebration });
   const percent = useCountUp(accuracy, { duration: duration.celebration });
 
@@ -48,6 +59,12 @@ export function SessionComplete({
           {perfect ? strings.sessionPerfect : strings.sessionDone}
         </Text>
         {perfect ? <Text style={styles.perfectNote}>{strings.sessionPerfectNote}</Text> : null}
+      </Animated.View>
+
+      {/* After the numbers, not before: the result is the news and he is the
+          reaction to it. He waits for the stats to land. */}
+      <Animated.View style={action}>
+        <Mascot pose={fuka.pose} line={fuka.text} size="medium" />
       </Animated.View>
 
       <Animated.View style={[stats, styles.stats]}>
