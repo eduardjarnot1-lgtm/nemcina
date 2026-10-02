@@ -97,7 +97,7 @@ export function CoachPanel() {
       {/* The waiting state sits where the answer will appear, so the reply
           arrives in place rather than pushing the panel around.
 
-          Fuka is the face of it. The coach speaks from the learner's own
+          Milo is the face of it. The coach speaks from the learner's own
           answers and has done since before he had a picture — putting him here
           makes that one voice instead of an anonymous panel that happens to be
           next to a character. He is small, and he is here only while it is

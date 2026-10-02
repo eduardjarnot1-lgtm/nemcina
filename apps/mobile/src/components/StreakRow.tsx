@@ -15,7 +15,7 @@ import { haptic } from '../haptics';
  */
 
 
-// The same list Fuka reacts to, from the engine. Kept in one place because
+// The same list Milo reacts to, from the engine. Kept in one place because
 // two would drift, and the drift would show as the guide celebrating a day the
 // number beside him did not.
 const isMilestone = isStreakMilestone;

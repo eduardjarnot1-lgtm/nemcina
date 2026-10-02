@@ -1,18 +1,21 @@
 /**
- * Master Fuka — the app's guide.
+ * Milo — the app's guide.
  *
- * He is not new. He is the name on the product, and the web prototype has had
- * his voice since the beginning: short lines, a method rather than applause,
- * and never a word of blame. That voice is carried over here rather than
- * rewritten, because it was already right — "Not quite, have a look at the
- * card" is what a teacher says, and "AMAZING!!!" is what a slot machine says.
+ * His voice is not new. The web prototype has had it since the beginning,
+ * under the earlier name Master Fuka: short lines, a method rather than
+ * applause, and never a word of blame. That voice is carried over here rather
+ * than rewritten, because it was already right — "Not quite, have a look at
+ * the card" is what a teacher says, and "AMAZING!!!" is what a slot machine
+ * says. The name on the frozen prototype's build output is still the old one;
+ * the character this app shows is Milo, and `strings.mascotName` is the single
+ * place that says so.
  *
  * What is new is that he can now be in a *state*. The prototype had one
  * photograph of him, which cannot look pleased or think about anything, so he
  * could only ever talk. With four drawn poses he can react, and this module
  * decides when and how.
  *
- * **Everything here is platform-free on purpose.** A screen asks what Fuka
+ * **Everything here is platform-free on purpose.** A screen asks what Milo
  * would say at a moment and gets back a pose and a line; it never picks either
  * itself. That is what keeps him one character instead of a different one per
  * screen, and it is why his whole behaviour can be tested without a renderer.
@@ -108,9 +111,13 @@ const SCRIPT: Readonly<Record<MascotMoment, Script>> = {
    * words come back sooner, which is true, useful, and the same sentence at
    * either end of the range. Praise lives in the two moments below, where it
    * has been earned.
+   *
+   * The pose carries the same rule. A satisfied face over a neutral sentence
+   * praises the round anyway — the learner reads him before they read the
+   * words. `greet` is the one pose that makes no claim about how it went.
    */
   sessionDone: {
-    pose: 'pleased',
+    pose: 'greet',
     lines: [
       "That's a session done.",
       'Those come back tomorrow, a little easier.',

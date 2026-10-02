@@ -10,7 +10,7 @@ const ALL: readonly MascotMoment[] = [
   'streakMilestone', 'achievement', 'encouragement', 'thinking',
 ];
 
-describe('what Master Fuka says', () => {
+describe('what Milo says', () => {
   test('every moment has more than one line', () => {
     // One line per moment is a character who says the same eight words for a
     // year, which is the thing the variation exists to prevent.
@@ -77,6 +77,22 @@ describe('what Master Fuka says', () => {
     }
   });
 
+  test('the ordinary ending does not praise with his face either', () => {
+    // The pose is read before the sentence is. A satisfied or celebrating
+    // figure over a neutral line still tells the learner the round went well,
+    // and this moment fires at thirteen per cent. Found by looking at the
+    // screen rather than at the strings: the line was neutral, the face was
+    // not. The two praising poses are reserved for the moments that earn them.
+    for (let i = 0; i < 60; i += 1) {
+      const pose = mascotLine('sessionDone').pose;
+      assert.ok(pose !== 'pleased' && pose !== 'celebrate', `sessionDone wore ${pose}`);
+    }
+    // And the earned ones keep theirs, so the rule above cannot be satisfied
+    // by flattening every pose to neutral.
+    assert.equal(mascotLine('sessionStrong').pose, 'pleased');
+    assert.equal(mascotLine('sessionPerfect').pose, 'celebrate');
+  });
+
   test('the comeback lines never mention the gap', () => {
     // The one moment where the wrong sentence does real damage: they already
     // know how long it has been, and they came back anyway.
@@ -100,7 +116,9 @@ describe('what Master Fuka says', () => {
 describe('when he reacts at all', () => {
   test('the fists come out only for a perfect round', () => {
     assert.equal(mascotLine('sessionPerfect').pose, 'celebrate');
-    assert.equal(mascotLine('sessionDone').pose, 'pleased');
+    // An ordinary ending is neutral-faced, not pleased: see the pose rule in
+    // 'the ordinary ending does not praise with his face either' above.
+    assert.equal(mascotLine('sessionDone').pose, 'greet');
     assert.equal(mascotLine('sessionStrong').pose, 'pleased');
   });
 
