@@ -7,17 +7,17 @@ import { palette, radius, spacing, type as typeScale } from '../theme';
 import { strings } from '../strings';
 
 /**
- * Master Fuka, on screen.
+ * Milo, on screen.
  *
  * Four drawings, `require`d statically because the bundler has to see every
  * path at build time — a computed `require` ships nothing and fails at run
  * time.
  */
 const POSES: Readonly<Record<MascotPose, ImageSourcePropType>> = {
-  greet: require('../../assets/mascot/fuka-greet.webp'),
-  think: require('../../assets/mascot/fuka-think.webp'),
-  pleased: require('../../assets/mascot/fuka-pleased.webp'),
-  celebrate: require('../../assets/mascot/fuka-celebrate.webp'),
+  greet: require('../../assets/mascot/milo-greet.webp'),
+  think: require('../../assets/mascot/milo-think.webp'),
+  pleased: require('../../assets/mascot/milo-pleased.webp'),
+  celebrate: require('../../assets/mascot/milo-celebrate.webp'),
 };
 
 /**

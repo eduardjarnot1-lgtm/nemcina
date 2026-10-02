@@ -61,10 +61,33 @@ export default function LearnScreen() {
     () => (next ? lessonStatus(next, records) : null),
     [next, records],
   );
+
+  /**
+   * The single recommended action, and where it goes.
+   *
+   * Reviews first — they are the words about to be forgotten — then the lesson
+   * the course is actually on. The cards below show the same two things with
+   * their context intact; the button is the shortcut, not a fourth route. Three
+   * primary buttons on one screen is three recommendations, which is none.
+   */
   const dueCount = useMemo(
     () => [...records.values()].filter((record) => isDue(record)).length,
     [records],
   );
+
+  const primary = useMemo(() => {
+    if (dueCount > 0) {
+      return { label: strings.continueLesson, go: () => router.push('/session/review') };
+    }
+    if (next) {
+      return {
+        label: nextStatus?.started ? strings.continueLesson : strings.startLesson,
+        go: () => router.push(`/session/${encodeURIComponent(next.id)}`),
+      };
+    }
+    return { label: strings.homeStart, go: () => router.push('/lessons') };
+  }, [dueCount, next, nextStatus?.started, router]);
+
 
   /**
    * What Milo says on an ordinary day: the learner's own position, in a
@@ -112,11 +135,7 @@ export default function LearnScreen() {
               ) : (
                 <Text style={styles.heroLine}>{heroLine}</Text>
               )}
-              <PrimaryButton
-                label={dueCount > 0 ? strings.continueLesson : strings.homeStart}
-                onPress={() => router.push(
-                  dueCount > 0 ? '/session/review' : '/lessons')}
-              />
+              <PrimaryButton label={primary.label} onPress={primary.go} />
             </View>
           </View>
         </Reveal>
@@ -129,13 +148,13 @@ export default function LearnScreen() {
 
         <Reveal index={2}>
         {dueCount > 0 ? (
-          <Card tone="accent" style={styles.block}>
+          <Card
+            tone="accent"
+            style={styles.block}
+            onPress={() => router.push('/session/review')}
+          >
             <Text style={styles.blockTitle}>{strings.dueToday}</Text>
             <Text style={styles.blockMeta}>{strings.itemsInLesson(dueCount)}</Text>
-            <PrimaryButton
-              label={strings.continueLesson}
-              onPress={() => router.push('/session/review')}
-            />
           </Card>
         ) : (
           <Card style={styles.block}>
@@ -150,16 +169,15 @@ export default function LearnScreen() {
 
         <Reveal index={4}>
         {next && nextStatus ? (
-          <Card style={styles.block}>
+          <Card
+            style={styles.block}
+            onPress={() => router.push(`/session/${encodeURIComponent(next.id)}`)}
+          >
             <Text style={styles.blockTitle}>{strings.lessonOf(next.index, next.total)}</Text>
             <Text style={styles.blockMeta}>
               {next.groupTitle} · {strings.itemsInLesson(nextStatus.total)}
             </Text>
             <ProgressBar value={nextStatus.completion} />
-            <PrimaryButton
-              label={nextStatus.started ? strings.continueLesson : strings.startLesson}
-              onPress={() => router.push(`/session/${encodeURIComponent(next.id)}`)}
-            />
           </Card>
         ) : ready ? (
           <Card style={styles.block}>

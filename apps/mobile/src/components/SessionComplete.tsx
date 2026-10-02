@@ -39,7 +39,7 @@ export function SessionComplete({
   // Decided from the summary the screen already has, by the same rule the
   // screen uses for `perfect` — one place, so the two cannot disagree about
   // what just happened.
-  const [fuka] = useState(() => mascotLine(sessionMoment({
+  const [milo] = useState(() => mascotLine(sessionMoment({
     itemsStudied: summary.itemsStudied,
     incorrect: summary.incorrect,
     accuracy: summary.accuracy,
@@ -64,7 +64,7 @@ export function SessionComplete({
       {/* After the numbers, not before: the result is the news and he is the
           reaction to it. He waits for the stats to land. */}
       <Animated.View style={action}>
-        <Mascot pose={fuka.pose} line={fuka.text} size="medium" />
+        <Mascot pose={milo.pose} line={milo.text} size="medium" />
       </Animated.View>
 
       <Animated.View style={[stats, styles.stats]}>
