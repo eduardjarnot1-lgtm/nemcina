@@ -1,55 +1,97 @@
 import { useMemo, useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
-import { lessonStatus, type Lesson } from '@nemcina/core';
+import { CEFR_LEVELS, clusterStatus, vocabularyTopicProgress, type CefrLevel } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
-import { LessonRow } from '../../src/components/LessonRow';
+import { TopicCard } from '../../src/components/TopicCard';
+import { ClusterRow } from '../../src/components/ClusterRow';
 import { Reveal } from '../../src/components/Reveal';
 import { Mascot } from '../../src/components/Mascot';
 import { Selectable } from '../../src/components/Selectable';
+import { track } from '../../src/analytics';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
 import { usePreferences } from '../../src/preferences';
 import { strings } from '../../src/strings';
 import { palette, radius, spacing, type as typeScale } from '../../src/theme';
 
-type Route = 'level' | 'topic';
-
 /**
- * Browsing the course.
+ * Browsing the course (§26, mode B).
  *
- * Two routes through the same cards, because learners arrive with two different
- * questions: "what should I know at A2" and "I need the words for a doctor's
- * appointment". Neither is a sub-case of the other.
+ * Three steps rather than two: level, then topic, then the lesson inside it.
+ * The middle step is the one that was missing. Before, picking A2 handed over
+ * fifty-seven lessons cut from the level in teaching order, and since almost no
+ * topic word carries a frequency rank that order came out alphabetical — so
+ * "A2, lesson 1" was *meinen, Liebe, Geld, finden, Ordnung…*. A learner cannot
+ * choose to study airports from a list like that, because the list does not
+ * know what airports are.
+ *
+ * Choosing is kept for the learner who arrives knowing what they need ("I have
+ * a doctor's appointment"). The learner who just wants to carry on is served by
+ * the recommendation on the home screen instead, and both move the same
+ * progress.
  */
 export default function LessonsScreen() {
   const router = useRouter();
-  const { levelLessons, topicLessons } = useCourse();
+  const { topicsByLevel } = useCourse();
   const { records } = useProgress();
   const { preferences } = usePreferences();
-  const [route, setRoute] = useState<Route>('level');
-  const [group, setGroup] = useState<string | null>(null);
 
-  const lessons = route === 'level' ? levelLessons : topicLessons;
-
-  const groups = useMemo(() => {
-    const seen = new Map<string, string>();
-    for (const lesson of lessons) if (!seen.has(lesson.groupId)) seen.set(lesson.groupId, lesson.groupTitle);
-    return [...seen.entries()].map(([id, title]) => ({ id, title }));
-  }, [lessons]);
+  const levels = useMemo(
+    () => CEFR_LEVELS.filter((level) => (topicsByLevel.get(level)?.length ?? 0) > 0),
+    [topicsByLevel],
+  );
 
   // Opening on the placed level rather than on A1: a learner placed at B1 who
   // has to scroll past two levels every time has been placed for nothing.
-  const placed = preferences.startingLevel?.toLowerCase() ?? null;
-  const preferred = route === 'level' && placed && groups.some((entry) => entry.id === placed)
-    ? placed
-    : groups[0]?.id ?? null;
-  const active = group && groups.some((entry) => entry.id === group) ? group : preferred;
+  const placed = preferences.startingLevel as CefrLevel | undefined;
+  const [level, setLevel] = useState<CefrLevel | null>(null);
+  const [openTopic, setOpenTopic] = useState<string | null>(null);
 
-  const shown = useMemo(
-    () => lessons.filter((lesson) => lesson.groupId === active),
-    [lessons, active],
+  const activeLevel = (level && levels.includes(level) ? level : null)
+    ?? (placed && levels.includes(placed) ? placed : levels[0] ?? null);
+
+  const topics = useMemo(
+    () => (activeLevel ? topicsByLevel.get(activeLevel) ?? [] : []),
+    [topicsByLevel, activeLevel],
   );
+
+  // Progress for every topic at this level, in one pass over the records.
+  const progressByTopic = useMemo(() => {
+    const all = topics.flatMap((topic) => topic.clusters);
+    const rolled = vocabularyTopicProgress(all, records);
+    return new Map(rolled.map((entry) => [`${entry.level}/${entry.subcategory}`, entry]));
+  }, [topics, records]);
+
+  const topic = openTopic ? topics.find((entry) => entry.id === openTopic) ?? null : null;
+
+  if (topic) {
+    return (
+      <Screen>
+        <Pressable onPress={() => setOpenTopic(null)} style={styles.back}>
+          <Text style={styles.backLabel}>← {strings.backToTopics}</Text>
+        </Pressable>
+        <Text style={styles.title}>{topic.title}</Text>
+        <Text style={styles.subtitle}>
+          {topic.level} · {strings.topicLessons(topic.clusters.length)} · {topic.wordCount} words
+        </Text>
+        <FlatList
+          data={topic.clusters}
+          keyExtractor={(cluster) => cluster.id}
+          contentContainerStyle={styles.list}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item, index }) => (
+            <ClusterRow
+              cluster={item}
+              index={index}
+              status={clusterStatus(item, records)}
+              onPress={() => router.push(`/session/${encodeURIComponent(item.id)}`)}
+            />
+          )}
+        />
+      </Screen>
+    );
+  }
 
   return (
     <Screen>
@@ -57,46 +99,50 @@ export default function LessonsScreen() {
 
       <Reveal index={0} style={styles.companionRow}>
         <Mascot pose="pleased" size="small" />
-        <Text style={styles.companionLine}>{strings.lessonsCompanion}</Text>
+        <Text style={styles.companionLine}>{strings.chooseTopic}</Text>
       </Reveal>
 
-      <Reveal index={1} style={styles.switcher}>
-        <Choice label={strings.browseByLevel} active={route === 'level'}
-          onPress={() => { setRoute('level'); setGroup(null); }} />
-        <Choice label={strings.browseByTopic} active={route === 'topic'}
-          onPress={() => { setRoute('topic'); setGroup(null); }} />
-      </Reveal>
-
-      <Reveal index={2} style={styles.groupRow}>
+      <Reveal index={1} style={styles.groupRow}>
         <FlatList
           horizontal
-          data={groups}
-          keyExtractor={(entry) => entry.id}
+          data={levels}
+          keyExtractor={(entry) => entry}
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.groupList}
           renderItem={({ item }) => (
             <Choice
-              label={item.title}
-              active={item.id === active}
-              onPress={() => setGroup(item.id)}
+              label={item}
+              active={item === activeLevel}
+              onPress={() => { setLevel(item); setOpenTopic(null); }}
             />
           )}
         />
       </Reveal>
 
       <FlatList
-        data={shown}
-        keyExtractor={(lesson: Lesson) => lesson.id}
+        data={topics}
+        keyExtractor={(entry) => entry.id}
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
-        renderItem={({ item, index }) => (
-          <LessonRow
-            lesson={item}
-            index={index}
-            status={lessonStatus(item, records)}
-            onPress={() => router.push(`/session/${encodeURIComponent(item.id)}`)}
-          />
-        )}
+        renderItem={({ item, index }) => {
+          const rolled = progressByTopic.get(item.id);
+          return (
+            <TopicCard
+              title={item.title}
+              level={item.level}
+              mastered={rolled?.mastered ?? 0}
+              total={item.wordCount}
+              lessons={item.clusters.length}
+              completion={rolled?.completion ?? 0}
+              index={index}
+              once={`topic-${item.id}`}
+              onPress={() => {
+                track({ name: 'topic_selected', level: item.level, topic: item.subcategory });
+                setOpenTopic(item.id);
+              }}
+            />
+          );
+        }}
       />
     </Screen>
   );
@@ -113,9 +159,11 @@ function Choice({ label, active, onPress }: { label: string; active: boolean; on
 const styles = StyleSheet.create({
   companionRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   companionLine: { ...typeScale.caption, color: palette.textMuted, flex: 1 },
-  title: { ...typeScale.display, color: palette.text, paddingVertical: spacing.md },
-  switcher: { flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.sm },
-  groupRow: { marginBottom: spacing.sm },
+  title: { ...typeScale.display, color: palette.text, paddingTop: spacing.md },
+  subtitle: { ...typeScale.caption, color: palette.textMuted, paddingBottom: spacing.md },
+  back: { paddingTop: spacing.md },
+  backLabel: { ...typeScale.label, color: palette.accent },
+  groupRow: { marginBottom: spacing.sm, marginTop: spacing.sm },
   groupList: { gap: spacing.sm, paddingRight: spacing.md },
   list: { paddingBottom: spacing.xl },
   choice: {

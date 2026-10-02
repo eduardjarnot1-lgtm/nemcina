@@ -21,6 +21,7 @@ export * from './achievements.ts';
 export * from './sync.ts';
 export * from './syncClient.ts';
 export * from './lessons.ts';
+export * from './thematic.ts';
 export * from './placement.ts';
 export * from './mascot.ts';
 export * from './pipeline.ts';

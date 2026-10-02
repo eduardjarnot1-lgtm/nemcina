@@ -24,6 +24,35 @@ export const strings = {
   nextLesson: 'Next lesson',
   lessonOf: (index: number, total: number) => `Lesson ${index} of ${total}`,
   itemsInLesson: (count: number) => `${count} words`,
+
+  // --- thematic lessons ------------------------------------------------------
+  // A lesson says what it is about. "Lesson 3 of 9" tells the learner where they
+  // are in a list and nothing about what they are going to learn, which is the
+  // whole complaint these strings exist to answer.
+  lessonMinutes: (count: number) => `~${Math.max(1, Math.round(count * 0.4))} min`,
+  topicWords: (mastered: number, total: number) => `${mastered} / ${total} words mastered`,
+  topicLessons: (count: number) => (count === 1 ? '1 lesson' : `${count} lessons`),
+  reviewMix: (topic: number, review: number) =>
+    review > 0 ? `${topic} topic words · ${review} review` : `${topic} topic words`,
+  chooseTopic: 'Choose a topic',
+  recommended: 'Recommended',
+  continueTopic: 'Carry on',
+  mixedReview: 'Quick review',
+  mixedReviewNote: 'Due words from every topic — mixed on purpose.',
+  thematicNext: 'Next',
+  topicComplete: (name: string) => `${name} complete`,
+  topicCompleteNote: (learned: number, mastered: number, due: number) =>
+    `${learned} words learned · ${mastered} mastered${due > 0 ? ` · ${due} to review` : ''}`,
+  backToTopics: 'All topics',
+  // When a topic is small enough to be one lesson, the lesson carries the
+  // topic's own name — and naming it twice ("You're 12% through Greetings &
+  // introductions. Greetings & introductions is next.") reads like a bug.
+  adviceTopicContinue: (topic: string, percent: number, next: string) =>
+    (!next || next === topic || next.startsWith(topic)
+      ? `You're ${percent}% through ${topic}. Keep going.`
+      : `You're ${percent}% through ${topic}. ${next} is next.`),
+  adviceTopicStale: (topic: string, due: number) =>
+    `${topic} has ${due} ${due === 1 ? 'word' : 'words'} waiting to come back.`,
   allLessonsDone: 'Every lesson is finished. Reviews keep coming back on schedule.',
 
   dueToday: 'Due now',

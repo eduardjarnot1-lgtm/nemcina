@@ -4,8 +4,9 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import {
-  StudySession, isDue, isRunMilestone, mascotLine,
-  type AnswerOutcome, type Question, type VocabularyItem,
+  StudySession, clusterStatus, composeLesson, dueItemIds, isRunMilestone, mascotLine,
+  nextCluster, vocabularyTopicProgress,
+  type AnswerOutcome, type Question, type VocabularyCluster, type VocabularyItem,
 } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
@@ -17,7 +18,7 @@ import { ComboBadge } from '../../src/components/ComboBadge';
 import { Mascot } from '../../src/components/Mascot';
 import { Skeleton } from '../../src/components/Skeleton';
 import { track } from '../../src/analytics';
-import { SessionComplete } from '../../src/components/SessionComplete';
+import { SessionComplete, type NextUp } from '../../src/components/SessionComplete';
 import { Animated, useEntrance, usePulse, useShake } from '../../src/motion';
 import { haptic } from '../../src/haptics';
 import { useCourse } from '../../src/course';
@@ -43,7 +44,7 @@ const PROMPTS: Record<Question['kind'], string> = {
 export default function SessionScreen() {
   const router = useRouter();
   const { lessonId } = useLocalSearchParams<{ lessonId: string }>();
-  const { repository, lessonsById } = useCourse();
+  const { repository, clustersById, topicsById, clusters: allClusters } = useCourse();
   const { records, ready, save } = useProgress();
   const { preferences } = usePreferences();
 
@@ -65,25 +66,98 @@ export default function SessionScreen() {
   // The session is a mutable object, so React has to be told when it moved.
   const [, bump] = useState(0);
 
+  /**
+   * What this session is made of.
+   *
+   * Two shapes, deliberately kept apart (§37). Mixed review is the scheduler's
+   * own list and is *meant* to jump between topics — that is what makes it work
+   * for long-term recall. A thematic lesson is one cluster plus a minority of
+   * review, so it still reads as being about airports.
+   */
   const plan = useMemo(() => {
     const id = decodeURIComponent(String(lessonId ?? ''));
+    const everything = repository.vocabulary();
+
     if (id === REVIEW) {
-      const due = [...records.values()].filter((record) => isDue(record));
-      const items = repository.items(due.map((record) => record.itemId));
-      return { items, pool: repository.vocabulary() };
+      return {
+        cluster: null as VocabularyCluster | null,
+        items: repository.items(dueItemIds(records)),
+        pool: everything,
+        reviewCount: 0,
+      };
     }
-    const lesson = lessonsById.get(id);
-    if (!lesson) return { items: [] as readonly VocabularyItem[], pool: repository.vocabulary() };
-    const items = repository.items(lesson.itemIds);
-    // Distractors come from the whole level, not just the lesson: twelve words
-    // would mean the same three wrong answers all the way through.
-    const pool = lesson.level ? repository.vocabulary({ levels: [lesson.level] }) : repository.vocabulary();
-    return { items, pool: pool.length >= 4 ? pool : repository.vocabulary() };
-    // `records` is deliberately absent: the plan is made once, from the progress
-    // as it stood when the session opened. Re-planning on every answer would
-    // rewrite the queue underneath the learner.
+
+    const cluster = repository.cluster(id) ?? clustersById.get(id) ?? null;
+    if (!cluster) {
+      return { cluster, items: [] as readonly VocabularyItem[], pool: everything, reviewCount: 0 };
+    }
+
+    const clusterItems = repository.items(cluster.itemIds);
+    const composition = composeLesson(
+      cluster,
+      clusterItems,
+      everything,
+      records,
+      { mix: { target: preferences.dailyGoal, minReview: 3, maxReviewShare: 0.4 } },
+    );
+
+    // Distractors come from the whole level, not just the cluster: fifteen
+    // airport words would mean the same three wrong answers all the way
+    // through, and a learner can pass that by elimination without knowing any
+    // of them.
+    const levelPool = repository.vocabulary({ levels: [cluster.level] });
+    return {
+      cluster,
+      items: repository.items(composition.itemIds),
+      pool: levelPool.length >= 4 ? levelPool : everything,
+      reviewCount: composition.reviewIds.length,
+    };
+    // `records` is deliberately absent from the deps: the plan is made once,
+    // from the progress as it stood when the session opened. Re-planning on
+    // every answer would rewrite the queue underneath the learner.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lessonId, lessonsById, repository]);
+  }, [lessonId, clustersById, repository, preferences.dailyGoal]);
+
+  const topicTitle = plan.cluster
+    ? topicsById.get(`${plan.cluster.level}/${plan.cluster.subcategory}`)?.title ?? ''
+    : '';
+
+  /**
+   * What to offer at the end (§25, §32).
+   *
+   * Read from `records`, which by this point includes everything answered in
+   * this session — so a lesson that completed its topic says so, and the
+   * recommendation has already moved on to the next one.
+   */
+  const nextUp = useMemo((): NextUp | null => {
+    const cluster = plan.cluster;
+    if (!cluster) return null;
+    const following = nextCluster(allClusters, cluster, records);
+    if (!following) return null;
+
+    const topic = topicsById.get(`${cluster.level}/${cluster.subcategory}`);
+    const rolled = topic
+      ? vocabularyTopicProgress(topic.clusters, records)[0] ?? null
+      : null;
+    const finished = topic
+      && topic.clusters.every((entry) => clusterStatus(entry, records).complete);
+    const due = topic
+      ? topic.clusters.reduce((sum, entry) => sum + clusterStatus(entry, records).due, 0)
+      : 0;
+
+    const followingTopic = topicsById.get(`${following.level}/${following.subcategory}`);
+    return {
+      title: following.name,
+      kicker: `${following.level}${followingTopic ? ` · ${followingTopic.title}` : ''}`,
+      onPress: () => router.replace(`/session/${encodeURIComponent(following.id)}`),
+      topicDone: finished && topic && rolled
+        ? {
+          name: topic.title,
+          note: strings.topicCompleteNote(rolled.learned, rolled.mastered, due),
+        }
+        : undefined,
+    };
+  }, [plan.cluster, allClusters, records, topicsById, router]);
 
   // The funnel, recorded at the two moments that define it: a session that
   // began, and a session that did not reach its summary. `track` has no sink
@@ -109,17 +183,35 @@ export default function SessionScreen() {
     // The session is as long as the learner said a session should be. New
     // items stay a minority of it so review work is never crowded out.
     const total = preferences.dailyGoal;
+    // `composeLesson` has already chosen the words and the thematic/review
+    // balance. Handing the session a `maxNew` cap here would make it drop
+    // thematic words — the ones the lesson is named after — so the mix is
+    // opened up to exactly what was composed and the session's job is reduced
+    // to ordering and choosing exercise forms.
     const planned = StudySession.plan(LOCAL_USER, plan.items, records, {
       pool: plan.pool,
-      mix: { total, maxNew: Math.max(3, Math.round(total * 0.4)), maxMaintenance: 1 },
+      mix: plan.cluster
+        ? { total: plan.items.length, maxNew: plan.items.length, maxMaintenance: plan.items.length }
+        : { total, maxNew: Math.max(3, Math.round(total * 0.4)), maxMaintenance: 1 },
     });
     setSession(planned);
     started.current = true;
     plannedRef.current = planned.position.total;
     const id = decodeURIComponent(String(lessonId ?? ''));
-    track(id === REVIEW
-      ? { name: 'review_started', due: planned.position.total }
-      : { name: 'lesson_started', lessonId: id, items: planned.position.total });
+    if (id === REVIEW) {
+      track({ name: 'review_started', due: planned.position.total });
+      track({ name: 'mixed_review_started', due: planned.position.total });
+    } else {
+      track({ name: 'lesson_started', lessonId: id, items: planned.position.total });
+      if (plan.cluster) {
+        track({
+          name: 'thematic_lesson_started',
+          clusterId: plan.cluster.id,
+          topicWords: plan.items.length - plan.reviewCount,
+          reviewWords: plan.reviewCount,
+        });
+      }
+    }
     // Same reason as above: built once, when progress has loaded.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, session, plan]);
@@ -187,10 +279,27 @@ export default function SessionScreen() {
         items: session.summary.itemsStudied,
         accuracy: session.summary.accuracy,
       });
+      if (plan.cluster) {
+        track({
+          name: 'thematic_lesson_completed',
+          clusterId: plan.cluster.id,
+          items: session.summary.itemsStudied,
+          accuracy: session.summary.accuracy,
+        });
+        // Fired from the same reading of `records` the completion screen uses,
+        // so the event and what the learner is shown cannot disagree.
+        if (nextUp?.topicDone) {
+          track({
+            name: 'subcategory_completed',
+            level: plan.cluster.level,
+            topic: plan.cluster.subcategory,
+          });
+        }
+      }
     }
     return (
       <Screen>
-        <SessionComplete summary={session.summary} onDone={() => router.back()} />
+        <SessionComplete summary={session.summary} onDone={() => router.back()} next={nextUp} />
       </Screen>
     );
   }
@@ -205,6 +314,28 @@ export default function SessionScreen() {
         style={styles.flex}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
+        {/* What this lesson is (§10). A learner should know before the first
+            question whether they are doing airports or a mixed review — the two
+            ask for different kinds of attention, and the mixed one is supposed
+            to jump about. The composition is stated too, so the review words
+            are visibly the minority rather than an unexplained intrusion. */}
+        <View style={styles.identity}>
+          <Text style={styles.kicker}>
+            {plan.cluster
+              ? `${plan.cluster.level}${topicTitle && !plan.cluster.name.startsWith(topicTitle)
+                ? ` · ${topicTitle.toUpperCase()}` : ''}`
+              : strings.mixedReview.toUpperCase()}
+          </Text>
+          <Text style={styles.identityTitle}>
+            {plan.cluster ? plan.cluster.name : strings.mixedReviewNote}
+          </Text>
+          {plan.cluster ? (
+            <Text style={styles.identityMeta}>
+              {strings.reviewMix(plan.items.length - plan.reviewCount, plan.reviewCount)}
+            </Text>
+          ) : null}
+        </View>
+
         <ProgressBar value={position.total === 0 ? 0 : position.index / position.total} />
         <ComboBadge run={run} />
 
@@ -371,6 +502,10 @@ function Feedback({
 }
 
 const styles = StyleSheet.create({
+  identity: { paddingBottom: spacing.sm, gap: 2 },
+  kicker: { ...typeScale.label, color: palette.accent, letterSpacing: 0.5 },
+  identityTitle: { ...typeScale.heading, color: palette.text },
+  identityMeta: { ...typeScale.caption, color: palette.textMuted },
   encouragement: { marginBottom: spacing.xs },
   questionBody: { gap: spacing.md },
   flex: { flex: 1 },

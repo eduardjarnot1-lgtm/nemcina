@@ -61,6 +61,8 @@ LEVEL_EMOJI = {"A1": "\U0001F331", "A2": "\U0001F33F", "B1": "\U0001F333",
                "B2": "\U0001F332", "C1": "\U0001F5FB"}
 
 # level -> (source file, category id, category name, category emoji)
+import clusters  # noqa: E402  (same directory, not a package)
+
 SOURCES = [
     ("A1", "clean-a1-source.json", "a1topics", "A1 topics", "\U0001F331"),
     ("A2", "clean-a2-source.json", "a2topics", "A2 topics", "\U0001F33F"),
@@ -364,6 +366,16 @@ def main() -> int:
         ],
     })
 
+    # Lesson clusters: the level below subcategory, so a lesson is about one
+    # thing rather than being an alphabetical slice of a 60-word topic. Assigned
+    # here, at build time, from a lexicon that lives beside this file — nothing
+    # decides at runtime what belongs with what.
+    sub_names = {s["id"]: s["name"] for c in category_list for s in c["subcategories"]}
+    cluster_records, membership = clusters.cluster_database(
+        word_list, clusters.load_lexicon(), sub_names)
+    for word in word_list:
+        word["cluster"] = membership.get(word["id"], "")
+
     database = {
         "meta": {
             "language": "de",
@@ -391,6 +403,7 @@ def main() -> int:
         },
         "wordTypes": [{"id": i, "name": n, "emoji": e} for i, n, e in WORD_TYPES],
         "categories": category_list,
+        "clusters": cluster_records,
         "words": word_list,
     }
 
@@ -403,6 +416,11 @@ def main() -> int:
     print(f"                 " + " · ".join(f"{k} {final[k]}" for k in LEVELS_ORDER))
     print(f"repeats merged : {repeats} exact, {merged_wording} worded differently "
           f"— all already taught at an earlier level")
+    named = sum(c["wordCount"] for c in cluster_records if c["field"] not in ("general", "topic"))
+    tight = sum(c["wordCount"] for c in cluster_records if c["field"] == "topic")
+    print(f"clusters       : {len(cluster_records)} — "
+          f"{(named + tight) * 100 // max(1, len(word_list))}% of words in a named cluster "
+          f"(see report_clusters.py)")
     print(f"types          : " + " · ".join(
         f"{k} {v}" for k, v in Counter(w['type'] for w in word_list).most_common()))
     if frequency_meta:

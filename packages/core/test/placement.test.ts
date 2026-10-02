@@ -28,6 +28,7 @@ function item(
     example: '',
     exampleTranslation: '',
     categories: [],
+    cluster: '',
     source: { title: 'test', page: 0 },
     frequencyRank: 0,
     metadata: {

@@ -47,6 +47,15 @@ fi
 step "Check the frequency list is internally consistent"
 python3 app/tools/build_frequency.py --check
 
+# The clustering gate. Clustering fails quietly — a lexicon that matches nothing
+# still writes a valid file in which every lesson is called after its topic and
+# nothing is about anything. This measures how many words reached a named
+# cluster, and fails on the things that are unambiguously broken: a word in no
+# cluster at all, a cluster too big to finish, a level the lexicon has stopped
+# contributing to.
+step "Check the lesson clusters"
+python3 app/tools/report_clusters.py --check
+
 # The licensing gate and the content gate.
 step "Validate content"
 python3 app/tools/validate_content.py

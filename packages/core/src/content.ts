@@ -13,7 +13,7 @@
  * construction, outside this interface.
  */
 
-import { levelIndex, type CefrLevel, type GrammarTopic, type LanguageCode, type VocabularyItem, type WordType } from './types.ts';
+import { levelIndex, type CefrLevel, type GrammarTopic, type LanguageCode, type VocabularyCluster, type VocabularyItem, type WordType } from './types.ts';
 
 // --- normalisation for search -------------------------------------------------
 
@@ -41,6 +41,8 @@ export function searchFold(text: string): string {
 export interface ContentQuery {
   readonly levels?: readonly CefrLevel[];
   readonly category?: string;
+  /** One lesson cluster, e.g. `a2-travel-airport-flying`. */
+  readonly cluster?: string;
   readonly wordType?: WordType;
   /** Only items that carry an example sentence — context exercises need one. */
   readonly withExample?: boolean;
@@ -68,6 +70,9 @@ export interface ContentRepository<L extends LanguageCode = LanguageCode> {
   topic(id: string): GrammarTopic | null;
   /** Category ids that at least one item belongs to. */
   categories(): readonly string[];
+  /** Every lesson cluster, in build order. */
+  clusters(query?: Pick<ContentQuery, 'levels'>): readonly VocabularyCluster[];
+  cluster(id: string): VocabularyCluster | null;
   search(query: string, options?: SearchOptions): readonly SearchHit<L>[];
 }
 
@@ -137,11 +142,26 @@ implements ContentRepository<L> {
   readonly #byId = new Map<string, VocabularyItem<L>>();
   readonly #byTopicId = new Map<string, GrammarTopic>();
   readonly #byCategory = new Map<string, VocabularyItem<L>[]>();
+  readonly #clusters: readonly VocabularyCluster[];
+  readonly #byClusterId = new Map<string, VocabularyCluster>();
+  readonly #byCluster = new Map<string, VocabularyItem<L>[]>();
 
-  constructor(language: L, items: readonly VocabularyItem<L>[], topics: readonly GrammarTopic[] = []) {
+  constructor(
+    language: L,
+    items: readonly VocabularyItem<L>[],
+    topics: readonly GrammarTopic[] = [],
+    clusters: readonly VocabularyCluster[] = [],
+  ) {
     this.language = language;
     this.#items = items;
     this.#topics = topics;
+    this.#clusters = clusters;
+    for (const cluster of clusters) {
+      if (this.#byClusterId.has(cluster.id)) {
+        throw new Error(`duplicate cluster id: ${cluster.id}`);
+      }
+      this.#byClusterId.set(cluster.id, cluster);
+    }
 
     for (const item of items) {
       // A duplicate id is not a cosmetic problem: progress is keyed on it, so
@@ -153,6 +173,11 @@ implements ContentRepository<L> {
         if (bucket) bucket.push(item);
         else this.#byCategory.set(category, [item]);
       }
+      if (item.cluster) {
+        const bucket = this.#byCluster.get(item.cluster);
+        if (bucket) bucket.push(item);
+        else this.#byCluster.set(item.cluster, [item]);
+      }
     }
     for (const topic of topics) {
       if (this.#byTopicId.has(topic.id)) throw new Error(`duplicate grammar topic id: ${topic.id}`);
@@ -161,7 +186,9 @@ implements ContentRepository<L> {
   }
 
   vocabulary(query: ContentQuery = {}): readonly VocabularyItem<L>[] {
-    const base = query.category ? this.#byCategory.get(query.category) ?? [] : this.#items;
+    const base = query.cluster
+      ? this.#byCluster.get(query.cluster) ?? []
+      : query.category ? this.#byCategory.get(query.category) ?? [] : this.#items;
     const levels = query.levels;
     return base.filter((item) => {
       if (levels && (item.level === null || !levels.includes(item.level))) return false;
@@ -196,6 +223,16 @@ implements ContentRepository<L> {
 
   categories(): readonly string[] {
     return [...this.#byCategory.keys()].sort();
+  }
+
+  clusters(query: Pick<ContentQuery, 'levels'> = {}): readonly VocabularyCluster[] {
+    const levels = query.levels;
+    if (!levels) return this.#clusters;
+    return this.#clusters.filter((cluster) => levels.includes(cluster.level));
+  }
+
+  cluster(id: string): VocabularyCluster | null {
+    return this.#byClusterId.get(id) ?? null;
   }
 
   search(query: string, options: SearchOptions = {}): readonly SearchHit<L>[] {

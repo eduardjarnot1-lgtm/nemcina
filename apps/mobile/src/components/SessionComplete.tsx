@@ -23,9 +23,25 @@ import { strings } from '../strings';
  * headline and a stronger haptic than an ordinary one, because a celebration
  * that fires identically every time stops meaning anything by the third lesson.
  */
+/**
+ * What comes after this lesson, when there is one (§32).
+ *
+ * `topicDone` is content covered, not mastery. A topic whose words are still
+ * owed to the scheduler is not finished in any sense the learner should be told
+ * about, so the note alongside it reports the review debt rather than hiding it
+ * behind a tick.
+ */
+export interface NextUp {
+  readonly title: string;
+  readonly kicker: string;
+  readonly onPress: () => void;
+  /** Set when this lesson finished off its whole topic. */
+  readonly topicDone?: { readonly name: string; readonly note: string };
+}
+
 export function SessionComplete({
-  summary, onDone,
-}: { summary: SessionSummary; onDone: () => void }) {
+  summary, onDone, next,
+}: { summary: SessionSummary; onDone: () => void; next?: NextUp | null }) {
   const reduced = useReducedMotion();
   const accuracy = Math.round(summary.accuracy * 100);
   // "Perfect" has to be earned: everything right, and enough asked for it to
@@ -81,8 +97,29 @@ export function SessionComplete({
         />
       </Animated.View>
 
+      {next?.topicDone ? (
+        <Animated.View style={[action, styles.topicDone]}>
+          <Text style={styles.topicDoneTitle}>
+            {strings.topicComplete(next.topicDone.name)}
+          </Text>
+          <Text style={styles.topicDoneNote}>{next.topicDone.note}</Text>
+        </Animated.View>
+      ) : null}
+
       <Animated.View style={action}>
-        <PrimaryButton label={strings.backToLessons} onPress={onDone} feel="selection" />
+        {next ? (
+          <>
+            {/* The recommendation is the primary action: a learner who has just
+                finished something is the likeliest they will ever be to start
+                the next thing, and sending them back to a list to find it is
+                where that momentum goes. */}
+            <PrimaryButton label={`${strings.thematicNext}: ${next.title}`} onPress={next.onPress} feel="selection" />
+            <Text style={styles.nextKicker}>{next.kicker}</Text>
+            <Text style={styles.backLink} onPress={onDone}>{strings.backToLessons}</Text>
+          </>
+        ) : (
+          <PrimaryButton label={strings.backToLessons} onPress={onDone} feel="selection" />
+        )}
       </Animated.View>
     </View>
   );
@@ -101,4 +138,14 @@ const styles = StyleSheet.create({
     padding: spacing.md,
   },
   statLine: { ...typeScale.body, color: palette.text },
+  topicDone: {
+    gap: spacing.xs,
+    backgroundColor: palette.goldSoft,
+    borderRadius: radius.md,
+    padding: spacing.md,
+  },
+  topicDoneTitle: { ...typeScale.heading, color: palette.goldInk },
+  topicDoneNote: { ...typeScale.caption, color: palette.textSecond },
+  nextKicker: { ...typeScale.caption, color: palette.textMuted, textAlign: 'center', marginTop: spacing.xs },
+  backLink: { ...typeScale.label, color: palette.accent, textAlign: 'center', marginTop: spacing.sm },
 });

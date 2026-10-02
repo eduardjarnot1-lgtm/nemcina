@@ -490,10 +490,66 @@ def validate_grammar(report: Report) -> None:
         f"{name} {count}" for name, count in grammar_roles.most_common()) or "none"))
 
 
+def validate_clusters(report: Report) -> None:
+    """The lesson clusters, against the words they claim.
+
+    Structural invariants, not quality judgements — how *good* the clustering is
+    lives in report_clusters.py. What is checked here is that it cannot corrupt
+    anything. Progress is keyed on item ids, so a cluster claiming an id twice
+    would ask the same word twice in one lesson, and a word in two clusters
+    would have its progress counted towards two completion bars.
+    """
+    database = json.loads(VOCABULARY.read_text(encoding="utf-8"))
+    words = {w["id"]: w for w in database["words"]}
+    clusters = database.get("clusters", [])
+
+    report.check(bool(clusters),
+                 "vocabulary.json carries no clusters — run build_vocabulary.py")
+    if not clusters:
+        return
+
+    seen_ids: set[str] = set()
+    claimed: dict[str, str] = {}
+
+    for cluster in clusters:
+        cid = cluster.get("id", "")
+        report.check(bool(cid), "a cluster has no id")
+        report.check(cid not in seen_ids, f"duplicate cluster id: {cid}")
+        seen_ids.add(cid)
+        report.check(bool(cluster.get("name", "").strip()),
+                     f"cluster {cid} has no name — a lesson must say what it is about")
+
+        item_ids = cluster.get("itemIds", [])
+        report.check(bool(item_ids), f"cluster {cid} is empty")
+        report.check(len(set(item_ids)) == len(item_ids),
+                     f"cluster {cid} lists the same word twice")
+
+        for item_id in item_ids:
+            word = words.get(item_id)
+            report.check(word is not None, f"cluster {cid} claims unknown word {item_id}")
+            if word is None:
+                continue
+            report.check(item_id not in claimed,
+                         f"word {item_id} is in two clusters: "
+                         f"{claimed.get(item_id)} and {cid}")
+            claimed[item_id] = cid
+            # §5: a topic may not change a word's level.
+            report.check(word["level"] == cluster.get("level"),
+                         f"cluster {cid} is {cluster.get('level')} but claims {item_id}, "
+                         f"a {word['level']} word")
+            report.check(word.get("cluster") == cid,
+                         f"word {item_id} points at {word.get('cluster')!r}, not {cid}")
+
+    for word in database["words"]:
+        report.check(word["id"] in claimed,
+                     f"word {word['id']} ({word['word']}) is in no cluster")
+
+
 def main() -> int:
     report = Report()
     validate_vocabulary(report)
     validate_grammar(report)
+    validate_clusters(report)
 
     print(f"\n{report.checks} checks run")
     for warning in report.warnings:

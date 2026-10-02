@@ -35,6 +35,11 @@ function sentence(advice: Advice): string {
     case 'new-material':
       return strings.adviceNewMaterial(Number(facts.learned ?? 0), Number(facts.remaining ?? 0));
     case 'grammar-untouched': return strings.adviceGrammarUntouched(Number(facts.topics ?? 0));
+    case 'topic-continue':
+      return strings.adviceTopicContinue(
+        String(facts.topic ?? ''), Number(facts.percent ?? 0), String(facts.next ?? ''));
+    case 'topic-stale':
+      return strings.adviceTopicStale(String(facts.topic ?? ''), Number(facts.due ?? 0));
   }
 }
 
@@ -47,7 +52,7 @@ function sentence(advice: Advice): string {
  * is never the source of them, and its absence costs the panel nothing.
  */
 export function CoachPanel() {
-  const { repository } = useCourse();
+  const { repository, clusters, topicsById } = useCourse();
   const { records } = useProgress();
   const { account, token } = useAccount();
 
@@ -63,10 +68,16 @@ export function CoachPanel() {
     () => buildEvidence({
       items: repository.vocabulary(),
       topics: repository.grammar(),
+      // Clusters and their names, so the coach can say "A2 Travel" rather than
+      // only "fourteen words".
+      clusters,
+      topicTitles: Object.fromEntries(
+        [...topicsById.entries()].map(([id, topic]) => [id, topic.title]),
+      ),
       progress: records,
       offsetMinutes: -new Date().getTimezoneOffset(),
     }),
-    [repository, records],
+    [repository, records, clusters, topicsById],
   );
   const advice = useMemo(() => advise(evidence).slice(0, 3), [evidence]);
 
