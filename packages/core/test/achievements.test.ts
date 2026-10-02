@@ -31,7 +31,7 @@ function item(id: string, over: Partial<VocabularyItem<'de'>> = {}): VocabularyI
     id, language: 'de', term: `Wort-${id}`, translation: `meaning-${id}`,
     translationProvenance: 'wordlist', wordType: 'noun',
     level: 'A1' as CefrLevel, levelProvenance: { kind: 'stated', sources: ['t'] },
-    example: '', exampleTranslation: '', categories: [],
+    example: '', exampleTranslation: '', categories: [], cluster: '',
     source: { title: 't', page: 0 }, frequencyRank: 0,
     metadata: {
       article: '', pluralForm: '', verbForms: {}, preposition: '',

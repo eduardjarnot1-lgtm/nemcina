@@ -31,7 +31,22 @@ export type LearningEvent =
   | { readonly name: 'lesson_abandoned'; readonly answered: number; readonly items: number }
   | { readonly name: 'review_started'; readonly due: number }
   | { readonly name: 'streak_extended'; readonly days: number }
-  | { readonly name: 'achievement_unlocked'; readonly id: string };
+  | { readonly name: 'achievement_unlocked'; readonly id: string }
+  // Thematic lessons (§41). Enough to answer whether a lesson that is *about*
+  // something gets finished more often than a slice of a level did — which is
+  // the claim the whole clustering change rests on. Topic and cluster ids are
+  // content ids, not anything about the person.
+  | { readonly name: 'topic_selected'; readonly level: string; readonly topic: string }
+  | {
+    readonly name: 'thematic_lesson_started';
+    readonly clusterId: string; readonly topicWords: number; readonly reviewWords: number;
+  }
+  | {
+    readonly name: 'thematic_lesson_completed';
+    readonly clusterId: string; readonly items: number; readonly accuracy: number;
+  }
+  | { readonly name: 'subcategory_completed'; readonly level: string; readonly topic: string }
+  | { readonly name: 'mixed_review_started'; readonly due: number };
 
 export interface Sink {
   record(event: LearningEvent): void;

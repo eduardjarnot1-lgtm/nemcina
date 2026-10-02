@@ -43,8 +43,9 @@ flagged for a human.
 | Frequency-ranked forms | 2 586 | OpenSubtitles corpus, rank only |
 
 Levels: **A1 600 · A2 854 · B1 983 · B2 1 774 · C1 1 273** — 40, 57, 66, 118 and
-85 level lessons respectively, plus lessons cut by topic category. C2 has
-nothing and says so — no level claims completeness it does not have (spec §2).
+85 level lessons respectively. Lessons are no longer cut from a level; they are
+cut from **lesson clusters** — see §2e. C2 has nothing and says so — no level
+claims completeness it does not have (spec §2).
 
 **C1 vocabulary is new and incomplete.** Three of four supplied parts are in:
 1 500 of an announced 2 000 headwords, missing `clean-c1-0001`–`0500`. Adding
@@ -162,6 +163,115 @@ same directory and are very much alive.
 It has accounts — email/password and Google through Firebase, writing to
 `users/{uid}/progress/{itemId}`, the same path the app uses — but it is
 desktop-web shaped and has no mobile shell.
+
+---
+
+## 2e. Thematic lessons — what a lesson is about
+
+### The problem, measured
+
+A lesson used to be a slice of a level in `teachingOrder`: level, then frequency
+rank, then the word itself. Almost nothing in a topic list carries a frequency
+rank, so in practice the slices came out **alphabetical**. The first A2 lesson
+was:
+
+> meinen, Liebe, Geld, finden, Ordnung, brauchen, Problem, allein, vergessen,
+> Frage, Kopf, weit, Hand, suchen, schlafen
+
+Fifteen words sharing nothing but a CEFR level. The topic route was no better:
+A2 "Travel" was cut into four lessons running Hotel→Autobahn, besichtigen→Gepäck,
+Grenze→Route, Rucksacktourismus→Zoll. Every one was nominally about travel and
+none was about anything — the airport words were spread across all four.
+
+### What was added
+
+A rung between subcategory and lesson: **level → category → subcategory →
+cluster**. Clusters are assigned at build time by `app/tools/clusters.py` from a
+lexicon of 120 semantic fields (`app/tools/annotations/vocabulary/clusters.json`)
+and written into `app/data/vocabulary.json`. **Nothing decides at runtime what
+belongs with what** — no model call on the path to opening a lesson.
+
+A word reaches a field on two kinds of evidence: German stems inside the
+headword, and English keywords in its gloss. German compounds make the first one
+strong rather than crude — *Flug*-hafen, *Flug*-zeug, *Flug*-ticket, Ab-*flug*
+all carry the semantic head inside the word. Two rules follow it: word families
+are kept together afterwards (`fliegen` joins `Flug` even though it matches no
+airport stem itself), and the bracketed qualifier outranks the headword, so
+`einchecken (Hotel)` is a hotel word rather than an airport one.
+
+**465 clusters**, sized 3–20 words, median 13.
+
+| Level | Words | In a named cluster |
+|---|---|---|
+| A1 | 600 | 474 (79.0 %) |
+| A2 | 854 | 563 (65.9 %) |
+| B1 | 983 | 535 (54.4 %) |
+| B2 | 1 774 | 1 020 (57.5 %) |
+| C1 | 1 688 | 1 185 (70.2 %) |
+
+The rest sit in a cluster named after their own topic, **which is not the same
+as uncategorised**. The source lists are written in thematic runs — B2 economy
+moves from company basics through the business cycle to trade policy — and that
+order is preserved, so a residual part of B1 "Opinions and argumentation" really
+is about stating an opinion. `report_clusters.py` prints the worst of them for
+inspection; nothing is binned in an "Other" category.
+
+### What a lesson is now
+
+One cluster, plus a minority of review drawn from anywhere in the course. The
+split is not fixed (`composeLesson` in `packages/core/src/thematic.ts`): nothing
+owed gives a fully thematic lesson rather than three slots of padding, and a
+backlog earns more room up to a hard ceiling of 40 %. **The topic is always the
+majority** — that is a tested guarantee, not a convention.
+
+Example, from the real database:
+
+```
+A2  TRAVEL  ·  Hotel & accommodation
+11 words  ·  7 topic + 4 review
+TOPIC : Jugendherberge, Einzelzimmer, Doppelzimmer, Rezeption,
+        einchecken (Hotel), auschecken, Unterkunft
+REVIEW: Preis, Bargeld, bar bezahlen, Kreditkarte
+```
+
+Mixed review (`/session/review`) is deliberately left alone. It is *supposed* to
+jump between subjects — that is what makes it work for long-term recall — and it
+is labelled differently so the two are never confused.
+
+### Existing progress is untouched
+
+The change is organisational. Item ids did not move, and a diff of the rebuilt
+database against the previous one shows **no word changed except for the added
+`cluster` field**. Progress is keyed on item ids and attempts; nothing persists
+a lesson id, so no migration was needed and none was written.
+
+### Verified
+
+| Check | Result |
+|---|---|
+| `./scripts/gates.sh` | all gates pass |
+| `npm test --workspaces` | 446 passed, 0 failed (356 core · 90 server) |
+| `python3 app/tools/validate_content.py` | **PASSED** — 214 309 checks, 0 errors |
+| `python3 app/tools/report_clusters.py --check` | all cluster checks pass |
+| `node --experimental-strip-types scripts/example-lessons.ts` | ten lessons, read by hand |
+| `node apps/mobile/e2e/smoke.mjs` | **44 browser checks passed**, no console errors |
+| Browser, full flow | recommendation → lesson → summary → next, no console errors |
+
+Five deliberate corruptions of the cluster data — a word in two clusters, a word
+pointing at the wrong cluster, a cluster relabelled to another level, a lesson
+with no name, a word left in no cluster — were each caught by the validator.
+
+### Known, not fixed
+
+- A leftover cluster can be as small as 3–4 words (A2 Travel ends with a 4-word
+  one). Consistent with how `splitSizes` already treats a short category: an
+  honest short lesson beats padding it with unrelated words.
+- A lesson whose topic is small enough to be one cluster carries its topic's
+  own name, so the browse screen shows "Travel → Travel". Dull but accurate;
+  inventing a name would be worse.
+- `Reservierungsbestä tigung` has a stray space inside the word. **Pre-existing
+  in the source list**, not introduced here, and visible now only because
+  clustering put it on screen next to its relatives.
 
 ---
 

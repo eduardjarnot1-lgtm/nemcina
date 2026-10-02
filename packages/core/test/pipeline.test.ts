@@ -63,7 +63,7 @@ describe('vocabulary fields', () => {
       categories: [
         { category: 'home', subcategory: 'home-life' },
         { category: 'levels', subcategory: 'a1' },
-      ],
+      ], cluster: '',
     }));
     assert.deepEqual(categories, ['home/home-life']);
   });

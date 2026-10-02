@@ -26,6 +26,7 @@ import {
   type GrammarTopic,
   type LevelProvenance,
   type TranslationProvenance,
+  type VocabularyCluster,
   type VocabularyItem,
   type WordType,
 } from './types.ts';
@@ -35,6 +36,20 @@ import {
 export interface RawVocabularyFile {
   readonly meta?: Record<string, unknown>;
   readonly words: readonly RawWord[];
+  readonly clusters?: readonly RawCluster[];
+}
+
+export interface RawCluster {
+  readonly id: string;
+  readonly level: string;
+  readonly category: string;
+  readonly subcategory: string;
+  readonly field: string;
+  readonly name: string;
+  readonly blurb?: string;
+  readonly order?: number;
+  readonly preview?: readonly string[];
+  readonly itemIds: readonly string[];
 }
 
 export interface RawWord {
@@ -61,6 +76,7 @@ export interface RawWord {
   readonly cefrApprox?: string;
   readonly frequencyRank?: number;
   readonly categories?: readonly { readonly category: string; readonly subcategory: string }[];
+  readonly cluster?: string;
 }
 
 export interface RawGrammarFile {
@@ -207,6 +223,7 @@ export function toVocabularyItem(raw: RawWord): VocabularyItem<'de'> {
     example: raw.example ?? '',
     exampleTranslation: raw.exampleTranslation ?? '',
     categories: toCategories(raw),
+    cluster: raw.cluster ?? '',
     source: { title: raw.source ?? '', page: raw.sourcePage ?? 0 },
     frequencyRank: raw.frequencyRank ?? 0,
     metadata: toGermanMetadata(raw),
@@ -341,6 +358,35 @@ export function toGrammarTopic(raw: RawTopic): GrammarTopic {
 
 export function readVocabulary(file: RawVocabularyFile): readonly VocabularyItem<'de'>[] {
   return file.words.map(toVocabularyItem);
+}
+
+/**
+ * Clusters, skipping any whose level the engine does not recognise.
+ *
+ * A cluster with an unreadable level is dropped rather than defaulted: it would
+ * otherwise surface in whichever level it was defaulted to, and a B2 lesson
+ * appearing inside A1 is worse than one lesson missing from a browse screen —
+ * its words are still reachable by every other route.
+ */
+export function readClusters(file: RawVocabularyFile): readonly VocabularyCluster[] {
+  const out: VocabularyCluster[] = [];
+  for (const raw of file.clusters ?? []) {
+    const level = toLevel(raw.level);
+    if (!level) continue;
+    out.push({
+      id: raw.id,
+      level,
+      category: raw.category,
+      subcategory: raw.subcategory,
+      field: raw.field,
+      name: raw.name,
+      blurb: raw.blurb ?? '',
+      order: raw.order ?? 0,
+      preview: raw.preview ?? [],
+      itemIds: raw.itemIds,
+    });
+  }
+  return out;
 }
 
 export function readGrammar(file: RawGrammarFile): readonly GrammarTopic[] {

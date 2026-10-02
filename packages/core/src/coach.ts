@@ -14,9 +14,10 @@
  */
 
 import { isDue, overdueDays } from './srs.ts';
+import { clusterStatus } from './thematic.ts';
 import { streak } from './stats.ts';
 import type {
-  AttemptRecord, CefrLevel, GrammarTopic, ItemProgress, Timestamp, VocabularyItem,
+  AttemptRecord, CefrLevel, GrammarTopic, ItemProgress, Timestamp, VocabularyCluster, VocabularyItem,
 } from './types.ts';
 
 export interface WeakItem {
@@ -34,6 +35,27 @@ export interface CategoryStanding {
   readonly total: number;
   readonly seen: number;
   readonly learned: number;
+}
+
+/**
+ * Where the learner stands in one thematic topic (§40).
+ *
+ * The coach could already say "you have 14 words due". It could not say which
+ * *subject* those words were about, so its advice was never "finish airport
+ * vocabulary" — only "do some reviews". This is the missing fact.
+ */
+export interface TopicStanding {
+  readonly level: CefrLevel;
+  readonly subcategory: string;
+  readonly name: string;
+  readonly total: number;
+  readonly learned: number;
+  readonly mastered: number;
+  readonly completion: number;
+  readonly due: number;
+  /** The lesson inside it the learner should do next, when one is unfinished. */
+  readonly nextClusterId: string;
+  readonly nextClusterName: string;
 }
 
 export interface CoachEvidence {
@@ -62,6 +84,10 @@ export interface CoachEvidence {
   readonly mostOverdue: readonly { readonly itemId: string; readonly term: string; readonly days: number }[];
   readonly byLevel: Readonly<Partial<Record<CefrLevel, { seen: number; learned: number; total: number }>>>;
   readonly categories: readonly CategoryStanding[];
+  /** Topics the learner has begun, least finished first — what to carry on with. */
+  readonly topicsInProgress: readonly TopicStanding[];
+  /** Topics with the most review owed, worst first — what has gone stale. */
+  readonly topicsOwed: readonly TopicStanding[];
   /**
    * True when there is nothing at all to go on.
    *
@@ -75,6 +101,10 @@ export interface CoachEvidence {
 export interface EvidenceInput {
   readonly items: readonly VocabularyItem[];
   readonly topics?: readonly GrammarTopic[];
+  /** Vocabulary clusters, so the coach can talk about subjects and not only counts. */
+  readonly clusters?: readonly VocabularyCluster[];
+  /** Display names for `level/subcategory`, when the caller has them. */
+  readonly topicTitles?: Readonly<Record<string, string>>;
   readonly progress: ReadonlyMap<string, ItemProgress>;
   readonly attempts?: readonly AttemptRecord[];
   readonly now?: Timestamp;
@@ -179,6 +209,9 @@ export function buildEvidence(input: EvidenceInput): CoachEvidence {
     || (a.itemId < b.itemId ? -1 : 1));
   overdue.sort((a, b) => b.days - a.days || (a.itemId < b.itemId ? -1 : 1));
 
+  const topicStandings = standings(
+    input.clusters ?? [], progress, input.topicTitles ?? {}, now);
+
   return {
     at: now,
     vocabulary,
@@ -192,6 +225,8 @@ export function buildEvidence(input: EvidenceInput): CoachEvidence {
     categories: [...categories.entries()]
       .map(([category, standing]) => ({ category, ...standing }))
       .sort((a, b) => (a.category < b.category ? -1 : 1)),
+    topicsInProgress: topicStandings.inProgress.slice(0, limit),
+    topicsOwed: topicStandings.owed.slice(0, limit),
     empty: vocabulary.seen === 0 && grammar.exercisesSeen === 0 && considered === 0,
   };
 }
@@ -213,7 +248,9 @@ export type AdviceKind =
   | 'accuracy-low'
   | 'accuracy-high'
   | 'new-material'
-  | 'grammar-untouched';
+  | 'grammar-untouched'
+  | 'topic-continue'
+  | 'topic-stale';
 
 export interface Advice {
   readonly kind: AdviceKind;
@@ -230,6 +267,62 @@ const LOW_ACCURACY = 0.6;
 const HIGH_ACCURACY = 0.9;
 /** Enough answers for accuracy to mean anything at all. */
 const ENOUGH_FOR_ACCURACY = 10;
+
+/**
+ * Roll clusters up into topics the coach can name.
+ *
+ * Ordered so the two lists answer two different questions: what to carry on
+ * with (begun, least finished first) and what has gone stale (most owed first).
+ * A topic can legitimately appear in both.
+ */
+function standings(
+  clusters: readonly VocabularyCluster[],
+  progress: ReadonlyMap<string, ItemProgress>,
+  titles: Readonly<Record<string, string>>,
+  now: Timestamp,
+): { inProgress: TopicStanding[]; owed: TopicStanding[] } {
+  const groups = new Map<string, VocabularyCluster[]>();
+  for (const cluster of clusters) {
+    const key = `${cluster.level}/${cluster.subcategory}`;
+    const bucket = groups.get(key);
+    if (bucket) bucket.push(cluster);
+    else groups.set(key, [cluster]);
+  }
+
+  const all: TopicStanding[] = [];
+  for (const [key, bucket] of groups) {
+    const ordered = bucket.slice().sort((a, b) => a.order - b.order);
+    let total = 0, learnedCount = 0, mastered = 0, due = 0, seen = 0;
+    let next: VocabularyCluster | null = null;
+    for (const cluster of ordered) {
+      const status = clusterStatus(cluster, progress, now);
+      total += status.total;
+      learnedCount += status.learned;
+      mastered += status.mastered;
+      due += status.due;
+      seen += status.seen;
+      if (!next && !status.complete) next = cluster;
+    }
+    if (seen === 0) continue;
+    const first = ordered[0] as VocabularyCluster;
+    all.push({
+      level: first.level,
+      subcategory: first.subcategory,
+      name: titles[key] ?? first.subcategory,
+      total, learned: learnedCount, mastered, due,
+      completion: total === 0 ? 0 : learnedCount / total,
+      nextClusterId: next?.id ?? '',
+      nextClusterName: next?.name ?? '',
+    });
+  }
+
+  return {
+    inProgress: all
+      .filter((entry) => entry.completion < 1 && entry.nextClusterId)
+      .sort((a, b) => b.completion - a.completion),
+    owed: all.filter((entry) => entry.due > 0).sort((a, b) => b.due - a.due),
+  };
+}
 
 export function advise(evidence: CoachEvidence): readonly Advice[] {
   if (evidence.empty) {
@@ -249,6 +342,38 @@ export function advise(evidence: CoachEvidence): readonly Advice[] {
         mostOverdueDays: evidence.mostOverdue[0]?.days ?? 0,
       },
       itemIds: evidence.mostOverdue.map((entry) => entry.itemId),
+    });
+  }
+
+  // §40: name the subject, not just the count. "You are most of the way through
+  // A2 Travel — Airport & flying is next" is advice a learner can act on; "you
+  // have 14 words due" is a number. Ranked below overdue work, because a
+  // backlog still outranks making progress on something new.
+  const carryOn = evidence.topicsInProgress[0];
+  if (carryOn) {
+    advice.push({
+      kind: 'topic-continue',
+      weight: 85,
+      facts: {
+        topic: carryOn.name,
+        level: carryOn.level,
+        percent: Math.round(carryOn.completion * 100),
+        next: carryOn.nextClusterName,
+        clusterId: carryOn.nextClusterId,
+      },
+      itemIds: [],
+    });
+  }
+
+  const stale = evidence.topicsOwed[0];
+  // Only when it is a different subject from the one being worked on, so the
+  // coach does not say "carry on with Travel" and "Travel needs review" at once.
+  if (stale && stale.subcategory !== carryOn?.subcategory) {
+    advice.push({
+      kind: 'topic-stale',
+      weight: 60,
+      facts: { topic: stale.name, level: stale.level, due: stale.due },
+      itemIds: [],
     });
   }
 

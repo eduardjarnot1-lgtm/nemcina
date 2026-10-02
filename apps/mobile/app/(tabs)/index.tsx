@@ -2,7 +2,8 @@ import { useMemo } from 'react';
 import { ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { Redirect, useRouter } from 'expo-router';
 import {
-  isDue, isComeback, lessonStatus, levelsFrom, mascotLine, nextLesson, totals,
+  clusterStatus, isDue, isComeback, levelsFrom, mascotLine, recommendCluster, totals,
+  type CefrLevel,
 } from '@nemcina/core';
 import { Screen } from '../../src/components/Screen';
 import { Card } from '../../src/components/Card';
@@ -26,19 +27,19 @@ import { palette, spacing, type as typeScale } from '../../src/theme';
  */
 export default function LearnScreen() {
   const router = useRouter();
-  const { levelLessons } = useCourse();
+  const { clusters, topicsById } = useCourse();
   const { records, ready } = useProgress();
   const { preferences, ready: preferencesReady } = usePreferences();
 
-  // Lessons below where the learner was placed are not offered as "next": the
+  // Clusters below where the learner was placed are not offered as "next": the
   // placement test exists precisely so nobody is sent back to them.
   const offered = useMemo(() => {
-    const from = preferences.startingLevel;
-    if (!from) return levelLessons;
-    const allowed = new Set(levelsFrom(from).map((level) => level.toLowerCase()));
-    const filtered = levelLessons.filter((lesson) => allowed.has(lesson.groupId));
-    return filtered.length > 0 ? filtered : levelLessons;
-  }, [levelLessons, preferences.startingLevel]);
+    const from = preferences.startingLevel as CefrLevel | undefined;
+    if (!from) return clusters;
+    const allowed = new Set(levelsFrom(from));
+    const filtered = clusters.filter((cluster) => allowed.has(cluster.level));
+    return filtered.length > 0 ? filtered : clusters;
+  }, [clusters, preferences.startingLevel]);
 
   const summary = useMemo(() => totals(records.values()), [records]);
 
@@ -56,11 +57,20 @@ export default function LearnScreen() {
     if (!latest || !isComeback(latest, Date.now())) return null;
     return mascotLine('comeback');
   }, [records]);
-  const next = useMemo(() => nextLesson(offered, records), [offered, records]);
+  /**
+   * The recommended lesson (§26, mode A).
+   *
+   * A topic the learner has started outranks a new one, so the app does not
+   * open a fifth half-finished subject. Everything the learner needs to decide
+   * is on the card: the level, the topic, the lesson's own name and three of
+   * its words — enough to know it is about airports before opening it.
+   */
+  const next = useMemo(() => recommendCluster(offered, records), [offered, records]);
   const nextStatus = useMemo(
-    () => (next ? lessonStatus(next, records) : null),
+    () => (next ? clusterStatus(next, records) : null),
     [next, records],
   );
+  const nextTopic = next ? topicsById.get(`${next.level}/${next.subcategory}`) ?? null : null;
 
   /**
    * The single recommended action, and where it goes.
@@ -173,9 +183,15 @@ export default function LearnScreen() {
             style={styles.block}
             onPress={() => router.push(`/session/${encodeURIComponent(next.id)}`)}
           >
-            <Text style={styles.blockTitle}>{strings.lessonOf(next.index, next.total)}</Text>
+            <Text style={styles.blockKicker}>
+              {strings.recommended} · {next.level}
+              {nextTopic && !next.name.startsWith(nextTopic.title)
+                ? ` · ${nextTopic.title.toUpperCase()}` : ''}
+            </Text>
+            <Text style={styles.blockTitle}>{next.name}</Text>
             <Text style={styles.blockMeta}>
-              {next.groupTitle} · {strings.itemsInLesson(nextStatus.total)}
+              {strings.itemsInLesson(nextStatus.total)} · {strings.lessonMinutes(nextStatus.total)}
+              {next.preview.length > 0 ? ` · ${next.preview.join(' · ')}` : ''}
             </Text>
             <ProgressBar value={nextStatus.completion} />
           </Card>
@@ -219,6 +235,7 @@ const styles = StyleSheet.create({
   statValue: { ...typeScale.title, color: palette.text },
   statLabel: { ...typeScale.caption, color: palette.textMuted },
   block: { gap: spacing.sm },
+  blockKicker: { ...typeScale.label, color: palette.accent, letterSpacing: 0.5 },
   blockTitle: { ...typeScale.heading, color: palette.text },
   blockMeta: { ...typeScale.caption, color: palette.textMuted },
 });

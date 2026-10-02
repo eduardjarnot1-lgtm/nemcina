@@ -100,6 +100,13 @@ export interface VocabularyItem<L extends LanguageCode = LanguageCode> {
   /** Its translation, when the source supplies one. Empty is normal, not a bug. */
   readonly exampleTranslation: string;
   readonly categories: readonly string[];
+  /**
+   * The lesson cluster this item is taught in — one rung below its topic.
+   *
+   * Empty only for content built before clustering existed, which the lesson
+   * builder treats as "not in any thematic lesson" rather than guessing.
+   */
+  readonly cluster: string;
   readonly source: SourceReference;
   /** Rank in a frequency list; 0 when the word is not ranked. */
   readonly frequencyRank: number;
@@ -107,6 +114,38 @@ export interface VocabularyItem<L extends LanguageCode = LanguageCode> {
   /** A human should look at this entry; the reason is in `note`. */
   readonly needsReview: boolean;
   readonly note: string;
+}
+
+/**
+ * A cluster: the unit a thematic lesson is cut from.
+ *
+ * Level and topic were always in the data; this is the missing rung below them,
+ * and it is what makes a lesson about airports rather than about the letters A
+ * to C of a travel word list. Assigned at build time and shipped in the
+ * content, so opening a lesson is a lookup, not a decision.
+ */
+export interface VocabularyCluster {
+  readonly id: string;
+  readonly level: CefrLevel;
+  /** The owning category id, e.g. `a2topics`. */
+  readonly category: string;
+  /** The owning subcategory id, e.g. `travel`. */
+  readonly subcategory: string;
+  /**
+   * Which semantic field claimed it. `general` means no field did and the words
+   * stayed in their topic's own order; `topic` means the topic was tight enough
+   * to teach whole.
+   */
+  readonly field: string;
+  /** What the lesson is about, for the learner: "Airport & flying". */
+  readonly name: string;
+  /** One sentence of introduction, when the field supplies one. */
+  readonly blurb: string;
+  /** Position within its subcategory, so a course has an order. */
+  readonly order: number;
+  /** The first few headwords, for a lesson card. */
+  readonly preview: readonly string[];
+  readonly itemIds: readonly string[];
 }
 
 export interface GrammarTable {

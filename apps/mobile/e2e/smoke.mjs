@@ -153,7 +153,13 @@ try {
   await page.locator('text="Start"').filter({ visible: true }).first()
     .waitFor({ timeout: 30_000 });
   const home = await text();
-  check(/Lesson 1 of \d+/.test(home), 'the home screen offers a first lesson');
+  // A named first lesson, not "Lesson 1 of 40". A learner with no history gets
+  // a coherent starter — the first cluster of their level — and the card says
+  // what it is about before they open it.
+  check(/Recommended/.test(home), 'the home screen recommends a first lesson');
+  check(/\d+ words · ~\d+ min/.test(home), 'and states its size');
+  check(!/Lesson \d+ of \d+/.test(home),
+    'and does not identify it only by its number');
   check(home.includes('Learned'), 'progress totals are on screen');
 
   console.log('a lesson can be finished');
@@ -315,10 +321,42 @@ try {
   await page.goBack();
   await page.waitForTimeout(900);
   await tap('Lessons');
-  await page.waitForTimeout(800);
-  await tap('By topic');
-  await page.waitForTimeout(800);
-  check((await page.innerText('body')).includes('words'), 'topic lessons list their size');
+  await page.waitForTimeout(1000);
+
+  // Browsing is level -> topic -> lesson. The middle step is the point of the
+  // whole clustering change: before it, picking A2 handed over fifty-seven
+  // lessons cut from the level in teaching order, which came out alphabetical.
+  const topicList = await page.innerText('body');
+  check(/words mastered/.test(topicList), 'topics show mastery rather than "seen"');
+  check(/\d+ lessons?/.test(topicList), 'and how many lessons they hold');
+
+  // Open one and check the lessons inside it say what they are about.
+  const mastery = topicList.split('\n').map((l) => l.trim())
+    .find((l) => /^\d+ \/ \d+ words mastered/.test(l));
+  check(Boolean(mastery), `a topic card states mastery (${mastery ?? 'none'})`);
+  await page.locator(`text=${mastery}`).first().click({ timeout: 10_000 });
+  await page.waitForTimeout(1200);
+  const clusterList = await page.innerText('body');
+  check(/~\d+ min/.test(clusterList), 'a lesson states how long it takes');
+  check(/ · /.test(clusterList), 'and previews the words in it');
+  // The failure this replaced: a lesson identified only by its position.
+  check(!/^Lesson \d+ of \d+$/m.test(clusterList),
+    'no lesson is named only by its number');
+
+  // And opening one gives a lesson that says what it is about, with the review
+  // share stated so it is visibly the minority. Clicking the card rather than
+  // the text inside it: the progress bar sits over the text and swallows the
+  // click.
+  // The lesson's own name, taken from the page: it is the line above the
+  // "N words · ~M min" line, and it is the whole point of the screen.
+  const rows = clusterList.split('\n').map((l) => l.trim());
+  const sizeAt = rows.findIndex((l) => /^\d+ words · ~\d+ min$/.test(l));
+  const lessonName = sizeAt > 0 ? rows[sizeAt - 1] : '';
+  check(Boolean(lessonName), `a lesson is named for its subject (${lessonName || 'none'})`);
+  await page.locator(`text=${lessonName}`).first().click({ timeout: 10_000 });
+  await page.waitForTimeout(1500);
+  const lesson = await page.innerText('body');
+  check(/topic words/.test(lesson), 'a thematic lesson states its composition');
 
   check(consoleErrors.length === 0, `no console errors (${consoleErrors.slice(0, 3).join(' / ')})`);
 } finally {
