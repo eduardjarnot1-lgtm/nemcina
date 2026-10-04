@@ -1,0 +1,179 @@
+{
+ "note": "How to choose the right form, written for this project.",
+ "why": "Every paradigm table in this app answers \"what are the forms\". None answered the question a learner has with a sentence in front of them: which of these cells is mine? For adjective endings that choice is the whole topic — the table holds two values, and knowing them tells you nothing about which to write. These are the decision procedures, written out. They are authored here for the same reason as the paradigm tables: the article and adjective-ending systems are closed and checkable against any reference grammar, so writing down how to walk them invents nothing.",
+ "provenance": "authored-for-this-project",
+ "choosers": {
+  "g-daf-a2-adjectives-after-the-definite-article": {
+   "title": "The table has only two endings in it, -e and -en. The work is knowing which box you are in, so go through it in this order.",
+   "steps": [
+    {
+     "ask": "Is the word in front of the adjective a definite article?",
+     "how": "der, das, die, den, dem or des. If it is ein, kein or mein, a different table applies."
+    },
+    {
+     "ask": "What case is the phrase in?",
+     "how": "Nominative if the noun is doing the verb (who or what is it?). Accusative if the verb is done to it, and after für, ohne, durch, gegen, um. Dative after mit, aus, bei, nach, von, zu, seit, and for the person something is given to."
+    },
+    {
+     "ask": "What gender or number is the noun?",
+     "how": "The article tells you: der is masculine, das is neuter, die is feminine in the singular and the plural form for all genders."
+    },
+    {
+     "ask": "Read the ending off the table.",
+     "how": "Find the case row, then the gender column. Five boxes give -e; every other box gives -en."
+    }
+   ],
+   "worked": [
+    {
+     "phrase": "der alte Mann",
+     "translation": "the old man",
+     "because": [
+      "der is a definite article, so this table is the right one.",
+      "Nominative: the man is the one doing something — der alte Mann wartet.",
+      "Masculine: it is der Mann.",
+      "Nominative + masculine is one of the five -e boxes, so: alte."
+     ]
+    },
+    {
+     "phrase": "den alten Mann",
+     "translation": "the old man (as an object)",
+     "because": [
+      "den is a definite article.",
+      "Accusative: he is what the verb is done to — ich sehe den alten Mann.",
+      "Masculine: it is der Mann, which becomes den in the accusative.",
+      "Accusative + masculine is not one of the five, so: alten."
+     ]
+    },
+    {
+     "phrase": "mit dem neuen Auto",
+     "translation": "with the new car",
+     "because": [
+      "dem is a definite article.",
+      "Dative: mit always takes the dative.",
+      "Neuter: it is das Auto, which becomes dem in the dative.",
+      "The whole dative row is -en, so: neuen."
+     ]
+    },
+    {
+     "phrase": "die alten Lieder",
+     "translation": "the old songs",
+     "because": [
+      "die is a definite article.",
+      "Nominative: the songs are the subject — die alten Lieder gefallen mir.",
+      "Plural: Lieder is more than one.",
+      "The whole plural column is -en, so: alten."
+     ]
+    }
+   ]
+  },
+  "g-daf-a2-inflections-with-the-definite-article": {
+   "title": "The article changes with the job the noun is doing in the sentence. Two questions get you to the right one.",
+   "steps": [
+    {
+     "ask": "What job is the noun doing?",
+     "how": "Doing the verb is nominative. Having the verb done to it is accusative. Being the person something is given, sent or said to is dative — and so is anything after mit, aus, bei, nach, von, zu or seit."
+    },
+    {
+     "ask": "What gender or number is it?",
+     "how": "Learn it with the noun: der Sohn is masculine, das Kind is neuter, die Tochter is feminine. More than one is plural, whatever the gender."
+    },
+    {
+     "ask": "Read the article off the table, then check the noun.",
+     "how": "Find the case row and the gender column. In the dative plural only, the noun itself also takes an extra -n: den Söhnen."
+    }
+   ],
+   "worked": [
+    {
+     "phrase": "Ich sehe den Sohn.",
+     "translation": "I see the son.",
+     "because": [
+      "Accusative: the son is what I see.",
+      "Masculine: der Sohn.",
+      "Accusative + masculine is den. The noun is unchanged: Sohn."
+     ]
+    },
+    {
+     "phrase": "Ich helfe dem Kind.",
+     "translation": "I help the child.",
+     "because": [
+      "Dative: helfen takes the dative — the child is who the helping goes to.",
+      "Neuter: das Kind.",
+      "Dative + neuter is dem. Singular, so no extra -n."
+     ]
+    },
+    {
+     "phrase": "Ich spreche mit den Söhnen.",
+     "translation": "I am speaking with the sons.",
+     "because": [
+      "Dative: mit always takes the dative.",
+      "Plural: more than one son.",
+      "Dative + plural is den, and this is the one box where the noun also changes: Söhne becomes Söhnen."
+     ]
+    }
+   ]
+  },
+  "g-daf-a2-adjectives-after-ein-kein-mein": {
+   "title": "Almost the same table as after der / das / die — three boxes differ, and they differ for a reason worth knowing.",
+   "steps": [
+    {
+     "ask": "Is the word in front ein, kein, mein, dein, sein, ihr, unser or euer?",
+     "how": "If so, use this table. If it is der, das or die, use the definite-article table instead."
+    },
+    {
+     "ask": "Does that word show the gender and case on its own?",
+     "how": "ein and kein have no ending in three boxes: masculine nominative, and neuter nominative and accusative. In those three the word in front tells you nothing."
+    },
+    {
+     "ask": "If it does not, the adjective takes over.",
+     "how": "The adjective takes the ending der or das would have carried: -er for masculine, -es for neuter."
+    },
+    {
+     "ask": "Everywhere else, use the same endings as after der.",
+     "how": "-e in the remaining nominative and accusative boxes, -en across the whole dative and the whole plural."
+    }
+   ],
+   "worked": [
+    {
+     "phrase": "ein guter Mann",
+     "translation": "a good man",
+     "because": [
+      "ein, so this table.",
+      "Masculine nominative — one of the three boxes where ein has no ending.",
+      "So the adjective carries it: der would have ended in -r, giving guter.",
+      "Not needed here; the ending came from step 3."
+     ]
+    },
+    {
+     "phrase": "ein gutes Haus",
+     "translation": "a good house",
+     "because": [
+      "ein, so this table.",
+      "Neuter nominative — again ein shows nothing.",
+      "The adjective takes what das would have carried: -es, giving gutes.",
+      "Not needed here; the ending came from step 3."
+     ]
+    },
+    {
+     "phrase": "eine gute Frau",
+     "translation": "a good woman",
+     "because": [
+      "eine, so this table.",
+      "Feminine nominative — eine does show the gender, with its -e.",
+      "So the adjective does not have to.",
+      "It behaves as after die: -e, giving gute."
+     ]
+    },
+    {
+     "phrase": "mit einem guten Freund",
+     "translation": "with a good friend",
+     "because": [
+      "einem, so this table.",
+      "Dative — einem shows the case clearly.",
+      "So the adjective does not have to.",
+      "The whole dative is -en, giving guten."
+     ]
+    }
+   ]
+  }
+ }
+}

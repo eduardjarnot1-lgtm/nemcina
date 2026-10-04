@@ -109,8 +109,8 @@
    ],
    "examples": [
     {"de": "dem Sohn", "note": "masculine dative"},
-    {"de": "de r Tochter", "note": "feminine dative — der, not die"},
-    {"de": "den Söhne n / Kinder n / Töchter n", "note": "dative plural with the extra -n"},
+    {"de": "der Tochter", "note": "feminine dative — der, not die"},
+    {"de": "den Söhnen / Kindern / Töchtern", "note": "dative plural with the extra -n"},
     {"de": "(aber: den T-Shirts / Festivals / Autos)", "note": "plurals in -s take no extra -n"}
    ],
    "exercises": [
@@ -141,8 +141,8 @@
    "examples": [
     {"de": "ein en / kein en / mein en", "note": "masculine accusative"},
     {"de": "ein em / kein em / mein em", "note": "masculine dative"},
-    {"de": "eine r / keine r / meine r", "note": "feminine dative"},
-    {"de": "- / kein en / mein en Söhne n /", "note": "dative plural: article -en, noun -n"}
+    {"de": "einer / keiner / meiner", "note": "feminine dative"},
+    {"de": "- / keinen / meinen Söhnen /", "note": "dative plural: article -en, noun -n"}
    ],
    "exercises": [
     {"type": "fill", "prompt": "Masculine dative of mein.", "text": "Ich gebe ___ Sohn das Buch.", "answers": ["meinem"], "explain": "Masculine dative takes -em: meinem."},
@@ -170,9 +170,9 @@
    ],
    "examples": [
     {"de": "der /ein Herr / Nachbar / Kollege", "note": "nominative singular — no ending"},
-    {"de": "den / einen Herr n / Nachbar n / Kollege n", "note": "accusative singular takes -(e)n"},
-    {"de": "mit dem / einem Herr n / Nachbar n / Kollege n", "note": "dative singular takes -(e)n"},
-    {"de": "die / - Herr en / Nachbar n / Kollege n", "note": "plural"}
+    {"de": "den / einen Herrn / Nachbarn / Kollegen", "note": "accusative singular takes -(e)n"},
+    {"de": "mit dem / einem Herrn / Nachbarn / Kollegen", "note": "dative singular takes -(e)n"},
+    {"de": "die / - Herren / Nachbarn / Kollegen", "note": "plural"}
    ],
    "exercises": [
     {"type": "fill", "prompt": "Accusative singular of der Nachbar.", "text": "Ich sehe den ___.", "answers": ["Nachbarn"], "explain": "n-declension nouns add -n outside the nominative singular."},

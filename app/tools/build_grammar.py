@@ -30,6 +30,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 ANNOTATIONS = ROOT / "annotations" / "grammar"
 TABLES_FILE = "tables.json"
+CHOOSERS_FILE = "choosers.json"
 COMPARISONS_FILE = "comparisons.json"
 WORDORDER_FILE = "wordorder.json"
 TRANSLATIONS_FILE = "translations.json"
@@ -175,12 +176,83 @@ def load_tables() -> dict[str, list[dict]]:
     for tid, group in tables.items():
         for table in group:
             width = len(table["columns"])
+            height = len(table["rows"])
+            label = f"{TABLES_FILE}: {tid} / {table['caption']!r}"
             for row in table["rows"]:
                 if len(row) != width:
                     raise SystemExit(
-                        f"{TABLES_FILE}: {tid} / {table['caption']!r} has a row of "
-                        f"{len(row)} in a table {width} wide")
+                        f"{label} has a row of {len(row)} in a table {width} wide")
+
+            # An emphasis is a claim about which cells carry the pattern. A
+            # coordinate off the grid would draw nothing while the note beside
+            # it still said a pattern was marked, so it stops the build.
+            for at in table.get("emphasis", []):
+                if len(at) != 2 or not (0 <= at[0] < height) or not (0 <= at[1] < width):
+                    raise SystemExit(
+                        f"{label} emphasises {at}, which is outside a "
+                        f"{height}x{width} grid")
+            if table.get("emphasis") and not table.get("emphasisNote", "").strip():
+                raise SystemExit(
+                    f"{label} emphasises cells without saying what they have in "
+                    f"common — colour must never be the only channel")
+            for at in table.get("asideRows", []):
+                if not 0 <= at < height:
+                    raise SystemExit(f"{label} sets aside row {at}, which does not exist")
+            if table.get("asideRows") and not table.get("asideNote", "").strip():
+                raise SystemExit(
+                    f"{label} sets rows aside without saying why")
+            for entry in table.get("key", []):
+                if not entry.get("symbol", "").strip() or not entry.get("means", "").strip():
+                    raise SystemExit(f"{label} has a key entry missing its symbol or meaning")
     return tables
+
+
+def load_choosers() -> dict[str, dict]:
+    """How to choose the right form, written by hand and keyed by topic id.
+
+    Every paradigm table in this app answers "what are the forms". None of them
+    answered the question a learner actually has with a sentence in front of
+    them, which is which of the sixteen cells is theirs — and for adjective
+    endings that choice *is* the topic. A chooser is that walk written down: a
+    question, how to answer it from the sentence, and then finished phrases
+    taken apart so each ending has a reason.
+
+    Authored here rather than extracted, for the same reason as the tables: the
+    article and adjective-ending systems are closed and checkable, so writing
+    the decision procedure for them invents nothing. A topic whose forms are not
+    chosen by a procedure gets none.
+    """
+    path = ANNOTATIONS / CHOOSERS_FILE
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    out: dict[str, dict] = {}
+    for tid, chooser in data.get("choosers", {}).items():
+        steps = chooser.get("steps", [])
+        if not steps:
+            raise SystemExit(f"{CHOOSERS_FILE}: {tid} has no steps")
+        for step in steps:
+            if not step.get("ask", "").strip() or not step.get("how", "").strip():
+                raise SystemExit(
+                    f"{CHOOSERS_FILE}: {tid} has a step missing its question or its answer")
+        for item in chooser.get("worked", []):
+            if not item.get("phrase", "").strip():
+                raise SystemExit(f"{CHOOSERS_FILE}: {tid} has a worked example with no phrase")
+            if not item.get("translation", "").strip():
+                raise SystemExit(
+                    f"{CHOOSERS_FILE}: {tid}: {item['phrase']!r} has no English")
+            # One reason per decision: a worked example that skips a step is
+            # the thing it exists to replace.
+            if len(item.get("because", [])) != len(steps):
+                raise SystemExit(
+                    f"{CHOOSERS_FILE}: {tid}: {item['phrase']!r} gives "
+                    f"{len(item.get('because', []))} reason(s) for {len(steps)} step(s)")
+        out[tid] = {
+            "title": chooser.get("title", ""),
+            "steps": steps,
+            "worked": chooser.get("worked", []),
+        }
+    return out
 
 
 def load_comparisons() -> dict[str, dict]:
@@ -298,7 +370,21 @@ def load_formulas() -> dict[str, list[dict]]:
             if len(slots) < 2:
                 raise SystemExit(
                     f"{FORMULAS_FILE}: {tid}: a formula of one slot is not a shape")
-            built.append({"caption": formula.get("caption", ""), "slots": slots})
+            sentence = formula.get("sentence", [])
+            if sentence and len(sentence) != len(slots):
+                raise SystemExit(
+                    f"{FORMULAS_FILE}: {tid}: the sentence has {len(sentence)} piece(s) "
+                    f"for {len(slots)} slot(s) — a pattern that points at the wrong word "
+                    f"teaches the wrong position")
+            if sentence and not formula.get("sentenceEn", "").strip():
+                raise SystemExit(
+                    f"{FORMULAS_FILE}: {tid}: a worked sentence needs its English")
+            built.append({
+                "caption": formula.get("caption", ""),
+                "slots": slots,
+                "sentence": sentence,
+                "sentenceEn": formula.get("sentenceEn", ""),
+            })
         out[tid] = built
     return out
 
@@ -413,9 +499,10 @@ def main() -> int:
     source = load_sources()
     # tables.json is reference data keyed by topic id, not a list of topics.
     reference = {TABLES_FILE, COMPARISONS_FILE, WORDORDER_FILE, TRANSLATIONS_FILE,
-                 FORMULAS_FILE}
+                 FORMULAS_FILE, CHOOSERS_FILE}
     files = sorted(f for f in ANNOTATIONS.glob("*.json") if f.name not in reference)
     tables = load_tables()
+    choosers = load_choosers()
     comparisons = load_comparisons()
     hand_marks = load_wordorder()
     translations = load_translations()
@@ -525,6 +612,7 @@ def main() -> int:
                 "rules": entry.get("rules", []),
                 "examples": entry.get("examples", []),
                 "tables": tables.get(tid, []),
+                "chooser": choosers.get(tid),
                 "formulas": formulas.get(tid, []),
                 "comparison": comparisons.get(tid),
                 "exercises": exercises,
@@ -640,6 +728,10 @@ def main() -> int:
     print(f"highlighted  {marked_examples} of {meta['exampleCount']} examples carry a taught form")
     print(f"formulas     {with_formula} topic(s) carry a construction shape")
     print(f"tables       {with_tables} topic(s) carry a paradigm table")
+    print(f"choosers     {sum(1 for t in topics if t.get('chooser'))} topic(s) say how to "
+          f"choose the form")
+    print(f"worked       {sum(len(f.get('sentence', [])) > 0 for t in topics for f in t['formulas'])}"
+          f" pattern(s) are laid against a real sentence")
     print(f"comparisons  {with_comparison} topic(s) carry a side-by-side comparison")
     print(f"by hand      {by_hand} example(s) use written word-order marks")
     roles = Counter(span["role"] or "(neutral)"

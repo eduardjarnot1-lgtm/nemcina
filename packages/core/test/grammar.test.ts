@@ -42,7 +42,7 @@ const topic: GrammarTopic = {
     exercise({ id: 'e3', answers: ['wohnst'] }),
     exercise({ id: 'e4', kind: 'error-correction', text: 'Du wohnt in Tübingen.', answers: ['Du wohnst in Tübingen.'] }),
   ],
-  prerequisites: [],
+  prerequisites: [], chooser: null,
   difficulty: 1,
   category: 'Verben',
   formulas: [],

@@ -31,40 +31,40 @@
     }
    ],
    "rules": [
-    "Nominative M/N/F: -e. Accusative N/F: -e.",
-    "Accusative M: -en.",
-    "Dative in every gender and number: -en.",
-    "Plural in every case: -en.",
-    "In the dative plural the noun adds -n as well: den alten Liedern."
+    "In the nominative all three genders take -e: der alte Mann, das alte Haus, die alte Stadt.",
+    "In the accusative, neuter and feminine still take -e — only masculine changes, to -en: den alten Mann.",
+    "The whole dative takes -en, in every gender: dem alten Mann, der alten Stadt.",
+    "The whole plural takes -en, in every case: die alten Lieder.",
+    "In the dative plural the noun takes an extra -n as well: den alten Liedern."
    ],
    "examples": [
     {
      "de": "der lebendige Dialekt",
-     "note": "Nominativ M"
+     "note": "Nominativ masculine"
     },
     {
      "de": "das neue Leben",
-     "note": "Nominativ and Akkusativ N"
+     "note": "Nominativ and Akkusativ neuter"
     },
     {
      "de": "die lange Tradition",
-     "note": "Nominativ and Akkusativ F"
+     "note": "Nominativ and Akkusativ feminine"
     },
     {
      "de": "den lebendigen Dialekt",
-     "note": "Akkusativ M — the only accusative with -en"
+     "note": "Akkusativ masculine — the only accusative with -en"
     },
     {
      "de": "dem neuen Leben",
-     "note": "Dativ N"
+     "note": "Dativ neuter"
     },
     {
      "de": "der langen Tradition",
-     "note": "Dativ F"
+     "note": "Dativ feminine"
     },
     {
      "de": "den alten Liedern",
-     "note": "Dativ Plural — noun ends in -n as well"
+     "note": "Dativ plural — noun ends in -n as well"
     }
    ],
    "exercises": [
@@ -177,27 +177,27 @@
     },
     {
      "de": "das → neues Leben",
-     "note": "Nominativ and Akkusativ N"
+     "note": "Nominativ and Akkusativ neuter"
     },
     {
      "de": "die → lange Tradition",
-     "note": "Nominativ and Akkusativ F"
+     "note": "Nominativ and Akkusativ feminine"
     },
     {
      "de": "den → lebendigen Dialekt",
-     "note": "Akkusativ M"
+     "note": "Akkusativ masculine"
     },
     {
      "de": "dem → lebendigem Dialekt",
-     "note": "Dativ M"
+     "note": "Dativ masculine"
     },
     {
      "de": "der → langer Tradition",
-     "note": "Dativ F"
+     "note": "Dativ feminine"
     },
     {
      "de": "den → alten Liedern",
-     "note": "Dativ Plural"
+     "note": "Dativ plural"
     }
    ],
    "exercises": [
@@ -304,43 +304,43 @@
    "examples": [
     {
      "de": "ein neuer Trend",
-     "note": "Nominativ M — the adjective carries the -er"
+     "note": "Nominativ masculine — the adjective carries the -er"
     },
     {
      "de": "mein festliches Kleid",
-     "note": "Nominativ N"
+     "note": "Nominativ neuter"
     },
     {
      "de": "eine neue Phase",
-     "note": "Nominativ F"
+     "note": "Nominativ feminine"
     },
     {
      "de": "meinen teuren Anzug",
-     "note": "Akkusativ M"
+     "note": "Akkusativ masculine"
     },
     {
      "de": "mein schwarzes Barett",
-     "note": "Akkusativ N"
+     "note": "Akkusativ neuter"
     },
     {
      "de": "eine große Party",
-     "note": "Akkusativ F"
+     "note": "Akkusativ feminine"
     },
     {
      "de": "meinem schwarzen Talar",
-     "note": "Dativ M"
+     "note": "Dativ masculine"
     },
     {
      "de": "einer schicken Frisur",
-     "note": "Dativ F"
+     "note": "Dativ feminine"
     },
     {
      "de": "meinen / keinen stolzen Eltern",
-     "note": "Dativ Plural"
+     "note": "Dativ plural"
     },
     {
      "de": "langen Abendkleidern",
-     "note": "Dativ Plural without an article"
+     "note": "Dativ plural without an article"
     }
    ],
    "exercises": [

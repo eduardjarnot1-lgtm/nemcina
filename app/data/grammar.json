@@ -473,7 +473,100 @@
      "en": "(we / they) are"
     }
    ],
-   "tables": [],
+   "tables": [
+    {
+     "caption": "Present tense: the six endings, and the two spelling rules",
+     "columns": [
+      "",
+      "ending",
+      "kommen",
+      "arbeiten",
+      "heißen"
+     ],
+     "rows": [
+      [
+       "ich",
+       "-e",
+       "komme",
+       "arbeite",
+       "heiße"
+      ],
+      [
+       "du",
+       "-st",
+       "kommst",
+       "arbeitest",
+       "heißt"
+      ],
+      [
+       "er / sie / es",
+       "-t",
+       "kommt",
+       "arbeitet",
+       "heißt"
+      ],
+      [
+       "wir",
+       "-en",
+       "kommen",
+       "arbeiten",
+       "heißen"
+      ],
+      [
+       "ihr",
+       "-t",
+       "kommt",
+       "arbeitet",
+       "heißt"
+      ],
+      [
+       "sie / Sie",
+       "-en",
+       "kommen",
+       "arbeiten",
+       "heißen"
+      ]
+     ],
+     "emphasis": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       1
+      ],
+      [
+       3,
+       1
+      ],
+      [
+       4,
+       1
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "emphasisNote": "The ending column is the pattern: -e, -st, -t, -en, -t, -en. Take the stem (komm-) and add it.",
+     "key": [
+      {
+       "symbol": "arbeiten",
+       "means": "stem ends in -t or -d, so an extra -e goes in before the ending: du arbeitest, not du arbeitst"
+      },
+      {
+       "symbol": "heißen",
+       "means": "stem ends in -ß, -s or -z, so the du-ending loses its -s: du heißt, not du heißst"
+      }
+     ]
+    }
+   ],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -649,6 +742,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -783,6 +877,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -953,6 +1048,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -1122,6 +1218,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -1294,6 +1391,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -1485,6 +1583,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -1659,6 +1758,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -1831,6 +1931,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -2027,6 +2128,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -2227,6 +2329,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -2403,6 +2506,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "the subject first",
@@ -2419,7 +2523,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "something else first — the verb still comes second",
@@ -2440,7 +2546,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -2633,6 +2741,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "statement",
@@ -2649,7 +2758,13 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [
+      "Der Film",
+      "beginnt",
+      "um acht."
+     ],
+     "sentenceEn": "The film starts at eight."
     },
     {
      "caption": "W-question",
@@ -2670,7 +2785,14 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [
+      "Wann",
+      "beginnt",
+      "der Film",
+      "heute?"
+     ],
+     "sentenceEn": "When does the film start today?"
     },
     {
      "caption": "yes/no question",
@@ -2687,7 +2809,13 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [
+      "Beginnt",
+      "der Film",
+      "um acht?"
+     ],
+     "sentenceEn": "Does the film start at eight?"
     }
    ],
    "comparison": null,
@@ -2900,6 +3028,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "with a modal verb",
@@ -2920,7 +3049,14 @@
        "text": "Infinitive",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [
+      "Ich",
+      "muss",
+      "heute",
+      "arbeiten."
+     ],
+     "sentenceEn": "I have to work today."
     },
     {
      "caption": "as a W-question",
@@ -2945,7 +3081,15 @@
        "text": "Infinitive",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [
+      "Wann",
+      "musst",
+      "du",
+      "heute",
+      "arbeiten?"
+     ],
+     "sentenceEn": "When do you have to work today?"
     }
    ],
    "comparison": null,
@@ -3083,6 +3227,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "the verb opens the question",
@@ -3099,7 +3244,13 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [
+      "Kommst",
+      "du",
+      "heute Abend?"
+     ],
+     "sentenceEn": "Are you coming this evening?"
     }
    ],
    "comparison": null,
@@ -3262,28 +3413,36 @@
      "columns": [
       "",
       "masculine",
-      "feminine",
       "neuter",
+      "feminine",
       "plural"
      ],
      "rows": [
       [
        "Nominativ",
        "der",
-       "die",
        "das",
+       "die",
        "die"
       ],
       [
        "Akkusativ",
        "den",
-       "die",
        "das",
+       "die",
        "die"
       ]
-     ]
+     ],
+     "emphasis": [
+      [
+       1,
+       1
+      ]
+     ],
+     "emphasisNote": "Only the masculine changes in the accusative: der becomes den. Every other box is the same in both rows."
     }
    ],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -3448,28 +3607,46 @@
      "columns": [
       "",
       "masculine",
-      "feminine",
       "neuter",
+      "feminine",
       "plural"
      ],
      "rows": [
       [
        "Nominativ",
        "ein / kein",
-       "eine / keine",
        "ein / kein",
+       "eine / keine",
        "— / keine"
       ],
       [
        "Akkusativ",
        "einen / keinen",
-       "eine / keine",
        "ein / kein",
+       "eine / keine",
        "— / keine"
       ]
+     ],
+     "emphasis": [
+      [
+       1,
+       1
+      ]
+     ],
+     "emphasisNote": "Again only the masculine changes: ein becomes einen, kein becomes keinen.",
+     "key": [
+      {
+       "symbol": "—",
+       "means": "no word here — German has no plural of ein, so the plural uses kein on its own"
+      },
+      {
+       "symbol": "ein / kein",
+       "means": "the indefinite article, then the negative one: ein Hund, kein Hund"
+      }
      ]
     }
    ],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -3701,9 +3878,43 @@
        "Sie",
        "Sie"
       ]
+     ],
+     "emphasis": [
+      [
+       0,
+       2
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       2
+      ]
+     ],
+     "emphasisNote": "These five change in the accusative. sie, es and Sie are spelled the same in both columns.",
+     "key": [
+      {
+       "symbol": "sg. / pl.",
+       "means": "singular (one) and plural (more than one)"
+      },
+      {
+       "symbol": "polite",
+       "means": "Sie, the formal \"you\" — always capitalised"
+      }
      ]
     }
    ],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -3972,9 +4183,47 @@
        "ihr / Ihr",
        "ihre / Ihre"
       ]
+     ],
+     "emphasis": [
+      [
+       0,
+       2
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       3,
+       2
+      ],
+      [
+       4,
+       2
+      ],
+      [
+       5,
+       2
+      ],
+      [
+       6,
+       2
+      ]
+     ],
+     "emphasisNote": "The feminine and plural form is the masculine one plus -e. Only euer is irregular: it drops its second e to give eure.",
+     "key": [
+      {
+       "symbol": "ihr / Ihr",
+       "means": "lower case is \"her\" or \"their\"; capitalised is the polite \"your\""
+      }
      ]
     }
    ],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -4197,6 +4446,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -4473,6 +4723,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -4816,6 +5067,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -5005,6 +5257,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -5249,6 +5502,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "the connector sits outside the clause and changes nothing after it",
@@ -5273,7 +5527,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -5474,6 +5730,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -5653,6 +5910,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -5834,6 +6092,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": {
     "left": "Präteritum",
@@ -6045,6 +6304,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": {
     "left": "Aktiv",
@@ -6261,6 +6521,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -6431,6 +6692,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -6565,18 +6827,39 @@
      "en": "to the son (dative)"
     },
     {
-     "de": "de r Tochter",
+     "de": "der Tochter",
      "note": "feminine dative — der, not die",
-     "marks": [],
+     "marks": [
+      {
+       "start": 0,
+       "end": 3,
+       "role": ""
+      }
+     ],
      "en": "to the daughter (dative)"
     },
     {
-     "de": "den Söhne n / Kinder n / Töchter n",
+     "de": "den Söhnen / Kindern / Töchtern",
      "note": "dative plural with the extra -n",
      "marks": [
       {
        "start": 0,
        "end": 3,
+       "role": ""
+      },
+      {
+       "start": 4,
+       "end": 10,
+       "role": ""
+      },
+      {
+       "start": 13,
+       "end": 20,
+       "role": ""
+      },
+      {
+       "start": 23,
+       "end": 31,
        "role": ""
       }
      ],
@@ -6602,46 +6885,125 @@
    ],
    "tables": [
     {
-     "caption": "Definite article, all four cases",
+     "caption": "Definite article in all four cases",
      "columns": [
       "",
       "masculine",
-      "feminine",
       "neuter",
+      "feminine",
       "plural"
      ],
      "rows": [
       [
        "Nominativ",
        "der",
-       "die",
        "das",
+       "die",
        "die"
       ],
       [
        "Akkusativ",
        "den",
-       "die",
        "das",
+       "die",
        "die"
       ],
       [
        "Dativ",
        "dem",
-       "der",
        "dem",
+       "der",
        "den + -n"
       ],
       [
        "Genitiv",
        "des + -(e)s",
-       "der",
        "des + -(e)s",
+       "der",
        "der"
       ]
+     ],
+     "emphasis": [
+      [
+       2,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       2,
+       4
+      ]
+     ],
+     "emphasisNote": "The dative row is this lesson: dem, dem, der, den.",
+     "asideRows": [
+      3
+     ],
+     "asideNote": "The genitive is shown for completeness; it is taught in a later topic.",
+     "key": [
+      {
+       "symbol": "den + -n",
+       "means": "the article den, and the noun itself takes an extra -n: den Söhnen"
+      },
+      {
+       "symbol": "des + -(e)s",
+       "means": "the article des, and the noun takes -s or -es: des Sohnes, des Kindes"
+      }
      ]
     }
    ],
+   "chooser": {
+    "title": "The article changes with the job the noun is doing in the sentence. Two questions get you to the right one.",
+    "steps": [
+     {
+      "ask": "What job is the noun doing?",
+      "how": "Doing the verb is nominative. Having the verb done to it is accusative. Being the person something is given, sent or said to is dative — and so is anything after mit, aus, bei, nach, von, zu or seit."
+     },
+     {
+      "ask": "What gender or number is it?",
+      "how": "Learn it with the noun: der Sohn is masculine, das Kind is neuter, die Tochter is feminine. More than one is plural, whatever the gender."
+     },
+     {
+      "ask": "Read the article off the table, then check the noun.",
+      "how": "Find the case row and the gender column. In the dative plural only, the noun itself also takes an extra -n: den Söhnen."
+     }
+    ],
+    "worked": [
+     {
+      "phrase": "Ich sehe den Sohn.",
+      "translation": "I see the son.",
+      "because": [
+       "Accusative: the son is what I see.",
+       "Masculine: der Sohn.",
+       "Accusative + masculine is den. The noun is unchanged: Sohn."
+      ]
+     },
+     {
+      "phrase": "Ich helfe dem Kind.",
+      "translation": "I help the child.",
+      "because": [
+       "Dative: helfen takes the dative — the child is who the helping goes to.",
+       "Neuter: das Kind.",
+       "Dative + neuter is dem. Singular, so no extra -n."
+      ]
+     },
+     {
+      "phrase": "Ich spreche mit den Söhnen.",
+      "translation": "I am speaking with the sons.",
+      "because": [
+       "Dative: mit always takes the dative.",
+       "Plural: more than one son.",
+       "Dative + plural is den, and this is the one box where the noun also changes: Söhne becomes Söhnen."
+      ]
+     }
+    ]
+   },
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -6778,13 +7140,19 @@
      "en": "a / no / my (masculine and neuter dative)"
     },
     {
-     "de": "eine r / keine r / meine r",
+     "de": "einer / keiner / meiner",
      "note": "feminine dative",
-     "marks": [],
+     "marks": [
+      {
+       "start": 8,
+       "end": 14,
+       "role": ""
+      }
+     ],
      "en": "a / no / my (feminine dative)"
     },
     {
-     "de": "- / kein en / mein en Söhne n /",
+     "de": "- / keinen / meinen Söhnen /",
      "note": "dative plural: article -en, noun -n",
      "marks": [],
      "en": "— / no / my sons (dative plural)"
@@ -6796,42 +7164,80 @@
      "columns": [
       "",
       "masculine",
-      "feminine",
       "neuter",
+      "feminine",
       "plural"
      ],
      "rows": [
       [
        "Nominativ",
        "ein",
-       "eine",
        "ein",
+       "eine",
        "keine"
       ],
       [
        "Akkusativ",
        "einen",
-       "eine",
        "ein",
+       "eine",
        "keine"
       ],
       [
        "Dativ",
        "einem",
-       "einer",
        "einem",
+       "einer",
        "keinen + -n"
       ],
       [
        "Genitiv",
        "eines + -(e)s",
-       "einer",
        "eines + -(e)s",
+       "einer",
        "keiner"
       ]
+     ],
+     "emphasis": [
+      [
+       2,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       2,
+       4
+      ]
+     ],
+     "emphasisNote": "The dative row is this lesson: einem, einem, einer, keinen.",
+     "asideRows": [
+      3
+     ],
+     "asideNote": "The genitive is shown for completeness; it is taught in a later topic.",
+     "key": [
+      {
+       "symbol": "plural column",
+       "means": "ein has no plural, so the plural forms shown are kein- (and mein-, dein- … behave the same way)"
+      },
+      {
+       "symbol": "keinen + -n",
+       "means": "the article keinen, and the noun takes an extra -n: keinen Söhnen"
+      },
+      {
+       "symbol": "eines + -(e)s",
+       "means": "the article eines, and the noun takes -s or -es: eines Sohnes"
+      }
      ]
     }
    ],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -6956,25 +7362,59 @@
      "en": "the / a gentleman / neighbour / colleague"
     },
     {
-     "de": "den / einen Herr n / Nachbar n / Kollege n",
+     "de": "den / einen Herrn / Nachbarn / Kollegen",
      "note": "accusative singular takes -(e)n",
-     "marks": [],
+     "marks": [
+      {
+       "start": 20,
+       "end": 28,
+       "role": ""
+      },
+      {
+       "start": 31,
+       "end": 39,
+       "role": ""
+      }
+     ],
      "en": "the / a gentleman / neighbour / colleague (accusative)"
     },
     {
-     "de": "mit dem / einem Herr n / Nachbar n / Kollege n",
+     "de": "mit dem / einem Herrn / Nachbarn / Kollegen",
      "note": "dative singular takes -(e)n",
-     "marks": [],
+     "marks": [
+      {
+       "start": 24,
+       "end": 32,
+       "role": ""
+      },
+      {
+       "start": 35,
+       "end": 43,
+       "role": ""
+      }
+     ],
      "en": "with the / a gentleman / neighbour / colleague"
     },
     {
-     "de": "die / - Herr en / Nachbar n / Kollege n",
+     "de": "die / - Herren / Nachbarn / Kollegen",
      "note": "plural",
-     "marks": [],
+     "marks": [
+      {
+       "start": 17,
+       "end": 25,
+       "role": ""
+      },
+      {
+       "start": 28,
+       "end": 36,
+       "role": ""
+      }
+     ],
      "en": "the / — gentlemen / neighbours / colleagues"
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -7212,9 +7652,51 @@
        "Sie",
        "Ihnen"
       ]
+     ],
+     "emphasis": [
+      [
+       0,
+       3
+      ],
+      [
+       1,
+       3
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       3
+      ],
+      [
+       4,
+       3
+      ],
+      [
+       7,
+       3
+      ],
+      [
+       8,
+       3
+      ]
+     ],
+     "emphasisNote": "The dative column is what this topic adds. uns and euch are the same in the accusative and the dative.",
+     "key": [
+      {
+       "symbol": "sg. / pl.",
+       "means": "singular (one) and plural (more than one)"
+      },
+      {
+       "symbol": "polite",
+       "means": "Sie, the formal \"you\" — always capitalised"
+      }
      ]
     }
    ],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -7417,6 +7899,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -7606,6 +8089,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -7799,6 +8283,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -7940,64 +8425,64 @@
     }
    ],
    "rules": [
-    "Nominative M/N/F: -e. Accusative N/F: -e.",
-    "Accusative M: -en.",
-    "Dative in every gender and number: -en.",
-    "Plural in every case: -en.",
-    "In the dative plural the noun adds -n as well: den alten Liedern."
+    "In the nominative all three genders take -e: der alte Mann, das alte Haus, die alte Stadt.",
+    "In the accusative, neuter and feminine still take -e — only masculine changes, to -en: den alten Mann.",
+    "The whole dative takes -en, in every gender: dem alten Mann, der alten Stadt.",
+    "The whole plural takes -en, in every case: die alten Lieder.",
+    "In the dative plural the noun takes an extra -n as well: den alten Liedern."
    ],
    "examples": [
     {
      "de": "der lebendige Dialekt",
-     "note": "Nominativ M",
+     "note": "Nominativ masculine",
      "marks": [],
      "en": "the living dialect"
     },
     {
      "de": "das neue Leben",
-     "note": "Nominativ and Akkusativ N",
+     "note": "Nominativ and Akkusativ neuter",
      "marks": [],
      "en": "the new life"
     },
     {
      "de": "die lange Tradition",
-     "note": "Nominativ and Akkusativ F",
+     "note": "Nominativ and Akkusativ feminine",
      "marks": [],
      "en": "the long tradition"
     },
     {
      "de": "den lebendigen Dialekt",
-     "note": "Akkusativ M — the only accusative with -en",
+     "note": "Akkusativ masculine — the only accusative with -en",
      "marks": [],
      "en": "the living dialect (accusative)"
     },
     {
      "de": "dem neuen Leben",
-     "note": "Dativ N",
+     "note": "Dativ neuter",
      "marks": [],
      "en": "to the new life"
     },
     {
      "de": "der langen Tradition",
-     "note": "Dativ F",
+     "note": "Dativ feminine",
      "marks": [],
      "en": "of / to the long tradition"
     },
     {
      "de": "den alten Liedern",
-     "note": "Dativ Plural — noun ends in -n as well",
+     "note": "Dativ plural — noun ends in -n as well",
      "marks": [],
      "en": "to the old songs"
     }
    ],
    "tables": [
     {
-     "caption": "Adjective endings after der / die / das",
+     "caption": "Adjective ending after der / das / die",
      "columns": [
       "",
       "masculine",
-      "feminine",
       "neuter",
+      "feminine",
       "plural"
      ],
      "rows": [
@@ -8029,9 +8514,105 @@
        "-en",
        "-en"
       ]
+     ],
+     "emphasis": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       2
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       1,
+       3
+      ]
+     ],
+     "emphasisNote": "These five boxes take -e. Everything else takes -en.",
+     "key": [
+      {
+       "symbol": "-e",
+       "means": "the short ending, e.g. der alte Mann"
+      },
+      {
+       "symbol": "-en",
+       "means": "the long ending, e.g. den alten Mann"
+      }
      ]
     }
    ],
+   "chooser": {
+    "title": "The table has only two endings in it, -e and -en. The work is knowing which box you are in, so go through it in this order.",
+    "steps": [
+     {
+      "ask": "Is the word in front of the adjective a definite article?",
+      "how": "der, das, die, den, dem or des. If it is ein, kein or mein, a different table applies."
+     },
+     {
+      "ask": "What case is the phrase in?",
+      "how": "Nominative if the noun is doing the verb (who or what is it?). Accusative if the verb is done to it, and after für, ohne, durch, gegen, um. Dative after mit, aus, bei, nach, von, zu, seit, and for the person something is given to."
+     },
+     {
+      "ask": "What gender or number is the noun?",
+      "how": "The article tells you: der is masculine, das is neuter, die is feminine in the singular and the plural form for all genders."
+     },
+     {
+      "ask": "Read the ending off the table.",
+      "how": "Find the case row, then the gender column. Five boxes give -e; every other box gives -en."
+     }
+    ],
+    "worked": [
+     {
+      "phrase": "der alte Mann",
+      "translation": "the old man",
+      "because": [
+       "der is a definite article, so this table is the right one.",
+       "Nominative: the man is the one doing something — der alte Mann wartet.",
+       "Masculine: it is der Mann.",
+       "Nominative + masculine is one of the five -e boxes, so: alte."
+      ]
+     },
+     {
+      "phrase": "den alten Mann",
+      "translation": "the old man (as an object)",
+      "because": [
+       "den is a definite article.",
+       "Accusative: he is what the verb is done to — ich sehe den alten Mann.",
+       "Masculine: it is der Mann, which becomes den in the accusative.",
+       "Accusative + masculine is not one of the five, so: alten."
+      ]
+     },
+     {
+      "phrase": "mit dem neuen Auto",
+      "translation": "with the new car",
+      "because": [
+       "dem is a definite article.",
+       "Dative: mit always takes the dative.",
+       "Neuter: it is das Auto, which becomes dem in the dative.",
+       "The whole dative row is -en, so: neuen."
+      ]
+     },
+     {
+      "phrase": "die alten Lieder",
+      "translation": "the old songs",
+      "because": [
+       "die is a definite article.",
+       "Nominative: the songs are the subject — die alten Lieder gefallen mir.",
+       "Plural: Lieder is more than one.",
+       "The whole plural column is -en, so: alten."
+      ]
+     }
+    ]
+   },
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -8202,61 +8783,61 @@
    "examples": [
     {
      "de": "ein neuer Trend",
-     "note": "Nominativ M — the adjective carries the -er",
+     "note": "Nominativ masculine — the adjective carries the -er",
      "marks": [],
      "en": "a new trend"
     },
     {
      "de": "mein festliches Kleid",
-     "note": "Nominativ N",
+     "note": "Nominativ neuter",
      "marks": [],
      "en": "my festive dress"
     },
     {
      "de": "eine neue Phase",
-     "note": "Nominativ F",
+     "note": "Nominativ feminine",
      "marks": [],
      "en": "a new phase"
     },
     {
      "de": "meinen teuren Anzug",
-     "note": "Akkusativ M",
+     "note": "Akkusativ masculine",
      "marks": [],
      "en": "my expensive suit (accusative)"
     },
     {
      "de": "mein schwarzes Barett",
-     "note": "Akkusativ N",
+     "note": "Akkusativ neuter",
      "marks": [],
      "en": "my black beret"
     },
     {
      "de": "eine große Party",
-     "note": "Akkusativ F",
+     "note": "Akkusativ feminine",
      "marks": [],
      "en": "a big party"
     },
     {
      "de": "meinem schwarzen Talar",
-     "note": "Dativ M",
+     "note": "Dativ masculine",
      "marks": [],
      "en": "to my black gown"
     },
     {
      "de": "einer schicken Frisur",
-     "note": "Dativ F",
+     "note": "Dativ feminine",
      "marks": [],
      "en": "of / to a smart hairstyle"
     },
     {
      "de": "meinen / keinen stolzen Eltern",
-     "note": "Dativ Plural",
+     "note": "Dativ plural",
      "marks": [],
      "en": "to my / to no proud parents"
     },
     {
      "de": "langen Abendkleidern",
-     "note": "Dativ Plural without an article",
+     "note": "Dativ plural without an article",
      "marks": [],
      "en": "to long evening dresses"
     }
@@ -8267,23 +8848,23 @@
      "columns": [
       "",
       "masculine",
-      "feminine",
       "neuter",
+      "feminine",
       "plural"
      ],
      "rows": [
       [
        "Nominativ",
        "-er",
-       "-e",
        "-es",
+       "-e",
        "-en"
       ],
       [
        "Akkusativ",
        "-en",
-       "-e",
        "-es",
+       "-e",
        "-en"
       ],
       [
@@ -8300,9 +8881,93 @@
        "-en",
        "-en"
       ]
+     ],
+     "emphasis": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       2
+      ],
+      [
+       1,
+       2
+      ]
+     ],
+     "emphasisNote": "These three boxes are the whole difference from the der/das/die table. ein does not show the gender, so the adjective does it instead: ein guter Mann, ein gutes Haus.",
+     "key": [
+      {
+       "symbol": "-er / -es",
+       "means": "the ending der or das would have carried, moved onto the adjective"
+      }
      ]
     }
    ],
+   "chooser": {
+    "title": "Almost the same table as after der / das / die — three boxes differ, and they differ for a reason worth knowing.",
+    "steps": [
+     {
+      "ask": "Is the word in front ein, kein, mein, dein, sein, ihr, unser or euer?",
+      "how": "If so, use this table. If it is der, das or die, use the definite-article table instead."
+     },
+     {
+      "ask": "Does that word show the gender and case on its own?",
+      "how": "ein and kein have no ending in three boxes: masculine nominative, and neuter nominative and accusative. In those three the word in front tells you nothing."
+     },
+     {
+      "ask": "If it does not, the adjective takes over.",
+      "how": "The adjective takes the ending der or das would have carried: -er for masculine, -es for neuter."
+     },
+     {
+      "ask": "Everywhere else, use the same endings as after der.",
+      "how": "-e in the remaining nominative and accusative boxes, -en across the whole dative and the whole plural."
+     }
+    ],
+    "worked": [
+     {
+      "phrase": "ein guter Mann",
+      "translation": "a good man",
+      "because": [
+       "ein, so this table.",
+       "Masculine nominative — one of the three boxes where ein has no ending.",
+       "So the adjective carries it: der would have ended in -r, giving guter.",
+       "Not needed here; the ending came from step 3."
+      ]
+     },
+     {
+      "phrase": "ein gutes Haus",
+      "translation": "a good house",
+      "because": [
+       "ein, so this table.",
+       "Neuter nominative — again ein shows nothing.",
+       "The adjective takes what das would have carried: -es, giving gutes.",
+       "Not needed here; the ending came from step 3."
+      ]
+     },
+     {
+      "phrase": "eine gute Frau",
+      "translation": "a good woman",
+      "because": [
+       "eine, so this table.",
+       "Feminine nominative — eine does show the gender, with its -e.",
+       "So the adjective does not have to.",
+       "It behaves as after die: -e, giving gute."
+      ]
+     },
+     {
+      "phrase": "mit einem guten Freund",
+      "translation": "with a good friend",
+      "because": [
+       "einem, so this table.",
+       "Dative — einem shows the case clearly.",
+       "So the adjective does not have to.",
+       "The whole dative is -en, giving guten."
+      ]
+     }
+    ]
+   },
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -8478,13 +9143,13 @@
     },
     {
      "de": "das → neues Leben",
-     "note": "Nominativ and Akkusativ N",
+     "note": "Nominativ and Akkusativ neuter",
      "marks": [],
      "en": "the → new life (no article)"
     },
     {
      "de": "die → lange Tradition",
-     "note": "Nominativ and Akkusativ F",
+     "note": "Nominativ and Akkusativ feminine",
      "marks": [
       {
        "start": 6,
@@ -8496,7 +9161,7 @@
     },
     {
      "de": "den → lebendigen Dialekt",
-     "note": "Akkusativ M",
+     "note": "Akkusativ masculine",
      "marks": [
       {
        "start": 17,
@@ -8508,7 +9173,7 @@
     },
     {
      "de": "dem → lebendigem Dialekt",
-     "note": "Dativ M",
+     "note": "Dativ masculine",
      "marks": [
       {
        "start": 6,
@@ -8525,13 +9190,13 @@
     },
     {
      "de": "der → langer Tradition",
-     "note": "Dativ F",
+     "note": "Dativ feminine",
      "marks": [],
      "en": "the → of long tradition (no article)"
     },
     {
      "de": "den → alten Liedern",
-     "note": "Dativ Plural",
+     "note": "Dativ plural",
      "marks": [],
      "en": "the → to old songs (no article)"
     }
@@ -8542,42 +9207,84 @@
      "columns": [
       "",
       "masculine",
-      "feminine",
       "neuter",
+      "feminine",
       "plural"
      ],
      "rows": [
       [
        "Nominativ",
        "-er",
-       "-e",
        "-es",
+       "-e",
        "-e"
       ],
       [
        "Akkusativ",
        "-en",
-       "-e",
        "-es",
+       "-e",
        "-e"
       ],
       [
        "Dativ",
        "-em",
-       "-er",
        "-em",
+       "-er",
        "-en"
       ],
       [
        "Genitiv",
        "-en",
-       "-er",
        "-en",
+       "-er",
        "-er"
       ]
+     ],
+     "emphasis": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       2
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       1,
+       3
+      ],
+      [
+       2,
+       1
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       2,
+       3
+      ]
+     ],
+     "emphasisNote": "With no article in front, the adjective takes the ending the article would have had: guter Wein, gutes Bier, mit gutem Wein.",
+     "key": [
+      {
+       "symbol": "-er, -es, -em",
+       "means": "article endings doing duty on the adjective, because there is no article to carry them"
+      }
      ]
     }
    ],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -8790,6 +9497,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -9020,6 +9728,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -9301,6 +10010,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -9519,6 +10229,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": {
     "left": "Akkusativ",
@@ -9810,6 +10521,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -10093,6 +10805,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "an aduso-connector joins two main clauses",
@@ -10117,7 +10830,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -10342,6 +11057,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "the connector takes position 1, so the verb follows it",
@@ -10366,7 +11082,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -10575,6 +11293,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "weil and dass send the verb to the end",
@@ -10599,7 +11318,15 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [
+      "Bernhard möchte in Köln studieren,",
+      "weil",
+      "er",
+      "dort keine Sprachprobleme",
+      "hat."
+     ],
+     "sentenceEn": "Bernhard would like to study in Cologne, because he has no language problems there."
     }
    ],
    "comparison": {
@@ -10848,6 +11575,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "the als-clause second",
@@ -10872,7 +11600,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "the als-clause first — then it fills position 1",
@@ -10905,7 +11635,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -11128,6 +11860,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "the condition second",
@@ -11152,7 +11885,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "the condition first",
@@ -11185,7 +11920,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -11442,6 +12179,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -11679,6 +12417,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "with a question word",
@@ -11703,7 +12442,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "without one — ob stands in for it",
@@ -11728,7 +12469,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -11944,6 +12687,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -12172,6 +12916,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": {
     "left": "als",
@@ -12387,6 +13132,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -12560,6 +13306,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -12721,6 +13468,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -12926,6 +13674,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -13130,6 +13879,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "lassen is conjugated; the other verb stays an infinitive at the end",
@@ -13154,7 +13904,9 @@
        "text": "Infinitive",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -13302,6 +14054,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -13466,6 +14219,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -13618,6 +14372,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -13793,6 +14548,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -13975,6 +14731,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -14166,6 +14923,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -14359,6 +15117,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -14535,6 +15294,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -14756,6 +15516,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "asking about a thing",
@@ -14780,7 +15541,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "referring back to one",
@@ -14797,7 +15560,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -15034,6 +15799,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -15246,6 +16012,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -15421,6 +16188,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -15621,6 +16389,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -15808,6 +16577,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -16037,6 +16807,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "the consequence takes position 1",
@@ -16061,7 +16832,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -16267,6 +17040,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -16471,6 +17245,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -16651,6 +17426,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "standard, and what you will hear",
@@ -16667,7 +17443,9 @@
        "text": "(spoken: Dative)",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -16854,6 +17632,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -17035,6 +17814,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -17248,6 +18028,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "both halves are needed",
@@ -17268,7 +18049,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "the other pairs work the same way",
@@ -17289,7 +18072,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -17477,6 +18262,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -17688,6 +18474,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "with wenn",
@@ -17720,7 +18507,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "without it — then the verb opens the clause",
@@ -17749,7 +18538,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -17988,6 +18779,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "all three send the verb to the end",
@@ -18008,7 +18800,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -18237,6 +19031,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "obwohl opens a subordinate clause",
@@ -18257,7 +19052,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "trotzdem takes position 1 of a main clause",
@@ -18278,7 +19075,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -18500,6 +19299,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -18770,6 +19570,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "one subject for both clauses",
@@ -18790,7 +19591,9 @@
        "text": "Infinitive",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "two different subjects",
@@ -18811,7 +19614,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -19012,6 +19817,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "sodass in one piece",
@@ -19036,7 +19842,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "so … dass split around the adjective",
@@ -19069,7 +19877,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -19287,6 +20097,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -19592,6 +20403,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "the preposition belongs to the verb and fixes the case",
@@ -19608,7 +20420,9 @@
        "text": "Accusative or Dative",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -19839,6 +20653,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -20043,6 +20858,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -20263,6 +21079,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "the preposition comes before the relative pronoun",
@@ -20287,7 +21104,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "in the genitive",
@@ -20312,7 +21131,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -20532,6 +21353,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -20760,6 +21582,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "subordinating — verb last",
@@ -20780,7 +21603,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "position 1 of a main clause — verb second",
@@ -20801,7 +21626,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": {
@@ -21035,6 +21862,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -21246,6 +22074,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -21440,6 +22269,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": {
     "left": "Konjunktiv I",
@@ -21666,6 +22496,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -21859,6 +22690,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -22080,6 +22912,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "with a noun",
@@ -22096,7 +22929,9 @@
        "text": "Noun",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "with a clause — the preposition becomes da(r)",
@@ -22121,7 +22956,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -22359,6 +23196,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "both halves are needed",
@@ -22379,7 +23217,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -22575,6 +23415,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -22790,6 +23631,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -22996,6 +23838,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -23219,6 +24062,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -23446,6 +24290,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -23759,6 +24604,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "both halves are needed",
@@ -23779,7 +24625,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "restricting what was just said",
@@ -23804,7 +24652,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -24031,6 +24881,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -24237,6 +25088,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -24451,6 +25303,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -24634,6 +25487,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -24895,6 +25749,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -25123,6 +25978,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -25316,6 +26172,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -25545,6 +26402,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -25801,6 +26659,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "before the name",
@@ -25813,7 +26672,9 @@
        "text": "Dative or Genitive",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "after it",
@@ -25826,7 +26687,9 @@
        "text": "zufolge",
        "role": "prep"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -26019,6 +26882,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "these prepositions govern the dative",
@@ -26031,7 +26895,9 @@
        "text": "Dative",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -26236,6 +27102,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -26460,6 +27327,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -26683,6 +27551,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -26950,6 +27819,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "as a clause",
@@ -26970,7 +27840,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "as a phrase — same reason, no clause",
@@ -26983,7 +27855,9 @@
        "text": "Genitive",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -27196,6 +28070,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -27394,6 +28269,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -27633,6 +28509,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -27978,6 +28855,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "the condition as a clause",
@@ -27998,7 +28876,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "the same condition as a phrase",
@@ -28011,7 +28891,9 @@
        "text": "Noun",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -28300,6 +29182,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "the preposition belongs to the adjective",
@@ -28320,7 +29203,9 @@
        "text": "Accusative or Dative",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -28561,6 +29446,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -28817,6 +29703,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "anything may fill position 1 — the verb stays second",
@@ -28837,7 +29724,9 @@
        "text": "…",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -29058,6 +29947,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -29373,6 +30263,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "time as a clause",
@@ -29393,7 +30284,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "time as a phrase",
@@ -29406,7 +30299,9 @@
        "text": "Nominalised infinitive",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "purpose, one subject",
@@ -29427,7 +30322,9 @@
        "text": "Infinitive",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -29731,6 +30628,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "consequence",
@@ -29755,7 +30653,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     },
     {
      "caption": "means — how it was done",
@@ -29776,7 +30676,9 @@
        "text": "Verb",
        "role": "verb"
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -29971,7 +30873,7 @@
     },
     {
      "de": "der elegantesten",
-     "note": "relativer Superlativ im Genitiv Plural",
+     "note": "relativer Superlativ im Genitiv plural",
      "marks": [],
      "en": "of the most elegant"
     },
@@ -29983,6 +30885,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -30146,6 +31049,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -30388,6 +31292,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [
     {
      "caption": "these prepositions govern the genitive",
@@ -30400,7 +31305,9 @@
        "text": "Genitive",
        "role": ""
       }
-     ]
+     ],
+     "sentence": [],
+     "sentenceEn": ""
     }
    ],
    "comparison": null,
@@ -30577,6 +31484,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [
@@ -30793,6 +31701,7 @@
     }
    ],
    "tables": [],
+   "chooser": null,
    "formulas": [],
    "comparison": null,
    "exercises": [

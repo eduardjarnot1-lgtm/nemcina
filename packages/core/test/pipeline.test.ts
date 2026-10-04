@@ -129,7 +129,7 @@ describe('grammar topics', () => {
     rules: ['kommen: ich komme, du kommst.'],
     examples: [{ de: 'ich komme', note: 'regular ending -e' }],
     exercises: [{ id: 'g1-e1', type: 'fill', text: 'Woher ___ du?', answers: ['kommst'] }],
-    prerequisites: [], difficulty: 1, source: 'DaF kompakt', sourcePage: 1,
+    prerequisites: [], chooser: null, difficulty: 1, source: 'DaF kompakt', sourcePage: 1,
   };
 
   test('the explanation survives the trip — it is the teaching, not decoration', () => {

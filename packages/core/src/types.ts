@@ -148,12 +148,42 @@ export interface VocabularyCluster {
   readonly itemIds: readonly string[];
 }
 
+/** One symbol a table uses, and what it means in words. */
+export interface GrammarTableKey {
+  readonly symbol: string;
+  readonly means: string;
+}
+
 export interface GrammarTable {
   readonly caption: string;
   /** The first column is the row label, so its header is usually empty. */
   readonly columns: readonly string[];
   /** Each row has exactly `columns.length` cells; the build refuses otherwise. */
   readonly rows: readonly (readonly string[])[];
+  /**
+   * Cells carrying the pattern the topic is teaching, as `[row, column]` pairs
+   * with column 0 being the row label.
+   *
+   * A paradigm table's whole difficulty is that sixteen cells look alike and
+   * only a few of them are the point. Marking them is not decoration: the mark
+   * is drawn *and* named in `emphasisNote`, so it survives greyscale and a
+   * screen reader.
+   */
+  readonly emphasis: readonly (readonly [number, number])[];
+  /** What the emphasised cells have in common, in words. */
+  readonly emphasisNote: string;
+  /** Notation used in the cells — "+ -n", "-(e)s", "—" — spelled out. */
+  readonly key: readonly GrammarTableKey[];
+  /**
+   * Rows that are reference rather than the current lesson, by index.
+   *
+   * A2 "Inflections with the definite article" teaches the dative and prints
+   * the genitive too. Both belong on the page; pretending they are the same
+   * thing is what made the table disagree with its own summary.
+   */
+  readonly asideRows: readonly number[];
+  /** Why those rows are set apart, e.g. "Genitive comes later — shown for reference." */
+  readonly asideNote: string;
 }
 
 export interface GrammarComparisonRow {
@@ -247,6 +277,51 @@ export interface GrammarFormula {
   /** What this variant is for — "the condition first", "with a modal verb". */
   readonly caption: string;
   readonly slots: readonly { readonly text: string; readonly role: MarkRole | '' }[];
+  /**
+   * A real German sentence laid out against the slots, one piece per slot.
+   *
+   * The pattern and the sentence were always on the same page and never
+   * connected: a learner read `weil + Subject + … + Verb` in one card and
+   * `…, weil er dort keine Sprachprobleme hat.` in another, with nothing saying
+   * which word was the Verb. Aligning them is the step between the two.
+   *
+   * Empty when no sentence was written. Where present it has exactly as many
+   * pieces as there are slots, and the build refuses otherwise — a pattern
+   * that drifts out of step with its sentence teaches the wrong position.
+   */
+  readonly sentence: readonly string[];
+  /** The sentence's English, so the alignment is not a puzzle in two languages. */
+  readonly sentenceEn: string;
+}
+
+/**
+ * One step of "how do I choose the right form?".
+ *
+ * Every paradigm table answers "what are the forms". None of them answered the
+ * question a learner actually has in front of a sentence, which is which of the
+ * sixteen cells is theirs. A chooser is that walk: a question, what to look at,
+ * and what the answer settles.
+ */
+export interface GrammarChoiceStep {
+  /** The question to ask, in plain words. */
+  readonly ask: string;
+  /** How to answer it from the sentence in front of you. */
+  readonly how: string;
+}
+
+/** A finished phrase taken apart, showing why each ending is what it is. */
+export interface GrammarWorkedExample {
+  readonly phrase: string;
+  readonly translation: string;
+  /** One line per decision, in the order the steps ask them. */
+  readonly because: readonly string[];
+}
+
+/** The decision procedure for a topic: how to get from a sentence to a form. */
+export interface GrammarChooser {
+  readonly title: string;
+  readonly steps: readonly GrammarChoiceStep[];
+  readonly worked: readonly GrammarWorkedExample[];
 }
 
 /** One headed paragraph of a grammar explanation, as the source document lays it out. */
@@ -285,6 +360,12 @@ export interface GrammarTopic {
   readonly examples: readonly GrammarExample[];
   readonly exercises: readonly Exercise[];
   readonly prerequisites: readonly string[];
+  /**
+   * How to choose the right form, when the topic needs one.
+   *
+   * Null for the topics where there is nothing to choose between.
+   */
+  readonly chooser: GrammarChooser | null;
   /**
    * The grammatical family the source files this topic under — "Verben",
    * "Satzverbindungen", and eighteen others. Carried through because it is the
