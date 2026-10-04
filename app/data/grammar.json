@@ -8434,43 +8434,43 @@
    "examples": [
     {
      "de": "der lebendige Dialekt",
-     "note": "Nominativ M",
+     "note": "Nominativ masculine",
      "marks": [],
      "en": "the living dialect"
     },
     {
      "de": "das neue Leben",
-     "note": "Nominativ and Akkusativ N",
+     "note": "Nominativ and Akkusativ neuter",
      "marks": [],
      "en": "the new life"
     },
     {
      "de": "die lange Tradition",
-     "note": "Nominativ and Akkusativ F",
+     "note": "Nominativ and Akkusativ feminine",
      "marks": [],
      "en": "the long tradition"
     },
     {
      "de": "den lebendigen Dialekt",
-     "note": "Akkusativ M — the only accusative with -en",
+     "note": "Akkusativ masculine — the only accusative with -en",
      "marks": [],
      "en": "the living dialect (accusative)"
     },
     {
      "de": "dem neuen Leben",
-     "note": "Dativ N",
+     "note": "Dativ neuter",
      "marks": [],
      "en": "to the new life"
     },
     {
      "de": "der langen Tradition",
-     "note": "Dativ F",
+     "note": "Dativ feminine",
      "marks": [],
      "en": "of / to the long tradition"
     },
     {
      "de": "den alten Liedern",
-     "note": "Dativ Plural — noun ends in -n as well",
+     "note": "Dativ plural — noun ends in -n as well",
      "marks": [],
      "en": "to the old songs"
     }
@@ -8783,61 +8783,61 @@
    "examples": [
     {
      "de": "ein neuer Trend",
-     "note": "Nominativ M — the adjective carries the -er",
+     "note": "Nominativ masculine — the adjective carries the -er",
      "marks": [],
      "en": "a new trend"
     },
     {
      "de": "mein festliches Kleid",
-     "note": "Nominativ N",
+     "note": "Nominativ neuter",
      "marks": [],
      "en": "my festive dress"
     },
     {
      "de": "eine neue Phase",
-     "note": "Nominativ F",
+     "note": "Nominativ feminine",
      "marks": [],
      "en": "a new phase"
     },
     {
      "de": "meinen teuren Anzug",
-     "note": "Akkusativ M",
+     "note": "Akkusativ masculine",
      "marks": [],
      "en": "my expensive suit (accusative)"
     },
     {
      "de": "mein schwarzes Barett",
-     "note": "Akkusativ N",
+     "note": "Akkusativ neuter",
      "marks": [],
      "en": "my black beret"
     },
     {
      "de": "eine große Party",
-     "note": "Akkusativ F",
+     "note": "Akkusativ feminine",
      "marks": [],
      "en": "a big party"
     },
     {
      "de": "meinem schwarzen Talar",
-     "note": "Dativ M",
+     "note": "Dativ masculine",
      "marks": [],
      "en": "to my black gown"
     },
     {
      "de": "einer schicken Frisur",
-     "note": "Dativ F",
+     "note": "Dativ feminine",
      "marks": [],
      "en": "of / to a smart hairstyle"
     },
     {
      "de": "meinen / keinen stolzen Eltern",
-     "note": "Dativ Plural",
+     "note": "Dativ plural",
      "marks": [],
      "en": "to my / to no proud parents"
     },
     {
      "de": "langen Abendkleidern",
-     "note": "Dativ Plural without an article",
+     "note": "Dativ plural without an article",
      "marks": [],
      "en": "to long evening dresses"
     }
@@ -9143,13 +9143,13 @@
     },
     {
      "de": "das → neues Leben",
-     "note": "Nominativ and Akkusativ N",
+     "note": "Nominativ and Akkusativ neuter",
      "marks": [],
      "en": "the → new life (no article)"
     },
     {
      "de": "die → lange Tradition",
-     "note": "Nominativ and Akkusativ F",
+     "note": "Nominativ and Akkusativ feminine",
      "marks": [
       {
        "start": 6,
@@ -9161,7 +9161,7 @@
     },
     {
      "de": "den → lebendigen Dialekt",
-     "note": "Akkusativ M",
+     "note": "Akkusativ masculine",
      "marks": [
       {
        "start": 17,
@@ -9173,7 +9173,7 @@
     },
     {
      "de": "dem → lebendigem Dialekt",
-     "note": "Dativ M",
+     "note": "Dativ masculine",
      "marks": [
       {
        "start": 6,
@@ -9190,13 +9190,13 @@
     },
     {
      "de": "der → langer Tradition",
-     "note": "Dativ F",
+     "note": "Dativ feminine",
      "marks": [],
      "en": "the → of long tradition (no article)"
     },
     {
      "de": "den → alten Liedern",
-     "note": "Dativ Plural",
+     "note": "Dativ plural",
      "marks": [],
      "en": "the → to old songs (no article)"
     }
@@ -30873,7 +30873,7 @@
     },
     {
      "de": "der elegantesten",
-     "note": "relativer Superlativ im Genitiv Plural",
+     "note": "relativer Superlativ im Genitiv plural",
      "marks": [],
      "en": "of the most elegant"
     },
