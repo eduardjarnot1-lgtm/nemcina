@@ -180,7 +180,14 @@ const styles = StyleSheet.create({
   b2Text: { flex: 1, gap: 2 },
   b2Title: { ...typeScale.heading, color: palette.text },
   b2Hint: { ...typeScale.caption, color: palette.textMuted },
-  list: { paddingBottom: spacing.xl },
+  list: {
+    paddingBottom: spacing.xl,
+    // Same reading measure as a topic page, so the index and the topic it
+    // opens are the same width instead of the page jumping.
+    width: '100%',
+    maxWidth: 760,
+    alignSelf: 'center',
+  },
   familyHeader: {
     flexDirection: 'row',
     alignItems: 'center',

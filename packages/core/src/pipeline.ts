@@ -105,6 +105,8 @@ export interface RawTopic {
   readonly formulas?: readonly {
     readonly caption?: string;
     readonly slots?: readonly { readonly text?: string; readonly role?: string }[];
+    readonly sentence?: readonly string[];
+    readonly sentenceEn?: string;
   }[];
   readonly comparison?: {
     readonly left?: string;
@@ -117,7 +119,21 @@ export interface RawTopic {
     readonly caption?: string;
     readonly columns?: readonly string[];
     readonly rows?: readonly (readonly string[])[];
+    readonly emphasis?: readonly (readonly number[])[];
+    readonly emphasisNote?: string;
+    readonly key?: readonly { readonly symbol?: string; readonly means?: string }[];
+    readonly asideRows?: readonly number[];
+    readonly asideNote?: string;
   }[];
+  readonly chooser?: {
+    readonly title?: string;
+    readonly steps?: readonly { readonly ask?: string; readonly how?: string }[];
+    readonly worked?: readonly {
+      readonly phrase?: string;
+      readonly translation?: string;
+      readonly because?: readonly string[];
+    }[];
+  } | null;
   readonly source?: string;
   readonly sourcePage?: number;
 }
@@ -324,15 +340,25 @@ export function toGrammarTopic(raw: RawTopic): GrammarTopic {
     difficulty: raw.difficulty ?? 1,
     category: raw.category ?? '',
     formulas: (raw.formulas ?? [])
-      .map((formula) => ({
-        caption: formula.caption ?? '',
-        slots: (formula.slots ?? [])
+      .map((formula) => {
+        const slots = (formula.slots ?? [])
           .filter((slot) => (slot.text ?? '').trim())
           .map((slot): { text: string; role: MarkRole | '' } => ({
             text: slot.text ?? '',
             role: slot.role && MARK_ROLES.has(slot.role) ? (slot.role as MarkRole) : '',
-          })),
-      }))
+          }));
+        // A sentence that is not one piece per slot is dropped rather than
+        // shown misaligned: a pattern pointing at the wrong word is worse than
+        // a pattern with no sentence under it. The build checks this too, so
+        // reaching here means the data was hand-edited past that gate.
+        const sentence = formula.sentence ?? [];
+        return {
+          caption: formula.caption ?? '',
+          slots,
+          sentence: sentence.length === slots.length ? sentence : [],
+          sentenceEn: sentence.length === slots.length ? formula.sentenceEn ?? '' : '',
+        };
+      })
       // A formula of one slot is not a shape; showing it would look like a
       // truncated pattern rather than a deliberate one.
       .filter((formula) => formula.slots.length > 1),
@@ -345,11 +371,42 @@ export function toGrammarTopic(raw: RawTopic): GrammarTopic {
         })),
       }
       : null,
-    tables: (raw.tables ?? []).map((table) => ({
-      caption: table.caption ?? '',
-      columns: table.columns ?? [],
-      rows: table.rows ?? [],
-    })),
+    tables: (raw.tables ?? []).map((table) => {
+      const rows = table.rows ?? [];
+      const width = (table.columns ?? []).length;
+      return {
+        caption: table.caption ?? '',
+        columns: table.columns ?? [],
+        rows,
+        // Out-of-range coordinates are dropped rather than trusted: an
+        // emphasis pointing past the grid would otherwise highlight nothing
+        // while the note still claimed a pattern was marked.
+        emphasis: (table.emphasis ?? [])
+          .filter((at) => at.length === 2
+            && (at[0] as number) >= 0 && (at[0] as number) < rows.length
+            && (at[1] as number) >= 0 && (at[1] as number) < width)
+          .map((at) => [at[0] as number, at[1] as number] as const),
+        emphasisNote: table.emphasisNote ?? '',
+        key: (table.key ?? []).map((entry) => ({
+          symbol: entry.symbol ?? '', means: entry.means ?? '',
+        })).filter((entry) => entry.symbol && entry.means),
+        asideRows: (table.asideRows ?? []).filter((at) => at >= 0 && at < rows.length),
+        asideNote: table.asideNote ?? '',
+      };
+    }),
+    chooser: raw.chooser && (raw.chooser.steps ?? []).length > 0
+      ? {
+        title: raw.chooser.title ?? '',
+        steps: (raw.chooser.steps ?? []).map((step) => ({
+          ask: step.ask ?? '', how: step.how ?? '',
+        })),
+        worked: (raw.chooser.worked ?? []).map((item) => ({
+          phrase: item.phrase ?? '',
+          translation: item.translation ?? '',
+          because: item.because ?? [],
+        })),
+      }
+      : null,
     source: { title: raw.source ?? '', page: raw.sourcePage ?? 0 },
   };
 }

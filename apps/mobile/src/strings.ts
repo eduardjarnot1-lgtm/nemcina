@@ -94,6 +94,26 @@ export const strings = {
   grammarWrong: 'Incorrect',
   grammarException: 'Exception',
   grammarHowItWorks: 'How it works',
+
+  // --- reading a paradigm table ---------------------------------------------
+  // The hint is words, not an arrow: an arrow is a second way of saying the
+  // same thing as the fade, and neither survives being read aloud.
+  tableScrollHint: 'Swipe the table sideways for more columns.',
+  tableKey: 'Notation',
+
+  // --- choosing a form ------------------------------------------------------
+  // The part every table was missing: not what the forms are, but which one is
+  // yours.
+  grammarChoose: 'Choosing the right form',
+  grammarChooseStep: (n: number) => `Step ${n}`,
+  grammarWorked: 'Worked examples',
+  grammarWhy: 'Why',
+
+  // --- the pattern, found in a real sentence ---------------------------------
+  grammarPatternInUse: 'The same pattern in a real sentence',
+
+  // --- what to know first ----------------------------------------------------
+  grammarFirst: 'Know this first',
   grammarMoreDetail: 'More detail',
   grammarShowMore: (n: number) => `Show ${n} more`,
   grammarShowLess: 'Show less',

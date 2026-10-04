@@ -16,6 +16,9 @@ import { GrammarTable } from '../../src/components/grammar/GrammarTable';
 import { GrammarFormula } from '../../src/components/grammar/GrammarFormula';
 import { CommonMistake } from '../../src/components/grammar/CommonMistake';
 import { GrammarComparison } from '../../src/components/grammar/GrammarComparison';
+import { GrammarChooser } from '../../src/components/grammar/GrammarChooser';
+import { LeadExample } from '../../src/components/grammar/LeadExample';
+import { Prerequisites } from '../../src/components/grammar/Prerequisites';
 import { familyTone } from '../../src/grammarTheme';
 import { useCourse } from '../../src/course';
 import { useProgress } from '../../src/progress';
@@ -42,6 +45,21 @@ const OPEN_SECTIONS = 2;
  *
  * Practice sits at the bottom and at full width: it is the thing to do after
  * reading, and it should be reachable without hunting.
+ *
+ * Three things were added once the page was read as a beginner would read it.
+ *
+ * A **lead example** sits directly under the summary, because the fastest way
+ * to say what a construction is is to show one, and the examples were six cards
+ * further down. A learner had to read a rule, a pattern and a paradigm before
+ * meeting a single German sentence.
+ *
+ * A **chooser** sits after the forms: a numbered walk from a sentence to the
+ * right cell, with finished phrases taken apart. The tables always answered
+ * "what are the forms" and never "which one is mine", which is the entire
+ * difficulty of adjective endings.
+ *
+ * **Prerequisites** are linked. A hundred of the 136 topics name what should be
+ * known first, and until now nothing read that field.
  */
 export default function GrammarTopicScreen() {
   const router = useRouter();
@@ -65,6 +83,18 @@ export default function GrammarTopicScreen() {
   // The topic's own error-correction exercise, shown worked. 89 of 136 topics
   // have one; the rest simply do not get this card.
   const mistake = topic.exercises.find((exercise) => exercise.kind === 'error-correction');
+  // The opening example is the shortest *phrase* carrying English — not the
+  // shortest string, which in the present-tense topic is the single word "bin"
+  // and shows a beginner nothing. Two words is the floor: a construction needs
+  // at least a form and something for it to act on before it is an example of
+  // anything. If a topic has only fragments, the shortest of those is still
+  // better than no opening example.
+  const translated = topic.examples.filter((e) => e.en.trim() && e.text.trim());
+  const byLength = (a: typeof translated[number], b: typeof translated[number]) =>
+    a.text.length - b.text.length;
+  const lead = translated.filter((e) => e.text.trim().split(/\s+/).length >= 2).sort(byLength)[0]
+    ?? translated.slice().sort(byLength)[0]
+    ?? null;
 
   return (
     <Screen>
@@ -79,8 +109,16 @@ export default function GrammarTopicScreen() {
             </View>
             <Text style={styles.title}>{topic.title}</Text>
             {topic.summary ? <Text style={styles.summary}>{topic.summary}</Text> : null}
+            <Prerequisites ids={topic.prerequisites} />
           </View>
         </Reveal>
+
+        {/* One sentence, immediately. Everything below explains it. */}
+        {lead ? (
+          <Reveal index={1}>
+            <LeadExample example={lead} />
+          </Reveal>
+        ) : null}
 
         {topic.rules.length > 0 ? (
           <Reveal index={1}>
@@ -109,6 +147,17 @@ export default function GrammarTopicScreen() {
               {topic.tables.map((table, index) => (
                 <GrammarTable key={index} table={table} />
               ))}
+            </Card>
+          </Reveal>
+        ) : null}
+
+        {/* After the forms, not before: the steps end by reading an ending off
+            the table above, so the table has to have been seen. */}
+        {topic.chooser ? (
+          <Reveal index={3}>
+            <Card style={styles.block}>
+              <Text style={styles.sectionLabel}>{strings.grammarChoose}</Text>
+              <GrammarChooser chooser={topic.chooser} />
             </Card>
           </Reveal>
         ) : null}
@@ -209,7 +258,19 @@ export default function GrammarTopicScreen() {
 }
 
 const styles = StyleSheet.create({
-  content: { paddingVertical: spacing.md, gap: spacing.md, paddingBottom: spacing.xl },
+  content: {
+    paddingVertical: spacing.md,
+    gap: spacing.md,
+    paddingBottom: spacing.xl,
+    // A reading measure. On a desktop the page used to run the full width of
+    // the window, which put sixty-word lines of explanation beside a table
+    // 400 points wide — the text unreadable for being too long and the table
+    // marooned in white space. Capping the column fixes both at once, and on a
+    // phone the cap is never reached so nothing changes there.
+    width: '100%',
+    maxWidth: 760,
+    alignSelf: 'center',
+  },
   missing: { ...typeScale.body, color: palette.textMuted, padding: spacing.md },
   header: { gap: spacing.sm },
   chips: { flexDirection: 'row', gap: spacing.xs, flexWrap: 'wrap' },

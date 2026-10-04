@@ -31,11 +31,11 @@
     }
    ],
    "rules": [
-    "Nominative M/N/F: -e. Accusative N/F: -e.",
-    "Accusative M: -en.",
-    "Dative in every gender and number: -en.",
-    "Plural in every case: -en.",
-    "In the dative plural the noun adds -n as well: den alten Liedern."
+    "In the nominative all three genders take -e: der alte Mann, das alte Haus, die alte Stadt.",
+    "In the accusative, neuter and feminine still take -e — only masculine changes, to -en: den alten Mann.",
+    "The whole dative takes -en, in every gender: dem alten Mann, der alten Stadt.",
+    "The whole plural takes -en, in every case: die alten Lieder.",
+    "In the dative plural the noun takes an extra -n as well: den alten Liedern."
    ],
    "examples": [
     {
