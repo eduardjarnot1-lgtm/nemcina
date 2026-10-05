@@ -22,6 +22,7 @@ import {
   type GermanVocabularyMetadata,
   type GrammarExample,
   type GrammarMark,
+  type MarkTier,
   type MarkRole,
   type GrammarTopic,
   type LevelProvenance,
@@ -125,6 +126,13 @@ export interface RawTopic {
     readonly asideRows?: readonly number[];
     readonly asideNote?: string;
   }[];
+  readonly worked?: {
+    readonly sentences?: readonly {
+      readonly de?: string; readonly en?: string; readonly why?: string;
+      readonly marks?: readonly { start?: number; end?: number; role?: string; tier?: string }[];
+    }[];
+    readonly contrast?: { readonly wrong?: string; readonly right?: string; readonly why?: string } | null;
+  } | null;
   readonly chooser?: {
     readonly title?: string;
     readonly steps?: readonly { readonly ask?: string; readonly how?: string }[];
@@ -292,20 +300,34 @@ export function toExercise(raw: RawExercise): Exercise {
 
 const MARK_ROLES = new Set([
   'conj', 'verb', 'prep', 'q', 'article', 'pronoun', 'adjective', 'noun',
+  'adverb', 'aux', 'participle', 'prefix', 'stem', 'ending',
 ]);
 
 function toGrammarExample(
   raw: {
     de?: string; note?: string; en?: string;
-    marks?: readonly { start?: number; end?: number; role?: string }[];
+    marks?: readonly { start?: number; end?: number; role?: string; tier?: string }[];
   },
 ): GrammarExample {
   const text = raw.de ?? '';
   // A span that does not fit the string it indexes is dropped rather than
   // clamped: a highlight in the wrong place is worse than no highlight, and a
   // clamped one would look deliberate.
+  return { text, note: raw.note ?? '', en: raw.en ?? '', marks: toMarks(text, raw.marks ?? []) };
+}
+
+/**
+ * Read spans against the string they index.
+ *
+ * Shared by the source examples and the worked ones, so a highlight written for
+ * a worked sentence is checked exactly as strictly as one from the corpus.
+ */
+function toMarks(
+  text: string,
+  raw: readonly { start?: number; end?: number; role?: string; tier?: string }[],
+): GrammarMark[] {
   const marks: GrammarMark[] = [];
-  for (const span of raw.marks ?? []) {
+  for (const span of raw) {
     const { start, end } = span;
     if (typeof start !== 'number' || typeof end !== 'number') continue;
     if (!Number.isInteger(start) || !Number.isInteger(end)) continue;
@@ -313,9 +335,12 @@ function toGrammarExample(
     // An unrecognised role is dropped to neutral rather than passed through:
     // the mark is still correct, only its class is unknown here.
     const role = span.role && MARK_ROLES.has(span.role) ? (span.role as MarkRole) : '';
-    marks.push({ start, end, role });
+    // Anything that is not explicitly support is the point of the example.
+    // Defaulting the other way would quietly demote every existing mark.
+    const tier: MarkTier = span.tier === 'support' ? 'support' : 'focus';
+    marks.push({ start, end, role, tier });
   }
-  return { text, note: raw.note ?? '', en: raw.en ?? '', marks };
+  return marks;
 }
 
 function toExplanation(raw: { heading?: string; text?: string }): ExplanationSection {
@@ -394,6 +419,23 @@ export function toGrammarTopic(raw: RawTopic): GrammarTopic {
         asideNote: table.asideNote ?? '',
       };
     }),
+    worked: raw.worked && (raw.worked.sentences ?? []).length > 0
+      ? {
+        sentences: (raw.worked.sentences ?? []).map((item) => ({
+          de: item.de ?? '',
+          en: item.en ?? '',
+          why: item.why ?? '',
+          marks: toMarks(item.de ?? '', item.marks ?? []),
+        })),
+        contrast: raw.worked.contrast && raw.worked.contrast.right
+          ? {
+            wrong: raw.worked.contrast.wrong ?? '',
+            right: raw.worked.contrast.right ?? '',
+            why: raw.worked.contrast.why ?? '',
+          }
+          : null,
+      }
+      : null,
     chooser: raw.chooser && (raw.chooser.steps ?? []).length > 0
       ? {
         title: raw.chooser.title ?? '',

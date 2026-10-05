@@ -60,6 +60,17 @@ python3 app/tools/report_clusters.py --check
 step "Validate content"
 python3 app/tools/validate_content.py
 
+# The annotation gate. validate_content.py checks that a highlight is well
+# formed — in range, sorted, a known word class. It cannot check that a
+# highlight is the *right* one, and the four failures that reached the published
+# app were all of that kind: an example with nothing marked, one alternative of
+# a pair marked and not the other, a mark on a word the topic is not about, a
+# word a topic's own rules name left plain. Those are what this measures, and
+# --check makes each of them an error rather than a number in a report nobody
+# reads.
+step "Audit the grammar highlighting"
+python3 app/tools/audit_grammar.py --check
+
 # The validator is the last thing between a bad card and the published app.
 # These are its own rules, on fixtures.
 step "Check the validator still enforces its rules"

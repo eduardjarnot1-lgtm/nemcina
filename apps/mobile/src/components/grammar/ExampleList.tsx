@@ -54,7 +54,8 @@ import { Animated, duration, easing, useReducedMotion } from '../../motion';
  */
 export function ExampleList({ examples }: { examples: readonly GrammarExample[] }) {
   const used = legendFor(examples);
-  const anyNeutral = examples.some((e) => e.marks.some((m) => !m.role));
+  const anyNeutral = examples.some((e) => e.marks.some((m) => !m.role && m.tier !== 'support'));
+  const anySupport = examples.some((e) => e.marks.some((m) => m.tier === 'support'));
   return (
     <View style={styles.stack}>
       {examples.map((example, index) => (
@@ -73,6 +74,12 @@ export function ExampleList({ examples }: { examples: readonly GrammarExample[] 
             <View style={styles.legendItem}>
               <View style={[styles.swatch, { backgroundColor: palette.accent }]} />
               <Text style={styles.legendText}>{strings.grammarLegendTaught}</Text>
+            </View>
+          ) : null}
+          {anySupport ? (
+            <View style={styles.legendItem}>
+              <View style={[styles.swatch, styles.swatchSupport]} />
+              <Text style={styles.legendText}>{strings.grammarLegendSupport}</Text>
             </View>
           ) : null}
         </View>
@@ -157,7 +164,8 @@ const DIMMED = 0.28;
 
 /** The classes this topic's examples actually use, in a fixed order. */
 const ORDER: readonly MarkRole[] = [
-  'conj', 'verb', 'prep', 'article', 'pronoun', 'adjective', 'q', 'noun',
+  'conj', 'verb', 'aux', 'participle', 'prefix', 'prep', 'article', 'pronoun',
+  'adjective', 'adverb', 'stem', 'ending', 'q', 'noun',
 ];
 
 function legendFor(examples: readonly GrammarExample[]): MarkRole[] {
@@ -190,10 +198,29 @@ function pieces(example: GrammarExample) {
   return out;
 }
 
+/**
+ * How a mark is drawn, by class and by whether it is the point.
+ *
+ * Focus is filled: the word sits in its class's wash and takes its ink.
+ * Support is outlined instead — same ink, no fill, a rule underneath — because
+ * a rule about a relationship has to show both ends without claiming they are
+ * equally the lesson. "mit governs the dative" is a claim about `mit`; `dem` is
+ * the evidence for it, and drawing them identically makes the sentence one
+ * colour and the claim invisible.
+ *
+ * The difference is weight and underline as well as fill, so it survives
+ * greyscale; the legend names which classes are on the page, and the note under
+ * a supporting mark's example says what it is supporting.
+ */
 function markStyle(mark: GrammarMark) {
-  if (!mark.role) return styles.marked;
+  const support = mark.tier === 'support';
+  if (!mark.role) {
+    return support ? [styles.marked, styles.support, { color: palette.accent }] : styles.marked;
+  }
   const tone = roleTone[mark.role];
-  return [styles.marked, { color: tone.ink, backgroundColor: tone.wash }];
+  return support
+    ? [styles.marked, styles.support, { color: tone.ink, borderBottomColor: tone.ink }]
+    : [styles.marked, { color: tone.ink, backgroundColor: tone.wash }];
 }
 
 const styles = StyleSheet.create({
@@ -224,6 +251,12 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     backgroundColor: palette.accentSoft,
   },
+  support: {
+    backgroundColor: 'transparent',
+    fontWeight: '600',
+    borderBottomWidth: 1.5,
+    borderStyle: 'dotted',
+  },
   legend: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -234,5 +267,12 @@ const styles = StyleSheet.create({
   },
   legendItem: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
   swatch: { width: 9, height: 9, borderRadius: 2 },
+  swatchSupport: {
+    backgroundColor: 'transparent',
+    borderBottomWidth: 1.5,
+    borderBottomColor: palette.textMuted,
+    borderStyle: 'dotted',
+    height: 9,
+  },
   legendText: { ...typeScale.caption, color: palette.textMuted },
 });

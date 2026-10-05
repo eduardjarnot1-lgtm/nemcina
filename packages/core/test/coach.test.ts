@@ -138,7 +138,7 @@ describe('counting what the learner did', () => {
         { id: 'g1-e1', kind: 'typing', prompt: '', text: '', options: [], answers: ['x'], hint: '', explanation: '', fromSource: false },
         { id: 'g1-e2', kind: 'typing', prompt: '', text: '', options: [], answers: ['y'], hint: '', explanation: '', fromSource: false },
       ],
-      prerequisites: [], chooser: null, difficulty: 1, category: 'Verben', formulas: [], tables: [], comparison: null, source: { title: 't', page: 0 },
+      prerequisites: [], chooser: null, worked: null, difficulty: 1, category: 'Verben', formulas: [], tables: [], comparison: null, source: { title: 't', page: 0 },
     };
     const evidence = buildEvidence({
       items, topics: [topic],
