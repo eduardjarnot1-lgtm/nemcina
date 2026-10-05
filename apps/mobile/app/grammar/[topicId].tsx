@@ -17,6 +17,7 @@ import { GrammarFormula } from '../../src/components/grammar/GrammarFormula';
 import { CommonMistake } from '../../src/components/grammar/CommonMistake';
 import { GrammarComparison } from '../../src/components/grammar/GrammarComparison';
 import { GrammarChooser } from '../../src/components/grammar/GrammarChooser';
+import { WorkedExamples } from '../../src/components/grammar/WorkedExamples';
 import { LeadExample } from '../../src/components/grammar/LeadExample';
 import { Prerequisites } from '../../src/components/grammar/Prerequisites';
 import { familyTone } from '../../src/grammarTheme';
@@ -169,6 +170,18 @@ export default function GrammarTopicScreen() {
                 {strings.grammarVersus(topic.comparison.left, topic.comparison.right)}
               </Text>
               <GrammarComparison comparison={topic.comparison} />
+            </Card>
+          </Reveal>
+        ) : null}
+
+        {/* Written here, with a reason attached to each form — kept in its own
+            card so the source document's examples below stay clearly the
+            source's, which is what the attribution at the foot refers to. */}
+        {topic.worked ? (
+          <Reveal index={3}>
+            <Card style={styles.block}>
+              <Text style={styles.sectionLabel}>{strings.grammarWorkedExamples}</Text>
+              <WorkedExamples worked={topic.worked} />
             </Card>
           </Reveal>
         ) : null}

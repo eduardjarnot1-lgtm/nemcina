@@ -17,8 +17,12 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-# Kept in step with MARK_ROLES in build_grammar.py.
-MARK_ROLES = {"conj", "verb", "prep", "q", "article", "pronoun", "adjective", "noun"}
+# Imported rather than copied. This list was duplicated here with a comment
+# saying to keep it in step, and it drifted the first time a role was added:
+# four new classes made 229 valid highlights look like unknown ones. A comment
+# is not a mechanism.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_grammar import MARK_ROLES  # noqa: E402
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 VOCABULARY = DATA / "vocabulary.json"
@@ -438,35 +442,54 @@ def validate_grammar(report: Report) -> None:
     # distinction, and there is none — the second one had simply not been
     # written yet. Two spellings of the same word must agree too, so the check
     # folds case.
+    # What is checked is roled-versus-bare, not one named class versus another.
+    # The same string genuinely is a different class in different sentences —
+    # "verkauft" is the finite verb in "verkauft man" and the participle in
+    # "werden verkauft", and a topic contrasting active with passive has to be
+    # able to say so. Forcing one treatment there would make the page agree with
+    # itself by stating something false.
+    #
+    # A word that is classed in one example and bare in another is the real
+    # defect: those two render differently with no difference behind them,
+    # because the bare one is simply an annotation nobody has written yet.
     for t in topics:
         treatment: dict = defaultdict(set)
         for example in t["examples"]:
             for span in example.get("marks", []):
-                if not isinstance(span, dict):
+                if not isinstance(span, dict) or span.get("tier") == "support":
                     continue
                 word = example.get("de", "")[span.get("start", 0):span.get("end", 0)]
-                treatment[word.lower()].add(span.get("role", ""))
-        for word, roles in treatment.items():
-            report.check(len(roles) == 1,
-                         f"grammar {t['id']}: {word!r} is marked {sorted(roles)} in the same "
-                         f"topic — one word, one treatment")
+                treatment[word.lower()].add(bool(span.get("role")))
+        for word, classed in treatment.items():
+            report.check(len(classed) == 1,
+                         f"grammar {t['id']}: {word!r} is highlighted with a word class in one "
+                         f"example and without one in another — the unclassed one is an "
+                         f"annotation that has not been written yet")
 
-    # All or nothing, per topic. A topic that names the class of one mark names
-    # the class of all of them. Half-classed was the state this whole check
-    # exists because of: a page where some highlights carry a colour that means
-    # something and others carry one that does not, with no way to tell which is
-    # which. If no class in the set fits a mark, the mark should not be there —
-    # a place name in a topic about prepositions teaches nothing.
+    # All or nothing, per topic — among the marks that claim to be the lesson.
+    # A topic that names the class of one focus mark names the class of all of
+    # them. Half-classed was the state this check exists because of: a page
+    # where some highlights carry a colour that means something and others carry
+    # one that does not, with no way to tell which is which.
+    #
+    # Support marks are exempt, and the reason is not convenience. That failure
+    # was two marks looking alike while meaning different things. A support mark
+    # does not look like a focus mark — no fill, a dotted rule under it — and the
+    # legend names it in words. An unclassed supporting mark says "this is the
+    # other end of the relationship", which is true and complete without a word
+    # class; `zu` in `zu lösen` has no class in this set, and inventing one for
+    # it would be the small lie the set exists to avoid.
     for t in topics:
         marks = [span for example in t["examples"] for span in example.get("marks", [])
-                 if isinstance(span, dict)]
+                 if isinstance(span, dict) and span.get("tier") != "support"]
         named = [m for m in marks if m.get("role")]
         bare = [m for m in marks if not m.get("role")]
         if named and bare:
             words = sorted({example.get("de", "")[span["start"]:span["end"]]
                             for example in t["examples"]
                             for span in example.get("marks", [])
-                            if isinstance(span, dict) and not span.get("role")})
+                            if isinstance(span, dict) and not span.get("role")
+                            and span.get("tier") != "support"})
             report.check(False,
                          f"grammar {t['id']}: names a word class for {len(named)} mark(s) "
                          f"but not for {words[:5]} — classed and unclassed on one page "
@@ -488,6 +511,53 @@ def validate_grammar(report: Report) -> None:
     print(f"grammar: {grammar_formulas[0]} construction shapes")
     print("grammar: highlight roles " + (", ".join(
         f"{name} {count}" for name, count in grammar_roles.most_common()) or "none"))
+
+
+def validate_annotations(report: Report) -> None:
+    """Highlighting and worked examples, against the text they describe.
+
+    A span that does not fit its sentence renders as a highlight in the wrong
+    place, which teaches the wrong word — worse than no highlight, and invisible
+    unless something checks. A worked example that reproduces the answer to one
+    of the topic's own exercises spends that exercise before the learner reaches
+    it.
+    """
+    database = json.loads(GRAMMAR.read_text(encoding="utf-8"))
+
+    for topic in database["topics"]:
+        tid = topic["id"]
+
+        for example in topic.get("examples", []):
+            text = example.get("de", "")
+            last = -1
+            for mark in example.get("marks", []):
+                start, end = mark.get("start", -1), mark.get("end", -1)
+                report.check(0 <= start < end <= len(text),
+                             f"{tid}: a mark [{start}:{end}] does not fit {text[:40]!r}")
+                report.check(start >= last,
+                             f"{tid}: marks overlap or are unsorted in {text[:40]!r}")
+                report.check(mark.get("tier") in ("focus", "support"),
+                             f"{tid}: a mark has an unusable tier {mark.get('tier')!r}")
+                last = max(last, end)
+
+        worked = topic.get("worked")
+        if not worked:
+            continue
+        # Whole-sentence answers only: a one-word answer like "dem" is a form,
+        # not a solution, and a worked example is entitled to contain it.
+        answers = {a.strip().lower().rstrip(".")
+                   for exercise in topic.get("exercises", [])
+                   for a in exercise.get("answers", [])
+                   if len(a.strip().split()) >= 3}
+        for sentence in worked["sentences"]:
+            report.check(bool(sentence.get("why", "").strip()),
+                         f"{tid}: a worked example gives no reason")
+            report.check(sentence["de"].strip().lower().rstrip(".") not in answers,
+                         f"{tid}: the worked example {sentence['de'][:40]!r} is the answer to "
+                         f"one of this topic's own exercises")
+            for mark in sentence.get("marks", []):
+                report.check(0 <= mark["start"] < mark["end"] <= len(sentence["de"]),
+                             f"{tid}: a worked mark does not fit {sentence['de'][:40]!r}")
 
 
 def validate_clusters(report: Report) -> None:
@@ -549,6 +619,7 @@ def main() -> int:
     report = Report()
     validate_vocabulary(report)
     validate_grammar(report)
+    validate_annotations(report)
     validate_clusters(report)
 
     print(f"\n{report.checks} checks run")

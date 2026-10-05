@@ -109,13 +109,22 @@ class GrammarRules(unittest.TestCase):
              "marks": [{"start": 3, "end": 9, "role": ""}]},
         ])])
 
-    def test_one_word_marked_two_ways_in_one_topic_fails(self):
-        self.assertFails([topic(examples=[
-            {"de": "weil es regnet", "en": "because it rains", "note": "",
-             "marks": [{"start": 0, "end": 4, "role": "conj"}]},
-            {"de": "Weil es schneit", "en": "because it snows", "note": "",
-             "marks": [{"start": 0, "end": 4, "role": "verb"}]},
-        ])], "one word, one treatment")
+    def test_one_word_with_two_classes_in_one_topic_passes(self):
+        # This used to be an error, under a rule called "one word, one
+        # treatment". The rule was wrong: in the active/passive topic
+        # "verkauft" is the conjugated verb of `verkauft man` and the participle
+        # of `werden verkauft`, which is not an inconsistency but the entire
+        # point of the page. Forbidding it forced one of the two to be labelled
+        # falsely. What the class has to be true to is the sentence it is in,
+        # so the check above — classed against unclassed, where the reader
+        # cannot tell which marks mean something — is the one that remains.
+        self.assertPasses([topic(examples=[
+            {"de": "Im Shop verkauft man Bücher", "en": "In the shop they sell books",
+             "note": "", "marks": [{"start": 8, "end": 16, "role": "verb"}]},
+            {"de": "Bücher werden verkauft", "en": "Books are sold", "note": "",
+             "marks": [{"start": 7, "end": 13, "role": "aux"},
+                       {"start": 14, "end": 22, "role": "participle"}]},
+        ])])
 
     def test_unknown_word_class_fails(self):
         # An unknown class renders as neutral, which looks like a mark that was

@@ -1,837 +1,2028 @@
 {
- "note": "Paradigm tables, written for this project.",
- "why": "The grammar corpus explains these systems in prose. Exactly one of its 626 rules is a full six-person paradigm, so a table cannot be extracted from it. These were written here instead, from the closed paradigms of standard German — the article, pronoun and adjective-ending systems are fixed, finite and checkable against any reference grammar, which is why they can be written without inventing anything. Anything that is a matter of usage rather than a closed paradigm is NOT here: it stays prose.",
- "provenance": "authored-for-this-project",
- "tables": {
-  "g-daf-a1-definite-articles-in-the-nominative-and-": [
-   {
-    "caption": "Definite article",
-    "columns": [
-     "",
-     "masculine",
-     "neuter",
-     "feminine",
-     "plural"
+  "note": "Paradigm tables, written for this project.",
+  "why": "The grammar corpus explains these systems in prose. Exactly one of its 626 rules is a full six-person paradigm, so a table cannot be extracted from it. These were written here instead, from the closed paradigms of standard German — the article, pronoun and adjective-ending systems are fixed, finite and checkable against any reference grammar, which is why they can be written without inventing anything. Anything that is a matter of usage rather than a closed paradigm is NOT here: it stays prose.",
+  "provenance": "authored-for-this-project",
+  "tables": {
+    "g-daf-a1-definite-articles-in-the-nominative-and-": [
+      {
+        "caption": "Definite article",
+        "columns": [
+          "",
+          "masculine",
+          "neuter",
+          "feminine",
+          "plural"
+        ],
+        "rows": [
+          [
+            "Nominativ",
+            "der",
+            "das",
+            "die",
+            "die"
+          ],
+          [
+            "Akkusativ",
+            "den",
+            "das",
+            "die",
+            "die"
+          ]
+        ],
+        "emphasis": [
+          [
+            1,
+            1
+          ]
+        ],
+        "emphasisNote": "Only the masculine changes in the accusative: der becomes den. Every other box is the same in both rows."
+      }
     ],
-    "rows": [
-     [
-      "Nominativ",
-      "der",
-      "das",
-      "die",
-      "die"
-     ],
-     [
-      "Akkusativ",
-      "den",
-      "das",
-      "die",
-      "die"
-     ]
+    "g-daf-a1-indefinite-articles-and-negative-article": [
+      {
+        "caption": "ein- and kein-",
+        "columns": [
+          "",
+          "masculine",
+          "neuter",
+          "feminine",
+          "plural"
+        ],
+        "rows": [
+          [
+            "Nominativ",
+            "ein / kein",
+            "ein / kein",
+            "eine / keine",
+            "— / keine"
+          ],
+          [
+            "Akkusativ",
+            "einen / keinen",
+            "ein / kein",
+            "eine / keine",
+            "— / keine"
+          ]
+        ],
+        "emphasis": [
+          [
+            1,
+            1
+          ]
+        ],
+        "emphasisNote": "Again only the masculine changes: ein becomes einen, kein becomes keinen.",
+        "key": [
+          {
+            "symbol": "—",
+            "means": "no word here — German has no plural of ein, so the plural uses kein on its own"
+          },
+          {
+            "symbol": "ein / kein",
+            "means": "the indefinite article, then the negative one: ein Hund, kein Hund"
+          }
+        ]
+      }
     ],
-    "emphasis": [
-     [
-      1,
-      1
-     ]
+    "g-daf-a1-personal-pronouns-in-the-accusative-case": [
+      {
+        "caption": "Personal pronouns",
+        "columns": [
+          "",
+          "Nominativ",
+          "Akkusativ"
+        ],
+        "rows": [
+          [
+            "1st sg.",
+            "ich",
+            "mich"
+          ],
+          [
+            "2nd sg.",
+            "du",
+            "dich"
+          ],
+          [
+            "3rd sg. m.",
+            "er",
+            "ihn"
+          ],
+          [
+            "3rd sg. f.",
+            "sie",
+            "sie"
+          ],
+          [
+            "3rd sg. n.",
+            "es",
+            "es"
+          ],
+          [
+            "1st pl.",
+            "wir",
+            "uns"
+          ],
+          [
+            "2nd pl.",
+            "ihr",
+            "euch"
+          ],
+          [
+            "3rd pl.",
+            "sie",
+            "sie"
+          ],
+          [
+            "polite",
+            "Sie",
+            "Sie"
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            2
+          ]
+        ],
+        "emphasisNote": "These five change in the accusative. sie, es and Sie are spelled the same in both columns.",
+        "key": [
+          {
+            "symbol": "sg. / pl.",
+            "means": "singular (one) and plural (more than one)"
+          },
+          {
+            "symbol": "polite",
+            "means": "Sie, the formal \"you\" — always capitalised"
+          }
+        ]
+      }
     ],
-    "emphasisNote": "Only the masculine changes in the accusative: der becomes den. Every other box is the same in both rows."
-   }
-  ],
-  "g-daf-a1-indefinite-articles-and-negative-article": [
-   {
-    "caption": "ein- and kein-",
-    "columns": [
-     "",
-     "masculine",
-     "neuter",
-     "feminine",
-     "plural"
+    "g-daf-a1-possessive-articles-in-nominative": [
+      {
+        "caption": "Possessive article, nominative",
+        "columns": [
+          "",
+          "masculine / neuter",
+          "feminine / plural"
+        ],
+        "rows": [
+          [
+            "ich",
+            "mein",
+            "meine"
+          ],
+          [
+            "du",
+            "dein",
+            "deine"
+          ],
+          [
+            "er / es",
+            "sein",
+            "seine"
+          ],
+          [
+            "sie",
+            "ihr",
+            "ihre"
+          ],
+          [
+            "wir",
+            "unser",
+            "unsere"
+          ],
+          [
+            "ihr",
+            "euer",
+            "eure"
+          ],
+          [
+            "sie / Sie",
+            "ihr / Ihr",
+            "ihre / Ihre"
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            2
+          ]
+        ],
+        "emphasisNote": "The feminine and plural form is the masculine one plus -e. Only euer is irregular: it drops its second e to give eure.",
+        "key": [
+          {
+            "symbol": "ihr / Ihr",
+            "means": "lower case is \"her\" or \"their\"; capitalised is the polite \"your\""
+          }
+        ]
+      }
     ],
-    "rows": [
-     [
-      "Nominativ",
-      "ein / kein",
-      "ein / kein",
-      "eine / keine",
-      "— / keine"
-     ],
-     [
-      "Akkusativ",
-      "einen / keinen",
-      "ein / kein",
-      "eine / keine",
-      "— / keine"
-     ]
+    "g-daf-a2-inflections-with-the-definite-article": [
+      {
+        "caption": "Definite article in all four cases",
+        "columns": [
+          "",
+          "masculine",
+          "neuter",
+          "feminine",
+          "plural"
+        ],
+        "rows": [
+          [
+            "Nominativ",
+            "der",
+            "das",
+            "die",
+            "die"
+          ],
+          [
+            "Akkusativ",
+            "den",
+            "das",
+            "die",
+            "die"
+          ],
+          [
+            "Dativ",
+            "dem",
+            "dem",
+            "der",
+            "den + -n"
+          ],
+          [
+            "Genitiv",
+            "des + -(e)s",
+            "des + -(e)s",
+            "der",
+            "der"
+          ]
+        ],
+        "emphasis": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "emphasisNote": "The dative row is this lesson: dem, dem, der, den.",
+        "asideRows": [
+          3
+        ],
+        "asideNote": "The genitive is shown for completeness; it is taught in a later topic.",
+        "key": [
+          {
+            "symbol": "den + -n",
+            "means": "the article den, and the noun itself takes an extra -n: den Söhnen"
+          },
+          {
+            "symbol": "des + -(e)s",
+            "means": "the article des, and the noun takes -s or -es: des Sohnes, des Kindes"
+          }
+        ]
+      }
     ],
-    "emphasis": [
-     [
-      1,
-      1
-     ]
+    "g-daf-a2-inflections-with-the-indefinite-article-": [
+      {
+        "caption": "ein- / kein- / mein-, all four cases",
+        "columns": [
+          "",
+          "masculine",
+          "neuter",
+          "feminine",
+          "plural"
+        ],
+        "rows": [
+          [
+            "Nominativ",
+            "ein",
+            "ein",
+            "eine",
+            "keine"
+          ],
+          [
+            "Akkusativ",
+            "einen",
+            "ein",
+            "eine",
+            "keine"
+          ],
+          [
+            "Dativ",
+            "einem",
+            "einem",
+            "einer",
+            "keinen + -n"
+          ],
+          [
+            "Genitiv",
+            "eines + -(e)s",
+            "eines + -(e)s",
+            "einer",
+            "keiner"
+          ]
+        ],
+        "emphasis": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "emphasisNote": "The dative row is this lesson: einem, einem, einer, keinen.",
+        "asideRows": [
+          3
+        ],
+        "asideNote": "The genitive is shown for completeness; it is taught in a later topic.",
+        "key": [
+          {
+            "symbol": "plural column",
+            "means": "ein has no plural, so the plural forms shown are kein- (and mein-, dein- … behave the same way)"
+          },
+          {
+            "symbol": "keinen + -n",
+            "means": "the article keinen, and the noun takes an extra -n: keinen Söhnen"
+          },
+          {
+            "symbol": "eines + -(e)s",
+            "means": "the article eines, and the noun takes -s or -es: eines Sohnes"
+          }
+        ]
+      }
     ],
-    "emphasisNote": "Again only the masculine changes: ein becomes einen, kein becomes keinen.",
-    "key": [
-     {
-      "symbol": "—",
-      "means": "no word here — German has no plural of ein, so the plural uses kein on its own"
-     },
-     {
-      "symbol": "ein / kein",
-      "means": "the indefinite article, then the negative one: ein Hund, kein Hund"
-     }
+    "g-daf-a2-personal-pronouns-in-nominative-accusati": [
+      {
+        "caption": "Personal pronouns",
+        "columns": [
+          "",
+          "Nominativ",
+          "Akkusativ",
+          "Dativ"
+        ],
+        "rows": [
+          [
+            "1st sg.",
+            "ich",
+            "mich",
+            "mir"
+          ],
+          [
+            "2nd sg.",
+            "du",
+            "dich",
+            "dir"
+          ],
+          [
+            "3rd sg. m.",
+            "er",
+            "ihn",
+            "ihm"
+          ],
+          [
+            "3rd sg. f.",
+            "sie",
+            "sie",
+            "ihr"
+          ],
+          [
+            "3rd sg. n.",
+            "es",
+            "es",
+            "ihm"
+          ],
+          [
+            "1st pl.",
+            "wir",
+            "uns",
+            "uns"
+          ],
+          [
+            "2nd pl.",
+            "ihr",
+            "euch",
+            "euch"
+          ],
+          [
+            "3rd pl.",
+            "sie",
+            "sie",
+            "ihnen"
+          ],
+          [
+            "polite",
+            "Sie",
+            "Sie",
+            "Ihnen"
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            3
+          ]
+        ],
+        "emphasisNote": "The dative column is what this topic adds. uns and euch are the same in the accusative and the dative.",
+        "key": [
+          {
+            "symbol": "sg. / pl.",
+            "means": "singular (one) and plural (more than one)"
+          },
+          {
+            "symbol": "polite",
+            "means": "Sie, the formal \"you\" — always capitalised"
+          }
+        ]
+      }
+    ],
+    "g-daf-a2-adjectives-after-the-definite-article": [
+      {
+        "caption": "Adjective ending after der / das / die",
+        "columns": [
+          "",
+          "masculine",
+          "neuter",
+          "feminine",
+          "plural"
+        ],
+        "rows": [
+          [
+            "Nominativ",
+            "-e",
+            "-e",
+            "-e",
+            "-en"
+          ],
+          [
+            "Akkusativ",
+            "-en",
+            "-e",
+            "-e",
+            "-en"
+          ],
+          [
+            "Dativ",
+            "-en",
+            "-en",
+            "-en",
+            "-en"
+          ],
+          [
+            "Genitiv",
+            "-en",
+            "-en",
+            "-en",
+            "-en"
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "emphasisNote": "These five boxes take -e. Everything else takes -en.",
+        "key": [
+          {
+            "symbol": "-e",
+            "means": "the short ending, e.g. der alte Mann"
+          },
+          {
+            "symbol": "-en",
+            "means": "the long ending, e.g. den alten Mann"
+          }
+        ]
+      }
+    ],
+    "g-daf-a2-adjectives-after-ein-kein-mein": [
+      {
+        "caption": "Adjective endings after ein- / kein- / mein-",
+        "columns": [
+          "",
+          "masculine",
+          "neuter",
+          "feminine",
+          "plural"
+        ],
+        "rows": [
+          [
+            "Nominativ",
+            "-er",
+            "-es",
+            "-e",
+            "-en"
+          ],
+          [
+            "Akkusativ",
+            "-en",
+            "-es",
+            "-e",
+            "-en"
+          ],
+          [
+            "Dativ",
+            "-en",
+            "-en",
+            "-en",
+            "-en"
+          ],
+          [
+            "Genitiv",
+            "-en",
+            "-en",
+            "-en",
+            "-en"
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "emphasisNote": "These three boxes are the whole difference from the der/das/die table. ein does not show the gender, so the adjective does it instead: ein guter Mann, ein gutes Haus.",
+        "key": [
+          {
+            "symbol": "-er / -es",
+            "means": "the ending der or das would have carried, moved onto the adjective"
+          }
+        ]
+      }
+    ],
+    "g-daf-a2-adjectives-before-nouns-without-an-artic": [
+      {
+        "caption": "Adjective endings with no article",
+        "columns": [
+          "",
+          "masculine",
+          "neuter",
+          "feminine",
+          "plural"
+        ],
+        "rows": [
+          [
+            "Nominativ",
+            "-er",
+            "-es",
+            "-e",
+            "-e"
+          ],
+          [
+            "Akkusativ",
+            "-en",
+            "-es",
+            "-e",
+            "-e"
+          ],
+          [
+            "Dativ",
+            "-em",
+            "-em",
+            "-er",
+            "-en"
+          ],
+          [
+            "Genitiv",
+            "-en",
+            "-en",
+            "-er",
+            "-er"
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "emphasisNote": "With no article in front, the adjective takes the ending the article would have had: guter Wein, gutes Bier, mit gutem Wein.",
+        "key": [
+          {
+            "symbol": "-er, -es, -em",
+            "means": "article endings doing duty on the adjective, because there is no article to carry them"
+          }
+        ]
+      }
+    ],
+    "g-daf-a1-regular-verbs-in-the-present-tense": [
+      {
+        "caption": "Present tense: the six endings, and the two spelling rules",
+        "columns": [
+          "",
+          "ending",
+          "kommen",
+          "arbeiten",
+          "heißen"
+        ],
+        "rows": [
+          [
+            "ich",
+            "-e",
+            "komme",
+            "arbeite",
+            "heiße"
+          ],
+          [
+            "du",
+            "-st",
+            "kommst",
+            "arbeitest",
+            "heißt"
+          ],
+          [
+            "er / sie / es",
+            "-t",
+            "kommt",
+            "arbeitet",
+            "heißt"
+          ],
+          [
+            "wir",
+            "-en",
+            "kommen",
+            "arbeiten",
+            "heißen"
+          ],
+          [
+            "ihr",
+            "-t",
+            "kommt",
+            "arbeitet",
+            "heißt"
+          ],
+          [
+            "sie / Sie",
+            "-en",
+            "kommen",
+            "arbeiten",
+            "heißen"
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "emphasisNote": "The ending column is the pattern: -e, -st, -t, -en, -t, -en. Take the stem (komm-) and add it.",
+        "key": [
+          {
+            "symbol": "arbeiten",
+            "means": "stem ends in -t or -d, so an extra -e goes in before the ending: du arbeitest, not du arbeitst"
+          },
+          {
+            "symbol": "heißen",
+            "means": "stem ends in -ß, -s or -z, so the du-ending loses its -s: du heißt, not du heißst"
+          }
+        ]
+      }
+    ],
+    "g-l06-3": [
+      {
+        "caption": "Which reference word, and what it points at",
+        "columns": [
+          "expression",
+          "points back at",
+          "meaning / use",
+          "example",
+          "translation"
+        ],
+        "rows": [
+          [
+            "das",
+            "a whole statement",
+            "the thing just said, treated as one thing",
+            "Das kannte ich so nicht.",
+            "I did not know it like that."
+          ],
+          [
+            "dem",
+            "a dative object",
+            "after verbs that take the dative: zustimmen, widersprechen, folgen",
+            "Dem stimme ich zu.",
+            "I agree with that."
+          ],
+          [
+            "da",
+            "a place or a situation",
+            "there, in that situation",
+            "Da habe ich immer Ansprechpartner gefunden.",
+            "That is where I always found someone to turn to."
+          ],
+          [
+            "stattdessen",
+            "what was just said",
+            "instead — the first thing does not happen, this does",
+            "Stattdessen lernen wir in den Ferien.",
+            "Instead we study in the holidays."
+          ],
+          [
+            "dafür",
+            "what was just said",
+            "in return — a compensation, not a replacement",
+            "Dafür lernen wir in den Ferien umso mehr.",
+            "In return we study all the more in the holidays."
+          ],
+          [
+            "dadurch",
+            "a means or a cause",
+            "by that / because of that",
+            "Dadurch bleibt wenig Energie.",
+            "That leaves little energy."
+          ],
+          [
+            "dementsprechend",
+            "a consequence",
+            "accordingly — in keeping with what was said",
+            "Dementsprechend plant man anders.",
+            "One plans differently accordingly."
+          ],
+          [
+            "infolgedessen",
+            "a consequence",
+            "consequently — it follows in time, as an effect",
+            "Infolgedessen fehlt die Zeit.",
+            "Consequently there is no time."
+          ],
+          [
+            "demzufolge",
+            "a consequence",
+            "according to that — drawing a conclusion from it",
+            "Demzufolge braucht man Weiterbildung.",
+            "It follows that further training is needed."
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "emphasisNote": "The first three point back at a thing, a case or a place. The rest join one clause to the next.",
+        "key": [
+          {
+            "symbol": "stattdessen vs dafür",
+            "means": "stattdessen replaces (the first thing does not happen); dafür compensates (it still happened, and this makes up for it). They are not interchangeable."
+          },
+          {
+            "symbol": "dementsprechend vs infolgedessen vs demzufolge",
+            "means": "dementsprechend = in keeping with it; infolgedessen = as an effect of it; demzufolge = concluding from it. All three translate loosely as “as a result”, which is why they get confused."
+          }
+        ]
+      }
+    ],
+    "g-daf-a1-perfect-regular-verbs": [
+      {
+        "caption": "Building the participle, and choosing haben or sein",
+        "columns": [
+          "verb",
+          "participle",
+          "auxiliary",
+          "example"
+        ],
+        "rows": [
+          [
+            "machen",
+            "gemacht",
+            "haben",
+            "Ich habe die Arbeit gemacht."
+          ],
+          [
+            "arbeiten",
+            "gearbeitet",
+            "haben",
+            "Ich habe viel gearbeitet."
+          ],
+          [
+            "kaufen",
+            "gekauft",
+            "haben",
+            "Wir haben Brot gekauft."
+          ],
+          [
+            "reisen",
+            "gereist",
+            "sein",
+            "Ich bin nach Berlin gereist."
+          ],
+          [
+            "wandern",
+            "gewandert",
+            "sein",
+            "Wir sind im Harz gewandert."
+          ],
+          [
+            "passieren",
+            "passiert",
+            "sein",
+            "Was ist passiert?"
+          ]
+        ],
+        "emphasis": [
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "emphasisNote": "These three take sein, not haben: the verb describes movement from one place to another, or a change of state.",
+        "key": [
+          {
+            "symbol": "ge- … -t",
+            "means": "a regular participle is ge + the verb stem + t: machen → gemacht"
+          },
+          {
+            "symbol": "passiert",
+            "means": "verbs ending in -ieren take no ge-: passieren → passiert, studieren → studiert"
+          }
+        ]
+      }
+    ],
+    "g-daf-a2-modal-verbs": [
+      {
+        "caption": "The six modal verbs, now and in the past",
+        "columns": [
+          "",
+          "können",
+          "müssen",
+          "dürfen",
+          "wollen",
+          "sollen",
+          "mögen"
+        ],
+        "rows": [
+          [
+            "ich",
+            "kann",
+            "muss",
+            "darf",
+            "will",
+            "soll",
+            "mag"
+          ],
+          [
+            "du",
+            "kannst",
+            "musst",
+            "darfst",
+            "willst",
+            "sollst",
+            "magst"
+          ],
+          [
+            "er / sie / es",
+            "kann",
+            "muss",
+            "darf",
+            "will",
+            "soll",
+            "mag"
+          ],
+          [
+            "wir / sie / Sie",
+            "können",
+            "müssen",
+            "dürfen",
+            "wollen",
+            "sollen",
+            "mögen"
+          ],
+          [
+            "ihr",
+            "könnt",
+            "müsst",
+            "dürft",
+            "wollt",
+            "sollt",
+            "mögt"
+          ],
+          [
+            "past: ich",
+            "konnte",
+            "musste",
+            "durfte",
+            "wollte",
+            "sollte",
+            "mochte"
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        "emphasisNote": "ich and er/sie/es are identical, and neither takes an ending — this is the one place a German verb does not add -e or -t.",
+        "key": [
+          {
+            "symbol": "past: ich",
+            "means": "the simple past (Präteritum). Modal verbs use it far more often than the perfect, and the umlaut disappears: müssen → musste"
+          }
+        ]
+      }
+    ],
+    "g-daf-a2-dual-case-prepositions-an-auf-in-ber-unt": [
+      {
+        "caption": "The nine prepositions that take two cases",
+        "columns": [
+          "preposition",
+          "wohin? → accusative",
+          "wo? → dative",
+          "meaning"
+        ],
+        "rows": [
+          [
+            "an",
+            "an die Wand",
+            "an der Wand",
+            "on / at a vertical surface"
+          ],
+          [
+            "auf",
+            "auf den Tisch",
+            "auf dem Tisch",
+            "on a horizontal surface"
+          ],
+          [
+            "in",
+            "in die Stadt",
+            "in der Stadt",
+            "in, into"
+          ],
+          [
+            "über",
+            "über den Tisch",
+            "über dem Tisch",
+            "above, over"
+          ],
+          [
+            "unter",
+            "unter den Tisch",
+            "unter dem Tisch",
+            "under"
+          ],
+          [
+            "vor",
+            "vor das Haus",
+            "vor dem Haus",
+            "in front of"
+          ],
+          [
+            "hinter",
+            "hinter das Haus",
+            "hinter dem Haus",
+            "behind"
+          ],
+          [
+            "neben",
+            "neben den Stuhl",
+            "neben dem Stuhl",
+            "next to"
+          ],
+          [
+            "zwischen",
+            "zwischen die Stühle",
+            "zwischen den Stühlen",
+            "between"
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            1
+          ]
+        ],
+        "emphasisNote": "Accusative answers wohin? — movement to a new place. Dative answers wo? — staying put. The preposition does not change; the article does.",
+        "key": [
+          {
+            "symbol": "wohin?",
+            "means": "where to? Ich hänge das Bild an die Wand. (it moves there)"
+          },
+          {
+            "symbol": "wo?",
+            "means": "where? Das Bild hängt an der Wand. (it is already there)"
+          }
+        ]
+      },
+      {
+        "caption": "Which case does the preposition ask for?",
+        "columns": [
+          "always asks for",
+          "prepositions",
+          "example"
+        ],
+        "rows": [
+          [
+            "accusative",
+            "durch, für, gegen, ohne, um",
+            "Wir gehen durch den Park."
+          ],
+          [
+            "dative",
+            "aus, außer, bei, mit, nach, seit, von, zu",
+            "Ich fahre mit dem Bus."
+          ],
+          [
+            "genitive",
+            "wegen, während, statt, trotz",
+            "Wegen des Wetters bleiben wir zu Hause."
+          ],
+          [
+            "one of two — see the key",
+            "an, auf, in, über, unter, hinter, vor, neben, zwischen",
+            "Ich gehe in die Stadt. · Ich bin in der Stadt."
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "emphasisNote": "Read the article in each example: den, dem, des. The preposition itself never changes its form, so the article is the only place the case is visible. In the last row the same preposition does both jobs, and only the article tells them apart — die Stadt after a movement, der Stadt for a position.",
+        "key": [
+          {
+            "symbol": "one of two — see the key",
+            "means": "these nine take the accusative for a movement towards somewhere (wohin?) and the dative for a position (wo?)"
+          }
+        ]
+      }
+    ],
+    "g-daf-a2-aber-denn-und-sondern-oder-aduso-connect": [
+      {
+        "caption": "Which connector, what it means, and where the verb goes",
+        "columns": [
+          "connector",
+          "meaning",
+          "what follows",
+          "conjugated verb",
+          "example"
+        ],
+        "rows": [
+          [
+            "und",
+            "and",
+            "a main clause",
+            "second, as usual",
+            "Ich lerne Deutsch und ich arbeite."
+          ],
+          [
+            "aber",
+            "but",
+            "a main clause",
+            "second, as usual",
+            "Ich lerne Deutsch, aber ich arbeite auch."
+          ],
+          [
+            "oder",
+            "or",
+            "a main clause",
+            "second, as usual",
+            "Lernst du oder arbeitest du?"
+          ],
+          [
+            "denn",
+            "because",
+            "a main clause",
+            "second, as usual",
+            "Ich lerne, denn ich will studieren."
+          ],
+          [
+            "sondern",
+            "but rather",
+            "a main clause (after a negative)",
+            "second, as usual",
+            "Ich lerne nicht, sondern ich arbeite."
+          ],
+          [
+            "deshalb",
+            "therefore",
+            "a main clause",
+            "straight after deshalb",
+            "Ich will studieren, deshalb lerne ich."
+          ],
+          [
+            "weil",
+            "because",
+            "a subordinate clause",
+            "last",
+            "Ich lerne, weil ich studieren will."
+          ],
+          [
+            "dass",
+            "that",
+            "a subordinate clause",
+            "last",
+            "Ich hoffe, dass ich bald studiere."
+          ]
+        ],
+        "emphasis": [
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            3
+          ]
+        ],
+        "emphasisNote": "Only the last two send the verb to the end. The first five leave the sentence exactly as it was — they sit in front of it without taking a position.",
+        "key": [
+          {
+            "symbol": "second, as usual",
+            "means": "the conjugated verb is the second element, which is where it always is in a main clause"
+          },
+          {
+            "symbol": "straight after deshalb",
+            "means": "deshalb does take a position, so the verb follows it immediately: deshalb lerne ich — not deshalb ich lerne"
+          },
+          {
+            "symbol": "denn vs weil",
+            "means": "same meaning, different grammar: denn leaves the verb in place, weil sends it to the end"
+          }
+        ]
+      }
+    ],
+    "g-daf-a2-expressing-reasons-dependent-clauses-wit": [
+      {
+        "caption": "A main clause and a subordinate clause, side by side",
+        "columns": [
+          "",
+          "main clause",
+          "subordinate clause"
+        ],
+        "rows": [
+          [
+            "opened by",
+            "nothing, or und / aber / denn / oder",
+            "weil, dass, wenn, als, ob …"
+          ],
+          [
+            "conjugated verb",
+            "second element",
+            "at the very end"
+          ],
+          [
+            "plain example",
+            "Ich lerne Deutsch.",
+            "…, weil ich Deutsch lerne."
+          ],
+          [
+            "separable verb",
+            "splits: Ich stehe früh auf.",
+            "stays whole: …, weil ich früh aufstehe."
+          ],
+          [
+            "with a modal verb",
+            "Ich muss arbeiten.",
+            "…, weil ich arbeiten muss."
+          ],
+          [
+            "comma",
+            "—",
+            "always, before the connector"
+          ]
+        ],
+        "emphasis": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "emphasisNote": "Everything in the right-hand column follows from one rule: the conjugated verb goes last. A separable verb joins back up, and a modal verb ends up after its own infinitive.",
+        "key": [
+          {
+            "symbol": "—",
+            "means": "does not apply"
+          }
+        ]
+      },
+      {
+        "caption": "The subordinating conjunctions, and the one thing they all do",
+        "columns": [
+          "conjunction",
+          "meaning",
+          "it answers",
+          "example"
+        ],
+        "rows": [
+          [
+            "weil",
+            "because",
+            "Warum?",
+            "Ich bleibe zu Hause, weil ich krank bin."
+          ],
+          [
+            "dass",
+            "that",
+            "—",
+            "Ich hoffe, dass du kommst."
+          ],
+          [
+            "ob",
+            "whether",
+            "—",
+            "Ich weiß nicht, ob er kommt."
+          ],
+          [
+            "wenn",
+            "if, whenever",
+            "Wann? Unter welcher Bedingung?",
+            "Wenn es regnet, bleiben wir hier."
+          ],
+          [
+            "als",
+            "when (once, in the past)",
+            "Wann?",
+            "Als ich klein war, wohnten wir in Köln."
+          ],
+          [
+            "obwohl",
+            "although",
+            "—",
+            "Ich gehe spazieren, obwohl es regnet."
+          ],
+          [
+            "damit",
+            "so that",
+            "Wozu?",
+            "Ich lerne, damit ich die Prüfung schaffe."
+          ],
+          [
+            "bis",
+            "until",
+            "Wie lange?",
+            "Wir warten, bis der Regen aufhört."
+          ],
+          [
+            "seitdem",
+            "since",
+            "Seit wann?",
+            "Seitdem er hier wohnt, ist er glücklicher."
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            3
+          ]
+        ],
+        "emphasisNote": "In every example the conjugated verb is the last word of its own clause: bin, kommst, kommt, regnet, war, regnet, schaffe, aufhört, wohnt. That is the whole difference between these and the connectors in the aber / denn / und / sondern / oder table, and unlike their meanings it never varies.",
+        "key": [
+          {
+            "symbol": "—",
+            "means": "this conjunction does not answer a question word; it introduces what is hoped, known or doubted"
+          }
+        ]
+      }
+    ],
+    "g-daf-a2-active-passive": [
+      {
+        "caption": "The same event, active and passive",
+        "columns": [
+          "",
+          "active",
+          "passive"
+        ],
+        "rows": [
+          [
+            "example",
+            "Die Eheleute gründen die Fabrik.",
+            "Die Fabrik wird gegründet."
+          ],
+          [
+            "subject",
+            "Die Eheleute — the doer",
+            "Die Fabrik — the thing it happens to"
+          ],
+          [
+            "verb",
+            "gründen",
+            "wird + gegründet"
+          ],
+          [
+            "the doer",
+            "is the subject",
+            "left out, or von den Eheleuten"
+          ],
+          [
+            "what it is for",
+            "who did it",
+            "what was done, when the doer does not matter"
+          ]
+        ],
+        "emphasis": [
+          [
+            2,
+            2
+          ]
+        ],
+        "emphasisNote": "The passive is always werden plus the participle. werden carries the person and the tense; the participle never changes.",
+        "key": [
+          {
+            "symbol": "von + dative",
+            "means": "names the doer when it matters: Die Fabrik wird von den Eheleuten gegründet."
+          },
+          {
+            "symbol": "man",
+            "means": "often used instead of the passive in speech: Im Museumsshop verkauft man Bücher."
+          }
+        ]
+      }
+    ],
+    "g-daf-a2-preterite": [
+      {
+        "caption": "Regular and irregular in the simple past",
+        "columns": [
+          "",
+          "regular: warten",
+          "irregular: laufen",
+          "mixed: rennen"
+        ],
+        "rows": [
+          [
+            "ich",
+            "wartete",
+            "lief",
+            "rannte"
+          ],
+          [
+            "du",
+            "wartetest",
+            "liefst",
+            "ranntest"
+          ],
+          [
+            "er / sie / es",
+            "wartete",
+            "lief",
+            "rannte"
+          ],
+          [
+            "wir / sie / Sie",
+            "warteten",
+            "liefen",
+            "rannten"
+          ],
+          [
+            "ihr",
+            "wartetet",
+            "lieft",
+            "ranntet"
+          ],
+          [
+            "how it is built",
+            "stem + -te",
+            "a changed vowel, no -te",
+            "changed vowel and -te"
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "emphasisNote": "An irregular verb adds nothing at all in the ich and er/sie/es forms — lief, not liefe. That bare form is the clearest sign the verb is irregular.",
+        "key": [
+          {
+            "symbol": "mixed",
+            "means": "takes the regular -te ending but changes its vowel as well: rennen → rannte"
+          }
+        ]
+      },
+      {
+        "caption": "How each tense is built",
+        "columns": [
+          "tense",
+          "how it is built",
+          "example"
+        ],
+        "rows": [
+          [
+            "Präsens",
+            "the stem plus the present ending",
+            "ich arbeite"
+          ],
+          [
+            "Präteritum",
+            "the stem plus -te, or a changed stem with no ending",
+            "ich arbeitete · ich ging"
+          ],
+          [
+            "Perfekt",
+            "haben or sein in position 2, Partizip II at the end",
+            "ich habe gearbeitet · ich bin gegangen"
+          ],
+          [
+            "Plusquamperfekt",
+            "hatte or war in position 2, Partizip II at the end",
+            "ich hatte gearbeitet · ich war gegangen"
+          ],
+          [
+            "Futur I",
+            "werden in position 2, the infinitive at the end",
+            "ich werde arbeiten"
+          ],
+          [
+            "Futur II",
+            "werden in position 2, Partizip II plus haben or sein at the end",
+            "ich werde gearbeitet haben"
+          ]
+        ],
+        "emphasis": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "emphasisNote": "From the Perfekt downwards every tense is built the same way: one conjugated helper verb in position 2, and a verb form that never changes sitting at the end. Only the helper tells you which tense it is — the Partizip II is the same word in all three of the rows that use it.",
+        "key": [
+          {
+            "symbol": "position 2",
+            "means": "the second element of the main clause, which is where a conjugated verb always stands"
+          }
+        ]
+      }
+    ],
+    "g-daf-a1-present-verbs-with-a-stem-vowel-change": [
+      {
+        "caption": "Which vowel changes, and in which two persons",
+        "columns": [
+          "change",
+          "infinitive",
+          "du …",
+          "er / sie / es …",
+          "wir … (no change)"
+        ],
+        "rows": [
+          [
+            "e → ie",
+            "lesen",
+            "du liest",
+            "er liest",
+            "wir lesen"
+          ],
+          [
+            "e → i",
+            "sprechen",
+            "du sprichst",
+            "er spricht",
+            "wir sprechen"
+          ],
+          [
+            "e → i",
+            "treffen",
+            "du triffst",
+            "er trifft",
+            "wir treffen"
+          ],
+          [
+            "a → ä",
+            "fahren",
+            "du fährst",
+            "er fährt",
+            "wir fahren"
+          ],
+          [
+            "a → ä",
+            "schlafen",
+            "du schläfst",
+            "er schläft",
+            "wir schlafen"
+          ],
+          [
+            "au → äu",
+            "laufen",
+            "du läufst",
+            "er läuft",
+            "wir laufen"
+          ],
+          [
+            "no vowel change, but irregular",
+            "wissen",
+            "du weißt",
+            "er weiß",
+            "wir wissen"
+          ]
+        ],
+        "emphasis": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ]
+        ],
+        "emphasisNote": "Only du and er / sie / es change the vowel. wir, ihr and sie / Sie keep the infinitive's vowel, which is why the last column carries no highlight — it is the control, not an omission.",
+        "key": [
+          {
+            "symbol": "e → ie",
+            "means": "the e in the infinitive's stem becomes ie, but only in the du and er / sie / es forms: lesen, du liest"
+          },
+          {
+            "symbol": "wissen",
+            "means": "its stem changes and the ich form takes no ending at all: ich weiß, not ich weiße"
+          }
+        ]
+      }
+    ],
+    "g-daf-a1-perfect-irregular-and-mixed-verbs": [
+      {
+        "caption": "The participle, and which auxiliary goes with it",
+        "columns": [
+          "infinitive",
+          "meaning",
+          "Partizip II",
+          "perfect, with its auxiliary"
+        ],
+        "rows": [
+          [
+            "treffen",
+            "to meet",
+            "getroffen",
+            "hat getroffen"
+          ],
+          [
+            "finden",
+            "to find",
+            "gefunden",
+            "hat gefunden"
+          ],
+          [
+            "schlafen",
+            "to sleep",
+            "geschlafen",
+            "hat geschlafen"
+          ],
+          [
+            "lesen",
+            "to read",
+            "gelesen",
+            "hat gelesen"
+          ],
+          [
+            "helfen",
+            "to help",
+            "geholfen",
+            "hat geholfen"
+          ],
+          [
+            "sprechen",
+            "to speak",
+            "gesprochen",
+            "hat gesprochen"
+          ],
+          [
+            "fahren",
+            "to travel, to drive",
+            "gefahren",
+            "ist gefahren"
+          ],
+          [
+            "kommen",
+            "to come",
+            "gekommen",
+            "ist gekommen"
+          ],
+          [
+            "gehen",
+            "to go",
+            "gegangen",
+            "ist gegangen"
+          ],
+          [
+            "laufen",
+            "to run",
+            "gelaufen",
+            "ist gelaufen"
+          ],
+          [
+            "wissen",
+            "to know",
+            "gewusst",
+            "hat gewusst"
+          ],
+          [
+            "denken",
+            "to think",
+            "gedacht",
+            "hat gedacht"
+          ],
+          [
+            "sein",
+            "to be",
+            "gewesen",
+            "ist gewesen"
+          ]
+        ],
+        "emphasis": [
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            12,
+            3
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            11,
+            2
+          ]
+        ],
+        "emphasisNote": "Two things are marked, for two different reasons. In the last column, the auxiliaries that are not haben: a verb of moving to a new place takes sein, and so does sein itself. In the participle column, gewusst and gedacht — they change their stem like an irregular verb but still end in -t instead of -en, and that mixture is what the word 'mixed' names.",
+        "key": [
+          {
+            "symbol": "ge- … -en",
+            "means": "the irregular pattern: the ending is -en, and the stem vowel often changes — treffen becomes getroffen"
+          },
+          {
+            "symbol": "ge- … -t",
+            "means": "the regular ending. On a changed stem it marks a mixed verb: denken becomes gedacht"
+          }
+        ]
+      }
     ]
-   }
-  ],
-  "g-daf-a1-personal-pronouns-in-the-accusative-case": [
-   {
-    "caption": "Personal pronouns",
-    "columns": [
-     "",
-     "Nominativ",
-     "Akkusativ"
-    ],
-    "rows": [
-     [
-      "1st sg.",
-      "ich",
-      "mich"
-     ],
-     [
-      "2nd sg.",
-      "du",
-      "dich"
-     ],
-     [
-      "3rd sg. m.",
-      "er",
-      "ihn"
-     ],
-     [
-      "3rd sg. f.",
-      "sie",
-      "sie"
-     ],
-     [
-      "3rd sg. n.",
-      "es",
-      "es"
-     ],
-     [
-      "1st pl.",
-      "wir",
-      "uns"
-     ],
-     [
-      "2nd pl.",
-      "ihr",
-      "euch"
-     ],
-     [
-      "3rd pl.",
-      "sie",
-      "sie"
-     ],
-     [
-      "polite",
-      "Sie",
-      "Sie"
-     ]
-    ],
-    "emphasis": [
-     [
-      0,
-      2
-     ],
-     [
-      1,
-      2
-     ],
-     [
-      2,
-      2
-     ],
-     [
-      5,
-      2
-     ],
-     [
-      6,
-      2
-     ]
-    ],
-    "emphasisNote": "These five change in the accusative. sie, es and Sie are spelled the same in both columns.",
-    "key": [
-     {
-      "symbol": "sg. / pl.",
-      "means": "singular (one) and plural (more than one)"
-     },
-     {
-      "symbol": "polite",
-      "means": "Sie, the formal \"you\" — always capitalised"
-     }
-    ]
-   }
-  ],
-  "g-daf-a1-possessive-articles-in-nominative": [
-   {
-    "caption": "Possessive article, nominative",
-    "columns": [
-     "",
-     "masculine / neuter",
-     "feminine / plural"
-    ],
-    "rows": [
-     [
-      "ich",
-      "mein",
-      "meine"
-     ],
-     [
-      "du",
-      "dein",
-      "deine"
-     ],
-     [
-      "er / es",
-      "sein",
-      "seine"
-     ],
-     [
-      "sie",
-      "ihr",
-      "ihre"
-     ],
-     [
-      "wir",
-      "unser",
-      "unsere"
-     ],
-     [
-      "ihr",
-      "euer",
-      "eure"
-     ],
-     [
-      "sie / Sie",
-      "ihr / Ihr",
-      "ihre / Ihre"
-     ]
-    ],
-    "emphasis": [
-     [
-      0,
-      2
-     ],
-     [
-      1,
-      2
-     ],
-     [
-      2,
-      2
-     ],
-     [
-      3,
-      2
-     ],
-     [
-      4,
-      2
-     ],
-     [
-      5,
-      2
-     ],
-     [
-      6,
-      2
-     ]
-    ],
-    "emphasisNote": "The feminine and plural form is the masculine one plus -e. Only euer is irregular: it drops its second e to give eure.",
-    "key": [
-     {
-      "symbol": "ihr / Ihr",
-      "means": "lower case is \"her\" or \"their\"; capitalised is the polite \"your\""
-     }
-    ]
-   }
-  ],
-  "g-daf-a2-inflections-with-the-definite-article": [
-   {
-    "caption": "Definite article in all four cases",
-    "columns": [
-     "",
-     "masculine",
-     "neuter",
-     "feminine",
-     "plural"
-    ],
-    "rows": [
-     [
-      "Nominativ",
-      "der",
-      "das",
-      "die",
-      "die"
-     ],
-     [
-      "Akkusativ",
-      "den",
-      "das",
-      "die",
-      "die"
-     ],
-     [
-      "Dativ",
-      "dem",
-      "dem",
-      "der",
-      "den + -n"
-     ],
-     [
-      "Genitiv",
-      "des + -(e)s",
-      "des + -(e)s",
-      "der",
-      "der"
-     ]
-    ],
-    "emphasis": [
-     [
-      2,
-      1
-     ],
-     [
-      2,
-      2
-     ],
-     [
-      2,
-      3
-     ],
-     [
-      2,
-      4
-     ]
-    ],
-    "emphasisNote": "The dative row is this lesson: dem, dem, der, den.",
-    "asideRows": [
-     3
-    ],
-    "asideNote": "The genitive is shown for completeness; it is taught in a later topic.",
-    "key": [
-     {
-      "symbol": "den + -n",
-      "means": "the article den, and the noun itself takes an extra -n: den Söhnen"
-     },
-     {
-      "symbol": "des + -(e)s",
-      "means": "the article des, and the noun takes -s or -es: des Sohnes, des Kindes"
-     }
-    ]
-   }
-  ],
-  "g-daf-a2-inflections-with-the-indefinite-article-": [
-   {
-    "caption": "ein- / kein- / mein-, all four cases",
-    "columns": [
-     "",
-     "masculine",
-     "neuter",
-     "feminine",
-     "plural"
-    ],
-    "rows": [
-     [
-      "Nominativ",
-      "ein",
-      "ein",
-      "eine",
-      "keine"
-     ],
-     [
-      "Akkusativ",
-      "einen",
-      "ein",
-      "eine",
-      "keine"
-     ],
-     [
-      "Dativ",
-      "einem",
-      "einem",
-      "einer",
-      "keinen + -n"
-     ],
-     [
-      "Genitiv",
-      "eines + -(e)s",
-      "eines + -(e)s",
-      "einer",
-      "keiner"
-     ]
-    ],
-    "emphasis": [
-     [
-      2,
-      1
-     ],
-     [
-      2,
-      2
-     ],
-     [
-      2,
-      3
-     ],
-     [
-      2,
-      4
-     ]
-    ],
-    "emphasisNote": "The dative row is this lesson: einem, einem, einer, keinen.",
-    "asideRows": [
-     3
-    ],
-    "asideNote": "The genitive is shown for completeness; it is taught in a later topic.",
-    "key": [
-     {
-      "symbol": "plural column",
-      "means": "ein has no plural, so the plural forms shown are kein- (and mein-, dein- … behave the same way)"
-     },
-     {
-      "symbol": "keinen + -n",
-      "means": "the article keinen, and the noun takes an extra -n: keinen Söhnen"
-     },
-     {
-      "symbol": "eines + -(e)s",
-      "means": "the article eines, and the noun takes -s or -es: eines Sohnes"
-     }
-    ]
-   }
-  ],
-  "g-daf-a2-personal-pronouns-in-nominative-accusati": [
-   {
-    "caption": "Personal pronouns",
-    "columns": [
-     "",
-     "Nominativ",
-     "Akkusativ",
-     "Dativ"
-    ],
-    "rows": [
-     [
-      "1st sg.",
-      "ich",
-      "mich",
-      "mir"
-     ],
-     [
-      "2nd sg.",
-      "du",
-      "dich",
-      "dir"
-     ],
-     [
-      "3rd sg. m.",
-      "er",
-      "ihn",
-      "ihm"
-     ],
-     [
-      "3rd sg. f.",
-      "sie",
-      "sie",
-      "ihr"
-     ],
-     [
-      "3rd sg. n.",
-      "es",
-      "es",
-      "ihm"
-     ],
-     [
-      "1st pl.",
-      "wir",
-      "uns",
-      "uns"
-     ],
-     [
-      "2nd pl.",
-      "ihr",
-      "euch",
-      "euch"
-     ],
-     [
-      "3rd pl.",
-      "sie",
-      "sie",
-      "ihnen"
-     ],
-     [
-      "polite",
-      "Sie",
-      "Sie",
-      "Ihnen"
-     ]
-    ],
-    "emphasis": [
-     [
-      0,
-      3
-     ],
-     [
-      1,
-      3
-     ],
-     [
-      2,
-      3
-     ],
-     [
-      3,
-      3
-     ],
-     [
-      4,
-      3
-     ],
-     [
-      7,
-      3
-     ],
-     [
-      8,
-      3
-     ]
-    ],
-    "emphasisNote": "The dative column is what this topic adds. uns and euch are the same in the accusative and the dative.",
-    "key": [
-     {
-      "symbol": "sg. / pl.",
-      "means": "singular (one) and plural (more than one)"
-     },
-     {
-      "symbol": "polite",
-      "means": "Sie, the formal \"you\" — always capitalised"
-     }
-    ]
-   }
-  ],
-  "g-daf-a2-adjectives-after-the-definite-article": [
-   {
-    "caption": "Adjective ending after der / das / die",
-    "columns": [
-     "",
-     "masculine",
-     "neuter",
-     "feminine",
-     "plural"
-    ],
-    "rows": [
-     [
-      "Nominativ",
-      "-e",
-      "-e",
-      "-e",
-      "-en"
-     ],
-     [
-      "Akkusativ",
-      "-en",
-      "-e",
-      "-e",
-      "-en"
-     ],
-     [
-      "Dativ",
-      "-en",
-      "-en",
-      "-en",
-      "-en"
-     ],
-     [
-      "Genitiv",
-      "-en",
-      "-en",
-      "-en",
-      "-en"
-     ]
-    ],
-    "emphasis": [
-     [
-      0,
-      1
-     ],
-     [
-      0,
-      2
-     ],
-     [
-      0,
-      3
-     ],
-     [
-      1,
-      2
-     ],
-     [
-      1,
-      3
-     ]
-    ],
-    "emphasisNote": "These five boxes take -e. Everything else takes -en.",
-    "key": [
-     {
-      "symbol": "-e",
-      "means": "the short ending, e.g. der alte Mann"
-     },
-     {
-      "symbol": "-en",
-      "means": "the long ending, e.g. den alten Mann"
-     }
-    ]
-   }
-  ],
-  "g-daf-a2-adjectives-after-ein-kein-mein": [
-   {
-    "caption": "Adjective endings after ein- / kein- / mein-",
-    "columns": [
-     "",
-     "masculine",
-     "neuter",
-     "feminine",
-     "plural"
-    ],
-    "rows": [
-     [
-      "Nominativ",
-      "-er",
-      "-es",
-      "-e",
-      "-en"
-     ],
-     [
-      "Akkusativ",
-      "-en",
-      "-es",
-      "-e",
-      "-en"
-     ],
-     [
-      "Dativ",
-      "-en",
-      "-en",
-      "-en",
-      "-en"
-     ],
-     [
-      "Genitiv",
-      "-en",
-      "-en",
-      "-en",
-      "-en"
-     ]
-    ],
-    "emphasis": [
-     [
-      0,
-      1
-     ],
-     [
-      0,
-      2
-     ],
-     [
-      1,
-      2
-     ]
-    ],
-    "emphasisNote": "These three boxes are the whole difference from the der/das/die table. ein does not show the gender, so the adjective does it instead: ein guter Mann, ein gutes Haus.",
-    "key": [
-     {
-      "symbol": "-er / -es",
-      "means": "the ending der or das would have carried, moved onto the adjective"
-     }
-    ]
-   }
-  ],
-  "g-daf-a2-adjectives-before-nouns-without-an-artic": [
-   {
-    "caption": "Adjective endings with no article",
-    "columns": [
-     "",
-     "masculine",
-     "neuter",
-     "feminine",
-     "plural"
-    ],
-    "rows": [
-     [
-      "Nominativ",
-      "-er",
-      "-es",
-      "-e",
-      "-e"
-     ],
-     [
-      "Akkusativ",
-      "-en",
-      "-es",
-      "-e",
-      "-e"
-     ],
-     [
-      "Dativ",
-      "-em",
-      "-em",
-      "-er",
-      "-en"
-     ],
-     [
-      "Genitiv",
-      "-en",
-      "-en",
-      "-er",
-      "-er"
-     ]
-    ],
-    "emphasis": [
-     [
-      0,
-      1
-     ],
-     [
-      0,
-      2
-     ],
-     [
-      0,
-      3
-     ],
-     [
-      1,
-      2
-     ],
-     [
-      1,
-      3
-     ],
-     [
-      2,
-      1
-     ],
-     [
-      2,
-      2
-     ],
-     [
-      2,
-      3
-     ]
-    ],
-    "emphasisNote": "With no article in front, the adjective takes the ending the article would have had: guter Wein, gutes Bier, mit gutem Wein.",
-    "key": [
-     {
-      "symbol": "-er, -es, -em",
-      "means": "article endings doing duty on the adjective, because there is no article to carry them"
-     }
-    ]
-   }
-  ],
-  "g-daf-a1-regular-verbs-in-the-present-tense": [
-   {
-    "caption": "Present tense: the six endings, and the two spelling rules",
-    "columns": [
-     "",
-     "ending",
-     "kommen",
-     "arbeiten",
-     "heißen"
-    ],
-    "rows": [
-     [
-      "ich",
-      "-e",
-      "komme",
-      "arbeite",
-      "heiße"
-     ],
-     [
-      "du",
-      "-st",
-      "kommst",
-      "arbeitest",
-      "heißt"
-     ],
-     [
-      "er / sie / es",
-      "-t",
-      "kommt",
-      "arbeitet",
-      "heißt"
-     ],
-     [
-      "wir",
-      "-en",
-      "kommen",
-      "arbeiten",
-      "heißen"
-     ],
-     [
-      "ihr",
-      "-t",
-      "kommt",
-      "arbeitet",
-      "heißt"
-     ],
-     [
-      "sie / Sie",
-      "-en",
-      "kommen",
-      "arbeiten",
-      "heißen"
-     ]
-    ],
-    "emphasis": [
-     [
-      0,
-      1
-     ],
-     [
-      1,
-      1
-     ],
-     [
-      2,
-      1
-     ],
-     [
-      3,
-      1
-     ],
-     [
-      4,
-      1
-     ],
-     [
-      5,
-      1
-     ]
-    ],
-    "emphasisNote": "The ending column is the pattern: -e, -st, -t, -en, -t, -en. Take the stem (komm-) and add it.",
-    "key": [
-     {
-      "symbol": "arbeiten",
-      "means": "stem ends in -t or -d, so an extra -e goes in before the ending: du arbeitest, not du arbeitst"
-     },
-     {
-      "symbol": "heißen",
-      "means": "stem ends in -ß, -s or -z, so the du-ending loses its -s: du heißt, not du heißst"
-     }
-    ]
-   }
-  ]
- }
+  }
 }

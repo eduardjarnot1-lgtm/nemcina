@@ -129,7 +129,7 @@ describe('grammar topics', () => {
     rules: ['kommen: ich komme, du kommst.'],
     examples: [{ de: 'ich komme', note: 'regular ending -e' }],
     exercises: [{ id: 'g1-e1', type: 'fill', text: 'Woher ___ du?', answers: ['kommst'] }],
-    prerequisites: [], chooser: null, difficulty: 1, source: 'DaF kompakt', sourcePage: 1,
+    prerequisites: [], chooser: null, worked: null, difficulty: 1, source: 'DaF kompakt', sourcePage: 1,
   };
 
   test('the explanation survives the trip — it is the teaching, not decoration', () => {
@@ -152,7 +152,8 @@ describe('grammar topics', () => {
         ],
       }],
     });
-    assert.deepEqual(topic.examples[0]?.marks, [{ start: 0, end: 3, role: 'verb' }]);
+    assert.deepEqual(topic.examples[0]?.marks,
+      [{ start: 0, end: 3, role: 'verb', tier: 'focus' }]);
   });
 
   test('a word class the app does not know drops to neutral, keeping the highlight', () => {
@@ -162,7 +163,8 @@ describe('grammar topics', () => {
       ...raw,
       examples: [{ de: 'ich komme', note: '', marks: [{ start: 0, end: 3, role: 'gerund' }] }],
     });
-    assert.deepEqual(topic.examples[0]?.marks, [{ start: 0, end: 3, role: '' }]);
+    assert.deepEqual(topic.examples[0]?.marks,
+      [{ start: 0, end: 3, role: '', tier: 'focus' }]);
   });
 
   test('a topic with an unusable level is refused loudly, not shown at the wrong level', () => {

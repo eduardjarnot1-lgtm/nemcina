@@ -49,7 +49,7 @@ function topic(over: Partial<GrammarTopic> & { id: string; title: string }): Gra
     rules: [],
     examples: [],
     exercises: [],
-    prerequisites: [], chooser: null,
+    prerequisites: [], chooser: null, worked: null,
     difficulty: 1,
     source: { title: 'test', page: 0 },
     ...over,

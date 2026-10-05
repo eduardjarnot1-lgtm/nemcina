@@ -31,6 +31,7 @@ ROOT = Path(__file__).resolve().parent
 ANNOTATIONS = ROOT / "annotations" / "grammar"
 TABLES_FILE = "tables.json"
 CHOOSERS_FILE = "choosers.json"
+WORKED_FILE = "worked.json"
 COMPARISONS_FILE = "comparisons.json"
 WORDORDER_FILE = "wordorder.json"
 TRANSLATIONS_FILE = "translations.json"
@@ -46,7 +47,8 @@ FORMULAS_FILE = "formulas.json"
 # one are already marked that way. What no class fits is not marked at all — a
 # place name in a topic about prepositions teaches nothing, so it carries no
 # highlight rather than a highlight that says nothing.
-MARK_ROLES = {"conj", "verb", "prep", "q", "article", "pronoun", "adjective", "noun"}
+MARK_ROLES = {"conj", "verb", "prep", "q", "article", "pronoun", "adjective", "noun",
+               "adverb", "aux", "participle", "prefix", "stem", "ending"}
 
 # Exercise types whose answer is a *form* rather than a whole sentence. A
 # reorder answer is the sentence itself and says nothing about which word the
@@ -255,6 +257,47 @@ def load_choosers() -> dict[str, dict]:
     return out
 
 
+def load_worked() -> dict[str, dict]:
+    """Teaching examples written for this app, keyed by topic id.
+
+    The topic's own examples come from the source document and show the form in
+    use; they do not say why it is that form. These do. They are kept apart from
+    the source examples rather than mixed in, because the source carries an
+    attribution and these are ours — a learner is told which is which by the
+    card they sit in.
+
+    Their highlights go through the same `spans_for` as every other mark, so a
+    worked sentence cannot be highlighted by a rule the rest of the app does not
+    use, and a mark naming a word that is not in the sentence stops the build.
+    """
+    path = ANNOTATIONS / WORKED_FILE
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    out: dict[str, dict] = {}
+    for tid, worked in data.get("worked", {}).items():
+        sentences = []
+        for item in worked.get("sentences", []):
+            for field in ("de", "en", "why"):
+                if not item.get(field, "").strip():
+                    raise SystemExit(
+                        f"{WORKED_FILE}: {tid}: a sentence is missing its {field!r}")
+            sentences.append({
+                "de": item["de"], "en": item["en"], "why": item["why"],
+                "marks": spans_for(item["de"], item.get("mark", []), f"{tid} (worked)"),
+            })
+        if not sentences:
+            raise SystemExit(f"{WORKED_FILE}: {tid} has no sentences")
+        contrast = worked.get("contrast")
+        if contrast:
+            for field in ("wrong", "right", "why"):
+                if not contrast.get(field, "").strip():
+                    raise SystemExit(
+                        f"{WORKED_FILE}: {tid}: the contrast is missing its {field!r}")
+        out[tid] = {"sentences": sentences, "contrast": contrast}
+    return out
+
+
 def load_comparisons() -> dict[str, dict]:
     """Side-by-side comparisons of two structures learners confuse.
 
@@ -402,6 +445,19 @@ def spans_for(text: str, marks: list[str], where: str) -> list[dict]:
     a different class in different sentences: "auf" is a preposition in one
     example and a separable prefix in another.
 
+    Two further forms:
+
+      alt(en):ending   locate "alten", highlight only "en". When the ending is
+                       the teaching point it is what should light up, and the
+                       word still has to be readable around it — a learner who
+                       is shown "-en" alone has lost the word it belongs to.
+
+      ~dem:article     a supporting mark rather than the point. A rule about a
+                       relationship has to show both ends, but "mit governs the
+                       dative" is a claim about "mit"; "dem" is the evidence.
+                       Marking both the same way makes a sentence one colour,
+                       which teaches nothing.
+
     A mark that does not occur is a mistake in the annotation, and it stops the
     build: a highlight silently going missing is exactly the failure this file
     exists to avoid.
@@ -409,6 +465,9 @@ def spans_for(text: str, marks: list[str], where: str) -> list[dict]:
     spans: list[dict] = []
     for mark in marks:
         token, role = mark, ""
+        tier = "focus"
+        if token.startswith("~"):
+            token, tier = token[1:], "support"
         if ":" in token:
             token, role = token.rsplit(":", 1)
             if role not in MARK_ROLES:
@@ -418,13 +477,25 @@ def spans_for(text: str, marks: list[str], where: str) -> list[dict]:
         matched = re.fullmatch(r"(.+)\[(\d+)\]", token)
         if matched:
             token, wanted = matched.group(1), int(matched.group(2))
+
+        # "alt(en)" — the whole thing locates the word, the brackets say which
+        # part of it to light up.
+        inner = re.fullmatch(r"([^()]*)\(([^()]+)\)([^()]*)", token)
+        if inner:
+            before, piece, after = inner.group(1), inner.group(2), inner.group(3)
+            whole = before + piece + after
+            offset, length = len(before), len(piece)
+        else:
+            whole, offset, length = token, 0, len(token)
+
         found = [m for m in re.finditer(
-            r"(?<![\wÄÖÜäöüß])" + re.escape(token) + r"(?![\wÄÖÜäöüß])", text)]
+            r"(?<![\wÄÖÜäöüß])" + re.escape(whole) + r"(?![\wÄÖÜäöüß])", text)]
         if len(found) < wanted:
             raise SystemExit(
                 f"{WORDORDER_FILE}: {where}: {mark!r} occurs {len(found)} time(s) in {text!r}")
         hit = found[wanted - 1]
-        spans.append({"start": hit.start(), "end": hit.end(), "role": role})
+        start = hit.start() + offset
+        spans.append({"start": start, "end": start + length, "role": role, "tier": tier})
     spans.sort(key=lambda s: (s["start"], -s["end"]))
     kept: list[dict] = []
     for span in spans:
@@ -480,7 +551,7 @@ def mark_examples(examples: list[dict], forms: set[str]) -> int:
             for found in re.finditer(
                 r"(?<![\wÄÖÜäöüß])" + re.escape(form) + r"(?![\wÄÖÜäöüß])", text, re.IGNORECASE
             ):
-                spans.append({"start": found.start(), "end": found.end(), "role": ""})
+                spans.append({"start": found.start(), "end": found.end(), "role": "", "tier": "focus"})
         # Overlapping spans would render as nested highlights; keep the longest
         # at each position by preferring an earlier start and a later end.
         spans.sort(key=lambda s: (s["start"], -s["end"]))
@@ -499,10 +570,11 @@ def main() -> int:
     source = load_sources()
     # tables.json is reference data keyed by topic id, not a list of topics.
     reference = {TABLES_FILE, COMPARISONS_FILE, WORDORDER_FILE, TRANSLATIONS_FILE,
-                 FORMULAS_FILE, CHOOSERS_FILE}
+                 FORMULAS_FILE, CHOOSERS_FILE, WORKED_FILE}
     files = sorted(f for f in ANNOTATIONS.glob("*.json") if f.name not in reference)
     tables = load_tables()
     choosers = load_choosers()
+    worked = load_worked()
     comparisons = load_comparisons()
     hand_marks = load_wordorder()
     translations = load_translations()
@@ -518,6 +590,7 @@ def main() -> int:
     with_formula = 0
     with_comparison = 0
     by_hand = 0
+    used_hand: set[tuple[str, str]] = set()
     translated = 0
     untranslated: set[str] = set()
     used_translations: set[str] = set()
@@ -613,6 +686,7 @@ def main() -> int:
                 "examples": entry.get("examples", []),
                 "tables": tables.get(tid, []),
                 "chooser": choosers.get(tid),
+                "worked": worked.get(tid),
                 "formulas": formulas.get(tid, []),
                 "comparison": comparisons.get(tid),
                 "exercises": exercises,
@@ -630,9 +704,16 @@ def main() -> int:
             # Hand-written marks come after, and win: they were written for an
             # example the automatic rule had nothing to say about.
             for example in topic["examples"]:
-                written = hand_marks.pop((tid, example.get("de", "")), None)
+                key = (tid, example.get("de", ""))
+                written = hand_marks.get(key)
                 if written is None:
                     continue
+                # Looked up, not popped. A few topics list the same example
+                # twice because two rules land on the same form (der -> meiner
+                # is both nominative feminine and dative feminine), and the
+                # second copy used to come out bare because the first had
+                # eaten the annotation. The same text highlights the same way.
+                used_hand.add(key)
                 was_bare = not example["marks"]
                 example["marks"] = spans_for(example["de"], written, tid)
                 if was_bare and example["marks"]:
@@ -670,8 +751,9 @@ def main() -> int:
         for tid in stale_formulas[:10]:
             problems.append(f"{FORMULAS_FILE}: {tid} is not a topic in any source")
 
-    if hand_marks:
-        for (tid, text) in list(hand_marks)[:10]:
+    unused_hand = sorted(set(hand_marks) - used_hand)
+    if unused_hand:
+        for (tid, text) in unused_hand[:10]:
             problems.append(f"{WORDORDER_FILE}: {tid} annotates {text!r}, which is not one of its examples")
 
     stale = sorted(set(translations) - used_translations)
@@ -730,6 +812,9 @@ def main() -> int:
     print(f"tables       {with_tables} topic(s) carry a paradigm table")
     print(f"choosers     {sum(1 for t in topics if t.get('chooser'))} topic(s) say how to "
           f"choose the form")
+    print(f"worked       {sum(len(t['worked']['sentences']) for t in topics if t.get('worked'))}"
+          f" teaching example(s) across "
+          f"{sum(1 for t in topics if t.get('worked'))} topic(s)")
     print(f"worked       {sum(len(f.get('sentence', [])) > 0 for t in topics for f in t['formulas'])}"
           f" pattern(s) are laid against a real sentence")
     print(f"comparisons  {with_comparison} topic(s) carry a side-by-side comparison")

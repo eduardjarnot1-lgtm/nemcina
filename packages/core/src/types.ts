@@ -235,7 +235,39 @@ export interface GrammarExample {
 
 /** The word classes a mark may name. */
 export type MarkRole =
-  | 'conj' | 'verb' | 'prep' | 'q' | 'article' | 'pronoun' | 'adjective' | 'noun';
+  | 'conj' | 'verb' | 'prep' | 'q' | 'article' | 'pronoun' | 'adjective' | 'noun'
+  // `adverb` is for the ones that neither refer back nor connect. A referring
+  // adverb is marked `pronoun` and a connecting one `conj`, because that is the
+  // job it is doing in that sentence, but "Morgen gehe ich …" has a plain time
+  // expression, and it is half of the rule it illustrates: present tense plus a
+  // future time word means future.
+  | 'adverb'
+  // Added for the tense and word-formation topics, where `verb` was doing the
+  // work of three different things: the auxiliary that carries the person, the
+  // participle that carries the meaning, and the prefix that leaves the verb
+  // and goes to the end. A learner reading `hat … gearbeitet` needs to see two
+  // parts of one form, not two identical red blobs.
+  | 'aux' | 'participle' | 'prefix'
+  // The part of the verb that changed. A topic about the stem-vowel change, or
+  // about the Konjunktiv II umlaut, is about a letter in the middle of the word
+  // and not about an ending — fifteen of those letters were labelled `ending`,
+  // which is the opposite of what those topics teach: the vowel moves and the
+  // ending stays regular.
+  | 'stem'
+  // The inflectional ending itself, marked inside its word so the word stays
+  // readable: `alt(en)`.
+  | 'ending';
+
+/**
+ * Whether a mark is the thing being taught, or something supporting it.
+ *
+ * A rule about a *relationship* has to show both ends — the preposition and the
+ * article whose case it governs — but they are not equally the point. Focus is
+ * filled; support is outlined and lighter. Without the distinction, marking
+ * both ends of every relationship turns a sentence into undifferentiated
+ * colour, which is the failure mode of highlighting everything.
+ */
+export type MarkTier = 'focus' | 'support';
 
 /**
  * A highlighted stretch of an example, as `[start, end)` into its text.
@@ -259,6 +291,7 @@ export interface GrammarMark {
   readonly start: number;
   readonly end: number;
   readonly role: MarkRole | '';
+  readonly tier: MarkTier;
 }
 
 /**
@@ -317,6 +350,42 @@ export interface GrammarWorkedExample {
   readonly because: readonly string[];
 }
 
+/**
+ * A teaching example: a sentence, what it means, and why it is the way it is.
+ *
+ * The topic's own `examples` come from the source document and show the form in
+ * use. They do not say *why* — a learner reading `den alten Mann` is shown the
+ * ending and left to work out where it came from. A worked example carries that
+ * reason, and is highlighted by the same rules as everything else on the page.
+ */
+export interface GrammarWorkedSentence {
+  readonly de: string;
+  readonly en: string;
+  /** Why this form, in one sentence. Never a restatement of the rule. */
+  readonly why: string;
+  readonly marks: readonly GrammarMark[];
+}
+
+/** A wrong form set against the right one, with the reason the wrong one tempts. */
+export interface GrammarContrast {
+  readonly wrong: string;
+  readonly right: string;
+  readonly why: string;
+}
+
+/**
+ * Worked examples for a topic.
+ *
+ * Deliberately separate from `examples`: those are the source document's, and
+ * carry its attribution. These are written here, so a topic can be given an
+ * easy first instance, a second in a different context, and a wrong/right pair
+ * without touching what the source said.
+ */
+export interface GrammarWorked {
+  readonly sentences: readonly GrammarWorkedSentence[];
+  readonly contrast: GrammarContrast | null;
+}
+
 /** The decision procedure for a topic: how to get from a sentence to a form. */
 export interface GrammarChooser {
   readonly title: string;
@@ -366,6 +435,8 @@ export interface GrammarTopic {
    * Null for the topics where there is nothing to choose between.
    */
   readonly chooser: GrammarChooser | null;
+  /** Examples written for this app, each with the reason its form is correct. */
+  readonly worked: GrammarWorked | null;
   /**
    * The grammatical family the source files this topic under — "Verben",
    * "Satzverbindungen", and eighteen others. Carried through because it is the

@@ -146,9 +146,10 @@
       "topic": "g-daf-a2-prepositions-of-place-2",
       "text": "Jörg soll die Kärntner Straße entlang gehen.",
       "mark": [
+        "~soll:verb",
+        "die:article",
         "entlang:prep",
-        "soll:verb",
-        "gehen:verb"
+        "~gehen:verb"
       ]
     },
     {
@@ -156,7 +157,7 @@
       "text": "Komm heraus!",
       "mark": [
         "Komm:verb",
-        "heraus:verb"
+        "heraus:prefix"
       ]
     },
     {
@@ -164,7 +165,9 @@
       "text": "Jörg geht aus dem Museum hinaus.",
       "mark": [
         "geht:verb",
-        "hinaus:verb"
+        "~aus:prep",
+        "~dem:article",
+        "hinaus:prefix"
       ]
     },
     {
@@ -200,7 +203,8 @@
         "darum:conj",
         "deshalb:conj",
         "deswegen:conj",
-        "habe:verb"
+        "habe:aux",
+        "genommen:participle"
       ]
     },
     {
@@ -288,21 +292,29 @@
       "topic": "g-daf-a2-time-expressions-usually-go-in-the-middl",
       "text": "Jörg ist diese Woche schon fünfmal im Kino gewesen.",
       "mark": [
-        "diese Woche"
+        "~ist:aux",
+        "diese Woche:adverb",
+        "im:prep",
+        "~gewesen:participle"
       ]
     },
     {
       "topic": "g-daf-a2-time-expressions-usually-go-in-the-middl",
       "text": "Jörg und Michael sind nach dem Frühstück sofort ins Museum gegangen.",
       "mark": [
-        "nach dem Frühstück"
+        "~sind:aux",
+        "nach dem Frühstück:adverb",
+        "ins:prep",
+        "~gegangen:participle"
       ]
     },
     {
       "topic": "g-daf-a2-time-expressions-usually-go-in-the-middl",
       "text": "Sie waren fast zwei Stunden im Museum.",
       "mark": [
-        "fast zwei Stunden"
+        "~waren:verb",
+        "fast zwei Stunden:adverb",
+        "im:prep"
       ]
     },
     {
@@ -541,8 +553,10 @@
       "topic": "g-b2-4-nominalisierung-vom-verb-zum-nomen",
       "text": "Die Überprüfung der Unterlagen dauert etwa zwei Wochen.",
       "mark": [
-        "Die Überprüfung",
-        "der Unterlagen"
+        "~Die:article",
+        "Überprüfung:noun",
+        "der:article",
+        "~Unterlagen:noun"
       ]
     },
     {
@@ -624,14 +638,18 @@
       "topic": "g-l05-3",
       "text": "Nach (der) Meinung /Aussage von Max Liebermann …",
       "mark": [
-        "Nach:prep"
+        "Nach:prep",
+        "Meinung:noun",
+        "Aussage:noun"
       ]
     },
     {
       "topic": "g-l05-3",
       "text": "Max Liebermanns Meinung /Aussage nach …",
       "mark": [
-        "nach:prep"
+        "nach:prep",
+        "Meinung:noun",
+        "Aussage:noun"
       ]
     },
     {
@@ -1013,28 +1031,48 @@
       "topic": "g-daf-a2-prepositions-of-place-2",
       "text": "zu + dem = zum, zu + der = zur, bei + dem = beim, von + dem = vom",
       "mark": [
-        "zum:prep"
+        "zu:prep",
+        "~dem:article",
+        "zum:prep",
+        "zu[2]:prep",
+        "~der:article",
+        "zur:prep",
+        "bei:prep",
+        "~dem[2]:article",
+        "beim:prep",
+        "von:prep",
+        "~dem[3]:article",
+        "vom:prep"
       ]
     },
     {
       "topic": "g-daf-a2-prepositions-of-place-2",
       "text": "Jörg soll bis zum Ring gehen. / bis zur Dumbastraße gehen.",
       "mark": [
-        "zum:prep"
+        "~bis:prep",
+        "zum:prep",
+        "~bis[2]:prep",
+        "zur:prep"
       ]
     },
     {
       "topic": "g-daf-a2-prepositions-of-place-2",
       "text": "Jörg geht in das Wien Museum rein.",
       "mark": [
-        "in:prep"
+        "geht:verb",
+        "in:prep",
+        "~das:article",
+        "rein:prefix"
       ]
     },
     {
       "topic": "g-daf-a2-prepositions-of-place-2",
       "text": "Jörg geht aus dem Wien Museum raus.",
       "mark": [
-        "raus:verb"
+        "geht:verb",
+        "aus:prep",
+        "~dem:article",
+        "raus:prefix"
       ]
     },
     {
@@ -1067,6 +1105,9 @@
       "topic": "g-daf-a2-expressing-reasons-causal-connectives-da",
       "text": "Ich soll Sport machen, darum / deshalb / deswegen gehe ich jeden zweiten Tag walken.",
       "mark": [
+        "darum:conj",
+        "deshalb:conj",
+        "deswegen:conj",
         "gehe:verb"
       ]
     },
@@ -1346,7 +1387,9 @@
       "topic": "g-l05-3",
       "text": "Laut (der) Meinung /Aussage von Max Liebermann …",
       "mark": [
-        "Laut:prep"
+        "Laut:prep",
+        "Meinung:noun",
+        "Aussage:noun"
       ]
     },
     {
@@ -1389,7 +1432,9 @@
       "text": "Ihm ist das nicht so wichtig, zumal / besonders weil er inzwischen eine neue Stelle hat.",
       "mark": [
         "zumal:conj",
-        "hat:verb"
+        "weil:conj",
+        "hat:verb",
+        "~besonders:adverb"
       ]
     },
     {
@@ -1643,6 +1688,3967 @@
         "auch:conj",
         "bemüht:verb",
         "fallen:verb"
+      ]
+    },
+    {
+      "topic": "g-l06-3",
+      "text": "Das kannte ich so nicht.",
+      "mark": [
+        "Das:pronoun"
+      ]
+    },
+    {
+      "topic": "g-l06-3",
+      "text": "Dem stimme ich zu.",
+      "mark": [
+        "Dem:pronoun",
+        "~stimme:verb",
+        "~zu:prefix"
+      ]
+    },
+    {
+      "topic": "g-l06-3",
+      "text": "Da habe ich immer Ansprechpartner gefunden.",
+      "mark": [
+        "Da:pronoun"
+      ]
+    },
+    {
+      "topic": "g-l06-3",
+      "text": "Stattdessen / Dafür lernen wir in den Ferien umso mehr.",
+      "mark": [
+        "Stattdessen:conj",
+        "Dafür:conj"
+      ]
+    },
+    {
+      "topic": "g-l06-3",
+      "text": "Dadurch bleibt leider wenig Energie für anderes.",
+      "mark": [
+        "Dadurch:conj"
+      ]
+    },
+    {
+      "topic": "g-l06-3",
+      "text": "Dementsprechend / Infolgedessen / Demzufolge ist man fachlich nicht auf dem neuesten Stand.",
+      "mark": [
+        "Dementsprechend:conj",
+        "Infolgedessen:conj",
+        "Demzufolge:conj"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-separable-prefix-an",
+      "text": "Ich möchte unbedingt beim Lauftraining mitmachen.",
+      "mark": [
+        "mitmachen:verb",
+        "~möchte:aux"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-separable-prefix-an",
+      "text": "Tim kann uns im Auto mitnehmen.",
+      "mark": [
+        "mitnehmen:verb",
+        "~kann:aux"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-the-definite-article",
+      "text": "der lebendige Dialekt",
+      "mark": [
+        "lebendig(e):ending",
+        "~der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-the-definite-article",
+      "text": "das neue Leben",
+      "mark": [
+        "neu(e):ending",
+        "~das:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-the-definite-article",
+      "text": "die lange Tradition",
+      "mark": [
+        "lang(e):ending",
+        "~die:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-the-definite-article",
+      "text": "den lebendigen Dialekt",
+      "mark": [
+        "lebendig(en):ending",
+        "~den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-the-definite-article",
+      "text": "dem neuen Leben",
+      "mark": [
+        "neu(en):ending",
+        "~dem:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-the-definite-article",
+      "text": "der langen Tradition",
+      "mark": [
+        "lang(en):ending",
+        "~der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-the-definite-article",
+      "text": "den alten Liedern",
+      "mark": [
+        "alt(en):ending",
+        "Lieder(n):ending",
+        "~den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-ein-kein-mein",
+      "text": "ein neuer Trend",
+      "mark": [
+        "neu(er):ending",
+        "~ein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-ein-kein-mein",
+      "text": "mein festliches Kleid",
+      "mark": [
+        "festlich(es):ending",
+        "~mein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-ein-kein-mein",
+      "text": "eine neue Phase",
+      "mark": [
+        "neu(e):ending",
+        "~eine:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-ein-kein-mein",
+      "text": "meinen teuren Anzug",
+      "mark": [
+        "teur(en):ending",
+        "~meinen:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-ein-kein-mein",
+      "text": "mein schwarzes Barett",
+      "mark": [
+        "schwarz(es):ending",
+        "~mein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-ein-kein-mein",
+      "text": "eine große Party",
+      "mark": [
+        "groß(e):ending",
+        "~eine:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-ein-kein-mein",
+      "text": "meinem schwarzen Talar",
+      "mark": [
+        "schwarz(en):ending",
+        "~meinem:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-ein-kein-mein",
+      "text": "einer schicken Frisur",
+      "mark": [
+        "schick(en):ending",
+        "~einer:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-ein-kein-mein",
+      "text": "meinen / keinen stolzen Eltern",
+      "mark": [
+        "stolz(en):ending",
+        "~meinen:article",
+        "~keinen:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-after-ein-kein-mein",
+      "text": "langen Abendkleidern",
+      "mark": [
+        "lang(en):ending",
+        "Abendkleider(n):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-adjectives-before-nouns-without-an-artic-2",
+      "text": "der Genuss frischen Fisches",
+      "mark": [
+        "frisch(en):ending",
+        "Fisch(es):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-adjectives-before-nouns-without-an-artic-2",
+      "text": "ein Beispiel erfolgreichen Engagements",
+      "mark": [
+        "erfolgreich(en):ending",
+        "Engagement(s):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-adjectives-before-nouns-without-an-artic-2",
+      "text": "Fisch bester Qualität",
+      "mark": [
+        "best(er):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-adjectives-before-nouns-without-an-artic-2",
+      "text": "ein Fotomotiv begeisterter Besucher",
+      "mark": [
+        "begeistert(er):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-comparisons-comparative-and-superlative-",
+      "text": "der hohe Berg der höhere Berg der höchste Berg",
+      "mark": [
+        "~hohe:adjective",
+        "höhere:adjective",
+        "höchste:adjective"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-comparisons-comparative-and-superlative-",
+      "text": "die kurze Grenze die kürzere Grenze die kürzeste Grenze",
+      "mark": [
+        "~kurze:adjective",
+        "kürzere:adjective",
+        "kürzeste:adjective"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-comparisons-comparative-and-superlative-",
+      "text": "das kleine Land das kleinere Land das kleinste Land",
+      "mark": [
+        "~kleine:adjective",
+        "kleinere:adjective",
+        "kleinste:adjective"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-comparisons-comparative-and-superlative-",
+      "text": "die hohen Berge die höheren Berge die höchsten Berge",
+      "mark": [
+        "~hohen:adjective",
+        "höheren:adjective",
+        "höchsten:adjective"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-comparisons-comparative-and-superlative-",
+      "text": "ein / kein / sein höherer Berg",
+      "mark": [
+        "höher(er):ending",
+        "~ein:article",
+        "~kein:article",
+        "~sein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-comparisons-comparative-and-superlative-",
+      "text": "kein / sein höchster Berg",
+      "mark": [
+        "höchst(er):ending",
+        "~kein:article",
+        "~sein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-comparisons-comparative-and-superlative-",
+      "text": "hohe Berge höhere Berge höchste Berge",
+      "mark": [
+        "~hohe:adjective",
+        "höhere:adjective",
+        "höchste:adjective"
+      ]
+    },
+    {
+      "topic": "g-l01-2",
+      "text": "Max misstraut den Berichten über solche Rekordversuche.",
+      "mark": [
+        "(miss)traut:prefix"
+      ]
+    },
+    {
+      "topic": "g-l01-2",
+      "text": "Man sollte die Glücksmomente aber nicht zerreden.",
+      "mark": [
+        "(zer)reden:prefix"
+      ]
+    },
+    {
+      "topic": "g-l01-2",
+      "text": "Dem Modell ist das Make-up total zerlaufen.",
+      "mark": [
+        "(zer)laufen:prefix"
+      ]
+    },
+    {
+      "topic": "g-l01-2",
+      "text": "Bei manchen beginnt die Entspannung bereits, wenn sie sich entkleiden.",
+      "mark": [
+        "(ent)kleiden:prefix",
+        "~(Ent)spannung:prefix"
+      ]
+    },
+    {
+      "topic": "g-l01-2",
+      "text": "Plastikabfall wurde in speziellen Containern entsorgt.",
+      "mark": [
+        "(ent)sorgt:prefix"
+      ]
+    },
+    {
+      "topic": "g-l01-2",
+      "text": "Ein Kollege hilft mir, das alte Programm auf dem Computer zu deinstallieren.",
+      "mark": [
+        "(de)installieren:prefix"
+      ]
+    },
+    {
+      "topic": "g-l01-2",
+      "text": "Durch das viele Laufen wurden die Wirbel wieder leicht destabilisiert.",
+      "mark": [
+        "(de)stabilisiert:prefix"
+      ]
+    },
+    {
+      "topic": "g-l02-2",
+      "text": "zur Auswahl stehen",
+      "mark": [
+        "Auswahl:noun",
+        "stehen:verb"
+      ]
+    },
+    {
+      "topic": "g-l02-2",
+      "text": "zur Verfügung stellen",
+      "mark": [
+        "Verfügung:noun",
+        "stellen:verb"
+      ]
+    },
+    {
+      "topic": "g-l02-2",
+      "text": "Vorbereitungen treffen",
+      "mark": [
+        "Vorbereitungen:noun",
+        "treffen:verb"
+      ]
+    },
+    {
+      "topic": "g-l02-2",
+      "text": "das Verständnis vertiefen",
+      "mark": [
+        "Verständnis:noun",
+        "vertiefen:verb"
+      ]
+    },
+    {
+      "topic": "g-l02-2",
+      "text": "in Kauf nehmen",
+      "mark": [
+        "Kauf:noun",
+        "nehmen:verb"
+      ]
+    },
+    {
+      "topic": "g-l02-2",
+      "text": "auf Kritik stoßen",
+      "mark": [
+        "Kritik:noun",
+        "stoßen:verb"
+      ]
+    },
+    {
+      "topic": "g-l02-2",
+      "text": "infrage kommen",
+      "mark": [
+        "kommen:verb",
+        "infrage:noun"
+      ]
+    },
+    {
+      "topic": "g-l03-1",
+      "text": "Der Mensch kann sich der Außenwelt anpassen.",
+      "mark": [
+        "kann:verb"
+      ]
+    },
+    {
+      "topic": "g-l03-1",
+      "text": "Er hat das Recht / die Erlaubnis / die Genehmigung,",
+      "mark": [
+        "Recht:noun",
+        "Erlaubnis:noun",
+        "Genehmigung:noun"
+      ]
+    },
+    {
+      "topic": "g-l03-1",
+      "text": "Sie waren immer schon gezwungen, ihr Gehirn anzustrengen.",
+      "mark": [
+        "gezwungen:participle"
+      ]
+    },
+    {
+      "topic": "g-l03-1",
+      "text": "Er hat die Arbeit rechtzeitig zu erledigen.",
+      "mark": [
+        "hat:aux",
+        "erledigen:verb",
+        "~zu"
+      ]
+    },
+    {
+      "topic": "g-l03-1",
+      "text": "Ich habe den Wunsch, mehr Zeit für mich zu haben.",
+      "mark": [
+        "Wunsch:noun"
+      ]
+    },
+    {
+      "topic": "g-l03-1",
+      "text": "Er weigerte sich, unsere Entscheidung zu akzeptieren.",
+      "mark": [
+        "weigerte:verb"
+      ]
+    },
+    {
+      "topic": "g-l03-1",
+      "text": "Man sollte flexibel sein.",
+      "mark": [
+        "sollte:verb"
+      ]
+    },
+    {
+      "topic": "g-l03-3",
+      "text": "alle / sämtliche interessierten Mitarbeiter",
+      "mark": [
+        "interessiert(en):ending",
+        "~alle:article",
+        "~sämtliche:article"
+      ]
+    },
+    {
+      "topic": "g-l03-3",
+      "text": "keine größeren Enttäuschungen",
+      "mark": [
+        "größer(en):ending",
+        "~keine:article"
+      ]
+    },
+    {
+      "topic": "g-l03-3",
+      "text": "solche / welche standardisierten Tests",
+      "mark": [
+        "standardisiert(en):ending",
+        "~solche:article",
+        "~welche:article"
+      ]
+    },
+    {
+      "topic": "g-l03-3",
+      "text": "renommierte Unternehmen",
+      "mark": [
+        "renommiert(e):ending"
+      ]
+    },
+    {
+      "topic": "g-l03-3",
+      "text": "anspruchsvolle Aufgaben",
+      "mark": [
+        "anspruchsvoll(e):ending"
+      ]
+    },
+    {
+      "topic": "g-l03-3",
+      "text": "aktuelle Fragestellungen",
+      "mark": [
+        "aktuell(e):ending"
+      ]
+    },
+    {
+      "topic": "g-l03-3",
+      "text": "die vielen, wenigen, verschiedenen, zahlreichen, folgenden",
+      "mark": [
+        "viel(en):ending",
+        "wenig(en):ending",
+        "verschieden(en):ending",
+        "zahlreich(en):ending",
+        "folgend(en):ending",
+        "~die:article"
+      ]
+    },
+    {
+      "topic": "g-l08-1",
+      "text": "ein dringend zu lösendes Problem",
+      "mark": [
+        "lösendes:participle",
+        "~zu"
+      ]
+    },
+    {
+      "topic": "g-l08-1",
+      "text": "ein Problem, das dringend gelöst werden muss (soll)",
+      "mark": [
+        "gelöst:participle",
+        "werden:aux",
+        "muss:verb"
+      ]
+    },
+    {
+      "topic": "g-l08-1",
+      "text": "ein Problem, das dringend zu lösen ist",
+      "mark": [
+        "lösen:verb",
+        "ist:aux",
+        "~zu"
+      ]
+    },
+    {
+      "topic": "g-l08-1",
+      "text": "ein einfach durchzuführender Test",
+      "mark": [
+        "durchzuführender:participle"
+      ]
+    },
+    {
+      "topic": "g-l08-1",
+      "text": "ein Test, der sich einfach durchführen lässt",
+      "mark": [
+        "durchführen:verb",
+        "lässt:verb"
+      ]
+    },
+    {
+      "topic": "g-l08-1",
+      "text": "Die Autorin will Eltern in die Lage versetzen, mit Auffälligkeiten ihrer Kinder umzugehen.",
+      "mark": [
+        "versetzen:verb",
+        "~will:aux"
+      ]
+    },
+    {
+      "topic": "g-l08-1",
+      "text": "Der Leser bekommt anschaulich dargelegt, wie ein Umdenken gelingen kann.",
+      "mark": [
+        "bekommt:aux",
+        "dargelegt:participle"
+      ]
+    },
+    {
+      "topic": "g-l11-3",
+      "text": "eröffnen, erröten, erkälten, erschrecken",
+      "mark": [
+        "(er)öffnen:prefix",
+        "(er)röten:prefix",
+        "(er)kälten:prefix",
+        "(er)schrecken:prefix"
+      ]
+    },
+    {
+      "topic": "g-l11-3",
+      "text": "erarbeiten, erbauen, ersetzen",
+      "mark": [
+        "(er)arbeiten:prefix",
+        "(er)bauen:prefix",
+        "(er)setzen:prefix"
+      ]
+    },
+    {
+      "topic": "g-l11-3",
+      "text": "reflektieren, reimportieren",
+      "mark": [
+        "(re)flektieren:prefix",
+        "(re)importieren:prefix"
+      ]
+    },
+    {
+      "topic": "g-l11-3",
+      "text": "reagieren, reanimieren",
+      "mark": [
+        "(re)agieren:prefix",
+        "(re)animieren:prefix"
+      ]
+    },
+    {
+      "topic": "g-l12-2",
+      "text": "Vom sinnvollen Einsatz überzeugt entwickelten die Wissenschaftler einen Roboter, der Gefühle zeigen kann.",
+      "mark": [
+        "überzeugt:participle",
+        "~entwickelten:verb"
+      ]
+    },
+    {
+      "topic": "g-l12-2",
+      "text": "Der erste Versuch, obwohl gut durchdacht, war ein Misserfolg, denn der Roboter konnte nicht lächeln.",
+      "mark": [
+        "durchdacht:participle",
+        "~obwohl:conj"
+      ]
+    },
+    {
+      "topic": "g-l12-2",
+      "text": "Den munteren Kaspar auf dem Arm tragend entscheiden die Kinder selbst, wann und wie sie mit der Puppe kommunizieren wollen.",
+      "mark": [
+        "tragend:participle",
+        "~entscheiden:verb"
+      ]
+    },
+    {
+      "topic": "g-l12-2",
+      "text": "Mit Mund und Augen lächelnd wendet sich der Roboter seinen Kommunikationspartnern zu.",
+      "mark": [
+        "lächelnd:participle",
+        "~wendet:verb"
+      ]
+    },
+    {
+      "topic": "g-l12-2",
+      "text": "Indem er mit Mund und Augen lächelt, wendet sich der Roboter seinen Kommunikationspartnern zu.",
+      "mark": [
+        "Indem:conj",
+        "lächelt:verb"
+      ]
+    },
+    {
+      "topic": "g-l12-3",
+      "text": "Man schaut durch ein Mikroskop durch.",
+      "mark": [
+        "schaut:verb",
+        "durch[2]:prefix",
+        "~durch[1]:prep"
+      ]
+    },
+    {
+      "topic": "g-l12-3",
+      "text": "Man durchschaut einen Kartentrick.",
+      "mark": [
+        "(durch)schaut:prefix"
+      ]
+    },
+    {
+      "topic": "g-l12-3",
+      "text": "Ich rate dir, einen Pulli überzuziehen.",
+      "mark": [
+        "(über)zuziehen:prefix"
+      ]
+    },
+    {
+      "topic": "g-l12-3",
+      "text": "Es kostet etwas, sein Konto zu überziehen.",
+      "mark": [
+        "(über)ziehen:prefix",
+        "~zu"
+      ]
+    },
+    {
+      "topic": "g-l12-3",
+      "text": "Wir haben ein Straßenschild umgefahren.",
+      "mark": [
+        "(um)gefahren:prefix"
+      ]
+    },
+    {
+      "topic": "g-l12-3",
+      "text": "Wir haben das Stadtzentrum umfahren.",
+      "mark": [
+        "(um)fahren:prefix"
+      ]
+    },
+    {
+      "topic": "g-l12-3",
+      "text": "Ich unterstelle dir keine bösen Absichten.",
+      "mark": [
+        "(unter)stelle:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-stem-vowel-change",
+      "text": "er/sie/es lie st",
+      "mark": [
+        "~er:pronoun",
+        "~sie:pronoun",
+        "~es:pronoun",
+        "lie:stem",
+        "~st:ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-suggestions-with-sollen-wollen-wir-soll-",
+      "text": "Sollen / wollen wir einen Kaffee trinken?",
+      "mark": [
+        "Sollen:verb",
+        "wollen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-indefinite-articles-and-negative-article",
+      "text": "ein / kein Computer",
+      "mark": [
+        "ein:article",
+        "kein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-indefinite-articles-and-negative-article",
+      "text": "eine / keine Kamera",
+      "mark": [
+        "eine:article",
+        "keine:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-possessive-articles-in-nominative",
+      "text": "seine / ihre",
+      "mark": [
+        "seine:article",
+        "ihre:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-inflections-with-the-indefinite-article-",
+      "text": "einer / keiner / meiner",
+      "mark": [
+        "einer:article",
+        "keiner:article",
+        "meiner:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-dies-der-das-die",
+      "text": "Welchen Pullover findest du besser? → Diesen / Den hier.",
+      "mark": [
+        "Welchen:q",
+        "Diesen:pronoun",
+        "Den:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-dies-der-das-die",
+      "text": "Schau die Kleider. Welches gefällt dir am besten? → Dieses / Das da.",
+      "mark": [
+        "Welches:q",
+        "Dieses:pronoun",
+        "Das:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-dies-der-das-die",
+      "text": "Welcher Pullover? → dieser / der",
+      "mark": [
+        "Welcher:q",
+        "dieser:pronoun",
+        "der:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-dies-der-das-die",
+      "text": "Zu welchem Modell? → zu diesem / dem",
+      "mark": [
+        "welchem:q",
+        "diesem:pronoun",
+        "dem:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-indefinite-pronouns-and-indefinite-artic",
+      "text": "alle / viele / wenige",
+      "mark": [
+        "alle:pronoun",
+        "viele:pronoun",
+        "wenige:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-indefinite-pronouns-and-indefinite-artic",
+      "text": "allen / vielen / wenigen",
+      "mark": [
+        "allen:pronoun",
+        "vielen:pronoun",
+        "wenigen:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-future-i",
+      "text": "Ich werde vermutlich / wohl / wahrscheinlich Portugal vermissen.",
+      "mark": [
+        "werde:aux",
+        "vermissen:verb",
+        "vermutlich:adverb",
+        "wohl:adverb",
+        "wahrscheinlich:adverb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-future-i",
+      "text": "Ich werde als Dolmetscher bestimmt / sicherlich / sicher gute Chancen haben.",
+      "mark": [
+        "werde:aux",
+        "haben:verb",
+        "bestimmt:adverb",
+        "sicherlich:adverb",
+        "sicher:adverb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-reflexive-pronouns-reciprocal-meaning",
+      "text": "sie / Sie begrüßen sich",
+      "mark": [
+        "sie:pronoun",
+        "Sie:pronoun",
+        "sich:pronoun",
+        "~begrüßen:verb"
+      ]
+    },
+    {
+      "topic": "g-l05-2",
+      "text": "ich solle / dürfe mich nicht verunsichern lassen.",
+      "mark": [
+        "solle:verb",
+        "dürfe:verb"
+      ]
+    },
+    {
+      "topic": "g-l04-2",
+      "text": "brand neu / aktuell / gefährlich",
+      "mark": [
+        "brand:prefix",
+        "~neu:adjective",
+        "~aktuell:adjective",
+        "~gefährlich:adjective"
+      ]
+    },
+    {
+      "topic": "g-l04-2",
+      "text": "hyper aktiv / modern / nervös",
+      "mark": [
+        "hyper:prefix",
+        "~aktiv:adjective",
+        "~modern:adjective",
+        "~nervös:adjective"
+      ]
+    },
+    {
+      "topic": "g-l04-2",
+      "text": "tod schick / traurig",
+      "mark": [
+        "tod:prefix",
+        "~schick:adjective",
+        "~traurig:adjective"
+      ]
+    },
+    {
+      "topic": "g-l04-2",
+      "text": "top aktuell / fit / modisch",
+      "mark": [
+        "top:prefix",
+        "~aktuell:adjective",
+        "~fit:adjective",
+        "~modisch:adjective"
+      ]
+    },
+    {
+      "topic": "g-l04-2",
+      "text": "voll automatisch / funktionsfähig",
+      "mark": [
+        "voll:prefix",
+        "~automatisch:adjective",
+        "~funktionsfähig:adjective"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-n-declension-masculine-nouns-with-e-n-pl",
+      "text": "der /ein Herr / Nachbar / Kollege",
+      "mark": [
+        "Herr:noun",
+        "Nachbar:noun",
+        "Kollege:noun",
+        "~der:article",
+        "~ein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-n-declension-masculine-nouns-with-e-n-pl",
+      "text": "den / einen Herrn / Nachbarn / Kollegen",
+      "mark": [
+        "~den:article",
+        "~einen:article",
+        "Herr(n):ending",
+        "Nachbar(n):ending",
+        "Kolleg(en):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-n-declension-masculine-nouns-with-e-n-pl",
+      "text": "mit dem / einem Herrn / Nachbarn / Kollegen",
+      "mark": [
+        "~dem:article",
+        "~einem:article",
+        "Herr(n):ending",
+        "Nachbar(n):ending",
+        "Kolleg(en):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-n-declension-masculine-nouns-with-e-n-pl",
+      "text": "die / - Herren / Nachbarn / Kollegen",
+      "mark": [
+        "~die:article",
+        "Herr(en):ending",
+        "Nachbar(n):ending",
+        "Kolleg(en):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-modal-verbs-in-the-perfect",
+      "text": "In der ersten Zeit in Dresden hat Christian viel arbeiten müssen .",
+      "mark": [
+        "hat:aux",
+        "arbeiten:verb",
+        "müssen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-modal-verbs-in-the-perfect",
+      "text": "Er hat daher das Schloss noch nicht besuchen können .",
+      "mark": [
+        "hat:aux",
+        "besuchen:verb",
+        "können:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-past-perfect-for-active-verbs",
+      "text": "Nachdem wir ein bisschen herumgelaufen waren , haben wir dort gegessen .",
+      "mark": [
+        "Nachdem:conj",
+        "herumgelaufen:participle",
+        "waren:aux",
+        "haben:aux",
+        "gegessen:participle"
+      ]
+    },
+    {
+      "topic": "g-web-b1-zustandspassiv",
+      "text": "Die Tür ist geöffnet.",
+      "mark": [
+        "ist:aux",
+        "geöffnet:participle"
+      ]
+    },
+    {
+      "topic": "g-web-b1-zustandspassiv",
+      "text": "Das Problem ist gelöst.",
+      "mark": [
+        "ist:aux",
+        "gelöst:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-giving-reasons-causal-connectives",
+      "text": "Wegen der Kombination aus Theorie und Praxis wäre ein Studium an einer FH sicher interessant.",
+      "mark": [
+        "Wegen:prep",
+        "~der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-giving-counter-arguments-concessive-conn",
+      "text": "Trotz der Nützlichkeit von Lateinkenntnissen ist das „Latinum“ heute nur noch selten Pflicht.",
+      "mark": [
+        "Trotz:prep",
+        "~der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-inflections-with-the-definite-article",
+      "text": "(aber: den T-Shirts / Festivals / Autos)",
+      "mark": [
+        "T-Shirts:noun",
+        "Festivals:noun",
+        "Autos:noun",
+        "~den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-preposition-statt-genitive-standard-use-",
+      "text": "Statt der Grünen / Statt den Grünen wählt Lisa das nächste Mal eine andere Partei.",
+      "mark": [
+        "Statt[1]:prep",
+        "Statt[2]:prep",
+        "der:article",
+        "den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-preposition-statt-genitive-standard-use-",
+      "text": "Statt für die SPD hat sie für die Grünen gestimmt.",
+      "mark": [
+        "Statt:prep",
+        "~für[1]:prep",
+        "~für[2]:prep"
+      ]
+    },
+    {
+      "topic": "g-web-b1-zustandspassiv",
+      "text": "Das Auto ist repariert.",
+      "mark": [
+        "ist:aux",
+        "repariert:participle"
+      ]
+    },
+    {
+      "topic": "g-web-b1-zustandspassiv",
+      "text": "Das Haus ist gebaut worden.",
+      "mark": [
+        "ist:aux",
+        "gebaut:participle",
+        "worden:aux"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-regular-verbs-in-the-present-tense",
+      "text": "ich komme",
+      "mark": [
+        "komm(e):ending",
+        "~ich:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-regular-verbs-in-the-present-tense",
+      "text": "bin",
+      "mark": [
+        "bin:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-regular-verbs-in-the-present-tense",
+      "text": "sind",
+      "mark": [
+        "sind:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-separable-prefix",
+      "text": "Wann stehst du auf?",
+      "mark": [
+        "stehst:verb",
+        "auf:prefix",
+        "~Wann:q"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-separable-prefix",
+      "text": "Wir probieren das Lauftraining aus",
+      "mark": [
+        "probieren:verb",
+        "aus:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-separable-prefix",
+      "text": "Ihr kommt zum Leonardo-Campus-Run mit.",
+      "mark": [
+        "kommt:verb",
+        "mit:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-separable-prefix",
+      "text": "Annika und Tobias machen beim Lauftraining mit.",
+      "mark": [
+        "machen:verb",
+        "mit:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-stem-vowel-change",
+      "text": "du liest",
+      "mark": [
+        "~du:pronoun",
+        "l(ie)st:stem",
+        "~lie(st):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-stem-vowel-change",
+      "text": "fährst",
+      "mark": [
+        "f(ä)hrst:stem",
+        "~fähr(st):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-stem-vowel-change",
+      "text": "läufst",
+      "mark": [
+        "l(äu)fst:stem",
+        "~läuf(st):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-stem-vowel-change",
+      "text": "weiß",
+      "mark": [
+        "weiß:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-irregular-and-mixed-verbs",
+      "text": "ich habe getroffen",
+      "mark": [
+        "habe:aux",
+        "getroffen:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-irregular-and-mixed-verbs",
+      "text": "bin gefahren",
+      "mark": [
+        "bin:aux",
+        "gefahren:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-irregular-and-mixed-verbs",
+      "text": "habe gewusst",
+      "mark": [
+        "habe:aux",
+        "gewusst:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-imperative-sentences",
+      "text": "ihr kommt → Kommt!",
+      "mark": [
+        "Kommt:verb",
+        "~ihr:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-imperative-sentences",
+      "text": "Sie kommen → Kommen Sie!",
+      "mark": [
+        "Kommen:verb",
+        "Sie[2]:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-imperative-sentences",
+      "text": "du wartest → Warte!",
+      "mark": [
+        "Warte:verb",
+        "~du:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-imperative-sentences",
+      "text": "du fährst → F ahr!",
+      "mark": [
+        "F:verb",
+        "ahr:verb",
+        "~du:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-imperative-sentences",
+      "text": "du passt auf → Pass auf!",
+      "mark": [
+        "Pass:verb",
+        "auf[2]:prefix",
+        "~du:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-modal-verbs",
+      "text": "ich konnte",
+      "mark": [
+        "konn(te):ending",
+        "~ich:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-modal-verbs",
+      "text": "wollte",
+      "mark": [
+        "woll(te):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-modal-verbs",
+      "text": "durfte",
+      "mark": [
+        "durf(te):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-modal-verbs",
+      "text": "wir konnten",
+      "mark": [
+        "konn(ten):ending",
+        "~wir:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-preterite",
+      "text": "wartete",
+      "mark": [
+        "warte(te):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-preterite",
+      "text": "lief",
+      "mark": [
+        "lief:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-preterite",
+      "text": "rannte",
+      "mark": [
+        "rann(te):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-active-passive",
+      "text": "Die Eheleute gründen 1912 die Fabrik .",
+      "mark": [
+        "gründen:verb",
+        "~Die Eheleute:noun",
+        "~die Fabrik:noun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-active-passive",
+      "text": "Die Fabrik wird 1912 (von den Eheleuten) gegründet.",
+      "mark": [
+        "wird:aux",
+        "gegründet:participle",
+        "~Die Fabrik:noun",
+        "~von:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-active-passive",
+      "text": "Im Museumsshop verkauft man Bücher und Plakate.",
+      "mark": [
+        "verkauft:verb",
+        "~man:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-active-passive",
+      "text": "Im Museumsshop werden Bücher und Plakate verkauft.",
+      "mark": [
+        "werden:aux",
+        "verkauft:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-possessive-pronouns",
+      "text": "der → meiner",
+      "mark": [
+        "mein(er):ending",
+        "~der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-possessive-pronouns",
+      "text": "den → meinen",
+      "mark": [
+        "mein(en):ending",
+        "~den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-possessive-pronouns",
+      "text": "dem → meinem",
+      "mark": [
+        "mein(em):ending",
+        "~dem:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-in-the-genitive",
+      "text": "des großen Erfolgs",
+      "mark": [
+        "groß(en):ending",
+        "Erfolg(s):ending",
+        "~des:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-in-the-genitive",
+      "text": "eines großen Erfolgs",
+      "mark": [
+        "groß(en):ending",
+        "Erfolg(s):ending",
+        "~eines:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-in-the-genitive",
+      "text": "meines großen Erfolgs",
+      "mark": [
+        "groß(en):ending",
+        "Erfolg(s):ending",
+        "~meines:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-in-the-genitive",
+      "text": "großen Erfolgs",
+      "mark": [
+        "groß(en):ending",
+        "Erfolg(s):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-in-the-genitive",
+      "text": "der kurzen Karriere",
+      "mark": [
+        "kurz(en):ending",
+        "~der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-in-the-genitive",
+      "text": "kurzer Karriere",
+      "mark": [
+        "kurz(er):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-second-conditional-haben-sein-werden-k-n",
+      "text": "ich hätte",
+      "mark": [
+        "~ich:pronoun",
+        "h(ä)tte:stem",
+        "~hätt(e):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-second-conditional-haben-sein-werden-k-n",
+      "text": "wäre",
+      "mark": [
+        "w(ä)re:stem",
+        "~wär(e):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-second-conditional-haben-sein-werden-k-n",
+      "text": "könnte",
+      "mark": [
+        "k(ö)nnte:stem",
+        "~könnt(e):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-second-conditional-haben-sein-werden-k-n",
+      "text": "dürfte",
+      "mark": [
+        "d(ü)rfte:stem",
+        "~dürft(e):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-second-conditional-haben-sein-werden-k-n",
+      "text": "sollte",
+      "mark": [
+        "sollte:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-inflections-with-the-indefinite-article-",
+      "text": "ein en / kein en / mein en",
+      "mark": [
+        "en[1]:ending",
+        "en[2]:ending",
+        "en[3]:ending",
+        "~ein:article",
+        "~kein:article",
+        "~mein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-inflections-with-the-indefinite-article-",
+      "text": "ein em / kein em / mein em",
+      "mark": [
+        "em[1]:ending",
+        "em[2]:ending",
+        "em[3]:ending",
+        "~ein:article",
+        "~kein:article",
+        "~mein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-inflections-with-the-indefinite-article-",
+      "text": "- / keinen / meinen Söhnen /",
+      "mark": [
+        "kein(en):ending",
+        "mein(en):ending",
+        "Söhne(n):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-before-nouns-without-an-artic",
+      "text": "das → neues Leben",
+      "mark": [
+        "neu(es):ending",
+        "~das:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-before-nouns-without-an-artic",
+      "text": "der → langer Tradition",
+      "mark": [
+        "lang(er):ending",
+        "~der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-before-nouns-without-an-artic",
+      "text": "den → alten Liedern",
+      "mark": [
+        "alt(en):ending",
+        "Lieder(n):ending",
+        "~den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-second-conditional",
+      "text": "“er schaute nach” --> “er würde nachschauen”",
+      "mark": [
+        "würde:aux",
+        "nachschauen:verb",
+        "~schaute:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-second-conditional",
+      "text": "“ich hatte” --> “ich hätte”",
+      "mark": [
+        "~hatte:verb",
+        "h(ä)tte:stem"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-second-conditional",
+      "text": "“du konntest” --> “du könntest”",
+      "mark": [
+        "~konntest:verb",
+        "k(ö)nntest:stem"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-indefinite-numbers-quantity-indefinite-p",
+      "text": "mancher",
+      "mark": [
+        "manch(er):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-indefinite-numbers-quantity-indefinite-p",
+      "text": "manchen",
+      "mark": [
+        "manch(en):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-indefinite-numbers-quantity-indefinite-p",
+      "text": "manchem",
+      "mark": [
+        "manch(em):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-indefinite-numbers-quantity-indefinite-p",
+      "text": "einige",
+      "mark": [
+        "einig(e):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-indefinite-pronouns-and-adverbs-with-irg",
+      "text": "wo --> irgendwo",
+      "mark": [
+        "(irgend)wo:prefix",
+        "~wo:q"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-indefinite-pronouns-and-adverbs-with-irg",
+      "text": "ein --> irgendein",
+      "mark": [
+        "(irgend)ein:prefix",
+        "~ein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-indefinite-pronouns-and-adverbs-with-irg",
+      "text": "jemand --> irgendjemand",
+      "mark": [
+        "(irgend)jemand:prefix",
+        "~jemand:pronoun"
+      ]
+    },
+    {
+      "topic": "g-b2-10-erweiterte-partizipialattribute",
+      "text": "Das von der Kommission geprüfte Konzept wurde schließlich angenommen.",
+      "mark": [
+        "geprüfte:participle",
+        "~von:prep",
+        "~Das:article",
+        "~Konzept:noun"
+      ]
+    },
+    {
+      "topic": "g-b2-10-erweiterte-partizipialattribute",
+      "text": "Die im letzten Jahr eingeführten Regeln gelten weiterhin.",
+      "mark": [
+        "eingeführten:participle",
+        "~Die:article",
+        "~Regeln:noun"
+      ]
+    },
+    {
+      "topic": "g-b2-10-erweiterte-partizipialattribute",
+      "text": "Wir danken allen an dem Projekt beteiligten Kolleginnen und Kollegen.",
+      "mark": [
+        "beteiligten:participle",
+        "~an:prep"
+      ]
+    },
+    {
+      "topic": "g-l01-1",
+      "text": "Er müsste den Zug eigentlich noch bekommen, da er glücklicherweise Verspätung hat.",
+      "mark": [
+        "müsste:verb",
+        "bekommen:verb"
+      ]
+    },
+    {
+      "topic": "g-l01-1",
+      "text": "Der Täter soll sich zurzeit im Ausland aufhalten.",
+      "mark": [
+        "soll:verb",
+        "aufhalten:verb"
+      ]
+    },
+    {
+      "topic": "g-l01-1",
+      "text": "Eine 56-Jährige will durch den Ärmelkanal geschwommen sein.",
+      "mark": [
+        "will:verb",
+        "geschwommen:participle",
+        "sein:aux"
+      ]
+    },
+    {
+      "topic": "g-l05-1",
+      "text": "Der Bildhauer bearbeitet die Skulptur.",
+      "mark": [
+        "(be)arbeitet:prefix",
+        "~die Skulptur:noun"
+      ]
+    },
+    {
+      "topic": "g-l05-1",
+      "text": "Der Bildhauer arbeitet an der Skulptur.",
+      "mark": [
+        "arbeitet:verb",
+        "~an:prep"
+      ]
+    },
+    {
+      "topic": "g-l05-1",
+      "text": "Der Kritiker beurteilt die Kunstwerke.",
+      "mark": [
+        "(be)urteilt:prefix",
+        "~die Kunstwerke:noun"
+      ]
+    },
+    {
+      "topic": "g-l05-1",
+      "text": "Der Kritiker urteilt über die Kunstwerke.",
+      "mark": [
+        "urteilt:verb",
+        "~über:prep"
+      ]
+    },
+    {
+      "topic": "g-l05-1",
+      "text": "Mit ein paar Bildern kann man ein Zimmer verschönern.",
+      "mark": [
+        "(ver)schönern:prefix"
+      ]
+    },
+    {
+      "topic": "g-l05-1",
+      "text": "Der Bildhauer verbringt viel Zeit in seinem Atelier.",
+      "mark": [
+        "(ver)bringt:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-regular-verbs-in-the-present-tense",
+      "text": "du kommst",
+      "mark": [
+        "komm(st):ending",
+        "~du:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-regular-verbs-in-the-present-tense",
+      "text": "arbeitest",
+      "mark": [
+        "arbeit(est):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-regular-verbs-in-the-present-tense",
+      "text": "heißt",
+      "mark": [
+        "heiß(t):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-separable-prefix",
+      "text": "Ich rufe dich an.",
+      "mark": [
+        "rufe:verb",
+        "an:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-present-verbs-with-a-stem-vowel-change",
+      "text": "sprichst",
+      "mark": [
+        "spr(i)chst:stem",
+        "~sprich(st):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-irregular-and-mixed-verbs",
+      "text": "haben gedacht",
+      "mark": [
+        "haben:aux",
+        "gedacht:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-irregular-and-mixed-verbs",
+      "text": "bin gewesen",
+      "mark": [
+        "bin:aux",
+        "gewesen:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-imperative-sentences",
+      "text": "du kommst →Komm!",
+      "mark": [
+        "Komm:verb",
+        "~du:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-imperative-sentences",
+      "text": "du liest → Lies!",
+      "mark": [
+        "Lies:verb",
+        "~du:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-imperative-sentences",
+      "text": "du bist → Sei vorsichtig!",
+      "mark": [
+        "Sei:verb",
+        "~du:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-suggestions-with-sollen-wollen-wir-soll-",
+      "text": "Gehen wir doch ins Kino!",
+      "mark": [
+        "Gehen:verb",
+        "~wir:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-suggestions-with-sollen-wollen-wir-soll-",
+      "text": "Kochen wir doch mal zusammen!",
+      "mark": [
+        "Kochen:verb",
+        "~wir:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-indefinite-articles-and-negative-article",
+      "text": "- / keine Kassetten",
+      "mark": [
+        "keine:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-possessive-articles-in-nominative",
+      "text": "mein Sohn",
+      "mark": [
+        "mein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-possessive-articles-in-nominative",
+      "text": "mein Kind",
+      "mark": [
+        "mein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-possessive-articles-in-nominative",
+      "text": "meine Tochter",
+      "mark": [
+        "mein(e):ending",
+        "~meine:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-possessive-articles-in-nominative",
+      "text": "meine Söhne, Töchter, Kinder",
+      "mark": [
+        "mein(e):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-modal-verbs",
+      "text": "musste",
+      "mark": [
+        "muss(te):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-preterite",
+      "text": "ich suchte",
+      "mark": [
+        "such(te):ending",
+        "~ich:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-preterite",
+      "text": "ging",
+      "mark": [
+        "ging:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-preterite",
+      "text": "dachte",
+      "mark": [
+        "dach(te):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-active-passive",
+      "text": "Die Fabrik wurde 1912 von den Eheleuten gegründet.",
+      "mark": [
+        "wurde:aux",
+        "gegründet:participle",
+        "~von:prep",
+        "~den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-second-conditional-haben-sein-werden-k-n",
+      "text": "würde",
+      "mark": [
+        "w(ü)rde:stem",
+        "~würd(e):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-possessive-pronouns",
+      "text": "das → meins",
+      "mark": [
+        "mein(s):ending",
+        "~das:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-indefinite-pronouns-and-indefinite-artic",
+      "text": "jeder (k)ein Mann / (k)einer",
+      "mark": [
+        "jed(er):ending",
+        "ein(er):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-indefinite-pronouns-and-indefinite-artic",
+      "text": "jedem (k)einem",
+      "mark": [
+        "jed(em):ending",
+        "ein(em):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-before-nouns-without-an-artic",
+      "text": "der → lebendiger Dialekt",
+      "mark": [
+        "lebendig(er):ending",
+        "~der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-before-nouns-without-an-artic",
+      "text": "die → lange Tradition",
+      "mark": [
+        "lang(e):ending",
+        "~die:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-before-nouns-without-an-artic",
+      "text": "den → lebendigen Dialekt",
+      "mark": [
+        "lebendig(en):ending",
+        "~den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-before-nouns-without-an-artic",
+      "text": "dem → lebendigem Dialekt",
+      "mark": [
+        "lebendig(em):ending",
+        "~dem:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-in-the-genitive",
+      "text": "unserer gestressten Manager",
+      "mark": [
+        "gestresst(en):ending",
+        "~unserer:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-adjectives-in-the-genitive",
+      "text": "gestresster Manager",
+      "mark": [
+        "gestresst(er):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-past-perfect-for-active-verbs",
+      "text": "Nachdem wir es bis zum Bahnhof Zoo geschafft hatten , fing es an zu regnen.",
+      "mark": [
+        "Nachdem:conj",
+        "geschafft:participle",
+        "hatten:aux",
+        "fing:verb",
+        "an:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-future-i",
+      "text": "Zur Vorbereitung werde ich einen Schwedischkurs machen.",
+      "mark": [
+        "werde:aux",
+        "machen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-future-i",
+      "text": "Es wird schon klappen.",
+      "mark": [
+        "wird:aux",
+        "klappen:verb",
+        "schon:adverb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-second-conditional",
+      "text": "“er wusste” --> “er wüsste”",
+      "mark": [
+        "~wusste:verb",
+        "w(ü)sste:stem"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-second-conditional",
+      "text": "“ich kam” --> “ich käme”",
+      "mark": [
+        "~kam:verb",
+        "k(ä)me:stem",
+        "~käm(e):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-second-conditional",
+      "text": "“er ging” -",
+      "mark": [
+        "ging:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-indefinite-numbers-quantity-indefinite-p",
+      "text": "einigen",
+      "mark": [
+        "einig(en):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-indefinite-pronouns-and-adverbs-with-irg",
+      "text": "wann --> irgendwann",
+      "mark": [
+        "(irgend)wann:prefix",
+        "~wann:q"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-indefinite-pronouns-and-adverbs-with-irg",
+      "text": "etwas --> irgendetwas (colloquially: was --> irgendwas)",
+      "mark": [
+        "(irgend)etwas:prefix",
+        "(irgend)was:prefix",
+        "~etwas:pronoun",
+        "~was:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-reflexive-pronouns-reciprocal-meaning",
+      "text": "man begrüßt sich",
+      "mark": [
+        "sich:pronoun",
+        "~man:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-reflexive-pronouns-reciprocal-meaning",
+      "text": "wir begrüßen uns",
+      "mark": [
+        "uns:pronoun",
+        "~wir:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-reflexive-pronouns-reciprocal-meaning",
+      "text": "ihr begrüßt euch",
+      "mark": [
+        "euch:pronoun",
+        "~ihr:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-reflexive-pronouns-reciprocal-meaning",
+      "text": "man nickt sich zu",
+      "mark": [
+        "sich:pronoun",
+        "~man:pronoun",
+        "~zu:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-reflexive-pronouns-reciprocal-meaning",
+      "text": "wir nicken uns zu",
+      "mark": [
+        "uns:pronoun",
+        "~wir:pronoun",
+        "~zu:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-giving-reasons-causal-connectives",
+      "text": "Ich muss ein Auslandssemester machen. Ich habe nämlich vor, später für eine internationale Organisation zu arbeiten.",
+      "mark": [
+        "nämlich:conj",
+        "~habe:verb",
+        "~vor:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-giving-counter-arguments-concessive-conn",
+      "text": "Lateinkenntnisse können im Studium sehr hilfreich sein. Trotzdem ist das „Latinum“ heute nur noch selten Pflicht.",
+      "mark": [
+        "Trotzdem:conj",
+        "~ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-giving-counter-arguments-concessive-conn",
+      "text": "Dennoch ist das „Latinum“ heute nur noch selten Pflicht.",
+      "mark": [
+        "Dennoch:conj",
+        "~ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-giving-counter-arguments-concessive-conn",
+      "text": "Zwar Lateinkenntnisse können im Studium sehr hilfreich sein, aber das „Latinum“ ist heute nur noch selten Pflicht.",
+      "mark": [
+        "Zwar:conj",
+        "aber:conj"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-preposition-statt-genitive-standard-use-",
+      "text": "Statt im Mai, war die Wahl im Juni.",
+      "mark": [
+        "Statt:prep",
+        "~im[1]:prep"
+      ]
+    },
+    {
+      "topic": "g-b2-10-erweiterte-partizipialattribute",
+      "text": "Der seit Wochen andauernde Streit belastet das ganze Team.",
+      "mark": [
+        "andauernde:participle",
+        "~Der:article",
+        "~seit:prep"
+      ]
+    },
+    {
+      "topic": "g-l01-1",
+      "text": "Es muss sich um eine Sucht handeln.",
+      "mark": [
+        "muss:verb",
+        "handeln:verb"
+      ]
+    },
+    {
+      "topic": "g-l01-1",
+      "text": "Auch beim letzten Fall muss es sich um die neue Sucht gehandelt haben.",
+      "mark": [
+        "muss:verb",
+        "gehandelt:participle",
+        "haben:aux"
+      ]
+    },
+    {
+      "topic": "g-l01-1",
+      "text": "Die Sucht dürfte besonders junge Leute betreffen.",
+      "mark": [
+        "dürfte:verb",
+        "betreffen:verb"
+      ]
+    },
+    {
+      "topic": "g-l01-1",
+      "text": "Die Nervosität könnte von der Handysucht kommen.",
+      "mark": [
+        "könnte:verb",
+        "kommen:verb"
+      ]
+    },
+    {
+      "topic": "g-l05-1",
+      "text": "Dann habe ich mich auch noch am Telefon verwählt.",
+      "mark": [
+        "(ver)wählt:prefix",
+        "~habe:aux"
+      ]
+    },
+    {
+      "topic": "g-l05-2",
+      "text": "ob dort die weltbesten Künstler vertreten seien.",
+      "mark": [
+        "ob:conj",
+        "seien:verb"
+      ]
+    },
+    {
+      "topic": "g-l05-2",
+      "text": "ich möge die Studienordnung lesen.",
+      "mark": [
+        "möge:verb",
+        "~ich:pronoun"
+      ]
+    },
+    {
+      "topic": "g-l05-2",
+      "text": "ich müsse mich bis März anmelden.",
+      "mark": [
+        "müsse:verb",
+        "~ich:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-verbs-with-inseparable-prefixes-",
+      "text": "Du hast den Hausmeister nicht erreicht.",
+      "mark": [
+        "hast:aux",
+        "(er)reicht:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-verbs-with-inseparable-prefixes-",
+      "text": "Er hat keine Notiz hinterlassen .",
+      "mark": [
+        "hat:aux",
+        "(hinter)lassen:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-verbs-with-separable-prefixes-e-",
+      "text": "Du hast leider nicht zurückgerufen.",
+      "mark": [
+        "hast:aux",
+        "(zurück)gerufen:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-verbs-with-separable-prefixes-e-",
+      "text": "Sie sind heute Morgen weggefahren.",
+      "mark": [
+        "sind:aux",
+        "(weg)gefahren:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-suggestions-with-sollen-wollen-wir-soll-",
+      "text": "Soll ich helfen?",
+      "mark": [
+        "Soll:verb",
+        "helfen:verb",
+        "~ich:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-definite-articles-in-the-nominative-and-",
+      "text": "der Computer",
+      "mark": [
+        "der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-definite-articles-in-the-nominative-and-",
+      "text": "das Telefon",
+      "mark": [
+        "das:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-indefinite-articles-and-negative-article",
+      "text": "ein en / kein en Computer",
+      "mark": [
+        "en[1]:ending",
+        "en[2]:ending",
+        "~ein:article",
+        "~kein:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-personal-pronouns-in-the-accusative-case",
+      "text": "du dich",
+      "mark": [
+        "du:pronoun",
+        "dich:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-possessive-articles-in-nominative",
+      "text": "du dein dein deine deine",
+      "mark": [
+        "dein[1]:article",
+        "dein[2]:article",
+        "deine[1]:article",
+        "deine[2]:article",
+        "~du:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-modal-verbs-and-their-uses",
+      "text": "Beate muss sich ausruhen.",
+      "mark": [
+        "muss:verb",
+        "ausruhen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-modal-verbs-and-their-uses",
+      "text": "Beate braucht keine Diät zu machen.",
+      "mark": [
+        "braucht:verb",
+        "machen:verb",
+        "~zu"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-inflections-with-the-definite-article",
+      "text": "dem Sohn",
+      "mark": [
+        "dem:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-personal-pronouns-in-nominative-accusati",
+      "text": "mich dich ihn",
+      "mark": [
+        "mich:pronoun",
+        "dich:pronoun",
+        "ihn:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-personal-pronouns-in-nominative-accusati",
+      "text": "uns euch",
+      "mark": [
+        "uns:pronoun",
+        "euch:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-dies-der-das-die",
+      "text": "Zu welcher Bluse passt der Rock?",
+      "mark": [
+        "welcher:q",
+        "~der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-dies-der-das-die",
+      "text": "Und da die Hosen. Welche ist schicker?",
+      "mark": [
+        "Welche:q",
+        "~die:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-indefinite-pronouns-and-indefinite-artic",
+      "text": "jedes (k)ein Fest / (k)eins",
+      "mark": [
+        "jed(es):ending",
+        "ein(s):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-future-i",
+      "text": "Wir werden ab August zusammen in Berlin wohnen.",
+      "mark": [
+        "werden:aux",
+        "wohnen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-lassen-nouns",
+      "text": "Christian lässt sein Handy im Büro.",
+      "mark": [
+        "lässt:verb",
+        "~sein Handy:noun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-lassen-nouns",
+      "text": "Christian lässt es im Büro.",
+      "mark": [
+        "lässt:verb",
+        "es:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-reference-to-something-identical-demonst",
+      "text": "Dasselbe habe ich auch gedacht.",
+      "mark": [
+        "Dasselbe:pronoun",
+        "~habe:aux",
+        "~gedacht:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-reference-to-something-identical-demonst",
+      "text": "Das ist nicht mehr dieselbe Stadt, in der wir vor 30 Jahren studiert haben.",
+      "mark": [
+        "dieselbe:pronoun",
+        "~der:pronoun"
+      ]
+    },
+    {
+      "topic": "g-web-b1-zustandspassiv",
+      "text": "Die Tür wird geöffnet.",
+      "mark": [
+        "wird:aux",
+        "geöffnet:participle"
+      ]
+    },
+    {
+      "topic": "g-web-b1-zustandspassiv",
+      "text": "Das Haus wird gebaut.",
+      "mark": [
+        "wird:aux",
+        "gebaut:participle"
+      ]
+    },
+    {
+      "topic": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen",
+      "text": "An deiner Stelle würde ich den Vertrag noch einmal lesen.",
+      "mark": [
+        "würde:aux",
+        "lesen:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen",
+      "text": "Könnten Sie mir bitte kurz helfen?",
+      "mark": [
+        "K(ö)nnten:stem",
+        "helfen:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-8-indirekte-rede-mit-konjunktiv-i",
+      "text": "Sie erklärte, sie habe den Termin völlig vergessen.",
+      "mark": [
+        "habe:aux",
+        "vergessen:participle",
+        "~erklärte:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-8-indirekte-rede-mit-konjunktiv-i",
+      "text": "Die Zeitung berichtet, die Preise würden weiter steigen.",
+      "mark": [
+        "würden:aux",
+        "steigen:verb",
+        "~berichtet:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+      "text": "Wir suchen eine überzeugende Lösung für dieses Problem.",
+      "mark": [
+        "überzeugende:participle",
+        "~eine:article"
+      ]
+    },
+    {
+      "topic": "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+      "text": "Die eingeladenen Gäste warteten bereits im Garten.",
+      "mark": [
+        "eingeladenen:participle",
+        "~Die:article"
+      ]
+    },
+    {
+      "topic": "g-b2-13-temporale-nebensaetze",
+      "text": "Sobald der Vertrag unterschrieben ist, beginnen wir mit der Arbeit.",
+      "mark": [
+        "Sobald:conj",
+        "ist:verb",
+        "beginnen:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-13-temporale-nebensaetze",
+      "text": "Seitdem er in Hamburg wohnt, sehen wir uns nur noch selten.",
+      "mark": [
+        "Seitdem:conj",
+        "wohnt:verb",
+        "sehen:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-14-subjektiver-gebrauch-der-modalverben",
+      "text": "Das dürfte für die meisten Teilnehmer kein Problem sein.",
+      "mark": [
+        "dürfte:verb",
+        "sein:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-15-passiversatzformen",
+      "text": "Das Problem lässt sich in wenigen Minuten lösen.",
+      "mark": [
+        "lässt:verb",
+        "sich:pronoun",
+        "lösen:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-15-passiversatzformen",
+      "text": "Dieser Fehler ließ sich leider nicht mehr korrigieren.",
+      "mark": [
+        "ließ:verb",
+        "sich:pronoun",
+        "korrigieren:verb"
+      ]
+    },
+    {
+      "topic": "g-l03-2",
+      "text": "Das Buch war zu interessant, als dass ich mit dem Lesen hätte aufhören können.",
+      "mark": [
+        "als dass:conj",
+        "hätte:aux",
+        "aufhören:verb",
+        "können:verb"
+      ]
+    },
+    {
+      "topic": "g-l03-2",
+      "text": "Die Vorgänge im Körper sind zu komplex, um sie schnell zu erklären.",
+      "mark": [
+        "um:conj",
+        "erklären:verb",
+        "~zu[2]"
+      ]
+    },
+    {
+      "topic": "g-l05-2",
+      "text": "Die Leute fragten,",
+      "mark": [
+        "fragten:verb"
+      ]
+    },
+    {
+      "topic": "g-l05-2",
+      "text": "warum die documenta eigentlich so heiße.",
+      "mark": [
+        "warum:q",
+        "heiße:verb"
+      ]
+    },
+    {
+      "topic": "g-l05-2",
+      "text": "ich solle eine Bewerbungsmappe schicken.",
+      "mark": [
+        "solle:verb",
+        "schicken:verb",
+        "~ich:pronoun"
+      ]
+    },
+    {
+      "topic": "g-l06-2",
+      "text": "Enthusiasmus",
+      "mark": [
+        "Enthusias(mus):ending"
+      ]
+    },
+    {
+      "topic": "g-l06-2",
+      "text": "Mechanismus",
+      "mark": [
+        "Mechanis(mus):ending"
+      ]
+    },
+    {
+      "topic": "g-l06-2",
+      "text": "Bibliothekar",
+      "mark": [
+        "Bibliothek(ar):ending"
+      ]
+    },
+    {
+      "topic": "g-l06-2",
+      "text": "Experiment",
+      "mark": [
+        "Experi(ment):ending"
+      ]
+    },
+    {
+      "topic": "g-l04-2",
+      "text": "bildschön, aber nicht bildnett",
+      "mark": [
+        "(bild)schön:prefix",
+        "~bildnett:adjective"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-verbs-with-inseparable-prefixes-",
+      "text": "Ich habe euch nicht vergessen .",
+      "mark": [
+        "habe:aux",
+        "(ver)gessen:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-verbs-with-inseparable-prefixes-",
+      "text": "Wir haben unsere Eltern besucht.",
+      "mark": [
+        "haben:aux",
+        "(be)sucht:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-verbs-with-separable-prefixes-e-",
+      "text": "Ich habe dich heute mehrmals angerufen.",
+      "mark": [
+        "habe:aux",
+        "(an)gerufen:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-verbs-with-separable-prefixes-e-",
+      "text": "Er hat den Antrag vom Studierendenwohnheim ausgefüllt.",
+      "mark": [
+        "hat:aux",
+        "(aus)gefüllt:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-verbs-with-separable-prefixes-e-",
+      "text": "Am Sonntag bin ich erst um 11.00 Uhr aufgestanden.",
+      "mark": [
+        "bin:aux",
+        "(auf)gestanden:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-definite-articles-in-the-nominative-and-",
+      "text": "den Computer",
+      "mark": [
+        "den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-definite-articles-in-the-nominative-and-",
+      "text": "die Kamera",
+      "mark": [
+        "die:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-definite-articles-in-the-nominative-and-",
+      "text": "die Kassetten",
+      "mark": [
+        "die:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-personal-pronouns-in-the-accusative-case",
+      "text": "ich mich",
+      "mark": [
+        "ich:pronoun",
+        "mich:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-personal-pronouns-in-the-accusative-case",
+      "text": "ihn / es / sie",
+      "mark": [
+        "ihn:pronoun",
+        "es:pronoun",
+        "sie:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-personal-pronouns-in-the-accusative-case",
+      "text": "wir uns",
+      "mark": [
+        "wir:pronoun",
+        "uns:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-personal-pronouns-in-the-accusative-case",
+      "text": "ihr euch",
+      "mark": [
+        "ihr:pronoun",
+        "euch:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-modal-verbs-and-their-uses",
+      "text": "Beate soll viel schlafen.",
+      "mark": [
+        "soll:verb",
+        "schlafen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-modal-verbs-and-their-uses",
+      "text": "Beate darf nicht arbeiten.",
+      "mark": [
+        "darf:verb",
+        "arbeiten:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-modal-verbs-and-their-uses",
+      "text": "Beate kann verreisen.",
+      "mark": [
+        "kann:verb",
+        "verreisen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-inflections-with-the-definite-article",
+      "text": "der Tochter",
+      "mark": [
+        "der:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-inflections-with-the-definite-article",
+      "text": "den Söhnen / Kindern / Töchtern",
+      "mark": [
+        "Söhne(n):ending",
+        "Kinder(n):ending",
+        "Töchter(n):ending",
+        "~den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-personal-pronouns-in-nominative-accusati",
+      "text": "mir dir ihm",
+      "mark": [
+        "mir:pronoun",
+        "dir:pronoun",
+        "ihm:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-personal-pronouns-in-nominative-accusati",
+      "text": "ihnen / Ihnen",
+      "mark": [
+        "ihnen:pronoun",
+        "Ihnen:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-lassen-nouns",
+      "text": "Christian hat sein Handy im Büro gelassen .",
+      "mark": [
+        "hat:aux",
+        "gelassen:participle",
+        "~sein Handy:noun"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-reference-to-something-identical-demonst",
+      "text": "der große Platz → derselbe Platz",
+      "mark": [
+        "derselbe:pronoun",
+        "~der:article"
+      ]
+    },
+    {
+      "topic": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen",
+      "text": "Wenn ich mehr Zeit hätte, würde ich öfter kochen.",
+      "mark": [
+        "Wenn:conj",
+        "hätte:verb",
+        "würde:aux",
+        "kochen:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-1-konjunktiv-ii-irreale-wuensche-und-bedingungen",
+      "text": "Wenn er früher losgefahren wäre, hätte er den Zug nicht verpasst.",
+      "mark": [
+        "Wenn:conj",
+        "wäre:aux",
+        "hätte:aux",
+        "verpasst:participle"
+      ]
+    },
+    {
+      "topic": "g-b2-8-indirekte-rede-mit-konjunktiv-i",
+      "text": "Der Minister sagte, die Lage sei ernst.",
+      "mark": [
+        "sei:verb",
+        "~sagte:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-8-indirekte-rede-mit-konjunktiv-i",
+      "text": "Er behauptet, er sei den ganzen Abend zu Hause gewesen.",
+      "mark": [
+        "sei:aux",
+        "gewesen:participle",
+        "~behauptet:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+      "text": "Das schlafende Kind wurde von dem Lärm nicht wach.",
+      "mark": [
+        "schlafende:participle",
+        "~Das:article"
+      ]
+    },
+    {
+      "topic": "g-b2-9-partizip-i-und-partizip-ii-als-attribut",
+      "text": "Der reparierte Drucker funktioniert wieder einwandfrei.",
+      "mark": [
+        "reparierte:participle",
+        "~Der:article"
+      ]
+    },
+    {
+      "topic": "g-b2-13-temporale-nebensaetze",
+      "text": "Nachdem wir gegessen hatten, gingen wir noch eine Runde spazieren.",
+      "mark": [
+        "Nachdem:conj",
+        "gegessen:participle",
+        "hatten:aux",
+        "gingen:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-13-temporale-nebensaetze",
+      "text": "Während sie telefonierte, machte er schon das Abendessen.",
+      "mark": [
+        "Während:conj",
+        "telefonierte:verb",
+        "machte:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-14-subjektiver-gebrauch-der-modalverben",
+      "text": "Er muss den Brief schon gelesen haben, er reagiert ja darauf.",
+      "mark": [
+        "muss:verb",
+        "gelesen:participle",
+        "haben:aux"
+      ]
+    },
+    {
+      "topic": "g-b2-14-subjektiver-gebrauch-der-modalverben",
+      "text": "Sie soll früher einmal in Japan gelebt haben.",
+      "mark": [
+        "soll:verb",
+        "gelebt:participle",
+        "haben:aux"
+      ]
+    },
+    {
+      "topic": "g-b2-14-subjektiver-gebrauch-der-modalverben",
+      "text": "Er will von der ganzen Sache nichts gewusst haben.",
+      "mark": [
+        "will:verb",
+        "gewusst:participle",
+        "haben:aux"
+      ]
+    },
+    {
+      "topic": "g-b2-15-passiversatzformen",
+      "text": "Die Formulare sind bis Freitag im Sekretariat abzugeben.",
+      "mark": [
+        "sind:aux",
+        "abzugeben:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-15-passiversatzformen",
+      "text": "Die Handschrift auf dem Umschlag ist kaum lesbar.",
+      "mark": [
+        "ist:aux",
+        "les(bar):ending"
+      ]
+    },
+    {
+      "topic": "g-l03-2",
+      "text": "Der Büroalltag ist zu stressig, als dass man gute Vorsätze für die Gesundheit umsetzen könnte.",
+      "mark": [
+        "als dass:conj",
+        "umsetzen:verb",
+        "könnte:verb"
+      ]
+    },
+    {
+      "topic": "g-l03-2",
+      "text": "Die Vorgänge im Körper sind zu komplex, als dass man sie schnell erklären könnte.",
+      "mark": [
+        "als dass:conj",
+        "erklären:verb",
+        "könnte:verb"
+      ]
+    },
+    {
+      "topic": "g-l06-2",
+      "text": "Eleganz",
+      "mark": [
+        "Eleg(anz):ending"
+      ]
+    },
+    {
+      "topic": "g-l06-2",
+      "text": "Intelligenz",
+      "mark": [
+        "Intellig(enz):ending"
+      ]
+    },
+    {
+      "topic": "g-l06-2",
+      "text": "das Vokabular",
+      "mark": [
+        "Vokabul(ar):ending",
+        "~das:article"
+      ]
+    },
+    {
+      "topic": "g-l07-3",
+      "text": "das baldige Wiedersehen",
+      "mark": [
+        "~das:article",
+        "bald(ig)e:ending"
+      ]
+    },
+    {
+      "topic": "g-l07-3",
+      "text": "der morgige Tag",
+      "mark": [
+        "~der:article",
+        "morg(ig)e:ending"
+      ]
+    },
+    {
+      "topic": "g-l07-3",
+      "text": "die gestrige Sitzung",
+      "mark": [
+        "~die:article",
+        "gestr(ig)e:ending"
+      ]
+    },
+    {
+      "topic": "g-l07-3",
+      "text": "das dortige Bürgerbüro",
+      "mark": [
+        "~das:article",
+        "dort(ig)e:ending"
+      ]
+    },
+    {
+      "topic": "g-l07-3",
+      "text": "die hiesige Situation",
+      "mark": [
+        "~die:article",
+        "hies(ig)e:ending"
+      ]
+    },
+    {
+      "topic": "g-l07-3",
+      "text": "die sonstigen Kosten",
+      "mark": [
+        "~die:article",
+        "sonst(ig)en:ending"
+      ]
+    },
+    {
+      "topic": "g-l10-2",
+      "text": "Manipulation, Intention, Kreation",
+      "mark": [
+        "Manipula(tion):ending",
+        "Inten(tion):ending",
+        "Krea(tion):ending"
+      ]
+    },
+    {
+      "topic": "g-l10-2",
+      "text": "Fantasie, Harmonie, Ökonomie",
+      "mark": [
+        "Fantas(ie):ending",
+        "Harmon(ie):ending",
+        "Ökonom(ie):ending"
+      ]
+    },
+    {
+      "topic": "g-l10-2",
+      "text": "Aktivität, Kreativität, Stabilität",
+      "mark": [
+        "Aktiv(ität):ending",
+        "Kreativ(ität):ending",
+        "Stabil(ität):ending"
+      ]
+    },
+    {
+      "topic": "g-l10-2",
+      "text": "Figur, Statur, Fraktur",
+      "mark": [
+        "Fig(ur):ending",
+        "Stat(ur):ending",
+        "Frakt(ur):ending"
+      ]
+    },
+    {
+      "topic": "g-l10-2",
+      "text": "Wachstum, Eigentum",
+      "mark": [
+        "Wachs(tum):ending",
+        "Eigen(tum):ending"
+      ]
+    },
+    {
+      "topic": "g-l10-2",
+      "text": "Medium, Stadium, Studium",
+      "mark": [
+        "Med(ium):ending",
+        "Stad(ium):ending",
+        "Stud(ium):ending"
+      ]
+    },
+    {
+      "topic": "g-l10-2",
+      "text": "aber: der Reichtum",
+      "mark": [
+        "der:article",
+        "~Reich(tum):ending"
+      ]
+    },
+    {
+      "topic": "g-l08-2",
+      "text": "der reale Austausch =",
+      "mark": [
+        "~der:article",
+        "re(al)e:ending"
+      ]
+    },
+    {
+      "topic": "g-l08-2",
+      "text": "reelle Chancen auf mehr Erfolg =",
+      "mark": [
+        "re(ell)e:ending"
+      ]
+    },
+    {
+      "topic": "g-l08-2",
+      "text": "die ideale Entscheidung =",
+      "mark": [
+        "~die:article",
+        "ide(al)e:ending"
+      ]
+    },
+    {
+      "topic": "g-l08-2",
+      "text": "ideelle Werte =",
+      "mark": [
+        "ide(ell)e:ending"
+      ]
+    },
+    {
+      "topic": "g-l08-2",
+      "text": "rationelle Arbeitsabläufe =",
+      "mark": [
+        "ration(ell)e:ending"
+      ]
+    },
+    {
+      "topic": "g-l08-2",
+      "text": "Der Vorschlag ist nicht praktikabel.",
+      "mark": [
+        "praktika(bel):ending"
+      ]
+    },
+    {
+      "topic": "g-l08-2",
+      "text": "Menschen mit einem Putzzwang sind extrem penibel.",
+      "mark": [
+        "peni(bel):ending"
+      ]
+    },
+    {
+      "topic": "g-l11-2",
+      "text": "eleganterer Anzug",
+      "mark": [
+        "elegant(er)er:ending",
+        "~eleganter(er):ending"
+      ]
+    },
+    {
+      "topic": "g-l11-2",
+      "text": "ein eleganteres Hemd",
+      "mark": [
+        "~ein:article",
+        "elegant(er)es:ending",
+        "~eleganter(es):ending"
+      ]
+    },
+    {
+      "topic": "g-l11-2",
+      "text": "eine elegantere Hose",
+      "mark": [
+        "~eine:article",
+        "elegant(er)e:ending",
+        "~eleganter(e):ending"
+      ]
+    },
+    {
+      "topic": "g-l11-2",
+      "text": "der elegantesten",
+      "mark": [
+        "der:article",
+        "elegant(est)en:ending",
+        "~elegantest(en):ending"
+      ]
+    },
+    {
+      "topic": "g-l11-2",
+      "text": "die ich je hatte",
+      "mark": [
+        "die:pronoun",
+        "hatte:verb"
+      ]
+    },
+    {
+      "topic": "g-l07-1",
+      "text": "Die unterschiedliche Reaktion der Menschen",
+      "mark": [
+        "unterschiedliche:adjective",
+        "~Reaktion:noun",
+        "~der:article"
+      ]
+    },
+    {
+      "topic": "g-l07-1",
+      "text": "Die Veränderung der Gesellschaft",
+      "mark": [
+        "Veränderung:noun",
+        "der:article",
+        "~Gesellschaft:noun"
+      ]
+    },
+    {
+      "topic": "g-l07-1",
+      "text": "Seine Analyse der Gesellschaft machte ihn unzufrieden.",
+      "mark": [
+        "~Seine:article",
+        "Analyse:noun",
+        "der:article",
+        "~Gesellschaft:noun"
+      ]
+    },
+    {
+      "topic": "g-l07-1",
+      "text": "Die freiwillige Gabe von Kleidung freut ihn.",
+      "mark": [
+        "Gabe:noun",
+        "von:prep",
+        "~Kleidung:noun"
+      ]
+    },
+    {
+      "topic": "g-l07-1",
+      "text": "Ihr Interesse an Ferienjobs",
+      "mark": [
+        "Ihr:article",
+        "~Interesse:noun",
+        "an:prep"
+      ]
+    },
+    {
+      "topic": "g-l07-1",
+      "text": "Die Aufbesserung des Taschengeldes durch manche Eltern",
+      "mark": [
+        "~Aufbesserung:noun",
+        "~des:article",
+        "durch:prep"
+      ]
+    },
+    {
+      "topic": "g-l07-1",
+      "text": "Die Hilfe der Schuldnerberatung für den Jugendlichen",
+      "mark": [
+        "~Hilfe:noun",
+        "~der:article",
+        "für:prep",
+        "den:article"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-use-of-the-present-tense",
+      "text": "sitzen : use haben for the perfect tense, but in south Germany and CH use sein .",
+      "mark": [
+        "sitzen:verb",
+        "haben:aux",
+        "sein:aux"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-use-of-the-present-tense",
+      "text": "Morgen gehe ich ins Zentrum Paul Klee.",
+      "mark": [
+        "Morgen:adverb",
+        "gehe:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-regular-verbs",
+      "text": "ich habe geschafft",
+      "mark": [
+        "~ich:pronoun",
+        "habe:aux",
+        "geschafft:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-regular-verbs",
+      "text": "bin gestartet",
+      "mark": [
+        "bin:aux",
+        "gestartet:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-regular-verbs",
+      "text": "habe trainiert",
+      "mark": [
+        "habe:aux",
+        "trainiert:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-perfect-regular-verbs",
+      "text": "ist passiert",
+      "mark": [
+        "ist:aux",
+        "passiert:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-indefinite-pronouns",
+      "text": "Ich bringe nichts zur Party mit (z. B. keine Wurst, kein Geschenk).",
+      "mark": [
+        "~bringe:verb",
+        "nichts:pronoun",
+        "~mit:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-indefinite-pronouns",
+      "text": "Ich bringe etwas zur Party mit.",
+      "mark": [
+        "~bringe:verb",
+        "etwas:pronoun",
+        "~mit:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-indefinite-pronouns",
+      "text": "Man bringt zu einer Party ein Geschenk mit",
+      "mark": [
+        "Man:pronoun",
+        "bringt:verb",
+        "~mit:prefix"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-indefinite-pronouns",
+      "text": "Alle (hier: Gäste) haben einen Salat mitgebracht.",
+      "mark": [
+        "Alle:pronoun",
+        "~haben:aux",
+        "~mitgebracht:participle"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-connector-den-reason",
+      "text": "Beatriz geht gern ins Theater, denn sie liebt Literatur",
+      "mark": [
+        "denn:conj",
+        "~sie:pronoun",
+        "liebt:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-connector-den-reason",
+      "text": "Beatriz und Leopold kaufen Brot und Wurst, denn sie wollen ein Picknick machen.",
+      "mark": [
+        "denn:conj",
+        "~sie:pronoun",
+        "wollen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-diminutive-form",
+      "text": "der Rock → das Röck chen .",
+      "mark": [
+        "~der:article",
+        "das:article",
+        "chen:ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-diminutive-form",
+      "text": "Jacke → Jäckchen",
+      "mark": [
+        "~Jacke:noun",
+        "Jäck(chen):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparative-sentences",
+      "text": "Immer mehr Deutsche verbringen ihren Urlaub genauso gern in Deutschland wie im Ausland.",
+      "mark": [
+        "genauso:adverb",
+        "~gern:adverb",
+        "wie:conj"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparative-sentences",
+      "text": "Für den Urlaub findet Niclas die Ostsee nicht so attraktiv wie die Alpen.",
+      "mark": [
+        "nicht:adverb",
+        "so:adverb",
+        "~attraktiv:adjective",
+        "wie:conj"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparative-sentences",
+      "text": "Linus meint, Urlaub in Deutschland ist billiger als im Ausland.",
+      "mark": [
+        "billig(er):ending",
+        "als:conj"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparative-sentences",
+      "text": "Viele denken, die Luft auf dem Land ist gesünder als die Luft in der Stadt.",
+      "mark": [
+        "gesünd(er):ending",
+        "als:conj"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparative-sentences",
+      "text": "Niclas möchte lieber mit Freunden als allein in Urlaub fahren.",
+      "mark": [
+        "lieber:adverb",
+        "als:conj"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparative-sentences",
+      "text": "Niclas findet, die Alpen bieten mehr Sportmöglichkeiten als die Ostsee.",
+      "mark": [
+        "mehr:adverb",
+        "~Sportmöglichkeiten:noun",
+        "als:conj"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparison-comparative-and-superlative-p",
+      "text": "attraktiv attraktiver am attraktivsten",
+      "mark": [
+        "~attraktiv:adjective",
+        "attraktiv(er):ending",
+        "~am:prep",
+        "attraktiv(sten):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparison-comparative-and-superlative-p",
+      "text": "bekannt bekannter am bekanntesten",
+      "mark": [
+        "~bekannt:adjective",
+        "bekannt(er):ending",
+        "~am:prep",
+        "bekannt(esten):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparison-comparative-and-superlative-p",
+      "text": "groß größer am größten",
+      "mark": [
+        "~groß:adjective",
+        "größ(er):ending",
+        "~am:prep",
+        "größ(ten):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparison-comparative-and-superlative-p",
+      "text": "alt älter am ältesten",
+      "mark": [
+        "~alt:adjective",
+        "ält(er):ending",
+        "~am:prep",
+        "ält(esten):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparison-comparative-and-superlative-p",
+      "text": "teuer teurer am teuersten",
+      "mark": [
+        "~teuer:adjective",
+        "teur(er):ending",
+        "~am:prep",
+        "teuer(sten):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparison-comparative-and-superlative-p",
+      "text": "hoch höher am höchsten",
+      "mark": [
+        "~hoch:adjective",
+        "höh(er):ending",
+        "~am:prep",
+        "höch(sten):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparison-comparative-and-superlative-p",
+      "text": "gut besser am besten",
+      "mark": [
+        "~gut:adjective",
+        "besser:adjective",
+        "~am:prep",
+        "besten:adjective"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparison-comparative-and-superlative-p",
+      "text": "gern lieber am liebsten",
+      "mark": [
+        "~gern:adverb",
+        "lieber:adverb",
+        "~am:prep",
+        "liebsten:adverb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-comparison-comparative-and-superlative-p",
+      "text": "viel mehr am meisten",
+      "mark": [
+        "~viel:adverb",
+        "mehr:adverb",
+        "~am:prep",
+        "meisten:adverb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-dual-case-prepositions-an-auf-in-ber-unt",
+      "text": "Stell den Kaffee ins Regal!",
+      "mark": [
+        "~Stell:verb",
+        "ins:prep",
+        "~Regal:noun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-dual-case-prepositions-an-auf-in-ber-unt",
+      "text": "Der Kaffee steht im Regal.",
+      "mark": [
+        "~steht:verb",
+        "im:prep",
+        "~Regal:noun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-dual-case-prepositions-an-auf-in-ber-unt",
+      "text": "an das → ans, auf das → aufs, in das → ins",
+      "mark": [
+        "an:prep",
+        "~das:article",
+        "ans:prep",
+        "auf:prep",
+        "~das[2]:article",
+        "aufs:prep",
+        "in:prep",
+        "~das[3]:article",
+        "ins:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-dual-case-prepositions-an-auf-in-ber-unt",
+      "text": "an dem → am, in dem → im",
+      "mark": [
+        "an:prep",
+        "~dem:article",
+        "am:prep",
+        "in:prep",
+        "~dem[2]:article",
+        "im:prep"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-relative-clauses-and-relative-pronouns",
+      "text": "Ich hatte einen Berater, der sehr kompetent war.",
+      "mark": [
+        "~einen:article",
+        "~Berater:noun",
+        "der:pronoun",
+        "war:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-relative-clauses-and-relative-pronouns",
+      "text": "Nom. der das die die",
+      "mark": [
+        "der:pronoun",
+        "das:pronoun",
+        "die:pronoun",
+        "die[2]:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-relative-clauses-and-relative-pronouns",
+      "text": "Akk. den den die die",
+      "mark": [
+        "den:pronoun",
+        "den[2]:pronoun",
+        "die:pronoun",
+        "die[2]:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-relative-clauses-and-relative-pronouns",
+      "text": "Dat. dem dem der denen",
+      "mark": [
+        "~dem:pronoun",
+        "~dem[2]:pronoun",
+        "~der:pronoun",
+        "denen:pronoun"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-temporal-subordinate-clauses-with-wenn-a",
+      "text": "Das Wetter war leider nicht so gut, als wir ankamen",
+      "mark": [
+        "~war:verb",
+        "als:conj",
+        "ankamen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-temporal-subordinate-clauses-with-wenn-a",
+      "text": "Als wir dort waren, hat eine Musikgruppe traditionelle Musik gespielt.",
+      "mark": [
+        "Als:conj",
+        "waren:verb",
+        "hat:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-temporal-subordinate-clauses-with-wenn-a",
+      "text": "(Immer) wenn das Wetter gut war, haben wir Wanderungen in den Bergen gemacht.",
+      "mark": [
+        "~Immer:adverb",
+        "wenn:conj",
+        "war:verb",
+        "haben:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-temporal-subordinate-clauses-with-wenn-a",
+      "text": "(Jedes Mal) wenn wir sehr müde waren, haben wir einen Pausentag eingeplant.",
+      "mark": [
+        "~Jedes Mal:adverb",
+        "wenn:conj",
+        "waren:verb",
+        "haben:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-temporal-subordinate-clauses-with-wenn-a",
+      "text": "Man erholt sich am besten, wenn man faulenzt.",
+      "mark": [
+        "~erholt:verb",
+        "wenn:conj",
+        "faulenzt:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-temporal-subordinate-clauses-with-wenn-a",
+      "text": "Wenn das Wetter morgen schön ist, (dann) machen wir einen Ausflug.",
+      "mark": [
+        "Wenn:conj",
+        "ist:verb",
+        "~dann:adverb",
+        "machen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-time-expressions-dependent-clauses-with-",
+      "text": "Beate hat dauernd Schmerzen, seit(dem) sie an ihrer Masterarbeit arbeitet.",
+      "mark": [
+        "~hat:verb",
+        "seit:conj",
+        "dem:conj",
+        "arbeitet:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-time-expressions-dependent-clauses-with-",
+      "text": "Beate war bei keinem Arzt mehr, seit(dem) ihr alter Hausarzt in Rente ist.",
+      "mark": [
+        "~war:verb",
+        "seit:conj",
+        "dem:conj",
+        "ist:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-time-expressions-dependent-clauses-with-",
+      "text": "Es dauert noch 2 Wochen, bis Beate zu Dr. Rosmann gehen kann.",
+      "mark": [
+        "~dauert:verb",
+        "bis:conj",
+        "kann:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-time-expressions-dependent-clauses-with-",
+      "text": "Es dauerte 2 Wochen, bis Beate einen Arzttermin bekam.",
+      "mark": [
+        "~dauerte:verb",
+        "bis:conj",
+        "bekam:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-time-expressions-dependent-clauses-with-",
+      "text": "Seit(dem) Beate so viel arbeitet, hat sie dauernd Schmerzen.",
+      "mark": [
+        "Seit:conj",
+        "dem:conj",
+        "arbeitet:verb",
+        "hat:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a2-time-expressions-dependent-clauses-with-",
+      "text": "Bis Beate zu Dr. Rosmann gehen kann, dauert es noch 2 Wochen.",
+      "mark": [
+        "Bis:conj",
+        "kann:verb",
+        "dauert:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-brauchen-zu-infinitive",
+      "text": "Sie brauchen nur die Broschüre „Länderinformationsschrift Österreich“ zu bestellen .",
+      "mark": [
+        "brauchen:verb",
+        "nur:adverb",
+        "zu bestellen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-brauchen-zu-infinitive",
+      "text": "Sie brauchen nicht lange zu warten .",
+      "mark": [
+        "brauchen:verb",
+        "nicht:adverb",
+        "zu warten:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-brauchen-zu-infinitive",
+      "text": "Sie brauchen keine weiteren Informationen im Internet zu suchen .",
+      "mark": [
+        "brauchen:verb",
+        "keine:article",
+        "zu suchen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-past-perfect-passive",
+      "text": "gekrönt worden war",
+      "mark": [
+        "gekrönt:participle",
+        "worden:participle",
+        "war:aux"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-past-perfect-passive",
+      "text": "Nachdem 1871 der erste deutsche Nationalstaat gegründet worden war , wurde Berlin",
+      "mark": [
+        "Nachdem:conj",
+        "gegründet:participle",
+        "worden:participle",
+        "war:aux",
+        "wurde:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-n-words",
+      "text": "nirgendwo = nirgends, nirgendwohin, nirgendwoher",
+      "mark": [
+        "nirgendwo:adverb",
+        "nirgends:adverb",
+        "nirgendwo(hin):ending",
+        "nirgendwo(her):ending"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-alternatives-entweder-oder",
+      "text": "Entweder wir gehen in „Criminal Dinner“ oder wir sehen die „Dreigroschenoper“.",
+      "mark": [
+        "Entweder:conj",
+        "~gehen:verb",
+        "oder:conj",
+        "~sehen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-alternatives-entweder-oder",
+      "text": "Entweder gehen wir ins Theater im Hafen oder wir besuchen das Stadtfest.",
+      "mark": [
+        "Entweder:conj",
+        "gehen:verb",
+        "oder:conj",
+        "~besuchen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-alternatives-entweder-oder",
+      "text": "Wir können entweder in „Criminal Dinner“ oder das Musical gehen.",
+      "mark": [
+        "~können:verb",
+        "entweder:conj",
+        "oder:conj",
+        "~gehen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-expressing-how-one-thing-relates-to-anot",
+      "text": "Je weiter oben eine Person steht, desto besser sind ihre Chancen.",
+      "mark": [
+        "Je:conj",
+        "weit(er):ending",
+        "steht:verb",
+        "desto:conj",
+        "besser:adjective",
+        "sind:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-expressing-how-one-thing-relates-to-anot",
+      "text": "Je mehr Stimmen ein Partei erhält, umso mehr Sitze bekommt sie.",
+      "mark": [
+        "Je:conj",
+        "mehr:adverb",
+        "erhält:verb",
+        "umso:conj",
+        "mehr[2]:adverb",
+        "bekommt:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-infinitive-phrases",
+      "text": "Irina hätte Lust, das Hafenfest zu besuchen.",
+      "mark": [
+        "~hätte:verb",
+        "Lust:noun",
+        "zu besuchen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-infinitive-phrases",
+      "text": "Eleni findet es gut, ins Theater zu gehen.",
+      "mark": [
+        "~findet:verb",
+        "es:pronoun",
+        "zu gehen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-infinitive-phrases",
+      "text": "Irinas Bruder hat vor, ins Musical zu gehen.",
+      "mark": [
+        "hat:verb",
+        "vor:prefix",
+        "zu gehen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-infinitive-phrases",
+      "text": "Antonia liebt es, auf einem Schiff mit zu fahren.",
+      "mark": [
+        "~liebt:verb",
+        "es:pronoun",
+        "mit:prefix",
+        "zu fahren:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-b1-infinitive-phrases",
+      "text": "Es ist am schlimmsten, angerempelt zu werden.",
+      "mark": [
+        "angerempelt:participle",
+        "zu werden:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-2-passiv-mit-modalverben",
+      "text": "Die Unterlagen müssen bis Freitag eingereicht werden.",
+      "mark": [
+        "müssen:verb",
+        "eingereicht:participle",
+        "werden:aux"
+      ]
+    },
+    {
+      "topic": "g-b2-2-passiv-mit-modalverben",
+      "text": "Das Problem konnte schnell gelöst werden.",
+      "mark": [
+        "konnte:verb",
+        "gelöst:participle",
+        "werden:aux"
+      ]
+    },
+    {
+      "topic": "g-b2-2-passiv-mit-modalverben",
+      "text": "Diese Regeln sollen ab nächstem Jahr geändert werden.",
+      "mark": [
+        "sollen:verb",
+        "geändert:participle",
+        "werden:aux"
+      ]
+    },
+    {
+      "topic": "g-b2-2-passiv-mit-modalverben",
+      "text": "Der Termin musste leider verschoben werden.",
+      "mark": [
+        "musste:verb",
+        "verschoben:participle",
+        "werden:aux"
+      ]
+    },
+    {
+      "topic": "g-b2-4-nominalisierung-vom-verb-zum-nomen",
+      "text": "Nach der Ankunft des Zuges verließen alle Passagiere den Bahnsteig.",
+      "mark": [
+        "Nach:prep",
+        "~der:article",
+        "Ankunft:noun",
+        "des:article",
+        "~Zuges:noun"
+      ]
+    },
+    {
+      "topic": "g-b2-4-nominalisierung-vom-verb-zum-nomen",
+      "text": "Durch die Verspätung des Fluges verpasste sie ihren Anschluss.",
+      "mark": [
+        "Durch:prep",
+        "~die:article",
+        "Verspätung:noun",
+        "des:article",
+        "~Fluges:noun"
+      ]
+    },
+    {
+      "topic": "g-b2-4-nominalisierung-vom-verb-zum-nomen",
+      "text": "Bei der Planung der Reise haben wir das Wetter nicht bedacht.",
+      "mark": [
+        "Bei:prep",
+        "~der:article",
+        "Planung:noun",
+        "der[2]:article",
+        "~Reise:noun"
+      ]
+    },
+    {
+      "topic": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung",
+      "text": "Bis nächsten Freitag werde ich den Bericht fertig geschrieben haben.",
+      "mark": [
+        "werde:aux",
+        "geschrieben:participle",
+        "haben:aux"
+      ]
+    },
+    {
+      "topic": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung",
+      "text": "Sie wird den Zug wohl verpasst haben, sonst wäre sie längst hier.",
+      "mark": [
+        "wird:aux",
+        "wohl:adverb",
+        "verpasst:participle",
+        "haben:aux"
+      ]
+    },
+    {
+      "topic": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung",
+      "text": "In zehn Jahren wird sich die Stadt stark verändert haben.",
+      "mark": [
+        "wird:aux",
+        "verändert:participle",
+        "haben:aux"
+      ]
+    },
+    {
+      "topic": "g-b2-7-futur-ii-vollendete-zukunft-und-vermutung",
+      "text": "Er wird gestern vermutlich zu lange gearbeitet haben.",
+      "mark": [
+        "wird:aux",
+        "vermutlich:adverb",
+        "gearbeitet:participle",
+        "haben:aux"
+      ]
+    },
+    {
+      "topic": "g-l04-1",
+      "text": "Es ist wunderbar, dass sich so viele Möglichkeiten bieten.",
+      "mark": [
+        "Es:pronoun",
+        "dass:conj",
+        "~bieten:verb"
+      ]
+    },
+    {
+      "topic": "g-l04-1",
+      "text": "Für diese Menschen ist es sinnvoller, eine vielseitige Tätigkeit anzustreben.",
+      "mark": [
+        "es:pronoun",
+        "~anzustreben:verb"
+      ]
+    },
+    {
+      "topic": "g-l04-1",
+      "text": "Es ist fraglich, ob das stimmt.",
+      "mark": [
+        "Es:pronoun",
+        "ob:conj",
+        "~stimmt:verb"
+      ]
+    },
+    {
+      "topic": "g-l04-1",
+      "text": "Sie besorgt nicht nur das Geschenk, sie verpackt es auch.",
+      "mark": [
+        "~Geschenk:noun",
+        "es:pronoun"
+      ]
+    },
+    {
+      "topic": "g-l04-1",
+      "text": "Meine Kolleginnen sind topfit, ich bin es leider nicht.",
+      "mark": [
+        "~topfit:adjective",
+        "es:pronoun"
+      ]
+    },
+    {
+      "topic": "g-l04-1",
+      "text": "Es regnet. Es schneit. Es donnert.",
+      "mark": [
+        "Es:pronoun",
+        "~regnet:verb",
+        "Es[2]:pronoun",
+        "~schneit:verb",
+        "Es[3]:pronoun",
+        "~donnert:verb"
+      ]
+    },
+    {
+      "topic": "g-l04-1",
+      "text": "Er hat es eilig.",
+      "mark": [
+        "~hat:verb",
+        "es:pronoun"
+      ]
+    },
+    {
+      "topic": "g-l09-3",
+      "text": "Städtische Landwirtschaft, Urban beziehungsweise (bzw.) / respektive Guerilla Gardening genannt, liegt im Trend.",
+      "mark": [
+        "beziehungsweise:adverb",
+        "bzw:adverb",
+        "respektive:adverb"
+      ]
+    },
+    {
+      "topic": "g-l09-3",
+      "text": "Ich war mit ihm bekannt beziehungsweise befreundet.",
+      "mark": [
+        "beziehungsweise:adverb"
+      ]
+    },
+    {
+      "topic": "g-l09-3",
+      "text": "Sie fand die Aufgaben schwierig respektive unmöglich.",
+      "mark": [
+        "respektive:adverb"
+      ]
+    },
+    {
+      "topic": "g-l09-3",
+      "text": "Die Zukunft gehört ökologischen Lebensformen, und zwar speziell Projekten wie dem Prinzessinnengarten.",
+      "mark": [
+        "und zwar:adverb"
+      ]
+    },
+    {
+      "topic": "g-l09-3",
+      "text": "Es geht nicht nur um Fassaden, vielmehr geht es um die Stadtlandschaft.",
+      "mark": [
+        "vielmehr:adverb",
+        "~geht[2]:verb"
+      ]
+    },
+    {
+      "topic": "g-l09-3",
+      "text": "Er ist nicht dumm, vielmehr weiß er gut Bescheid.",
+      "mark": [
+        "vielmehr:adverb",
+        "~weiß:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu",
+      "text": "Sie lernt jeden Tag Deutsch, um die Prüfung zu bestehen.",
+      "mark": [
+        "~Sie:pronoun",
+        "~lernt:verb",
+        "um:conj",
+        "zu bestehen:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu",
+      "text": "Er verließ das Meeting, ohne sich zu verabschieden.",
+      "mark": [
+        "~Er:pronoun",
+        "~verließ:verb",
+        "ohne:conj",
+        "zu verabschieden:verb"
+      ]
+    },
+    {
+      "topic": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu",
+      "text": "Statt eine Antwort zu schreiben, hat er einfach angerufen.",
+      "mark": [
+        "Statt:conj",
+        "zu schreiben:verb",
+        "hat:verb",
+        "~er:pronoun"
+      ]
+    },
+    {
+      "topic": "g-b2-6-infinitivkonstruktionen-um-zu-ohne-zu-statt-zu",
+      "text": "Wir sind losgefahren, ohne die Karte zu prüfen.",
+      "mark": [
+        "~Wir:pronoun",
+        "~sind:verb",
+        "ohne:conj",
+        "zu prüfen:verb"
+      ]
+    },
+    {
+      "topic": "g-daf-a1-use-of-the-present-tense",
+      "text": "For haben and sein use mainly preterite instead of perfect!",
+      "mark": [
+        "haben:aux",
+        "sein:aux"
       ]
     }
   ],

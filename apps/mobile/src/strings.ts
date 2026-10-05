@@ -114,6 +114,11 @@ export const strings = {
 
   // --- what to know first ----------------------------------------------------
   grammarFirst: 'Know this first',
+  // The outlined marks need naming, or the difference between filled and
+  // outlined is a visual distinction nobody was told the meaning of.
+  grammarLegendSupport: 'supporting form',
+  grammarWorkedExamples: 'Worked examples',
+  grammarMoreExamples: (n: number) => `Show ${n} more example${n === 1 ? '' : 's'}`,
   grammarMoreDetail: 'More detail',
   grammarShowMore: (n: number) => `Show ${n} more`,
   grammarShowLess: 'Show less',
